@@ -14,13 +14,11 @@ class PantallaPrueba extends StatefulWidget {
   String folio;
   PantallaPrueba(this.folio);
 
-
   @override
   State<PantallaPrueba> createState() => _PantallaPruebaState();
 }
 
 class _PantallaPruebaState extends State<PantallaPrueba> {
-
   final _nombre = TextEditingController();
   final _primerApellido = TextEditingController();
   final _segundoApellido = TextEditingController();
@@ -68,81 +66,44 @@ class _PantallaPruebaState extends State<PantallaPrueba> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Pantalla Prueba'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {},
+        appBar: AppBar(
+          title: Text('Pantalla Prueba'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {},
+          ),
         ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Container(
-                      child: Row(
-                        children: [
-                          SizedBox(height: 50.0),
-                          getTextEquipamiento(encabezado: 'Nombre'),
-                          SizedBox(width: 30.0),
-                          getTextEquipamiento(encabezado: 'Apellido Paterno'),
-                          SizedBox(width: 30.0),
-                          getTextEquipamiento(encabezado: 'Apellido Materno'),
-                          SizedBox(width: 30.0),
-                          getTextEquipamiento(encabezado: 'Sexo'),
-                          SizedBox(width: 30.0),
-                          getTextEquipamiento(encabezado: 'Fecha Nacimiento'),
-                          SizedBox(width: 30.0),
-                          getTextEquipamiento(encabezado: 'Estado Civil'),
-                          SizedBox(width: 30.0),
-                          getTextEquipamiento(encabezado: 'Parentesco'),
-                          SizedBox(width: 30.0),
-                          getTextEquipamiento(encabezado: 'Ingreso Semanal'),
-                          SizedBox(width: 30.0),
-                          getTextEquipamiento(encabezado: 'Ingreso Mensual'),
-                          Row(
-                            children: [
-
-                            ],
-                          )
-                        ],
+            padding: EdgeInsets.all(20),
+              child: Table(
+                border: TableBorder.all(),
+                children: [
+                  TableRow(
+                    children: [
+                      Container(
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Container(
+                            child: Row(
+                              children: [
+                                Text('hd'),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
+                    ]
                   ),
-                ),
-                /*Container(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        SizedBox(height: 10.0),
-                        getTextQuestion(question: 'Nombre(s)'),
-                        SizedBox(height: 5.0),
-                        getTextField(controller: _nombre),
-                        SizedBox(height: 10.0),
-                        getTextQuestion(question: 'Primer Apellido'),
-                        SizedBox(height: 5.0),
-                        getTextField(controller: _primerApellido),
-                        SizedBox(height: 10.0),
-                        getTextQuestion(question: 'Segundo Apellido'),
-                        SizedBox(height: 5.0),
-                        getTextField(controller: _segundoApellido),
-                        SizedBox(height: 10.0),
-                      ],
-                    ),
-                  ),
-                ),*/
-              ],
+                ],
+              ),
             ),
           ),
         ),
-      ),
     );
   }
 }
+
+
