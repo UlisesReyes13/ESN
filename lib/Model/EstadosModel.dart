@@ -1,15 +1,15 @@
 class EstadosModel {
-  String Estados;
+  String Estado;
 
-  EstadosModel({this.Estados});
+  EstadosModel({this.Estado});
 
   Map<String, dynamic> toMap(){
     return {
-      'Estados' : Estados
+      'Estado' : Estado
     };
   }
 
   EstadosModel.fromMap(Map<String, dynamic> map){
-    Estados = map['Estados'];
+    Estado = map['Estado'];
   }
 }
