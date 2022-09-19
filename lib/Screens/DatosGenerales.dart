@@ -612,8 +612,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                 getTextQuestion(question: 'Estado'),
                 SizedBox(height: 5.0),
                 Container(
-                  margin: EdgeInsets.only(top: 22),
-                  width: 220,
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: SearchField(
                     suggestionState: Suggestion.expand,
                     searchInputDecoration: InputDecoration(

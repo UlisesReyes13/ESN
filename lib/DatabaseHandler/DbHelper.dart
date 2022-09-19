@@ -11,6 +11,7 @@ import 'package:esn/Model/EquipamientoModel.dart';
 import 'package:esn/Model/EscolaridadSeguridadSocial.dart';
 import 'package:esn/Model/EstadoCasaConstruccionModel.dart';
 import 'package:esn/Model/EstructuraFamiliarModel.dart';
+import 'package:esn/Model/FotoModel.dart';
 import 'package:esn/Model/Gas.dart';
 import 'package:esn/Model/Luz.dart';
 import 'package:esn/Model/NombreAsentamiento.dart';
@@ -50,6 +51,8 @@ class DbHelper {
   static const String Table_Alimentacion = 'alimentacion';
   static const String Table_Resolucion = 'resolucion';
   static const String Table_ResolucionBAL = 'resolucionBAL';
+  static const String Table_Fotografia = 'fotografia';
+
   static const int Version = 3;
 
 
@@ -326,6 +329,8 @@ class DbHelper {
   static const String C_otorgarApoyo = 'otorgarApoyo';
   static const String C_observaciones= 'observaciones';
 
+  // Tabla fotografia
+  static const String C_FileFoto = 'fileFoto';
 
 
   Future<Database> get db async {
@@ -361,7 +366,7 @@ class DbHelper {
     await db.execute("CREATE TABLE $Table_Alimentacion ($C_Folio int ,$C_pregunta1 TEXT, $C_pregunta2 TEXT, $C_pregunta3 TEXT,$C_pregunta4 TEXT, $C_pregunta5 TEXT, $C_pregunta6 TEXT, $C_pregunta7 TEXT, $C_pregunta8 TEXT, $C_pregunta9 TEXT, $C_pregunta10 TEXT, $C_pregunta11 TEXT, $C_pregunta12 TEXT);");
     await db.execute("CREATE TABLE $Table_Resolucion ($C_Folio int,$C_puntaje TEXT, $C_escalaNecesidad TEXT,$C_inseguridadAlimenticia TEXT,$C_clasificacionPobresa TEXT);");
     await db.execute("CREATE TABLE $Table_ResolucionBAL ($C_Folio int,$C_tipo TEXT,$C_frecuenciaR TEXT,$C_duracion TEXT, $C_otorgarApoyo TEXT,$C_observaciones TEXT);");
-
+    await db.execute("CREATE TABLE $Table_Fotografia ($C_Folio int , $C_FileFoto TEXT);");
 
     //NOMBRE ASENTAMIENTO
     await db.execute("CREATE TABLE Asentamientos (NombreAsentamientos TEXT);");
@@ -915,6 +920,12 @@ class DbHelper {
   Future<int> saveEstructuraFamiliar(EstructuraFamilarModel estructuraFamilar)async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_DatosFamiliares, estructuraFamilar.toMap());
+    return res;
+  }
+
+  Future<int> saveFoto( FotoModel fotoModel)async {
+    var dbClient = await db;
+    var res = await dbClient.insert(Table_Fotografia, fotoModel.toMap());
     return res;
   }
 
