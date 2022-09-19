@@ -3,6 +3,7 @@ import 'package:esn/Model/CodigoPostal.dart';
 import 'package:esn/Model/CodigoPostal.dart';
 import 'package:esn/Model/DatosGeneralesModel.dart';
 import 'package:esn/Model/Estados.dart';
+import 'package:esn/Model/EstadosModel.dart';
 import 'package:esn/Model/Municipios.dart';
 import 'package:esn/Model/TipoVialidad.dart';
 import 'package:esn/Model/TiposAsentamiento.dart';
@@ -50,6 +51,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   List<TiposAsentamiento> _TiposAsentamiento = List<TiposAsentamiento>();
   List<CodigoPostal> _CodigoPostal = List<CodigoPostal>();
   List<DatosGeneralesModel> _Folio = List<DatosGeneralesModel>();
+  List<EstadosModel> _Estado = List<EstadosModel>();
 
   @override
   void initState() {
@@ -57,6 +59,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     getAllCategoriesMunicipios();
     getAllCategoriesTiposAsentamientos();
     getAllCategoriesTipoVialidad();
+    getAllCategoriesEstados();
     getFolio();
     getDate();
     super.initState();
@@ -114,6 +117,18 @@ class _DatosGeneralesState extends State<DatosGenerales> {
         var categoryModel = TiposVialidad();
         categoryModel.TipoVialidad = category['TipoVialidad'];
         _TiposVialidad.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesEstados() async {
+    _Estado = List<EstadosModel>();
+    var categories = await CategoryService().readCategoriesEstados();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstadosModel();
+        categoryModel.Estados = category['Estados'];
+        _Estado.add(categoryModel);
       });
     });
   }
@@ -503,7 +518,11 @@ class _DatosGeneralesState extends State<DatosGenerales> {
           localidad: localidad,
           telefono: telefono,
           claveCodigoPostal: int.parse(cp),
+
+          //Actualizar esta parte para obtener la clave del estado
           claveEstado: 1,
+          //
+
           estado: estado,
           nombreComunidad: nombreComunidad.trimLeft(),
           claveMunicipio: int.parse(ClaveMuni.toString()),
@@ -592,7 +611,38 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Estado'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _estado),
+                Container(
+                  margin: EdgeInsets.only(top: 22),
+                  width: 220,
+                  child: SearchField(
+                    suggestionState: Suggestion.expand,
+                    searchInputDecoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.black26,
+                            style: BorderStyle.solid),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.blue,
+                            style: BorderStyle.solid),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[120],
+                    ),
+                    suggestions: _Estado.map((estado) =>
+                        SearchFieldListItem(estado.Estados,
+                            item: estado)).toList(),
+                    textInputAction: TextInputAction.next,
+                    hasOverlay: true,
+                    controller: _estado,
+                    maxSuggestionsInViewPort: 5,
+                    itemHeight: 45,
+                    onSuggestionTap: (x) {},
+                  ),
+                ),
 
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Municipio'),

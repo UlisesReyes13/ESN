@@ -401,6 +401,11 @@ class DbHelper {
     await db.execute("INSERT INTO TiposVialidad (TipoVialidad) VALUES ('21 21 VIADUCTO');");
     await db.execute("INSERT INTO TiposVialidad (TipoVialidad) VALUES ('22 22 NINGUNO');");
 
+    //Tabla estados
+    await db.execute("CREATE TABLE tb_Estados (Estado TEXT);");
+    await db.execute("INSERT INTO tb_Estados (Estado) VALUES ('1 Jalisco');");
+    await db.execute("INSERT INTO tb_Estados (Estado) VALUES ('2 Guanajuato');");
+
     //Tabla MUNICIPIOS
     await db.execute("CREATE TABLE tb_Municipios(Municipio TEXT)");
     await db.execute("INSERT INTO tb_Municipios (Municipio) VALUES ('1 Manuel Doblado');");

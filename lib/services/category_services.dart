@@ -93,4 +93,8 @@ class CategoryService {
   readCategoriesTipoMuro() async {
     return await _repository.readData('tb_TiposMuro');
   }
+
+  readCategoriesEstados() async{
+    return await _repository.readData('tb_Estados');
+  }
 }
