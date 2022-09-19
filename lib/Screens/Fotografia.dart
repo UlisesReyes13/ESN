@@ -3,8 +3,10 @@ import 'dart:io';
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
-import 'package:esn/Screens/LoginForm.dart';
+import 'package:esn/DatabaseHandler/DbHelper.dart';
+import 'package:esn/Model/FotoModel.dart';
 import 'package:esn/Screens/Resolucion.dart';
+import 'package:esn/services/Utility.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -31,6 +33,24 @@ class _FotografiaState extends State<Fotografia> {
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
       }
+    });
+  }
+
+  guardarFoto(){
+    String foto64 = Utility.base64String(_image.readAsBytesSync());
+    FotoModel BModel = FotoModel(
+        folio: int.parse(widget.folio),
+        fileFoto: foto64
+    );
+    DbHelper().saveFoto(BModel).then((fotoModel) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+        return new Fotografia(widget.folio);
+      }
+      ));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
@@ -88,9 +108,7 @@ class _FotografiaState extends State<Fotografia> {
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
                   child: FlatButton.icon(
-                    onPressed: (){
-
-                    },
+                    onPressed: guardarFoto,
                     icon: Icon(Icons.arrow_forward,color: Colors.white,),
                     label: Text('Continuar', style: TextStyle(color: Colors.white)
                     ),
