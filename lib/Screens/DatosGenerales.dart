@@ -127,7 +127,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstadosModel();
-        categoryModel.Estados = category['Estados'];
+        categoryModel.Estado = category['Estado'];
         _Estado.add(categoryModel);
       });
     });
@@ -633,7 +633,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                       fillColor: Colors.grey[120],
                     ),
                     suggestions: _Estado.map((estado) =>
-                        SearchFieldListItem(estado.Estados,
+                        SearchFieldListItem(estado.Estado,
                             item: estado)).toList(),
                     textInputAction: TextInputAction.next,
                     hasOverlay: true,

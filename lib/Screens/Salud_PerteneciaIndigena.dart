@@ -53,7 +53,7 @@ class _Salud_PertenenciaIndigenaState extends State<Salud_PertenenciaIndigena> {
     getAllCategoriesCondicionesSalud();
     getAllCategoriesDiscapacidades();
     getAllCategoriesPuebloIndigena();
-
+    IMC();
     dbHelper = DbHelper();
   }
 
@@ -66,7 +66,7 @@ class _Salud_PertenenciaIndigenaState extends State<Salud_PertenenciaIndigena> {
     }
     double tallaM = double.parse(talla)/100;
     double indice = double.parse(peso) / pow(tallaM, 2);
-    String i = indice.toString();
+    String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC = double.parse(i);
     return _imc;
@@ -347,12 +347,25 @@ class _Salud_PertenenciaIndigenaState extends State<Salud_PertenenciaIndigena> {
                 SizedBox(height: 5.0),
                 getTextQuestion(question: 'IMC'),
                 TextField(controller: IMC(),
-                onTap: () async{
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 2.0, color: Colors.blue, style: BorderStyle.solid
+                        ),
+                      ),
+                      fillColor: Colors.grey[120],
+                      filled: true,
+                      hintText: 'Presionar para calcular IMC',
+                  ),
+                  onTap: () async{
                   setState(() {
                     IMC();
-                  });;
-                }
-                  ,),
+                  });
+                  },
+                ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Pueblo Indigena'),
                 //Menu desplegable pueblo indigena

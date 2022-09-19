@@ -95,7 +95,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
         + double.parse(prospera) + double.parse(adultosProspera) + double.parse(becas)
         + double.parse(otros) + double.parse(pension);
 
-    String i = apoyoS.toString();
+    String i = apoyoS.toStringAsFixed(2);
     final _ApoyoS = TextEditingController.fromValue(TextEditingValue(text: i));
     Suma = double.parse(i);
     return _ApoyoS;
@@ -140,7 +140,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
 
     double apoyoM = (apoyoS/7) * 30.4;
 
-    String i = apoyoM.toString();
+    String i = apoyoM.toStringAsFixed(2);
     final _ApoyosM = TextEditingController.fromValue(TextEditingValue(text: i));
     SumaM = double.parse(i);
     return _ApoyosM;
@@ -197,7 +197,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
         + double.parse(transporte) + double.parse(atencionMedica) + double.parse(otrosGastos)
         + double.parse(celular) + double.parse(educacion) ;
 
-    String i = egresoS.toString();
+    String i = egresoS.toStringAsFixed(2);
     final _EgresoS = TextEditingController.fromValue(TextEditingValue(text: i));
     SumaES = double.parse(i);
     return _EgresoS;
@@ -256,7 +256,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
 
     double EgresoM = (egresoS/7) * 30.4;
 
-    String i = EgresoM.toString();
+    String i = EgresoM.toStringAsFixed(2);
     final _EgresoM = TextEditingController.fromValue(TextEditingValue(text: i));
     SumaEM = double.parse(i);
     return _EgresoM;
