@@ -7,7 +7,7 @@ import 'package:esn/Model/GradosEscolaresModel.dart';
 import 'package:esn/Model/MotivoDerechoHabiencia.dart';
 import 'package:esn/Model/OcupacionesModel.dart';
 import 'package:esn/Model/TipoEmpleoModel.dart';
-import 'package:esn/Screens/EstructuraFamiliar.dart';
+import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
@@ -486,7 +486,7 @@ class _Escolaridad_SeguridadSocialState extends State<Escolaridad_SeguridadSocia
             onPressed: (){
               Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (_) => EstructuraFamiliar(widget.folio)),
+                  MaterialPageRoute(builder: (_) => EstructuraFamiliarTabla(widget.folio)),
                       (Route<dynamic> route) => false);
             },
           ),
@@ -691,7 +691,7 @@ class _Escolaridad_SeguridadSocialState extends State<Escolaridad_SeguridadSocia
                   ),
                 ),
                 ListTile(
-                  title: Text('NO'),
+                  title: Text('No'),
                   leading: Radio<JubilacionPensionado>(
                     value: JubilacionPensionado.no,
                     groupValue: _jubilacionPensionado,

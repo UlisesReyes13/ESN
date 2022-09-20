@@ -1,0 +1,5439 @@
+import 'package:esn/Comm/comHelper.dart';
+import 'package:esn/Comm/genTextDataTable.dart';
+import 'package:esn/Comm/genTextFolio.dart';
+import 'package:esn/Comm/genTextQuestion.dart';
+import 'package:esn/DatabaseHandler/DbHelper.dart';
+import 'package:esn/Model/EstadosCiviles.dart';
+import 'package:esn/Model/EstadosModel.dart';
+import 'package:esn/Model/EstructuraFamiliarModel.dart';
+import 'package:esn/Model/Parentesco.dart';
+import 'package:esn/Screens/Escolaridad_SeguridadSocial.dart';
+import 'package:esn/Screens/ServiciosCombustible.dart';
+import 'package:esn/services/category_services.dart';
+import 'package:flutter/material.dart';
+import 'package:searchfield/searchfield.dart';
+
+enum Sexo { hombre, mujer, otro }
+
+class EstructuraFamiliarTabla extends StatefulWidget {
+  String folio;
+
+  EstructuraFamiliarTabla(this.folio);
+
+  @override
+  State<EstructuraFamiliarTabla> createState() => _EstructuraFamiliarTablaState();
+}
+
+class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
+  final _nombre1 = TextEditingController();
+  final _primerApellido1 = TextEditingController();
+  final _segundoApellido1 = TextEditingController();
+  Sexo _sexo1;
+  final _fechaNacimiento1 = TextEditingController();
+  final _entidadNacimiento1 = TextEditingController();
+  final _estadoCivil1 = TextEditingController();
+  final _parentesco1 = TextEditingController();
+  final _ingresoSemanal1 = TextEditingController();
+  final _ingresoMensual1 = TextEditingController();
+
+
+  final _nombre2 = TextEditingController();
+  final _primerApellido2 = TextEditingController();
+  final _segundoApellido2 = TextEditingController();
+  Sexo _sexo2;
+  final _fechaNacimiento2 = TextEditingController();
+  final _entidadNacimiento2 = TextEditingController();
+  final _estadoCivil2 = TextEditingController();
+  final _parentesco2 = TextEditingController();
+  final _ingresoSemanal2 = TextEditingController();
+  final _ingresoMensual2 = TextEditingController();
+
+
+  final _nombre3 = TextEditingController();
+  final _primerApellido3 = TextEditingController();
+  final _segundoApellido3 = TextEditingController();
+  Sexo _sexo3;
+  final _fechaNacimiento3 = TextEditingController();
+  final _entidadNacimiento3 = TextEditingController();
+  final _estadoCivil3 = TextEditingController();
+  final _parentesco3 = TextEditingController();
+  final _ingresoSemanal3 = TextEditingController();
+  final _ingresoMensual3 = TextEditingController();
+
+
+  final _nombre4 = TextEditingController();
+  final _primerApellido4 = TextEditingController();
+  final _segundoApellido4 = TextEditingController();
+  Sexo _sexo4;
+  final _fechaNacimiento4 = TextEditingController();
+  final _entidadNacimiento4 = TextEditingController();
+  final _estadoCivil4 = TextEditingController();
+  final _parentesco4 = TextEditingController();
+  final _ingresoSemanal4 = TextEditingController();
+  final _ingresoMensual4 = TextEditingController();
+
+
+  final _nombre5 = TextEditingController();
+  final _primerApellido5 = TextEditingController();
+  final _segundoApellido5 = TextEditingController();
+  Sexo _sexo5;
+  final _fechaNacimiento5 = TextEditingController();
+  final _entidadNacimiento5 = TextEditingController();
+  final _estadoCivil5 = TextEditingController();
+  final _parentesco5 = TextEditingController();
+  final _ingresoSemanal5 = TextEditingController();
+  final _ingresoMensual5 = TextEditingController();
+
+
+  final _nombre6 = TextEditingController();
+  final _primerApellido6 = TextEditingController();
+  final _segundoApellido6 = TextEditingController();
+  Sexo _sexo6;
+  final _fechaNacimiento6 = TextEditingController();
+  final _entidadNacimiento6 = TextEditingController();
+  final _estadoCivil6 = TextEditingController();
+  final _parentesco6 = TextEditingController();
+  final _ingresoSemanal6 = TextEditingController();
+  final _ingresoMensual6 = TextEditingController();
+
+  final _nombre7 = TextEditingController();
+  final _primerApellido7 = TextEditingController();
+  final _segundoApellido7 = TextEditingController();
+  Sexo _sexo7;
+  final _fechaNacimiento7 = TextEditingController();
+  final _entidadNacimiento7 = TextEditingController();
+  final _estadoCivil7 = TextEditingController();
+  final _parentesco7 = TextEditingController();
+  final _ingresoSemanal7 = TextEditingController();
+  final _ingresoMensual7 = TextEditingController();
+
+  final _nombre8 = TextEditingController();
+  final _primerApellido8 = TextEditingController();
+  final _segundoApellido8 = TextEditingController();
+  Sexo _sexo8;
+  final _fechaNacimiento8 = TextEditingController();
+  final _entidadNacimiento8 = TextEditingController();
+  final _estadoCivil8 = TextEditingController();
+  final _parentesco8 = TextEditingController();
+  final _ingresoSemanal8 = TextEditingController();
+  final _ingresoMensual8 = TextEditingController();
+
+
+  final _nombre9 = TextEditingController();
+  final _primerApellido9 = TextEditingController();
+  final _segundoApellido9 = TextEditingController();
+  Sexo _sexo9;
+  final _fechaNacimiento9 = TextEditingController();
+  final _entidadNacimiento9 = TextEditingController();
+  final _estadoCivil9 = TextEditingController();
+  final _parentesco9 = TextEditingController();
+  final _ingresoSemanal9 = TextEditingController();
+  final _ingresoMensual9 = TextEditingController();
+
+  final _nombre10 = TextEditingController();
+  final _primerApellido10 = TextEditingController();
+  final _segundoApellido10 = TextEditingController();
+  Sexo _sexo10;
+  final _fechaNacimiento10 = TextEditingController();
+  final _entidadNacimiento10 = TextEditingController();
+  final _estadoCivil10 = TextEditingController();
+  final _parentesco10 = TextEditingController();
+  final _ingresoSemanal10 = TextEditingController();
+  final _ingresoMensual10 = TextEditingController();
+
+  var dbHelper;
+  List<EstadosCiviles> _EstadosCiviles = List<EstadosCiviles>();
+  List<Parentescos> _Parentesco = List<Parentescos>();
+  List<EstadosModel> _Estado = List<EstadosModel>();
+
+  @override
+  void initState() {
+    getAllCategoriesEstadosCiviles();
+    getAllCategoriesParentesco();
+    getAllCategoriesEstados();
+    dbHelper = DbHelper();
+  }
+
+  getAllCategoriesEstadosCiviles() async {
+    _EstadosCiviles = List<EstadosCiviles>();
+    var categories = await CategoryService().readCategoriesEstadosCiviles();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstadosCiviles();
+        categoryModel.EstadoCivil = category['EstadoCivil'];
+        _EstadosCiviles.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesParentesco() async {
+    _Parentesco = List<Parentescos>();
+    var categories = await CategoryService().readCategoriesParentesco();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Parentescos();
+        categoryModel.Parentesco = category['Parentesco'];
+        _Parentesco.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesEstados() async {
+    _Estado = List<EstadosModel>();
+    var categories = await CategoryService().readCategoriesEstados();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstadosModel();
+        categoryModel.Estado = category['Estado'];
+        _Estado.add(categoryModel);
+      });
+    });
+  }
+
+  enviar() async {
+    if(_nombre1.text.toString().isEmpty){
+      alertDialog(context, "Error: Faltan datos en el renglon 1");
+
+    }else if(_nombre2.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+    }else if(_nombre3.text.toString().isEmpty){
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre2.text.toString(),
+          primerApellido: _primerApellido2.text.toString(),
+          segundoApellido: _segundoApellido2.text.toString(),
+          claveSexo: sexo2.substring(0, 1),
+          ordenSexo: sexo2.substring(0, 1),
+          sexo: _sexo2.name.toString(),
+          fechaNacimiento: _fechaNacimiento2.text.toString(),
+          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento2.trimLeft(),
+          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          estadoCivil: estado2.trimLeft(),
+          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+          parentesco: parentesco2.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+    }else if(_nombre4.text.toString().isEmpty){
+
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre2.text.toString(),
+          primerApellido: _primerApellido2.text.toString(),
+          segundoApellido: _segundoApellido2.text.toString(),
+          claveSexo: sexo2.substring(0, 1),
+          ordenSexo: sexo2.substring(0, 1),
+          sexo: _sexo2.name.toString(),
+          fechaNacimiento: _fechaNacimiento2.text.toString(),
+          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento2.trimLeft(),
+          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          estadoCivil: estado2.trimLeft(),
+          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+          parentesco: parentesco2.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre3.text.toString(),
+          primerApellido: _primerApellido3.text.toString(),
+          segundoApellido: _segundoApellido3.text.toString(),
+          claveSexo: sexo3.substring(0, 1),
+          ordenSexo: sexo3.substring(0, 1),
+          sexo: _sexo3.name.toString(),
+          fechaNacimiento: _fechaNacimiento3.text.toString(),
+          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento3.trimLeft(),
+          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          estadoCivil: estado3.trimLeft(),
+          claveParentesco: _parentesco3.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+          parentesco: parentesco3.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+    }else if(_nombre5.text.toString().isEmpty){
+
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre2.text.toString(),
+          primerApellido: _primerApellido2.text.toString(),
+          segundoApellido: _segundoApellido2.text.toString(),
+          claveSexo: sexo2.substring(0, 1),
+          ordenSexo: sexo2.substring(0, 1),
+          sexo: _sexo2.name.toString(),
+          fechaNacimiento: _fechaNacimiento2.text.toString(),
+          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento2.trimLeft(),
+          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          estadoCivil: estado2.trimLeft(),
+          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+          parentesco: parentesco2.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre3.text.toString(),
+          primerApellido: _primerApellido3.text.toString(),
+          segundoApellido: _segundoApellido3.text.toString(),
+          claveSexo: sexo3.substring(0, 1),
+          ordenSexo: sexo3.substring(0, 1),
+          sexo: _sexo3.name.toString(),
+          fechaNacimiento: _fechaNacimiento3.text.toString(),
+          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento3.trimLeft(),
+          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          estadoCivil: estado3.trimLeft(),
+          claveParentesco: _parentesco3.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+          parentesco: parentesco3.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre4.text.toString(),
+          primerApellido: _primerApellido4.text.toString(),
+          segundoApellido: _segundoApellido4.text.toString(),
+          claveSexo: sexo4.substring(0, 1),
+          ordenSexo: sexo4.substring(0, 1),
+          sexo: _sexo4.name.toString(),
+          fechaNacimiento: _fechaNacimiento4.text.toString(),
+          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento4.trimLeft(),
+          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          estadoCivil: estado4.trimLeft(),
+          claveParentesco: _parentesco4.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+          parentesco: parentesco4.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+    }else if(_nombre6.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre2.text.toString(),
+          primerApellido: _primerApellido2.text.toString(),
+          segundoApellido: _segundoApellido2.text.toString(),
+          claveSexo: sexo2.substring(0, 1),
+          ordenSexo: sexo2.substring(0, 1),
+          sexo: _sexo2.name.toString(),
+          fechaNacimiento: _fechaNacimiento2.text.toString(),
+          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento2.trimLeft(),
+          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          estadoCivil: estado2.trimLeft(),
+          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+          parentesco: parentesco2.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre3.text.toString(),
+          primerApellido: _primerApellido3.text.toString(),
+          segundoApellido: _segundoApellido3.text.toString(),
+          claveSexo: sexo3.substring(0, 1),
+          ordenSexo: sexo3.substring(0, 1),
+          sexo: _sexo3.name.toString(),
+          fechaNacimiento: _fechaNacimiento3.text.toString(),
+          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento3.trimLeft(),
+          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          estadoCivil: estado3.trimLeft(),
+          claveParentesco: _parentesco3.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+          parentesco: parentesco3.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre4.text.toString(),
+          primerApellido: _primerApellido4.text.toString(),
+          segundoApellido: _segundoApellido4.text.toString(),
+          claveSexo: sexo4.substring(0, 1),
+          ordenSexo: sexo4.substring(0, 1),
+          sexo: _sexo4.name.toString(),
+          fechaNacimiento: _fechaNacimiento4.text.toString(),
+          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento4.trimLeft(),
+          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          estadoCivil: estado4.trimLeft(),
+          claveParentesco: _parentesco4.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+          parentesco: parentesco4.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre5.text.toString(),
+          primerApellido: _primerApellido5.text.toString(),
+          segundoApellido: _segundoApellido5.text.toString(),
+          claveSexo: sexo5.substring(0, 1),
+          ordenSexo: sexo5.substring(0, 1),
+          sexo: _sexo5.name.toString(),
+          fechaNacimiento: _fechaNacimiento5.text.toString(),
+          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento5.trimLeft(),
+          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          estadoCivil: estado5.trimLeft(),
+          claveParentesco: _parentesco5.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+          parentesco: parentesco5.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+    }else if(_nombre7.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre2.text.toString(),
+          primerApellido: _primerApellido2.text.toString(),
+          segundoApellido: _segundoApellido2.text.toString(),
+          claveSexo: sexo2.substring(0, 1),
+          ordenSexo: sexo2.substring(0, 1),
+          sexo: _sexo2.name.toString(),
+          fechaNacimiento: _fechaNacimiento2.text.toString(),
+          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento2.trimLeft(),
+          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          estadoCivil: estado2.trimLeft(),
+          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+          parentesco: parentesco2.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre3.text.toString(),
+          primerApellido: _primerApellido3.text.toString(),
+          segundoApellido: _segundoApellido3.text.toString(),
+          claveSexo: sexo3.substring(0, 1),
+          ordenSexo: sexo3.substring(0, 1),
+          sexo: _sexo3.name.toString(),
+          fechaNacimiento: _fechaNacimiento3.text.toString(),
+          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento3.trimLeft(),
+          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          estadoCivil: estado3.trimLeft(),
+          claveParentesco: _parentesco3.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+          parentesco: parentesco3.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre4.text.toString(),
+          primerApellido: _primerApellido4.text.toString(),
+          segundoApellido: _segundoApellido4.text.toString(),
+          claveSexo: sexo4.substring(0, 1),
+          ordenSexo: sexo4.substring(0, 1),
+          sexo: _sexo4.name.toString(),
+          fechaNacimiento: _fechaNacimiento4.text.toString(),
+          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento4.trimLeft(),
+          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          estadoCivil: estado4.trimLeft(),
+          claveParentesco: _parentesco4.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+          parentesco: parentesco4.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre5.text.toString(),
+          primerApellido: _primerApellido5.text.toString(),
+          segundoApellido: _segundoApellido5.text.toString(),
+          claveSexo: sexo5.substring(0, 1),
+          ordenSexo: sexo5.substring(0, 1),
+          sexo: _sexo5.name.toString(),
+          fechaNacimiento: _fechaNacimiento5.text.toString(),
+          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento5.trimLeft(),
+          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          estadoCivil: estado5.trimLeft(),
+          claveParentesco: _parentesco5.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+          parentesco: parentesco5.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre6.text.toString(),
+          primerApellido: _primerApellido6.text.toString(),
+          segundoApellido: _segundoApellido6.text.toString(),
+          claveSexo: sexo6.substring(0, 1),
+          ordenSexo: sexo6.substring(0, 1),
+          sexo: _sexo6.name.toString(),
+          fechaNacimiento: _fechaNacimiento6.text.toString(),
+          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento6.trimLeft(),
+          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          estadoCivil: estado6.trimLeft(),
+          claveParentesco: _parentesco6.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+          parentesco: parentesco6.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+    }else if(_nombre8.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+      String sexo7 = _sexo7.name.toString();
+      if (sexo7 == 'hombre') {
+        sexo7 = '1 1 Hombre';
+      } else if (sexo7 == 'mujer') {
+        sexo7 = '2 2 Mujer';
+      } else if (sexo7 == 'otro') {
+        sexo7 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+      final estado7 = EstadoCivil7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+      final parentesco7 = Parentesco7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre2.text.toString(),
+          primerApellido: _primerApellido2.text.toString(),
+          segundoApellido: _segundoApellido2.text.toString(),
+          claveSexo: sexo2.substring(0, 1),
+          ordenSexo: sexo2.substring(0, 1),
+          sexo: _sexo2.name.toString(),
+          fechaNacimiento: _fechaNacimiento2.text.toString(),
+          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento2.trimLeft(),
+          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          estadoCivil: estado2.trimLeft(),
+          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+          parentesco: parentesco2.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre3.text.toString(),
+          primerApellido: _primerApellido3.text.toString(),
+          segundoApellido: _segundoApellido3.text.toString(),
+          claveSexo: sexo3.substring(0, 1),
+          ordenSexo: sexo3.substring(0, 1),
+          sexo: _sexo3.name.toString(),
+          fechaNacimiento: _fechaNacimiento3.text.toString(),
+          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento3.trimLeft(),
+          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          estadoCivil: estado3.trimLeft(),
+          claveParentesco: _parentesco3.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+          parentesco: parentesco3.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre4.text.toString(),
+          primerApellido: _primerApellido4.text.toString(),
+          segundoApellido: _segundoApellido4.text.toString(),
+          claveSexo: sexo4.substring(0, 1),
+          ordenSexo: sexo4.substring(0, 1),
+          sexo: _sexo4.name.toString(),
+          fechaNacimiento: _fechaNacimiento4.text.toString(),
+          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento4.trimLeft(),
+          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          estadoCivil: estado4.trimLeft(),
+          claveParentesco: _parentesco4.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+          parentesco: parentesco4.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre5.text.toString(),
+          primerApellido: _primerApellido5.text.toString(),
+          segundoApellido: _segundoApellido5.text.toString(),
+          claveSexo: sexo5.substring(0, 1),
+          ordenSexo: sexo5.substring(0, 1),
+          sexo: _sexo5.name.toString(),
+          fechaNacimiento: _fechaNacimiento5.text.toString(),
+          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento5.trimLeft(),
+          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          estadoCivil: estado5.trimLeft(),
+          claveParentesco: _parentesco5.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+          parentesco: parentesco5.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre6.text.toString(),
+          primerApellido: _primerApellido6.text.toString(),
+          segundoApellido: _segundoApellido6.text.toString(),
+          claveSexo: sexo6.substring(0, 1),
+          ordenSexo: sexo6.substring(0, 1),
+          sexo: _sexo6.name.toString(),
+          fechaNacimiento: _fechaNacimiento6.text.toString(),
+          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento6.trimLeft(),
+          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          estadoCivil: estado6.trimLeft(),
+          claveParentesco: _parentesco6.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+          parentesco: parentesco6.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre7.text.toString(),
+          primerApellido: _primerApellido7.text.toString(),
+          segundoApellido: _segundoApellido7.text.toString(),
+          claveSexo: sexo7.substring(0, 1),
+          ordenSexo: sexo7.substring(0, 1),
+          sexo: _sexo7.name.toString(),
+          fechaNacimiento: _fechaNacimiento7.text.toString(),
+          claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento7.trimLeft(),
+          claveestadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+          estadoCivil: estado7.trimLeft(),
+          claveParentesco: _parentesco7.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+          parentesco: parentesco7.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal7.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual7.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+    }else if(_nombre9.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+      String sexo7 = _sexo7.name.toString();
+      if (sexo7 == 'hombre') {
+        sexo7 = '1 1 Hombre';
+      } else if (sexo7 == 'mujer') {
+        sexo7 = '2 2 Mujer';
+      } else if (sexo7 == 'otro') {
+        sexo7 = '3 3 Otro';
+      }
+
+      String sexo8 = _sexo8.name.toString();
+      if (sexo8 == 'hombre') {
+        sexo8 = '1 1 Hombre';
+      } else if (sexo8 == 'mujer') {
+        sexo8 = '2 2 Mujer';
+      } else if (sexo8 == 'otro') {
+        sexo8 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+      final estado7 = EstadoCivil7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+      final parentesco7 = Parentesco7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
+      final estado8 = EstadoCivil8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
+      final parentesco8 = Parentesco8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
+      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre2.text.toString(),
+          primerApellido: _primerApellido2.text.toString(),
+          segundoApellido: _segundoApellido2.text.toString(),
+          claveSexo: sexo2.substring(0, 1),
+          ordenSexo: sexo2.substring(0, 1),
+          sexo: _sexo2.name.toString(),
+          fechaNacimiento: _fechaNacimiento2.text.toString(),
+          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento2.trimLeft(),
+          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          estadoCivil: estado2.trimLeft(),
+          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+          parentesco: parentesco2.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre3.text.toString(),
+          primerApellido: _primerApellido3.text.toString(),
+          segundoApellido: _segundoApellido3.text.toString(),
+          claveSexo: sexo3.substring(0, 1),
+          ordenSexo: sexo3.substring(0, 1),
+          sexo: _sexo3.name.toString(),
+          fechaNacimiento: _fechaNacimiento3.text.toString(),
+          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento3.trimLeft(),
+          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          estadoCivil: estado3.trimLeft(),
+          claveParentesco: _parentesco3.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+          parentesco: parentesco3.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre4.text.toString(),
+          primerApellido: _primerApellido4.text.toString(),
+          segundoApellido: _segundoApellido4.text.toString(),
+          claveSexo: sexo4.substring(0, 1),
+          ordenSexo: sexo4.substring(0, 1),
+          sexo: _sexo4.name.toString(),
+          fechaNacimiento: _fechaNacimiento4.text.toString(),
+          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento4.trimLeft(),
+          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          estadoCivil: estado4.trimLeft(),
+          claveParentesco: _parentesco4.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+          parentesco: parentesco4.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre5.text.toString(),
+          primerApellido: _primerApellido5.text.toString(),
+          segundoApellido: _segundoApellido5.text.toString(),
+          claveSexo: sexo5.substring(0, 1),
+          ordenSexo: sexo5.substring(0, 1),
+          sexo: _sexo5.name.toString(),
+          fechaNacimiento: _fechaNacimiento5.text.toString(),
+          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento5.trimLeft(),
+          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          estadoCivil: estado5.trimLeft(),
+          claveParentesco: _parentesco5.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+          parentesco: parentesco5.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre6.text.toString(),
+          primerApellido: _primerApellido6.text.toString(),
+          segundoApellido: _segundoApellido6.text.toString(),
+          claveSexo: sexo6.substring(0, 1),
+          ordenSexo: sexo6.substring(0, 1),
+          sexo: _sexo6.name.toString(),
+          fechaNacimiento: _fechaNacimiento6.text.toString(),
+          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento6.trimLeft(),
+          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          estadoCivil: estado6.trimLeft(),
+          claveParentesco: _parentesco6.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+          parentesco: parentesco6.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre7.text.toString(),
+          primerApellido: _primerApellido7.text.toString(),
+          segundoApellido: _segundoApellido7.text.toString(),
+          claveSexo: sexo7.substring(0, 1),
+          ordenSexo: sexo7.substring(0, 1),
+          sexo: _sexo7.name.toString(),
+          fechaNacimiento: _fechaNacimiento7.text.toString(),
+          claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento7.trimLeft(),
+          claveestadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+          estadoCivil: estado7.trimLeft(),
+          claveParentesco: _parentesco7.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+          parentesco: parentesco7.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal7.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual7.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre8.text.toString(),
+          primerApellido: _primerApellido8.text.toString(),
+          segundoApellido: _segundoApellido8.text.toString(),
+          claveSexo: sexo8.substring(0, 1),
+          ordenSexo: sexo8.substring(0, 1),
+          sexo: _sexo8.name.toString(),
+          fechaNacimiento: _fechaNacimiento8.text.toString(),
+          claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento8.trimLeft(),
+          claveestadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+          estadoCivil: estado8.trimLeft(),
+          claveParentesco: _parentesco8.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+          parentesco: parentesco8.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal8.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual8.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel8).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+    }else if(_nombre10.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+      String sexo7 = _sexo7.name.toString();
+      if (sexo7 == 'hombre') {
+        sexo7 = '1 1 Hombre';
+      } else if (sexo7 == 'mujer') {
+        sexo7 = '2 2 Mujer';
+      } else if (sexo7 == 'otro') {
+        sexo7 = '3 3 Otro';
+      }
+
+      String sexo8 = _sexo8.name.toString();
+      if (sexo8 == 'hombre') {
+        sexo8 = '1 1 Hombre';
+      } else if (sexo8 == 'mujer') {
+        sexo8 = '2 2 Mujer';
+      } else if (sexo8 == 'otro') {
+        sexo8 = '3 3 Otro';
+      }
+
+      String sexo9 = _sexo9.name.toString();
+      if (sexo9 == 'hombre') {
+        sexo9 = '1 1 Hombre';
+      } else if (sexo9 == 'mujer') {
+        sexo9 = '2 2 Mujer';
+      } else if (sexo9 == 'otro') {
+        sexo9 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+      final estado7 = EstadoCivil7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+      final parentesco7 = Parentesco7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
+      final estado8 = EstadoCivil8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
+      final parentesco8 = Parentesco8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
+      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil9 = _estadoCivil9.text.toString(); // 'artlang'
+      final estado9 = EstadoCivil9.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco9 = _parentesco9.text.toString(); // 'artlang'
+      final parentesco9 = Parentesco9.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN9 = _entidadNacimiento9.text.toString(); // 'artlang'
+      final entidadNacimiento9 = EntidadN9.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre2.text.toString(),
+          primerApellido: _primerApellido2.text.toString(),
+          segundoApellido: _segundoApellido2.text.toString(),
+          claveSexo: sexo2.substring(0, 1),
+          ordenSexo: sexo2.substring(0, 1),
+          sexo: _sexo2.name.toString(),
+          fechaNacimiento: _fechaNacimiento2.text.toString(),
+          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento2.trimLeft(),
+          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          estadoCivil: estado2.trimLeft(),
+          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+          parentesco: parentesco2.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre3.text.toString(),
+          primerApellido: _primerApellido3.text.toString(),
+          segundoApellido: _segundoApellido3.text.toString(),
+          claveSexo: sexo3.substring(0, 1),
+          ordenSexo: sexo3.substring(0, 1),
+          sexo: _sexo3.name.toString(),
+          fechaNacimiento: _fechaNacimiento3.text.toString(),
+          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento3.trimLeft(),
+          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          estadoCivil: estado3.trimLeft(),
+          claveParentesco: _parentesco3.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+          parentesco: parentesco3.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre4.text.toString(),
+          primerApellido: _primerApellido4.text.toString(),
+          segundoApellido: _segundoApellido4.text.toString(),
+          claveSexo: sexo4.substring(0, 1),
+          ordenSexo: sexo4.substring(0, 1),
+          sexo: _sexo4.name.toString(),
+          fechaNacimiento: _fechaNacimiento4.text.toString(),
+          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento4.trimLeft(),
+          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          estadoCivil: estado4.trimLeft(),
+          claveParentesco: _parentesco4.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+          parentesco: parentesco4.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre5.text.toString(),
+          primerApellido: _primerApellido5.text.toString(),
+          segundoApellido: _segundoApellido5.text.toString(),
+          claveSexo: sexo5.substring(0, 1),
+          ordenSexo: sexo5.substring(0, 1),
+          sexo: _sexo5.name.toString(),
+          fechaNacimiento: _fechaNacimiento5.text.toString(),
+          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento5.trimLeft(),
+          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          estadoCivil: estado5.trimLeft(),
+          claveParentesco: _parentesco5.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+          parentesco: parentesco5.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre6.text.toString(),
+          primerApellido: _primerApellido6.text.toString(),
+          segundoApellido: _segundoApellido6.text.toString(),
+          claveSexo: sexo6.substring(0, 1),
+          ordenSexo: sexo6.substring(0, 1),
+          sexo: _sexo6.name.toString(),
+          fechaNacimiento: _fechaNacimiento6.text.toString(),
+          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento6.trimLeft(),
+          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          estadoCivil: estado6.trimLeft(),
+          claveParentesco: _parentesco6.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+          parentesco: parentesco6.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre7.text.toString(),
+          primerApellido: _primerApellido7.text.toString(),
+          segundoApellido: _segundoApellido7.text.toString(),
+          claveSexo: sexo7.substring(0, 1),
+          ordenSexo: sexo7.substring(0, 1),
+          sexo: _sexo7.name.toString(),
+          fechaNacimiento: _fechaNacimiento7.text.toString(),
+          claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento7.trimLeft(),
+          claveestadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+          estadoCivil: estado7.trimLeft(),
+          claveParentesco: _parentesco7.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+          parentesco: parentesco7.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal7.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual7.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre8.text.toString(),
+          primerApellido: _primerApellido8.text.toString(),
+          segundoApellido: _segundoApellido8.text.toString(),
+          claveSexo: sexo8.substring(0, 1),
+          ordenSexo: sexo8.substring(0, 1),
+          sexo: _sexo8.name.toString(),
+          fechaNacimiento: _fechaNacimiento8.text.toString(),
+          claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento8.trimLeft(),
+          claveestadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+          estadoCivil: estado8.trimLeft(),
+          claveParentesco: _parentesco8.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+          parentesco: parentesco8.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal8.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual8.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel8).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre9.text.toString(),
+          primerApellido: _primerApellido9.text.toString(),
+          segundoApellido: _segundoApellido9.text.toString(),
+          claveSexo: sexo9.substring(0, 1),
+          ordenSexo: sexo9.substring(0, 1),
+          sexo: _sexo9.name.toString(),
+          fechaNacimiento: _fechaNacimiento9.text.toString(),
+          claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento9.trimLeft(),
+          claveestadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+          estadoCivil: estado9.trimLeft(),
+          claveParentesco: _parentesco9.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco9.text.toString().substring(0, 1),
+          parentesco: parentesco9.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal9.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual9.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel9).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+    }else{
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+      String sexo7 = _sexo7.name.toString();
+      if (sexo7 == 'hombre') {
+        sexo7 = '1 1 Hombre';
+      } else if (sexo7 == 'mujer') {
+        sexo7 = '2 2 Mujer';
+      } else if (sexo7 == 'otro') {
+        sexo7 = '3 3 Otro';
+      }
+
+      String sexo8 = _sexo8.name.toString();
+      if (sexo8 == 'hombre') {
+        sexo8 = '1 1 Hombre';
+      } else if (sexo8 == 'mujer') {
+        sexo8 = '2 2 Mujer';
+      } else if (sexo8 == 'otro') {
+        sexo8 = '3 3 Otro';
+      }
+
+      String sexo9 = _sexo9.name.toString();
+      if (sexo9 == 'hombre') {
+        sexo9 = '1 1 Hombre';
+      } else if (sexo9 == 'mujer') {
+        sexo9 = '2 2 Mujer';
+      } else if (sexo9 == 'otro') {
+        sexo9 = '3 3 Otro';
+      }
+
+      String sexo10 = _sexo10.name.toString();
+      if (sexo10 == 'hombre') {
+        sexo10 = '1 1 Hombre';
+      } else if (sexo10 == 'mujer') {
+        sexo10 = '2 2 Mujer';
+      } else if (sexo10 == 'otro') {
+        sexo10 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+      final estado7 = EstadoCivil7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+      final parentesco7 = Parentesco7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
+      final estado8 = EstadoCivil8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
+      final parentesco8 = Parentesco8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
+      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil9 = _estadoCivil9.text.toString(); // 'artlang'
+      final estado9 = EstadoCivil9.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco9 = _parentesco9.text.toString(); // 'artlang'
+      final parentesco9 = Parentesco9.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN9 = _entidadNacimiento9.text.toString(); // 'artlang'
+      final entidadNacimiento9 = EntidadN9.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil10 = _estadoCivil10.text.toString(); // 'artlang'
+      final estado10 = EstadoCivil10.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco10 = _parentesco10.text.toString(); // 'artlang'
+      final parentesco10 = Parentesco10.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN10 = _entidadNacimiento10.text.toString(); // 'artlang'
+      final entidadNacimiento10 = EntidadN10.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre1.text.toString(),
+          primerApellido: _primerApellido1.text.toString(),
+          segundoApellido: _segundoApellido1.text.toString(),
+          claveSexo: sexo1.substring(0,1),
+          ordenSexo: sexo1.substring(0,1),
+          sexo: _sexo1.name.toString(),
+          fechaNacimiento: _fechaNacimiento1.text.toString(),
+          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+          entidadNacimiento: entidadNacimiento.trimLeft(),
+          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+          estadoCivil: estado.trimLeft(),
+          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+          parentesco: parentesco.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre2.text.toString(),
+          primerApellido: _primerApellido2.text.toString(),
+          segundoApellido: _segundoApellido2.text.toString(),
+          claveSexo: sexo2.substring(0, 1),
+          ordenSexo: sexo2.substring(0, 1),
+          sexo: _sexo2.name.toString(),
+          fechaNacimiento: _fechaNacimiento2.text.toString(),
+          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento2.trimLeft(),
+          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+          estadoCivil: estado2.trimLeft(),
+          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+          parentesco: parentesco2.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre3.text.toString(),
+          primerApellido: _primerApellido3.text.toString(),
+          segundoApellido: _segundoApellido3.text.toString(),
+          claveSexo: sexo3.substring(0, 1),
+          ordenSexo: sexo3.substring(0, 1),
+          sexo: _sexo3.name.toString(),
+          fechaNacimiento: _fechaNacimiento3.text.toString(),
+          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento3.trimLeft(),
+          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+          estadoCivil: estado3.trimLeft(),
+          claveParentesco: _parentesco3.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+          parentesco: parentesco3.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre4.text.toString(),
+          primerApellido: _primerApellido4.text.toString(),
+          segundoApellido: _segundoApellido4.text.toString(),
+          claveSexo: sexo4.substring(0, 1),
+          ordenSexo: sexo4.substring(0, 1),
+          sexo: _sexo4.name.toString(),
+          fechaNacimiento: _fechaNacimiento4.text.toString(),
+          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento4.trimLeft(),
+          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+          estadoCivil: estado4.trimLeft(),
+          claveParentesco: _parentesco4.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+          parentesco: parentesco4.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre5.text.toString(),
+          primerApellido: _primerApellido5.text.toString(),
+          segundoApellido: _segundoApellido5.text.toString(),
+          claveSexo: sexo5.substring(0, 1),
+          ordenSexo: sexo5.substring(0, 1),
+          sexo: _sexo5.name.toString(),
+          fechaNacimiento: _fechaNacimiento5.text.toString(),
+          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento5.trimLeft(),
+          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+          estadoCivil: estado5.trimLeft(),
+          claveParentesco: _parentesco5.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+          parentesco: parentesco5.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre6.text.toString(),
+          primerApellido: _primerApellido6.text.toString(),
+          segundoApellido: _segundoApellido6.text.toString(),
+          claveSexo: sexo6.substring(0, 1),
+          ordenSexo: sexo6.substring(0, 1),
+          sexo: _sexo6.name.toString(),
+          fechaNacimiento: _fechaNacimiento6.text.toString(),
+          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento6.trimLeft(),
+          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+          estadoCivil: estado6.trimLeft(),
+          claveParentesco: _parentesco6.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+          parentesco: parentesco6.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre7.text.toString(),
+          primerApellido: _primerApellido7.text.toString(),
+          segundoApellido: _segundoApellido7.text.toString(),
+          claveSexo: sexo7.substring(0, 1),
+          ordenSexo: sexo7.substring(0, 1),
+          sexo: _sexo7.name.toString(),
+          fechaNacimiento: _fechaNacimiento7.text.toString(),
+          claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento7.trimLeft(),
+          claveestadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+          estadoCivil: estado7.trimLeft(),
+          claveParentesco: _parentesco7.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+          parentesco: parentesco7.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal7.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual7.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre8.text.toString(),
+          primerApellido: _primerApellido8.text.toString(),
+          segundoApellido: _segundoApellido8.text.toString(),
+          claveSexo: sexo8.substring(0, 1),
+          ordenSexo: sexo8.substring(0, 1),
+          sexo: _sexo8.name.toString(),
+          fechaNacimiento: _fechaNacimiento8.text.toString(),
+          claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento8.trimLeft(),
+          claveestadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+          estadoCivil: estado8.trimLeft(),
+          claveParentesco: _parentesco8.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+          parentesco: parentesco8.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal8.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual8.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel8).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre9.text.toString(),
+          primerApellido: _primerApellido9.text.toString(),
+          segundoApellido: _segundoApellido9.text.toString(),
+          claveSexo: sexo9.substring(0, 1),
+          ordenSexo: sexo9.substring(0, 1),
+          sexo: _sexo9.name.toString(),
+          fechaNacimiento: _fechaNacimiento9.text.toString(),
+          claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento9.trimLeft(),
+          claveestadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+          estadoCivil: estado9.trimLeft(),
+          claveParentesco: _parentesco9.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco9.text.toString().substring(0, 1),
+          parentesco: parentesco9.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal9.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual9.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel9).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel10 = EstructuraFamilarModel(
+          folio: int.parse(widget.folio),
+          nombre: _nombre10.text.toString(),
+          primerApellido: _primerApellido10.text.toString(),
+          segundoApellido: _segundoApellido10.text.toString(),
+          claveSexo: sexo10.substring(0, 1),
+          ordenSexo: sexo10.substring(0, 1),
+          sexo: _sexo10.name.toString(),
+          fechaNacimiento: _fechaNacimiento10.text.toString(),
+          claveEntidad: _entidadNacimiento10.text.toString().substring(0, 1),
+          entidadNacimiento: entidadNacimiento10.trimLeft(),
+          claveestadoCivil: _estadoCivil10.text.toString().substring(0, 1),
+          ordenEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
+          estadoCivil: estado10.trimLeft(),
+          claveParentesco: _parentesco10.text.toString().substring(0, 1),
+          ordenParentesco: _parentesco10.text.toString().substring(0, 1),
+          parentesco: parentesco10.trimLeft(),
+          ingresoSemanal: int.parse(_ingresoSemanal10.text.toString()),
+          ingresoMensual: int.parse(_ingresoMensual10.text.toString())
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel10).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocial(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Estructura Familiar'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => ServiciosCombustible(widget.folio)),
+                    (Route<dynamic> route) => false);
+          },
+        ),
+      ),
+      body: Form(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            child: Column(
+              children: [
+                SizedBox(height: 10.0),
+                getTextQuestion(question: 'Folio'),
+                SizedBox(height: 5.0),
+                getTextFolio(
+                  controller: TextEditingController.fromValue(
+                      TextEditingValue(text: widget.folio)),
+                ),
+                SizedBox(height: 10.0),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Container(
+                          child: DataTable(
+                            columnSpacing: 30,
+                            dataRowHeight: 100,
+                            columns: [
+                              DataColumn(label: Text('No.')),
+                              DataColumn(label: Text('Nombres')),
+                              DataColumn(label: Text('Apellido Paterno')),
+                              DataColumn(label: Text('Apeliido Materno')),
+                              DataColumn(label: Text('Sexo')),
+                              DataColumn(label: Text('Fecha de Nacimiento')),
+                              DataColumn(label: Text('Entidad de Nacimiento')),
+                              DataColumn(label: Text('Estado Civil')),
+                              DataColumn(label: Text('Parentesco')),
+                              DataColumn(label: Text('Ingreso Semanal')),
+                              DataColumn(label: Text('Ingreso Mensual')),
+                            ],
+                            rows: [
+                              DataRow(cells: [
+                                DataCell(Text('1')),
+                                DataCell(getTextDataTable(controller: _nombre1)),
+                                DataCell(getTextDataTable(controller: _primerApellido1)),
+                                DataCell(getTextDataTable(controller: _segundoApellido1)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo1,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo1 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo1,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo1 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo1,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo1 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento1,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento1,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil1,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco1,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal1)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual1)),
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('2')),
+                                DataCell(getTextDataTable(controller: _nombre2)),
+                                DataCell(getTextDataTable(controller: _primerApellido2)),
+                                DataCell(getTextDataTable(controller: _segundoApellido2)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo2,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo2 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo2,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo2 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo2,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo2 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento2,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento2,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil2,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco2,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal2)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual2)),
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('3')),
+                                DataCell(getTextDataTable(controller: _nombre3)),
+                                DataCell(getTextDataTable(controller: _primerApellido3)),
+                                DataCell(getTextDataTable(controller: _segundoApellido3)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo3,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo3 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo3,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo3 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo3,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo3 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento3,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento3,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil3,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco3,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal3)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual3)),
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('4')),
+                                DataCell(getTextDataTable(controller: _nombre4)),
+                                DataCell(getTextDataTable(controller: _primerApellido4)),
+                                DataCell(getTextDataTable(controller: _segundoApellido4)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo4,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo4 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo4,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo4 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo4,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo4 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento4,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento4,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil4,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco4,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal4)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual4)),
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('5')),
+                                DataCell(getTextDataTable(controller: _nombre5)),
+                                DataCell(getTextDataTable(controller: _primerApellido5)),
+                                DataCell(getTextDataTable(controller: _segundoApellido5)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo5,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo5 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo5,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo5 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo5,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo5 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento5,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento5,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil5,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco5,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal5)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual5)),
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('6')),
+                                DataCell(getTextDataTable(controller: _nombre6)),
+                                DataCell(getTextDataTable(controller: _primerApellido6)),
+                                DataCell(getTextDataTable(controller: _segundoApellido6)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo6,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo6 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo6,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo6 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo6,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo6 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento6,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento6,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil6,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco6,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal6)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual6)),
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('7')),
+                                DataCell(getTextDataTable(controller: _nombre7)),
+                                DataCell(getTextDataTable(controller: _primerApellido7)),
+                                DataCell(getTextDataTable(controller: _segundoApellido7)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo7,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo7 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo7,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo7 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo7,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo7 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento7,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento7,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil7,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco7,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal7)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual7)),
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('8')),
+                                DataCell(getTextDataTable(controller: _nombre8)),
+                                DataCell(getTextDataTable(controller: _primerApellido8)),
+                                DataCell(getTextDataTable(controller: _segundoApellido8)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo8,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo8 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo8,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo8 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo8,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo8 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento8,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento8,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil8,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco8,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal8)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual8)),
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('9')),
+                                DataCell(getTextDataTable(controller: _nombre9)),
+                                DataCell(getTextDataTable(controller: _primerApellido9)),
+                                DataCell(getTextDataTable(controller: _segundoApellido9)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo9,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo9 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo9,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo9 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo9,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo9 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento9,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento9,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil9,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco9,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal9)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual9)),
+                              ]),
+
+
+                              DataRow(cells: [
+                                DataCell(Text('10')),
+                                DataCell(getTextDataTable(controller: _nombre10)),
+                                DataCell(getTextDataTable(controller: _primerApellido10)),
+                                DataCell(getTextDataTable(controller: _segundoApellido10)),
+                                DataCell(
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Hombre'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.hombre,
+                                            groupValue: _sexo10,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo10 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Mujer'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.mujer,
+                                            groupValue: _sexo10,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo10 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListTile(
+                                          title: Text('Otro'),
+                                          leading: Radio<Sexo>(
+                                            value: Sexo.otro,
+                                            groupValue: _sexo10,
+                                            onChanged: (Sexo value) {
+                                              setState(() {
+                                                _sexo10 = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento10,hintName: 'YYYY-MM-DD',)),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Estado.map((estado) =>
+                                        SearchFieldListItem(estado.Estado,
+                                            item: estado)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _entidadNacimiento10,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
+                                        SearchFieldListItem(estadosCiviles.EstadoCivil,
+                                            item: estadosCiviles)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _estadoCivil10,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 22),
+                                  width: 220,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.black26,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            width: 2.0,
+                                            color: Colors.blue,
+                                            style: BorderStyle.solid),
+                                      ),
+                                      filled: true,
+                                      fillColor: Colors.grey[120],
+                                    ),
+                                    suggestions: _Parentesco.map((parentesco) =>
+                                        SearchFieldListItem(parentesco.Parentesco,
+                                            item: parentesco)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _parentesco10,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {},
+                                  ),
+                                ),),
+                                DataCell(getTextDataTable(controller: _ingresoSemanal10)),
+                                DataCell(getTextDataTable(controller: _ingresoMensual10)),
+                              ]),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                      onPressed: enviar,
+                      icon: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Continuar',
+                        style: TextStyle(color: Colors.white),
+                      )),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+            ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

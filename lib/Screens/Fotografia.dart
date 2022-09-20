@@ -25,7 +25,10 @@ class _FotografiaState extends State<Fotografia> {
   final picker = ImagePicker();
 
   Future getImage() async{
-    final pickedFile = await picker.getImage(source: ImageSource.camera);
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+    maxHeight: 480,
+    maxWidth: 648,
+    imageQuality: 50);
 
     setState(() {
       if(pickedFile != null){
@@ -85,9 +88,8 @@ class _FotografiaState extends State<Fotografia> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Tomar fotografia'),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: _image == null
-                  ? Text('Imagen No Seleccionda')
+                      ? Text('Imagen No Seleccionda')
                       : Image.file(_image),
                 ),
                 Container(

@@ -3,7 +3,7 @@ import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Gas.dart';
-import 'package:esn/Screens/EstructuraFamiliar.dart';
+import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
 import 'package:esn/Screens/ServiciosDrenaje.dart';
 import 'package:flutter/material.dart';
 
@@ -125,7 +125,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
     await DbHelper().upDateGas(BModel).then((gas) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new EstructuraFamiliar(widget.folio);
+        return new EstructuraFamiliarTabla(widget.folio);
       }
       ));
     }).catchError((error) {

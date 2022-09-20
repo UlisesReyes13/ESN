@@ -2,10 +2,13 @@ import 'package:esn/Comm/genTextEquipamiento.dart';
 import 'package:esn/Comm/genTextField.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
+import 'package:esn/Model/FrecuenciaModel.dart';
 import 'package:esn/Model/RemesasModel.dart';
 import 'package:esn/Screens/ApoyosEnEspecie.dart';
 import 'package:esn/Screens/Documentos.dart';
+import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
+import 'package:searchfield/searchfield.dart';
 
 import '../Comm/comHelper.dart';
 import '../DatabaseHandler/DbHelper.dart';
@@ -20,10 +23,32 @@ class Remesas extends StatefulWidget {
 
 class _RemesasState extends State<Remesas> {
 
+  List<FrecuenciaModel> _Frecuencia = List<FrecuenciaModel>();
+
   OtrosPaises _otrosPaises = OtrosPaises.si;
   final _frecuenciaApoyo = TextEditingController();
   var dbHelper;
 
+  @override
+  void initState(){
+    getAllCategoriesFrecuencia();
+
+    super.initState();
+  }
+
+  getAllCategoriesFrecuencia() async {
+    _Frecuencia = List<FrecuenciaModel>();
+    var categories = await CategoryService().readCategoriesFrecuancia();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = FrecuenciaModel();
+        categoryModel.Frecuencia = category['Frecuencia'];
+        _Frecuencia.add(categoryModel);
+      });
+    });
+  }
+
+  //Actualizar para las claves de frecuencia
   enviar() async {
 
     RemesasModel BModel = RemesasModel(folio: int.parse(widget.folio),
@@ -100,7 +125,32 @@ class _RemesasState extends State<Remesas> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Frecuencia del Apoyo:'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _frecuenciaApoyo),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: SearchField(
+                    suggestionState: Suggestion.expand,
+                    searchInputDecoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:BorderSide(width: 2.0, color: Colors.blue, style: BorderStyle.solid
+                        ),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[120],
+                    ),
+                    suggestions: _Frecuencia.map((frecuencia) =>
+                        SearchFieldListItem(frecuencia.Frecuencia, item: frecuencia)).toList(),
+                    textInputAction: TextInputAction.next,
+                    hasOverlay: false,
+                    controller: _frecuenciaApoyo,
+                    maxSuggestionsInViewPort: 5,
+                    itemHeight: 45,
+                    onSuggestionTap: (x){},
+                  ),
+                ),
                 SizedBox(height: 5.0),
                 Container(
                   margin: EdgeInsets.all(20.0),

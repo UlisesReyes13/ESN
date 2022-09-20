@@ -1,4 +1,5 @@
 import 'package:esn/DatabaseHandler/DbHelper.dart';
+import 'package:esn/Model/CodigoPostalModel.dart';
 
 class CategoryService {
   DbHelper _repository;
@@ -97,4 +98,21 @@ class CategoryService {
   readCategoriesEstados() async{
     return await _repository.readData('tb_Estados');
   }
+
+  readCategoriesFrecuancia() async {
+    return await _repository.readData('tb_Frecuencias');
+  }
+  
+  readCategoriesDuraciones() async {
+    return await _repository.readData('tb_Duraciones');
+  }
+
+  readCategoriesCodigoPostal() async{
+    return await _repository.readData('tb_CPs');
+  }
+
+  readCategoriesCodigoPostal2(String CP) async{
+    return await _repository.readCodigoPostal("tb_CPs" , CodigoPostalModel(ClaveCP: int.parse(CP)));
+  }
+
 }
