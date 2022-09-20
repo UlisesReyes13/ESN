@@ -1,12 +1,13 @@
+import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
+import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/DocumentosModel.dart';
 import 'package:esn/Screens/Alimentacion.dart';
 import 'package:esn/Screens/Remesas.dart';
 import 'package:flutter/material.dart';
 
-import '../Comm/comHelper.dart';
-import '../DatabaseHandler/DbHelper.dart';
+
 enum Curp {si , no}
 enum ActaNacimiento {si , no}
 enum ComprobanteDomicilio {si , no}

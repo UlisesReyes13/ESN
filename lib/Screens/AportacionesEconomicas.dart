@@ -19,13 +19,9 @@ class AportacionesEconomicas extends StatefulWidget {
 
   AportacionesEconomicas(this.folio);
 
-
-
   @override
   State<AportacionesEconomicas> createState() => _AportacionesEconomicasState();
 }
-
-
 
 
 class _AportacionesEconomicasState extends State<AportacionesEconomicas> {

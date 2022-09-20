@@ -1,19 +1,20 @@
+import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
+import 'package:esn/Model/EstadoCasaConstruccionModel.dart';
 import 'package:esn/Model/TipoMuroModel.dart';
 import 'package:esn/Model/TipoPisoModel.dart';
 import 'package:esn/Model/TipoTechoModel.dart';
 import 'package:esn/Model/TipoTenenciaModel.dart';
 import 'package:esn/Model/TipoViviendaModel.dart';
+import 'package:esn/Screens/Caracteristicas_Casa.dart';
 import 'package:esn/Screens/Salud_PerteneciaIndigena.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
 
-import '../Comm/comHelper.dart';
-import '../Model/EstadoCasaConstruccionModel.dart';
-import 'Caracteristicas_Casa.dart';
+
 
 class Infraestructura_Vivienda extends StatefulWidget {
 

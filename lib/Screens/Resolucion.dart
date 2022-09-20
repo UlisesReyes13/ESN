@@ -2,10 +2,13 @@ import 'package:esn/Comm/genTextEquipamiento.dart';
 import 'package:esn/Comm/genTextField.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
+import 'package:esn/Model/DuracionModel.dart';
+import 'package:esn/Model/FrecuenciaModel.dart';
 import 'package:esn/Model/ResolucionBALModel.dart';
 import 'package:esn/Model/ResolucionModel.dart';
 import 'package:esn/Screens/Alimentacion.dart';
 import 'package:esn/Screens/Fotografia.dart';
+import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
 
@@ -32,15 +35,46 @@ class _ResolucionState extends State<Resolucion> {
 
   apoyo _apoyo;
   List<String> _Tipo = ['Cuata' , 'Beca', 'Media Beca'];
-  List<String> _Frecuencia = ['Semanal', 'Quincenal', 'Mensual'];
-  List<String> _Duracion = ['Mensual', 'Semanal','Anual'];
+  List<FrecuenciaModel> _Frecuencia = List<FrecuenciaModel>();
+  List<DuracionModel> _Duracion = List<DuracionModel>();
 
   final _tipo = TextEditingController();
   final _frecuencia = TextEditingController();
   final _duracion = TextEditingController();
 
-  enviar() async {
+  @override
+  void initState(){
+    getAllCategoriesDuracion();
+    getAllCategoriesFrecuencia();
 
+    super.initState();
+  }
+
+  getAllCategoriesFrecuencia() async {
+    _Frecuencia = List<FrecuenciaModel>();
+    var categories = await CategoryService().readCategoriesFrecuancia();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = FrecuenciaModel();
+        categoryModel.Frecuencia = category['Frecuencia'];
+        _Frecuencia.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesDuracion() async {
+    _Duracion = List<DuracionModel>();
+    var categories = await CategoryService().readCategoriesDuraciones();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = DuracionModel();
+        categoryModel.Duracion = category['Duracion'];
+        _Duracion.add(categoryModel);
+      });
+    });
+  }
+
+  enviar() async {
     ResolucionModel BModel = ResolucionModel
       (folio: int.parse(widget.folio),
         puntaje: _puntaje.text.toString(),
@@ -58,6 +92,8 @@ class _ResolucionState extends State<Resolucion> {
     ResolucionBALModel RModel = ResolucionBALModel
       (folio: int.parse(widget.folio),
         tipo: _tipo.text.toString(),
+
+    //Modificar las claves de frecuncia y duracion
     frecuencia: _frecuencia.text.toString(),
     duracion: _duracion.text.toString(),
     otorgarApoyo: _apoyo.name,
@@ -73,9 +109,6 @@ class _ResolucionState extends State<Resolucion> {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
-
-
-
   }
 
 
@@ -184,7 +217,7 @@ class _ResolucionState extends State<Resolucion> {
                       fillColor: Colors.grey[120],
                     ),
                     suggestions: _Frecuencia.map((frecuencia) =>
-                        SearchFieldListItem(frecuencia.toString(), item: frecuencia)).toList(),
+                        SearchFieldListItem(frecuencia.Frecuencia, item: frecuencia)).toList(),
                     textInputAction: TextInputAction.next,
                     hasOverlay: false,
                     controller: _frecuencia,
@@ -213,7 +246,7 @@ class _ResolucionState extends State<Resolucion> {
                       fillColor: Colors.grey[120],
                     ),
                     suggestions: _Duracion.map((duracion) =>
-                        SearchFieldListItem(duracion.toString(), item: duracion)).toList(),
+                        SearchFieldListItem(duracion.Duracion, item: duracion)).toList(),
                     textInputAction: TextInputAction.next,
                     hasOverlay: false,
                     controller: _duracion,

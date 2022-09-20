@@ -1,8 +1,3 @@
-import 'package:esn/Screens/Alimentacion.dart';
-import 'package:esn/Screens/AportacionesEconomicas.dart';
-import 'package:esn/Screens/DatosGenerales.dart';
-import 'package:esn/Screens/Fotografia.dart';
-import 'package:esn/Screens/PantallaPrueba.dart';
 import 'package:flutter/material.dart';
 import 'Screens/LoginForm.dart';
 
@@ -19,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PantallaPrueba('3'),
+      home: LoginForm(),
     );
   }
 }
