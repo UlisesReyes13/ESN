@@ -1,3 +1,8 @@
+import 'package:esn/Screens/DatosGenerales.dart';
+import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
+import 'package:esn/Screens/EstructuraFamiliar.dart';
+import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
+import 'package:esn/Screens/Fotografia.dart';
 import 'package:flutter/material.dart';
 import 'Screens/LoginForm.dart';
 
@@ -14,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginForm(),
+      home: Escolaridad_SeguridadSocialTabla('1'),
     );
   }
 }

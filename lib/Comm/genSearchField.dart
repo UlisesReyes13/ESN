@@ -1,26 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:searchfield/searchfield.dart';
 
-class getTextDataTable extends StatelessWidget {
+class getSearchField extends StatelessWidget {
   TextEditingController controller;
+  List suggestions;
   String hintName;
-  bool isObscureText;
-  TextInputType inputType;
-  bool isEnable;
 
-
-  getTextDataTable({this.controller, this.hintName,this.isObscureText = false, this.inputType, this.isEnable = true});
+  getSearchField({this.controller, this.suggestions, this.hintName});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 5),
+      margin: EdgeInsets.only(top: 22),
       width: 220,
-      child: TextFormField(
-        controller: controller,
-        obscureText: isObscureText,
-        enabled: isEnable,
-        keyboardType: inputType,
-        decoration: InputDecoration(
+      child: SearchField(
+        suggestionState: Suggestion.expand,
+        searchInputDecoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
           ),
@@ -32,6 +27,13 @@ class getTextDataTable extends StatelessWidget {
           fillColor: Colors.grey[200],
           filled: true,
         ),
+        suggestions: suggestions,
+        textInputAction: TextInputAction.next,
+        hasOverlay: true,
+        controller: controller,
+        maxSuggestionsInViewPort: 5,
+        itemHeight: 45,
+        onSuggestionTap: (x) {},
       ),
     );
   }

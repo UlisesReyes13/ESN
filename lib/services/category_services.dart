@@ -115,4 +115,8 @@ class CategoryService {
     return await _repository.readCodigoPostal("tb_CPs" , CodigoPostalModel(ClaveCP: int.parse(CP)));
   }
 
+  readCategoriesComunidades() async{
+    return await _repository.readData('tb_Comunidades');
+  }
+
 }

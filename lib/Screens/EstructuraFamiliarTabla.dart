@@ -33,8 +33,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento1 = TextEditingController();
   final _estadoCivil1 = TextEditingController();
   final _parentesco1 = TextEditingController();
-  final _ingresoSemanal1 = TextEditingController();
-  final _ingresoMensual1 = TextEditingController();
 
 
   final _nombre2 = TextEditingController();
@@ -45,9 +43,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento2 = TextEditingController();
   final _estadoCivil2 = TextEditingController();
   final _parentesco2 = TextEditingController();
-  final _ingresoSemanal2 = TextEditingController();
-  final _ingresoMensual2 = TextEditingController();
-
 
   final _nombre3 = TextEditingController();
   final _primerApellido3 = TextEditingController();
@@ -57,9 +52,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento3 = TextEditingController();
   final _estadoCivil3 = TextEditingController();
   final _parentesco3 = TextEditingController();
-  final _ingresoSemanal3 = TextEditingController();
-  final _ingresoMensual3 = TextEditingController();
-
 
   final _nombre4 = TextEditingController();
   final _primerApellido4 = TextEditingController();
@@ -69,9 +61,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento4 = TextEditingController();
   final _estadoCivil4 = TextEditingController();
   final _parentesco4 = TextEditingController();
-  final _ingresoSemanal4 = TextEditingController();
-  final _ingresoMensual4 = TextEditingController();
-
 
   final _nombre5 = TextEditingController();
   final _primerApellido5 = TextEditingController();
@@ -81,9 +70,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento5 = TextEditingController();
   final _estadoCivil5 = TextEditingController();
   final _parentesco5 = TextEditingController();
-  final _ingresoSemanal5 = TextEditingController();
-  final _ingresoMensual5 = TextEditingController();
-
 
   final _nombre6 = TextEditingController();
   final _primerApellido6 = TextEditingController();
@@ -93,8 +79,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento6 = TextEditingController();
   final _estadoCivil6 = TextEditingController();
   final _parentesco6 = TextEditingController();
-  final _ingresoSemanal6 = TextEditingController();
-  final _ingresoMensual6 = TextEditingController();
 
   final _nombre7 = TextEditingController();
   final _primerApellido7 = TextEditingController();
@@ -104,8 +88,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento7 = TextEditingController();
   final _estadoCivil7 = TextEditingController();
   final _parentesco7 = TextEditingController();
-  final _ingresoSemanal7 = TextEditingController();
-  final _ingresoMensual7 = TextEditingController();
 
   final _nombre8 = TextEditingController();
   final _primerApellido8 = TextEditingController();
@@ -115,9 +97,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento8 = TextEditingController();
   final _estadoCivil8 = TextEditingController();
   final _parentesco8 = TextEditingController();
-  final _ingresoSemanal8 = TextEditingController();
-  final _ingresoMensual8 = TextEditingController();
-
 
   final _nombre9 = TextEditingController();
   final _primerApellido9 = TextEditingController();
@@ -127,8 +106,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento9 = TextEditingController();
   final _estadoCivil9 = TextEditingController();
   final _parentesco9 = TextEditingController();
-  final _ingresoSemanal9 = TextEditingController();
-  final _ingresoMensual9 = TextEditingController();
 
   final _nombre10 = TextEditingController();
   final _primerApellido10 = TextEditingController();
@@ -138,8 +115,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento10 = TextEditingController();
   final _estadoCivil10 = TextEditingController();
   final _parentesco10 = TextEditingController();
-  final _ingresoSemanal10 = TextEditingController();
-  final _ingresoMensual10 = TextEditingController();
 
   var dbHelper;
   List<EstadosCiviles> _EstadosCiviles = List<EstadosCiviles>();
@@ -251,8 +226,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
@@ -360,8 +333,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -385,8 +356,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco2.text.toString().substring(0, 1),
           ordenParentesco: _parentesco2.text.toString().substring(0, 1),
           parentesco: parentesco2.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -533,8 +502,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -558,8 +525,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco2.text.toString().substring(0, 1),
           ordenParentesco: _parentesco2.text.toString().substring(0, 1),
           parentesco: parentesco2.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -585,8 +550,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco3.text.toString().substring(0, 1),
           ordenParentesco: _parentesco3.text.toString().substring(0, 1),
           parentesco: parentesco3.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel3).then((
           estructuraFamilar) {
@@ -772,8 +735,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -797,8 +758,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco2.text.toString().substring(0, 1),
           ordenParentesco: _parentesco2.text.toString().substring(0, 1),
           parentesco: parentesco2.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -824,8 +783,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco3.text.toString().substring(0, 1),
           ordenParentesco: _parentesco3.text.toString().substring(0, 1),
           parentesco: parentesco3.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel3).then((
           estructuraFamilar) {
@@ -851,8 +808,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco4.text.toString().substring(0, 1),
           ordenParentesco: _parentesco4.text.toString().substring(0, 1),
           parentesco: parentesco4.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel4).then((
           estructuraFamilar) {
@@ -1074,8 +1029,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -1099,8 +1052,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco2.text.toString().substring(0, 1),
           ordenParentesco: _parentesco2.text.toString().substring(0, 1),
           parentesco: parentesco2.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -1126,8 +1077,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco3.text.toString().substring(0, 1),
           ordenParentesco: _parentesco3.text.toString().substring(0, 1),
           parentesco: parentesco3.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel3).then((
           estructuraFamilar) {
@@ -1153,8 +1102,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco4.text.toString().substring(0, 1),
           ordenParentesco: _parentesco4.text.toString().substring(0, 1),
           parentesco: parentesco4.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel4).then((
           estructuraFamilar) {
@@ -1181,8 +1128,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco5.text.toString().substring(0, 1),
           ordenParentesco: _parentesco5.text.toString().substring(0, 1),
           parentesco: parentesco5.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel5).then((
           estructuraFamilar) {
@@ -1440,8 +1385,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -1465,8 +1408,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco2.text.toString().substring(0, 1),
           ordenParentesco: _parentesco2.text.toString().substring(0, 1),
           parentesco: parentesco2.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -1492,8 +1433,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco3.text.toString().substring(0, 1),
           ordenParentesco: _parentesco3.text.toString().substring(0, 1),
           parentesco: parentesco3.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel3).then((
           estructuraFamilar) {
@@ -1519,8 +1458,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco4.text.toString().substring(0, 1),
           ordenParentesco: _parentesco4.text.toString().substring(0, 1),
           parentesco: parentesco4.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel4).then((
           estructuraFamilar) {
@@ -1547,8 +1484,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco5.text.toString().substring(0, 1),
           ordenParentesco: _parentesco5.text.toString().substring(0, 1),
           parentesco: parentesco5.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel5).then((
           estructuraFamilar) {
@@ -1574,8 +1509,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco6.text.toString().substring(0, 1),
           ordenParentesco: _parentesco6.text.toString().substring(0, 1),
           parentesco: parentesco6.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel6).then((
           estructuraFamilar) {
@@ -1867,8 +1800,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -1892,8 +1823,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco2.text.toString().substring(0, 1),
           ordenParentesco: _parentesco2.text.toString().substring(0, 1),
           parentesco: parentesco2.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -1919,8 +1848,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco3.text.toString().substring(0, 1),
           ordenParentesco: _parentesco3.text.toString().substring(0, 1),
           parentesco: parentesco3.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel3).then((
           estructuraFamilar) {
@@ -1946,8 +1873,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco4.text.toString().substring(0, 1),
           ordenParentesco: _parentesco4.text.toString().substring(0, 1),
           parentesco: parentesco4.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel4).then((
           estructuraFamilar) {
@@ -1974,8 +1899,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco5.text.toString().substring(0, 1),
           ordenParentesco: _parentesco5.text.toString().substring(0, 1),
           parentesco: parentesco5.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel5).then((
           estructuraFamilar) {
@@ -2001,8 +1924,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco6.text.toString().substring(0, 1),
           ordenParentesco: _parentesco6.text.toString().substring(0, 1),
           parentesco: parentesco6.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel6).then((
           estructuraFamilar) {
@@ -2029,8 +1950,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco7.text.toString().substring(0, 1),
           ordenParentesco: _parentesco7.text.toString().substring(0, 1),
           parentesco: parentesco7.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal7.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual7.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel7).then((
           estructuraFamilar) {
@@ -2358,8 +2277,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -2383,8 +2300,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco2.text.toString().substring(0, 1),
           ordenParentesco: _parentesco2.text.toString().substring(0, 1),
           parentesco: parentesco2.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -2410,8 +2325,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco3.text.toString().substring(0, 1),
           ordenParentesco: _parentesco3.text.toString().substring(0, 1),
           parentesco: parentesco3.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel3).then((
           estructuraFamilar) {
@@ -2437,8 +2350,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco4.text.toString().substring(0, 1),
           ordenParentesco: _parentesco4.text.toString().substring(0, 1),
           parentesco: parentesco4.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel4).then((
           estructuraFamilar) {
@@ -2465,8 +2376,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco5.text.toString().substring(0, 1),
           ordenParentesco: _parentesco5.text.toString().substring(0, 1),
           parentesco: parentesco5.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel5).then((
           estructuraFamilar) {
@@ -2492,8 +2401,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco6.text.toString().substring(0, 1),
           ordenParentesco: _parentesco6.text.toString().substring(0, 1),
           parentesco: parentesco6.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel6).then((
           estructuraFamilar) {
@@ -2520,8 +2427,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco7.text.toString().substring(0, 1),
           ordenParentesco: _parentesco7.text.toString().substring(0, 1),
           parentesco: parentesco7.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal7.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual7.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel7).then((
           estructuraFamilar) {
@@ -2547,8 +2452,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco8.text.toString().substring(0, 1),
           ordenParentesco: _parentesco8.text.toString().substring(0, 1),
           parentesco: parentesco8.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal8.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual8.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel8).then((
           estructuraFamilar) {
@@ -2912,8 +2815,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -2937,8 +2838,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco2.text.toString().substring(0, 1),
           ordenParentesco: _parentesco2.text.toString().substring(0, 1),
           parentesco: parentesco2.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -2964,8 +2863,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco3.text.toString().substring(0, 1),
           ordenParentesco: _parentesco3.text.toString().substring(0, 1),
           parentesco: parentesco3.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel3).then((
           estructuraFamilar) {
@@ -2991,8 +2888,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco4.text.toString().substring(0, 1),
           ordenParentesco: _parentesco4.text.toString().substring(0, 1),
           parentesco: parentesco4.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel4).then((
           estructuraFamilar) {
@@ -3019,8 +2914,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco5.text.toString().substring(0, 1),
           ordenParentesco: _parentesco5.text.toString().substring(0, 1),
           parentesco: parentesco5.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel5).then((
           estructuraFamilar) {
@@ -3046,8 +2939,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco6.text.toString().substring(0, 1),
           ordenParentesco: _parentesco6.text.toString().substring(0, 1),
           parentesco: parentesco6.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel6).then((
           estructuraFamilar) {
@@ -3074,8 +2965,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco7.text.toString().substring(0, 1),
           ordenParentesco: _parentesco7.text.toString().substring(0, 1),
           parentesco: parentesco7.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal7.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual7.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel7).then((
           estructuraFamilar) {
@@ -3101,8 +2990,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco8.text.toString().substring(0, 1),
           ordenParentesco: _parentesco8.text.toString().substring(0, 1),
           parentesco: parentesco8.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal8.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual8.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel8).then((
           estructuraFamilar) {
@@ -3128,8 +3015,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco9.text.toString().substring(0, 1),
           ordenParentesco: _parentesco9.text.toString().substring(0, 1),
           parentesco: parentesco9.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal9.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual9.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel9).then((
           estructuraFamilar) {
@@ -3529,8 +3414,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco1.text.toString().substring(0, 1),
           ordenParentesco: _parentesco1.text.toString().substring(0, 1),
           parentesco: parentesco.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal1.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual1.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -3554,8 +3437,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco2.text.toString().substring(0, 1),
           ordenParentesco: _parentesco2.text.toString().substring(0, 1),
           parentesco: parentesco2.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal2.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual2.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -3581,8 +3462,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco3.text.toString().substring(0, 1),
           ordenParentesco: _parentesco3.text.toString().substring(0, 1),
           parentesco: parentesco3.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal3.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual3.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel3).then((
           estructuraFamilar) {
@@ -3608,8 +3487,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco4.text.toString().substring(0, 1),
           ordenParentesco: _parentesco4.text.toString().substring(0, 1),
           parentesco: parentesco4.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal4.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual4.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel4).then((
           estructuraFamilar) {
@@ -3636,8 +3513,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco5.text.toString().substring(0, 1),
           ordenParentesco: _parentesco5.text.toString().substring(0, 1),
           parentesco: parentesco5.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal5.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual5.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel5).then((
           estructuraFamilar) {
@@ -3663,8 +3538,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco6.text.toString().substring(0, 1),
           ordenParentesco: _parentesco6.text.toString().substring(0, 1),
           parentesco: parentesco6.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal6.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual6.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel6).then((
           estructuraFamilar) {
@@ -3691,8 +3564,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco7.text.toString().substring(0, 1),
           ordenParentesco: _parentesco7.text.toString().substring(0, 1),
           parentesco: parentesco7.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal7.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual7.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel7).then((
           estructuraFamilar) {
@@ -3718,8 +3589,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco8.text.toString().substring(0, 1),
           ordenParentesco: _parentesco8.text.toString().substring(0, 1),
           parentesco: parentesco8.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal8.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual8.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel8).then((
           estructuraFamilar) {
@@ -3745,8 +3614,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco9.text.toString().substring(0, 1),
           ordenParentesco: _parentesco9.text.toString().substring(0, 1),
           parentesco: parentesco9.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal9.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual9.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel9).then((
           estructuraFamilar) {
@@ -3772,8 +3639,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           claveParentesco: _parentesco10.text.toString().substring(0, 1),
           ordenParentesco: _parentesco10.text.toString().substring(0, 1),
           parentesco: parentesco10.trimLeft(),
-          ingresoSemanal: int.parse(_ingresoSemanal10.text.toString()),
-          ingresoMensual: int.parse(_ingresoMensual10.text.toString())
       );
       await dbHelper.saveEstructuraFamiliar(DModel10).then((
           estructuraFamilar) {
@@ -3831,7 +3696,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                             columnSpacing: 30,
                             dataRowHeight: 100,
                             columns: [
-                              DataColumn(label: Text('No.')),
+                              DataColumn(label: Text('No.',)),
                               DataColumn(label: Text('Nombres')),
                               DataColumn(label: Text('Apellido Paterno')),
                               DataColumn(label: Text('Apeliido Materno')),
@@ -3840,15 +3705,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               DataColumn(label: Text('Entidad de Nacimiento')),
                               DataColumn(label: Text('Estado Civil')),
                               DataColumn(label: Text('Parentesco')),
-                              DataColumn(label: Text('Ingreso Semanal')),
-                              DataColumn(label: Text('Ingreso Mensual')),
                             ],
                             rows: [
                               DataRow(cells: [
                                 DataCell(Text('1')),
-                                DataCell(getTextDataTable(controller: _nombre1)),
-                                DataCell(getTextDataTable(controller: _primerApellido1)),
-                                DataCell(getTextDataTable(controller: _segundoApellido1)),
+                                DataCell(getTextDataTable(controller: _nombre1, hintName: 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido1, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido1, hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -3897,7 +3760,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento1,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento1,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -3905,19 +3768,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Entidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -3937,19 +3796,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -3970,19 +3825,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -3995,15 +3846,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal1)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual1)),
                               ]),
 
                               DataRow(cells: [
                                 DataCell(Text('2')),
-                                DataCell(getTextDataTable(controller: _nombre2)),
-                                DataCell(getTextDataTable(controller: _primerApellido2)),
-                                DataCell(getTextDataTable(controller: _segundoApellido2)),
+                                DataCell(getTextDataTable(controller: _nombre2, hintName : 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido2, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido2, hintName : 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -4052,7 +3901,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento2,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento2,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -4060,19 +3909,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Entidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -4093,19 +3938,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -4126,19 +3967,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -4151,15 +3988,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal2)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual2)),
                               ]),
 
                               DataRow(cells: [
                                 DataCell(Text('3')),
-                                DataCell(getTextDataTable(controller: _nombre3)),
-                                DataCell(getTextDataTable(controller: _primerApellido3)),
-                                DataCell(getTextDataTable(controller: _segundoApellido3)),
+                                DataCell(getTextDataTable(controller: _nombre3, hintName: 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido3, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido3, hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -4208,7 +4043,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento3,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento3,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -4216,19 +4051,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Entidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -4249,19 +4080,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -4282,19 +4109,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -4307,15 +4130,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal3)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual3)),
                               ]),
 
                               DataRow(cells: [
                                 DataCell(Text('4')),
-                                DataCell(getTextDataTable(controller: _nombre4)),
-                                DataCell(getTextDataTable(controller: _primerApellido4)),
-                                DataCell(getTextDataTable(controller: _segundoApellido4)),
+                                DataCell(getTextDataTable(controller: _nombre4, hintName: 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido4, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido4, hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -4364,7 +4185,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento4,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento4,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -4372,19 +4193,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Entidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -4405,19 +4222,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -4438,19 +4251,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -4463,15 +4272,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal4)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual4)),
                               ]),
 
                               DataRow(cells: [
                                 DataCell(Text('5')),
-                                DataCell(getTextDataTable(controller: _nombre5)),
-                                DataCell(getTextDataTable(controller: _primerApellido5)),
-                                DataCell(getTextDataTable(controller: _segundoApellido5)),
+                                DataCell(getTextDataTable(controller: _nombre5, hintName: 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido5, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido5, hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -4520,7 +4327,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento5,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento5,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -4528,19 +4335,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -4561,19 +4364,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -4594,19 +4393,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -4619,15 +4414,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal5)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual5)),
                               ]),
 
                               DataRow(cells: [
                                 DataCell(Text('6')),
-                                DataCell(getTextDataTable(controller: _nombre6)),
-                                DataCell(getTextDataTable(controller: _primerApellido6)),
-                                DataCell(getTextDataTable(controller: _segundoApellido6)),
+                                DataCell(getTextDataTable(controller: _nombre6, hintName: 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido6, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido6, hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -4676,7 +4469,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento6,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento6,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -4684,19 +4477,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Entidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -4717,19 +4506,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -4750,19 +4535,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -4775,15 +4556,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal6)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual6)),
                               ]),
 
                               DataRow(cells: [
                                 DataCell(Text('7')),
-                                DataCell(getTextDataTable(controller: _nombre7)),
-                                DataCell(getTextDataTable(controller: _primerApellido7)),
-                                DataCell(getTextDataTable(controller: _segundoApellido7)),
+                                DataCell(getTextDataTable(controller: _nombre7, hintName: 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido7, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido7, hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -4832,7 +4611,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento7,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento7,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -4840,19 +4619,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Entidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -4873,19 +4648,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -4906,19 +4677,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -4931,15 +4698,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal7)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual7)),
                               ]),
 
                               DataRow(cells: [
                                 DataCell(Text('8')),
-                                DataCell(getTextDataTable(controller: _nombre8)),
-                                DataCell(getTextDataTable(controller: _primerApellido8)),
-                                DataCell(getTextDataTable(controller: _segundoApellido8)),
+                                DataCell(getTextDataTable(controller: _nombre8, hintName: 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido8, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido8, hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -4988,7 +4753,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento8,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento8,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -4996,19 +4761,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Entidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -5029,19 +4790,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -5062,19 +4819,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -5087,15 +4840,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal8)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual8)),
                               ]),
 
                               DataRow(cells: [
                                 DataCell(Text('9')),
-                                DataCell(getTextDataTable(controller: _nombre9)),
-                                DataCell(getTextDataTable(controller: _primerApellido9)),
-                                DataCell(getTextDataTable(controller: _segundoApellido9)),
+                                DataCell(getTextDataTable(controller: _nombre9, hintName: 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido9, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido9, hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -5144,7 +4895,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento9,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento9,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -5152,19 +4903,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Entidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -5185,19 +4932,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -5218,19 +4961,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -5243,16 +4982,14 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal9)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual9)),
                               ]),
 
 
                               DataRow(cells: [
                                 DataCell(Text('10')),
-                                DataCell(getTextDataTable(controller: _nombre10)),
-                                DataCell(getTextDataTable(controller: _primerApellido10)),
-                                DataCell(getTextDataTable(controller: _segundoApellido10)),
+                                DataCell(getTextDataTable(controller: _nombre10, hintName: 'Nombres')),
+                                DataCell(getTextDataTable(controller: _primerApellido10, hintName: 'Apellido Paterno')),
+                                DataCell(getTextDataTable(controller: _segundoApellido10, hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
                                     children: <Widget>[
@@ -5301,7 +5038,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento10,hintName: 'YYYY-MM-DD',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento10,hintName: 'DD-MM-YYYY',)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -5309,19 +5046,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Entidad De Nacimiento',
+                                      labelText: 'Entidad De Nacimiento',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Estado.map((estado) =>
                                         SearchFieldListItem(estado.Estado,
@@ -5342,19 +5075,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Estado Civil',
+                                      labelText: 'Estado Civil',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _EstadosCiviles.map((estadosCiviles) =>
                                         SearchFieldListItem(estadosCiviles.EstadoCivil,
@@ -5375,19 +5104,15 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     suggestionState: Suggestion.expand,
                                     searchInputDecoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.black26,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.transparent),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                            width: 2.0,
-                                            color: Colors.blue,
-                                            style: BorderStyle.solid),
+                                        borderSide: BorderSide(color: Colors.blue),
                                       ),
+                                      hintText: 'Parentesco',
+                                      labelText: 'Parentesco',
+                                      fillColor: Colors.grey[200],
                                       filled: true,
-                                      fillColor: Colors.grey[120],
                                     ),
                                     suggestions: _Parentesco.map((parentesco) =>
                                         SearchFieldListItem(parentesco.Parentesco,
@@ -5400,8 +5125,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     onSuggestionTap: (x) {},
                                   ),
                                 ),),
-                                DataCell(getTextDataTable(controller: _ingresoSemanal10)),
-                                DataCell(getTextDataTable(controller: _ingresoMensual10)),
                               ]),
                             ],
                           ),
