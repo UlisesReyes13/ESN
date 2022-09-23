@@ -36,6 +36,7 @@ dependencies:
   intl: ^0.17.0
   get: ^4.6.5
   image_picker: ^0.8.0+1
+  horizontal_data_table: ^3.0.0
 
 dev_dependencies:
   flutter_test:

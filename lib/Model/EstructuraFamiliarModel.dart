@@ -15,9 +15,6 @@ class EstructuraFamilarModel {
   String claveParentesco;
   String ordenParentesco;
   String parentesco;
-  int ingresoSemanal;
-  int ingresoMensual;
-
 
   EstructuraFamilarModel({
     this.folio,
@@ -35,9 +32,8 @@ class EstructuraFamilarModel {
     this.estadoCivil,
     this.claveParentesco,
     this.ordenParentesco,
-    this.parentesco,
-    this.ingresoSemanal,
-    this.ingresoMensual});
+    this.parentesco});
+
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       'folio': folio,
@@ -55,9 +51,7 @@ class EstructuraFamilarModel {
       'estadoCivil': estadoCivil,
       'claveParentesco': claveParentesco,
       'ordenParentesco': ordenParentesco,
-      'parentesco': parentesco,
-      'ingresoSemanal': ingresoSemanal,
-      'ingresoMensual': ingresoMensual
+      'parentesco': parentesco
     };
     return map;
   }
@@ -79,7 +73,5 @@ class EstructuraFamilarModel {
     claveParentesco = map['claveParentesco'];
     ordenParentesco = map['ordenParentesco'];
     parentesco = map['parentesco'];
-    ingresoSemanal = map['ingresoSemanal'];
-    ingresoMensual = map['ingresoMensual'];
   }
 }

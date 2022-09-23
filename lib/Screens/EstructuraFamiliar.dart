@@ -9,6 +9,7 @@ import 'package:esn/Screens/Escolaridad_SeguridadSocial.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Screens/ServiciosCombustible.dart';
+import 'package:horizontal_data_table/horizontal_data_table.dart';
 import 'package:intl/intl.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:esn/Model/Parentesco.dart';
@@ -197,168 +198,10 @@ class _EstructuraFamiliarState extends State<EstructuraFamiliar> {
                 getTextFolio(
                     controller: TextEditingController.fromValue(
                         TextEditingValue(text: widget.folio))),
-                SizedBox(height: 10.0),
-                getTextQuestion(question: 'Nombre(s)'),
-                SizedBox(height: 5.0),
-                getTextField(controller: _nombre),
-                SizedBox(height: 10.0),
-                getTextQuestion(question: 'Primer Apellido'),
-                SizedBox(height: 5.0),
-                getTextField(controller: _primerApellido),
-                SizedBox(height: 10.0),
-                getTextQuestion(question: 'Segundo Apellido'),
-                SizedBox(height: 5.0),
-                getTextField(controller: _segundoApellido),
-                SizedBox(height: 10.0),
-                getTextQuestion(question: 'Sexo'),
-                ListTile(
-                  title: Text('Hombre'),
-                  leading: Radio<Sexo>(
-                    value: Sexo.hombre,
-                    groupValue: _sexo,
-                    onChanged: (Sexo value) {
-                      setState(() {
-                        _sexo = value;
-                      });
-                    },
-                  ),
-                ),
-                ListTile(
-                  title: Text('Mujer'),
-                  leading: Radio<Sexo>(
-                    value: Sexo.mujer,
-                    groupValue: _sexo,
-                    onChanged: (Sexo value) {
-                      setState(() {
-                        _sexo = value;
-                      });
-                    },
-                  ),
-                ),
-                ListTile(
-                  title: Text('Otro'),
-                  leading: Radio<Sexo>(
-                    value: Sexo.otro,
-                    groupValue: _sexo,
-                    onChanged: (Sexo value) {
-                      setState(() {
-                        _sexo = value;
-                      });
-                    },
-                  ),
-                ),
-                SizedBox(height: 10.0),
-                getTextQuestion(question: 'Fecha De Nacimiento'),
-                SizedBox(height: 5.0),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: TextField(
-                    controller: _fechaNacimiento,
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              width: 2.0,
-                              color: Colors.black26,
-                              style: BorderStyle.solid),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              width: 2.0,
-                              color: Colors.blue,
-                              style: BorderStyle.solid),
-                        ),
-                        fillColor: Colors.grey[120],
-                        filled: true),
-                    onTap: () async {
-                      DateTime pickeddate = await showDatePicker(
-                          context: context,
-                          initialDate: null,
-                          firstDate: DateTime(1800),
-                          lastDate: DateTime(2100));
+               Container(
 
-                      if (pickeddate != null) {
-                        setState(() {
-                          _fechaNacimiento.text =
-                              DateFormat('yyyy-MM-dd').format(pickeddate);
-                        });
-                      }
-                    },
-                  ),
-                ),
-                SizedBox(height: 10.0),
-                getTextQuestion(question: 'Entidad De Nacimiento'),
-                SizedBox(height: 5.0),
-                getTextField(controller: _entidadNacimiento),
+               ),
 
-                SizedBox(height: 10.0),
-                getTextQuestion(question: 'Estado Civil'),
-                //Menu desplegable Estado Civil
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: SearchField(
-                    suggestionState: Suggestion.expand,
-                    searchInputDecoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 2.0,
-                            color: Colors.black26,
-                            style: BorderStyle.solid),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 2.0,
-                            color: Colors.blue,
-                            style: BorderStyle.solid),
-                      ),
-                      filled: true,
-                      fillColor: Colors.grey[120],
-                    ),
-                    suggestions: _EstadosCiviles.map((estadosCiviles) =>
-                        SearchFieldListItem(estadosCiviles.EstadoCivil,
-                            item: estadosCiviles)).toList(),
-                    textInputAction: TextInputAction.next,
-                    hasOverlay: false,
-                    controller: _estadoCivil,
-                    maxSuggestionsInViewPort: 5,
-                    itemHeight: 45,
-                    onSuggestionTap: (x) {},
-                  ),
-                ),
-
-                SizedBox(height: 10.0),
-                getTextQuestion(question: 'Parentesco'),
-                //Menu desplegable parentesco
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: SearchField(
-                    suggestionState: Suggestion.expand,
-                    searchInputDecoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 2.0,
-                            color: Colors.black26,
-                            style: BorderStyle.solid),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 2.0,
-                            color: Colors.blue,
-                            style: BorderStyle.solid),
-                      ),
-                      filled: true,
-                      fillColor: Colors.grey[120],
-                    ),
-                    suggestions: _Parentesco.map((parentesco) =>
-                        SearchFieldListItem(parentesco.Parentesco,
-                            item: parentesco)).toList(),
-                    textInputAction: TextInputAction.next,
-                    hasOverlay: false,
-                    controller: _parentesco,
-                    maxSuggestionsInViewPort: 5,
-                    itemHeight: 45,
-                    onSuggestionTap: (x) {},
-                  ),
-                ),
                 SizedBox(height: 10.0),
                 Container(
                   child: Row(
