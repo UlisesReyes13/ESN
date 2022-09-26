@@ -9,7 +9,6 @@ import 'package:esn/Screens/Escolaridad_SeguridadSocial.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Screens/ServiciosCombustible.dart';
-import 'package:horizontal_data_table/horizontal_data_table.dart';
 import 'package:intl/intl.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:esn/Model/Parentesco.dart';

@@ -8,6 +8,7 @@ import 'package:esn/Model/EstadosModel.dart';
 import 'package:esn/Model/EstructuraFamiliarModel.dart';
 import 'package:esn/Model/Parentesco.dart';
 import 'package:esn/Screens/Escolaridad_SeguridadSocial.dart';
+import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/ServiciosCombustible.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -3645,7 +3646,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
