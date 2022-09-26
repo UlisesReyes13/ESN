@@ -34,14 +34,97 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   List<TipoEmpleoModel> _TipoEmpleo = List<TipoEmpleoModel>();
   List<DerechoHabienciasModel> _Derechohabiencia = List<DerechoHabienciasModel>();
   List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia = List<MotivoDerechoHabienciasModel>();
-  final _escolaridad = TextEditingController();
-  final _gradoEscolar = TextEditingController();
-  final _ocupacion = TextEditingController();
-  final _tipoEmpleo = TextEditingController();
-  final _derechohabiencia = TextEditingController();
-  final _motivoderechohabiencia = TextEditingController();
-  AsisteEscuela _asisteEscuela = AsisteEscuela.si;
-  JubilacionPensionado _jubilacionPensionado = JubilacionPensionado.na;
+
+  final _escolaridad1 = TextEditingController();
+  final _gradoEscolar1 = TextEditingController();
+  final _ocupacion1 = TextEditingController();
+  final _tipoEmpleo1 = TextEditingController();
+  final _derechohabiencia1 = TextEditingController();
+  final _motivoderechohabiencia1 = TextEditingController();
+  AsisteEscuela _asisteEscuela1 = AsisteEscuela.si;
+  JubilacionPensionado _jubilacionPensionado1;
+
+
+  final _escolaridad2 = TextEditingController();
+  final _gradoEscolar2 = TextEditingController();
+  final _ocupacion2 = TextEditingController();
+  final _tipoEmpleo2 = TextEditingController();
+  final _derechohabiencia2 = TextEditingController();
+  final _motivoderechohabiencia2 = TextEditingController();
+  AsisteEscuela _asisteEscuela2;
+  JubilacionPensionado _jubilacionPensionado2;
+
+  final _escolaridad3 = TextEditingController();
+  final _gradoEscolar3 = TextEditingController();
+  final _ocupacion3 = TextEditingController();
+  final _tipoEmpleo3 = TextEditingController();
+  final _derechohabiencia3 = TextEditingController();
+  final _motivoderechohabiencia3 = TextEditingController();
+  AsisteEscuela _asisteEscuela3;
+  JubilacionPensionado _jubilacionPensionado3;
+
+  final _escolaridad4 = TextEditingController();
+  final _gradoEscolar4 = TextEditingController();
+  final _ocupacion4 = TextEditingController();
+  final _tipoEmpleo4 = TextEditingController();
+  final _derechohabiencia4 = TextEditingController();
+  final _motivoderechohabiencia4 = TextEditingController();
+  AsisteEscuela _asisteEscuela4;
+  JubilacionPensionado _jubilacionPensionado4;
+
+  final _escolaridad5 = TextEditingController();
+  final _gradoEscolar5 = TextEditingController();
+  final _ocupacion5 = TextEditingController();
+  final _tipoEmpleo5 = TextEditingController();
+  final _derechohabiencia5 = TextEditingController();
+  final _motivoderechohabiencia5 = TextEditingController();
+  AsisteEscuela _asisteEscuela5;
+  JubilacionPensionado _jubilacionPensionado5;
+
+  final _escolaridad6 = TextEditingController();
+  final _gradoEscolar6 = TextEditingController();
+  final _ocupacion6 = TextEditingController();
+  final _tipoEmpleo6 = TextEditingController();
+  final _derechohabiencia6 = TextEditingController();
+  final _motivoderechohabiencia6 = TextEditingController();
+  AsisteEscuela _asisteEscuela6;
+  JubilacionPensionado _jubilacionPensionado6;
+
+  final _escolaridad7 = TextEditingController();
+  final _gradoEscolar7 = TextEditingController();
+  final _ocupacion7 = TextEditingController();
+  final _tipoEmpleo7 = TextEditingController();
+  final _derechohabiencia7 = TextEditingController();
+  final _motivoderechohabiencia7 = TextEditingController();
+  AsisteEscuela _asisteEscuela7;
+  JubilacionPensionado _jubilacionPensionado7;
+
+  final _escolaridad8 = TextEditingController();
+  final _gradoEscolar8 = TextEditingController();
+  final _ocupacion8 = TextEditingController();
+  final _tipoEmpleo8 = TextEditingController();
+  final _derechohabiencia8 = TextEditingController();
+  final _motivoderechohabiencia8 = TextEditingController();
+  AsisteEscuela _asisteEscuela8;
+  JubilacionPensionado _jubilacionPensionado8;
+
+  final _escolaridad9 = TextEditingController();
+  final _gradoEscolar9 = TextEditingController();
+  final _ocupacion9 = TextEditingController();
+  final _tipoEmpleo9 = TextEditingController();
+  final _derechohabiencia9 = TextEditingController();
+  final _motivoderechohabiencia9 = TextEditingController();
+  AsisteEscuela _asisteEscuela9;
+  JubilacionPensionado _jubilacionPensionado9;
+
+  final _escolaridad10 = TextEditingController();
+  final _gradoEscolar10 = TextEditingController();
+  final _ocupacion10 = TextEditingController();
+  final _tipoEmpleo10 = TextEditingController();
+  final _derechohabiencia10 = TextEditingController();
+  final _motivoderechohabiencia10 = TextEditingController();
+  AsisteEscuela _asisteEscuela10;
+  JubilacionPensionado _jubilacionPensionado10;
 
   final dataList = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
@@ -183,7 +266,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                               DataColumn(label: Text('Escolaridad')),
                               DataColumn(label: Text('Grado')),
                               DataColumn(label: Text('Asisiste Escuela')),
-                              DataColumn(label: Text('Ocupacion')),
+                              DataColumn(label: Text('Ocupación')),
                               DataColumn(label: Text('Tipo De Empleo')),
                               DataColumn(label: Text('Prestaciones Laborales')),
                               DataColumn(label: Text('Jubilado o Pensionado')),
@@ -193,12 +276,14 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                             rows: [
                               DataRow(cells: [
                                 DataCell(Text('1')),
-                                DataCell(getSearchField(controller: _escolaridad,
+                                DataCell(getSearchField(controller: _escolaridad1,
                                 suggestions: _Escolaridad.map((escolaridad) =>
-                                    SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),)),
-                                DataCell(getSearchField(controller: _gradoEscolar,
+                                    SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar1,
                                 suggestions: _GradoEscolar.map((gradoEscolar) =>
-                                    SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),)),
+                                    SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                    hintName: 'Grado')),
                                 DataCell(Row(
                                   children: <Widget>[
                                     Expanded(
@@ -206,10 +291,10 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                         title: Text('Si'),
                                         leading: Radio<AsisteEscuela>(
                                           value: AsisteEscuela.si,
-                                          groupValue: _asisteEscuela,
+                                          groupValue: _asisteEscuela1,
                                           onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _asisteEscuela = value;
+                                              _asisteEscuela1 = value;
                                             });
                                           },
                                         ),
@@ -220,10 +305,10 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                         title: Text('No'),
                                         leading: Radio<AsisteEscuela>(
                                           value: AsisteEscuela.no,
-                                          groupValue: _asisteEscuela,
+                                          groupValue: _asisteEscuela1,
                                           onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _asisteEscuela = value;
+                                              _asisteEscuela1= value;
                                             });
                                           },
                                         ),
@@ -234,10 +319,10 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                         title: Text('Otro'),
                                         leading: Radio<AsisteEscuela>(
                                           value: AsisteEscuela.na,
-                                          groupValue: _asisteEscuela,
+                                          groupValue: _asisteEscuela1,
                                           onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _asisteEscuela = value;
+                                              _asisteEscuela1 = value;
                                             });
                                           },
                                         ),
@@ -246,12 +331,14 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                   ],
                                 ),
                                 ),
-                                DataCell(getSearchField(controller: _ocupacion,
+                                DataCell(getSearchField(controller: _ocupacion1,
                                 suggestions: _Ocupacion.map((ocupacion) =>
-                                    SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),)),
-                                DataCell(getSearchField(controller: _tipoEmpleo,
+                                    SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                    hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo1,
                                 suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                    SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),)),
+                                    SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                    hintName: 'Tipo De Empleo')),
                                 DataCell(
                                   Container(
                                     child: SingleChildScrollView(
@@ -270,10 +357,10 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                         title: Text('Si'),
                                         leading: Radio<JubilacionPensionado>(
                                           value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado,
+                                          groupValue: _jubilacionPensionado1,
                                           onChanged: (JubilacionPensionado value) {
                                             setState(() {
-                                              _jubilacionPensionado = value;
+                                              _jubilacionPensionado1 = value;
                                             });
                                           },
                                         ),
@@ -284,10 +371,24 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                         title: Text('No'),
                                         leading: Radio<JubilacionPensionado>(
                                           value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado,
+                                          groupValue: _jubilacionPensionado1,
                                           onChanged: (JubilacionPensionado value) {
                                             setState(() {
-                                              _jubilacionPensionado = value;
+                                              _jubilacionPensionado1 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado1,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado1 = value;
                                             });
                                           },
                                         ),
@@ -295,12 +396,1203 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     ),
                                   ],
                                 )),
-                                DataCell(getSearchField(controller: _derechohabiencia,
+                                DataCell(getSearchField(controller: _derechohabiencia1,
                                 suggestions: _Derechohabiencia.map((derechohabiencia) =>
-                                    SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),)),
-                                DataCell(getSearchField(controller: _motivoderechohabiencia,
+                                    SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia1,
                                 suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
-                                    SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),))
+                                    SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'))
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('2')),
+                                DataCell(getSearchField(controller: _escolaridad2,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar2,
+                                  suggestions: _GradoEscolar.map((gradoEscolar) =>
+                                      SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                    hintName: 'Grado')),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela2,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela2 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela2,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela2 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela2,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela2 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ),
+                                DataCell(getSearchField(controller: _ocupacion2,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                    hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo2,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                    hintName: 'Tipo De Empleo')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Obx(() =>Column(children: genarateItems())
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.si,
+                                          groupValue: _jubilacionPensionado2,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado2 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.no,
+                                          groupValue: _jubilacionPensionado2,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado2 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado2,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado2 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                                DataCell(getSearchField(controller: _derechohabiencia2,
+                                  suggestions: _Derechohabiencia.map((derechohabiencia) =>
+                                      SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia2,
+                                  suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
+                                      SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'))
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('3')),
+                                DataCell(getSearchField(controller: _escolaridad3,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar3,
+                                  suggestions: _GradoEscolar.map((gradoEscolar) =>
+                                      SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                    hintName: 'Grado')),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela3,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela3 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela3,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela3 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela3,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela3 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ),
+                                DataCell(getSearchField(controller: _ocupacion3,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                    hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo3,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                    hintName: 'Tipo De Empleo')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Obx(() =>Column(children: genarateItems())
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.si,
+                                          groupValue: _jubilacionPensionado3,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado3 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.no,
+                                          groupValue: _jubilacionPensionado3,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado3 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado3,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado3 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                                DataCell(getSearchField(controller: _derechohabiencia3,
+                                  suggestions: _Derechohabiencia.map((derechohabiencia) =>
+                                      SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia3,
+                                  suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
+                                      SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'))
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('4')),
+                                DataCell(getSearchField(controller: _escolaridad4,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar4,
+                                  suggestions: _GradoEscolar.map((gradoEscolar) =>
+                                      SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                    hintName: 'Grado')),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela4,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela4 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela4,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela4 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela4,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela4 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ),
+                                DataCell(getSearchField(controller: _ocupacion4,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                    hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo4,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                    hintName: 'Tipo De Empleo')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Obx(() =>Column(children: genarateItems())
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.si,
+                                          groupValue: _jubilacionPensionado4,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado4 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.no,
+                                          groupValue: _jubilacionPensionado4,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado4 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado4,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado4 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                                DataCell(getSearchField(controller: _derechohabiencia4,
+                                  suggestions: _Derechohabiencia.map((derechohabiencia) =>
+                                      SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia4,
+                                  suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
+                                      SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'))
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('5')),
+                                DataCell(getSearchField(controller: _escolaridad5,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar5,
+                                  suggestions: _GradoEscolar.map((gradoEscolar) =>
+                                      SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                    hintName: 'Grado')),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela5,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela5 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela5,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela5 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela5,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela5 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ),
+                                DataCell(getSearchField(controller: _ocupacion5,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                    hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo5,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                    hintName: 'Tipo de Empleo')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Obx(() =>Column(children: genarateItems())
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.si,
+                                          groupValue: _jubilacionPensionado5,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado5 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.no,
+                                          groupValue: _jubilacionPensionado5,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado5 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado5,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado5 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                                DataCell(getSearchField(controller: _derechohabiencia5,
+                                  suggestions: _Derechohabiencia.map((derechohabiencia) =>
+                                      SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia5,
+                                  suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
+                                      SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'))
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('6')),
+                                DataCell(getSearchField(controller: _escolaridad6,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar6,
+                                  suggestions: _GradoEscolar.map((gradoEscolar) =>
+                                      SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                    hintName: 'Grado')),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela6,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela6 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela6,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela6 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela6,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela6 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ),
+                                DataCell(getSearchField(controller: _ocupacion6,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                    hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo6,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                    hintName: 'Tipo De Empleo')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Obx(() =>Column(children: genarateItems())
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.si,
+                                          groupValue: _jubilacionPensionado6,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado6 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.no,
+                                          groupValue: _jubilacionPensionado6,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado6 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado6,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado6 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                                DataCell(getSearchField(controller: _derechohabiencia6,
+                                  suggestions: _Derechohabiencia.map((derechohabiencia) =>
+                                      SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia6,
+                                  suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
+                                      SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'))
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('7')),
+                                DataCell(getSearchField(controller: _escolaridad7,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar7,
+                                  suggestions: _GradoEscolar.map((gradoEscolar) =>
+                                      SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                    hintName: 'Grado')),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela7,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela7 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela7,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela7 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela7,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela7 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ),
+                                DataCell(getSearchField(controller: _ocupacion7,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                    hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo7,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                    hintName: 'Tipo de Empleo')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Obx(() =>Column(children: genarateItems())
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.si,
+                                          groupValue: _jubilacionPensionado7,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado7 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.no,
+                                          groupValue: _jubilacionPensionado7,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado7 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado7,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado7 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                                DataCell(getSearchField(controller: _derechohabiencia7,
+                                  suggestions: _Derechohabiencia.map((derechohabiencia) =>
+                                      SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia7,
+                                  suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
+                                      SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'))
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('8')),
+                                DataCell(getSearchField(controller: _escolaridad8,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar8,
+                                  suggestions: _GradoEscolar.map((gradoEscolar) =>
+                                      SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                    hintName: 'Grado')),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela8,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela8 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela8,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela8 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela8,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela8 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ),
+                                DataCell(getSearchField(controller: _ocupacion8,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                    hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo8,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                    hintName: 'Tipo De Empleo')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Obx(() =>Column(children: genarateItems())
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.si,
+                                          groupValue: _jubilacionPensionado8,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado8 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.no,
+                                          groupValue: _jubilacionPensionado8,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado8 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado8,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado8 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                                DataCell(getSearchField(controller: _derechohabiencia8,
+                                  suggestions: _Derechohabiencia.map((derechohabiencia) =>
+                                      SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia8,
+                                  suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
+                                      SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'))
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('9')),
+                                DataCell(getSearchField(controller: _escolaridad9,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar9,
+                                  suggestions: _GradoEscolar.map((gradoEscolar) =>
+                                      SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                    hintName: 'Grado')),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela9,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela9 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela9,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela9 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela9,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela9 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ),
+                                DataCell(getSearchField(controller: _ocupacion9,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                    hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo9,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                    hintName: 'Tipo de Empleo')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Obx(() =>Column(children: genarateItems())
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.si,
+                                          groupValue: _jubilacionPensionado9,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado9 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.no,
+                                          groupValue: _jubilacionPensionado9,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado9 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado9,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado9 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                                DataCell(getSearchField(controller: _derechohabiencia9,
+                                  suggestions: _Derechohabiencia.map((derechohabiencia) =>
+                                      SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia9,
+                                  suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
+                                      SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'
+                                ))
+                              ]),
+
+                              DataRow(cells: [
+                                DataCell(Text('10')),
+                                DataCell(getSearchField(controller: _escolaridad10,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(escolaridad.escolaridad, item: escolaridad)).toList(),
+                                    hintName: 'Escolaridad')),
+                                DataCell(getSearchField(controller: _gradoEscolar10,
+                                  suggestions: _GradoEscolar.map((gradoEscolar) =>
+                                      SearchFieldListItem(gradoEscolar.grado, item: gradoEscolar)).toList(),
+                                hintName: 'Grado')),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela10,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela10 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela10,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela10 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela10,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela10 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ),
+                                DataCell(getSearchField(controller: _ocupacion10,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion, item: ocupacion)).toList(),
+                                hintName: 'Ocupación')),
+                                DataCell(getSearchField(controller: _tipoEmpleo10,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo, item: tipoEmpleo)).toList(),
+                                hintName: 'Tipo De Empleo')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Obx(() =>Column(children: genarateItems())
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.si,
+                                          groupValue: _jubilacionPensionado10,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado10 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.no,
+                                          groupValue: _jubilacionPensionado10,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado10 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('N/A'),
+                                        leading: Radio<JubilacionPensionado>(
+                                          value: JubilacionPensionado.na,
+                                          groupValue: _jubilacionPensionado10,
+                                          onChanged: (JubilacionPensionado value) {
+                                            setState(() {
+                                              _jubilacionPensionado10 = value;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                                DataCell(getSearchField(controller: _derechohabiencia10,
+                                  suggestions: _Derechohabiencia.map((derechohabiencia) =>
+                                      SearchFieldListItem(derechohabiencia.derechoHabiencia, item: derechohabiencia)).toList(),
+                                    hintName: 'Derechohabiencia')),
+                                DataCell(getSearchField(controller: _motivoderechohabiencia10,
+                                  suggestions: _MotivioDerechohabiencia.map((motivoderechohabiencia) =>
+                                      SearchFieldListItem(motivoderechohabiencia.motivoDerechoHabiencia, item: motivoderechohabiencia)).toList(),
+                                    hintName: 'Motivo Derechohabiencia'))
                               ])
                             ],
                           ),
