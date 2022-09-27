@@ -80,9 +80,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
 
   cargarPreferencias() async
   {
-
     getAllDatosgenerales();
-
   }
 
   getDate() {
@@ -864,10 +862,10 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                     width: double.infinity,
                     child: FlatButton.icon(
                         onPressed: cargarPreferencias,
-                        icon: Icon(Icons.arrow_forward,
+                        icon: Icon(Icons.add_circle_outline,
                           color: Colors.white,
                         ),
-                        label: Text("Cargar ultimo registro",
+                        label: Text("Cargar Datos",
                           style: TextStyle(color: Colors.white),
                         )),
                     decoration: BoxDecoration(
@@ -963,36 +961,25 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                   SizedBox(height: 5.0),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: SearchField(
-                      suggestionState: Suggestion.expand,
-                      searchInputDecoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              width: 2.0,
-                              color: Colors.black26,
-                              style: BorderStyle.solid),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              width: 2.0,
-                              color: Colors.blue,
-                              style: BorderStyle.solid),
-                        ),
-                        filled: true,
-                        fillColor: Colors.grey[120],
-                      ),
-
-                      suggestions: _CodigoPostal2.map((estado) =>
-                          SearchFieldListItem(estado.Estado,
-                              item: estado)).toList(),
-
-                      textInputAction: TextInputAction.next,
-                      hasOverlay: true,
+                    child: TextField(
+                      readOnly: true,
                       controller: _estado,
-                      maxSuggestionsInViewPort: 5,
-                      itemHeight: 45,
-                      onSuggestionTap: (x) {},
-
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.black26,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.blue,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          fillColor: Colors.grey[120],
+                          filled: true
+                      ),
                     ),
                   ),
 
@@ -1002,33 +989,25 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                   //Menu desplegable Municipio
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: SearchField(
-                      suggestionState: Suggestion.expand,
-                      searchInputDecoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
-                              color: Colors.black26,
-                              style: BorderStyle.solid
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
-                              color: Colors.blue,
-                              style: BorderStyle.solid
-                          ),
-                        ),
-                        filled: true,
-                        fillColor: Colors.grey[120],
-                      ),
-                      suggestions: _CodigoPostal2.map((municipios) =>
-                          SearchFieldListItem(
-                              municipios.Municipio, item: municipios)).toList(),
-                      textInputAction: TextInputAction.next,
-                      hasOverlay: false,
+                    child: TextField(
+                      readOnly: true,
                       controller: _municipio,
-                      maxSuggestionsInViewPort: 5,
-                      itemHeight: 45,
-                      onSuggestionTap: (x) {},
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.black26,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.blue,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          fillColor: Colors.grey[120],
+                          filled: true
+                      ),
                     ),
                   ),
 
@@ -1107,7 +1086,29 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                   SizedBox(height: 10.0),
                   getTextQuestion(question: 'Localidad'),
                   SizedBox(height: 5.0),
-                  getTextField(controller: _localidad),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: TextField(
+                      readOnly: true,
+                      controller: _localidad,
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.black26,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.blue,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          fillColor: Colors.grey[120],
+                          filled: true
+                      ),
+                    ),
+                  ),
 
                   SizedBox(height: 10.0),
                   getTextQuestion(question: 'Calle'),
@@ -1219,15 +1220,10 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                     margin: EdgeInsets.all(20.0),
                     width: double.infinity,
                     child: FlatButton.icon(
-                        onPressed: actualizar,
-                        icon: Icon(
-                          Icons.arrow_forward,
-                          color: Colors.white,
-                        ),
-                        label: Text(
-                          "Actualizar",
-                          style: TextStyle(color: Colors.white),
-                        )),
+                      onPressed: actualizar,
+                      icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                      label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(30.0),

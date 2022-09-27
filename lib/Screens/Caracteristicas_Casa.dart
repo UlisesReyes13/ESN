@@ -139,6 +139,20 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                 getTextFolio(controller: TextEditingController.fromValue(
                     TextEditingValue(text: widget.folio)),
                 ),
+
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: getAllCasa,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Número de Cuartos'),
                 SizedBox(height: 5.0),
@@ -207,6 +221,21 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                       icon: Icon(Icons.arrow_forward,color: Colors.white,),
                       label: Text('Continuar', style: TextStyle(color: Colors.white)
                         ,)
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

@@ -638,6 +638,19 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                 getTextFolio(controller: TextEditingController.fromValue(
                     TextEditingValue(text: widget.folio)),
                 ),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: cargarDatos,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
                 getTextAportaciones(encabezado: 'Aportación Semanal'),
                 Container(
                   child: Row(
@@ -975,6 +988,21 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                       icon: Icon(Icons.arrow_forward,color: Colors.white,),
                       label: Text('Continuar', style: TextStyle(color: Colors.white)
                         ,)
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

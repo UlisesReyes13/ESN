@@ -7,12 +7,11 @@ import 'package:esn/Model/EstadosCiviles.dart';
 import 'package:esn/Model/EstadosModel.dart';
 import 'package:esn/Model/EstructuraFamiliarModel.dart';
 import 'package:esn/Model/Parentesco.dart';
-import 'package:esn/Screens/Escolaridad_SeguridadSocial.dart';
-import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/ServiciosCombustible.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
+import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 
 enum Sexo { hombre, mujer, otro }
 
@@ -8484,6 +8483,20 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                   controller: TextEditingController.fromValue(
                       TextEditingValue(text: widget.folio)),
                 ),
+
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: cargarDatos,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
                 SizedBox(height: 10.0),
                 Container(
                   padding: EdgeInsets.all(20),
@@ -9939,6 +9952,21 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                         'Continuar',
                         style: TextStyle(color: Colors.white),
                       )),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(30.0),

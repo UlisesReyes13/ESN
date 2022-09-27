@@ -391,6 +391,21 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: Actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
               ],
             ),
           ),

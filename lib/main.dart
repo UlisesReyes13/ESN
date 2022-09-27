@@ -1,4 +1,4 @@
-import 'package:esn/Screens/Salud_PertenenciaIndigenaTabla.dart';
+import 'package:esn/Screens/TablaFolios.dart';
 import 'package:flutter/material.dart';
 import 'Screens/LoginForm.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Salud_PertenenciaIndigenaTabla('1'),
+      home: TablaFolios(),
     );
   }
 }

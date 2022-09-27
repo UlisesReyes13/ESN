@@ -12,7 +12,9 @@ import 'package:esn/Model/MotivoDerechoHabiencia.dart';
 import 'package:esn/Model/OcupacionesModel.dart';
 import 'package:esn/Model/PrestacionesLaboralesModel.dart';
 import 'package:esn/Model/TipoEmpleoModel.dart';
+import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
+import 'package:esn/Screens/Salud_PertenenciaIndigenaTabla.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -4388,7 +4390,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        return new Salud_PertenenciaIndigenaTabla(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -4681,7 +4683,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        return new Salud_PertenenciaIndigenaTabla(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -6127,7 +6129,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        return new Salud_PertenenciaIndigenaTabla(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -6420,7 +6422,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        return new Salud_PertenenciaIndigenaTabla(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -6712,7 +6714,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        return new Salud_PertenenciaIndigenaTabla(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -7004,7 +7006,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        return new Salud_PertenenciaIndigenaTabla(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -7050,7 +7052,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                         renglon9();
                         Navigator.of(context)
                             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                          return new Salud_PertenenciaIndigenaTabla(widget.folio);
                         }));
                       }
                     }else{
@@ -7064,7 +7066,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                       renglon8();
                       Navigator.of(context)
                           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
                       }));
                     }
                   }else{
@@ -7077,7 +7079,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                     renglon7();
                     Navigator.of(context)
                         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                      return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
                     }));
 
                   }
@@ -7090,7 +7092,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                   renglon6();
                   Navigator.of(context)
                       .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
                   }));
 
                 }
@@ -7102,7 +7104,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                 renglon5();
                 Navigator.of(context)
                     .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                  return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                  return new Salud_PertenenciaIndigenaTabla(widget.folio);
                 }));
               }
             }else{
@@ -7113,7 +7115,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
               renglon4();
               Navigator.of(context)
                   .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                return new Salud_PertenenciaIndigenaTabla(widget.folio);
               }));
 
             }
@@ -7124,7 +7126,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             renglon3();
             Navigator.of(context)
                 .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-              return new Escolaridad_SeguridadSocialTabla(widget.folio);
+              return new Salud_PertenenciaIndigenaTabla(widget.folio);
             }));
 
           }
@@ -7133,7 +7135,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
           renglon2();
           Navigator.of(context)
               .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-            return new Escolaridad_SeguridadSocialTabla(widget.folio);
+            return new Salud_PertenenciaIndigenaTabla(widget.folio);
           }));
 
         }
@@ -7141,7 +7143,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
         renglon1();
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new Salud_PertenenciaIndigenaTabla(widget.folio);
         }));
       }
     }
@@ -7182,7 +7184,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                         upDateRenglon9();
                         Navigator.of(context)
                             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                          return new Salud_PertenenciaIndigenaTabla(widget.folio);
                         }));
                       }
                     }else{
@@ -7197,7 +7199,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
 
                       Navigator.of(context)
                           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
                       }));
                     }
                   }else{
@@ -7210,7 +7212,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                     upDateRenglon7();
                     Navigator.of(context)
                         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                      return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
                     }));
 
                   }
@@ -7223,7 +7225,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                   upDateRenglon6();
                   Navigator.of(context)
                       .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
                   }));
 
                 }
@@ -7235,7 +7237,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                 upDateRenglon5();
                 Navigator.of(context)
                     .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                  return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                  return new Salud_PertenenciaIndigenaTabla(widget.folio);
                 }));
               }
             }else{
@@ -7246,7 +7248,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
               upDateRenglon4();
               Navigator.of(context)
                   .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                return new Salud_PertenenciaIndigenaTabla(widget.folio);
               }));
 
             }
@@ -7257,7 +7259,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             upDateRenglon3();
             Navigator.of(context)
                 .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-              return new Escolaridad_SeguridadSocialTabla(widget.folio);
+              return new Salud_PertenenciaIndigenaTabla(widget.folio);
             }));
 
           }
@@ -7266,7 +7268,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
           upDateRenglon2();
           Navigator.of(context)
               .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-            return new Escolaridad_SeguridadSocialTabla(widget.folio);
+            return new Salud_PertenenciaIndigenaTabla(widget.folio);
           }));
 
         }
@@ -7274,7 +7276,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
         upDateRenglon1();
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new Salud_PertenenciaIndigenaTabla(widget.folio);
         }));
       }
     }
@@ -7367,6 +7369,19 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                 getTextFolio(
                   controller: TextEditingController.fromValue(
                       TextEditingValue(text: widget.folio)),
+                ),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: cargarDatos,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                 ),
                 SizedBox(height: 10.0),
                 Container(
@@ -8746,6 +8761,21 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                         'Continuar',
                         style: TextStyle(color: Colors.white),
                       )),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(30.0),

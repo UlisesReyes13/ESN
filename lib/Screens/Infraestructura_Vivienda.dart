@@ -9,7 +9,7 @@ import 'package:esn/Model/TipoTechoModel.dart';
 import 'package:esn/Model/TipoTenenciaModel.dart';
 import 'package:esn/Model/TipoViviendaModel.dart';
 import 'package:esn/Screens/Caracteristicas_Casa.dart';
-import 'package:esn/Screens/Salud_PerteneciaIndigena.dart';
+import 'package:esn/Screens/Salud_PertenenciaIndigenaTabla.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
@@ -362,7 +362,7 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
           onPressed: (){
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (_) => Salud_PertenenciaIndigena(widget.folio)),
+                MaterialPageRoute(builder: (_) => Salud_PertenenciaIndigenaTabla(widget.folio)),
                     (Route<dynamic> route) => false);
           },
         ),
@@ -379,6 +379,20 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                 SizedBox(height: 5.0),
                 getTextFolio(controller: TextEditingController.fromValue(
                     TextEditingValue(text: widget.folio)),
+                ),
+
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: getAllEstadoCasa,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                 ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Tipo de Casa'),
@@ -544,6 +558,21 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                       icon: Icon(Icons.arrow_forward,color: Colors.white,),
                       label: Text('Continuar', style: TextStyle(color: Colors.white)
                         ,)
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

@@ -461,7 +461,7 @@ class _EquipamientoState extends State<Equipamiento> {
     });
   }
 
-  acualizar() async{
+  actualizar() async{
     EquipamientoMovil DModel = EquipamientoMovil
       (folio: int.parse(widget.folio),
         pk_equipamientosRefri: "1",
@@ -604,6 +604,20 @@ class _EquipamientoState extends State<Equipamiento> {
                 getTextFolio(
                   controller: TextEditingController.fromValue(
                       TextEditingValue(text: widget.folio)),
+                ),
+
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: getAllEquipamiento,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                 ),
                 Container(
                   child: Row(
@@ -1723,6 +1737,21 @@ class _EquipamientoState extends State<Equipamiento> {
                     onPressed: insertDatos,
                     icon: Icon(Icons.arrow_forward,color: Colors.white),
                     label: Text('Continuar', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
