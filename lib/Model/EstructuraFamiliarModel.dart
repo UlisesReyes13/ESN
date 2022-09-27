@@ -9,7 +9,7 @@ class EstructuraFamilarModel {
   String fechaNacimiento;
   String claveEntidad;
   String entidadNacimiento;
-  String claveestadoCivil;
+  String claveEstadoCivil;
   String ordenEstadoCivil;
   String estadoCivil;
   String claveParentesco;
@@ -27,7 +27,7 @@ class EstructuraFamilarModel {
     this.fechaNacimiento,
     this.claveEntidad,
     this.entidadNacimiento,
-    this.claveestadoCivil,
+    this.claveEstadoCivil,
     this.ordenEstadoCivil,
     this.estadoCivil,
     this.claveParentesco,
@@ -46,7 +46,7 @@ class EstructuraFamilarModel {
       'fechaNacimiento': fechaNacimiento,
       'claveEntidad': claveEntidad,
       'entidadNacimiento': entidadNacimiento,
-      'claveestadoCivil': claveestadoCivil,
+      'claveEstadoCivil': claveEstadoCivil,
       'ordenEstadoCivil': ordenEstadoCivil,
       'estadoCivil': estadoCivil,
       'claveParentesco': claveParentesco,
@@ -67,7 +67,7 @@ class EstructuraFamilarModel {
     fechaNacimiento = map['fechaNacimiento'];
     claveEntidad = map['claveEntidad'];
     entidadNacimiento = map['entidadNacimiento'];
-    claveestadoCivil = map['claveestadoCivil'];
+    claveEstadoCivil = map['claveEstadoCivil'];
     ordenEstadoCivil = map['ordenEstadoCivil'];
     estadoCivil = map['estadoCivil'];
     claveParentesco = map['claveParentesco'];

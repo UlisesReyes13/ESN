@@ -7,6 +7,7 @@ import 'package:esn/Model/AportacionSemanal.dart';
 import 'package:esn/Model/EgresoSemanal.dart';
 import 'package:esn/Screens/ApoyosEnEspecie.dart';
 import 'package:esn/Screens/Equipamiento.dart';
+import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Comm/genTextField.dart';
 
@@ -53,6 +54,9 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
   static double SumaM;
   static double SumaES;
   static double SumaEM;
+
+  List<AportacionSemanal> _AportacionesEconomicas = List<AportacionSemanal>();
+  List<EgresoSemanal> _Egresos = List<EgresoSemanal>();
 
   SumaApoyoS() {
     String padre = _padre.text;
@@ -258,7 +262,220 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
     return _EgresoM;
   }
 
+  getAllAportaciones() async{
+    _AportacionesEconomicas = List<AportacionSemanal>();
+    var categories = await CategoryService().readAportaciones(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = AportacionSemanal();
+        categoryModel.folio = category['folio'];
+        categoryModel.padre = category['padre'];
+        categoryModel.madre = category['madre'];
+        categoryModel.hijos = category['hijos'];
+        categoryModel.prospera = category['prospera'];
+        categoryModel.adultosMayoresProspera = category['adultosMayoresProspera'];
+        categoryModel.becas = category['becas'];
+        categoryModel.otros = category['otros'];
+        categoryModel.pension = category['pension'];
+        categoryModel.totalSemanal = category['totalSemanal'];
+        categoryModel.totalMensual = category['totalMensual'];
 
+        _AportacionesEconomicas.add(categoryModel);
+      });
+    });
+
+    _padre.text = _AportacionesEconomicas.map((e) => e.padre.toString()).first;
+    _madre.text = _AportacionesEconomicas.map((e) => e.madre.toString()).first;
+    _hijos.text = _AportacionesEconomicas.map((e) => e.hijos.toString()).first;
+    _prospera.text = _AportacionesEconomicas.map((e) => e.prospera.toString()).first;
+    _adultosProspera.text = _AportacionesEconomicas.map((e) => e.adultosMayoresProspera.toString()).first;
+    _becas.text = _AportacionesEconomicas.map((e) => e.becas.toString()).first;
+    _otros.text = _AportacionesEconomicas.map((e) => e.otros.toString()).first;
+    _pension.text = _AportacionesEconomicas.map((e) => e.pension.toString()).first;
+    _totalSemanalS.text = _AportacionesEconomicas.map((e) => e.totalSemanal.toString()).first;
+    _totalMensualS.text = _AportacionesEconomicas.map((e) => e.totalMensual.toString()).first;
+
+  }
+
+  getAllEgresos() async{
+    _Egresos = List<EgresoSemanal>();
+    var categories = await CategoryService().readEgresos(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EgresoSemanal();
+        categoryModel.folio = category['folio'];
+        categoryModel.vivienda = category['vivienda'];
+        categoryModel.alimentacion = category['alimentacion'];
+        categoryModel.luz = category['luz'];
+        categoryModel.gas = category['gas'];
+        categoryModel.agua = category['agua'];
+        categoryModel.telefono = category['telefono'];
+        categoryModel.transporte = category['transporte'];
+        categoryModel.atencionMedica = category['atencionMedica'];
+        categoryModel.otrosGastos = category['otrosGastos'];
+        categoryModel.celular = category['celular'];
+        categoryModel.educacion = category['educacion'];
+        categoryModel.totalSemanal = category['totalSemanal'];
+        categoryModel.totalMensual = category['totalMensual'];
+
+        _Egresos.add(categoryModel);
+      });
+    });
+
+    _vivienda.text = _Egresos.map((e) => e.vivienda.toString()).first;
+    _alimentacion.text = _Egresos.map((e) => e.alimentacion.toString()).first;
+    _luz.text = _Egresos.map((e) => e.luz.toString()).first;
+    _gas.text = _Egresos.map((e) => e.gas.toString()).first;
+    _agua.text = _Egresos.map((e) => e.agua.toString()).first;
+    _telefono.text = _Egresos.map((e) => e.telefono.toString()).first;
+    _transporte.text = _Egresos.map((e) => e.transporte.toString()).first;
+    _atencionMedica.text = _Egresos.map((e) => e.atencionMedica.toString()).first;
+    _otrosGastos.text = _Egresos.map((e) => e.otrosGastos.toString()).first;
+    _celular.text = _Egresos.map((e) => e.celular.toString()).first;
+    _educacion.text = _Egresos.map((e) => e.educacion.toString()).first;
+    _totalSemanalE.text = _Egresos.map((e) => e.totalSemanal.toString()).first;
+    _totalMensualE.text = _Egresos.map((e) => e.totalMensual.toString()).first;
+
+
+  }
+
+
+  cargarDatos(){
+    getAllAportaciones();
+    getAllEgresos();
+  }
+
+  actualizar() async{
+    String padre = _padre.text;
+    String madre = _madre.text;
+    String hijos = _hijos.text;
+    String prospera = _prospera.text;
+    String adultosProspera = _adultosProspera.text;
+    String becas = _becas.text;
+    String otros = _otros.text;
+    String pension = _pension.text;
+
+    if(padre.isEmpty ){
+      padre = "0.0";
+    }
+    if (madre.isEmpty){
+      madre = "0.0";
+    }
+    if(hijos.isEmpty){
+      hijos = "0.0";
+    }
+    if (prospera.isEmpty ){
+      prospera = "0.0";
+    }
+    if(adultosProspera.isEmpty){
+      adultosProspera = "0.0";
+    }
+    if (becas.isEmpty){
+      becas = "0.0";
+    }
+    if(otros.isEmpty){
+      otros = "0.0";
+    }
+    if (pension.isEmpty){
+      pension = "0.0";
+    }
+
+    String vivienda = _vivienda.text;
+    String alimentacion = _alimentacion.text;
+    String luz = _luz.text;
+    String gas = _gas.text;
+    String agua = _agua.text;
+    String telefono = _telefono.text;
+    String transporte = _transporte.text;
+    String atencionMedica = _atencionMedica.text;
+    String otrosGastos = _otrosGastos.text;
+    String celular = _celular.text;
+    String educacion = _educacion.text;
+    if(vivienda.isEmpty){
+      vivienda = "0.0";
+    }
+    if (alimentacion.isEmpty){
+      alimentacion = "0.0";
+    }
+    if(luz.isEmpty){
+      luz = "0.0";
+    }
+    if (gas.isEmpty){
+      gas = "0.0";
+    }
+    if(agua.isEmpty){
+      agua = "0.0";
+    }
+    if (telefono.isEmpty){
+      telefono = "0.0";
+    }
+    if(transporte.isEmpty){
+      transporte = "0.0";
+    }
+    if (atencionMedica.isEmpty){
+      atencionMedica = "0.0";
+    }
+    if (otrosGastos.isEmpty){
+      otrosGastos = "0.0";
+    }
+    if (celular.isEmpty){
+      celular = "0.0";
+    }
+    if (educacion.isEmpty){
+      educacion = "0.0";
+    }
+
+    AportacionSemanal DModel = AportacionSemanal
+      (folio: int.parse(widget.folio),
+        padre: double.parse(padre.toString()),
+        madre: double.parse(madre.toString()),
+        hijos: double.parse(hijos.toString()),
+        prospera: double.parse(prospera.toString()),
+        adultosMayoresProspera: double.parse(adultosProspera.toString()),
+        becas: double.parse(becas.toString()),
+        otros: double.parse(otros.toString()),
+        pension: double.parse(pension.toString()),
+        totalSemanal: Suma,
+        totalMensual: SumaM
+    );
+
+
+    EgresoSemanal Model = EgresoSemanal
+      (folio: int.parse(widget.folio),
+        vivienda: double.parse(vivienda.toString()),
+        alimentacion: double.parse(alimentacion.toString()),
+        luz: double.parse(luz.toString()),
+        gas: double.parse(gas.toString()),
+        agua: double.parse(agua.toString()),
+        telefono: double.parse(telefono.toString()),
+        transporte: double.parse(transporte.toString()),
+        atencionMedica: double.parse(atencionMedica.toString()),
+        otrosGastos: double.parse(otrosGastos.toString()),
+        celular: double.parse(celular.toString()),
+        educacion: double.parse(educacion.toString()),
+        totalSemanal: SumaES,
+        totalMensual: SumaEM
+    );
+
+
+    await DbHelper().upDateApoyo(DModel).then((aportacionSemanal) {
+      alertDialog(context, "Se registro correctamente");
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+
+    await DbHelper().upDateEgreso(Model).then((egresoSemanal) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+        return new ApoyosEnEspecie(widget.folio);
+      }
+      ));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
 
   insertDatos() async {
     String padre = _padre.text;
@@ -420,6 +637,19 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                 SizedBox(height: 5.0),
                 getTextFolio(controller: TextEditingController.fromValue(
                     TextEditingValue(text: widget.folio)),
+                ),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: cargarDatos,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                 ),
                 getTextAportaciones(encabezado: 'Aportación Semanal'),
                 Container(
@@ -758,6 +988,21 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                       icon: Icon(Icons.arrow_forward,color: Colors.white,),
                       label: Text('Continuar', style: TextStyle(color: Colors.white)
                         ,)
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

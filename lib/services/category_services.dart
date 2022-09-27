@@ -1,4 +1,5 @@
 import 'package:esn/DatabaseHandler/DbHelper.dart';
+import 'package:esn/Model/ComunidadesModel.dart';
 import 'package:esn/Model/CodigoPostalModel.dart';
 
 class CategoryService {
@@ -99,14 +100,6 @@ class CategoryService {
     return await _repository.readData('tb_Estados');
   }
 
-  readCategoriesFrecuancia() async {
-    return await _repository.readData('tb_Frecuencias');
-  }
-  
-  readCategoriesDuraciones() async {
-    return await _repository.readData('tb_Duraciones');
-  }
-
   readCategoriesCodigoPostal() async{
     return await _repository.readData('tb_CPs');
   }
@@ -118,9 +111,153 @@ class CategoryService {
   readCategoriesComunidades() async{
     return await _repository.readData('tb_Comunidades');
   }
-  
+
   readCategoriesClasificaciones() async{
     return await _repository.readData('tb_ClasCondicionesSalud');
   }
 
+  readCategoriesGrupo(String comunidad) async{
+    return await _repository.readGrupo("tb_Grupos" , ComunidadesModel(Comunidad: comunidad));
+  }
+
+  readDatosGeenerales(int folio) async{
+    return await _repository.readDatosGeenerales("datosGenerales" , folio );
+  }
+
+  readServicioBanio(int folio) async{
+    return await _repository.readDatosGeenerales("servicios" , folio );
+  }
+
+  readEstructura1(int folio) async{
+    return await _repository.readEstructura1("estructuraFailiar" , folio );
+  }
+
+  readEstructura2(int folio) async{
+    return await _repository.readEstructura2("estructuraFailiar" , folio );
+  }
+
+  readEstructura3(int folio) async{
+    return await _repository.readEstructura3("estructuraFailiar" , folio );
+  }
+
+  readEstructura4(int folio) async{
+    return await _repository.readEstructura4("estructuraFailiar" , folio );
+  }
+
+  readEstructura5(int folio) async{
+    return await _repository.readEstructura5("estructuraFailiar" , folio );
+  }
+
+  readEstructura6(int folio) async{
+    return await _repository.readEstructura6("estructuraFailiar" , folio );
+  }
+
+  readEstructura7(int folio) async{
+    return await _repository.readEstructura7("estructuraFailiar" , folio );
+  }
+
+  readEstructura8(int folio) async{
+    return await _repository.readEstructura8("estructuraFailiar" , folio );
+  }
+
+  readEstructura9(int folio) async{
+    return await _repository.readEstructura9("estructuraFailiar" , folio );
+  }
+
+  readEstructura10(int folio) async{
+    return await _repository.readEstructura10("estructuraFailiar" , folio );
+  }
+
+  readEscolaridad1(int folio) async{
+    return await _repository.readEscolaridad1("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEscolaridad2(int folio) async{
+    return await _repository.readEscolaridad2("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEscolaridad3(int folio) async{
+    return await _repository.readEscolaridad3("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEscolaridad4(int folio) async{
+    return await _repository.readEscolaridad4("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEscolaridad5(int folio) async{
+    return await _repository.readEscolaridad5("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEscolaridad6(int folio) async{
+    return await _repository.readEscolaridad6("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEscolaridad7(int folio) async{
+    return await _repository.readEscolaridad7("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEscolaridad8(int folio) async{
+    return await _repository.readEscolaridad8("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEscolaridad9(int folio) async{
+    return await _repository.readEscolaridad9("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEscolaridad10(int folio) async{
+    return await _repository.readEscolaridad10("escolaridadSeguridadSocial" , folio );
+  }
+
+  readEquipamiento(int folio) async{
+    return await _repository.readEquipamiento("equipamiento" , folio );
+  }
+
+  readAportaciones(int folio) async{
+    return await _repository.readAportaciones("aportacionSemanalS" , folio );
+  }
+
+  readEgresos(int folio) async{
+    return await _repository.readEgresos("aportacionSemanalM" , folio );
+  }
+
+  readApoyoEspecie(int folio) async{
+    return await _repository.readApoyoEspecie("apoyoEnEspecie" , folio );
+  }
+
+  readRemesas(int folio) async{
+    return await _repository.readRemesas("remesas" , folio );
+  }
+
+  readDocmentos(int folio) async{
+    return await _repository.readDocumentos("documentos" , folio );
+  }
+
+  readAlimentacion(int folio) async{
+    return await _repository.readAlimentacion("alimentacion" , folio );
+  }
+
+  readResolucion(int folio) async{
+    return await _repository.readResolucion("resolucion" , folio );
+  }
+
+  readResolucionBal(int folio) async{
+    return await _repository.readResolucionBal("resolucionBal" , folio );
+  }
+
+  readCasa(int folio) async{
+    return await _repository.readCasa("caracteristicas_Casa" , folio );
+  }
+
+  readEstadoCasa(int folio) async{
+    return await _repository.readCasa("estadoDeLaCasaYConstruccion" , folio );
+  }
+
+
+  readCategoriesFrecuancia() async {
+    return await _repository.readData('tb_Frecuencias');
+  }
+
+  readCategoriesDuraciones() async {
+    return await _repository.readData('tb_Duraciones');
+  }
 }

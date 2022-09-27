@@ -28,13 +28,7 @@ class _RemesasState extends State<Remesas> {
   OtrosPaises _otrosPaises = OtrosPaises.si;
   final _frecuenciaApoyo = TextEditingController();
   var dbHelper;
-
-  @override
-  void initState(){
-    getAllCategoriesFrecuencia();
-
-    super.initState();
-  }
+  List<RemesasModel> _Remesas = List<RemesasModel>();
 
   getAllCategoriesFrecuencia() async {
     _Frecuencia = List<FrecuenciaModel>();
@@ -48,12 +42,59 @@ class _RemesasState extends State<Remesas> {
     });
   }
 
-  //Actualizar para las claves de frecuencia
-  enviar() async {
+  @override
+  void initState(){
+    getAllCategoriesFrecuencia();
 
+    super.initState();
+  }
+
+  getAllRemesas() async{
+    _Remesas = List<RemesasModel>();
+    var categories = await CategoryService().readRemesas(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = RemesasModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.dineroOtrosPaises = category['dineroOtrosPaises'];
+        categoryModel.frecuencia = category['frecuencia'];
+
+
+        _Remesas.add(categoryModel);
+      });
+    });
+
+    if(_Remesas.map((e) => e.dineroOtrosPaises.toString()).first == "si"){
+      _otrosPaises = OtrosPaises.si;
+    }else if(_Remesas.map((e) => e.dineroOtrosPaises.toString()).first == "no"){
+      _otrosPaises = OtrosPaises.no;
+    }
+    _frecuenciaApoyo.text = _Remesas.map((e) => e.frecuencia.toString()).first;
+
+  }
+
+  actualizar() async {
     RemesasModel BModel = RemesasModel(folio: int.parse(widget.folio),
         dineroOtrosPaises: _otrosPaises.name,
-    frecuencia: _frecuenciaApoyo.text.toString());
+        frecuencia: _frecuenciaApoyo.text.toString());
+
+    await DbHelper().upDateRemesas(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+        return new Documentos(widget.folio);
+      }
+      ));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  enviar() async {
+//Poner clave y orden de frecuencia
+    RemesasModel BModel = RemesasModel(folio: int.parse(widget.folio),
+        dineroOtrosPaises: _otrosPaises.name,
+        frecuencia: _frecuenciaApoyo.text.toString());
 
     await DbHelper().saveRemesas(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -94,6 +135,20 @@ class _RemesasState extends State<Remesas> {
                 getTextFolio(
                   controller: TextEditingController.fromValue(
                       TextEditingValue(text: widget.folio)),
+                ),
+
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: getAllRemesas,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                 ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: '¿Alguien en el hogar recibe dinero proveniente de otros paises?'),
@@ -159,6 +214,21 @@ class _RemesasState extends State<Remesas> {
                     onPressed: enviar,
                     icon: Icon(Icons.arrow_forward,color: Colors.white),
                     label: Text('Continuar', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

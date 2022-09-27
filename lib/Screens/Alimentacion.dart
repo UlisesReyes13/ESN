@@ -4,6 +4,7 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/AlimentacionModel.dart';
 import 'package:esn/Screens/Documentos.dart';
 import 'package:esn/Screens/Resolucion.dart';
+import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 
 import '../Comm/comHelper.dart';
@@ -49,22 +50,154 @@ class _AlimentacionState extends State<Alimentacion> {
   once _once = once.no;
   doce _doce = doce.no;
 
+  List<AlimentacionModel> _Alimentacion = List<AlimentacionModel>();
+
+
+  getAllAlimentacion() async{
+    _Alimentacion = List<AlimentacionModel>();
+    var categories = await CategoryService().readAlimentacion(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = AlimentacionModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.pregunta1 = category['pregunta1'];
+        categoryModel.pregunta2 = category['pregunta2'];
+        categoryModel.pregunta3 = category['pregunta3'];
+        categoryModel.pregunta4 = category['pregunta4'];
+        categoryModel.pregunta5 = category['pregunta5'];
+        categoryModel.pregunta6 = category['pregunta6'];
+        categoryModel.pregunta7 = category['pregunta7'];
+        categoryModel.pregunta8 = category['pregunta8'];
+        categoryModel.pregunta9 = category['pregunta9'];
+        categoryModel.pregunta10 = category['pregunta10'];
+        categoryModel.pregunta11 = category['pregunta11'];
+        categoryModel.pregunta12 = category['pregunta12'];
+
+
+
+        _Alimentacion.add(categoryModel);
+      });
+    });
+
+    if(_Alimentacion.map((e) => e.pregunta1.toString()).first == "si"){
+      _uno = uno.si;
+    }else if(_Alimentacion.map((e) => e.pregunta1.toString()).first == "no"){
+      _uno = uno.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta2.toString()).first == "si"){
+      _dos = dos.si;
+    }else if(_Alimentacion.map((e) => e.pregunta2.toString()).first == "no"){
+      _dos = dos.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta3.toString()).first == "si"){
+      _tres = tres.si;
+    }else if(_Alimentacion.map((e) => e.pregunta3.toString()).first == "no"){
+      _tres = tres.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta4.toString()).first == "si"){
+      _cuatro = cuatro.si;
+    }else if(_Alimentacion.map((e) => e.pregunta4.toString()).first == "no"){
+      _cuatro = cuatro.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta5.toString()).first == "si"){
+      _cinco = cinco.si;
+    }else if(_Alimentacion.map((e) => e.pregunta5.toString()).first == "no"){
+      _cinco = cinco.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta6.toString()).first == "si"){
+      _seis = seis.si;
+    }else if(_Alimentacion.map((e) => e.pregunta6.toString()).first == "no"){
+      _seis= seis.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta7.toString()).first == "si"){
+      _siete = siete.si;
+    }else if(_Alimentacion.map((e) => e.pregunta7.toString()).first == "no"){
+      _siete = siete.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta8.toString()).first == "si"){
+      _ocho = ocho.si;
+    }else if(_Alimentacion.map((e) => e.pregunta8.toString()).first == "no"){
+      _ocho= ocho.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta9.toString()).first == "si"){
+      _nueve = nueve.si;
+    }else if(_Alimentacion.map((e) => e.pregunta9.toString()).first == "no"){
+      _nueve = nueve.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta10.toString()).first == "si"){
+      _diez = diez.si;
+    }else if(_Alimentacion.map((e) => e.pregunta10.toString()).first == "no"){
+      _diez = diez.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta11.toString()).first == "si"){
+      _once = once.si;
+    }else if(_Alimentacion.map((e) => e.pregunta11.toString()).first == "no"){
+      _once = once.no;
+    }
+
+    if(_Alimentacion.map((e) => e.pregunta12.toString()).first == "si"){
+      _doce = doce.si;
+    }else if(_Alimentacion.map((e) => e.pregunta12.toString()).first == "no"){
+      _doce = doce.no;
+    }
+  }
+
+  actualizar() async{
+    AlimentacionModel BModel = AlimentacionModel(
+        folio: int.parse(widget.folio),
+        pregunta1: _uno.name,
+        pregunta2: _dos.name,
+        pregunta3: _tres.name,
+        pregunta4: _cuatro.name,
+        pregunta5: _cinco.name,
+        pregunta6: _seis.name,
+        pregunta7: _siete.name,
+        pregunta8: _ocho.name,
+        pregunta9: _nueve.name,
+        pregunta10: _diez.name,
+        pregunta11: _once.name,
+        pregunta12: _doce.name
+    );
+
+    await DbHelper().upDateAlimentacion(BModel).then((alimentacionModel) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+        return new Resolucion(widget.folio);
+      }
+      ));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+
   enviar() async {
 
     AlimentacionModel BModel = AlimentacionModel(
         folio: int.parse(widget.folio),
         pregunta1: _uno.name,
-    pregunta2: _dos.name,
-    pregunta3: _tres.name,
-    pregunta4: _cuatro.name,
-    pregunta5: _cinco.name,
-    pregunta6: _seis.name,
-    pregunta7: _siete.name,
-    pregunta8: _ocho.name,
-    pregunta9: _nueve.name,
-    pregunta10: _diez.name,
-    pregunta11: _once.name,
-    pregunta12: _doce.name
+        pregunta2: _dos.name,
+        pregunta3: _tres.name,
+        pregunta4: _cuatro.name,
+        pregunta5: _cinco.name,
+        pregunta6: _seis.name,
+        pregunta7: _siete.name,
+        pregunta8: _ocho.name,
+        pregunta9: _nueve.name,
+        pregunta10: _diez.name,
+        pregunta11: _once.name,
+        pregunta12: _doce.name
     );
 
     await DbHelper().saveAlimentacion(BModel).then((alimentacionModel) {
@@ -127,7 +260,19 @@ class _AlimentacionState extends State<Alimentacion> {
                   controller: TextEditingController.fromValue(
                       TextEditingValue(text: widget.folio)),
                 ),
-
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: getAllAlimentacion,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
                 SizedBox(height: 10.0),
                 getTextEquipamiento(encabezado: encabezado1),
                 SizedBox(height: 10.0),
@@ -566,6 +711,21 @@ class _AlimentacionState extends State<Alimentacion> {
                     onPressed: enviar,
                     icon: Icon(Icons.arrow_forward,color: Colors.white),
                     label: Text('Continuar', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

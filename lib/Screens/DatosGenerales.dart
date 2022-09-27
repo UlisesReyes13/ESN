@@ -1,9 +1,11 @@
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Model/CodigoPostal.dart';
 import 'package:esn/Model/CodigoPostalModel.dart';
+import 'package:esn/Model/ComunidadesModel.dart';
 import 'package:esn/Model/DatosGeneralesModel.dart';
 import 'package:esn/Model/Estados.dart';
 import 'package:esn/Model/EstadosModel.dart';
+import 'package:esn/Model/GruposModel.dart';
 import 'package:esn/Model/Municipios.dart';
 import 'package:esn/Model/TipoVialidad.dart';
 import 'package:esn/Model/TiposAsentamiento.dart';
@@ -26,6 +28,7 @@ class DatosGenerales extends StatefulWidget {
 }
 
 class _DatosGeneralesState extends State<DatosGenerales> {
+
   final _fechaCaptura = TextEditingController();
   final _folio = TextEditingController();
   final _nombreComunidad = TextEditingController();
@@ -54,11 +57,15 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   List<DatosGeneralesModel> _Folio = List<DatosGeneralesModel>();
   List<EstadosModel> _Estado = List<EstadosModel>();
   List<CodigoPostalModel> _CodigoPostal2 = List<CodigoPostalModel>();
+  List<ComunidadesModel> _Comunidades = List<ComunidadesModel>();
+  List<GruposModel> _Grupo = List<GruposModel>();
+  List<DatosGeneralesModel> _DatosGenerales = List<DatosGeneralesModel>();
 
 
   @override
   void initState() {
     getAllCategoriesNombreAsentamiento();
+    getAllCategoriesComunidades();
     getAllCategoriesMunicipios();
     getAllCategoriesTiposAsentamientos();
     getAllCategoriesTipoVialidad();
@@ -70,64 +77,10 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     dbHelper = DbHelper();
   }
 
-  saveValue() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    SharedPreferences prefContra = await SharedPreferences.getInstance();
-    setState(() {
-      String nombreComunidad = _nombreComunidad.text;
-      String estado = _estado.text;
-      String folioC = _folio.text;
-      String codigoPostal = _cp.text;
-      String municipioC = _municipio.text;
-      String asentamientoC = _nombreAsentamiento.text;
-      String tipoAsentamentoC = _tipoAsentamiento.text;
-      String localidadC = _localidad.text;
-      String calleC = _calle.text;
-      String entreCallesC = _entreCalles.text;
-      String noExteriorC = _noExt.text;
-      String noInterior = _noInt.text;
-      String grupoC = _grupo.text;
-      String tipoVialidadC = _tipoVialidad.text;
-      String telefonoC = _telefono.text;
-      pref.setString("nombreComunidad", nombreComunidad);
-      prefContra.setString("estado", estado);
-      prefContra.setString("folio", folioC);
-
-      pref.setString("minicipio", municipioC);
-      prefContra.setString("asentamiento", asentamientoC);
-      prefContra.setString("tipoAsentamento", tipoAsentamentoC);
-      pref.setString("localidad", localidadC);
-      prefContra.setString("calle", calleC);
-      prefContra.setString("entreCalles", entreCallesC);
-      pref.setString("noExterior", noExteriorC);
-      prefContra.setString("noInterior", noInterior);
-      prefContra.setString("grupo", grupoC);
-      pref.setString("tipoVialidad", tipoVialidadC);
-      prefContra.setString("telefono", telefonoC);
-      prefContra.setString("cp", codigoPostal);
-    });
-  }
 
   cargarPreferencias() async
   {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    setState(() {
-      _nombreComunidad.text = pref.getString("nombreComunidad");
-      _estado.text = pref.getString("estado");
-      _folio.text = pref.getString("folio");
-      _municipio.text = pref.getString("minicipio");
-      _nombreAsentamiento.text = pref.getString("asentamiento");
-      _tipoAsentamiento.text = pref.getString("tipoAsentamento");
-      _localidad.text = pref.getString("localidad");
-      _calle.text = pref.getString("calle");
-      _entreCalles.text = pref.getString("entreCalles");
-      _noExt.text = pref.getString("noExterior");
-      _noInt.text = pref.getString("noInterior");
-      _grupo.text = pref.getString("grupo");
-      _tipoVialidad.text = pref.getString("tipoVialidad");
-      _telefono.text = pref.getString("telefono");
-      _cp.text = pref.getString("cp");
-    });
+    getAllDatosgenerales();
   }
 
   getDate() {
@@ -148,6 +101,72 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       });
     });
   }
+
+  getAllDatosgenerales() async {
+    _DatosGenerales = List<DatosGeneralesModel>();
+    var categories = await CategoryService().readDatosGeenerales(int.parse(_folio.text) - 1);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = DatosGeneralesModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.fechaCaptura = category['fechaCaptura'];
+        categoryModel.calle = category['calle'];
+        categoryModel.entreCalles = category['entreCalles'];
+        categoryModel.claveGrupo = category['claveGrupo'];
+        categoryModel.grupo = category['grupo'];
+        categoryModel.noExt = category['noExt'];
+        categoryModel.noInt = category['noInt'];
+        categoryModel.fecha = category['fecha'];
+
+        categoryModel.localidad = category['localidad'];
+        categoryModel.telefono = category['telefono'];
+        categoryModel.claveCodigoPostal = int.parse(category['claveCodigoPostal']);
+        categoryModel.claveEstado = int.parse(category['claveEstado']);
+        categoryModel.estado = category['estado'];
+        categoryModel.claveComunidad = category['claveComunidad'];
+
+        categoryModel.nombreComunidad = category['nombreComunidad'];
+        categoryModel.claveMunicipio = int.parse(category['claveMunicipio']);
+        categoryModel.municipio = category['municipio'];
+        categoryModel.claveAsentamiento = int.parse(category['claveAsentamiento']);
+        categoryModel.nombreAsentamiento = category['nombreAsentamiento'];
+        categoryModel.claveTipoAsentamiento = int.parse(category['claveTipoAsentamiento']);
+
+        categoryModel.ordentipoAsentamiento = category['ordentipoAsentamiento'];
+        categoryModel.tipoAsentamiento = category['tipoAsentamiento'];
+        categoryModel.claveTipoVialidad = int.parse(category['claveTipoVialidad']);
+        categoryModel.ordentipovialidad = category['ordentipovialidad'];
+        categoryModel.tipoVialidad = category['tipoVialidad'];
+
+        _DatosGenerales.add(categoryModel);
+      });
+    });
+    getAllCategoriesCodigoPostal2();
+    _folio.text = _DatosGenerales.map((e) => e.folio.toString()).first;
+    _fechaCaptura.text = _DatosGenerales.map((e) => e.fechaCaptura).first;
+    _calle.text = _DatosGenerales.map((e) => e.calle).first;
+    _entreCalles.text = _DatosGenerales.map((e) => e.entreCalles).first;
+
+    _grupo.text = _DatosGenerales.map((e) => e.grupo).first;
+    _noExt.text = _DatosGenerales.map((e) => e.noExt).first;
+    _noInt.text = _DatosGenerales.map((e) => e.noInt).first;
+    _fecha.text = _DatosGenerales.map((e) => e.fecha).first;
+    _localidad.text = _DatosGenerales.map((e) => e.localidad).first;
+    _telefono.text = _DatosGenerales.map((e) => e.telefono).first;
+    _cp.text = _DatosGenerales.map((e) => e.claveCodigoPostal.toString()).first;
+
+    _estado.text = _DatosGenerales.map((e) => e.estado.toString()).first;
+
+    _nombreComunidad.text = _DatosGenerales.map((e) => e.nombreComunidad).first;
+    _estado.text = _DatosGenerales.map((e) => e.estado.toString()).first;
+    _municipio.text = _DatosGenerales.map((e) => e.municipio).first;
+    _nombreAsentamiento.text = _DatosGenerales.map((e) => _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first + " " + e.nombreAsentamiento).first  ;
+    _tipoAsentamiento.text =  _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first + " " +  _DatosGenerales.map((e) => e.tipoAsentamiento).first;
+    _tipoVialidad.text = _DatosGenerales.map((e) => e.claveTipoVialidad.toString()).first + " " +  _DatosGenerales.map((e) => e.tipoVialidad).first;
+
+
+  }
+
 
   getAllCategoriesCodigoPostal() async {
     _CodigoPostal = List<CodigoPostalModel>();
@@ -201,6 +220,40 @@ class _DatosGeneralesState extends State<DatosGenerales> {
         .first;
     _localidad.text = _CodigoPostal2
         .map((e) => e.Ciudad)
+        .first;
+
+    getAllCategoriesGrupo();
+  }
+
+  getAllCategoriesComunidades() async {
+    _Comunidades = List<ComunidadesModel>();
+    var categories = await CategoryService().readCategoriesComunidades();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ComunidadesModel();
+        categoryModel.pk_Comunidad = category['pk_Comunidad'];
+        categoryModel.Comunidad = category['Comunidad'];
+        _Comunidades.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesGrupo() async {
+    _Grupo= List<GruposModel>();
+    var categories = await CategoryService().readCategoriesGrupo(
+        _nombreComunidad.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = GruposModel();
+        categoryModel.ClaveGrupo = category['ClaveGrupo'];
+        categoryModel.Grupo = category['Grupo'];
+
+        _Grupo.add(categoryModel);
+      });
+    });
+
+    _grupo.text = _Grupo
+        .map((e) => e.Grupo)
         .first;
   }
 
@@ -269,6 +322,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   actualizar() async {
+
     String folio = _folio.text;
     String fechaCaptura = _fechaCaptura.text;
     String nombreComunidad = _nombreComunidad.text;
@@ -304,6 +358,87 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     } else if (cp.isEmpty) {
       alertDialog(context, "Error: No se registro Codigo Postal");
     } else {
+      var value1 = tipoAsentamiento; // 'artlang'
+      final nombreTipoAsentamiento = value1
+          .replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+
+      var claveTipoAsentamiento = tipoAsentamiento; // 'artlang'
+      final claveTipoAsenta = claveTipoAsentamiento
+          .replaceAll("A", "")
+          .replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("E", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("I", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("O", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("a", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("e", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("i", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("ñ", "")
+          .replaceAll("o", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("u", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("Á", "")
+          .replaceAll("É", "")
+          .replaceAll("Í", "")
+          .replaceAll("Ó", "")
+          .replaceAll("Ú", "")
+          .replaceAll("á", "")
+          .replaceAll("é", "")
+          .replaceAll("í", "")
+          .replaceAll("ó", "")
+          .replaceAll("ú", "")
+          .replaceAll("z", "");
+      var claveTipoAsentam = claveTipoAsenta.substring(0, 2);
+
       var value = tipoVialidad; // 'artlang'
       final nombreTipoVialidad = value
           .replaceAll("1", "")
@@ -383,13 +518,13 @@ class _DatosGeneralesState extends State<DatosGenerales> {
           .replaceAll("ó", "")
           .replaceAll("ú", "")
           .replaceAll("z", "");
-      var claveTipoViali = claveTipoVia.substring(0, 2);
-
+      var claveTipoV = claveTipoVia.substring(0, 2);
       DatosGeneralesModel BModel = DatosGeneralesModel(
           folio: int.parse(folio),
           fechaCaptura: fechaCaptura,
           calle: calle,
           entreCalles: entreCalles,
+          claveGrupo: _Grupo.map((e) => e.ClaveGrupo).first,
           grupo: grupo,
           noExt: noExt,
           noInt: noInt,
@@ -403,7 +538,8 @@ class _DatosGeneralesState extends State<DatosGenerales> {
               .first,
           //
           estado: _estado.text.toString(),
-          nombreComunidad: nombreComunidad.trimLeft(),
+          claveComunidad: _Grupo.map((e) => e.ClaveGrupo).first,
+          nombreComunidad: _nombreComunidad.text.toString(),
           claveMunicipio: _CodigoPostal2
               .map((e) => e.ClaveMunicipio)
               .first,
@@ -412,19 +548,18 @@ class _DatosGeneralesState extends State<DatosGenerales> {
               .map((e) => e.Clavetipo_asenta)
               .first,
           nombreAsentamiento: _nombreAsentamiento.text.toString(),
-          claveTipoAsentamiento: _CodigoPostal2
-              .map((e) => e.Clavetipo_asenta)
-              .first,
-          ordentipoAsentamiento: _CodigoPostal2
-              .map((e) => e.Clavetipo_asenta)
-              .first,
-          tipoAsentamiento: _tipoAsentamiento.text.toString(),
-          claveTipoVialidad: int.parse(claveTipoViali),
-          ordentipovialidad: int.parse(claveTipoViali),
-          tipoVialidad: nombreTipoVialidad.trimRight());
+
+          claveTipoAsentamiento: int.parse(claveTipoAsentam),
+          ordentipoAsentamiento: int.parse(claveTipoAsentam),
+          tipoAsentamiento: nombreTipoAsentamiento.trimLeft(),
+          claveTipoVialidad: int.parse(claveTipoV),
+          ordentipovialidad: int.parse(claveTipoV),
+          tipoVialidad: nombreTipoVialidad.trimLeft()
+      );
 
       await DbHelper().upDateDatosGenerales(BModel).then((datosGeneralesModel) {
         alertDialog(context, "Se registro correctamente");
+
         Navigator.of(context).push(
             MaterialPageRoute<Null>(builder: (BuildContext context) {
               return new ServiciosBanios(folio);
@@ -434,6 +569,8 @@ class _DatosGeneralesState extends State<DatosGenerales> {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
+
+
     }
   }
 
@@ -553,7 +690,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
           .replaceAll("ó", "")
           .replaceAll("ú", "")
           .replaceAll("z", "");
-      var claveTipoViali = claveTipoAsenta.substring(0, 2);
+      var claveTipoAsentam = claveTipoAsenta.substring(0, 2);
 
       var value = tipoVialidad; // 'artlang'
       final nombreTipoVialidad = value
@@ -634,7 +771,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
           .replaceAll("ó", "")
           .replaceAll("ú", "")
           .replaceAll("z", "");
-      var claveTipoAsentam = claveTipoVia.substring(0, 2);
+      var claveTipoV = claveTipoVia.substring(0, 2);
 
 
       DatosGeneralesModel DModel = DatosGeneralesModel
@@ -642,6 +779,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
           fechaCaptura: fechaCaptura,
           calle: calle,
           entreCalles: entreCalles,
+          claveGrupo: _Grupo.map((e) => e.ClaveGrupo).first,
           grupo: grupo,
           noExt: noExt,
           noInt: noInt,
@@ -655,10 +793,13 @@ class _DatosGeneralesState extends State<DatosGenerales> {
               .first,
           //
           estado: _estado.text.toString(),
-          nombreComunidad: nombreComunidad.trimLeft(),
+          claveComunidad: _Grupo.map((e) => e.ClaveGrupo).first,
+          nombreComunidad: _nombreComunidad.text,
+
           claveMunicipio: _CodigoPostal2
               .map((e) => e.ClaveMunicipio)
               .first,
+
           municipio: _municipio.text.toString(),
           claveAsentamiento: _CodigoPostal2
               .map((e) => e.Clavetipo_asenta)
@@ -667,14 +808,14 @@ class _DatosGeneralesState extends State<DatosGenerales> {
           claveTipoAsentamiento: int.parse(claveTipoAsentam),
           ordentipoAsentamiento: int.parse(claveTipoAsentam),
           tipoAsentamiento: nombreTipoAsentamiento.trimLeft(),
-          claveTipoVialidad: int.parse(claveTipoViali),
-          ordentipovialidad: int.parse(claveTipoViali),
+          claveTipoVialidad: int.parse(claveTipoV),
+          ordentipovialidad: int.parse(claveTipoV),
           tipoVialidad: nombreTipoVialidad.trimLeft()
       );
 
       await dbHelper.saveDatosGenerales(DModel).then((datosGeneralesData) {
         alertDialog(context, "Se registro correctamente");
-        saveValue();
+
         Navigator.of(context).push(
             MaterialPageRoute<Null>(builder: (BuildContext context) {
               return new ServiciosBanios(folio);
@@ -686,9 +827,6 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       });
     }
   }
-
-
-
     @override
     Widget build(BuildContext context) {
       return Scaffold(
@@ -724,10 +862,10 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                     width: double.infinity,
                     child: FlatButton.icon(
                         onPressed: cargarPreferencias,
-                        icon: Icon(Icons.arrow_forward,
+                        icon: Icon(Icons.add_circle_outline,
                           color: Colors.white,
                         ),
-                        label: Text("Cargar ultimo registro",
+                        label: Text("Cargar Datos",
                           style: TextStyle(color: Colors.white),
                         )),
                     decoration: BoxDecoration(
@@ -823,36 +961,25 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                   SizedBox(height: 5.0),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: SearchField(
-                      suggestionState: Suggestion.expand,
-                      searchInputDecoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              width: 2.0,
-                              color: Colors.black26,
-                              style: BorderStyle.solid),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              width: 2.0,
-                              color: Colors.blue,
-                              style: BorderStyle.solid),
-                        ),
-                        filled: true,
-                        fillColor: Colors.grey[120],
-                      ),
-
-                      suggestions: _CodigoPostal2.map((estado) =>
-                          SearchFieldListItem(estado.Estado,
-                              item: estado)).toList(),
-
-                      textInputAction: TextInputAction.next,
-                      hasOverlay: true,
+                    child: TextField(
+                      readOnly: true,
                       controller: _estado,
-                      maxSuggestionsInViewPort: 5,
-                      itemHeight: 45,
-                      onSuggestionTap: (x) {},
-
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.black26,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.blue,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          fillColor: Colors.grey[120],
+                          filled: true
+                      ),
                     ),
                   ),
 
@@ -862,33 +989,25 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                   //Menu desplegable Municipio
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: SearchField(
-                      suggestionState: Suggestion.expand,
-                      searchInputDecoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
-                              color: Colors.black26,
-                              style: BorderStyle.solid
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
-                              color: Colors.blue,
-                              style: BorderStyle.solid
-                          ),
-                        ),
-                        filled: true,
-                        fillColor: Colors.grey[120],
-                      ),
-                      suggestions: _CodigoPostal2.map((municipios) =>
-                          SearchFieldListItem(
-                              municipios.Municipio, item: municipios)).toList(),
-                      textInputAction: TextInputAction.next,
-                      hasOverlay: false,
+                    child: TextField(
+                      readOnly: true,
                       controller: _municipio,
-                      maxSuggestionsInViewPort: 5,
-                      itemHeight: 45,
-                      onSuggestionTap: (x) {},
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.black26,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.blue,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          fillColor: Colors.grey[120],
+                          filled: true
+                      ),
                     ),
                   ),
 
@@ -967,7 +1086,29 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                   SizedBox(height: 10.0),
                   getTextQuestion(question: 'Localidad'),
                   SizedBox(height: 5.0),
-                  getTextField(controller: _localidad),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: TextField(
+                      readOnly: true,
+                      controller: _localidad,
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.black26,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2.0,
+                                color: Colors.blue,
+                                style: BorderStyle.solid
+                            ),
+                          ),
+                          fillColor: Colors.grey[120],
+                          filled: true
+                      ),
+                    ),
+                  ),
 
                   SizedBox(height: 10.0),
                   getTextQuestion(question: 'Calle'),
@@ -1079,15 +1220,10 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                     margin: EdgeInsets.all(20.0),
                     width: double.infinity,
                     child: FlatButton.icon(
-                        onPressed: actualizar,
-                        icon: Icon(
-                          Icons.arrow_forward,
-                          color: Colors.white,
-                        ),
-                        label: Text(
-                          "Actualizar",
-                          style: TextStyle(color: Colors.white),
-                        )),
+                      onPressed: actualizar,
+                      icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                      label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(30.0),

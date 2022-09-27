@@ -32,6 +32,8 @@ class _ResolucionState extends State<Resolucion> {
   final _inseguridadAlimenticia = TextEditingController();
   final _clasificacionPobreza = TextEditingController();
   final _observaciones = TextEditingController();
+  List<ResolucionModel> _Resolucion = List<ResolucionModel>();
+  List<ResolucionBALModel> _ResolucionBal = List<ResolucionBALModel>();
 
   apoyo _apoyo;
   List<String> _Tipo = ['Cuata' , 'Beca', 'Media Beca'];
@@ -74,7 +76,98 @@ class _ResolucionState extends State<Resolucion> {
     });
   }
 
+  getAllResolucion() async {
+    _Resolucion = List<ResolucionModel>();
+    var categories = await CategoryService().readResolucion(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ResolucionModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.puntaje = category['puntaje'];
+        categoryModel.escalaNecesidad = category['escalaNecesidad'];
+        categoryModel.inseguridadAlimenticia = category['inseguridadAlimenticia'];
+        categoryModel.clasificacionPobresa = category['clasificacionPobresa'];
+
+        _Resolucion.add(categoryModel);
+      });
+    });
+
+    _puntaje.text = _Resolucion.map((e) => e.puntaje).first;
+    _escalaNecesidad.text = _Resolucion.map((e) => e.escalaNecesidad).first;
+    _inseguridadAlimenticia.text = _Resolucion.map((e) => e.inseguridadAlimenticia).first;
+    _clasificacionPobreza.text = _Resolucion.map((e) => e.clasificacionPobresa).first;
+  }
+
+  getAllResolucionBal() async {
+    _ResolucionBal = List<ResolucionBALModel>();
+    var categories = await CategoryService().readResolucionBal(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ResolucionBALModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.tipo = category['tipo'];
+        categoryModel.frecuencia = category['frecuencia'];
+        categoryModel.duracion = category['duracion'];
+        categoryModel.otorgarApoyo = category['otorgarApoyo'];
+        categoryModel.observaciones = category['observaciones'];
+        _ResolucionBal.add(categoryModel);
+      });
+    });
+
+    _tipo.text = _ResolucionBal.map((e) => e.tipo).first;
+    _frecuencia.text = _ResolucionBal.map((e) => e.frecuencia).first;
+    _duracion.text = _ResolucionBal.map((e) => e.duracion).first;
+    _observaciones.text = _ResolucionBal.map((e) => e.observaciones).first;
+
+    if(_ResolucionBal.map((e) => e.otorgarApoyo).first == "si"){
+      _apoyo = apoyo.si;
+    }else if(_ResolucionBal.map((e) => e.otorgarApoyo).first == "no"){
+      _apoyo = apoyo.no;
+    }
+  }
+
+  cargarDatos(){
+    getAllResolucion();
+    getAllResolucionBal();
+  }
+
+  actualizar() async{
+    ResolucionModel BModel = ResolucionModel
+      (folio: int.parse(widget.folio),
+        puntaje: _puntaje.text.toString(),
+        escalaNecesidad: _escalaNecesidad.text.toString(),
+        inseguridadAlimenticia: _inseguridadAlimenticia.text.toString(),
+        clasificacionPobresa: _clasificacionPobreza.text.toString());
+
+    await DbHelper().upDateResolucion(BModel).then((resolucionModel) {
+
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+
+    ResolucionBALModel RModel = ResolucionBALModel
+      (folio: int.parse(widget.folio),
+        tipo: _tipo.text.toString(),
+        frecuencia: _frecuencia.text.toString(),
+        duracion: _duracion.text.toString(),
+        otorgarApoyo: _apoyo.name,
+        observaciones: _observaciones.text.toString());
+
+    await DbHelper().upDateResolucionBAL(RModel).then((resolucionBALModel) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+        return new Fotografia(widget.folio);
+      }
+      ));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
   enviar() async {
+    //Duracion y Frecuencia
     ResolucionModel BModel = ResolucionModel
       (folio: int.parse(widget.folio),
         puntaje: _puntaje.text.toString(),
@@ -92,12 +185,10 @@ class _ResolucionState extends State<Resolucion> {
     ResolucionBALModel RModel = ResolucionBALModel
       (folio: int.parse(widget.folio),
         tipo: _tipo.text.toString(),
-
-    //Modificar las claves de frecuncia y duracion
-    frecuencia: _frecuencia.text.toString(),
-    duracion: _duracion.text.toString(),
-    otorgarApoyo: _apoyo.name,
-    observaciones: _observaciones.text.toString());
+        frecuencia: _frecuencia.text.toString(),
+        duracion: _duracion.text.toString(),
+        otorgarApoyo: _apoyo.name,
+        observaciones: _observaciones.text.toString());
 
     await DbHelper().saveResolucionBAL(RModel).then((resolucionBALModel) {
       alertDialog(context, "Se registro correctamente");
@@ -139,6 +230,20 @@ class _ResolucionState extends State<Resolucion> {
                 getTextFolio(
                   controller: TextEditingController.fromValue(
                       TextEditingValue(text: widget.folio)),
+                ),
+
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: cargarDatos,
+                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
+                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                 ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Puntaje'),
@@ -302,6 +407,21 @@ class _ResolucionState extends State<Resolucion> {
                     onPressed: enviar,
                     icon: Icon(Icons.arrow_forward,color: Colors.white),
                     label: Text('Continuar', style: TextStyle(color: Colors.white),),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                    onPressed: actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
