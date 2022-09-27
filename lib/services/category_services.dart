@@ -118,5 +118,9 @@ class CategoryService {
   readCategoriesComunidades() async{
     return await _repository.readData('tb_Comunidades');
   }
+  
+  readCategoriesClasificaciones() async{
+    return await _repository.readData('tb_ClasCondicionesSalud');
+  }
 
 }

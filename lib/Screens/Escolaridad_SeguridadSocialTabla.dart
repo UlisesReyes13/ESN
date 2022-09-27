@@ -126,7 +126,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   AsisteEscuela _asisteEscuela10;
   JubilacionPensionado _jubilacionPensionado10;
 
-  final dataList = <PrestacionesLaboralesModel>[
+  final dataList1 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
     PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
     PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
@@ -138,7 +138,133 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     PrestacionesLaboralesModel(prestacion: '9I n/a'),
   ].obs;
 
-  final selectedItems = <PrestacionesLaboralesModel>[].obs;
+  final selectedItems1 = <PrestacionesLaboralesModel>[].obs;
+
+  final dataList2 = <PrestacionesLaboralesModel>[
+    PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
+    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(prestacion: '4D guardería'),
+    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
+    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+    PrestacionesLaboralesModel(prestacion: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+  ].obs;
+
+  final selectedItems2 = <PrestacionesLaboralesModel>[].obs;
+
+  final dataList3 = <PrestacionesLaboralesModel>[
+    PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
+    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(prestacion: '4D guardería'),
+    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
+    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+    PrestacionesLaboralesModel(prestacion: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+  ].obs;
+
+  final selectedItems3 = <PrestacionesLaboralesModel>[].obs;
+
+  final dataList4 = <PrestacionesLaboralesModel>[
+    PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
+    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(prestacion: '4D guardería'),
+    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
+    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+    PrestacionesLaboralesModel(prestacion: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+  ].obs;
+
+  final selectedItems4 = <PrestacionesLaboralesModel>[].obs;
+
+  final dataList5 = <PrestacionesLaboralesModel>[
+    PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
+    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(prestacion: '4D guardería'),
+    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
+    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+    PrestacionesLaboralesModel(prestacion: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+  ].obs;
+
+  final selectedItems5 = <PrestacionesLaboralesModel>[].obs;
+
+  final dataList6 = <PrestacionesLaboralesModel>[
+    PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
+    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(prestacion: '4D guardería'),
+    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
+    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+    PrestacionesLaboralesModel(prestacion: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+  ].obs;
+
+  final selectedItems6 = <PrestacionesLaboralesModel>[].obs;
+
+  final dataList7 = <PrestacionesLaboralesModel>[
+    PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
+    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(prestacion: '4D guardería'),
+    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
+    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+    PrestacionesLaboralesModel(prestacion: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+  ].obs;
+
+  final selectedItems7 = <PrestacionesLaboralesModel>[].obs;
+
+  final dataList8 = <PrestacionesLaboralesModel>[
+    PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
+    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(prestacion: '4D guardería'),
+    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
+    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+    PrestacionesLaboralesModel(prestacion: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+  ].obs;
+
+  final selectedItems8 = <PrestacionesLaboralesModel>[].obs;
+
+  final dataList9 = <PrestacionesLaboralesModel>[
+    PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
+    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(prestacion: '4D guardería'),
+    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
+    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+    PrestacionesLaboralesModel(prestacion: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+  ].obs;
+
+  final selectedItems9 = <PrestacionesLaboralesModel>[].obs;
+
+  final dataList10 = <PrestacionesLaboralesModel>[
+    PrestacionesLaboralesModel(prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
+    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(prestacion: '4D guardería'),
+    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
+    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+    PrestacionesLaboralesModel(prestacion: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+  ].obs;
+
+  final selectedItems10 = <PrestacionesLaboralesModel>[].obs;
 
   var dbHelper;
   @override
@@ -344,7 +470,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems1())
                                       ),
                                     ),
                                   ),
@@ -476,7 +602,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems2())
                                         ),
                                       ),
                                     ),
@@ -608,7 +734,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems3())
                                         ),
                                       ),
                                     ),
@@ -740,7 +866,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems4())
                                         ),
                                       ),
                                     ),
@@ -872,7 +998,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems5())
                                         ),
                                       ),
                                     ),
@@ -1004,7 +1130,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems6())
                                         ),
                                       ),
                                     ),
@@ -1136,7 +1262,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems7())
                                         ),
                                       ),
                                     ),
@@ -1268,7 +1394,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems8())
                                         ),
                                       ),
                                     ),
@@ -1400,7 +1526,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems9())
                                         ),
                                       ),
                                     ),
@@ -1533,7 +1659,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>Column(children: genarateItems())
+                                        child: Obx(() =>Column(children: genarateItems10())
                                         ),
                                       ),
                                     ),
@@ -1631,16 +1757,151 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
 
-  List <Widget> genarateItems(){
+  List <Widget> genarateItems1(){
     final result = <Widget>[];
-    for(int i = 0; i < dataList.length; i++){
+    for(int i = 0; i < dataList1.length; i++){
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
-          value: dataList[i].value,
-          title: Text(dataList[i].prestacion),
+          value: dataList1[i].value,
+          title: Text(dataList1[i].prestacion),
           onChanged: (v){
-            dataList[i].value = v ?? false;
-            dataList.refresh();
+            dataList1[i].value = v ?? false;
+            dataList1.refresh();
+          }));
+    }
+    return  result;
+  }
+
+  List <Widget> genarateItems2(){
+    final result = <Widget>[];
+    for(int i = 0; i < dataList2.length; i++){
+      result.add(CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: dataList2[i].value,
+          title: Text(dataList2[i].prestacion),
+          onChanged: (v){
+            dataList2[i].value = v ?? false;
+            dataList2.refresh();
+          }));
+    }
+    return  result;
+  }
+
+  List <Widget> genarateItems3(){
+    final result = <Widget>[];
+    for(int i = 0; i < dataList3.length; i++){
+      result.add(CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: dataList3[i].value,
+          title: Text(dataList3[i].prestacion),
+          onChanged: (v){
+            dataList3[i].value = v ?? false;
+            dataList3.refresh();
+          }));
+    }
+    return  result;
+  }
+
+  List <Widget> genarateItems4(){
+    final result = <Widget>[];
+    for(int i = 0; i < dataList4.length; i++){
+      result.add(CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: dataList4[i].value,
+          title: Text(dataList4[i].prestacion),
+          onChanged: (v){
+            dataList4[i].value = v ?? false;
+            dataList4.refresh();
+          }));
+    }
+    return  result;
+  }
+
+  List <Widget> genarateItems5(){
+    final result = <Widget>[];
+    for(int i = 0; i < dataList5.length; i++){
+      result.add(CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: dataList5[i].value,
+          title: Text(dataList5[i].prestacion),
+          onChanged: (v){
+            dataList5[i].value = v ?? false;
+            dataList5.refresh();
+          }));
+    }
+    return  result;
+  }
+
+  List <Widget> genarateItems6(){
+    final result = <Widget>[];
+    for(int i = 0; i < dataList6.length; i++){
+      result.add(CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: dataList6[i].value,
+          title: Text(dataList6[i].prestacion),
+          onChanged: (v){
+            dataList6[i].value = v ?? false;
+            dataList6.refresh();
+          }));
+    }
+    return  result;
+  }
+
+  List <Widget> genarateItems7(){
+    final result = <Widget>[];
+    for(int i = 0; i < dataList7.length; i++){
+      result.add(CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: dataList7[i].value,
+          title: Text(dataList7[i].prestacion),
+          onChanged: (v){
+            dataList7[i].value = v ?? false;
+            dataList7.refresh();
+          }));
+    }
+    return  result;
+  }
+
+  List <Widget> genarateItems8(){
+    final result = <Widget>[];
+    for(int i = 0; i < dataList9.length; i++){
+      result.add(CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: dataList9[i].value,
+          title: Text(dataList9[i].prestacion),
+          onChanged: (v){
+            dataList9[i].value = v ?? false;
+            dataList9.refresh();
+          }));
+    }
+    return  result;
+  }
+
+  List <Widget> genarateItems9(){
+    final result = <Widget>[];
+    for(int i = 0; i < dataList9.length; i++){
+      result.add(CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: dataList9[i].value,
+          title: Text(dataList9[i].prestacion),
+          onChanged: (v){
+            dataList9[i].value = v ?? false;
+            dataList9.refresh();
+          }));
+    }
+    return  result;
+  }
+
+  List <Widget> genarateItems10(){
+    final result = <Widget>[];
+    for(int i = 0; i < dataList10.length; i++){
+      result.add(CheckboxListTile(
+          controlAffinity: ListTileControlAffinity.leading,
+          value: dataList10[i].value,
+          title: Text(dataList10[i].prestacion),
+          onChanged: (v){
+            dataList10[i].value = v ?? false;
+            dataList10.refresh();
           }));
     }
     return  result;

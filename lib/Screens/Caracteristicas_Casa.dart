@@ -52,7 +52,7 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
     await dbHelper.saveCasa(DModel).then((caracteristicasCasa) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Equipamineto(widget.folio);
+        return new Equipamiento(widget.folio);
       }
       ));
     }).catchError((error) {

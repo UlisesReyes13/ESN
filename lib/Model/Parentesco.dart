@@ -12,4 +12,7 @@ Map<String, dynamic> toMap(){
   Parentescos.fromMap(Map<String, dynamic> map){
   Parentesco = map['Parentesco'];
   }
+
+  @override
+  String toString() => Parentesco;
 }

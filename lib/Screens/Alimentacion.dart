@@ -21,6 +21,7 @@ enum nueve {si , no}
 enum diez {si , no}
 enum once {si , no}
 enum doce {si , no}
+enum menor {si, no}
 
 class Alimentacion extends StatefulWidget {
 
@@ -40,12 +41,13 @@ class _AlimentacionState extends State<Alimentacion> {
   cuatro _cuatro = cuatro.si;
   cinco _cinco = cinco.si;
   seis _seis = seis.si;
-  siete _siete;
-  ocho _ocho;
-  nueve _nueve;
-  diez _diez;
-  once _once;
-  doce _doce;
+
+  siete _siete = siete.no;
+  ocho _ocho = ocho.no;
+  nueve _nueve = nueve.no;
+  diez _diez = diez.no;
+  once _once = once.no;
+  doce _doce = doce.no;
 
   enviar() async {
 
