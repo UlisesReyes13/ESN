@@ -2,12 +2,12 @@ import 'package:esn/Comm/genTextField.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/CaracteristicasCasa.dart';
+import 'package:esn/Screens/Equipamiento.dart';
 import 'package:esn/Screens/Infraestructura_Vivienda.dart';
+import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
-
 import '../Comm/comHelper.dart';
 import '../DatabaseHandler/DbHelper.dart';
-import 'Equipamiento.dart';
 
 enum CocinaSeparada {si, no}
 enum CuartoBanio {si, no}
@@ -20,17 +20,14 @@ class Caracteristicas_Casa extends StatefulWidget {
   State<Caracteristicas_Casa> createState() => _Caracteristicas_CasaState();
 }
 
-
-
 class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
-
-
 
   final _numCuartos = TextEditingController();
   final _numCuartosDormir = TextEditingController();
   CocinaSeparada _cocinaSeparada = CocinaSeparada.si;
   CuartoBanio _cuartoBanio = CuartoBanio.si;
   var dbHelper;
+  List<CaracteristicasCasa> _CaracteristicasCasa = List<CaracteristicasCasa>();
 
   @override
   void initState() {
@@ -39,14 +36,68 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
     dbHelper = DbHelper();
   }
 
+  getAllCasa() async{
+    _CaracteristicasCasa = List<CaracteristicasCasa>();
+    var categories = await CategoryService().readCasa(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CaracteristicasCasa();
+        categoryModel.folio = category['folio'];
+        categoryModel.numCuartos = category['numCuartos'];
+        categoryModel.cuartosDormir = category['cuartosDormir'];
+        categoryModel.cocinaSeparada = category['cocinaSeparada'];
+        categoryModel.cuartoBanioExclusivo = category['cuartoBanioExclusivo'];
+
+        _CaracteristicasCasa.add(categoryModel);
+      });
+    });
+
+    _numCuartos.text = _CaracteristicasCasa.map((e) => e.numCuartos).first;
+    _numCuartosDormir.text = _CaracteristicasCasa.map((e) => e.cuartosDormir).first;
+
+    if(_CaracteristicasCasa.map((e) => e.cocinaSeparada.toString()).first == "si"){
+      _cocinaSeparada = CocinaSeparada.si;
+    }else if(_CaracteristicasCasa.map((e) => e.cocinaSeparada.toString()).first == "no"){
+      _cocinaSeparada = CocinaSeparada.no;
+    }
+
+    if(_CaracteristicasCasa.map((e) => e.cuartoBanioExclusivo.toString()).first == "si"){
+      _cuartoBanio = CuartoBanio.si;
+    }else if(_CaracteristicasCasa.map((e) => e.cuartoBanioExclusivo.toString()).first == "no"){
+      _cuartoBanio = CuartoBanio.no;
+    }
+
+  }
+
+  actualizar() async{
+    CaracteristicasCasa DModel = CaracteristicasCasa
+      (folio: int.parse(widget.folio),
+        numCuartos: _numCuartos.text.toString(),
+        cuartosDormir: _numCuartosDormir.text.toString(),
+        cocinaSeparada: _cocinaSeparada.name,
+        cuartoBanioExclusivo:_cuartoBanio.name
+    );
+
+    await dbHelper.upDateCasa(DModel).then((caracteristicasCasa) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+        return new Equipamiento(widget.folio);
+      }
+      ));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
   insertDatos() async {
 
     CaracteristicasCasa DModel = CaracteristicasCasa
       (folio: int.parse(widget.folio),
         numCuartos: _numCuartos.text.toString(),
-      cuartosDormir: _numCuartosDormir.text.toString(),
-      cocinaSeparada: _cocinaSeparada.name,
-      cuartoBanioExclusivo:_cuartoBanio.name
+        cuartosDormir: _numCuartosDormir.text.toString(),
+        cocinaSeparada: _cocinaSeparada.name,
+        cuartoBanioExclusivo:_cuartoBanio.name
     );
 
     await dbHelper.saveCasa(DModel).then((caracteristicasCasa) {
@@ -60,7 +111,6 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

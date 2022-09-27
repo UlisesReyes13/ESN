@@ -35,7 +35,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _estadoCivil1 = TextEditingController();
   final _parentesco1 = TextEditingController();
 
-
   final _nombre2 = TextEditingController();
   final _primerApellido2 = TextEditingController();
   final _segundoApellido2 = TextEditingController();
@@ -122,6 +121,16 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   List<Parentescos> _Parentesco = List<Parentescos>();
   List<EstadosModel> _Estado = List<EstadosModel>();
 
+  List<EstructuraFamilarModel> _EstructuraFamiliar1 = List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar2 = List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar3 = List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar4 = List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar5 = List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar6 = List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar7 = List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar8 = List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar9 = List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar10 = List<EstructuraFamilarModel>();
 
   getTitular(){
     String t = '6 6 Titular';
@@ -136,6 +145,1301 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     getTitular();
     dbHelper = DbHelper();
   }
+
+  cargarDatos(){
+    getAllEstructura1();
+    getAllEstructura2();
+    getAllEstructura3();
+    getAllEstructura4();
+    getAllEstructura5();
+    getAllEstructura6();
+    getAllEstructura7();
+    getAllEstructura8();
+    getAllEstructura9();
+    getAllEstructura10();
+  }
+
+  getAllEstructura1() async {
+    _EstructuraFamiliar1 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura1(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar1.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar1.map((e) => e.sexo).first == "hombre") {
+      _nombre1.text = _EstructuraFamiliar1
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido1.text = _EstructuraFamiliar1
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido1.text = _EstructuraFamiliar1
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo1 = Sexo.hombre;
+      _fechaNacimiento1.text = _EstructuraFamiliar1
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento1.text = _EstructuraFamiliar1
+          .map((e) => e.claveEntidad)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil1.text = _EstructuraFamiliar1
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco1.text = _EstructuraFamiliar1
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar1.map((e) => e.sexo).first == "mujer") {
+      _nombre1.text = _EstructuraFamiliar1
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido1.text = _EstructuraFamiliar1
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido1.text = _EstructuraFamiliar1
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo1 = Sexo.mujer;
+      _fechaNacimiento1.text = _EstructuraFamiliar1
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento1.text = _EstructuraFamiliar1
+          .map((e) => e.claveEntidad)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil1.text = _EstructuraFamiliar1
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco1.text = _EstructuraFamiliar1
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar1.map((e) => e.sexo).first == "otro") {
+      _nombre1.text = _EstructuraFamiliar1
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido1.text = _EstructuraFamiliar1
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido1.text = _EstructuraFamiliar1
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo1 = Sexo.otro;
+      _fechaNacimiento1.text = _EstructuraFamiliar1
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento1.text = _EstructuraFamiliar1
+          .map((e) => e.claveEntidad)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil1.text = _EstructuraFamiliar1
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco1.text = _EstructuraFamiliar1
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar1
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+  getAllEstructura2() async {
+    _EstructuraFamiliar2 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura2(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar2.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar2.map((e) => e.sexo).first == "hombre") {
+      _nombre2.text = _EstructuraFamiliar2
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido2.text = _EstructuraFamiliar2
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido2.text = _EstructuraFamiliar2
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo2 = Sexo.hombre;
+      _fechaNacimiento2.text = _EstructuraFamiliar2
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento2.text = _EstructuraFamiliar2
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar2
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil2.text = _EstructuraFamiliar2
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco2.text = _EstructuraFamiliar2
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar2.map((e) => e.sexo).first == "mujer") {
+      _nombre2.text = _EstructuraFamiliar2
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido2.text = _EstructuraFamiliar2
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido2.text = _EstructuraFamiliar2
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo2 = Sexo.mujer;
+      _fechaNacimiento2.text = _EstructuraFamiliar2
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento2.text = _EstructuraFamiliar2
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar2
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil2.text = _EstructuraFamiliar2
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco2.text = _EstructuraFamiliar2
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar2.map((e) => e.sexo).first == "otro") {
+      _nombre2.text = _EstructuraFamiliar2
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido2.text = _EstructuraFamiliar2
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido2.text = _EstructuraFamiliar2
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo2 = Sexo.otro;
+      _fechaNacimiento2.text = _EstructuraFamiliar2
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento2.text = _EstructuraFamiliar2
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar2
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil2.text = _EstructuraFamiliar2
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco2.text = _EstructuraFamiliar2
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar2
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+  getAllEstructura3() async {
+    _EstructuraFamiliar3 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura3(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar3.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar3.map((e) => e.sexo).first == "hombre") {
+      _nombre3.text = _EstructuraFamiliar3
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido3.text = _EstructuraFamiliar3
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido3.text = _EstructuraFamiliar3
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo3 = Sexo.hombre;
+      _fechaNacimiento3.text = _EstructuraFamiliar3
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento3.text = _EstructuraFamiliar3
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar3
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil3.text = _EstructuraFamiliar3
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco3.text = _EstructuraFamiliar3
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar3.map((e) => e.sexo).first == "mujer") {
+      _nombre3.text = _EstructuraFamiliar3
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido3.text = _EstructuraFamiliar3
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido3.text = _EstructuraFamiliar3
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo3 = Sexo.mujer;
+      _fechaNacimiento3.text = _EstructuraFamiliar3
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento3.text = _EstructuraFamiliar3
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar3
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil3.text = _EstructuraFamiliar3
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco3.text = _EstructuraFamiliar3
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar3.map((e) => e.sexo).first == "otro") {
+      _nombre3.text = _EstructuraFamiliar3
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido3.text = _EstructuraFamiliar3
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido3.text = _EstructuraFamiliar3
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo3 = Sexo.otro;
+      _fechaNacimiento3.text = _EstructuraFamiliar3
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento3.text = _EstructuraFamiliar3
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar3
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil3.text = _EstructuraFamiliar3
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco3.text = _EstructuraFamiliar3
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar3
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+  getAllEstructura4() async {
+    _EstructuraFamiliar4 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura4(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar4.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar4.map((e) => e.sexo).first == "hombre") {
+      _nombre4.text = _EstructuraFamiliar4
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido4.text = _EstructuraFamiliar4
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido4.text = _EstructuraFamiliar4
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo4 = Sexo.hombre;
+      _fechaNacimiento4.text = _EstructuraFamiliar4
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento4.text = _EstructuraFamiliar4
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar4
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil4.text = _EstructuraFamiliar4
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco4.text = _EstructuraFamiliar4
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar4.map((e) => e.sexo).first == "mujer") {
+      _nombre4.text = _EstructuraFamiliar4
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido4.text = _EstructuraFamiliar4
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido4.text = _EstructuraFamiliar4
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo4 = Sexo.mujer;
+      _fechaNacimiento4.text = _EstructuraFamiliar4
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento4.text = _EstructuraFamiliar4
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar4
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil4.text = _EstructuraFamiliar4
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco4.text = _EstructuraFamiliar4
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar4.map((e) => e.sexo).first == "otro") {
+      _nombre4.text = _EstructuraFamiliar4
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido4.text = _EstructuraFamiliar4
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido4.text = _EstructuraFamiliar4
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo4= Sexo.otro;
+      _fechaNacimiento4.text = _EstructuraFamiliar4
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento4.text = _EstructuraFamiliar4
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar4
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil4.text = _EstructuraFamiliar4
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco4.text = _EstructuraFamiliar4
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar4
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+  getAllEstructura5() async {
+    _EstructuraFamiliar5 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura5(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar5.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar5.map((e) => e.sexo).first == "hombre") {
+      _nombre5.text = _EstructuraFamiliar5
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido5.text = _EstructuraFamiliar5
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido5.text = _EstructuraFamiliar5
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo5 = Sexo.hombre;
+      _fechaNacimiento5.text = _EstructuraFamiliar5
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento5.text = _EstructuraFamiliar5
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar5
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil5.text = _EstructuraFamiliar5
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco5.text = _EstructuraFamiliar5
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar5.map((e) => e.sexo).first == "mujer") {
+      _nombre5.text = _EstructuraFamiliar5
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido5.text = _EstructuraFamiliar5
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido5.text = _EstructuraFamiliar5
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo5 = Sexo.mujer;
+      _fechaNacimiento5.text = _EstructuraFamiliar5
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento5.text = _EstructuraFamiliar5
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar5
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil5.text = _EstructuraFamiliar5
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco5.text = _EstructuraFamiliar5
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar5.map((e) => e.sexo).first == "otro") {
+      _nombre5.text = _EstructuraFamiliar5
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido5.text = _EstructuraFamiliar5
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido5.text = _EstructuraFamiliar5
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo5 = Sexo.otro;
+      _fechaNacimiento5.text = _EstructuraFamiliar5
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento5.text = _EstructuraFamiliar5
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar5
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil5.text = _EstructuraFamiliar5
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco5.text = _EstructuraFamiliar5
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar5
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+  getAllEstructura6() async {
+    _EstructuraFamiliar6 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura6(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar6.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar6.map((e) => e.sexo).first == "hombre") {
+      _nombre6.text = _EstructuraFamiliar6
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido6.text = _EstructuraFamiliar6
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido6.text = _EstructuraFamiliar6
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo6 = Sexo.hombre;
+      _fechaNacimiento6.text = _EstructuraFamiliar6
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento6.text = _EstructuraFamiliar6
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar6
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil6.text = _EstructuraFamiliar6
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco6.text = _EstructuraFamiliar6
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar6.map((e) => e.sexo).first == "mujer") {
+      _nombre6.text = _EstructuraFamiliar6
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido6.text = _EstructuraFamiliar6
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido6.text = _EstructuraFamiliar6
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo6 = Sexo.mujer;
+      _fechaNacimiento6.text = _EstructuraFamiliar6
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento6.text = _EstructuraFamiliar6
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar6
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil6.text = _EstructuraFamiliar6
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco6.text = _EstructuraFamiliar6
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar6.map((e) => e.sexo).first == "otro") {
+      _nombre6.text = _EstructuraFamiliar6
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido6.text = _EstructuraFamiliar6
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido6.text = _EstructuraFamiliar6
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo6 = Sexo.otro;
+      _fechaNacimiento6.text = _EstructuraFamiliar6
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento6.text = _EstructuraFamiliar6
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar6
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil6.text = _EstructuraFamiliar6
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco6.text = _EstructuraFamiliar6
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar6
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+  getAllEstructura7() async {
+    _EstructuraFamiliar7 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura7(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar7.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar7.map((e) => e.sexo).first == "hombre") {
+      _nombre7.text = _EstructuraFamiliar7
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido7.text = _EstructuraFamiliar7
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido7.text = _EstructuraFamiliar7
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo7 = Sexo.hombre;
+      _fechaNacimiento7.text = _EstructuraFamiliar7
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento7.text = _EstructuraFamiliar7
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar7
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil7.text = _EstructuraFamiliar7
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco7.text = _EstructuraFamiliar7
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar7.map((e) => e.sexo).first == "mujer") {
+      _nombre7.text = _EstructuraFamiliar7
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido7.text = _EstructuraFamiliar7
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido7.text = _EstructuraFamiliar7
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo7 = Sexo.mujer;
+      _fechaNacimiento7.text = _EstructuraFamiliar7
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento7.text = _EstructuraFamiliar7
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar7
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil7.text = _EstructuraFamiliar7
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco7.text = _EstructuraFamiliar7
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar7.map((e) => e.sexo).first == "otro") {
+      _nombre7.text = _EstructuraFamiliar7
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido7.text = _EstructuraFamiliar7
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido7.text = _EstructuraFamiliar7
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo7 = Sexo.otro;
+      _fechaNacimiento7.text = _EstructuraFamiliar7
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento7.text = _EstructuraFamiliar7
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar7
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil7.text = _EstructuraFamiliar7
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco7.text = _EstructuraFamiliar7
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar7
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+  getAllEstructura8() async {
+    _EstructuraFamiliar8 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura8(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar8.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar8.map((e) => e.sexo).first == "hombre") {
+      _nombre8.text = _EstructuraFamiliar8
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido8.text = _EstructuraFamiliar8
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido8.text = _EstructuraFamiliar8
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo8 = Sexo.hombre;
+      _fechaNacimiento8.text = _EstructuraFamiliar8
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento8.text = _EstructuraFamiliar8
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar8
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil8.text = _EstructuraFamiliar8
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco8.text = _EstructuraFamiliar8
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar8.map((e) => e.sexo).first == "mujer") {
+      _nombre8.text = _EstructuraFamiliar8
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido8.text = _EstructuraFamiliar8
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido8.text = _EstructuraFamiliar8
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo8 = Sexo.mujer;
+      _fechaNacimiento8.text = _EstructuraFamiliar8
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento8.text = _EstructuraFamiliar8
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar8
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil8.text = _EstructuraFamiliar8
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco8.text = _EstructuraFamiliar8
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar8.map((e) => e.sexo).first == "otro") {
+      _nombre8.text = _EstructuraFamiliar8
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido8.text = _EstructuraFamiliar8
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido8.text = _EstructuraFamiliar8
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo8 = Sexo.otro;
+      _fechaNacimiento8.text = _EstructuraFamiliar8
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento8.text = _EstructuraFamiliar8
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar8
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil8.text = _EstructuraFamiliar8
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco8.text = _EstructuraFamiliar8
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar8
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+  getAllEstructura9() async {
+    _EstructuraFamiliar9 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura9(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar9.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar9.map((e) => e.sexo).first == "hombre") {
+      _nombre9.text = _EstructuraFamiliar9
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido9.text = _EstructuraFamiliar9
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido9.text = _EstructuraFamiliar9
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo9 = Sexo.hombre;
+      _fechaNacimiento9.text = _EstructuraFamiliar9
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento9.text = _EstructuraFamiliar9
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar9
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil9.text = _EstructuraFamiliar9
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco9.text = _EstructuraFamiliar9
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar9.map((e) => e.sexo).first == "mujer") {
+      _nombre9.text = _EstructuraFamiliar9
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido9.text = _EstructuraFamiliar9
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido9.text = _EstructuraFamiliar9
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo9 = Sexo.mujer;
+      _fechaNacimiento9.text = _EstructuraFamiliar9
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento9.text = _EstructuraFamiliar9
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar9
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil9.text = _EstructuraFamiliar9
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco9.text = _EstructuraFamiliar9
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar9.map((e) => e.sexo).first == "otro") {
+      _nombre9.text = _EstructuraFamiliar9
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido9.text = _EstructuraFamiliar9
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido9.text = _EstructuraFamiliar9
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo9 = Sexo.otro;
+      _fechaNacimiento9.text = _EstructuraFamiliar9
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento9.text = _EstructuraFamiliar9
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar9
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil9.text = _EstructuraFamiliar9
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco9.text = _EstructuraFamiliar9
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar9
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+  getAllEstructura10() async {
+    _EstructuraFamiliar10 = List<EstructuraFamilarModel>();
+    var categories = await CategoryService().readEstructura10(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstructuraFamilarModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.nombre = category['nombre'];
+        categoryModel.primerApellido = category['primerApellido'];
+        categoryModel.segundoApellido = category['segundoApellido'];
+        categoryModel.sexo = category['sexo'];
+        categoryModel.fechaNacimiento = category['fechaNacimiento'];
+        categoryModel.claveEntidad = category['claveEntidad'];
+        categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
+        categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
+        categoryModel.estadoCivil = category['estadoCivil'];
+        categoryModel.claveParentesco = category['claveParentesco'];
+        categoryModel.ordenParentesco = category['OrdenParentesco'];
+        categoryModel.parentesco = category['parentesco'];
+
+        _EstructuraFamiliar10.add(categoryModel);
+      });
+    });
+    if(_EstructuraFamiliar10.map((e) => e.sexo).first == "hombre") {
+      _nombre10.text = _EstructuraFamiliar10
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido10.text = _EstructuraFamiliar10
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido10.text = _EstructuraFamiliar10
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo10 = Sexo.hombre;
+      _fechaNacimiento10.text = _EstructuraFamiliar10
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento10.text = _EstructuraFamiliar10
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar10
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil10.text = _EstructuraFamiliar10
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco10.text = _EstructuraFamiliar10
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar10.map((e) => e.sexo).first == "mujer") {
+      _nombre10.text = _EstructuraFamiliar10
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido10.text = _EstructuraFamiliar10
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido10.text = _EstructuraFamiliar10
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo10 = Sexo.mujer;
+      _fechaNacimiento10.text = _EstructuraFamiliar10
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento10.text = _EstructuraFamiliar10
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar10
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil10.text = _EstructuraFamiliar10
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco10.text = _EstructuraFamiliar10
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.parentesco)
+          .first;
+    }
+    if(_EstructuraFamiliar10.map((e) => e.sexo).first == "otro") {
+      _nombre10.text = _EstructuraFamiliar10
+          .map((e) => e.nombre)
+          .first;
+      _primerApellido10.text = _EstructuraFamiliar10
+          .map((e) => e.primerApellido)
+          .first;
+      _segundoApellido10.text = _EstructuraFamiliar10
+          .map((e) => e.segundoApellido)
+          .first;
+      _sexo10 = Sexo.otro;
+      _fechaNacimiento10.text = _EstructuraFamiliar10
+          .map((e) => e.fechaNacimiento)
+          .first;
+      _entidadNacimiento10.text = _EstructuraFamiliar10
+          .map((e) => e.claveEntidad)
+          .first + " " +_EstructuraFamiliar10
+          .map((e) => e.entidadNacimiento)
+          .first;
+      _estadoCivil10.text = _EstructuraFamiliar10
+          .map((e) => e.claveEstadoCivil)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.ordenEstadoCivil)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.estadoCivil)
+          .first;
+      _parentesco10.text = _EstructuraFamiliar10
+          .map((e) => e.claveParentesco)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.ordenParentesco)
+          .first + " " + _EstructuraFamiliar10
+          .map((e) => e.parentesco)
+          .first;
+    }
+  }
+
+
 
   getAllCategoriesEstadosCiviles() async {
     _EstadosCiviles = List<EstadosCiviles>();
@@ -173,21 +1477,20 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     });
   }
 
-  enviar() async {
-    if(_nombre1.text.toString().isEmpty){
+  actualizar() async {
+    if (_nombre1.text
+        .toString()
+        .isEmpty) {
       alertDialog(context, "Error: Faltan datos en el renglon 1");
-
-    }else if(_nombre2.text.toString().isEmpty){
-
+    } else if (_nombre2.text
+        .toString()
+        .isEmpty) {
       String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
+      if (sexo1 == 'hombre') {
         sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
+      } else if (sexo1 == 'mujer') {
         sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
+      } else if (sexo1 == 'otro') {
         sexo1 = '3 3 Otro';
       }
       var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
@@ -218,28 +1521,28 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0, 1),
+        ordenSexo: sexo1.substring(0, 1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad: _entidadNacimiento1.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -325,52 +1628,52 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
       }).catchError((error) {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
       EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre2.text.toString(),
-          primerApellido: _primerApellido2.text.toString(),
-          segundoApellido: _segundoApellido2.text.toString(),
-          claveSexo: sexo2.substring(0, 1),
-          ordenSexo: sexo2.substring(0, 1),
-          sexo: _sexo2.name.toString(),
-          fechaNacimiento: _fechaNacimiento2.text.toString(),
-          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento2.trimLeft(),
-          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          estadoCivil: estado2.trimLeft(),
-          claveParentesco: _parentesco2.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-          parentesco: parentesco2.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+      await dbHelper.upDateEstructuraFamiliar2(DModel2).then((
           estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -494,47 +1797,47 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
       }).catchError((error) {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
       EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre2.text.toString(),
-          primerApellido: _primerApellido2.text.toString(),
-          segundoApellido: _segundoApellido2.text.toString(),
-          claveSexo: sexo2.substring(0, 1),
-          ordenSexo: sexo2.substring(0, 1),
-          sexo: _sexo2.name.toString(),
-          fechaNacimiento: _fechaNacimiento2.text.toString(),
-          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento2.trimLeft(),
-          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          estadoCivil: estado2.trimLeft(),
-          claveParentesco: _parentesco2.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-          parentesco: parentesco2.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+      await dbHelper.upDateEstructuraFamiliar2(DModel2).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -542,29 +1845,29 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre3.text.toString(),
-          primerApellido: _primerApellido3.text.toString(),
-          segundoApellido: _segundoApellido3.text.toString(),
-          claveSexo: sexo3.substring(0, 1),
-          ordenSexo: sexo3.substring(0, 1),
-          sexo: _sexo3.name.toString(),
-          fechaNacimiento: _fechaNacimiento3.text.toString(),
-          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento3.trimLeft(),
-          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          estadoCivil: estado3.trimLeft(),
-          claveParentesco: _parentesco3.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-          parentesco: parentesco3.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+      await dbHelper.upDateEstructuraFamiliar3(DModel3).then((
           estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -727,47 +2030,47 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
       }).catchError((error) {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
       EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre2.text.toString(),
-          primerApellido: _primerApellido2.text.toString(),
-          segundoApellido: _segundoApellido2.text.toString(),
-          claveSexo: sexo2.substring(0, 1),
-          ordenSexo: sexo2.substring(0, 1),
-          sexo: _sexo2.name.toString(),
-          fechaNacimiento: _fechaNacimiento2.text.toString(),
-          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento2.trimLeft(),
-          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          estadoCivil: estado2.trimLeft(),
-          claveParentesco: _parentesco2.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-          parentesco: parentesco2.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+      await dbHelper.upDateEstructuraFamiliar2(DModel2).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -775,24 +2078,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre3.text.toString(),
-          primerApellido: _primerApellido3.text.toString(),
-          segundoApellido: _segundoApellido3.text.toString(),
-          claveSexo: sexo3.substring(0, 1),
-          ordenSexo: sexo3.substring(0, 1),
-          sexo: _sexo3.name.toString(),
-          fechaNacimiento: _fechaNacimiento3.text.toString(),
-          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento3.trimLeft(),
-          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          estadoCivil: estado3.trimLeft(),
-          claveParentesco: _parentesco3.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-          parentesco: parentesco3.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+      await dbHelper.upDateEstructuraFamiliar3(DModel3).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -800,29 +2103,29 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre4.text.toString(),
-          primerApellido: _primerApellido4.text.toString(),
-          segundoApellido: _segundoApellido4.text.toString(),
-          claveSexo: sexo4.substring(0, 1),
-          ordenSexo: sexo4.substring(0, 1),
-          sexo: _sexo4.name.toString(),
-          fechaNacimiento: _fechaNacimiento4.text.toString(),
-          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento4.trimLeft(),
-          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          estadoCivil: estado4.trimLeft(),
-          claveParentesco: _parentesco4.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-          parentesco: parentesco4.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+      await dbHelper.upDateEstructuraFamiliar4(DModel4).then((
           estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -1021,47 +2324,47 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
       }).catchError((error) {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
       EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre2.text.toString(),
-          primerApellido: _primerApellido2.text.toString(),
-          segundoApellido: _segundoApellido2.text.toString(),
-          claveSexo: sexo2.substring(0, 1),
-          ordenSexo: sexo2.substring(0, 1),
-          sexo: _sexo2.name.toString(),
-          fechaNacimiento: _fechaNacimiento2.text.toString(),
-          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento2.trimLeft(),
-          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          estadoCivil: estado2.trimLeft(),
-          claveParentesco: _parentesco2.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-          parentesco: parentesco2.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+      await dbHelper.upDateEstructuraFamiliar2(DModel2).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -1069,24 +2372,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre3.text.toString(),
-          primerApellido: _primerApellido3.text.toString(),
-          segundoApellido: _segundoApellido3.text.toString(),
-          claveSexo: sexo3.substring(0, 1),
-          ordenSexo: sexo3.substring(0, 1),
-          sexo: _sexo3.name.toString(),
-          fechaNacimiento: _fechaNacimiento3.text.toString(),
-          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento3.trimLeft(),
-          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          estadoCivil: estado3.trimLeft(),
-          claveParentesco: _parentesco3.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-          parentesco: parentesco3.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+      await dbHelper.upDateEstructuraFamiliar3(DModel3).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -1094,24 +2397,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre4.text.toString(),
-          primerApellido: _primerApellido4.text.toString(),
-          segundoApellido: _segundoApellido4.text.toString(),
-          claveSexo: sexo4.substring(0, 1),
-          ordenSexo: sexo4.substring(0, 1),
-          sexo: _sexo4.name.toString(),
-          fechaNacimiento: _fechaNacimiento4.text.toString(),
-          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento4.trimLeft(),
-          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          estadoCivil: estado4.trimLeft(),
-          claveParentesco: _parentesco4.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-          parentesco: parentesco4.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+      await dbHelper.upDateEstructuraFamiliar4(DModel4).then((
           estructuraFamilar) {
 
       }).catchError((error) {
@@ -1120,29 +2423,29 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre5.text.toString(),
-          primerApellido: _primerApellido5.text.toString(),
-          segundoApellido: _segundoApellido5.text.toString(),
-          claveSexo: sexo5.substring(0, 1),
-          ordenSexo: sexo5.substring(0, 1),
-          sexo: _sexo5.name.toString(),
-          fechaNacimiento: _fechaNacimiento5.text.toString(),
-          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento5.trimLeft(),
-          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          estadoCivil: estado5.trimLeft(),
-          claveParentesco: _parentesco5.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-          parentesco: parentesco5.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+      await dbHelper.upDateEstructuraFamiliar5(DModel5).then((
           estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -1377,47 +2680,47 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
       }).catchError((error) {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
       EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre2.text.toString(),
-          primerApellido: _primerApellido2.text.toString(),
-          segundoApellido: _segundoApellido2.text.toString(),
-          claveSexo: sexo2.substring(0, 1),
-          ordenSexo: sexo2.substring(0, 1),
-          sexo: _sexo2.name.toString(),
-          fechaNacimiento: _fechaNacimiento2.text.toString(),
-          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento2.trimLeft(),
-          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          estadoCivil: estado2.trimLeft(),
-          claveParentesco: _parentesco2.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-          parentesco: parentesco2.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+      await dbHelper.upDateEstructuraFamiliar2(DModel2).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -1425,24 +2728,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre3.text.toString(),
-          primerApellido: _primerApellido3.text.toString(),
-          segundoApellido: _segundoApellido3.text.toString(),
-          claveSexo: sexo3.substring(0, 1),
-          ordenSexo: sexo3.substring(0, 1),
-          sexo: _sexo3.name.toString(),
-          fechaNacimiento: _fechaNacimiento3.text.toString(),
-          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento3.trimLeft(),
-          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          estadoCivil: estado3.trimLeft(),
-          claveParentesco: _parentesco3.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-          parentesco: parentesco3.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+      await dbHelper.upDateEstructuraFamiliar3(DModel3).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -1450,24 +2753,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre4.text.toString(),
-          primerApellido: _primerApellido4.text.toString(),
-          segundoApellido: _segundoApellido4.text.toString(),
-          claveSexo: sexo4.substring(0, 1),
-          ordenSexo: sexo4.substring(0, 1),
-          sexo: _sexo4.name.toString(),
-          fechaNacimiento: _fechaNacimiento4.text.toString(),
-          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento4.trimLeft(),
-          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          estadoCivil: estado4.trimLeft(),
-          claveParentesco: _parentesco4.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-          parentesco: parentesco4.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+      await dbHelper.upDateEstructuraFamiliar4(DModel4).then((
           estructuraFamilar) {
 
       }).catchError((error) {
@@ -1476,24 +2779,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre5.text.toString(),
-          primerApellido: _primerApellido5.text.toString(),
-          segundoApellido: _segundoApellido5.text.toString(),
-          claveSexo: sexo5.substring(0, 1),
-          ordenSexo: sexo5.substring(0, 1),
-          sexo: _sexo5.name.toString(),
-          fechaNacimiento: _fechaNacimiento5.text.toString(),
-          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento5.trimLeft(),
-          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          estadoCivil: estado5.trimLeft(),
-          claveParentesco: _parentesco5.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-          parentesco: parentesco5.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+      await dbHelper.upDateEstructuraFamiliar5(DModel5).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -1501,29 +2804,29 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre6.text.toString(),
-          primerApellido: _primerApellido6.text.toString(),
-          segundoApellido: _segundoApellido6.text.toString(),
-          claveSexo: sexo6.substring(0, 1),
-          ordenSexo: sexo6.substring(0, 1),
-          sexo: _sexo6.name.toString(),
-          fechaNacimiento: _fechaNacimiento6.text.toString(),
-          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento6.trimLeft(),
-          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          estadoCivil: estado6.trimLeft(),
-          claveParentesco: _parentesco6.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-          parentesco: parentesco6.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+      await dbHelper.upDateEstructuraFamiliar6(DModel6).then((
           estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -1792,47 +3095,47 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
       }).catchError((error) {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
       EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre2.text.toString(),
-          primerApellido: _primerApellido2.text.toString(),
-          segundoApellido: _segundoApellido2.text.toString(),
-          claveSexo: sexo2.substring(0, 1),
-          ordenSexo: sexo2.substring(0, 1),
-          sexo: _sexo2.name.toString(),
-          fechaNacimiento: _fechaNacimiento2.text.toString(),
-          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento2.trimLeft(),
-          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          estadoCivil: estado2.trimLeft(),
-          claveParentesco: _parentesco2.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-          parentesco: parentesco2.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+      await dbHelper.upDateEstructuraFamiliar2(DModel2).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -1840,24 +3143,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre3.text.toString(),
-          primerApellido: _primerApellido3.text.toString(),
-          segundoApellido: _segundoApellido3.text.toString(),
-          claveSexo: sexo3.substring(0, 1),
-          ordenSexo: sexo3.substring(0, 1),
-          sexo: _sexo3.name.toString(),
-          fechaNacimiento: _fechaNacimiento3.text.toString(),
-          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento3.trimLeft(),
-          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          estadoCivil: estado3.trimLeft(),
-          claveParentesco: _parentesco3.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-          parentesco: parentesco3.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+      await dbHelper.upDateEstructuraFamiliar3(DModel3).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -1865,24 +3168,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre4.text.toString(),
-          primerApellido: _primerApellido4.text.toString(),
-          segundoApellido: _segundoApellido4.text.toString(),
-          claveSexo: sexo4.substring(0, 1),
-          ordenSexo: sexo4.substring(0, 1),
-          sexo: _sexo4.name.toString(),
-          fechaNacimiento: _fechaNacimiento4.text.toString(),
-          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento4.trimLeft(),
-          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          estadoCivil: estado4.trimLeft(),
-          claveParentesco: _parentesco4.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-          parentesco: parentesco4.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+      await dbHelper.upDateEstructuraFamiliar4(DModel4).then((
           estructuraFamilar) {
 
       }).catchError((error) {
@@ -1891,24 +3194,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre5.text.toString(),
-          primerApellido: _primerApellido5.text.toString(),
-          segundoApellido: _segundoApellido5.text.toString(),
-          claveSexo: sexo5.substring(0, 1),
-          ordenSexo: sexo5.substring(0, 1),
-          sexo: _sexo5.name.toString(),
-          fechaNacimiento: _fechaNacimiento5.text.toString(),
-          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento5.trimLeft(),
-          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          estadoCivil: estado5.trimLeft(),
-          claveParentesco: _parentesco5.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-          parentesco: parentesco5.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+      await dbHelper.upDateEstructuraFamiliar5(DModel5).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -1916,24 +3219,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre6.text.toString(),
-          primerApellido: _primerApellido6.text.toString(),
-          segundoApellido: _segundoApellido6.text.toString(),
-          claveSexo: sexo6.substring(0, 1),
-          ordenSexo: sexo6.substring(0, 1),
-          sexo: _sexo6.name.toString(),
-          fechaNacimiento: _fechaNacimiento6.text.toString(),
-          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento6.trimLeft(),
-          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          estadoCivil: estado6.trimLeft(),
-          claveParentesco: _parentesco6.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-          parentesco: parentesco6.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+      await dbHelper.upDateEstructuraFamiliar6(DModel6).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -1942,29 +3245,29 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre7.text.toString(),
-          primerApellido: _primerApellido7.text.toString(),
-          segundoApellido: _segundoApellido7.text.toString(),
-          claveSexo: sexo7.substring(0, 1),
-          ordenSexo: sexo7.substring(0, 1),
-          sexo: _sexo7.name.toString(),
-          fechaNacimiento: _fechaNacimiento7.text.toString(),
-          claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento7.trimLeft(),
-          claveestadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-          estadoCivil: estado7.trimLeft(),
-          claveParentesco: _parentesco7.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco7.text.toString().substring(0, 1),
-          parentesco: parentesco7.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre7.text.toString(),
+        primerApellido: _primerApellido7.text.toString(),
+        segundoApellido: _segundoApellido7.text.toString(),
+        claveSexo: sexo7.substring(0, 1),
+        ordenSexo: sexo7.substring(0, 1),
+        sexo: _sexo7.name.toString(),
+        fechaNacimiento: _fechaNacimiento7.text.toString(),
+        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento7.trimLeft(),
+        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        estadoCivil: estado7.trimLeft(),
+        claveParentesco: _parentesco7.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+        parentesco: parentesco7.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+      await dbHelper.upDateEstructuraFamiliar7(DModel7).then((
           estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -2269,47 +3572,47 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
       }).catchError((error) {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
       EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre2.text.toString(),
-          primerApellido: _primerApellido2.text.toString(),
-          segundoApellido: _segundoApellido2.text.toString(),
-          claveSexo: sexo2.substring(0, 1),
-          ordenSexo: sexo2.substring(0, 1),
-          sexo: _sexo2.name.toString(),
-          fechaNacimiento: _fechaNacimiento2.text.toString(),
-          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento2.trimLeft(),
-          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          estadoCivil: estado2.trimLeft(),
-          claveParentesco: _parentesco2.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-          parentesco: parentesco2.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+      await dbHelper.upDateEstructuraFamiliar2(DModel2).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2317,24 +3620,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre3.text.toString(),
-          primerApellido: _primerApellido3.text.toString(),
-          segundoApellido: _segundoApellido3.text.toString(),
-          claveSexo: sexo3.substring(0, 1),
-          ordenSexo: sexo3.substring(0, 1),
-          sexo: _sexo3.name.toString(),
-          fechaNacimiento: _fechaNacimiento3.text.toString(),
-          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento3.trimLeft(),
-          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          estadoCivil: estado3.trimLeft(),
-          claveParentesco: _parentesco3.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-          parentesco: parentesco3.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+      await dbHelper.upDateEstructuraFamiliar3(DModel3).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2342,24 +3645,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre4.text.toString(),
-          primerApellido: _primerApellido4.text.toString(),
-          segundoApellido: _segundoApellido4.text.toString(),
-          claveSexo: sexo4.substring(0, 1),
-          ordenSexo: sexo4.substring(0, 1),
-          sexo: _sexo4.name.toString(),
-          fechaNacimiento: _fechaNacimiento4.text.toString(),
-          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento4.trimLeft(),
-          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          estadoCivil: estado4.trimLeft(),
-          claveParentesco: _parentesco4.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-          parentesco: parentesco4.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+      await dbHelper.upDateEstructuraFamiliar4(DModel4).then((
           estructuraFamilar) {
 
       }).catchError((error) {
@@ -2368,24 +3671,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre5.text.toString(),
-          primerApellido: _primerApellido5.text.toString(),
-          segundoApellido: _segundoApellido5.text.toString(),
-          claveSexo: sexo5.substring(0, 1),
-          ordenSexo: sexo5.substring(0, 1),
-          sexo: _sexo5.name.toString(),
-          fechaNacimiento: _fechaNacimiento5.text.toString(),
-          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento5.trimLeft(),
-          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          estadoCivil: estado5.trimLeft(),
-          claveParentesco: _parentesco5.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-          parentesco: parentesco5.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+      await dbHelper.upDateEstructuraFamiliar5(DModel5).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2393,24 +3696,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre6.text.toString(),
-          primerApellido: _primerApellido6.text.toString(),
-          segundoApellido: _segundoApellido6.text.toString(),
-          claveSexo: sexo6.substring(0, 1),
-          ordenSexo: sexo6.substring(0, 1),
-          sexo: _sexo6.name.toString(),
-          fechaNacimiento: _fechaNacimiento6.text.toString(),
-          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento6.trimLeft(),
-          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          estadoCivil: estado6.trimLeft(),
-          claveParentesco: _parentesco6.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-          parentesco: parentesco6.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+      await dbHelper.upDateEstructuraFamiliar6(DModel6).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2419,24 +3722,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre7.text.toString(),
-          primerApellido: _primerApellido7.text.toString(),
-          segundoApellido: _segundoApellido7.text.toString(),
-          claveSexo: sexo7.substring(0, 1),
-          ordenSexo: sexo7.substring(0, 1),
-          sexo: _sexo7.name.toString(),
-          fechaNacimiento: _fechaNacimiento7.text.toString(),
-          claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento7.trimLeft(),
-          claveestadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-          estadoCivil: estado7.trimLeft(),
-          claveParentesco: _parentesco7.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco7.text.toString().substring(0, 1),
-          parentesco: parentesco7.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre7.text.toString(),
+        primerApellido: _primerApellido7.text.toString(),
+        segundoApellido: _segundoApellido7.text.toString(),
+        claveSexo: sexo7.substring(0, 1),
+        ordenSexo: sexo7.substring(0, 1),
+        sexo: _sexo7.name.toString(),
+        fechaNacimiento: _fechaNacimiento7.text.toString(),
+        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento7.trimLeft(),
+        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        estadoCivil: estado7.trimLeft(),
+        claveParentesco: _parentesco7.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+        parentesco: parentesco7.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+      await dbHelper.upDateEstructuraFamiliar7(DModel7).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2444,29 +3747,29 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre8.text.toString(),
-          primerApellido: _primerApellido8.text.toString(),
-          segundoApellido: _segundoApellido8.text.toString(),
-          claveSexo: sexo8.substring(0, 1),
-          ordenSexo: sexo8.substring(0, 1),
-          sexo: _sexo8.name.toString(),
-          fechaNacimiento: _fechaNacimiento8.text.toString(),
-          claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento8.trimLeft(),
-          claveestadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-          estadoCivil: estado8.trimLeft(),
-          claveParentesco: _parentesco8.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco8.text.toString().substring(0, 1),
-          parentesco: parentesco8.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre8.text.toString(),
+        primerApellido: _primerApellido8.text.toString(),
+        segundoApellido: _segundoApellido8.text.toString(),
+        claveSexo: sexo8.substring(0, 1),
+        ordenSexo: sexo8.substring(0, 1),
+        sexo: _sexo8.name.toString(),
+        fechaNacimiento: _fechaNacimiento8.text.toString(),
+        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento8.trimLeft(),
+        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        estadoCivil: estado8.trimLeft(),
+        claveParentesco: _parentesco8.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+        parentesco: parentesco8.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel8).then((
+      await dbHelper.upDateEstructuraFamiliar8(DModel8).then((
           estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -2807,47 +4110,47 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
       }).catchError((error) {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
       EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre2.text.toString(),
-          primerApellido: _primerApellido2.text.toString(),
-          segundoApellido: _segundoApellido2.text.toString(),
-          claveSexo: sexo2.substring(0, 1),
-          ordenSexo: sexo2.substring(0, 1),
-          sexo: _sexo2.name.toString(),
-          fechaNacimiento: _fechaNacimiento2.text.toString(),
-          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento2.trimLeft(),
-          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          estadoCivil: estado2.trimLeft(),
-          claveParentesco: _parentesco2.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-          parentesco: parentesco2.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+      await dbHelper.upDateEstructuraFamiliar2(DModel2).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2855,24 +4158,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre3.text.toString(),
-          primerApellido: _primerApellido3.text.toString(),
-          segundoApellido: _segundoApellido3.text.toString(),
-          claveSexo: sexo3.substring(0, 1),
-          ordenSexo: sexo3.substring(0, 1),
-          sexo: _sexo3.name.toString(),
-          fechaNacimiento: _fechaNacimiento3.text.toString(),
-          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento3.trimLeft(),
-          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          estadoCivil: estado3.trimLeft(),
-          claveParentesco: _parentesco3.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-          parentesco: parentesco3.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+      await dbHelper.upDateEstructuraFamiliar3(DModel3).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2880,24 +4183,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre4.text.toString(),
-          primerApellido: _primerApellido4.text.toString(),
-          segundoApellido: _segundoApellido4.text.toString(),
-          claveSexo: sexo4.substring(0, 1),
-          ordenSexo: sexo4.substring(0, 1),
-          sexo: _sexo4.name.toString(),
-          fechaNacimiento: _fechaNacimiento4.text.toString(),
-          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento4.trimLeft(),
-          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          estadoCivil: estado4.trimLeft(),
-          claveParentesco: _parentesco4.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-          parentesco: parentesco4.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+      await dbHelper.upDateEstructuraFamiliar4(DModel4).then((
           estructuraFamilar) {
 
       }).catchError((error) {
@@ -2906,24 +4209,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre5.text.toString(),
-          primerApellido: _primerApellido5.text.toString(),
-          segundoApellido: _segundoApellido5.text.toString(),
-          claveSexo: sexo5.substring(0, 1),
-          ordenSexo: sexo5.substring(0, 1),
-          sexo: _sexo5.name.toString(),
-          fechaNacimiento: _fechaNacimiento5.text.toString(),
-          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento5.trimLeft(),
-          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          estadoCivil: estado5.trimLeft(),
-          claveParentesco: _parentesco5.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-          parentesco: parentesco5.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+      await dbHelper.upDateEstructuraFamiliar5(DModel5).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2931,24 +4234,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre6.text.toString(),
-          primerApellido: _primerApellido6.text.toString(),
-          segundoApellido: _segundoApellido6.text.toString(),
-          claveSexo: sexo6.substring(0, 1),
-          ordenSexo: sexo6.substring(0, 1),
-          sexo: _sexo6.name.toString(),
-          fechaNacimiento: _fechaNacimiento6.text.toString(),
-          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento6.trimLeft(),
-          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          estadoCivil: estado6.trimLeft(),
-          claveParentesco: _parentesco6.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-          parentesco: parentesco6.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+      await dbHelper.upDateEstructuraFamiliar6(DModel6).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2957,24 +4260,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre7.text.toString(),
-          primerApellido: _primerApellido7.text.toString(),
-          segundoApellido: _segundoApellido7.text.toString(),
-          claveSexo: sexo7.substring(0, 1),
-          ordenSexo: sexo7.substring(0, 1),
-          sexo: _sexo7.name.toString(),
-          fechaNacimiento: _fechaNacimiento7.text.toString(),
-          claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento7.trimLeft(),
-          claveestadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-          estadoCivil: estado7.trimLeft(),
-          claveParentesco: _parentesco7.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco7.text.toString().substring(0, 1),
-          parentesco: parentesco7.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre7.text.toString(),
+        primerApellido: _primerApellido7.text.toString(),
+        segundoApellido: _segundoApellido7.text.toString(),
+        claveSexo: sexo7.substring(0, 1),
+        ordenSexo: sexo7.substring(0, 1),
+        sexo: _sexo7.name.toString(),
+        fechaNacimiento: _fechaNacimiento7.text.toString(),
+        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento7.trimLeft(),
+        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        estadoCivil: estado7.trimLeft(),
+        claveParentesco: _parentesco7.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+        parentesco: parentesco7.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+      await dbHelper.upDateEstructuraFamiliar7(DModel7).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -2982,24 +4285,24 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre8.text.toString(),
-          primerApellido: _primerApellido8.text.toString(),
-          segundoApellido: _segundoApellido8.text.toString(),
-          claveSexo: sexo8.substring(0, 1),
-          ordenSexo: sexo8.substring(0, 1),
-          sexo: _sexo8.name.toString(),
-          fechaNacimiento: _fechaNacimiento8.text.toString(),
-          claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento8.trimLeft(),
-          claveestadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-          estadoCivil: estado8.trimLeft(),
-          claveParentesco: _parentesco8.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco8.text.toString().substring(0, 1),
-          parentesco: parentesco8.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre8.text.toString(),
+        primerApellido: _primerApellido8.text.toString(),
+        segundoApellido: _segundoApellido8.text.toString(),
+        claveSexo: sexo8.substring(0, 1),
+        ordenSexo: sexo8.substring(0, 1),
+        sexo: _sexo8.name.toString(),
+        fechaNacimiento: _fechaNacimiento8.text.toString(),
+        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento8.trimLeft(),
+        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        estadoCivil: estado8.trimLeft(),
+        claveParentesco: _parentesco8.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+        parentesco: parentesco8.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel8).then((
+      await dbHelper.upDateEstructuraFamiliar8(DModel8).then((
           estructuraFamilar) {
       }).catchError((error) {
         print(error);
@@ -3007,29 +4310,29 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre9.text.toString(),
-          primerApellido: _primerApellido9.text.toString(),
-          segundoApellido: _segundoApellido9.text.toString(),
-          claveSexo: sexo9.substring(0, 1),
-          ordenSexo: sexo9.substring(0, 1),
-          sexo: _sexo9.name.toString(),
-          fechaNacimiento: _fechaNacimiento9.text.toString(),
-          claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento9.trimLeft(),
-          claveestadoCivil: _estadoCivil9.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
-          estadoCivil: estado9.trimLeft(),
-          claveParentesco: _parentesco9.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco9.text.toString().substring(0, 1),
-          parentesco: parentesco9.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre9.text.toString(),
+        primerApellido: _primerApellido9.text.toString(),
+        segundoApellido: _segundoApellido9.text.toString(),
+        claveSexo: sexo9.substring(0, 1),
+        ordenSexo: sexo9.substring(0, 1),
+        sexo: _sexo9.name.toString(),
+        fechaNacimiento: _fechaNacimiento9.text.toString(),
+        claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento9.trimLeft(),
+        claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+        estadoCivil: estado9.trimLeft(),
+        claveParentesco: _parentesco9.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco9.text.toString().substring(0, 1),
+        parentesco: parentesco9.trimLeft(),
       );
-      await dbHelper.saveEstructuraFamiliar(DModel9).then((
+      await dbHelper.upDateEstructuraFamiliar9(DModel9).then((
           estructuraFamilar) {
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocial(widget.folio);
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -3406,22 +4709,430 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre1.text.toString(),
-          primerApellido: _primerApellido1.text.toString(),
-          segundoApellido: _segundoApellido1.text.toString(),
-          claveSexo: sexo1.substring(0,1),
-          ordenSexo: sexo1.substring(0,1),
-          sexo: _sexo1.name.toString(),
-          fechaNacimiento: _fechaNacimiento1.text.toString(),
-          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-          entidadNacimiento: entidadNacimiento.trimLeft(),
-          claveestadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-          estadoCivil: estado.trimLeft(),
-          claveParentesco: _parentesco1.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-          parentesco: parentesco.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar1(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar2(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar3(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar4(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar5(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar6(DModel6).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre7.text.toString(),
+        primerApellido: _primerApellido7.text.toString(),
+        segundoApellido: _segundoApellido7.text.toString(),
+        claveSexo: sexo7.substring(0, 1),
+        ordenSexo: sexo7.substring(0, 1),
+        sexo: _sexo7.name.toString(),
+        fechaNacimiento: _fechaNacimiento7.text.toString(),
+        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento7.trimLeft(),
+        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        estadoCivil: estado7.trimLeft(),
+        claveParentesco: _parentesco7.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+        parentesco: parentesco7.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar7(DModel7).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre8.text.toString(),
+        primerApellido: _primerApellido8.text.toString(),
+        segundoApellido: _segundoApellido8.text.toString(),
+        claveSexo: sexo8.substring(0, 1),
+        ordenSexo: sexo8.substring(0, 1),
+        sexo: _sexo8.name.toString(),
+        fechaNacimiento: _fechaNacimiento8.text.toString(),
+        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento8.trimLeft(),
+        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        estadoCivil: estado8.trimLeft(),
+        claveParentesco: _parentesco8.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+        parentesco: parentesco8.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar8(DModel8).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre9.text.toString(),
+        primerApellido: _primerApellido9.text.toString(),
+        segundoApellido: _segundoApellido9.text.toString(),
+        claveSexo: sexo9.substring(0, 1),
+        ordenSexo: sexo9.substring(0, 1),
+        sexo: _sexo9.name.toString(),
+        fechaNacimiento: _fechaNacimiento9.text.toString(),
+        claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento9.trimLeft(),
+        claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+        estadoCivil: estado9.trimLeft(),
+        claveParentesco: _parentesco9.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco9.text.toString().substring(0, 1),
+        parentesco: parentesco9.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar9(DModel9).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel10 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre10.text.toString(),
+        primerApellido: _primerApellido10.text.toString(),
+        segundoApellido: _segundoApellido10.text.toString(),
+        claveSexo: sexo10.substring(0, 1),
+        ordenSexo: sexo10.substring(0, 1),
+        sexo: _sexo10.name.toString(),
+        fechaNacimiento: _fechaNacimiento10.text.toString(),
+        claveEntidad: _entidadNacimiento10.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento10.trimLeft(),
+        claveEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
+        estadoCivil: estado10.trimLeft(),
+        claveParentesco: _parentesco10.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco10.text.toString().substring(0, 1),
+        parentesco: parentesco10.trimLeft(),
+      );
+      await dbHelper.upDateEstructuraFamiliar10(DModel10).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+    }
+  }
+
+  enviar() async {
+    if(_nombre1.text.toString().isEmpty){
+      alertDialog(context, "Error: Faltan datos en el renglon 1");
+
+    }else if(_nombre2.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+    }else if(_nombre3.text.toString().isEmpty){
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
       }).catchError((error) {
@@ -3429,22 +5140,191 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         alertDialog(context, "Error: No se guardaron los datos");
       });
       EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre2.text.toString(),
-          primerApellido: _primerApellido2.text.toString(),
-          segundoApellido: _segundoApellido2.text.toString(),
-          claveSexo: sexo2.substring(0, 1),
-          ordenSexo: sexo2.substring(0, 1),
-          sexo: _sexo2.name.toString(),
-          fechaNacimiento: _fechaNacimiento2.text.toString(),
-          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento2.trimLeft(),
-          claveestadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-          estadoCivil: estado2.trimLeft(),
-          claveParentesco: _parentesco2.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-          parentesco: parentesco2.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+    }else if(_nombre4.text.toString().isEmpty){
+
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel2).then((
           estructuraFamilar) {
@@ -3454,22 +5334,255 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre3.text.toString(),
-          primerApellido: _primerApellido3.text.toString(),
-          segundoApellido: _segundoApellido3.text.toString(),
-          claveSexo: sexo3.substring(0, 1),
-          ordenSexo: sexo3.substring(0, 1),
-          sexo: _sexo3.name.toString(),
-          fechaNacimiento: _fechaNacimiento3.text.toString(),
-          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento3.trimLeft(),
-          claveestadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-          estadoCivil: estado3.trimLeft(),
-          claveParentesco: _parentesco3.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-          parentesco: parentesco3.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+    }else if(_nombre5.text.toString().isEmpty){
+
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel3).then((
           estructuraFamilar) {
@@ -3479,22 +5592,316 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre4.text.toString(),
-          primerApellido: _primerApellido4.text.toString(),
-          segundoApellido: _segundoApellido4.text.toString(),
-          claveSexo: sexo4.substring(0, 1),
-          ordenSexo: sexo4.substring(0, 1),
-          sexo: _sexo4.name.toString(),
-          fechaNacimiento: _fechaNacimiento4.text.toString(),
-          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento4.trimLeft(),
-          claveestadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-          estadoCivil: estado4.trimLeft(),
-          claveParentesco: _parentesco4.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-          parentesco: parentesco4.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+    }else if(_nombre6.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel4).then((
           estructuraFamilar) {
@@ -3505,22 +5912,378 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre5.text.toString(),
-          primerApellido: _primerApellido5.text.toString(),
-          segundoApellido: _segundoApellido5.text.toString(),
-          claveSexo: sexo5.substring(0, 1),
-          ordenSexo: sexo5.substring(0, 1),
-          sexo: _sexo5.name.toString(),
-          fechaNacimiento: _fechaNacimiento5.text.toString(),
-          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento5.trimLeft(),
-          claveestadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-          estadoCivil: estado5.trimLeft(),
-          claveParentesco: _parentesco5.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-          parentesco: parentesco5.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+    }else if(_nombre7.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel5).then((
           estructuraFamilar) {
@@ -3530,22 +6293,437 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre6.text.toString(),
-          primerApellido: _primerApellido6.text.toString(),
-          segundoApellido: _segundoApellido6.text.toString(),
-          claveSexo: sexo6.substring(0, 1),
-          ordenSexo: sexo6.substring(0, 1),
-          sexo: _sexo6.name.toString(),
-          fechaNacimiento: _fechaNacimiento6.text.toString(),
-          claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento6.trimLeft(),
-          claveestadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-          estadoCivil: estado6.trimLeft(),
-          claveParentesco: _parentesco6.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-          parentesco: parentesco6.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+    }else if(_nombre8.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+      String sexo7 = _sexo7.name.toString();
+      if (sexo7 == 'hombre') {
+        sexo7 = '1 1 Hombre';
+      } else if (sexo7 == 'mujer') {
+        sexo7 = '2 2 Mujer';
+      } else if (sexo7 == 'otro') {
+        sexo7 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+      final estado7 = EstadoCivil7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+      final parentesco7 = Parentesco7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel6).then((
           estructuraFamilar) {
@@ -3556,22 +6734,499 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
 
 
       EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre7.text.toString(),
-          primerApellido: _primerApellido7.text.toString(),
-          segundoApellido: _segundoApellido7.text.toString(),
-          claveSexo: sexo7.substring(0, 1),
-          ordenSexo: sexo7.substring(0, 1),
-          sexo: _sexo7.name.toString(),
-          fechaNacimiento: _fechaNacimiento7.text.toString(),
-          claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento7.trimLeft(),
-          claveestadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-          estadoCivil: estado7.trimLeft(),
-          claveParentesco: _parentesco7.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco7.text.toString().substring(0, 1),
-          parentesco: parentesco7.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre7.text.toString(),
+        primerApellido: _primerApellido7.text.toString(),
+        segundoApellido: _segundoApellido7.text.toString(),
+        claveSexo: sexo7.substring(0, 1),
+        ordenSexo: sexo7.substring(0, 1),
+        sexo: _sexo7.name.toString(),
+        fechaNacimiento: _fechaNacimiento7.text.toString(),
+        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento7.trimLeft(),
+        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        estadoCivil: estado7.trimLeft(),
+        claveParentesco: _parentesco7.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+        parentesco: parentesco7.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+    }else if(_nombre9.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+      String sexo7 = _sexo7.name.toString();
+      if (sexo7 == 'hombre') {
+        sexo7 = '1 1 Hombre';
+      } else if (sexo7 == 'mujer') {
+        sexo7 = '2 2 Mujer';
+      } else if (sexo7 == 'otro') {
+        sexo7 = '3 3 Otro';
+      }
+
+      String sexo8 = _sexo8.name.toString();
+      if (sexo8 == 'hombre') {
+        sexo8 = '1 1 Hombre';
+      } else if (sexo8 == 'mujer') {
+        sexo8 = '2 2 Mujer';
+      } else if (sexo8 == 'otro') {
+        sexo8 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+      final estado7 = EstadoCivil7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+      final parentesco7 = Parentesco7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
+      final estado8 = EstadoCivil8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
+      final parentesco8 = Parentesco8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
+      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre7.text.toString(),
+        primerApellido: _primerApellido7.text.toString(),
+        segundoApellido: _segundoApellido7.text.toString(),
+        claveSexo: sexo7.substring(0, 1),
+        ordenSexo: sexo7.substring(0, 1),
+        sexo: _sexo7.name.toString(),
+        fechaNacimiento: _fechaNacimiento7.text.toString(),
+        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento7.trimLeft(),
+        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        estadoCivil: estado7.trimLeft(),
+        claveParentesco: _parentesco7.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+        parentesco: parentesco7.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel7).then((
           estructuraFamilar) {
@@ -3581,22 +7236,560 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre8.text.toString(),
-          primerApellido: _primerApellido8.text.toString(),
-          segundoApellido: _segundoApellido8.text.toString(),
-          claveSexo: sexo8.substring(0, 1),
-          ordenSexo: sexo8.substring(0, 1),
-          sexo: _sexo8.name.toString(),
-          fechaNacimiento: _fechaNacimiento8.text.toString(),
-          claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento8.trimLeft(),
-          claveestadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-          estadoCivil: estado8.trimLeft(),
-          claveParentesco: _parentesco8.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco8.text.toString().substring(0, 1),
-          parentesco: parentesco8.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre8.text.toString(),
+        primerApellido: _primerApellido8.text.toString(),
+        segundoApellido: _segundoApellido8.text.toString(),
+        claveSexo: sexo8.substring(0, 1),
+        ordenSexo: sexo8.substring(0, 1),
+        sexo: _sexo8.name.toString(),
+        fechaNacimiento: _fechaNacimiento8.text.toString(),
+        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento8.trimLeft(),
+        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        estadoCivil: estado8.trimLeft(),
+        claveParentesco: _parentesco8.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+        parentesco: parentesco8.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel8).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+    }else if(_nombre10.text.toString().isEmpty){
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+      String sexo7 = _sexo7.name.toString();
+      if (sexo7 == 'hombre') {
+        sexo7 = '1 1 Hombre';
+      } else if (sexo7 == 'mujer') {
+        sexo7 = '2 2 Mujer';
+      } else if (sexo7 == 'otro') {
+        sexo7 = '3 3 Otro';
+      }
+
+      String sexo8 = _sexo8.name.toString();
+      if (sexo8 == 'hombre') {
+        sexo8 = '1 1 Hombre';
+      } else if (sexo8 == 'mujer') {
+        sexo8 = '2 2 Mujer';
+      } else if (sexo8 == 'otro') {
+        sexo8 = '3 3 Otro';
+      }
+
+      String sexo9 = _sexo9.name.toString();
+      if (sexo9 == 'hombre') {
+        sexo9 = '1 1 Hombre';
+      } else if (sexo9 == 'mujer') {
+        sexo9 = '2 2 Mujer';
+      } else if (sexo9 == 'otro') {
+        sexo9 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+      final estado7 = EstadoCivil7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+      final parentesco7 = Parentesco7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
+      final estado8 = EstadoCivil8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
+      final parentesco8 = Parentesco8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
+      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil9 = _estadoCivil9.text.toString(); // 'artlang'
+      final estado9 = EstadoCivil9.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco9 = _parentesco9.text.toString(); // 'artlang'
+      final parentesco9 = Parentesco9.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN9 = _entidadNacimiento9.text.toString(); // 'artlang'
+      final entidadNacimiento9 = EntidadN9.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre7.text.toString(),
+        primerApellido: _primerApellido7.text.toString(),
+        segundoApellido: _segundoApellido7.text.toString(),
+        claveSexo: sexo7.substring(0, 1),
+        ordenSexo: sexo7.substring(0, 1),
+        sexo: _sexo7.name.toString(),
+        fechaNacimiento: _fechaNacimiento7.text.toString(),
+        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento7.trimLeft(),
+        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        estadoCivil: estado7.trimLeft(),
+        claveParentesco: _parentesco7.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+        parentesco: parentesco7.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre8.text.toString(),
+        primerApellido: _primerApellido8.text.toString(),
+        segundoApellido: _segundoApellido8.text.toString(),
+        claveSexo: sexo8.substring(0, 1),
+        ordenSexo: sexo8.substring(0, 1),
+        sexo: _sexo8.name.toString(),
+        fechaNacimiento: _fechaNacimiento8.text.toString(),
+        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento8.trimLeft(),
+        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        estadoCivil: estado8.trimLeft(),
+        claveParentesco: _parentesco8.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+        parentesco: parentesco8.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel8).then((
           estructuraFamilar) {
@@ -3606,22 +7799,621 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre9.text.toString(),
-          primerApellido: _primerApellido9.text.toString(),
-          segundoApellido: _segundoApellido9.text.toString(),
-          claveSexo: sexo9.substring(0, 1),
-          ordenSexo: sexo9.substring(0, 1),
-          sexo: _sexo9.name.toString(),
-          fechaNacimiento: _fechaNacimiento9.text.toString(),
-          claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento9.trimLeft(),
-          claveestadoCivil: _estadoCivil9.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
-          estadoCivil: estado9.trimLeft(),
-          claveParentesco: _parentesco9.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco9.text.toString().substring(0, 1),
-          parentesco: parentesco9.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre9.text.toString(),
+        primerApellido: _primerApellido9.text.toString(),
+        segundoApellido: _segundoApellido9.text.toString(),
+        claveSexo: sexo9.substring(0, 1),
+        ordenSexo: sexo9.substring(0, 1),
+        sexo: _sexo9.name.toString(),
+        fechaNacimiento: _fechaNacimiento9.text.toString(),
+        claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento9.trimLeft(),
+        claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+        estadoCivil: estado9.trimLeft(),
+        claveParentesco: _parentesco9.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco9.text.toString().substring(0, 1),
+        parentesco: parentesco9.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel9).then((
+          estructuraFamilar) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+    }else{
+
+      String sexo1 = _sexo1.name.toString();
+      if(sexo1 == 'hombre')
+      {
+        sexo1 = '1 1 Hombre';
+      }else if(sexo1 == 'mujer' )
+      {
+        sexo1 = '2 2 Mujer';
+      }else if(sexo1 == 'otro' )
+      {
+        sexo1 = '3 3 Otro';
+      }
+
+      String sexo2 = _sexo2.name.toString();
+      if (sexo2 == 'hombre') {
+        sexo2 = '1 1 Hombre';
+      } else if (sexo2 == 'mujer') {
+        sexo2 = '2 2 Mujer';
+      } else if (sexo2 == 'otro') {
+        sexo2 = '3 3 Otro';
+      }
+
+      String sexo3 = _sexo3.name.toString();
+      if (sexo3 == 'hombre') {
+        sexo3 = '1 1 Hombre';
+      } else if (sexo3 == 'mujer') {
+        sexo3 = '2 2 Mujer';
+      } else if (sexo3 == 'otro') {
+        sexo3 = '3 3 Otro';
+      }
+
+      String sexo4 = _sexo4.name.toString();
+      if (sexo4 == 'hombre') {
+        sexo4 = '1 1 Hombre';
+      } else if (sexo4 == 'mujer') {
+        sexo4 = '2 2 Mujer';
+      } else if (sexo4 == 'otro') {
+        sexo4 = '3 3 Otro';
+      }
+
+      String sexo5 = _sexo5.name.toString();
+      if (sexo5 == 'hombre') {
+        sexo5 = '1 1 Hombre';
+      } else if (sexo5 == 'mujer') {
+        sexo5 = '2 2 Mujer';
+      } else if (sexo5 == 'otro') {
+        sexo5 = '3 3 Otro';
+      }
+
+      String sexo6 = _sexo6.name.toString();
+      if (sexo6 == 'hombre') {
+        sexo6 = '1 1 Hombre';
+      } else if (sexo6 == 'mujer') {
+        sexo6 = '2 2 Mujer';
+      } else if (sexo6 == 'otro') {
+        sexo6 = '3 3 Otro';
+      }
+
+      String sexo7 = _sexo7.name.toString();
+      if (sexo7 == 'hombre') {
+        sexo7 = '1 1 Hombre';
+      } else if (sexo7 == 'mujer') {
+        sexo7 = '2 2 Mujer';
+      } else if (sexo7 == 'otro') {
+        sexo7 = '3 3 Otro';
+      }
+
+      String sexo8 = _sexo8.name.toString();
+      if (sexo8 == 'hombre') {
+        sexo8 = '1 1 Hombre';
+      } else if (sexo8 == 'mujer') {
+        sexo8 = '2 2 Mujer';
+      } else if (sexo8 == 'otro') {
+        sexo8 = '3 3 Otro';
+      }
+
+      String sexo9 = _sexo9.name.toString();
+      if (sexo9 == 'hombre') {
+        sexo9 = '1 1 Hombre';
+      } else if (sexo9 == 'mujer') {
+        sexo9 = '2 2 Mujer';
+      } else if (sexo9 == 'otro') {
+        sexo9 = '3 3 Otro';
+      }
+
+      String sexo10 = _sexo10.name.toString();
+      if (sexo10 == 'hombre') {
+        sexo10 = '1 1 Hombre';
+      } else if (sexo10 == 'mujer') {
+        sexo10 = '2 2 Mujer';
+      } else if (sexo10 == 'otro') {
+        sexo10 = '3 3 Otro';
+      }
+
+
+      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+      final estado = EstadoCivil.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+      final parentesco = Parentesco.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+      final estado2 = EstadoCivil2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+      final parentesco2 = Parentesco2.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+      final estado3 = EstadoCivil3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+      final parentesco3 = Parentesco3.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+      final estado4 = EstadoCivil4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+      final parentesco4 = Parentesco4.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+      final estado5 = EstadoCivil5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+      final parentesco5 = Parentesco5.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+      final estado6 = EstadoCivil6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+      final parentesco6 = Parentesco6.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+      final estado7 = EstadoCivil7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+      final parentesco7 = Parentesco7.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
+      final estado8 = EstadoCivil8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
+      final parentesco8 = Parentesco8.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
+      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil9 = _estadoCivil9.text.toString(); // 'artlang'
+      final estado9 = EstadoCivil9.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco9 = _parentesco9.text.toString(); // 'artlang'
+      final parentesco9 = Parentesco9.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN9 = _entidadNacimiento9.text.toString(); // 'artlang'
+      final entidadNacimiento9 = EntidadN9.replaceAll("1", "")
+          .replaceAll("2", "");
+
+      var EstadoCivil10 = _estadoCivil10.text.toString(); // 'artlang'
+      final estado10 = EstadoCivil10.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+      var Parentesco10 = _parentesco10.text.toString(); // 'artlang'
+      final parentesco10 = Parentesco10.replaceAll("1", "")
+          .replaceAll("2", "")
+          .replaceAll("3", "")
+          .replaceAll("4", "")
+          .replaceAll("5", "")
+          .replaceAll("6", "")
+          .replaceAll("7", "")
+          .replaceAll("8", "")
+          .replaceAll("9", "")
+          .replaceAll("0", "");
+
+      var EntidadN10 = _entidadNacimiento10.text.toString(); // 'artlang'
+      final entidadNacimiento10 = EntidadN10.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+      final entidadNacimiento = EntidadN.replaceAll("1", "")
+          .replaceAll("2", "");
+
+
+      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre1.text.toString(),
+        primerApellido: _primerApellido1.text.toString(),
+        segundoApellido: _segundoApellido1.text.toString(),
+        claveSexo: sexo1.substring(0,1),
+        ordenSexo: sexo1.substring(0,1),
+        sexo: _sexo1.name.toString(),
+        fechaNacimiento: _fechaNacimiento1.text.toString(),
+        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+        entidadNacimiento: entidadNacimiento.trimLeft(),
+        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+        estadoCivil: estado.trimLeft(),
+        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+        parentesco: parentesco.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre2.text.toString(),
+        primerApellido: _primerApellido2.text.toString(),
+        segundoApellido: _segundoApellido2.text.toString(),
+        claveSexo: sexo2.substring(0, 1),
+        ordenSexo: sexo2.substring(0, 1),
+        sexo: _sexo2.name.toString(),
+        fechaNacimiento: _fechaNacimiento2.text.toString(),
+        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento2.trimLeft(),
+        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+        estadoCivil: estado2.trimLeft(),
+        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+        parentesco: parentesco2.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre3.text.toString(),
+        primerApellido: _primerApellido3.text.toString(),
+        segundoApellido: _segundoApellido3.text.toString(),
+        claveSexo: sexo3.substring(0, 1),
+        ordenSexo: sexo3.substring(0, 1),
+        sexo: _sexo3.name.toString(),
+        fechaNacimiento: _fechaNacimiento3.text.toString(),
+        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento3.trimLeft(),
+        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+        estadoCivil: estado3.trimLeft(),
+        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+        parentesco: parentesco3.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre4.text.toString(),
+        primerApellido: _primerApellido4.text.toString(),
+        segundoApellido: _segundoApellido4.text.toString(),
+        claveSexo: sexo4.substring(0, 1),
+        ordenSexo: sexo4.substring(0, 1),
+        sexo: _sexo4.name.toString(),
+        fechaNacimiento: _fechaNacimiento4.text.toString(),
+        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento4.trimLeft(),
+        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+        estadoCivil: estado4.trimLeft(),
+        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+        parentesco: parentesco4.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+          estructuraFamilar) {
+
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre5.text.toString(),
+        primerApellido: _primerApellido5.text.toString(),
+        segundoApellido: _segundoApellido5.text.toString(),
+        claveSexo: sexo5.substring(0, 1),
+        ordenSexo: sexo5.substring(0, 1),
+        sexo: _sexo5.name.toString(),
+        fechaNacimiento: _fechaNacimiento5.text.toString(),
+        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento5.trimLeft(),
+        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+        estadoCivil: estado5.trimLeft(),
+        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+        parentesco: parentesco5.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre6.text.toString(),
+        primerApellido: _primerApellido6.text.toString(),
+        segundoApellido: _segundoApellido6.text.toString(),
+        claveSexo: sexo6.substring(0, 1),
+        ordenSexo: sexo6.substring(0, 1),
+        sexo: _sexo6.name.toString(),
+        fechaNacimiento: _fechaNacimiento6.text.toString(),
+        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento6.trimLeft(),
+        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+        estadoCivil: estado6.trimLeft(),
+        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+        parentesco: parentesco6.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+
+      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre7.text.toString(),
+        primerApellido: _primerApellido7.text.toString(),
+        segundoApellido: _segundoApellido7.text.toString(),
+        claveSexo: sexo7.substring(0, 1),
+        ordenSexo: sexo7.substring(0, 1),
+        sexo: _sexo7.name.toString(),
+        fechaNacimiento: _fechaNacimiento7.text.toString(),
+        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento7.trimLeft(),
+        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+        estadoCivil: estado7.trimLeft(),
+        claveParentesco: _parentesco7.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+        parentesco: parentesco7.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre8.text.toString(),
+        primerApellido: _primerApellido8.text.toString(),
+        segundoApellido: _segundoApellido8.text.toString(),
+        claveSexo: sexo8.substring(0, 1),
+        ordenSexo: sexo8.substring(0, 1),
+        sexo: _sexo8.name.toString(),
+        fechaNacimiento: _fechaNacimiento8.text.toString(),
+        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento8.trimLeft(),
+        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+        estadoCivil: estado8.trimLeft(),
+        claveParentesco: _parentesco8.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+        parentesco: parentesco8.trimLeft(),
+      );
+      await dbHelper.saveEstructuraFamiliar(DModel8).then((
+          estructuraFamilar) {
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+
+      EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
+        folio: int.parse(widget.folio),
+        nombre: _nombre9.text.toString(),
+        primerApellido: _primerApellido9.text.toString(),
+        segundoApellido: _segundoApellido9.text.toString(),
+        claveSexo: sexo9.substring(0, 1),
+        ordenSexo: sexo9.substring(0, 1),
+        sexo: _sexo9.name.toString(),
+        fechaNacimiento: _fechaNacimiento9.text.toString(),
+        claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento9.trimLeft(),
+        claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+        estadoCivil: estado9.trimLeft(),
+        claveParentesco: _parentesco9.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco9.text.toString().substring(0, 1),
+        parentesco: parentesco9.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel9).then((
           estructuraFamilar) {
@@ -3631,22 +8423,22 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       });
 
       EstructuraFamilarModel DModel10 = EstructuraFamilarModel(
-          folio: int.parse(widget.folio),
-          nombre: _nombre10.text.toString(),
-          primerApellido: _primerApellido10.text.toString(),
-          segundoApellido: _segundoApellido10.text.toString(),
-          claveSexo: sexo10.substring(0, 1),
-          ordenSexo: sexo10.substring(0, 1),
-          sexo: _sexo10.name.toString(),
-          fechaNacimiento: _fechaNacimiento10.text.toString(),
-          claveEntidad: _entidadNacimiento10.text.toString().substring(0, 1),
-          entidadNacimiento: entidadNacimiento10.trimLeft(),
-          claveestadoCivil: _estadoCivil10.text.toString().substring(0, 1),
-          ordenEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
-          estadoCivil: estado10.trimLeft(),
-          claveParentesco: _parentesco10.text.toString().substring(0, 1),
-          ordenParentesco: _parentesco10.text.toString().substring(0, 1),
-          parentesco: parentesco10.trimLeft(),
+        folio: int.parse(widget.folio),
+        nombre: _nombre10.text.toString(),
+        primerApellido: _primerApellido10.text.toString(),
+        segundoApellido: _segundoApellido10.text.toString(),
+        claveSexo: sexo10.substring(0, 1),
+        ordenSexo: sexo10.substring(0, 1),
+        sexo: _sexo10.name.toString(),
+        fechaNacimiento: _fechaNacimiento10.text.toString(),
+        claveEntidad: _entidadNacimiento10.text.toString().substring(0, 1),
+        entidadNacimiento: entidadNacimiento10.trimLeft(),
+        claveEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
+        ordenEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
+        estadoCivil: estado10.trimLeft(),
+        claveParentesco: _parentesco10.text.toString().substring(0, 1),
+        ordenParentesco: _parentesco10.text.toString().substring(0, 1),
+        parentesco: parentesco10.trimLeft(),
       );
       await dbHelper.saveEstructuraFamiliar(DModel10).then((
           estructuraFamilar) {

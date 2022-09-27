@@ -39,7 +39,7 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
   final _tipoTenencia = TextEditingController();
   final _tipoTecho = TextEditingController();
   final _tipoMuro = TextEditingController();
-
+  List<EstadoCasaConstruccionModel> _EstadoCasa = List<EstadoCasaConstruccionModel>();
   var dbHelper = DbHelper();
 
   @override
@@ -54,6 +54,147 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
     super.initState();
   }
 
+  getAllEstadoCasa() async{
+    _EstadoCasa = List<EstadoCasaConstruccionModel>();
+    var categories = await CategoryService().readEstadoCasa(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EstadoCasaConstruccionModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveTipoVivienda = category['ClaveTipoVivienda'];
+        categoryModel.OrdenTipoVivienda = category['OrdenTipoVivienda'];
+        categoryModel.TipoVivienda = category['TipoVivienda'];
+        categoryModel.ClaveTipoPiso = category['ClaveTipoPiso'];
+        categoryModel.OrdenTipoPiso = category['OrdenTipoPiso'];
+        categoryModel.TipoPiso = category['TipoPiso'];
+        categoryModel.ClaveTenencia = category['ClaveTenencia'];
+        categoryModel.OrdenTenencia = category['OrdenTenencia'];
+        categoryModel.Tenencia = category['Tenencia'];
+        categoryModel.ClaveTecho = category['ClaveTecho'];
+        categoryModel.OrdenTecho = category['OrdenTecho'];
+        categoryModel.Techo = category['Techo'];
+        categoryModel.ClaveTipoMuro = category['ClaveTipoMuro'];
+        categoryModel.OrdenTipoMuro = category['OrdenTipoMuro'];
+        categoryModel.TipoMuro = category['TipoMuro'];
+
+        _EstadoCasa.add(categoryModel);
+      });
+    });
+
+    _tipoCasa.text = _EstadoCasa.map((e) => e.ClaveTipoVivienda).first + " " + _EstadoCasa.map((e) => e.OrdenTipoVivienda).first
+        + " " + _EstadoCasa.map((e) => e.TipoVivienda).first;
+
+    _tipoPiso.text = _EstadoCasa.map((e) => e.ClaveTipoPiso).first + " " + _EstadoCasa.map((e) => e.OrdenTipoPiso).first
+        + " " + _EstadoCasa.map((e) => e.TipoPiso).first;
+
+    _tipoTenencia.text = _EstadoCasa.map((e) => e.ClaveTenencia).first + " " + _EstadoCasa.map((e) => e.OrdenTenencia).first
+        + " " + _EstadoCasa.map((e) => e.Tenencia).first;
+
+    _tipoTecho.text = _EstadoCasa.map((e) => e.ClaveTecho).first + " " + _EstadoCasa.map((e) => e.OrdenTecho).first
+        + " " + _EstadoCasa.map((e) => e.Techo).first;
+
+    _tipoMuro.text = _EstadoCasa.map((e) => e.ClaveTipoMuro).first + " " + _EstadoCasa.map((e) => e.OrdenTipoMuro).first
+        + " " + _EstadoCasa.map((e) => e.TipoMuro).first;
+
+  }
+
+  actualizar() async
+  {
+    var TipoCasa = _tipoCasa.text.toString(); // 'artlang'
+    final tipoCasa = TipoCasa
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var TipoPiso = _tipoPiso.text.toString(); // 'artlang'
+    final tipoPiso = TipoPiso
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var TipoTenencia = _tipoTenencia.text.toString(); // 'artlang'
+    final tipoTenencia = TipoTenencia
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var TipoMuro = _tipoMuro.text.toString(); // 'artlang'
+    final tipoMuro = TipoMuro
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var TipoTecho = _tipoTecho.text.toString(); // 'artlang'
+    final tipoTecho = TipoTecho
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    EstadoCasaConstruccionModel DModel = EstadoCasaConstruccionModel
+      (folio: int.parse(widget.folio),
+        ClaveTipoVivienda: _tipoCasa.text.toString().substring(0,1),
+        OrdenTipoVivienda: _tipoCasa.text.toString().substring(0,1),
+        TipoVivienda: tipoCasa.trimLeft(),
+        ClaveTipoPiso: _tipoPiso.text.toString().substring(0,1),
+        OrdenTipoPiso: _tipoPiso.text.toString().substring(0,1),
+        TipoPiso: tipoPiso.trimLeft(),
+        ClaveTenencia: _tipoTenencia.text.toString().substring(0,1),
+        OrdenTenencia: _tipoTenencia.text.toString().substring(0,1),
+        Tenencia: tipoTenencia.trimLeft(),
+        ClaveTecho: _tipoTecho.text.toString().substring(0,1),
+        OrdenTecho: _tipoTecho.text.toString().substring(0,1),
+        Techo: tipoTecho.trimLeft(),
+        ClaveTipoMuro: _tipoMuro.text.toString().substring(0,1),
+        OrdenTipoMuro: _tipoMuro.text.toString().substring(0,1),
+        TipoMuro: tipoMuro.trimLeft()
+    );
+
+    await dbHelper.upDateVivienda(DModel).then((estadoCasaConstruccionModel) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+        return new Caracteristicas_Casa(widget.folio);
+      }
+      ));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
   getAllCtegoriesTipoVivienda() async{
     _TipoVivienda = List<TipoViviendaModel>();
     var categories = await CategoryService().readCategoriesTipoVivienda();

@@ -57,6 +57,24 @@ class _FotografiaState extends State<Fotografia> {
     });
   }
 
+  actualizar() async{
+    String foto64 = Utility.base64String(_image.readAsBytesSync());
+    FotoModel BModel = FotoModel(
+        folio: int.parse(widget.folio),
+        fileFoto: foto64
+    );
+    DbHelper().upDateFoto(BModel).then((fotoModel) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+        return new Fotografia(widget.folio);
+      }
+      ));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -5,6 +5,7 @@ import 'package:esn/Model/EquipamientoModel.dart';
 import 'package:esn/Screens/AportacionesEconomicas.dart';
 import 'package:esn/Screens/Caracteristicas_Casa.dart';
 import 'package:esn/Screens/Equipamiento.dart';
+import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
 
@@ -118,6 +119,7 @@ class _EquipamientoState extends State<Equipamiento> {
   TelefonoSirve _telefonoSirve = TelefonoSirve.si;
   final _condiciones = TextEditingController();
   var dbHelper;
+  List<EquipamientoMovil> _Equipamiento = List<EquipamientoMovil>();
 
   List<String> _Condiciones = ['Buena','Regular','Mala'];
   String selectedItem = 'Seleccionar';
@@ -129,78 +131,407 @@ class _EquipamientoState extends State<Equipamiento> {
     dbHelper = DbHelper();
   }
 
+  getAllEquipamiento() async{
+    _Equipamiento = List<EquipamientoMovil>();
+    var categories = await CategoryService().readEquipamiento(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EquipamientoMovil();
+        categoryModel.folio = category['folio'];
+        categoryModel.tieneRefri = category['tieneRefri'];
+        categoryModel.tieneEstufa = category['tieneEstufa'];
+        categoryModel.tieneVideoDVDBlueRay = category['tieneVideoDVDBlueRay'];
+        categoryModel.tieneLavadora = category['tieneLavadora'];
+        categoryModel.tieneLicuadora = category['tieneLicuadora'];
+        categoryModel.tieneTelevision = category['tieneTelevision'];
+        categoryModel.tieneRadio = category['tieneRadio'];
+        categoryModel.tieneSala = category['tieneSala'];
+        categoryModel.tieneComedor = category['tieneComedor'];
+        categoryModel.tieneAutoMovil = category['tieneAutoMovil'];
+        categoryModel.tieneCama = category['tieneCama'];
+        categoryModel.tieneCelular = category['tieneCelular'];
+        categoryModel.tieneMotocicleta = category['tieneMotocicleta'];
+        categoryModel.tieneComputadora = category['tieneComputadora'];
+        categoryModel.tieneHorno = category['tieneHorno'];
+        categoryModel.tieneTelefono = category['tieneTelefono'];
+
+        categoryModel.sirveRefri = category['sirveRefri'];
+        categoryModel.sirveEstufa = category['sirveEstufa'];
+        categoryModel.sirveVideoDVDBlueRay = category['sirveVideoDVDBlueRay'];
+        categoryModel.sirveLavadora = category['sirveLavadora'];
+        categoryModel.sirveLicuadora = category['sirveLicuadora'];
+        categoryModel.sirveTelevision = category['sirveTelevision'];
+        categoryModel.sirveRadio = category['sirveRadio'];
+        categoryModel.sirveSala = category['sirveSala'];
+        categoryModel.sirveComedor = category['sirveComedor'];
+        categoryModel.sirveAutoMovil = category['sirveAutoMovil'];
+        categoryModel.sirveCama = category['sirveCama'];
+        categoryModel.sirveCelular = category['sirveCelular'];
+        categoryModel.sirveMotocicleta = category['sirveMotocicleta'];
+        categoryModel.sirveComputadora = category['sirveComputadora'];
+        categoryModel.sirveHorno = category['sirveHorno'];
+        categoryModel.sirveTelefono = category['sirveTelefono'];
+
+        categoryModel.CondicionesGenerales = category['CondicionesGenerales'];
+
+        _Equipamiento.add(categoryModel);
+      });
+    });
+
+    _condiciones.text = _Equipamiento.map((e) => e.CondicionesGenerales).first;
+
+    if(_Equipamiento.map((e) => e.tieneRefri).first == "si") {
+      _refrigerador = Refrigerador.si;
+    }else if(_Equipamiento.map((e) => e.tieneRefri).first == "no"){
+      _refrigerador = Refrigerador.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveRefri).first == "si") {
+      _refrigeradorSirve = RefrigeradorSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveRefri).first == "no"){
+      _refrigeradorSirve = RefrigeradorSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneEstufa).first == "si") {
+      _estufa = Estufa.si;
+    }else if(_Equipamiento.map((e) => e.tieneEstufa).first == "no"){
+      _estufa = Estufa.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveEstufa).first == "si") {
+      _estufaSirve = EstufaSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveEstufa).first == "no"){
+      _estufaSirve = EstufaSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneVideoDVDBlueRay).first == "si") {
+      _video = Video.si;
+    }else if(_Equipamiento.map((e) => e.tieneVideoDVDBlueRay).first == "no"){
+      _video = Video.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveVideoDVDBlueRay).first == "si") {
+      _videoSirve = VideoSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveVideoDVDBlueRay).first == "no"){
+      _videoSirve = VideoSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneLavadora).first == "si") {
+      _lavadora = Lavadora.si;
+    }else if(_Equipamiento.map((e) => e.tieneLavadora).first == "no"){
+      _lavadora = Lavadora.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveLavadora).first == "si") {
+      _lavadoraSirve = LavadoraSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveLavadora).first == "no"){
+      _lavadoraSirve = LavadoraSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneLicuadora).first == "si") {
+      _licuadora = Licuadora.si;
+    }else if(_Equipamiento.map((e) => e.tieneLicuadora).first == "no"){
+      _licuadora = Licuadora.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveLicuadora).first == "si") {
+      _licuadoraSirve = LicuadoraSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveLicuadora).first == "no"){
+      _licuadoraSirve = LicuadoraSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneTelevision).first == "si") {
+      _television = Television.si;
+    }else if(_Equipamiento.map((e) => e.tieneTelevision).first == "no"){
+      _television = Television.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveTelevision).first == "si") {
+      _televisonSirve = TelevisionSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveTelevision).first == "no"){
+      _televisonSirve = TelevisionSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneRadio).first == "si") {
+      _radio = RadioE.si;
+    }else if(_Equipamiento.map((e) => e.tieneRadio).first == "no"){
+      _radio = RadioE.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveRadio).first == "si") {
+      _radioSirve = RadioSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveRadio).first == "no") {
+      _radioSirve = RadioSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneSala).first == "si") {
+      _sala = Sala.si;
+    }else if(_Equipamiento.map((e) => e.tieneSala).first == "no"){
+      _sala = Sala.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveSala).first == "si") {
+      _salaSirve = SalaSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveSala).first == "no") {
+      _salaSirve = SalaSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneComedor).first == "si") {
+      _comedor = Comedor.si;
+    }else if(_Equipamiento.map((e) => e.tieneComedor).first == "no"){
+      _comedor = Comedor.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveComedor).first == "si") {
+      _comedorSirve = ComedorSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveComedor).first == "no") {
+      _comedorSirve = ComedorSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneAutoMovil).first == "si") {
+      _automovil = Automovil.si;
+    }else if(_Equipamiento.map((e) => e.tieneAutoMovil).first == "no"){
+      _automovil = Automovil.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveAutoMovil).first == "si") {
+      _automovilSirve = AutomovilSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveAutoMovil).first == "no") {
+      _automovilSirve = AutomovilSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneCama).first == "si") {
+      _cama = Cama.si;
+    }else if(_Equipamiento.map((e) => e.tieneCama).first == "no"){
+      _cama = Cama.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveCama).first == "si") {
+      _camaSirve = CamaSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveCama).first == "no") {
+      _camaSirve = CamaSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneCelular).first == "si") {
+      _celular = Celular.si;
+    }else if(_Equipamiento.map((e) => e.tieneCelular).first == "no"){
+      _celular = Celular.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveCelular).first == "si") {
+      _celularSirve = CelularSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveCelular).first == "no") {
+      _celularSirve = CelularSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneMotocicleta).first == "si") {
+      _motocicleta = Motocicleta.si;
+    }else if(_Equipamiento.map((e) => e.tieneMotocicleta).first == "no"){
+      _motocicleta = Motocicleta.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveMotocicleta).first == "si") {
+      _motocicletaSirve = MotocicletaSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveMotocicleta).first == "no") {
+      _motocicletaSirve = MotocicletaSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneComputadora).first == "si") {
+      _computadora = Computadora.si;
+    }else if(_Equipamiento.map((e) => e.tieneComputadora).first == "no"){
+      _computadora = Computadora.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveComputadora).first == "si") {
+      _computadoraSirve = ComputadoraSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveComputadora).first == "no") {
+      _computadoraSirve = ComputadoraSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneHorno).first == "si") {
+      _horno = Horno.si;
+    }else if(_Equipamiento.map((e) => e.tieneHorno).first == "no"){
+      _horno = Horno.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveHorno).first == "si") {
+      _hornoSirve = HornoSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveHorno).first == "no") {
+      _hornoSirve = HornoSirve.no;
+    }
+
+    if(_Equipamiento.map((e) => e.tieneTelefono).first == "si") {
+      _telefono = Telefono.si;
+    }else if(_Equipamiento.map((e) => e.tieneTelefono).first == "no"){
+      _telefono = Telefono.no;
+    }
+
+    if(_Equipamiento.map((e) => e.sirveTelefono).first == "si") {
+      _telefonoSirve = TelefonoSirve.si;
+    }else if(_Equipamiento.map((e) => e.sirveTelefono).first == "no") {
+      _telefonoSirve = TelefonoSirve.no;
+    }
+  }
+
+
+  cargarDatos(){
+    getAllEquipamiento();
+  }
+
   insertDatos() async {
 
     EquipamientoMovil DModel = EquipamientoMovil
       (folio: int.parse(widget.folio),
         pk_equipamientosRefri: "1",
-      txt_desc_equipamientosRefri: "Refrigerador",
-      tieneRefri: _refrigerador.name,
-      sirveRefri: _refrigeradorSirve.name,
-      pk_equipamientosEstufa: "2",
-      txt_desc_equipamientosEstufa: "Estufa",
-      tieneEstufa: _estufa.name,
-      sirveEstufa: _estufaSirve.name,
-      pk_equipamientosVideoDVDBlueRay: "3",
-      txt_desc_equipamientosVideoDVDBlueRay: "VideoDVDBlueRay",
-      tieneVideoDVDBlueRay: _video.name,
-      sirveVideoDVDBlueRay: _videoSirve.name,
-      pk_equipamientosLavadora: "4",
-      txt_desc_equipamientosLavadora: "Lavadora",
-      tieneLavadora: _lavadora.name,
-      sirveLavadora: _lavadoraSirve.name,
-      pk_equipamientosLicuadora: "5",
-      txt_desc_equipamientosLicuadora: "Licuadora",
-      tieneLicuadora: _licuadora.name,
-      sirveLicuadora: _licuadoraSirve.name,
-      pk_equipamientosTelevision: "6",
-      txt_desc_equipamientosTelevision: "Television",
-      tieneTelevision: _television.name,
-      sirveTelevision: _televisonSirve.name,
-      pk_equipamientosRadio: "7",
-      txt_desc_equipamientosRadio: "Radio",
-      tieneRadio: _radio.name,
-      sirveRadio: _radioSirve.name,
-      pk_equipamientosSala: "8",
-      txt_desc_equipamientosSala: "Sala",
-      tieneSala: _sala.name,
-      sirveSala: _salaSirve.name,
-      pk_equipamientosComedor: "9",
-      txt_desc_equipamientosComedor: "Comedor",
-      tieneComedor: _comedor.name,
-      sirveComedor: _comedorSirve.name,
-      pk_equipamientosAutoMovil: "10",
-      txt_desc_equipamientosAutoMovil: "Automovil",
-      tieneAutoMovil: _automovil.name,
-      sirveAutoMovil: _automovilSirve.name,
-      pk_equipamientosCama: "11",
-      txt_desc_equipamientosCama: "Cama",
-      tieneCama: _cama.name,
-      sirveCama: _camaSirve.name,
-      pk_equipamientosCelular: "12",
-      txt_desc_equipamientosCelular: "Celular",
-      tieneCelular: _celular.name,
-      sirveCelular: _celularSirve.name,
-      pk_equipamientosMotocicleta: "13",
-      txt_desc_equipamientosMotocicleta:"Motocicleta" ,
-      tieneMotocicleta: _motocicleta.name,
-      sirveMotocicleta: _motocicletaSirve.name,
-      pk_equipamientosComputadora: "14",
-      txt_desc_equipamientosComputadora: "Computadora",
-      tieneComputadora: _computadora.name,
-      sirveComputadora: _computadoraSirve.name,
-      pk_equipamientosHorno: "15",
-      txt_desc_equipamientosHorno: "Horno",
-      tieneHorno: _horno.name,
-      sirveHorno: _hornoSirve.name,
-      pk_equipamientosTelefono: "16",
-      txt_desc_equipamientosTelefono: "Telefono",
-      tieneTelefono: _telefono.name,
-      sirveTelefono: _telefonoSirve.name,
-      CondicionesGenerales: _condiciones.text.toString()
+        txt_desc_equipamientosRefri: "Refrigerador",
+        tieneRefri: _refrigerador.name,
+        sirveRefri: _refrigeradorSirve.name,
+        pk_equipamientosEstufa: "2",
+        txt_desc_equipamientosEstufa: "Estufa",
+        tieneEstufa: _estufa.name,
+        sirveEstufa: _estufaSirve.name,
+        pk_equipamientosVideoDVDBlueRay: "3",
+        txt_desc_equipamientosVideoDVDBlueRay: "VideoDVDBlueRay",
+        tieneVideoDVDBlueRay: _video.name,
+        sirveVideoDVDBlueRay: _videoSirve.name,
+        pk_equipamientosLavadora: "4",
+        txt_desc_equipamientosLavadora: "Lavadora",
+        tieneLavadora: _lavadora.name,
+        sirveLavadora: _lavadoraSirve.name,
+        pk_equipamientosLicuadora: "5",
+        txt_desc_equipamientosLicuadora: "Licuadora",
+        tieneLicuadora: _licuadora.name,
+        sirveLicuadora: _licuadoraSirve.name,
+        pk_equipamientosTelevision: "6",
+        txt_desc_equipamientosTelevision: "Television",
+        tieneTelevision: _television.name,
+        sirveTelevision: _televisonSirve.name,
+        pk_equipamientosRadio: "7",
+        txt_desc_equipamientosRadio: "Radio",
+        tieneRadio: _radio.name,
+        sirveRadio: _radioSirve.name,
+        pk_equipamientosSala: "8",
+        txt_desc_equipamientosSala: "Sala",
+        tieneSala: _sala.name,
+        sirveSala: _salaSirve.name,
+        pk_equipamientosComedor: "9",
+        txt_desc_equipamientosComedor: "Comedor",
+        tieneComedor: _comedor.name,
+        sirveComedor: _comedorSirve.name,
+        pk_equipamientosAutoMovil: "10",
+        txt_desc_equipamientosAutoMovil: "Automovil",
+        tieneAutoMovil: _automovil.name,
+        sirveAutoMovil: _automovilSirve.name,
+        pk_equipamientosCama: "11",
+        txt_desc_equipamientosCama: "Cama",
+        tieneCama: _cama.name,
+        sirveCama: _camaSirve.name,
+        pk_equipamientosCelular: "12",
+        txt_desc_equipamientosCelular: "Celular",
+        tieneCelular: _celular.name,
+        sirveCelular: _celularSirve.name,
+        pk_equipamientosMotocicleta: "13",
+        txt_desc_equipamientosMotocicleta:"Motocicleta" ,
+        tieneMotocicleta: _motocicleta.name,
+        sirveMotocicleta: _motocicletaSirve.name,
+        pk_equipamientosComputadora: "14",
+        txt_desc_equipamientosComputadora: "Computadora",
+        tieneComputadora: _computadora.name,
+        sirveComputadora: _computadoraSirve.name,
+        pk_equipamientosHorno: "15",
+        txt_desc_equipamientosHorno: "Horno",
+        tieneHorno: _horno.name,
+        sirveHorno: _hornoSirve.name,
+        pk_equipamientosTelefono: "16",
+        txt_desc_equipamientosTelefono: "Telefono",
+        tieneTelefono: _telefono.name,
+        sirveTelefono: _telefonoSirve.name,
+        CondicionesGenerales: _condiciones.text.toString()
     );
 
     await dbHelper.saveEquipamiento(DModel).then((equipamientoMovil) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+        return new AportacionesEconomicas(widget.folio);
+      }
+      ));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  acualizar() async{
+    EquipamientoMovil DModel = EquipamientoMovil
+      (folio: int.parse(widget.folio),
+        pk_equipamientosRefri: "1",
+        txt_desc_equipamientosRefri: "Refrigerador",
+        tieneRefri: _refrigerador.name,
+        sirveRefri: _refrigeradorSirve.name,
+        pk_equipamientosEstufa: "2",
+        txt_desc_equipamientosEstufa: "Estufa",
+        tieneEstufa: _estufa.name,
+        sirveEstufa: _estufaSirve.name,
+        pk_equipamientosVideoDVDBlueRay: "3",
+        txt_desc_equipamientosVideoDVDBlueRay: "VideoDVDBlueRay",
+        tieneVideoDVDBlueRay: _video.name,
+        sirveVideoDVDBlueRay: _videoSirve.name,
+        pk_equipamientosLavadora: "4",
+        txt_desc_equipamientosLavadora: "Lavadora",
+        tieneLavadora: _lavadora.name,
+        sirveLavadora: _lavadoraSirve.name,
+        pk_equipamientosLicuadora: "5",
+        txt_desc_equipamientosLicuadora: "Licuadora",
+        tieneLicuadora: _licuadora.name,
+        sirveLicuadora: _licuadoraSirve.name,
+        pk_equipamientosTelevision: "6",
+        txt_desc_equipamientosTelevision: "Television",
+        tieneTelevision: _television.name,
+        sirveTelevision: _televisonSirve.name,
+        pk_equipamientosRadio: "7",
+        txt_desc_equipamientosRadio: "Radio",
+        tieneRadio: _radio.name,
+        sirveRadio: _radioSirve.name,
+        pk_equipamientosSala: "8",
+        txt_desc_equipamientosSala: "Sala",
+        tieneSala: _sala.name,
+        sirveSala: _salaSirve.name,
+        pk_equipamientosComedor: "9",
+        txt_desc_equipamientosComedor: "Comedor",
+        tieneComedor: _comedor.name,
+        sirveComedor: _comedorSirve.name,
+        pk_equipamientosAutoMovil: "10",
+        txt_desc_equipamientosAutoMovil: "Automovil",
+        tieneAutoMovil: _automovil.name,
+        sirveAutoMovil: _automovilSirve.name,
+        pk_equipamientosCama: "11",
+        txt_desc_equipamientosCama: "Cama",
+        tieneCama: _cama.name,
+        sirveCama: _camaSirve.name,
+        pk_equipamientosCelular: "12",
+        txt_desc_equipamientosCelular: "Celular",
+        tieneCelular: _celular.name,
+        sirveCelular: _celularSirve.name,
+        pk_equipamientosMotocicleta: "13",
+        txt_desc_equipamientosMotocicleta:"Motocicleta" ,
+        tieneMotocicleta: _motocicleta.name,
+        sirveMotocicleta: _motocicletaSirve.name,
+        pk_equipamientosComputadora: "14",
+        txt_desc_equipamientosComputadora: "Computadora",
+        tieneComputadora: _computadora.name,
+        sirveComputadora: _computadoraSirve.name,
+        pk_equipamientosHorno: "15",
+        txt_desc_equipamientosHorno: "Horno",
+        tieneHorno: _horno.name,
+        sirveHorno: _hornoSirve.name,
+        pk_equipamientosTelefono: "16",
+        txt_desc_equipamientosTelefono: "Telefono",
+        tieneTelefono: _telefono.name,
+        sirveTelefono: _telefonoSirve.name,
+        CondicionesGenerales: _condiciones.text.toString()
+    );
+
+    await dbHelper.upDateEquipamiento(DModel).then((equipamientoMovil) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
         return new AportacionesEconomicas(widget.folio);

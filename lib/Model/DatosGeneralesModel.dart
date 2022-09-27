@@ -4,7 +4,10 @@ class DatosGeneralesModel {
   String fechaCaptura;
   String calle ;
   String entreCalles ;
+
+  int claveGrupo;
   String grupo ;
+
   String noExt ;
   String noInt ;
   String fecha ;
@@ -13,11 +16,12 @@ class DatosGeneralesModel {
   int claveCodigoPostal;
   int claveEstado;
   String estado;
+
+  int claveComunidad;
   String nombreComunidad;
 
   int claveMunicipio;
   String municipio;
-
   int claveAsentamiento;
   String nombreAsentamiento;
 
@@ -35,6 +39,7 @@ class DatosGeneralesModel {
       this.fechaCaptura,
       this.calle,
       this.entreCalles,
+      this.claveGrupo,
       this.grupo,
       this.noExt,
       this.noInt,
@@ -44,6 +49,7 @@ class DatosGeneralesModel {
       this.claveCodigoPostal,
       this.claveEstado,
       this.estado,
+      this.claveComunidad,
       this.nombreComunidad,
 
       this.claveMunicipio,
@@ -67,6 +73,7 @@ class DatosGeneralesModel {
       'fechaCaptura': fechaCaptura,
       'calle': calle,
       'entreCalles': entreCalles,
+      'claveGrupo': claveGrupo,
       'grupo': grupo,
       'noExt': noExt,
       'noInt': noInt,
@@ -76,6 +83,7 @@ class DatosGeneralesModel {
       'claveCodigoPostal': claveCodigoPostal,
       'claveEstado': claveEstado,
       'estado': estado,
+      'claveComunidad': claveComunidad,
       'nombreComunidad': nombreComunidad,
 
       'claveMunicipio': claveMunicipio,
@@ -104,6 +112,7 @@ class DatosGeneralesModel {
     fechaCaptura = map['fechaCaptura'];
     calle = map['calle'];
     entreCalles = map['entreCalles'];
+    claveGrupo = map['claveGrupo'];
     grupo = map['grupo'];
     noExt = map['noExt'];
     noInt = map['noInt'];
@@ -113,6 +122,7 @@ class DatosGeneralesModel {
     claveCodigoPostal = map['claveCodigoPostal'];
     claveEstado = map['claveEstado'];
     estado = map['estado'];
+    claveComunidad = map['claveComunidad'];
     nombreComunidad = map['nombreComunidad'];
 
     claveMunicipio = map['claveMunicipio'];
