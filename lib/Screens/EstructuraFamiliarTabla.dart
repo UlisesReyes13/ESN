@@ -122,11 +122,18 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   List<Parentescos> _Parentesco = List<Parentescos>();
   List<EstadosModel> _Estado = List<EstadosModel>();
 
+
+  getTitular(){
+    String t = '6 6 Titular';
+    _parentesco1.text = t;
+  }
+
   @override
   void initState() {
     getAllCategoriesEstadosCiviles();
     getAllCategoriesParentesco();
     getAllCategoriesEstados();
+    getTitular();
     dbHelper = DbHelper();
   }
 
@@ -3820,11 +3827,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),),
 
                                 DataCell(Container(
-                                  margin: EdgeInsets.only(top: 22),
+                                  margin: EdgeInsets.only(top: 5),
                                   width: 220,
-                                  child: SearchField(
-                                    suggestionState: Suggestion.expand,
-                                    searchInputDecoration: InputDecoration(
+                                  child: TextFormField(
+                                    controller: _parentesco1,
+                                    readOnly : true,
+                                    decoration: InputDecoration(
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(color: Colors.transparent),
                                       ),
@@ -3836,17 +3844,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       fillColor: Colors.grey[200],
                                       filled: true,
                                     ),
-                                    suggestions: _Parentesco.map((parentesco) =>
-                                        SearchFieldListItem(parentesco.Parentesco,
-                                            item: parentesco)).toList(),
-                                    textInputAction: TextInputAction.next,
-                                    hasOverlay: true,
-                                    controller: _parentesco1,
-                                    maxSuggestionsInViewPort: 5,
-                                    itemHeight: 45,
-                                    onSuggestionTap: (x) {},
                                   ),
-                                ),),
+                                )),
                               ]),
 
                               DataRow(cells: [

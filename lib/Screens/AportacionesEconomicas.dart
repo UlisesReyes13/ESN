@@ -403,7 +403,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
           onPressed: (){
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (_) => Equipamineto(widget.folio)),
+                MaterialPageRoute(builder: (_) => Equipamiento(widget.folio)),
                     (Route<dynamic> route) => false);
           },
         ),

@@ -4,6 +4,7 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/EquipamientoModel.dart';
 import 'package:esn/Screens/AportacionesEconomicas.dart';
 import 'package:esn/Screens/Caracteristicas_Casa.dart';
+import 'package:esn/Screens/Equipamiento.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
 
@@ -74,15 +75,15 @@ enum Telefono { si, no }
 
 enum TelefonoSirve { si, no }
 
-class Equipamineto extends StatefulWidget {
+class Equipamiento extends StatefulWidget {
   String folio;
-  Equipamineto(this.folio);
+  Equipamiento(this.folio);
 
   @override
-  State<Equipamineto> createState() => _EquipaminetoState();
+  State<Equipamiento> createState() => _EquipamientoState();
 }
 
-class _EquipaminetoState extends State<Equipamineto> {
+class _EquipamientoState extends State<Equipamiento> {
   Refrigerador _refrigerador = Refrigerador.si;
   RefrigeradorSirve _refrigeradorSirve = RefrigeradorSirve.si;
   Estufa _estufa = Estufa.si;
@@ -610,12 +611,12 @@ class _EquipaminetoState extends State<Equipamineto> {
                     Expanded(
                       child: ListTile(
                         title: Text('No'),
-                        leading: Radio<LavadoraSirve>(
-                          value: LavadoraSirve.no,
-                          groupValue: _lavadoraSirve,
-                          onChanged: (LavadoraSirve value) {
+                        leading: Radio<LicuadoraSirve>(
+                          value: LicuadoraSirve.no,
+                          groupValue: _licuadoraSirve,
+                          onChanged: (LicuadoraSirve value) {
                             setState(() {
-                              _lavadoraSirve = value;
+                              _licuadoraSirve = value;
                             });
                           },
                         ),
@@ -676,12 +677,12 @@ class _EquipaminetoState extends State<Equipamineto> {
                     Expanded(
                       child: ListTile(
                         title: Text('No'),
-                        leading: Radio<LavadoraSirve>(
-                          value: LavadoraSirve.no,
-                          groupValue: _lavadoraSirve,
-                          onChanged: (LavadoraSirve value) {
+                        leading: Radio<TelevisionSirve>(
+                          value: TelevisionSirve.no,
+                          groupValue: _televisonSirve,
+                          onChanged: (TelevisionSirve value) {
                             setState(() {
-                              _lavadoraSirve = value;
+                              _televisonSirve = value;
                             });
                           },
                         ),
