@@ -12,6 +12,7 @@ import 'package:esn/Model/MotivoDerechoHabiencia.dart';
 import 'package:esn/Model/OcupacionesModel.dart';
 import 'package:esn/Model/PrestacionesLaboralesModel.dart';
 import 'package:esn/Model/TipoEmpleoModel.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/Escolaridad_SeguridadSocialActualizar.dart';
 import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
 import 'package:esn/ScreensActualizar/Salud_PertenenciaIndigenaActualizar.dart';
@@ -362,6 +363,7 @@ class _Escolaridad_SeguridadSocialActualizarState
     getAllEstructura3();
     getAllEstructura4();
 
+    cargarDatos();
     super.initState();
     dbHelper = DbHelper();
   }
@@ -4682,7 +4684,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }));
     }).catchError((error) {
       print(error);

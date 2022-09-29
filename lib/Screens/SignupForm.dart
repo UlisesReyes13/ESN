@@ -1,3 +1,4 @@
+import 'package:esn/Model/DispoModel.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genLoginSignupHeader.dart';
@@ -21,12 +22,24 @@ class _SignupFormState extends State<SignupForm> {
   final _conRol = TextEditingController();
   final _conPassword = TextEditingController();
   final _conCPassword = TextEditingController();
+  final _conDispositivo = TextEditingController();
   var dbHelper;
 
   @override
   void initState() {
     super.initState();
     dbHelper = DbHelper();
+  }
+
+  setDispositivo() async{
+    String dispositivo = _conDispositivo.text;
+    DispoModel dModel = DispoModel(dispositivo: dispositivo);
+    await dbHelper.saveDispo(dModel).then((userData){
+      alertDialog(context, "Se registro correctamente");
+    }).catchError((error) {
+    print(error);
+    alertDialog(context, "Error: No se guardaron los datos");
+    });
   }
 
   signUp() async {
@@ -40,7 +53,6 @@ class _SignupFormState extends State<SignupForm> {
     String cpasswd = _conCPassword.text;
 
 
-
     if (_formKey.currentState.validate()) {
       if (passwd != cpasswd) {
         alertDialog(context, 'La contraseña no coincide');
@@ -50,7 +62,7 @@ class _SignupFormState extends State<SignupForm> {
         UserModel uModel = UserModel(null,nombreU,nombre,apellidoP,apellidoM,rol, passwd);
         await dbHelper.saveData(uModel).then((userData) {
           alertDialog(context, "Se registro correctamente");
-
+          setDispositivo();
           Navigator.push(
               context, MaterialPageRoute(builder: (_) => LoginForm()));
         }).catchError((error) {
@@ -77,6 +89,12 @@ class _SignupFormState extends State<SignupForm> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   genLoginSignupHeader('Registrar'),
+                  getTextFormField(
+                    controller: _conDispositivo,
+                    icon: Icons.tablet_android,
+                    hintName: 'Nombre del Dispositivo',
+                  ),
+                  SizedBox(height: 10.0),
                   getTextFormField(
                       controller: _conUserId,
                       icon: Icons.person_outline,

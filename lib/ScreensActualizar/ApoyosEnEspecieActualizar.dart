@@ -4,6 +4,7 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/ApoyoEnEspecieModel.dart';
 import 'package:esn/Screens/AportacionesEconomicas.dart';
 import 'package:esn/Screens/Remesas.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/RemesasActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,12 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecieActualizar> {
   final _quienProporciona = TextEditingController();
   final _frecuenciaApoyo = TextEditingController();
   List<ApoyoEnEspecieModel> _ApoyoEspecie = List<ApoyoEnEspecieModel>();
+
+  @override
+  void initState() {
+    getAllApoyo();
+    super.initState();
+  }
 
   getAllApoyo() async{
     _ApoyoEspecie = List<ApoyoEnEspecieModel>();
@@ -58,7 +65,7 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecieActualizar> {
     await DbHelper().upDateApoyoEspecie(DModel).then((apoyosEnEspecie) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new RemesasActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

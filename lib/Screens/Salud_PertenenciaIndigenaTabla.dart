@@ -1802,17 +1802,18 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getTextDataTable(controller: _nombre1, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades1, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Discapacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones1,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
-                                hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso1,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla1,hintName: 'Talla (cm)',)),
+                                    hintName: 'Adicciones')),
+                                DataCell(getTextDataTable(controller: _peso1,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla1,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC1(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -1836,18 +1837,18 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 ),
                                 DataCell(getSearchField(controller: _condicionSalud1, suggestions: _Condiciones.map((condicion) =>
                                     SearchFieldListItem(condicion.CondicionesSalud, item: condicion)).toList(),
-                                hintName: 'Condiciones De Salud')),
+                                    hintName: 'Condiciones De Salud')),
                                 DataCell(getSearchField(controller: _clasificacion1, suggestions: _Clasificaciones.map((clasificacion) =>
-                                  SearchFieldListItem(clasificacion.ClasCondicionesSalud, item: clasificacion)).toList(),
-                                hintName: 'Clasificación')),
+                                    SearchFieldListItem(clasificacion.ClasCondicionesSalud, item: clasificacion)).toList(),
+                                    hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion1, hintName: 'Ponderación',)),
                                 DataCell(
                                   Column(
                                     children: [
                                       Container(
-                                      child: _image1 == null
-                                          ? Text('Imagen No Seleccionda')
-                                          : Text('Imagen Seleccionada')
+                                          child: _image1 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -1868,7 +1869,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena1,suggestions: _PueblosIndigenas.map((pueblo) =>
                                     SearchFieldListItem(pueblo.EtniaIndigena, item: pueblo)).toList(),
-                                hintName: 'Pueblo Indigena',))
+                                  hintName: 'Pueblo Indigena',))
                               ]),
 
                               DataRow(cells: [
@@ -1880,13 +1881,14 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getSearchField(controller: _adicciones2,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso2,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla2,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso2,hintName: 'Peso (kg)',inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla2,hintName: 'Talla (cm)',inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC2(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -1919,9 +1921,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image2 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image2 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -1954,13 +1956,14 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getSearchField(controller: _adicciones3,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso3,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla3,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso3,hintName: 'Peso (kg)',inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla3,hintName: 'Talla (cm)',inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC3(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -1993,9 +1996,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image3 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image3 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2028,13 +2031,14 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getSearchField(controller: _adicciones4,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso4,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla4,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso4,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla4,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC4(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2067,9 +2071,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image4 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image4 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2102,13 +2106,14 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getSearchField(controller: _adicciones5,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso5,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla5,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso5,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla5,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC5(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2141,9 +2146,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image5 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image5 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2176,13 +2181,14 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getSearchField(controller: _adicciones6,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso6,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla6,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso6,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla6,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC6(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2215,9 +2221,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image6 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image6 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2250,13 +2256,14 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getSearchField(controller: _adicciones7,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso7,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla7,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso7,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla7,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC7(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2289,9 +2296,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image7 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image7 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2363,9 +2370,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image8 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image8 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2398,13 +2405,14 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getSearchField(controller: _adicciones9,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso9,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla9,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso9,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla9,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC9(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2437,9 +2445,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image9 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image9 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2472,13 +2480,14 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getSearchField(controller: _adicciones10,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso10,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla10,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso10,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla10,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC10(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2511,9 +2520,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image10 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image10 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2543,22 +2552,20 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                     ),
                   ),
                 ),
-                SizedBox(height: 5.0),
+
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
                   child: FlatButton.icon(
-                      onPressed: insertDatos,
-                      icon: Icon(Icons.arrow_forward,color: Colors.white,),
-                      label: Text('Continuar', style: TextStyle(color: Colors.white)
-                        ,)
+                    onPressed: insertDatos,
+                    icon: Icon(Icons.arrow_forward,color: Colors.white),
+                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),

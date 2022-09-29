@@ -5,6 +5,7 @@ import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Drenaje.dart';
 import 'package:esn/Screens/ServiciosAgua.dart';
 import 'package:esn/Screens/ServiciosCombustible.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/ServicioCombustibleActualizar.dart';
 import 'package:flutter/material.dart';
 
@@ -130,7 +131,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
     await DbHelper().upDateDrenaje(BModel).then((drenaje) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new ServiciosCombustibleActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

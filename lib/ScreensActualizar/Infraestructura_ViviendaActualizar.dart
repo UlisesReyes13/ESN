@@ -8,6 +8,7 @@ import 'package:esn/Model/TipoPisoModel.dart';
 import 'package:esn/Model/TipoTechoModel.dart';
 import 'package:esn/Model/TipoTenenciaModel.dart';
 import 'package:esn/Model/TipoViviendaModel.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/Caracteristicas_CasaActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_ViviendaActua
     getAllCategoriesTipoTecho();
     getAllCategoriesTipoTenencia();
     getAllCtegoriesTipoVivienda();
-
+    getAllEstadoCasa();
 
     super.initState();
   }
@@ -186,7 +187,7 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_ViviendaActua
     await dbHelper.upDateVivienda(DModel).then((estadoCasaConstruccionModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Caracteristicas_CasaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

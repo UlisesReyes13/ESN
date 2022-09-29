@@ -4,6 +4,7 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/AlimentacionModel.dart';
 import 'package:esn/Screens/Documentos.dart';
 import 'package:esn/Screens/Resolucion.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/DocumentosActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,11 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
 
   List<AlimentacionModel> _Alimentacion = List<AlimentacionModel>();
 
+  @override
+  initState(){
+    getAllAlimentacion();
+    super.initState();
+  }
 
   getAllAlimentacion() async{
     _Alimentacion = List<AlimentacionModel>();
@@ -173,7 +179,7 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
     await DbHelper().upDateAlimentacion(BModel).then((alimentacionModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new DocumentosActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

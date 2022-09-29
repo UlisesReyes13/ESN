@@ -33,6 +33,7 @@ class DatosGeneralesModel {
   int ordentipovialidad;
   String tipoVialidad;
 
+  String folioDisp;
 
   DatosGeneralesModel({
       this.folio,
@@ -64,7 +65,8 @@ class DatosGeneralesModel {
 
       this.claveTipoVialidad,
       this.ordentipovialidad,
-      this.tipoVialidad});
+      this.tipoVialidad,
+      this.folioDisp});
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
@@ -101,6 +103,7 @@ class DatosGeneralesModel {
       'ordentipovialidad': ordentipovialidad,
       'tipoVialidad': tipoVialidad,
 
+      'folioDisp' : folioDisp
 
     };
     return map;
@@ -140,7 +143,7 @@ class DatosGeneralesModel {
     ordentipovialidad = map['ordentipovialidad'];
     tipoVialidad = map['tipoVialidad'];
 
-
+    folioDisp = map['folioDisp'];
 
   }
 }

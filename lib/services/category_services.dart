@@ -260,4 +260,8 @@ class CategoryService {
   readCategoriesDuraciones() async {
     return await _repository.readData('tb_Duraciones');
   }
+
+  readDisp() async {
+    return await _repository.readDispo('dispositivo');
+  }
 }

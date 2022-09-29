@@ -15,6 +15,7 @@ import 'package:esn/Model/PuebloIndigenaModel.dart';
 import 'package:esn/Model/Salud_PertenenciaIndigenaTablaModel.dart';
 import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/Infraestructura_Vivienda.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/Infraestructura_ViviendaActualizar.dart';
 import 'package:esn/services/Utility.dart';
 import 'package:esn/services/category_services.dart';
@@ -203,6 +204,8 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
     IMC9();
     IMC10();
     cargarnombres();
+
+
     dbHelper = DbHelper();
   }
 
@@ -897,7 +900,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_ViviendaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -1661,13 +1664,14 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getSearchField(controller: _adicciones1,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso1,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla1,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso1,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla1,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC1(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -1735,13 +1739,14 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getSearchField(controller: _adicciones2,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso2,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla2,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso2,hintName: 'Peso (kg)',inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla2,hintName: 'Talla (cm)',inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC2(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -1809,13 +1814,14 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getSearchField(controller: _adicciones3,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso3,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla3,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso3,hintName: 'Peso (kg)',inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla3,hintName: 'Talla (cm)',inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC3(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -1883,13 +1889,14 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getSearchField(controller: _adicciones4,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso4,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla4,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso4,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla4,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC4(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -1957,13 +1964,14 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getSearchField(controller: _adicciones5,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso5,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla5,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso5,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla5,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC5(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2031,13 +2039,14 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getSearchField(controller: _adicciones6,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso6,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla6,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso6,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla6,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC6(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2105,13 +2114,14 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getSearchField(controller: _adicciones7,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso7,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla7,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso7,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla7,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC7(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2253,13 +2263,14 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getSearchField(controller: _adicciones9,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso9,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla9,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso9,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla9,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC9(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2327,13 +2338,14 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getSearchField(controller: _adicciones10,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
-                                DataCell(getTextDataTable(controller: _peso10,hintName: 'Peso (kg)')),
-                                DataCell(getTextDataTable(controller: _talla10,hintName: 'Talla (cm)',)),
+                                DataCell(getTextDataTable(controller: _peso10,hintName: 'Peso (kg)', inputType: TextInputType.number)),
+                                DataCell(getTextDataTable(controller: _talla10,hintName: 'Talla (cm)', inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
                                     width: 220,
                                     child: TextField(controller: IMC10(),
+                                      keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(color: Colors.transparent
@@ -2398,6 +2410,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                     ),
                   ),
                 ),
+
 
                 SizedBox(height: 10.0),
                 Container(

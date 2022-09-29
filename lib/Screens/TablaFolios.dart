@@ -1,7 +1,6 @@
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/DatosGeneralesModel.dart';
 import 'package:esn/Screens/DatosGenerales.dart';
-import 'package:esn/ScreensActualizar//DatosGeneralesActualizar.dart';
 import 'package:esn/Screens/LoginForm.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
 import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';

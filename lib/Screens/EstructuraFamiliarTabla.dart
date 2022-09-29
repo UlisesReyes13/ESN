@@ -8571,7 +8571,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento1,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento1,hintName: 'DD-MM-YYYY', inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -8704,7 +8704,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento2,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento2,hintName: 'DD-MM-YYYY', inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -8846,7 +8846,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento3,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento3,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -8988,7 +8988,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento4,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento4,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9130,7 +9130,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento5,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento5,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9272,7 +9272,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento6,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento6,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9414,7 +9414,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento7,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento7,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9556,7 +9556,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento8,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento8,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9698,7 +9698,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento9,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento9,hintName: 'DD-MM-YYYY', inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9841,7 +9841,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento10,hintName: 'DD-MM-YYYY',)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento10,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,

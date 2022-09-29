@@ -3,6 +3,7 @@ import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/CaracteristicasCasa.dart';
 import 'package:esn/Screens/Infraestructura_Vivienda.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/EquipamientoActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_CasaActualizar> {
 
   @override
   void initState() {
-
+    getAllCasa();
     super.initState();
     dbHelper = DbHelper();
   }
@@ -81,7 +82,7 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_CasaActualizar> {
     await dbHelper.upDateCasa(DModel).then((caracteristicasCasa) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new EquipamientoActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -123,11 +124,11 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_CasaActualizar> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Número de Cuartos'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _numCuartos),
+                getTextField(controller: _numCuartos,inputType: TextInputType.number,),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Cuartos para Dormir'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _numCuartosDormir),
+                getTextField(controller: _numCuartosDormir,inputType: TextInputType.number),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Cocina Separada'),
                 ListTile(

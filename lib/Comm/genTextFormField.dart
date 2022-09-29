@@ -24,6 +24,7 @@ class getTextFormField extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: TextFormField(
+        textCapitalization: TextCapitalization.words,
         controller: controller,
         obscureText: isObscureText,
         enabled: isEnable,

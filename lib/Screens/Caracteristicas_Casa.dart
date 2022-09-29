@@ -156,11 +156,11 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Número de Cuartos'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _numCuartos),
+                getTextField(controller: _numCuartos, inputType: TextInputType.number),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Cuartos para Dormir'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _numCuartosDormir),
+                getTextField(controller: _numCuartosDormir, inputType: TextInputType.number),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Cocina Separada'),
                 ListTile(

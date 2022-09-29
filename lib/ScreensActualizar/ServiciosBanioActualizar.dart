@@ -3,6 +3,7 @@ import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/banio.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/ServiciosLuzActualizar.dart';
 import 'package:flutter/material.dart';
 
@@ -126,7 +127,7 @@ class _ServiciosBaniosActualizarState extends State<ServiciosBaniosActualizar> {
     await DbHelper().upDateBanio(BModel).then((banio) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new ServiciosLuzActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {
