@@ -4,12 +4,14 @@ import 'package:esn/Model/CodigoPostal.dart';
 import 'package:esn/Model/CodigoPostalModel.dart';
 import 'package:esn/Model/ComunidadesModel.dart';
 import 'package:esn/Model/DatosGeneralesModel.dart';
+import 'package:esn/Model/DispoModel.dart';
 import 'package:esn/Model/Estados.dart';
 import 'package:esn/Model/EstadosModel.dart';
 import 'package:esn/Model/GruposModel.dart';
 import 'package:esn/Model/Municipios.dart';
 import 'package:esn/Model/TipoVialidad.dart';
 import 'package:esn/Model/TiposAsentamiento.dart';
+import 'package:esn/Model/UserModel.dart';
 import 'package:esn/Screens/LoginForm.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
 import 'package:esn/Screens/TablaFolios.dart';
@@ -48,6 +50,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   final _tipoVialidad = TextEditingController();
   final _cp = TextEditingController();
   final _telefono = TextEditingController();
+  final _cdispo = TextEditingController();
   var dbHelper;
   var cargar;
 
@@ -75,6 +78,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     getFolio();
     getDate();
     getAllCategoriesCodigoPostal();
+    getDispo();
     super.initState();
     dbHelper = DbHelper();
   }
@@ -322,6 +326,23 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       });
     });
   }
+
+  List<DispoModel> _dispo = List<DispoModel>();
+  getDispo() async{
+    _dispo = List<DispoModel>();
+    var categories = await CategoryService().readDisp();
+    categories.forEach((category){
+      setState(() {
+        var categoryModel = DispoModel();
+        categoryModel.dispositivo = category['dispositivo'];
+        _dispo.add(categoryModel);
+      });
+    });
+
+    _cdispo.text = _dispo.map((e) => e.dispositivo.toString()).first;
+  }
+
+
 
   actualizar() async {
 
@@ -852,6 +873,8 @@ class _DatosGeneralesState extends State<DatosGenerales> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  SizedBox(height: 10.0),
+                  getTextField(controller: _cdispo,),
                   SizedBox(height: 10.0,),
                   getTextQuestion(question: 'Folio'),
                   SizedBox(height: 5.0),

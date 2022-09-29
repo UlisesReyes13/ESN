@@ -2,6 +2,7 @@ import 'package:esn/Comm/genTextEquipamiento.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/EquipamientoModel.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/AportacionesEconomicasActualizar.dart';
 
 import 'package:esn/services/category_services.dart';
@@ -125,7 +126,7 @@ class _EquipamientoActualizarState extends State<EquipamientoActualizar> {
 
   @override
   void initState() {
-
+    getAllEquipamiento();
     super.initState();
     dbHelper = DbHelper();
   }
@@ -451,7 +452,7 @@ class _EquipamientoActualizarState extends State<EquipamientoActualizar> {
     await dbHelper.upDateEquipamiento(DModel).then((equipamientoMovil) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new AportacionesEconomicasActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -528,7 +529,7 @@ class _EquipamientoActualizarState extends State<EquipamientoActualizar> {
                   child: Row(
                     children: [
                       SizedBox(height: 50.0),
-                      getTextEquipamiento(encabezado: 'EquipamientoActualizar'),
+                      getTextEquipamiento(encabezado: 'Equipamiento'),
                       SizedBox(width: tiene),
                       getTextEquipamiento(encabezado: 'Tiene'),
                       SizedBox(width: sirve),

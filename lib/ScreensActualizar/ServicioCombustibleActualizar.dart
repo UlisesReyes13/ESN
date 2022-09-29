@@ -5,6 +5,7 @@ import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Gas.dart';
 import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
 import 'package:esn/Screens/ServiciosDrenaje.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/EstructuraFamiliarActualizar.dart';
 import 'package:flutter/material.dart';
 
@@ -126,7 +127,7 @@ class _ServiciosCombustibleActualizarState extends State<ServiciosCombustibleAct
     await DbHelper().upDateGas(BModel).then((gas) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new EstructuraFamiliarActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

@@ -3,6 +3,7 @@ import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/FrecuenciaModel.dart';
 import 'package:esn/Model/RemesasModel.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/AlimentacionActualizar.dart';
 
 import 'package:esn/services/category_services.dart';
@@ -44,7 +45,7 @@ class _RemesasState extends State<RemesasActualizar> {
   @override
   void initState(){
     getAllCategoriesFrecuencia();
-
+    getAllRemesas();
     super.initState();
   }
 
@@ -98,7 +99,7 @@ class _RemesasState extends State<RemesasActualizar> {
     await DbHelper().upDateRemesas(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new AlimentacionActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

@@ -5,6 +5,7 @@ import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/DocumentosModel.dart';
 import 'package:esn/Screens/Alimentacion.dart';
 import 'package:esn/Screens/Remesas.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/ResolucionActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,12 @@ class _DocumentosState extends State<DocumentosActualizar> {
   INE _ine = INE.si;
   List<DocumentosModel> _Documentos = List<DocumentosModel>();
   var dbHelper;
+
+  @override
+  initState(){
+    getAllDocumentos();
+    super.initState();
+  }
 
   getAllDocumentos() async{
     _Documentos = List<DocumentosModel>();
@@ -82,7 +89,7 @@ class _DocumentosState extends State<DocumentosActualizar> {
     await DbHelper().upDateDocumentos(BModel).then((documentosModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new ResolucionActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

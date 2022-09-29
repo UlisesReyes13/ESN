@@ -673,7 +673,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Padre'),
                     SizedBox(width: 134.0),
-                    Expanded(child: getTextField(controller: _padre,),
+                    Expanded(child: getTextField(controller: _padre, inputType: TextInputType.number,),
                     )
                   ],
                 ),
@@ -682,7 +682,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Madre'),
                     SizedBox(width: 128.0),
-                    Expanded(child: getTextField(controller: _madre,),
+                    Expanded(child: getTextField(controller: _madre, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -691,7 +691,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Hijos'),
                     SizedBox(width: 142.0),
-                    Expanded(child: getTextField(controller: _hijos,),
+                    Expanded(child: getTextField(controller: _hijos,inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -700,7 +700,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'PROSPERA'),
                     SizedBox(width: 70.0),
-                    Expanded(child: getTextField(controller: _prospera),
+                    Expanded(child: getTextField(controller: _prospera, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -708,7 +708,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                 Row(
                   children: [
                     getTextCocepto(concepto: 'Adultos Mayores \n PROSPERA'),
-                    Expanded(child: getTextField(controller: _adultosProspera,),
+                    Expanded(child: getTextField(controller: _adultosProspera,inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -717,7 +717,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Becas'),
                     SizedBox(width: 133.0),
-                    Expanded(child: getTextField(controller: _becas),
+                    Expanded(child: getTextField(controller: _becas, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -726,7 +726,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Otros'),
                     SizedBox(width: 140.0),
-                    Expanded(child: getTextField(controller: _otros),
+                    Expanded(child: getTextField(controller: _otros,inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -735,7 +735,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Pensión'),
                     SizedBox(width: 107.0),
-                    Expanded(child: getTextField(controller: _pension),
+                    Expanded(child: getTextField(controller: _pension,inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -745,6 +745,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                     getTextCocepto(concepto: 'Total Semanal'),
                     SizedBox(width: 56.0),
                     Expanded(child: TextField(controller: SumaApoyoS(),
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
@@ -772,6 +773,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                     getTextCocepto(concepto: 'Total Mensual'),
                     SizedBox(width: 56.0),
                     Expanded(child: TextField(controller: SumaApoyoM(),
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
@@ -825,7 +827,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Vivienda'),
                     SizedBox(width: 107.0),
-                    Expanded(child: getTextField(controller: _vivienda),
+                    Expanded(child: getTextField(controller: _vivienda, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -834,7 +836,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Alimentación'),
                     SizedBox(width: 53.0),
-                    Expanded(child: getTextField(controller: _alimentacion),
+                    Expanded(child: getTextField(controller: _alimentacion, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -843,7 +845,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Luz'),
                     SizedBox(width: 169.0),
-                    Expanded(child: getTextField(controller: _luz),
+                    Expanded(child: getTextField(controller: _luz, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -852,7 +854,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Gas'),
                     SizedBox(width: 168.0),
-                    Expanded(child: getTextField(controller: _gas),
+                    Expanded(child: getTextField(controller: _gas, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -861,7 +863,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Agua'),
                     SizedBox(width: 150.0),
-                    Expanded(child: getTextField(controller: _agua),
+                    Expanded(child: getTextField(controller: _agua, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -870,7 +872,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Teléfono'),
                     SizedBox(width: 108.0),
-                    Expanded(child: getTextField(controller: _telefono),
+                    Expanded(child: getTextField(controller: _telefono, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -879,7 +881,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Transporte'),
                     SizedBox(width: 83.0),
-                    Expanded(child: getTextField(controller: _transporte),
+                    Expanded(child: getTextField(controller: _transporte, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -888,7 +890,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Atención Médica'),
                     SizedBox(width: 14.0),
-                    Expanded(child: getTextField(controller: _atencionMedica),
+                    Expanded(child: getTextField(controller: _atencionMedica, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -897,7 +899,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Otros Gastos'),
                     SizedBox(width: 58.0),
-                    Expanded(child: getTextField(controller: _otrosGastos),
+                    Expanded(child: getTextField(controller: _otrosGastos, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -906,7 +908,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Celular'),
                     SizedBox(width: 126.0),
-                    Expanded(child: getTextField(controller: _celular),
+                    Expanded(child: getTextField(controller: _celular,inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -915,7 +917,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   children: [
                     getTextCocepto(concepto: 'Educación'),
                     SizedBox(width: 87.0),
-                    Expanded(child: getTextField(controller: _educacion),
+                    Expanded(child: getTextField(controller: _educacion,inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -925,6 +927,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                     getTextCocepto(concepto: 'Total Semanal'),
                     SizedBox(width: 60.0),
                     Expanded(child: TextField(controller: SumaEgresoS(),
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
@@ -952,6 +955,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                     getTextCocepto(concepto: 'Total Mensual'),
                     SizedBox(width: 60.0),
                     Expanded(child: TextField(controller: SumaEgresoM(),
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid

@@ -8,6 +8,7 @@ import 'package:esn/Model/ResolucionBALModel.dart';
 import 'package:esn/Model/ResolucionModel.dart';
 import 'package:esn/Screens/Alimentacion.dart';
 import 'package:esn/Screens/Fotografia.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/FotografiaActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class _ResolucionState extends State<ResolucionActualizar> {
   void initState(){
     getAllCategoriesDuracion();
     getAllCategoriesFrecuencia();
-
+    cargarDatos();
     super.initState();
   }
 
@@ -178,7 +179,7 @@ class _ResolucionState extends State<ResolucionActualizar> {
     await DbHelper().saveResolucionBAL(RModel).then((resolucionBALModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new FotografiaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

@@ -3,6 +3,7 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Luz.dart';
 import 'package:esn/Screens/ServiciosAgua.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/ServiciosAguaActualizar.dart';
 import 'package:flutter/material.dart';
 
@@ -125,7 +126,7 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
     await DbHelper().upDateLuz(BModel).then((luz) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new ServiciosAguaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

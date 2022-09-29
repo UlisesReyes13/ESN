@@ -6,6 +6,7 @@ class getTextDataTable extends StatelessWidget {
   bool isObscureText;
   TextInputType inputType;
   bool isEnable;
+  String keyb;
 
 
   getTextDataTable({this.controller, this.hintName,this.isObscureText = false, this.inputType, this.isEnable = true});
@@ -16,6 +17,7 @@ class getTextDataTable extends StatelessWidget {
       margin: EdgeInsets.only(top: 5),
       width: 220,
       child: TextFormField(
+        textCapitalization: TextCapitalization.words,
         controller: controller,
         obscureText: isObscureText,
         enabled: isEnable,

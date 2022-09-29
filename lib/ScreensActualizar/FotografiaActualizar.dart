@@ -7,6 +7,7 @@ import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/FotoModel.dart';
 import 'package:esn/Screens/Resolucion.dart';
 import 'package:esn/Screens/TablaFolios.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/services/Utility.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -49,7 +50,7 @@ class _FotografiaState extends State<FotografiaActualizar> {
     DbHelper().upDateFoto(BModel).then((fotoModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new FotografiaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }
       ));
     }).catchError((error) {

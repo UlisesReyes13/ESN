@@ -5,6 +5,7 @@ import 'package:esn/Model/AlimentacionModel.dart';
 import 'package:esn/Model/AportacionSemanal.dart';
 import 'package:esn/Model/ApoyoEnEspecieModel.dart';
 import 'package:esn/Model/CaracteristicasCasa.dart';
+import 'package:esn/Model/DispoModel.dart';
 import 'package:esn/Model/Drenaje.dart';
 import 'package:esn/Model/EgresoSemanal.dart';
 import 'package:esn/Model/EquipamientoModel.dart';
@@ -36,7 +37,7 @@ import '../Model/DocumentosModel.dart';
 class DbHelper {
   static Database _db;
 
-  static const String DB_Name = 'encuesta610.db';
+  static const String DB_Name = 'encuesta6.db';
   static const String Table_User = 'usuario';
   static const String Table_Data = 'datosGenerales';
   static const String Table_Servicios = 'servicios';
@@ -66,6 +67,11 @@ class DbHelper {
   static const String C_ApellidoM = 'apellidoM';
   static const String C_Rol = 'rol';
   static const String C_Password = 'password';
+
+  static const String Table_Dispositivo = 'dispositivo';
+  static const String C_Dispositivo = 'dispositivo';
+
+  static const String C_FolioDisp = 'folioDisp';
 
   static const String C_Folio = 'folio';
   static const String C_FechaCaptura = 'fechaCaptura';
@@ -377,7 +383,7 @@ class DbHelper {
 
   _onCreate(Database db, int intVersion) async {
     await db.execute("CREATE TABLE $Table_User ( $C_idUsuario INTEGER not null primary key AUTOINCREMENT , $C_NombreUsuario TEXT, $C_Nombre TEXT, $C_ApellidoP TEXT,$C_ApellidoM TEXT,$C_Rol TEXT,$C_Password TEXT);");
-    await db.execute("CREATE TABLE $Table_Data ($C_Folio INTEGER not null Primary key AUTOINCREMENT ,$C_FechaCaptura TEXT, $C_Calle TEXT, $C_EntreCalles TEXT,$C_ClaveGrupo int, $C_Grupo TEXT,$C_NoExt TEXT,$C_NoInt TEXT,$C_Fecha TEXT,$C_Localidad TEXT,$C_Telefono TEXT,$C_CP TEXT,$C_ClaveEstado TEXT,$C_Estado TEXT, $C_ClaveComunidad int , $C_NombreComunidad TEXT, $C_ClaveMunicipio TEXT,$C_Municipio TEXT,$C_ClaveAsentamiento TEXT,$C_NombreAsentamiento TEXT ,$C_ClaveTipoAsentamiento TEXT, $C_OrdenTipoAsentamiento TEXT, $C_TipoAsentamiento TEXT, $C_ClaveTipoVialidad TEXT, $C_OrdenTipoVialidad TEXT, $C_TipoVialidad TEXT);");
+    await db.execute("CREATE TABLE $Table_Data ($C_FolioDisp TEXT, $C_Folio INTEGER not null Primary key AUTOINCREMENT ,$C_FechaCaptura TEXT, $C_Calle TEXT, $C_EntreCalles TEXT,$C_ClaveGrupo int, $C_Grupo TEXT,$C_NoExt TEXT,$C_NoInt TEXT,$C_Fecha TEXT,$C_Localidad TEXT,$C_Telefono TEXT,$C_CP TEXT,$C_ClaveEstado TEXT,$C_Estado TEXT, $C_ClaveComunidad int , $C_NombreComunidad TEXT, $C_ClaveMunicipio TEXT,$C_Municipio TEXT,$C_ClaveAsentamiento TEXT,$C_NombreAsentamiento TEXT ,$C_ClaveTipoAsentamiento TEXT, $C_OrdenTipoAsentamiento TEXT, $C_TipoAsentamiento TEXT, $C_ClaveTipoVialidad TEXT, $C_OrdenTipoVialidad TEXT, $C_TipoVialidad TEXT);");
     await db.execute("CREATE TABLE $Table_Servicios ($C_Folio int, $C_pk_bano TEXT , $C_int_orden_bano TEXT, $C_txt_desc_bano TEXT, $C_ClaveServAgua TEXT, $C_OrdenServAgua TEXT, $C_ServAgua TEXT, $C_ClaveServGas TEXT, $C_OrdenServGas TEXT, $C_ServGas TEXT, $C_ClaveServLuz TEXT, $C_OrdenServLuz TEXT, $C_ServLuz TEXT, $C_ClaveServSanitario TEXT, $C_OrdenServSanitario TEXT, $C_ServSanitario TEXT);");
     await db.execute("CREATE TABLE $Table_DatosFamiliares ($C_Folio int, $C_Nombres TEXT, $C_PrimerApellido TEXT, $C_SegundoApellido TEXT,$C_ClaveSexo TEXT, $C_OrdenSexo TEXT, $C_Sexo TEXT, $C_FechaNacimiento TEXT, $C_ClaveEntidad TEXT, $C_EntidadNacimiento TEXT,$C_ClaveEstadoCivil TEXT ,$C_OrdenEstadoCivil TEXT,$C_EstadoCivil TEXT,$C_ClaveParentesco Text, $C_OrdenParentesco TEXT , $C_Parentesco TEXT, $C_IngresoSemanal int, $C_IngresoMensual int);");
     await db.execute("CREATE TABLE $Table_Escolaridad ($C_Folio int, $C_ClaveEscolaridad TEXT, $C_OrdenEscolaridad TEXT, $C_Escolaridad TEXT,$C_ClaveGradoEscolar TEXT,$C_GradoEscolar TEXT,$C_ClaveAsisteEscuela TEXT,$C_OrdenAsisteEscuela TEXT,$C_AsisteEscuela TEXT,$C_ClaveOcupacion TEXT,$C_OrdenOcupacion TEXT,$C_Ocupacion TEXT,$C_ClaveTipoEmpleo TEXT,$C_OrdenTipoEmpleo TEXT,$C_TipoEmpleo TEXT,$C_pk_prestacioneslab TEXT,$C_int_OrdenPrestacionesLab TEXT,$C_txt_desc_prestacioneslab TEXT,$C_ClaveJubilacion TEXT,$C_OrdenJubilacion TEXT,$C_Jubilacion TEXT,$C_ClaveDerechohabiencia TEXT,$C_OrdenDerechohabiencia TEXT,$C_Derechohabiencia TEXT,$C_ClaveMotivoDerechohabiencia TEXT,$C_OrdenMotivoDerechohabiencia TEXT,$C_MotivoDerechohabiencia TEXT);");
@@ -393,7 +399,7 @@ class DbHelper {
     await db.execute("CREATE TABLE $Table_Resolucion ($C_Folio int,$C_puntaje TEXT, $C_escalaNecesidad TEXT,$C_inseguridadAlimenticia TEXT,$C_clasificacionPobresa TEXT);");
     await db.execute("CREATE TABLE $Table_ResolucionBAL ($C_Folio int,$C_tipo TEXT,claveFrecuencia TEXT,ordenFrecuencia TEXT ,$C_frecuenciaR TEXT,claveDuracion TEXT, ordenDuracion TEXT,$C_duracion TEXT, $C_otorgarApoyo TEXT,$C_observaciones TEXT);");
     await db.execute("CREATE TABLE $Table_Fotografia ($C_Folio int , $C_FileFoto TEXT);");
-
+    await db.execute("CREATE TABLE $Table_Dispositivo ($C_Dispositivo TEXT);");
     //Tabla de salud_ pertenencia
     await db.execute("CREATE TABLE $Table_Salud ($C_Folio int, $C_ClaveCapacidadDiferente TEXT, $C_OrdenCapacidadDiferente TEXT, $C_CapacidadDiferente TEXT, $C_ClaveAdiccion TEXT, $C_OrdenAdiccion TEXT, $C_Adiccion TEXT, $C_peso double, $C_talla double, $C_imc double, $C_ClaveCondicionesSalud TEXT, $C_OrdenCondicionesSalud TEXT, $C_CondicionesSalud TEXT, $C_ClaveClasCondicionesSalud TEXT, $C_OrdenClasCondicionesSalud TEXT, $C_ClasCondicionesSalud TEXT, $C_ponderacion TEXT, $C_fileFoto TEXT, $C_ClaveEtniaIndigena TEXT,$C_OrdenEtniaIndigena TEXT, $C_EtniaIndigena TEXT);");
 
@@ -1473,8 +1479,6 @@ class DbHelper {
     return await connection.query(table, where: "folio = '${folio}' ");
   }
 
-
-
   Future<int> saveData(UserModel user) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_User, user.toMap());
@@ -1564,6 +1568,18 @@ class DbHelper {
     var res = await dbClient.insert(Table_ResolucionBAL, resolucionBALModel.toMap());
     return res;
   }
+///////////////////////////////////////////////////////////////////////////////////
+  Future<int> saveDispo(DispoModel dispoModel) async {
+    var dbClient = await db;
+    var res = await dbClient.insert(Table_Dispositivo, dispoModel.toMap());
+    return res;
+  }
+
+  readDispo(table) async {
+    var connection = await db;
+    return await connection.query(table);
+  }
+  /////////////////////////////////////
 
 
   Future<UserModel> getLoginUser(String userId, String password) async {

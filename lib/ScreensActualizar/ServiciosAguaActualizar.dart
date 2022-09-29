@@ -4,6 +4,7 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Agua.dart';
 import 'package:esn/Screens/ServiciosLuz.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/ServiciosDrenajeActualizar.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Screens/ServiciosDrenaje.dart';
@@ -147,7 +148,7 @@ class _ServiciosAguaActualizarState extends State<ServiciosAguaActualizar> {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new ServiciosDrenajeActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }));
     }).catchError((error) {
       print(error);

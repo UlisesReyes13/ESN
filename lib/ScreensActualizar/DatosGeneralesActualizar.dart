@@ -13,6 +13,7 @@ import 'package:esn/Model/TipoVialidad.dart';
 import 'package:esn/Model/TiposAsentamiento.dart';
 import 'package:esn/Screens/LoginForm.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/ServiciosBanioActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +77,9 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     getAllCategoriesEstados();
     getDate();
     getAllCategoriesCodigoPostal();
+    getAllCategoriesCodigoPostal2();
+    getAllCategoriesGrupo();
+    cargarPreferencias();
     super.initState();
     dbHelper = DbHelper();
   }
@@ -83,7 +87,11 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
 
   cargarPreferencias() async
   {
-    getAllDatosgenerales();
+    setState(() {
+      getAllDatosgenerales();
+      getAllCategoriesCodigoPostal2();
+      getAllCategoriesGrupo();
+    });
   }
 
   getDate() {
@@ -167,6 +175,7 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     _tipoAsentamiento.text =  _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first + " " +  _DatosGenerales.map((e) => e.tipoAsentamiento).first;
     _tipoVialidad.text = _DatosGenerales.map((e) => e.claveTipoVialidad.toString()).first + " " +  _DatosGenerales.map((e) => e.tipoVialidad).first;
 
+    getAllCategoriesGrupo();
 
   }
 
@@ -518,9 +527,7 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
           telefono: telefono,
           claveCodigoPostal: int.parse(cp),
           //Actualizar esta parte para obtener la clave del estado
-          claveEstado: _CodigoPostal2
-              .map((e) => e.ClaveEstado)
-              .first,
+          claveEstado: _CodigoPostal2.map((e) => e.ClaveEstado).first,
           //
           estado: _estado.text.toString(),
           claveComunidad: _Grupo.map((e) => e.ClaveGrupo).first,
@@ -547,7 +554,7 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
 
         Navigator.of(context).push(
             MaterialPageRoute<Null>(builder: (BuildContext context) {
-              return new ServiciosBaniosActualizar(folio);
+              return new ActualizarEstudio(folio);
             }
             ));
       }).catchError((error) {

@@ -9,7 +9,7 @@ class UserModel {
 
 
   UserModel(this.idUsuario, this.nombreUsuario, this.nombre, this.apellidoP,
-      this.apellidoM, this.rol, this.Password);
+      this.apellidoM, this.rol, this.Password,);
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
