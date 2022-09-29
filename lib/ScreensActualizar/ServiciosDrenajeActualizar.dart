@@ -5,21 +5,22 @@ import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Drenaje.dart';
 import 'package:esn/Screens/ServiciosAgua.dart';
 import 'package:esn/Screens/ServiciosCombustible.dart';
+import 'package:esn/ScreensActualizar/ServicioCombustibleActualizar.dart';
 import 'package:flutter/material.dart';
 
 enum ServDrenaje {redPublica, fosaSeptica, tuberiaGrieta, otro, sinServicio,
-noTiene, tuberiaRio, rasSuelo, letrina, drenaje}
+  noTiene, tuberiaRio, rasSuelo, letrina, drenaje}
 
-class ServiciosDrenaje extends StatefulWidget {
+class ServiciosDrenajeActualizar extends StatefulWidget {
 
   String folio;
-  ServiciosDrenaje(this.folio);
+  ServiciosDrenajeActualizar(this.folio);
 
   @override
-  State<ServiciosDrenaje> createState() => _ServiciosDrenajeState();
+  State<ServiciosDrenajeActualizar> createState() => _ServiciosDrenajeActualizarState();
 }
 
-class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
+class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar> {
   ServDrenaje _drenaje = ServDrenaje.redPublica;
 
   enviar() async {
@@ -129,7 +130,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
     await DbHelper().upDateDrenaje(BModel).then((drenaje) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new ServiciosCombustible(widget.folio);
+        return new ServiciosCombustibleActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -141,18 +142,6 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Servicios'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => ServiciosAgua(widget.folio)),
-                    (Route<dynamic> route) => false);
-          },
-        ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,

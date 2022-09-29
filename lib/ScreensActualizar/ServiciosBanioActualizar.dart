@@ -1,49 +1,50 @@
 import 'package:esn/Comm/comHelper.dart';
+import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
-import 'package:esn/Model/Luz.dart';
-import 'package:esn/Screens/ServiciosAgua.dart';
-import 'package:esn/Screens/ServiciosBanios.dart';
+import 'package:esn/Model/banio.dart';
+import 'package:esn/ScreensActualizar/ServiciosLuzActualizar.dart';
 import 'package:flutter/material.dart';
 
-import '../Comm/genTextFolio.dart';
+enum ServBanio {sanitario,anitario, aguaConCubeta, letrinaSeca, pozo_hoyo, noTiene,razSuelo,otro}
 
-enum ServLuz {servicioPublico, sinContrato, plantaParticular, panelSolar,
-otro, sinServicio, noTiene, conContrato}
-class ServiciosLuz extends StatefulWidget {
+class ServiciosBaniosActualizar extends StatefulWidget {
 
   String folio;
-  ServiciosLuz(this.folio);
+  ServiciosBaniosActualizar(this.folio);
 
   @override
-  State<ServiciosLuz> createState() => _ServiciosLuzState();
+  State<ServiciosBaniosActualizar> createState() => _ServiciosBaniosActualizarState();
 }
 
-class _ServiciosLuzState extends State<ServiciosLuz> {
 
-  ServLuz _luz = ServLuz.servicioPublico;
-  enviar() async {
-    String luz = _luz.name.toString();
-    if (luz == 'servicioPublico') {
-      luz = '1 1 Servicio Público';
-    }else if(luz == 'sinContrato'){
-      luz = '2 2 Sin Contrato';
-    }else if(luz == 'plantaParticular'){
-      luz = '3 3 Planta Particular';
-    }else if(luz == 'panelSolar'){
-      luz = '4 4 Panel Solar';
-    }else if(luz == 'otro'){
-      luz = ' 5 5 Otro';
-    }else if(luz == 'sinServicio'){
-      luz = '6 6 Sin Servicio';
-    }else if(luz == 'noTiene'){
-      luz = '7 7 No tiene';
-    }else if(luz == 'conContrato'){
-      luz = '8 8 Con Contrato';
+class _ServiciosBaniosActualizarState extends State<ServiciosBaniosActualizar> {
+  List<Banio> _Banio = List<Banio>();
+
+  ServBanio _banio = ServBanio.sanitario;
+
+  Actualizar() async{
+    String banio = _banio.name.toString();
+    if(banio == 'sanitario'){
+      banio = '1 1 Descarga Directa';
+    }else if(banio == 'anitario'){
+      banio = '2 2 Sin Descarga Directa';
+    }else if(banio == 'aguaConCubeta'){
+      banio = '8 8 Agua Con Cubeta';
+    }else if(banio == 'letrinaSeca'){
+      banio = '3 3 Letrina Seca';
+    }else if(banio == 'pozo_hoyo') {
+      banio = '4 4 Pozo u Hoyo';
+    } else if(banio == 'noTiene'){
+      banio = '7 7 No tiene';
+    }else if (banio == 'rasSuelo') {
+      banio = '5 5 Ras de Suelo';
+    } else if(banio == 'otro'){
+      banio = '6 6 Otro';
     }
 
-    var nomLuz = luz; // 'artlang'
-    final NombreLuz = nomLuz
+    var nomBanio = banio; // 'artlang'
+    final tipoBanio = nomBanio
         .replaceAll("1", "")
         .replaceAll("2", "")
         .replaceAll("3", "")
@@ -55,8 +56,8 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var luzPk = luz; // 'artlang'
-    final pkLuz = luzPk
+    var baniopk = banio; // 'artlang'
+    final pkBanio = baniopk
         .replaceAll("A", "")
         .replaceAll("B", "")
         .replaceAll("C", "")
@@ -121,11 +122,11 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    Luz BModel = Luz(folio: widget.folio,claveServLuz: int.parse(pkLuz.substring(0,2).trimRight()) , ordenServLuz: pkLuz.substring(0,2).trimRight(),servLuz: NombreLuz.trimLeft());
-    await DbHelper().upDateLuz(BModel).then((luz) {
+    Banio BModel = Banio(folio: widget.folio,pk_bano: int.parse(pkBanio.substring(0,2).trimRight()), int_orden_bano: pkBanio.substring(0,2).trimRight(), txt_desc_bano: tipoBanio.trimLeft());
+    await DbHelper().upDateBanio(BModel).then((banio) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new ServiciosAgua(widget.folio);
+        return new ServiciosLuzActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -137,18 +138,6 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Servicios'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushAndRemoveUntil(
-                context ,
-                MaterialPageRoute(builder: (_) => ServiciosBanios(widget.folio)),
-                    (Route<dynamic> route) => false);
-          },
-        ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -163,112 +152,113 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     TextEditingValue(text: widget.folio))
                 ),
                 SizedBox(height: 10.0),
-                getTextQuestion(question: 'Luz'),
+                getTextQuestion(question: 'Baño o Excusado'),
                 SizedBox(height: 5.0),
                 ListTile(
-                  title: Text('Servicio Público'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.servicioPublico,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Sanitario / Baño Con Descarga Directa'),
+                  leading: Radio<ServBanio>(
+                    value: ServBanio.sanitario,
+                    groupValue: _banio,
+                    onChanged: (ServBanio value){
+                      setState(() {
+                        _banio = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('Sin Contrato'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.sinContrato,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Anitario / Baño Sin Descarga Directa'),
+                  leading: Radio<ServBanio>(
+                    value: ServBanio.anitario,
+                    groupValue: _banio,
+                    onChanged: (ServBanio value){
+                      setState(() {
+                        _banio = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('Planta Particular'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.plantaParticular,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Letrina Seca'),
+                  leading: Radio<ServBanio>(
+                    value: ServBanio.letrinaSeca,
+                    groupValue: _banio,
+                    onChanged: (ServBanio value){
+                      setState(() {
+                        _banio = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('Panel Solar'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.panelSolar,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Pozo u Hoyo'),
+                  leading: Radio<ServBanio>(
+                    value: ServBanio.pozo_hoyo,
+                    groupValue: _banio,
+                    onChanged: (ServBanio value){
+                      setState(() {
+                        _banio = value;
+                      });
+                    },
+                  ),
+                ),
+                ListTile(
+                  title: Text('Ras Del Suelo'),
+                  leading: Radio<ServBanio>(
+                    value: ServBanio.razSuelo,
+                    groupValue: _banio,
+                    onChanged: (ServBanio value){
+                      setState(() {
+                        _banio = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
                   title: Text('Otro'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.otro,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  leading: Radio<ServBanio>(
+                    value: ServBanio.otro,
+                    groupValue: _banio,
+                    onChanged: (ServBanio value){
+                      setState(() {
+                        _banio = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('Sin Servicio'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.sinServicio,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('No Tiene'),
+                  leading: Radio<ServBanio>(
+                    value: ServBanio.noTiene,
+                    groupValue: _banio,
+                    onChanged: (ServBanio value){
+                      setState(() {
+                        _banio = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('No tiene'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.noTiene,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Agua Con Cubeta'),
+                  leading: Radio<ServBanio>(
+                    value: ServBanio.aguaConCubeta,
+                    groupValue: _banio,
+                    onChanged: (ServBanio value){
+                      setState(() {
+                        _banio = value;
                       });
                     },
                   ),
                 ),
-                ListTile(
-                  title: Text('Con Contrato'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.conContrato,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
-                      });
-                    },
-                  ),
-                ),
-                SizedBox(height: 5.0),
+
+                SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
                   child: FlatButton.icon(
-                    onPressed: enviar,
-                    icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
+                    onPressed: Actualizar,
+                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

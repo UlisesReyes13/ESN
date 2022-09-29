@@ -4,6 +4,7 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Agua.dart';
 import 'package:esn/Screens/ServiciosLuz.dart';
+import 'package:esn/ScreensActualizar/ServiciosDrenajeActualizar.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Screens/ServiciosDrenaje.dart';
 
@@ -21,15 +22,15 @@ enum ServAgua {
   pluvial
 }
 
-class ServiciosAgua extends StatefulWidget {
+class ServiciosAguaActualizar extends StatefulWidget {
   String folio;
-  ServiciosAgua(this.folio);
+  ServiciosAguaActualizar(this.folio);
 
   @override
-  State<ServiciosAgua> createState() => _ServiciosAguaState();
+  State<ServiciosAguaActualizar> createState() => _ServiciosAguaActualizarState();
 }
 
-class _ServiciosAguaState extends State<ServiciosAgua> {
+class _ServiciosAguaActualizarState extends State<ServiciosAguaActualizar> {
   ServAgua _agua = ServAgua.tomaDomiciliaria;
 
   enviar() async {
@@ -146,7 +147,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new ServiciosDrenaje(widget.folio);
+        return new ServiciosDrenajeActualizar(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -157,18 +158,6 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Servicios'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => ServiciosLuz(widget.folio)),
-                (Route<dynamic> route) => false);
-          },
-        ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,

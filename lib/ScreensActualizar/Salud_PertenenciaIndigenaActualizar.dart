@@ -15,6 +15,7 @@ import 'package:esn/Model/PuebloIndigenaModel.dart';
 import 'package:esn/Model/Salud_PertenenciaIndigenaTablaModel.dart';
 import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/Infraestructura_Vivienda.dart';
+import 'package:esn/ScreensActualizar/Infraestructura_ViviendaActualizar.dart';
 import 'package:esn/services/Utility.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -22,16 +23,15 @@ import 'package:get/get.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:image_picker/image_picker.dart';
 
-class Salud_PertenenciaIndigenaTabla extends StatefulWidget {
+class Salud_PertenenciaIndigenaActualizar extends StatefulWidget {
   String folio;
 
-  Salud_PertenenciaIndigenaTabla(this.folio);
+  Salud_PertenenciaIndigenaActualizar(this.folio);
   @override
-  State<Salud_PertenenciaIndigenaTabla> createState() => _Salud_PertenenciaIndigenaTablaState();
+  State<Salud_PertenenciaIndigenaActualizar> createState() => _Salud_PertenenciaIndigenaActualizarState();
 
 }
-
-class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndigenaTabla> {
+class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaIndigenaActualizar> {
   final _nombre1 = TextEditingController();
   final _discapacidades1 = TextEditingController();
   final _adicciones1 = TextEditingController();
@@ -810,7 +810,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -897,7 +897,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -985,7 +985,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -1071,7 +1071,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -1157,7 +1157,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -1243,7 +1243,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -1329,7 +1329,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -1415,7 +1415,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -1501,7 +1501,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -1586,7 +1586,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
+        return new Infraestructura_ViviendaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -1594,155 +1594,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
-
-  insertDatos() async {
-    if(!_nombre1.text.toString().isEmpty){
-      if(!_nombre2.text.toString().isEmpty){
-        if(!_nombre3.text.toString().isEmpty){
-          if(!_nombre4.text.toString().isEmpty){
-            if(!_nombre5.text.toString().isEmpty){
-              if(!_nombre6.text.toString().isEmpty){
-                if(!_nombre7.text.toString().isEmpty){
-                  if(!_nombre8.text.toString().isEmpty){
-                    if(!_nombre9.text.toString().isEmpty){
-                      if(!_nombre10.text.toString().isEmpty){
-
-                        renglon1();
-                        renglon2();
-                        renglon3();
-                        renglon4();
-                        renglon5();
-                        renglon6();
-                        renglon7();
-                        renglon8();
-                        renglon9();
-                        renglon10();
-
-                      }else{
-                        renglon1();
-                        renglon2();
-                        renglon3();
-                        renglon4();
-                        renglon5();
-                        renglon6();
-                        renglon7();
-                        renglon8();
-                        renglon9();
-                        Navigator.of(context)
-                            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                          return new Infraestructura_Vivienda(widget.folio);
-                        }));
-                      }
-                    }else{
-                      renglon1();
-                      renglon2();
-                      renglon3();
-                      renglon4();
-                      renglon5();
-                      renglon6();
-                      renglon7();
-                      renglon8();
-                      Navigator.of(context)
-                          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                        return new Infraestructura_Vivienda(widget.folio);
-                      }));
-                    }
-                  }else{
-                    renglon1();
-                    renglon2();
-                    renglon3();
-                    renglon4();
-                    renglon5();
-                    renglon6();
-                    renglon7();
-                    Navigator.of(context)
-                        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                      return new Infraestructura_Vivienda(widget.folio);
-                    }));
-
-                  }
-                }else{
-                  renglon1();
-                  renglon2();
-                  renglon3();
-                  renglon4();
-                  renglon5();
-                  renglon6();
-                  Navigator.of(context)
-                      .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return new Infraestructura_Vivienda(widget.folio);
-                  }));
-
-                }
-              }else{
-                renglon1();
-                renglon2();
-                renglon3();
-                renglon4();
-                renglon5();
-                Navigator.of(context)
-                    .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                  return new Infraestructura_Vivienda(widget.folio);
-                }));
-              }
-            }else{
-
-              renglon1();
-              renglon2();
-              renglon3();
-              renglon4();
-              Navigator.of(context)
-                  .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-                return new Infraestructura_Vivienda(widget.folio);
-              }));
-
-            }
-          }else{
-
-            renglon1();
-            renglon2();
-            renglon3();
-            Navigator.of(context)
-                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-              return new Infraestructura_Vivienda(widget.folio);
-            }));
-
-          }
-        }else{
-          renglon1();
-          renglon2();
-          Navigator.of(context)
-              .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-            return new Infraestructura_Vivienda(widget.folio);
-          }));
-
-        }
-      }else{
-        renglon1();
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Infraestructura_Vivienda(widget.folio);
-        }));
-      }
-    }
-
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Salud / Pertenencia Indigena'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => Escolaridad_SeguridadSocialTabla(widget.folio)),
-                    (Route<dynamic> route) => false);
-          },
-        ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           child: Container(
@@ -1802,10 +1657,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(getTextDataTable(controller: _nombre1, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades1, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Discapacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones1,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
-                                hintName: 'Adicciones')),
+                                    hintName: 'Adicciones')),
                                 DataCell(getTextDataTable(controller: _peso1,hintName: 'Peso (kg)')),
                                 DataCell(getTextDataTable(controller: _talla1,hintName: 'Talla (cm)',)),
                                 DataCell(
@@ -1836,18 +1691,18 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 ),
                                 DataCell(getSearchField(controller: _condicionSalud1, suggestions: _Condiciones.map((condicion) =>
                                     SearchFieldListItem(condicion.CondicionesSalud, item: condicion)).toList(),
-                                hintName: 'Condiciones De Salud')),
+                                    hintName: 'Condiciones De Salud')),
                                 DataCell(getSearchField(controller: _clasificacion1, suggestions: _Clasificaciones.map((clasificacion) =>
-                                  SearchFieldListItem(clasificacion.ClasCondicionesSalud, item: clasificacion)).toList(),
-                                hintName: 'Clasificación')),
+                                    SearchFieldListItem(clasificacion.ClasCondicionesSalud, item: clasificacion)).toList(),
+                                    hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion1, hintName: 'Ponderación',)),
                                 DataCell(
                                   Column(
                                     children: [
                                       Container(
-                                      child: _image1 == null
-                                          ? Text('Imagen No Seleccionda')
-                                          : Text('Imagen Seleccionada')
+                                          child: _image1 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -1868,7 +1723,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena1,suggestions: _PueblosIndigenas.map((pueblo) =>
                                     SearchFieldListItem(pueblo.EtniaIndigena, item: pueblo)).toList(),
-                                hintName: 'Pueblo Indigena',))
+                                  hintName: 'Pueblo Indigena',))
                               ]),
 
                               DataRow(cells: [
@@ -1919,9 +1774,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image2 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image2 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -1993,9 +1848,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image3 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image3 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2067,9 +1922,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image4 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image4 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2141,9 +1996,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image5 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image5 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2215,9 +2070,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image6 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image6 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2289,9 +2144,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image7 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image7 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2363,9 +2218,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image8 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image8 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2437,9 +2292,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image9 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image9 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2511,9 +2366,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                   Column(
                                     children: [
                                       Container(
-                                        child: _image10 == null
-                                            ? Text('Imagen No Seleccionda')
-                                            : Text('Imagen Seleccionada')
+                                          child: _image10 == null
+                                              ? Text('Imagen No Seleccionda')
+                                              : Text('Imagen Seleccionada')
                                       ),
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
@@ -2541,21 +2396,6 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                         ),
                       ],
                     ),
-                  ),
-                ),
-                SizedBox(height: 5.0),
-                Container(
-                  margin: EdgeInsets.all(20.0),
-                  width: double.infinity,
-                  child: FlatButton.icon(
-                      onPressed: insertDatos,
-                      icon: Icon(Icons.arrow_forward,color: Colors.white,),
-                      label: Text('Continuar', style: TextStyle(color: Colors.white)
-                        ,)
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
 
