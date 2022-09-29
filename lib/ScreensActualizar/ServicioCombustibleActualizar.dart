@@ -1,49 +1,50 @@
 import 'package:esn/Comm/comHelper.dart';
+import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
-import 'package:esn/Model/Luz.dart';
-import 'package:esn/Screens/ServiciosAgua.dart';
-import 'package:esn/Screens/ServiciosBanios.dart';
+import 'package:esn/Model/Gas.dart';
+import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
+import 'package:esn/Screens/ServiciosDrenaje.dart';
+import 'package:esn/ScreensActualizar/EstructuraFamiliarActualizar.dart';
 import 'package:flutter/material.dart';
 
-import '../Comm/genTextFolio.dart';
+enum ServCombustible {gasTanque, gasNatural, parrillaElectrica,
+  leniaChimenea, leniaSinChimenea, otroCombustible, ninguno}
 
-enum ServLuz {servicioPublico, sinContrato, plantaParticular, panelSolar,
-otro, sinServicio, noTiene, conContrato}
-class ServiciosLuz extends StatefulWidget {
+class ServiciosCombustibleActualizar extends StatefulWidget {
 
   String folio;
-  ServiciosLuz(this.folio);
+
+  ServiciosCombustibleActualizar(this.folio);
 
   @override
-  State<ServiciosLuz> createState() => _ServiciosLuzState();
+  State<ServiciosCombustibleActualizar> createState() => _ServiciosCombustibleActualizarState();
 }
 
-class _ServiciosLuzState extends State<ServiciosLuz> {
 
-  ServLuz _luz = ServLuz.servicioPublico;
+class _ServiciosCombustibleActualizarState extends State<ServiciosCombustibleActualizar> {
+  ServCombustible _combustible = ServCombustible.gasTanque;
+
   enviar() async {
-    String luz = _luz.name.toString();
-    if (luz == 'servicioPublico') {
-      luz = '1 1 Servicio Público';
-    }else if(luz == 'sinContrato'){
-      luz = '2 2 Sin Contrato';
-    }else if(luz == 'plantaParticular'){
-      luz = '3 3 Planta Particular';
-    }else if(luz == 'panelSolar'){
-      luz = '4 4 Panel Solar';
-    }else if(luz == 'otro'){
-      luz = ' 5 5 Otro';
-    }else if(luz == 'sinServicio'){
-      luz = '6 6 Sin Servicio';
-    }else if(luz == 'noTiene'){
-      luz = '7 7 No tiene';
-    }else if(luz == 'conContrato'){
-      luz = '8 8 Con Contrato';
+    String combustible = _combustible.name.toString();
+    if(combustible == 'gasTanque'){
+      combustible = '1 1 Gas tanque';
+    }else if(combustible == 'gasNatural'){
+      combustible = '2  2 Gas Natural';
+    }else if(combustible == 'parrillaElectrica'){
+      combustible = '3 3 Parrilla Electrica';
+    }else if(combustible == 'leniaChimenea'){
+      combustible = '4 4 Leña o Carbón con Chimenea';
+    }else if(combustible == 'leniaSinChimenea'){
+      combustible = '5 5 Leña o Carbón sin Chimenea';
+    }else if(combustible == 'otroCombustible') {
+      combustible = '6 6 Otro Combustible';
+    }else if(combustible == 'ninguno'){
+      combustible = '7 7 Ninguno';
     }
 
-    var nomLuz = luz; // 'artlang'
-    final NombreLuz = nomLuz
+    var nomCombus = combustible; // 'artlang'
+    final NombreCombustible = nomCombus
         .replaceAll("1", "")
         .replaceAll("2", "")
         .replaceAll("3", "")
@@ -55,8 +56,8 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var luzPk = luz; // 'artlang'
-    final pkLuz = luzPk
+    var conbustiblePk = combustible; // 'artlang'
+    final pkConbustible = conbustiblePk
         .replaceAll("A", "")
         .replaceAll("B", "")
         .replaceAll("C", "")
@@ -121,11 +122,11 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    Luz BModel = Luz(folio: widget.folio,claveServLuz: int.parse(pkLuz.substring(0,2).trimRight()) , ordenServLuz: pkLuz.substring(0,2).trimRight(),servLuz: NombreLuz.trimLeft());
-    await DbHelper().upDateLuz(BModel).then((luz) {
+    Gas BModel = Gas(folio: widget.folio,claveServGas: int.parse(pkConbustible.substring(0,2).trimRight()),ordenServGas: pkConbustible.substring(0,2).trimRight(),servGas:NombreCombustible.trimLeft() );
+    await DbHelper().upDateGas(BModel).then((gas) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new ServiciosAgua(widget.folio);
+        return new EstructuraFamiliarActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -137,18 +138,6 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Servicios'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushAndRemoveUntil(
-                context ,
-                MaterialPageRoute(builder: (_) => ServiciosBanios(widget.folio)),
-                    (Route<dynamic> route) => false);
-          },
-        ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -163,104 +152,93 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     TextEditingValue(text: widget.folio))
                 ),
                 SizedBox(height: 10.0),
-                getTextQuestion(question: 'Luz'),
+                getTextQuestion(question: 'Combustible'),
                 SizedBox(height: 5.0),
                 ListTile(
-                  title: Text('Servicio Público'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.servicioPublico,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Gas en Tanque'),
+                  leading: Radio<ServCombustible>(
+                    value: ServCombustible.gasTanque,
+                    groupValue: _combustible,
+                    onChanged: (ServCombustible value){
+                      setState(() {
+                        _combustible = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('Sin Contrato'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.sinContrato,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Gas Natural'),
+                  leading: Radio<ServCombustible>(
+                    value: ServCombustible.gasNatural,
+                    groupValue: _combustible,
+                    onChanged: (ServCombustible value){
+                      setState(() {
+                        _combustible = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('Planta Particular'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.plantaParticular,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Parrilla Eléctrica'),
+                  leading: Radio<ServCombustible>(
+                    value: ServCombustible.parrillaElectrica,
+                    groupValue: _combustible,
+                    onChanged: (ServCombustible value){
+                      setState(() {
+                        _combustible = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('Panel Solar'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.panelSolar,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Leña o Carbón con Chimenea'),
+                  leading: Radio<ServCombustible>(
+                    value: ServCombustible.leniaChimenea,
+                    groupValue: _combustible,
+                    onChanged: (ServCombustible value){
+                      setState(() {
+                        _combustible = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('Otro'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.otro,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Leña o Carbón sin Chimenea'),
+                  leading: Radio<ServCombustible>(
+                    value: ServCombustible.leniaSinChimenea,
+                    groupValue: _combustible,
+                    onChanged: (ServCombustible value){
+                      setState(() {
+                        _combustible = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('Sin Servicio'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.sinServicio,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Otro Combustible'),
+                  leading: Radio<ServCombustible>(
+                    value: ServCombustible.otroCombustible,
+                    groupValue: _combustible,
+                    onChanged: (ServCombustible value){
+                      setState(() {
+                        _combustible = value;
                       });
                     },
                   ),
                 ),
                 ListTile(
-                  title: Text('No tiene'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.noTiene,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
+                  title: Text('Ninguno'),
+                  leading: Radio<ServCombustible>(
+                    value: ServCombustible.ninguno,
+                    groupValue: _combustible,
+                    onChanged: (ServCombustible value){
+                      setState(() {
+                        _combustible = value;
                       });
                     },
                   ),
                 ),
-                ListTile(
-                  title: Text('Con Contrato'),
-                  leading: Radio<ServLuz>(
-                    value: ServLuz.conContrato,
-                    groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
-                        _luz = value;
-                      });
-                    },
-                  ),
-                ),
+
                 SizedBox(height: 5.0),
                 Container(
                   margin: EdgeInsets.all(20.0),

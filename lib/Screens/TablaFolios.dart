@@ -1,6 +1,10 @@
+import 'package:esn/DatabaseHandler/DbHelper.dart';
+import 'package:esn/Model/DatosGeneralesModel.dart';
 import 'package:esn/Screens/DatosGenerales.dart';
+import 'package:esn/ScreensActualizar//DatosGeneralesActualizar.dart';
 import 'package:esn/Screens/LoginForm.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:flutter/material.dart';
 
 class TablaFolios extends StatefulWidget {
@@ -10,18 +14,69 @@ class TablaFolios extends StatefulWidget {
 }
 
 class _TablaFoliosState extends State<TablaFolios> {
-  List<Widget> _paginas = [
-    Folios(),
-    DatosGenerales(),
-    ServiciosBanios('2')
-  ];
 
-  int _paginaActual = 0;
+  var dbHelper = DbHelper();
+  List<DatosGeneralesModel> _Datos = List<DatosGeneralesModel>();
+  getAll() async{
+    var d = await dbHelper.datos();
+    await Future.delayed(Duration(seconds: 1));
+    setState(() {
+      _Datos = d;
+    });
+
+  }
+  
+  @override
+  void initState(){
+      getAll();
+    super.initState(
+    );
+  }
+
+  _buildTable(){
+    if(_Datos.isEmpty){
+      return Container(
+        child: Center(
+          child: Column(
+            children: [
+              CircularProgressIndicator(),
+              SizedBox(height: 50.0),
+              Text('No hay estudios realizados', style: TextStyle(fontSize: 30),),
+              Text('Genera uno nuevo presionando el boton', style: TextStyle(fontSize: 30),)
+            ],
+          ),
+          
+        ),
+      );
+    }
+    return DataTable(
+      headingTextStyle: TextStyle(fontSize: 30, color: Colors.black),
+      dataTextStyle: TextStyle(fontSize: 20, color: Colors.black),
+      showBottomBorder: true,
+      columns: [
+        DataColumn(label: Text('No. Folio')),
+        DataColumn(label : Text('Fecha')),
+        DataColumn(label: Text('Editar')),
+      ],
+      rows: _Datos.map((e) => DataRow(cells: [
+        DataCell(Text(e.folio.toString())),
+        DataCell(Text(e.fecha)),
+        DataCell(IconButton(
+          icon: Icon(Icons.edit),
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (_) => ActualizarEstudio(e.folio.toString())),
+                  (Route<dynamic> route) => false,);
+          },))
+      ])).toList(),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Estudios Realizados'),
+        title: Text('Estudios Socio - Nutricio Realizados'),
         leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
@@ -32,31 +87,51 @@ class _TablaFoliosState extends State<TablaFolios> {
             }
         ),
       ),
-      body: _paginas[_paginaActual],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {
-          setState(() {
-            _paginaActual = index;
-          });
-        },
-        currentIndex: _paginaActual,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Folios'),
-          BottomNavigationBarItem(label: 'Datos Generales', icon: Icon(Icons.add)),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Servicio Baños')
-        ],
+      body: Form(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 10.0),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: FlatButton.icon(
+                      onPressed: (){
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (_) => DatosGenerales()),
+                                (Route<dynamic> route) => false);
+                      },
+                      icon: Icon(Icons.add,color: Colors.white,),
+                      label: Text('Nuevo Estudio', style: TextStyle(color: Colors.white, fontSize: 20)
+                        ,)
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Row(
+                      children: [
+                        Expanded(child: _buildTable())
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
 }
 
-class Folios extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Bienvenido'),
-    );
-  }
-}
 

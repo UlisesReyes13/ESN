@@ -3,8 +3,8 @@ import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/AlimentacionModel.dart';
 import 'package:esn/Screens/Documentos.dart';
-import 'package:esn/Screens/Documentos.dart';
-import 'package:esn/Screens/Remesas.dart';
+import 'package:esn/Screens/Resolucion.dart';
+import 'package:esn/ScreensActualizar/DocumentosActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 
@@ -25,17 +25,17 @@ enum once {si , no}
 enum doce {si , no}
 enum menor {si, no}
 
-class Alimentacion extends StatefulWidget {
+class AlimentacionActualizar extends StatefulWidget {
 
   String folio;
 
-  Alimentacion(this.folio);
+  AlimentacionActualizar(this.folio);
 
   @override
-  State<Alimentacion> createState() => _AlimentacionState();
+  State<AlimentacionActualizar> createState() => _AlimentacionState();
 }
 
-class _AlimentacionState extends State<Alimentacion> {
+class _AlimentacionState extends State<AlimentacionActualizar> {
 
   uno _uno = uno.no;
   dos _dos = dos.no;
@@ -173,7 +173,7 @@ class _AlimentacionState extends State<Alimentacion> {
     await DbHelper().upDateAlimentacion(BModel).then((alimentacionModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Documentos(widget.folio);
+        return new DocumentosActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -181,37 +181,7 @@ class _AlimentacionState extends State<Alimentacion> {
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
-
-
-  enviar() async {
-
-    AlimentacionModel BModel = AlimentacionModel(
-        folio: int.parse(widget.folio),
-        pregunta1: _uno.name,
-        pregunta2: _dos.name,
-        pregunta3: _tres.name,
-        pregunta4: _cuatro.name,
-        pregunta5: _cinco.name,
-        pregunta6: _seis.name,
-        pregunta7: _siete.name,
-        pregunta8: _ocho.name,
-        pregunta9: _nueve.name,
-        pregunta10: _diez.name,
-        pregunta11: _once.name,
-        pregunta12: _doce.name
-    );
-
-    await DbHelper().saveAlimentacion(BModel).then((alimentacionModel) {
-      alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Documentos(widget.folio);
-      }
-      ));
-    }).catchError((error) {
-      print(error);
-      alertDialog(context, "Error: No se guardaron los datos");
-    });
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -236,18 +206,6 @@ class _AlimentacionState extends State<Alimentacion> {
       pregunta12 = '12. ¿Alguna vez algún menor de 18 años comió una vez al día o dejó de comer durante todo un día?';
     }
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Alimentación'),
-        leading: IconButton(
-          icon : Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => Remesas(widget.folio)),
-                    (Route<dynamic> route) => false);
-          },
-        ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -703,20 +661,6 @@ class _AlimentacionState extends State<Alimentacion> {
                       ),
                     ),
                   ],
-                ),
-
-                Container(
-                  margin: EdgeInsets.all(20.0),
-                  width: double.infinity,
-                  child: FlatButton.icon(
-                    onPressed: enviar,
-                    icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
                 ),
 
                 SizedBox(height: 10.0),

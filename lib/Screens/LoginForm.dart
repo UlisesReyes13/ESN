@@ -1,4 +1,5 @@
 import 'package:esn/Screens/DatosGenerales.dart';
+import 'package:esn/Screens/TablaFolios.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genLoginSignupHeader.dart';
@@ -42,7 +43,7 @@ class _LoginFormState extends State<LoginForm> {
           setSP(userData).whenComplete(() {
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (_) => DatosGenerales()),
+                MaterialPageRoute(builder: (_) => TablaFolios()),
                     (Route<dynamic> route) => false);
           });
         } else {

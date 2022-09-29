@@ -7,8 +7,8 @@ import 'package:esn/Model/FrecuenciaModel.dart';
 import 'package:esn/Model/ResolucionBALModel.dart';
 import 'package:esn/Model/ResolucionModel.dart';
 import 'package:esn/Screens/Alimentacion.dart';
-import 'package:esn/Screens/Documentos.dart';
 import 'package:esn/Screens/Fotografia.dart';
+import 'package:esn/ScreensActualizar/FotografiaActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
@@ -17,17 +17,17 @@ import '../Comm/comHelper.dart';
 import '../DatabaseHandler/DbHelper.dart';
 
 enum apoyo {si, no}
-class Resolucion extends StatefulWidget {
+class ResolucionActualizar extends StatefulWidget {
 
   String folio;
-  Resolucion(this.folio);
+  ResolucionActualizar(this.folio);
 
   @override
-  State<Resolucion> createState() => _ResolucionState();
+  State<ResolucionActualizar> createState() => _ResolucionState();
 
 }
 
-class _ResolucionState extends State<Resolucion> {
+class _ResolucionState extends State<ResolucionActualizar> {
   final _puntaje = TextEditingController();
   final _escalaNecesidad = TextEditingController();
   final _inseguridadAlimenticia = TextEditingController();
@@ -178,63 +178,7 @@ class _ResolucionState extends State<Resolucion> {
     await DbHelper().saveResolucionBAL(RModel).then((resolucionBALModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Fotografia(widget.folio);
-      }
-      ));
-    }).catchError((error) {
-      print(error);
-      alertDialog(context, "Error: No se guardaron los datos");
-    });
-  }
-
-  enviar() async {
-    var clave;
-
-    if(_frecuencia.text == "Diario"){
-      clave = "1";
-    }else if(_frecuencia.text == "Semanal"){
-      clave = "2";
-    }else if(_frecuencia.text == "Quincenal"){
-      clave = "3";
-    }else if(_frecuencia.text == "Mensual"){
-      clave = "4";
-    }else if(_frecuencia.text == "Anual"){
-      clave = "5";
-    } else if(_frecuencia.text == "Ninguno"){
-      clave = "6";
-    }
-
-    //Duracion y Frecuencia
-    ResolucionModel BModel = ResolucionModel
-      (folio: int.parse(widget.folio),
-        puntaje: _puntaje.text.toString(),
-        escalaNecesidad: _escalaNecesidad.text.toString(),
-        inseguridadAlimenticia: _inseguridadAlimenticia.text.toString(),
-        clasificacionPobresa: _clasificacionPobreza.text.toString());
-
-    await DbHelper().saveResolucion(BModel).then((resolucionModel) {
-
-    }).catchError((error) {
-      print(error);
-      alertDialog(context, "Error: No se guardaron los datos");
-    });
-
-    ResolucionBALModel RModel = ResolucionBALModel
-      (folio: int.parse(widget.folio),
-        tipo: _tipo.text.toString(),
-        claveFrecuencia: clave,
-        ordenFrecuencia: clave,
-        frecuencia: _frecuencia.text.toString(),
-        claveDuracion: _duracion.text.substring(0,2).trimRight(),
-        ordenDuracion: _duracion.text.substring(0,2).trimRight(),
-        duracion: _duracion.text.toString(),
-        otorgarApoyo: _apoyo.name,
-        observaciones: _observaciones.text.toString());
-
-    await DbHelper().saveResolucionBAL(RModel).then((resolucionBALModel) {
-      alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Fotografia(widget.folio);
+        return new FotografiaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -247,18 +191,6 @@ class _ResolucionState extends State<Resolucion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Resolución'),
-        leading: IconButton(
-          icon : Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => Documentos(widget.folio)),
-                    (Route<dynamic> route) => false);
-          },
-        ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -440,21 +372,6 @@ class _ResolucionState extends State<Resolucion> {
                 getTextQuestion(question: 'Observaciones'),
                 SizedBox(height: 5.0),
                 getTextField(controller: _observaciones),
-
-                Container(
-                  margin: EdgeInsets.all(20.0),
-                  width: double.infinity,
-                  child: FlatButton.icon(
-                    onPressed: enviar,
-                    icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),

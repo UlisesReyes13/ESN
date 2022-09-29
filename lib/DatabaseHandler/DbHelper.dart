@@ -19,6 +19,7 @@ import 'package:esn/Model/RemesasModel.dart';
 import 'package:esn/Model/ResolucionBALModel.dart';
 import 'package:esn/Model/ResolucionModel.dart';
 import 'package:esn/Model/SaludPerteneciaIndigenaModel.dart';
+import 'package:esn/Model/Salud_PertenenciaIndigenaTablaModel.dart';
 import 'package:esn/Model/UserModel.dart';
 import 'package:esn/Model/banio.dart';
 import 'package:esn/Screens/ApoyosEnEspecie.dart';
@@ -316,6 +317,8 @@ class DbHelper {
 
   //Tabla Remesas
   static const String C_dineroOtrosPaises = 'dineroOtrosPaises';
+  static const String C_ClaveFrecuencia= 'claveFrecuenciaApoyo';
+  static const String C_OrdenFrecuencia= 'ordenFrecuenciaApoyo';
   static const String C_frecuencia= 'frecuencia';
 
   //Tabla Documentos
@@ -378,18 +381,17 @@ class DbHelper {
     await db.execute("CREATE TABLE $Table_Servicios ($C_Folio int, $C_pk_bano TEXT , $C_int_orden_bano TEXT, $C_txt_desc_bano TEXT, $C_ClaveServAgua TEXT, $C_OrdenServAgua TEXT, $C_ServAgua TEXT, $C_ClaveServGas TEXT, $C_OrdenServGas TEXT, $C_ServGas TEXT, $C_ClaveServLuz TEXT, $C_OrdenServLuz TEXT, $C_ServLuz TEXT, $C_ClaveServSanitario TEXT, $C_OrdenServSanitario TEXT, $C_ServSanitario TEXT);");
     await db.execute("CREATE TABLE $Table_DatosFamiliares ($C_Folio int, $C_Nombres TEXT, $C_PrimerApellido TEXT, $C_SegundoApellido TEXT,$C_ClaveSexo TEXT, $C_OrdenSexo TEXT, $C_Sexo TEXT, $C_FechaNacimiento TEXT, $C_ClaveEntidad TEXT, $C_EntidadNacimiento TEXT,$C_ClaveEstadoCivil TEXT ,$C_OrdenEstadoCivil TEXT,$C_EstadoCivil TEXT,$C_ClaveParentesco Text, $C_OrdenParentesco TEXT , $C_Parentesco TEXT, $C_IngresoSemanal int, $C_IngresoMensual int);");
     await db.execute("CREATE TABLE $Table_Escolaridad ($C_Folio int, $C_ClaveEscolaridad TEXT, $C_OrdenEscolaridad TEXT, $C_Escolaridad TEXT,$C_ClaveGradoEscolar TEXT,$C_GradoEscolar TEXT,$C_ClaveAsisteEscuela TEXT,$C_OrdenAsisteEscuela TEXT,$C_AsisteEscuela TEXT,$C_ClaveOcupacion TEXT,$C_OrdenOcupacion TEXT,$C_Ocupacion TEXT,$C_ClaveTipoEmpleo TEXT,$C_OrdenTipoEmpleo TEXT,$C_TipoEmpleo TEXT,$C_pk_prestacioneslab TEXT,$C_int_OrdenPrestacionesLab TEXT,$C_txt_desc_prestacioneslab TEXT,$C_ClaveJubilacion TEXT,$C_OrdenJubilacion TEXT,$C_Jubilacion TEXT,$C_ClaveDerechohabiencia TEXT,$C_OrdenDerechohabiencia TEXT,$C_Derechohabiencia TEXT,$C_ClaveMotivoDerechohabiencia TEXT,$C_OrdenMotivoDerechohabiencia TEXT,$C_MotivoDerechohabiencia TEXT);");
-    await db.execute("CREATE TABLE $Table_Salud ($C_Folio int,$C_ClaveCapacidadDiferente TEXT,$C_OrdenCapacidadDiferente TEXT,$C_CapacidadDiferente TEXT,$C_ClaveCondicionesSalud TEXT,$C_OrdenCondicionesSalud TEXT,$C_CondicionesSalud TEXT,$C_ClaveAdiccion TEXT,$C_OrdenAdiccion TEXT,$C_Adiccion TEXT,$C_peso int,$C_talla int,$C_imc double,$C_ClaveEtniaIndigena TEXT,$C_OrdenEtniaIndigena TEXT,$C_EtniaIndigena TEXT);");
     await db.execute("CREATE TABLE $Table_Vivienda ($C_Folio int,$C_ClaveTipoVivienda TEXT,$C_OrdenTipoVivienda TEXT,$C_TipoVivienda TEXT,$C_ClaveTipoPiso TEXT,$C_OrdenTipoPiso TEXT,$C_TipoPiso TEXT,$C_ClaveTenencia TEXT,$C_OrdenTenencia TEXT,$C_Tenencia TEXT,$C_ClaveTecho TEXT,$C_OrdenTecho TEXT,$C_Techo TEXT,$C_ClaveTipoMuro TEXT,$C_OrdenTipoMuro TEXT,$C_TipoMuro TEXT);");
     await db.execute("CREATE TABLE $Table_Casa ($C_Folio int,$C_numCuartos TEXT ,$C_cuartosDormir TEXT,$C_cocinaSeparada TEXT,$C_cuartoBanioExclusivo TEXT);");
     await db.execute("CREATE TABLE $Table_Equipamiento ($C_Folio int,$C_pk_equipamientosRefri TEXT, $C_txt_desc_equipamientosRefri TEXT, $C_tieneRefri TEXT, $C_sirveRefri TEXT, $C_pk_equipamientosEstufa TEXT, $C_txt_desc_equipamientosEstufa TEXT, $C_tieneEstufa TEXT, $C_sirveEstufa TEXT, $C_pk_equipamientosVideoDVDBlueRay TEXT, $C_txt_desc_equipamientosVideoDVDBlueRay TEXT, $C_tieneVideoDVDBlueRay TEXT, $C_sirveVideoDVDBlueRay TEXT, $C_pk_equipamientosLavadora TEXT, $C_txt_desc_equipamientosLavadora TEXT, $C_tieneLavadora TEXT, $C_sirveLavadora TEXT, $C_pk_equipamientosLicuadora TEXT, $C_txt_desc_equipamientosLicuadora TEXT, $C_tieneLicuadora TEXT, $C_sirveLicuadora TEXT, $C_pk_equipamientosTelevision TEXT, $C_txt_desc_equipamientosTelevision TEXT, $C_tieneTelevision TEXT, $C_sirveTelevision TEXT, $C_pk_equipamientosRadio TEXT, $C_txt_desc_equipamientosRadio TEXT, $C_tieneRadio TEXT, $C_sirveRadio TEXT, $C_pk_equipamientosSala TEXT, $C_txt_desc_equipamientosSala TEXT, $C_tieneSala TEXT, $C_sirveSala TEXT, $C_pk_equipamientosComedor TEXT, $C_txt_desc_equipamientosComedor TEXT, $C_tieneComedor TEXT, $C_sirveComedor TEXT, $C_pk_equipamientosAutoMovil TEXT, $C_txt_desc_equipamientosAutoMovil TEXT, $C_tieneAutoMovil TEXT, $C_sirveAutoMovil TEXT, $C_pk_equipamientosCama TEXT, $C_txt_desc_equipamientosCama TEXT, $C_tieneCama TEXT, $C_sirveCama TEXT, $C_pk_equipamientosCelular TEXT, $C_txt_desc_equipamientosCelular TEXT, $C_tieneCelular TEXT, $C_sirveCelular TEXT, $C_pk_equipamientosMotocicleta TEXT, $C_txt_desc_equipamientosMotocicleta TEXT, $C_tieneMotocicleta TEXT, $C_sirveMotocicleta TEXT, $C_pk_equipamientosComputadora TEXT, $C_txt_desc_equipamientosComputadora TEXT, $C_tieneComputadora TEXT, $C_sirveComputadora TEXT, $C_pk_equipamientosHorno TEXT, $C_txt_desc_equipamientosHorno TEXT, $C_tieneHorno TEXT, $C_sirveHorno TEXT, $C_pk_equipamientosTelefono TEXT, $C_txt_desc_equipamientosTelefono TEXT, $C_tieneTelefono TEXT, $C_sirveTelefono TEXT, $C_CondicionesGenerales TEXT );");
     await db.execute("CREATE TABLE $Table_AportacionSemanalM ($C_Folio int,$C_padre double,$C_madre double,$C_hijos double,$C_prospera double,$C_adultosMayoresProspera double,$C_becas double,$C_otros double,$C_pension double,$C_totalSemanal double,$C_totalMensual double);");
     await db.execute("CREATE TABLE $Table_EgresoSemanalM ($C_Folio int,$C_vivienda double,$C_alimentacion double,$C_luz double,$C_gas double,$C_agua double,$C_telefono double,$C_transporte double,$C_atencionMedica double,$C_otrosGastos double,$C_celular double,$C_educacion double,$C_EtotalSemanal double,$C_EtotalMensual double);");
     await db.execute("CREATE TABLE $Table_ApoyoEspecie ($C_Folio int,$C_tipoApoyo TEXT,$C_quienProporciona TEXT,$C_frecuenciaApoyo TEXT);");
-    await db.execute("CREATE TABLE $Table_Remesas ($C_Folio int, $C_dineroOtrosPaises TEXT, $C_frecuencia TEXT);");
+    await db.execute("CREATE TABLE $Table_Remesas ($C_Folio int, $C_dineroOtrosPaises TEXT,$C_ClaveFrecuencia Text ,$C_OrdenFrecuencia,$C_frecuencia TEXT);");
     await db.execute("CREATE TABLE $Table_Documentos ($C_Folio int ,$C_curp TEXT, $C_actaNacimiento TEXT, $C_comprobanteDomicilio TEXT,$C_ine TEXT);");
     await db.execute("CREATE TABLE $Table_Alimentacion ($C_Folio int ,$C_pregunta1 TEXT, $C_pregunta2 TEXT, $C_pregunta3 TEXT,$C_pregunta4 TEXT, $C_pregunta5 TEXT, $C_pregunta6 TEXT, $C_pregunta7 TEXT, $C_pregunta8 TEXT, $C_pregunta9 TEXT, $C_pregunta10 TEXT, $C_pregunta11 TEXT, $C_pregunta12 TEXT);");
     await db.execute("CREATE TABLE $Table_Resolucion ($C_Folio int,$C_puntaje TEXT, $C_escalaNecesidad TEXT,$C_inseguridadAlimenticia TEXT,$C_clasificacionPobresa TEXT);");
-    await db.execute("CREATE TABLE $Table_ResolucionBAL ($C_Folio int,$C_tipo TEXT,$C_frecuenciaR TEXT,$C_duracion TEXT, $C_otorgarApoyo TEXT,$C_observaciones TEXT);");
+    await db.execute("CREATE TABLE $Table_ResolucionBAL ($C_Folio int,$C_tipo TEXT,claveFrecuencia TEXT,ordenFrecuencia TEXT ,$C_frecuenciaR TEXT,claveDuracion TEXT, ordenDuracion TEXT,$C_duracion TEXT, $C_otorgarApoyo TEXT,$C_observaciones TEXT);");
     await db.execute("CREATE TABLE $Table_Fotografia ($C_Folio int , $C_FileFoto TEXT);");
 
     //Tabla de salud_ pertenencia
@@ -435,8 +437,39 @@ class DbHelper {
 
     //Tabla estados
     await db.execute("CREATE TABLE tb_Estados (Estado TEXT);");
-    await db.execute("INSERT INTO tb_Estados (Estado) VALUES ('1 Jalisco');");
-    await db.execute("INSERT INTO tb_Estados (Estado) VALUES ('2 Guanajuato');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('1 1 Aguascalientes');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('2 2 Baja California');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('3 3 Baja California Sur');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('4 4 Campeche');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('5 5 Coahuila De Zaragoza');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('6 6 Colima');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('7 7 Chiapas');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('8 8 Chihuahua');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('9 9 Ciudad de Mexico');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('10 10 Durango');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('11 11 Guanajuato');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('12 12 Guerrero');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('13 13 Hidalgo');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('14 14 Jalisco');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('15 15 México');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('16 16 Michoacán de Ocampo');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('17 17 Morelos');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('18 18 Nayarit');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('19 19 Nuevo Leon');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('20 20 Oaxaca');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('21 21 Puebla');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('22 22 Queretaro');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('23 23 Quintana Roo');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('24 24 San Luis Potosí');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('25 25 Sinaloa');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('26 26 Sonora');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('27 27 Tabasco');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('28 28 Tamaulipas');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('29 29 Tlaxcala');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('30 30 Veracruz De Ignacio De La Llave');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('31 31 Yucatan');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('32 32 Zacatecas');");
+    await db.execute("INSERT INTO  tb_Estados (Estado) VALUES ('33 33 Extranjero');");
 
     //Tabla MUNICIPIOS
     await db.execute("CREATE TABLE tb_Municipios(Municipio TEXT)");
@@ -526,22 +559,22 @@ class DbHelper {
 
     //Tabla parentescos
     await db.execute("CREATE TABLE tb_Parentescos (Parentesco TEXT);");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('1 1 Cuñado(a)');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('2 2 Hijo(a)');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('3 3 Nieto(a)');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('4 4 Hermano(a)');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('5 5 Yerno');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('6 6 Titular');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('7 7 Tio(a)');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('8 8 Primo(a)');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('9 9 Bisnieto(a)');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('10 10 Otro');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('11 11 Nuera');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('12 12 Cónyuge');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('13 13 Padre');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('14 14 Sobrino(a)');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('15 15 Madre');");
-    await db.execute("INSERT INTO tb_Parentescos (Parentesco) VALUES ('16 16 Suegro(a)');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('1 10 Cuñado(a)');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('2 2 Hijo(a)');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('3 3 Nieto(a)');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('4 8 Hermano(a)');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('5 11 Yerno');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('6 0 Titular');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('7 13 Tio(a)');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('8 14 Primo(a)');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('9 4 Bisnieto(a)');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('10 15 Otro');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('11 12 Nuera');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('12 1 Cónyuge');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('13 5 Padre');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('14 9 Sobrino(a)');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('15 6 Madre');");
+    await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('16 7 Suegro(a)');");
 
     //Tabla de Escolaridades
     await db.execute("CREATE TABLE tb_Escolaridades (Escolaridad TEXT);");
@@ -638,25 +671,6 @@ class DbHelper {
     await db.execute("INSERT INTO tb_CapacidadesDiferentes (CapacidadDiferente) VALUES ('3 2 Motrices');");
     await db.execute("INSERT INTO tb_CapacidadesDiferentes (CapacidadDiferente) VALUES ('4 3 Aprendizaje y comportamiento');");
     await db.execute("INSERT INTO tb_CapacidadesDiferentes (CapacidadDiferente) VALUES ('5 4 Más de 1 discapacidad');");
-
-    //Tabla de Condiciones de salud
-    await db.execute("CREATE TABLE tb_CondicionesSalud (CondicionesSalud TEXT);");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('1 0 N/A');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('2 1 Infecciosas (Hepatitis, ETS, Virus)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('3 2 Tumores (malignos y no malignos)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('4 3 De la sangre (anemias)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('5 4 Diabetes, tiroides, obesidad');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('6 5 Desórdenes mentales (esquizofrenia)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('7 6 Sistema nervioso (neuropatías)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('8 7 Enfermedades de los sentidos');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('9 8 Sistema circulatorio (hipertensión)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('10 9 Sistema respiratorio (neumonía)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('11 10 Aparato digestivo (Colitis, hernias)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('12 11 De la piel (Dermatitis)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('13 12 Genitourinario (insuficiencia renal)');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('14 13 Malformaciones');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('15 14 Sintomas no clasificados');");
-    await db.execute("INSERT INTO tb_CondicionesSalud (CondicionesSalud) VALUES ('16 15 Lesiones, heridas, intoxicaciones');");
 
     //Tabla de Adicciones
     await db.execute("CREATE TABLE tb_Adicciones (Adiccion TEXT);");
@@ -1249,12 +1263,12 @@ class DbHelper {
 
     //Tabla de frecuencia
     await db.execute("CREATE TABLE tb_Frecuencias(ClaveFrecuencia int NOT NULL,OrdenFrecuencia int NOT NULL,Frecuencia nvarchar(15) NULL);");
-    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (1, 1, N'Diario');");
-    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (2, 2, N'Semanal');");
-    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (3, 3, N'Quincenal');");
-    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (4, 4, N'Mensual');");
-    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (5, 5, N'Anual');");
-    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (6, 6, N'Ninguno');");
+    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (1, 1, 'Diario');");
+    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (2, 2, 'Semanal');");
+    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (3, 3, 'Quincenal');");
+    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (4, 4, 'Mensual');");
+    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (5, 5, 'Anual');");
+    await db.execute("INSERT INTO tb_Frecuencias (ClaveFrecuencia, OrdenFrecuencia, Frecuencia) VALUES (6, 6, 'Ninguno');");
 
     //Tabla Duraciones
     await db.execute("CREATE TABLE tb_Duraciones(ClaveDuracion int NOT NULL,OrdenDuracion int not null,Duracion nvarchar(10) not NULL);");
@@ -1491,9 +1505,9 @@ class DbHelper {
     return res;
   }
 
-  Future<int> saveSaludIndigena( SaludPerteneciaIndigenaModel saludPerteneciaIndigenaModel)async {
+  Future<int> saveSalud(Salud_PertenenciaIndigenenaTablaModel indigenenaTablaModel) async{
     var dbClient = await db;
-    var res = await dbClient.insert(Table_Salud, saludPerteneciaIndigenaModel.toMap());
+    var res = await dbClient.insert(Table_Salud, indigenenaTablaModel.toMap());
     return res;
   }
 
@@ -1819,4 +1833,16 @@ class DbHelper {
     return res;
   }
 
+  Future<List<DatosGeneralesModel>> datos() async{
+    var dbClient = await db;
+
+    final List<Map<String, dynamic>> datosMap = await dbClient.query('datosGenerales');
+
+    return List.generate(datosMap.length, (i){
+      return DatosGeneralesModel(
+        folio : datosMap[i]['folio'],
+        fecha : datosMap[i]['fecha']
+      );
+    });
+  }
 }

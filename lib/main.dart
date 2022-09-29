@@ -1,4 +1,8 @@
+import 'package:esn/Screens/DatosGenerales.dart';
+import 'package:esn/Screens/Salud_PertenenciaIndigenaTabla.dart';
+import 'package:esn/Screens/ServiciosBanios.dart';
 import 'package:esn/Screens/TablaFolios.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:flutter/material.dart';
 import 'Screens/LoginForm.dart';
 
@@ -15,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TablaFolios(),
+      home: ActualizarEstudio('1'),
     );
   }
 }

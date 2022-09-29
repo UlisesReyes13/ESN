@@ -1,4 +1,5 @@
 import 'package:esn/Comm/comHelper.dart';
+import 'package:esn/Comm/genSearchField.dart';
 import 'package:esn/Model/CodigoPostal.dart';
 import 'package:esn/Model/CodigoPostalModel.dart';
 import 'package:esn/Model/ComunidadesModel.dart';
@@ -11,6 +12,7 @@ import 'package:esn/Model/TipoVialidad.dart';
 import 'package:esn/Model/TiposAsentamiento.dart';
 import 'package:esn/Screens/LoginForm.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
+import 'package:esn/Screens/TablaFolios.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Comm/genTextField.dart';
@@ -837,7 +839,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
               onPressed: () {
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (_) => LoginForm()),
+                  MaterialPageRoute(builder: (_) => TablaFolios()),
                       (Route<dynamic> route) => false,);
               }
 
@@ -902,8 +904,37 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                   SizedBox(height: 10.0),
                   getTextQuestion(question: 'Nombre Comunidad/ Programa'),
                   SizedBox(height: 5.0),
-                  getTextField(controller: _nombreComunidad),
-                  SizedBox(height: 10.0),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: SearchField(
+                      suggestionState: Suggestion.expand,
+                      searchInputDecoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2.0,
+                              color: Colors.black26,
+                              style: BorderStyle.solid
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2.0,
+                              color: Colors.blue,
+                              style: BorderStyle.solid
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey[120],
+                      ),
+                      suggestions: _Comunidades.map((comunidades) =>
+                          SearchFieldListItem(comunidades.Comunidad,
+                              item: comunidades)).toList(),
+                      textInputAction: TextInputAction.next,
+                      hasOverlay: false,
+                      controller: _nombreComunidad,
+                      maxSuggestionsInViewPort: 5,
+                      itemHeight: 45,
+                      onSuggestionTap: (x) {},
+                    ),
+                  ),
                   SizedBox(height: 10.0),
                   getTextQuestion(question: 'Código Postal'),
                   SizedBox(height: 5.0),

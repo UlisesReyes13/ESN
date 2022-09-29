@@ -4,8 +4,8 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/DocumentosModel.dart';
 import 'package:esn/Screens/Alimentacion.dart';
-import 'package:esn/Screens/Resolucion.dart';
-import 'package:esn/Screens/Documentos.dart';
+import 'package:esn/Screens/Remesas.dart';
+import 'package:esn/ScreensActualizar/ResolucionActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 
@@ -14,16 +14,16 @@ enum Curp {si , no}
 enum ActaNacimiento {si , no}
 enum ComprobanteDomicilio {si , no}
 enum INE {si , no}
-class Documentos extends StatefulWidget {
+class DocumentosActualizar extends StatefulWidget {
 
   String folio;
-  Documentos(this.folio);
+  DocumentosActualizar(this.folio);
 
   @override
-  State<Documentos> createState() => _DocumentosState();
+  State<DocumentosActualizar> createState() => _DocumentosState();
 }
 
-class _DocumentosState extends State<Documentos> {
+class _DocumentosState extends State<DocumentosActualizar> {
   Curp _curp = Curp.si;
   ActaNacimiento _actaNacimiento = ActaNacimiento.si;
   ComprobanteDomicilio _comprobanteDomicilio = ComprobanteDomicilio.si;
@@ -82,28 +82,7 @@ class _DocumentosState extends State<Documentos> {
     await DbHelper().upDateDocumentos(BModel).then((documentosModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Resolucion(widget.folio);
-      }
-      ));
-    }).catchError((error) {
-      print(error);
-      alertDialog(context, "Error: No se guardaron los datos");
-    });
-  }
-
-  enviar() async {
-
-    DocumentosModel BModel = DocumentosModel(
-        folio: int.parse(widget.folio),
-        curp: _curp.name,
-        actaNacimiento: _actaNacimiento.name,
-        comprobanteDomicilio: _comprobanteDomicilio.name,
-        ine: _ine.name);
-
-    await DbHelper().saveDocumentos(BModel).then((documentosModel) {
-      alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Resolucion(widget.folio);
+        return new ResolucionActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -115,18 +94,6 @@ class _DocumentosState extends State<Documentos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Documentos'),
-        leading: IconButton(
-          icon : Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => Alimentacion(widget.folio)),
-                    (Route<dynamic> route) => false);
-          },
-        ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -294,20 +261,6 @@ class _DocumentosState extends State<Documentos> {
                       ),
                     ),
                   ],
-                ),
-
-                Container(
-                  margin: EdgeInsets.all(20.0),
-                  width: double.infinity,
-                  child: FlatButton.icon(
-                    onPressed: enviar,
-                    icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
                 ),
 
                 SizedBox(height: 10.0),

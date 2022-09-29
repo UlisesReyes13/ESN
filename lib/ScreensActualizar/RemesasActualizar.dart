@@ -1,11 +1,10 @@
-import 'package:esn/Comm/genTextEquipamiento.dart';
-import 'package:esn/Comm/genTextField.dart';
+
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/FrecuenciaModel.dart';
 import 'package:esn/Model/RemesasModel.dart';
-import 'package:esn/Screens/ApoyosEnEspecie.dart';
-import 'package:esn/Screens/Alimentacion.dart';
+import 'package:esn/ScreensActualizar/AlimentacionActualizar.dart';
+
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
@@ -13,15 +12,15 @@ import 'package:searchfield/searchfield.dart';
 import '../Comm/comHelper.dart';
 import '../DatabaseHandler/DbHelper.dart';
 enum OtrosPaises {si, no}
-class Remesas extends StatefulWidget {
+class RemesasActualizar extends StatefulWidget {
   String folio;
-  Remesas(this.folio);
+  RemesasActualizar(this.folio);
 
   @override
-  State<Remesas> createState() => _RemesasState();
+  State<RemesasActualizar> createState() => _RemesasState();
 }
 
-class _RemesasState extends State<Remesas> {
+class _RemesasState extends State<RemesasActualizar> {
 
   List<FrecuenciaModel> _Frecuencia = List<FrecuenciaModel>();
 
@@ -99,45 +98,7 @@ class _RemesasState extends State<Remesas> {
     await DbHelper().upDateRemesas(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Alimentacion(widget.folio);
-      }
-      ));
-    }).catchError((error) {
-      print(error);
-      alertDialog(context, "Error: No se guardaron los datos");
-    });
-  }
-
-  enviar() async {
-//Poner claveFrecuenciaApoyo y ordenFrecuenciaApoyo de frecuencia
-    var clave;
-
-    if(_frecuenciaApoyo.text == "Diario"){
-      clave = "1";
-    }else if(_frecuenciaApoyo.text == "Semanal"){
-      clave = "2";
-    }else if(_frecuenciaApoyo.text == "Quincenal"){
-      clave = "3";
-    }else if(_frecuenciaApoyo.text == "Mensual"){
-      clave = "4";
-    }else if(_frecuenciaApoyo.text == "Anual"){
-      clave = "5";
-    } else if(_frecuenciaApoyo.text == "Ninguno"){
-      clave = "6";
-    }
-
-
-    RemesasModel BModel = RemesasModel(folio: int.parse(widget.folio),
-        claveFrecuenciaApoyo: clave,
-        ordenFrecuenciaApoyo: clave,
-        dineroOtrosPaises: _otrosPaises.name,
-        frecuencia: _frecuenciaApoyo.text.toString());
-
-    await DbHelper().saveRemesas(BModel).then((remesasModel) {
-      alertDialog(context, "Se registro correctamente");
-      print(clave);
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Alimentacion(widget.folio);
+        return new AlimentacionActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -149,18 +110,7 @@ class _RemesasState extends State<Remesas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Remesas'),
-        leading: IconButton(
-          icon : Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => ApoyosEnEspecie(widget.folio)),
-                    (Route<dynamic> route) => false);
-          },
-        ),
-      ),
+      
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -244,21 +194,7 @@ class _RemesasState extends State<Remesas> {
                     onSuggestionTap: (x){},
                   ),
                 ),
-                SizedBox(height: 5.0),
-                Container(
-                  margin: EdgeInsets.all(20.0),
-                  width: double.infinity,
-                  child: FlatButton.icon(
-                    onPressed: enviar,
-                    icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-
+                
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),

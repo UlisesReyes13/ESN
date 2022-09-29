@@ -3,23 +3,23 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Luz.dart';
 import 'package:esn/Screens/ServiciosAgua.dart';
-import 'package:esn/Screens/ServiciosBanios.dart';
+import 'package:esn/ScreensActualizar/ServiciosAguaActualizar.dart';
 import 'package:flutter/material.dart';
 
 import '../Comm/genTextFolio.dart';
 
 enum ServLuz {servicioPublico, sinContrato, plantaParticular, panelSolar,
-otro, sinServicio, noTiene, conContrato}
-class ServiciosLuz extends StatefulWidget {
+  otro, sinServicio, noTiene, conContrato}
+class ServiciosLuzActualizar extends StatefulWidget {
 
   String folio;
-  ServiciosLuz(this.folio);
+  ServiciosLuzActualizar(this.folio);
 
   @override
-  State<ServiciosLuz> createState() => _ServiciosLuzState();
+  State<ServiciosLuzActualizar> createState() => _ServiciosLuzActualizarState();
 }
 
-class _ServiciosLuzState extends State<ServiciosLuz> {
+class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
 
   ServLuz _luz = ServLuz.servicioPublico;
   enviar() async {
@@ -125,7 +125,7 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
     await DbHelper().upDateLuz(BModel).then((luz) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new ServiciosAgua(widget.folio);
+        return new ServiciosAguaActualizar(widget.folio);
       }
       ));
     }).catchError((error) {
@@ -137,18 +137,6 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Servicios'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: (){
-            Navigator.pushAndRemoveUntil(
-                context ,
-                MaterialPageRoute(builder: (_) => ServiciosBanios(widget.folio)),
-                    (Route<dynamic> route) => false);
-          },
-        ),
-      ),
       body: Form(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -268,7 +256,7 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                   child: FlatButton.icon(
                     onPressed: enviar,
                     icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
+                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
