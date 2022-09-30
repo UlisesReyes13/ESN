@@ -342,8 +342,6 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     _cdispo.text = _dispo.map((e) => e.dispositivo.toString()).first;
   }
 
-
-
   actualizar() async {
 
     String folio = _folio.text;
@@ -380,7 +378,11 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       alertDialog(context, "Error: No se registro tipo de vialidad");
     } else if (cp.isEmpty) {
       alertDialog(context, "Error: No se registro Codigo Postal");
-    } else {
+    } else if(telefono.length < 10) {
+      alertDialog(context, 'El número de teléfono no debe ser menor a 10 digitos');
+    }else if (telefono.length > 10) {
+      alertDialog(context, 'El número de teléfono no debe ser mayor a 10 digitos');
+    }else{
       var value1 = tipoAsentamiento; // 'artlang'
       final nombreTipoAsentamiento = value1
           .replaceAll("1", "")
@@ -616,6 +618,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     String cp = _cp.text;
     String telefono = _telefono.text;
 
+
     if (nombreComunidad.isEmpty) {
       alertDialog(context, "Error: No se registro nombre de la comunidad");
     } else if (grupo.isEmpty) {
@@ -632,8 +635,9 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       alertDialog(context, "Error: No se registro tipo de vialidad");
     } else if (cp.isEmpty) {
       alertDialog(context, "Error: No se registro Codigo Postal");
-    } else {
-
+    } else if(telefono.length < 10) {
+      alertDialog(context, 'El número de teléfono no debe ser menor a 10 digitos');
+    }else{
       var value1 = tipoAsentamiento; // 'artlang'
       final nombreTipoAsentamiento = value1
           .replaceAll("1", "")

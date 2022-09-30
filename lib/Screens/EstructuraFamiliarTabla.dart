@@ -1438,6 +1438,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     }
   }
 
+
+
   getAllCategoriesEstadosCiviles() async {
     _EstadosCiviles = List<EstadosCiviles>();
     var categories = await CategoryService().readCategoriesEstadosCiviles();
@@ -4979,3478 +4981,4887 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       {
         sexo1 = '3 3 Otro';
       }
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                final estado = EstadoCivil.replaceAll("1", "")
+                    .replaceAll("2", "")
+                    .replaceAll("3", "")
+                    .replaceAll("4", "")
+                    .replaceAll("5", "")
+                    .replaceAll("6", "")
+                    .replaceAll("7", "")
+                    .replaceAll("8", "")
+                    .replaceAll("9", "")
+                    .replaceAll("0", "");
+                var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                final parentesco = Parentesco.replaceAll("1", "")
+                    .replaceAll("2", "")
+                    .replaceAll("3", "")
+                    .replaceAll("4", "")
+                    .replaceAll("5", "")
+                    .replaceAll("6", "")
+                    .replaceAll("7", "")
+                    .replaceAll("8", "")
+                    .replaceAll("9", "")
+                    .replaceAll("0", "");
+                var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                final entidadNacimiento = EntidadN.replaceAll("1", "")
+                    .replaceAll("2", "");
 
 
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
+                EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                  folio: int.parse(widget.folio),
+                  nombre: _nombre1.text.toString(),
+                  primerApellido: _primerApellido1.text.toString(),
+                  segundoApellido: _segundoApellido1.text.toString(),
+                  claveSexo: sexo1.substring(0, 1),
+                  ordenSexo: sexo1.substring(0, 1),
+                  sexo: _sexo1.name.toString(),
+                  fechaNacimiento: _fechaNacimiento1.text.toString(),
+                  claveEntidad: _entidadNacimiento1.text.toString().substring(
+                      0, 1),
+                  entidadNacimiento: entidadNacimiento.trimLeft(),
+                  claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                  ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                  estadoCivil: estado.trimLeft(),
+                  claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                  ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                  parentesco: parentesco.trimLeft(),
+                );
+                await dbHelper.saveEstructuraFamiliar(DModel).then((
+                    estructuraFamilar) {
+                  alertDialog(context, "Se registro correctamente");
+                  Navigator.of(context)
+                      .push(
+                      MaterialPageRoute<Null>(builder: (BuildContext context) {
+                        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                      }));
+                }).catchError((error) {
+                  print(error);
+                  alertDialog(context, "Error: No se guardaron los datos");
+                });
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
+      }
+
+
     }else if(_nombre3.text.toString().isEmpty){
-      String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
-        sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
-        sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
-        sexo1 = '3 3 Otro';
+
+
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                if(!_fechaNacimiento2.text.isEmpty) {
+                  if (_fechaNacimiento2.text.length == 10) {
+                    if (int.parse(_fechaNacimiento2.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento2.text.substring(0, 2)) <= 31) {
+                      if (int.parse(_fechaNacimiento2.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento2.text.substring(3,5)) <= 12) {
+                        if (int.parse(_fechaNacimiento2.text.substring(6, 10)) <= 2022) {
+
+                          String sexo1 = _sexo1.name.toString();
+                          if(sexo1 == 'hombre')
+                          {
+                            sexo1 = '1 1 Hombre';
+                          }else if(sexo1 == 'mujer' )
+                          {
+                            sexo1 = '2 2 Mujer';
+                          }else if(sexo1 == 'otro' )
+                          {
+                            sexo1 = '3 3 Otro';
+                          }
+
+                          var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                          final estado = EstadoCivil.replaceAll("1", "")
+                              .replaceAll("2", "")
+                              .replaceAll("3", "")
+                              .replaceAll("4", "")
+                              .replaceAll("5", "")
+                              .replaceAll("6", "")
+                              .replaceAll("7", "")
+                              .replaceAll("8", "")
+                              .replaceAll("9", "")
+                              .replaceAll("0", "");
+                          var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                          final parentesco = Parentesco.replaceAll("1", "")
+                              .replaceAll("2", "")
+                              .replaceAll("3", "")
+                              .replaceAll("4", "")
+                              .replaceAll("5", "")
+                              .replaceAll("6", "")
+                              .replaceAll("7", "")
+                              .replaceAll("8", "")
+                              .replaceAll("9", "")
+                              .replaceAll("0", "");
+
+                          var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                          final entidadNacimiento = EntidadN.replaceAll("1", "")
+                              .replaceAll("2", "");
+
+                          EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                            folio: int.parse(widget.folio),
+                            nombre: _nombre1.text.toString(),
+                            primerApellido: _primerApellido1.text.toString(),
+                            segundoApellido: _segundoApellido1.text.toString(),
+                            claveSexo: sexo1.substring(0,1),
+                            ordenSexo: sexo1.substring(0,1),
+                            sexo: _sexo1.name.toString(),
+                            fechaNacimiento: _fechaNacimiento1.text.toString(),
+                            claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+                            entidadNacimiento: entidadNacimiento.trimLeft(),
+                            claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                            ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                            estadoCivil: estado.trimLeft(),
+                            claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                            ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                            parentesco: parentesco.trimLeft(),
+                          );
+                          await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+                          }).catchError((error) {
+                            print(error);
+                            alertDialog(context, "Error: No se guardaron los datos");
+                          });
+
+
+
+                          String sexo2 = _sexo2.name.toString();
+                          if (sexo2 == 'hombre') {
+                            sexo2 = '1 1 Hombre';
+                          } else if (sexo2 == 'mujer') {
+                            sexo2 = '2 2 Mujer';
+                          } else if (sexo2 == 'otro') {
+                            sexo2 = '3 3 Otro';
+                          }
+
+                          var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+                          final estado2 = EstadoCivil2.replaceAll("1", "")
+                              .replaceAll("2", "")
+                              .replaceAll("3", "")
+                              .replaceAll("4", "")
+                              .replaceAll("5", "")
+                              .replaceAll("6", "")
+                              .replaceAll("7", "")
+                              .replaceAll("8", "")
+                              .replaceAll("9", "")
+                              .replaceAll("0", "");
+                          var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+                          final parentesco2 = Parentesco2.replaceAll("1", "")
+                              .replaceAll("2", "")
+                              .replaceAll("3", "")
+                              .replaceAll("4", "")
+                              .replaceAll("5", "")
+                              .replaceAll("6", "")
+                              .replaceAll("7", "")
+                              .replaceAll("8", "")
+                              .replaceAll("9", "")
+                              .replaceAll("0", "");
+
+                          var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+                          final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+                              .replaceAll("2", "");
+
+                          EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+                            folio: int.parse(widget.folio),
+                            nombre: _nombre2.text.toString(),
+                            primerApellido: _primerApellido2.text.toString(),
+                            segundoApellido: _segundoApellido2.text.toString(),
+                            claveSexo: sexo2.substring(0, 1),
+                            ordenSexo: sexo2.substring(0, 1),
+                            sexo: _sexo2.name.toString(),
+                            fechaNacimiento: _fechaNacimiento2.text.toString(),
+                            claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+                            entidadNacimiento: entidadNacimiento2.trimLeft(),
+                            claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                            ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                            estadoCivil: estado2.trimLeft(),
+                            claveParentesco: _parentesco2.text.toString().substring(0, 1),
+                            ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+                            parentesco: parentesco2.trimLeft(),
+                          );
+                          await dbHelper.saveEstructuraFamiliar(DModel2).then((
+                              estructuraFamilar) {
+                            alertDialog(context, "Se registro correctamente");
+                            Navigator.of(context)
+                                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                              return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                            }));
+                          }).catchError((error) {
+                            print(error);
+                            alertDialog(context, "Error: No se guardaron los datos");
+                          });
+
+
+                        } else {
+                          alertDialog(context, "El año en la fecha no corresponde");
+                        }
+                      } else {
+                        alertDialog(
+                            context, "El mes seleccionado en la fecha no es correcto");
+                      }
+                    } else {
+                      alertDialog(
+                          context, "Los dias seleccionados en la fecha no son correcotos");
+                    }
+                  } else {
+                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                  }
+                }else{
+                  alertDialog(context, "La fecha se encuentra basia");
+                }
+
+
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
       }
 
-      String sexo2 = _sexo2.name.toString();
-      if (sexo2 == 'hombre') {
-        sexo2 = '1 1 Hombre';
-      } else if (sexo2 == 'mujer') {
-        sexo2 = '2 2 Mujer';
-      } else if (sexo2 == 'otro') {
-        sexo2 = '3 3 Otro';
-      }
-
-
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
-      final estado2 = EstadoCivil2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
-      final parentesco2 = Parentesco2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
-      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre2.text.toString(),
-        primerApellido: _primerApellido2.text.toString(),
-        segundoApellido: _segundoApellido2.text.toString(),
-        claveSexo: sexo2.substring(0, 1),
-        ordenSexo: sexo2.substring(0, 1),
-        sexo: _sexo2.name.toString(),
-        fechaNacimiento: _fechaNacimiento2.text.toString(),
-        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento2.trimLeft(),
-        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        estadoCivil: estado2.trimLeft(),
-        claveParentesco: _parentesco2.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-        parentesco: parentesco2.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
-          estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
     }else if(_nombre4.text.toString().isEmpty){
 
 
-      String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
-        sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
-        sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
-        sexo1 = '3 3 Otro';
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                if(!_fechaNacimiento2.text.isEmpty) {
+                  if (_fechaNacimiento2.text.length == 10) {
+                    if (int.parse(_fechaNacimiento2.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento2.text.substring(0, 2)) <= 31) {
+                      if (int.parse(_fechaNacimiento2.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento2.text.substring(3,5)) <= 12) {
+                        if (int.parse(_fechaNacimiento2.text.substring(6, 10)) <= 2022) {
+                          if(!_fechaNacimiento3.text.isEmpty) {
+                            if (_fechaNacimiento3.text.length == 10) {
+                              if (int.parse(_fechaNacimiento3.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento3.text.substring(0, 2)) <= 31) {
+                                if (int.parse(_fechaNacimiento3.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento3.text.substring(3,5)) <= 12) {
+                                  if (int.parse(_fechaNacimiento3.text.substring(6, 10)) <= 2022) {
+
+                                    String sexo1 = _sexo1.name.toString();
+                                    if(sexo1 == 'hombre')
+                                    {
+                                      sexo1 = '1 1 Hombre';
+                                    }else if(sexo1 == 'mujer' )
+                                    {
+                                      sexo1 = '2 2 Mujer';
+                                    }else if(sexo1 == 'otro' )
+                                    {
+                                      sexo1 = '3 3 Otro';
+                                    }
+
+                                    var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                                    final estado = EstadoCivil.replaceAll("1", "")
+                                        .replaceAll("2", "")
+                                        .replaceAll("3", "")
+                                        .replaceAll("4", "")
+                                        .replaceAll("5", "")
+                                        .replaceAll("6", "")
+                                        .replaceAll("7", "")
+                                        .replaceAll("8", "")
+                                        .replaceAll("9", "")
+                                        .replaceAll("0", "");
+                                    var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                                    final parentesco = Parentesco.replaceAll("1", "")
+                                        .replaceAll("2", "")
+                                        .replaceAll("3", "")
+                                        .replaceAll("4", "")
+                                        .replaceAll("5", "")
+                                        .replaceAll("6", "")
+                                        .replaceAll("7", "")
+                                        .replaceAll("8", "")
+                                        .replaceAll("9", "")
+                                        .replaceAll("0", "");
+
+                                    var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                                    final entidadNacimiento = EntidadN.replaceAll("1", "")
+                                        .replaceAll("2", "");
+
+                                    EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                                      folio: int.parse(widget.folio),
+                                      nombre: _nombre1.text.toString(),
+                                      primerApellido: _primerApellido1.text.toString(),
+                                      segundoApellido: _segundoApellido1.text.toString(),
+                                      claveSexo: sexo1.substring(0,1),
+                                      ordenSexo: sexo1.substring(0,1),
+                                      sexo: _sexo1.name.toString(),
+                                      fechaNacimiento: _fechaNacimiento1.text.toString(),
+                                      claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+                                      entidadNacimiento: entidadNacimiento.trimLeft(),
+                                      claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                      ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                      estadoCivil: estado.trimLeft(),
+                                      claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                                      ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                                      parentesco: parentesco.trimLeft(),
+                                    );
+                                    await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+                                    }).catchError((error) {
+                                      print(error);
+                                      alertDialog(context, "Error: No se guardaron los datos");
+                                    });
+
+
+
+                                    String sexo2 = _sexo2.name.toString();
+                                    if (sexo2 == 'hombre') {
+                                      sexo2 = '1 1 Hombre';
+                                    } else if (sexo2 == 'mujer') {
+                                      sexo2 = '2 2 Mujer';
+                                    } else if (sexo2 == 'otro') {
+                                      sexo2 = '3 3 Otro';
+                                    }
+
+                                    var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+                                    final estado2 = EstadoCivil2.replaceAll("1", "")
+                                        .replaceAll("2", "")
+                                        .replaceAll("3", "")
+                                        .replaceAll("4", "")
+                                        .replaceAll("5", "")
+                                        .replaceAll("6", "")
+                                        .replaceAll("7", "")
+                                        .replaceAll("8", "")
+                                        .replaceAll("9", "")
+                                        .replaceAll("0", "");
+                                    var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+                                    final parentesco2 = Parentesco2.replaceAll("1", "")
+                                        .replaceAll("2", "")
+                                        .replaceAll("3", "")
+                                        .replaceAll("4", "")
+                                        .replaceAll("5", "")
+                                        .replaceAll("6", "")
+                                        .replaceAll("7", "")
+                                        .replaceAll("8", "")
+                                        .replaceAll("9", "")
+                                        .replaceAll("0", "");
+
+                                    var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+                                    final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+                                        .replaceAll("2", "");
+
+                                    EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+                                      folio: int.parse(widget.folio),
+                                      nombre: _nombre2.text.toString(),
+                                      primerApellido: _primerApellido2.text.toString(),
+                                      segundoApellido: _segundoApellido2.text.toString(),
+                                      claveSexo: sexo2.substring(0, 1),
+                                      ordenSexo: sexo2.substring(0, 1),
+                                      sexo: _sexo2.name.toString(),
+                                      fechaNacimiento: _fechaNacimiento2.text.toString(),
+                                      claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+                                      entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                      claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                      ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                      estadoCivil: estado2.trimLeft(),
+                                      claveParentesco: _parentesco2.text.toString().substring(0, 1),
+                                      ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+                                      parentesco: parentesco2.trimLeft(),
+                                    );
+                                    await dbHelper.saveEstructuraFamiliar(DModel2).then((
+                                        estructuraFamilar) {
+                                      alertDialog(context, "Se registro correctamente");
+                                    }).catchError((error) {
+                                      print(error);
+                                      alertDialog(context, "Error: No se guardaron los datos");
+                                    });
+
+
+                                    String sexo3 = _sexo3.name.toString();
+                                    if (sexo3 == 'hombre') {
+                                      sexo3 = '1 1 Hombre';
+                                    } else if (sexo3 == 'mujer') {
+                                      sexo3 = '2 2 Mujer';
+                                    } else if (sexo3 == 'otro') {
+                                      sexo3 = '3 3 Otro';
+                                    }
+
+                                    var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+                                    final estado3 = EstadoCivil3.replaceAll("1", "")
+                                        .replaceAll("2", "")
+                                        .replaceAll("3", "")
+                                        .replaceAll("4", "")
+                                        .replaceAll("5", "")
+                                        .replaceAll("6", "")
+                                        .replaceAll("7", "")
+                                        .replaceAll("8", "")
+                                        .replaceAll("9", "")
+                                        .replaceAll("0", "");
+                                    var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+                                    final parentesco3 = Parentesco3.replaceAll("1", "")
+                                        .replaceAll("2", "")
+                                        .replaceAll("3", "")
+                                        .replaceAll("4", "")
+                                        .replaceAll("5", "")
+                                        .replaceAll("6", "")
+                                        .replaceAll("7", "")
+                                        .replaceAll("8", "")
+                                        .replaceAll("9", "")
+                                        .replaceAll("0", "");
+
+                                    var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+                                    final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+                                        .replaceAll("2", "");
+
+                                    EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+                                      folio: int.parse(widget.folio),
+                                      nombre: _nombre3.text.toString(),
+                                      primerApellido: _primerApellido3.text.toString(),
+                                      segundoApellido: _segundoApellido3.text.toString(),
+                                      claveSexo: sexo3.substring(0, 1),
+                                      ordenSexo: sexo3.substring(0, 1),
+                                      sexo: _sexo3.name.toString(),
+                                      fechaNacimiento: _fechaNacimiento3.text.toString(),
+                                      claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+                                      entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                      claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                      ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                      estadoCivil: estado3.trimLeft(),
+                                      claveParentesco: _parentesco3.text.toString().substring(0, 1),
+                                      ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+                                      parentesco: parentesco3.trimLeft(),
+                                    );
+                                    await dbHelper.saveEstructuraFamiliar(DModel3).then((
+                                        estructuraFamilar) {
+                                      alertDialog(context, "Se registro correctamente");
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                                        return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                                      }));
+                                    }).catchError((error) {
+                                      print(error);
+                                      alertDialog(context, "Error: No se guardaron los datos");
+                                    });
+
+
+                                  } else {
+                                    alertDialog(context, "El año en la fecha no corresponde");
+                                  }
+                                } else {
+                                  alertDialog(
+                                      context, "El mes seleccionado en la fecha no es correcto");
+                                }
+                              } else {
+                                alertDialog(
+                                    context, "Los dias seleccionados en la fecha no son correcotos");
+                              }
+                            } else {
+                              alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                            }
+                          }else{
+                            alertDialog(context, "La fecha se encuentra basia");
+                          }
+                        } else {
+                          alertDialog(context, "El año en la fecha no corresponde");
+                        }
+                      } else {
+                        alertDialog(
+                            context, "El mes seleccionado en la fecha no es correcto");
+                      }
+                    } else {
+                      alertDialog(
+                          context, "Los dias seleccionados en la fecha no son correcotos");
+                    }
+                  } else {
+                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                  }
+                }else{
+                  alertDialog(context, "La fecha se encuentra basia");
+                }
+
+
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
       }
-
-      String sexo2 = _sexo2.name.toString();
-      if (sexo2 == 'hombre') {
-        sexo2 = '1 1 Hombre';
-      } else if (sexo2 == 'mujer') {
-        sexo2 = '2 2 Mujer';
-      } else if (sexo2 == 'otro') {
-        sexo2 = '3 3 Otro';
-      }
-
-      String sexo3 = _sexo3.name.toString();
-      if (sexo3 == 'hombre') {
-        sexo3 = '1 1 Hombre';
-      } else if (sexo3 == 'mujer') {
-        sexo3 = '2 2 Mujer';
-      } else if (sexo3 == 'otro') {
-        sexo3 = '3 3 Otro';
-      }
-
-
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
-      final estado2 = EstadoCivil2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
-      final parentesco2 = Parentesco2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
-      final estado3 = EstadoCivil3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
-      final parentesco3 = Parentesco3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
-      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
-      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre2.text.toString(),
-        primerApellido: _primerApellido2.text.toString(),
-        segundoApellido: _segundoApellido2.text.toString(),
-        claveSexo: sexo2.substring(0, 1),
-        ordenSexo: sexo2.substring(0, 1),
-        sexo: _sexo2.name.toString(),
-        fechaNacimiento: _fechaNacimiento2.text.toString(),
-        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento2.trimLeft(),
-        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        estadoCivil: estado2.trimLeft(),
-        claveParentesco: _parentesco2.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-        parentesco: parentesco2.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre3.text.toString(),
-        primerApellido: _primerApellido3.text.toString(),
-        segundoApellido: _segundoApellido3.text.toString(),
-        claveSexo: sexo3.substring(0, 1),
-        ordenSexo: sexo3.substring(0, 1),
-        sexo: _sexo3.name.toString(),
-        fechaNacimiento: _fechaNacimiento3.text.toString(),
-        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento3.trimLeft(),
-        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        estadoCivil: estado3.trimLeft(),
-        claveParentesco: _parentesco3.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-        parentesco: parentesco3.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
-          estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
 
     }else if(_nombre5.text.toString().isEmpty){
 
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                if(!_fechaNacimiento2.text.isEmpty) {
+                  if (_fechaNacimiento2.text.length == 10) {
+                    if (int.parse(_fechaNacimiento2.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento2.text.substring(0, 2)) <= 31) {
+                      if (int.parse(_fechaNacimiento2.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento2.text.substring(3,5)) <= 12) {
+                        if (int.parse(_fechaNacimiento2.text.substring(6, 10)) <= 2022) {
+                          if(!_fechaNacimiento3.text.isEmpty) {
+                            if (_fechaNacimiento3.text.length == 10) {
+                              if (int.parse(_fechaNacimiento3.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento3.text.substring(0, 2)) <= 31) {
+                                if (int.parse(_fechaNacimiento3.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento3.text.substring(3,5)) <= 12) {
+                                  if (int.parse(_fechaNacimiento3.text.substring(6, 10)) <= 2022) {
+                                    if(!_fechaNacimiento4.text.isEmpty) {
+                                      if (_fechaNacimiento4.text.length == 10) {
+                                        if (int.parse(_fechaNacimiento4.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento4.text.substring(0, 2)) <= 31) {
+                                          if (int.parse(_fechaNacimiento4.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento4.text.substring(3,5)) <= 12) {
+                                            if (int.parse(_fechaNacimiento4.text.substring(6, 10)) <= 2022) {
+                                              String sexo1 = _sexo1.name.toString();
+                                              if(sexo1 == 'hombre')
+                                              {
+                                                sexo1 = '1 1 Hombre';
+                                              }else if(sexo1 == 'mujer' )
+                                              {
+                                                sexo1 = '2 2 Mujer';
+                                              }else if(sexo1 == 'otro' )
+                                              {
+                                                sexo1 = '3 3 Otro';
+                                              }
 
-      String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
-        sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
-        sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
-        sexo1 = '3 3 Otro';
+                                              var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                                              final estado = EstadoCivil.replaceAll("1", "")
+                                                  .replaceAll("2", "")
+                                                  .replaceAll("3", "")
+                                                  .replaceAll("4", "")
+                                                  .replaceAll("5", "")
+                                                  .replaceAll("6", "")
+                                                  .replaceAll("7", "")
+                                                  .replaceAll("8", "")
+                                                  .replaceAll("9", "")
+                                                  .replaceAll("0", "");
+                                              var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                                              final parentesco = Parentesco.replaceAll("1", "")
+                                                  .replaceAll("2", "")
+                                                  .replaceAll("3", "")
+                                                  .replaceAll("4", "")
+                                                  .replaceAll("5", "")
+                                                  .replaceAll("6", "")
+                                                  .replaceAll("7", "")
+                                                  .replaceAll("8", "")
+                                                  .replaceAll("9", "")
+                                                  .replaceAll("0", "");
+
+                                              var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                                              final entidadNacimiento = EntidadN.replaceAll("1", "")
+                                                  .replaceAll("2", "");
+
+                                              EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                                                folio: int.parse(widget.folio),
+                                                nombre: _nombre1.text.toString(),
+                                                primerApellido: _primerApellido1.text.toString(),
+                                                segundoApellido: _segundoApellido1.text.toString(),
+                                                claveSexo: sexo1.substring(0,1),
+                                                ordenSexo: sexo1.substring(0,1),
+                                                sexo: _sexo1.name.toString(),
+                                                fechaNacimiento: _fechaNacimiento1.text.toString(),
+                                                claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+                                                entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                estadoCivil: estado.trimLeft(),
+                                                claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                parentesco: parentesco.trimLeft(),
+                                              );
+                                              await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+                                              }).catchError((error) {
+                                                print(error);
+                                                alertDialog(context, "Error: No se guardaron los datos");
+                                              });
+
+                                              String sexo2 = _sexo2.name.toString();
+                                              if (sexo2 == 'hombre') {
+                                                sexo2 = '1 1 Hombre';
+                                              } else if (sexo2 == 'mujer') {
+                                                sexo2 = '2 2 Mujer';
+                                              } else if (sexo2 == 'otro') {
+                                                sexo2 = '3 3 Otro';
+                                              }
+
+                                              var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+                                              final estado2 = EstadoCivil2.replaceAll("1", "")
+                                                  .replaceAll("2", "")
+                                                  .replaceAll("3", "")
+                                                  .replaceAll("4", "")
+                                                  .replaceAll("5", "")
+                                                  .replaceAll("6", "")
+                                                  .replaceAll("7", "")
+                                                  .replaceAll("8", "")
+                                                  .replaceAll("9", "")
+                                                  .replaceAll("0", "");
+                                              var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+                                              final parentesco2 = Parentesco2.replaceAll("1", "")
+                                                  .replaceAll("2", "")
+                                                  .replaceAll("3", "")
+                                                  .replaceAll("4", "")
+                                                  .replaceAll("5", "")
+                                                  .replaceAll("6", "")
+                                                  .replaceAll("7", "")
+                                                  .replaceAll("8", "")
+                                                  .replaceAll("9", "")
+                                                  .replaceAll("0", "");
+
+                                              var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+                                              final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+                                                  .replaceAll("2", "");
+
+                                              EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+                                                folio: int.parse(widget.folio),
+                                                nombre: _nombre2.text.toString(),
+                                                primerApellido: _primerApellido2.text.toString(),
+                                                segundoApellido: _segundoApellido2.text.toString(),
+                                                claveSexo: sexo2.substring(0, 1),
+                                                ordenSexo: sexo2.substring(0, 1),
+                                                sexo: _sexo2.name.toString(),
+                                                fechaNacimiento: _fechaNacimiento2.text.toString(),
+                                                claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+                                                entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                estadoCivil: estado2.trimLeft(),
+                                                claveParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                parentesco: parentesco2.trimLeft(),
+                                              );
+                                              await dbHelper.saveEstructuraFamiliar(DModel2).then((
+                                                  estructuraFamilar) {
+                                                alertDialog(context, "Se registro correctamente");
+                                              }).catchError((error) {
+                                                print(error);
+                                                alertDialog(context, "Error: No se guardaron los datos");
+                                              });
+
+
+
+                                              String sexo3 = _sexo3.name.toString();
+                                              if (sexo3 == 'hombre') {
+                                                sexo3 = '1 1 Hombre';
+                                              } else if (sexo3 == 'mujer') {
+                                                sexo3 = '2 2 Mujer';
+                                              } else if (sexo3 == 'otro') {
+                                                sexo3 = '3 3 Otro';
+                                              }
+
+                                              var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+                                              final estado3 = EstadoCivil3.replaceAll("1", "")
+                                                  .replaceAll("2", "")
+                                                  .replaceAll("3", "")
+                                                  .replaceAll("4", "")
+                                                  .replaceAll("5", "")
+                                                  .replaceAll("6", "")
+                                                  .replaceAll("7", "")
+                                                  .replaceAll("8", "")
+                                                  .replaceAll("9", "")
+                                                  .replaceAll("0", "");
+                                              var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+                                              final parentesco3 = Parentesco3.replaceAll("1", "")
+                                                  .replaceAll("2", "")
+                                                  .replaceAll("3", "")
+                                                  .replaceAll("4", "")
+                                                  .replaceAll("5", "")
+                                                  .replaceAll("6", "")
+                                                  .replaceAll("7", "")
+                                                  .replaceAll("8", "")
+                                                  .replaceAll("9", "")
+                                                  .replaceAll("0", "");
+
+                                              var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+                                              final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+                                                  .replaceAll("2", "");
+
+                                              EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+                                                folio: int.parse(widget.folio),
+                                                nombre: _nombre3.text.toString(),
+                                                primerApellido: _primerApellido3.text.toString(),
+                                                segundoApellido: _segundoApellido3.text.toString(),
+                                                claveSexo: sexo3.substring(0, 1),
+                                                ordenSexo: sexo3.substring(0, 1),
+                                                sexo: _sexo3.name.toString(),
+                                                fechaNacimiento: _fechaNacimiento3.text.toString(),
+                                                claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+                                                entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                estadoCivil: estado3.trimLeft(),
+                                                claveParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                parentesco: parentesco3.trimLeft(),
+                                              );
+                                              await dbHelper.saveEstructuraFamiliar(DModel3).then((
+                                                  estructuraFamilar) {
+                                                alertDialog(context, "Se registro correctamente");
+                                              }).catchError((error) {
+                                                print(error);
+                                                alertDialog(context, "Error: No se guardaron los datos");
+                                              });
+
+
+                                              String sexo4 = _sexo4.name.toString();
+                                              if (sexo4 == 'hombre') {
+                                                sexo4 = '1 1 Hombre';
+                                              } else if (sexo4 == 'mujer') {
+                                                sexo4 = '2 2 Mujer';
+                                              } else if (sexo4 == 'otro') {
+                                                sexo4 = '3 3 Otro';
+                                              }
+                                              var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+                                              final estado4 = EstadoCivil4.replaceAll("1", "")
+                                                  .replaceAll("2", "")
+                                                  .replaceAll("3", "")
+                                                  .replaceAll("4", "")
+                                                  .replaceAll("5", "")
+                                                  .replaceAll("6", "")
+                                                  .replaceAll("7", "")
+                                                  .replaceAll("8", "")
+                                                  .replaceAll("9", "")
+                                                  .replaceAll("0", "");
+                                              var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+                                              final parentesco4 = Parentesco4.replaceAll("1", "")
+                                                  .replaceAll("2", "")
+                                                  .replaceAll("3", "")
+                                                  .replaceAll("4", "")
+                                                  .replaceAll("5", "")
+                                                  .replaceAll("6", "")
+                                                  .replaceAll("7", "")
+                                                  .replaceAll("8", "")
+                                                  .replaceAll("9", "")
+                                                  .replaceAll("0", "");
+
+                                              var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+                                              final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+                                                  .replaceAll("2", "");
+
+
+                                              EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+                                                folio: int.parse(widget.folio),
+                                                nombre: _nombre4.text.toString(),
+                                                primerApellido: _primerApellido4.text.toString(),
+                                                segundoApellido: _segundoApellido4.text.toString(),
+                                                claveSexo: sexo4.substring(0, 1),
+                                                ordenSexo: sexo4.substring(0, 1),
+                                                sexo: _sexo4.name.toString(),
+                                                fechaNacimiento: _fechaNacimiento4.text.toString(),
+                                                claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+                                                entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                estadoCivil: estado4.trimLeft(),
+                                                claveParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                parentesco: parentesco4.trimLeft(),
+                                              );
+                                              await dbHelper.saveEstructuraFamiliar(DModel4).then((
+                                                  estructuraFamilar) {
+                                                alertDialog(context, "Se registro correctamente");
+                                                Navigator.of(context)
+                                                    .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                                                  return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                                                }));
+                                              }).catchError((error) {
+                                                print(error);
+                                                alertDialog(context, "Error: No se guardaron los datos");
+                                              });
+
+
+                                            } else {
+                                              alertDialog(context, "El año en la fecha no corresponde");
+                                            }
+                                          } else {
+                                            alertDialog(
+                                                context, "El mes seleccionado en la fecha no es correcto");
+                                          }
+                                        } else {
+                                          alertDialog(
+                                              context, "Los dias seleccionados en la fecha no son correcotos");
+                                        }
+                                      } else {
+                                        alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                      }
+                                    }else{
+                                      alertDialog(context, "La fecha se encuentra basia");
+                                    }
+
+
+                                  } else {
+                                    alertDialog(context, "El año en la fecha no corresponde");
+                                  }
+                                } else {
+                                  alertDialog(
+                                      context, "El mes seleccionado en la fecha no es correcto");
+                                }
+                              } else {
+                                alertDialog(
+                                    context, "Los dias seleccionados en la fecha no son correcotos");
+                              }
+                            } else {
+                              alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                            }
+                          }else{
+                            alertDialog(context, "La fecha se encuentra basia");
+                          }
+                        } else {
+                          alertDialog(context, "El año en la fecha no corresponde");
+                        }
+                      } else {
+                        alertDialog(
+                            context, "El mes seleccionado en la fecha no es correcto");
+                      }
+                    } else {
+                      alertDialog(
+                          context, "Los dias seleccionados en la fecha no son correcotos");
+                    }
+                  } else {
+                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                  }
+                }else{
+                  alertDialog(context, "La fecha se encuentra basia");
+                }
+
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
       }
-
-      String sexo2 = _sexo2.name.toString();
-      if (sexo2 == 'hombre') {
-        sexo2 = '1 1 Hombre';
-      } else if (sexo2 == 'mujer') {
-        sexo2 = '2 2 Mujer';
-      } else if (sexo2 == 'otro') {
-        sexo2 = '3 3 Otro';
-      }
-
-      String sexo3 = _sexo3.name.toString();
-      if (sexo3 == 'hombre') {
-        sexo3 = '1 1 Hombre';
-      } else if (sexo3 == 'mujer') {
-        sexo3 = '2 2 Mujer';
-      } else if (sexo3 == 'otro') {
-        sexo3 = '3 3 Otro';
-      }
-
-      String sexo4 = _sexo4.name.toString();
-      if (sexo4 == 'hombre') {
-        sexo4 = '1 1 Hombre';
-      } else if (sexo4 == 'mujer') {
-        sexo4 = '2 2 Mujer';
-      } else if (sexo4 == 'otro') {
-        sexo4 = '3 3 Otro';
-      }
-
-
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
-      final estado2 = EstadoCivil2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
-      final parentesco2 = Parentesco2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
-      final estado3 = EstadoCivil3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
-      final parentesco3 = Parentesco3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
-      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
-      final estado4 = EstadoCivil4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
-      final parentesco4 = Parentesco4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
-      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
-      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre2.text.toString(),
-        primerApellido: _primerApellido2.text.toString(),
-        segundoApellido: _segundoApellido2.text.toString(),
-        claveSexo: sexo2.substring(0, 1),
-        ordenSexo: sexo2.substring(0, 1),
-        sexo: _sexo2.name.toString(),
-        fechaNacimiento: _fechaNacimiento2.text.toString(),
-        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento2.trimLeft(),
-        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        estadoCivil: estado2.trimLeft(),
-        claveParentesco: _parentesco2.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-        parentesco: parentesco2.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre3.text.toString(),
-        primerApellido: _primerApellido3.text.toString(),
-        segundoApellido: _segundoApellido3.text.toString(),
-        claveSexo: sexo3.substring(0, 1),
-        ordenSexo: sexo3.substring(0, 1),
-        sexo: _sexo3.name.toString(),
-        fechaNacimiento: _fechaNacimiento3.text.toString(),
-        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento3.trimLeft(),
-        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        estadoCivil: estado3.trimLeft(),
-        claveParentesco: _parentesco3.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-        parentesco: parentesco3.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre4.text.toString(),
-        primerApellido: _primerApellido4.text.toString(),
-        segundoApellido: _segundoApellido4.text.toString(),
-        claveSexo: sexo4.substring(0, 1),
-        ordenSexo: sexo4.substring(0, 1),
-        sexo: _sexo4.name.toString(),
-        fechaNacimiento: _fechaNacimiento4.text.toString(),
-        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento4.trimLeft(),
-        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        estadoCivil: estado4.trimLeft(),
-        claveParentesco: _parentesco4.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-        parentesco: parentesco4.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
-          estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
 
     }else if(_nombre6.text.toString().isEmpty){
 
-      String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
-        sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
-        sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
-        sexo1 = '3 3 Otro';
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                if(!_fechaNacimiento2.text.isEmpty) {
+                  if (_fechaNacimiento2.text.length == 10) {
+                    if (int.parse(_fechaNacimiento2.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento2.text.substring(0, 2)) <= 31) {
+                      if (int.parse(_fechaNacimiento2.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento2.text.substring(3,5)) <= 12) {
+                        if (int.parse(_fechaNacimiento2.text.substring(6, 10)) <= 2022) {
+                          if(!_fechaNacimiento3.text.isEmpty) {
+                            if (_fechaNacimiento3.text.length == 10) {
+                              if (int.parse(_fechaNacimiento3.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento3.text.substring(0, 2)) <= 31) {
+                                if (int.parse(_fechaNacimiento3.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento3.text.substring(3,5)) <= 12) {
+                                  if (int.parse(_fechaNacimiento3.text.substring(6, 10)) <= 2022) {
+                                    if(!_fechaNacimiento4.text.isEmpty) {
+                                      if (_fechaNacimiento4.text.length == 10) {
+                                        if (int.parse(_fechaNacimiento4.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento4.text.substring(0, 2)) <= 31) {
+                                          if (int.parse(_fechaNacimiento4.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento4.text.substring(3,5)) <= 12) {
+                                            if (int.parse(_fechaNacimiento4.text.substring(6, 10)) <= 2022) {
+                                              if(!_fechaNacimiento5.text.isEmpty) {
+                                                if (_fechaNacimiento5.text.length == 10) {
+                                                  if (int.parse(_fechaNacimiento5.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento5.text.substring(0, 2)) <= 31) {
+                                                    if (int.parse(_fechaNacimiento5.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento5.text.substring(3,5)) <= 12) {
+                                                      if (int.parse(_fechaNacimiento5.text.substring(6, 10)) <= 2022) {
+
+
+
+                                                        String sexo1 = _sexo1.name.toString();
+                                                        if(sexo1 == 'hombre')
+                                                        {
+                                                          sexo1 = '1 1 Hombre';
+                                                        }else if(sexo1 == 'mujer' )
+                                                        {
+                                                          sexo1 = '2 2 Mujer';
+                                                        }else if(sexo1 == 'otro' )
+                                                        {
+                                                          sexo1 = '3 3 Otro';
+                                                        }
+
+                                                        var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                                                        final estado = EstadoCivil.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+                                                        var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                                                        final parentesco = Parentesco.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+
+                                                        var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                                                        final entidadNacimiento = EntidadN.replaceAll("1", "")
+                                                            .replaceAll("2", "");
+
+                                                        EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                                                          folio: int.parse(widget.folio),
+                                                          nombre: _nombre1.text.toString(),
+                                                          primerApellido: _primerApellido1.text.toString(),
+                                                          segundoApellido: _segundoApellido1.text.toString(),
+                                                          claveSexo: sexo1.substring(0,1),
+                                                          ordenSexo: sexo1.substring(0,1),
+                                                          sexo: _sexo1.name.toString(),
+                                                          fechaNacimiento: _fechaNacimiento1.text.toString(),
+                                                          claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+                                                          entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                          claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                          ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                          estadoCivil: estado.trimLeft(),
+                                                          claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                          ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                          parentesco: parentesco.trimLeft(),
+                                                        );
+                                                        await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+                                                        }).catchError((error) {
+                                                          print(error);
+                                                          alertDialog(context, "Error: No se guardaron los datos");
+                                                        });
+
+
+
+                                                        String sexo2 = _sexo2.name.toString();
+                                                        if (sexo2 == 'hombre') {
+                                                          sexo2 = '1 1 Hombre';
+                                                        } else if (sexo2 == 'mujer') {
+                                                          sexo2 = '2 2 Mujer';
+                                                        } else if (sexo2 == 'otro') {
+                                                          sexo2 = '3 3 Otro';
+                                                        }
+
+                                                        var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+                                                        final estado2 = EstadoCivil2.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+                                                        var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+                                                        final parentesco2 = Parentesco2.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+
+                                                        var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+                                                        final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+                                                            .replaceAll("2", "");
+
+                                                        EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+                                                          folio: int.parse(widget.folio),
+                                                          nombre: _nombre2.text.toString(),
+                                                          primerApellido: _primerApellido2.text.toString(),
+                                                          segundoApellido: _segundoApellido2.text.toString(),
+                                                          claveSexo: sexo2.substring(0, 1),
+                                                          ordenSexo: sexo2.substring(0, 1),
+                                                          sexo: _sexo2.name.toString(),
+                                                          fechaNacimiento: _fechaNacimiento2.text.toString(),
+                                                          claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+                                                          entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                          claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                          ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                          estadoCivil: estado2.trimLeft(),
+                                                          claveParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                          ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                          parentesco: parentesco2.trimLeft(),
+                                                        );
+                                                        await dbHelper.saveEstructuraFamiliar(DModel2).then((
+                                                            estructuraFamilar) {
+                                                          alertDialog(context, "Se registro correctamente");
+                                                        }).catchError((error) {
+                                                          print(error);
+                                                          alertDialog(context, "Error: No se guardaron los datos");
+                                                        });
+
+
+
+                                                        String sexo3 = _sexo3.name.toString();
+                                                        if (sexo3 == 'hombre') {
+                                                          sexo3 = '1 1 Hombre';
+                                                        } else if (sexo3 == 'mujer') {
+                                                          sexo3 = '2 2 Mujer';
+                                                        } else if (sexo3 == 'otro') {
+                                                          sexo3 = '3 3 Otro';
+                                                        }
+
+                                                        var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+                                                        final estado3 = EstadoCivil3.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+                                                        var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+                                                        final parentesco3 = Parentesco3.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+
+                                                        var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+                                                        final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+                                                            .replaceAll("2", "");
+
+                                                        EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+                                                          folio: int.parse(widget.folio),
+                                                          nombre: _nombre3.text.toString(),
+                                                          primerApellido: _primerApellido3.text.toString(),
+                                                          segundoApellido: _segundoApellido3.text.toString(),
+                                                          claveSexo: sexo3.substring(0, 1),
+                                                          ordenSexo: sexo3.substring(0, 1),
+                                                          sexo: _sexo3.name.toString(),
+                                                          fechaNacimiento: _fechaNacimiento3.text.toString(),
+                                                          claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+                                                          entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                          claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                          ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                          estadoCivil: estado3.trimLeft(),
+                                                          claveParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                          ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                          parentesco: parentesco3.trimLeft(),
+                                                        );
+                                                        await dbHelper.saveEstructuraFamiliar(DModel3).then((
+                                                            estructuraFamilar) {
+                                                          alertDialog(context, "Se registro correctamente");
+                                                        }).catchError((error) {
+                                                          print(error);
+                                                          alertDialog(context, "Error: No se guardaron los datos");
+                                                        });
+
+
+                                                        String sexo4 = _sexo4.name.toString();
+                                                        if (sexo4 == 'hombre') {
+                                                          sexo4 = '1 1 Hombre';
+                                                        } else if (sexo4 == 'mujer') {
+                                                          sexo4 = '2 2 Mujer';
+                                                        } else if (sexo4 == 'otro') {
+                                                          sexo4 = '3 3 Otro';
+                                                        }
+                                                        var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+                                                        final estado4 = EstadoCivil4.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+                                                        var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+                                                        final parentesco4 = Parentesco4.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+
+                                                        var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+                                                        final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+                                                            .replaceAll("2", "");
+
+
+                                                        EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+                                                          folio: int.parse(widget.folio),
+                                                          nombre: _nombre4.text.toString(),
+                                                          primerApellido: _primerApellido4.text.toString(),
+                                                          segundoApellido: _segundoApellido4.text.toString(),
+                                                          claveSexo: sexo4.substring(0, 1),
+                                                          ordenSexo: sexo4.substring(0, 1),
+                                                          sexo: _sexo4.name.toString(),
+                                                          fechaNacimiento: _fechaNacimiento4.text.toString(),
+                                                          claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+                                                          entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                          claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                          ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                          estadoCivil: estado4.trimLeft(),
+                                                          claveParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                          ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                          parentesco: parentesco4.trimLeft(),
+                                                        );
+                                                        await dbHelper.saveEstructuraFamiliar(DModel4).then((
+                                                            estructuraFamilar) {
+                                                          alertDialog(context, "Se registro correctamente");
+
+                                                        }).catchError((error) {
+                                                          print(error);
+                                                          alertDialog(context, "Error: No se guardaron los datos");
+                                                        });
+
+
+                                                        String sexo5 = _sexo5.name.toString();
+                                                        if (sexo5 == 'hombre') {
+                                                          sexo5 = '1 1 Hombre';
+                                                        } else if (sexo5 == 'mujer') {
+                                                          sexo5 = '2 2 Mujer';
+                                                        } else if (sexo5 == 'otro') {
+                                                          sexo5 = '3 3 Otro';
+                                                        }
+
+                                                        var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+                                                        final estado5 = EstadoCivil5.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+                                                        var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+                                                        final parentesco5 = Parentesco5.replaceAll("1", "")
+                                                            .replaceAll("2", "")
+                                                            .replaceAll("3", "")
+                                                            .replaceAll("4", "")
+                                                            .replaceAll("5", "")
+                                                            .replaceAll("6", "")
+                                                            .replaceAll("7", "")
+                                                            .replaceAll("8", "")
+                                                            .replaceAll("9", "")
+                                                            .replaceAll("0", "");
+
+                                                        var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+                                                        final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+                                                            .replaceAll("2", "");
+
+                                                        EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+                                                          folio: int.parse(widget.folio),
+                                                          nombre: _nombre5.text.toString(),
+                                                          primerApellido: _primerApellido5.text.toString(),
+                                                          segundoApellido: _segundoApellido5.text.toString(),
+                                                          claveSexo: sexo5.substring(0, 1),
+                                                          ordenSexo: sexo5.substring(0, 1),
+                                                          sexo: _sexo5.name.toString(),
+                                                          fechaNacimiento: _fechaNacimiento5.text.toString(),
+                                                          claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+                                                          entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                          claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                          ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                          estadoCivil: estado5.trimLeft(),
+                                                          claveParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                          ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                          parentesco: parentesco5.trimLeft(),
+                                                        );
+                                                        await dbHelper.saveEstructuraFamiliar(DModel5).then((
+                                                            estructuraFamilar) {
+                                                          alertDialog(context, "Se registro correctamente");
+                                                          Navigator.of(context)
+                                                              .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                                                            return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                                                          }));
+                                                        }).catchError((error) {
+                                                          print(error);
+                                                          alertDialog(context, "Error: No se guardaron los datos");
+                                                        });
+
+
+                                                      } else {
+                                                        alertDialog(context, "El año en la fecha no corresponde");
+                                                      }
+                                                    } else {
+                                                      alertDialog(
+                                                          context, "El mes seleccionado en la fecha no es correcto");
+                                                    }
+                                                  } else {
+                                                    alertDialog(
+                                                        context, "Los dias seleccionados en la fecha no son correcotos");
+                                                  }
+                                                } else {
+                                                  alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                }
+                                              }else{
+                                                alertDialog(context, "La fecha se encuentra basia");
+                                              }
+
+
+                                            } else {
+                                              alertDialog(context, "El año en la fecha no corresponde");
+                                            }
+                                          } else {
+                                            alertDialog(
+                                                context, "El mes seleccionado en la fecha no es correcto");
+                                          }
+                                        } else {
+                                          alertDialog(
+                                              context, "Los dias seleccionados en la fecha no son correcotos");
+                                        }
+                                      } else {
+                                        alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                      }
+                                    }else{
+                                      alertDialog(context, "La fecha se encuentra basia");
+                                    }
+
+
+                                  } else {
+                                    alertDialog(context, "El año en la fecha no corresponde");
+                                  }
+                                } else {
+                                  alertDialog(
+                                      context, "El mes seleccionado en la fecha no es correcto");
+                                }
+                              } else {
+                                alertDialog(
+                                    context, "Los dias seleccionados en la fecha no son correcotos");
+                              }
+                            } else {
+                              alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                            }
+                          }else{
+                            alertDialog(context, "La fecha se encuentra basia");
+                          }
+                        } else {
+                          alertDialog(context, "El año en la fecha no corresponde");
+                        }
+                      } else {
+                        alertDialog(
+                            context, "El mes seleccionado en la fecha no es correcto");
+                      }
+                    } else {
+                      alertDialog(
+                          context, "Los dias seleccionados en la fecha no son correcotos");
+                    }
+                  } else {
+                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                  }
+                }else{
+                  alertDialog(context, "La fecha se encuentra basia");
+                }
+
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
       }
 
-      String sexo2 = _sexo2.name.toString();
-      if (sexo2 == 'hombre') {
-        sexo2 = '1 1 Hombre';
-      } else if (sexo2 == 'mujer') {
-        sexo2 = '2 2 Mujer';
-      } else if (sexo2 == 'otro') {
-        sexo2 = '3 3 Otro';
-      }
-
-      String sexo3 = _sexo3.name.toString();
-      if (sexo3 == 'hombre') {
-        sexo3 = '1 1 Hombre';
-      } else if (sexo3 == 'mujer') {
-        sexo3 = '2 2 Mujer';
-      } else if (sexo3 == 'otro') {
-        sexo3 = '3 3 Otro';
-      }
-
-      String sexo4 = _sexo4.name.toString();
-      if (sexo4 == 'hombre') {
-        sexo4 = '1 1 Hombre';
-      } else if (sexo4 == 'mujer') {
-        sexo4 = '2 2 Mujer';
-      } else if (sexo4 == 'otro') {
-        sexo4 = '3 3 Otro';
-      }
-
-      String sexo5 = _sexo5.name.toString();
-      if (sexo5 == 'hombre') {
-        sexo5 = '1 1 Hombre';
-      } else if (sexo5 == 'mujer') {
-        sexo5 = '2 2 Mujer';
-      } else if (sexo5 == 'otro') {
-        sexo5 = '3 3 Otro';
-      }
 
 
-
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
-      final estado2 = EstadoCivil2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
-      final parentesco2 = Parentesco2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
-      final estado3 = EstadoCivil3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
-      final parentesco3 = Parentesco3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
-      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
-      final estado4 = EstadoCivil4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
-      final parentesco4 = Parentesco4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
-      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
-      final estado5 = EstadoCivil5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
-      final parentesco5 = Parentesco5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
-      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
-      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre2.text.toString(),
-        primerApellido: _primerApellido2.text.toString(),
-        segundoApellido: _segundoApellido2.text.toString(),
-        claveSexo: sexo2.substring(0, 1),
-        ordenSexo: sexo2.substring(0, 1),
-        sexo: _sexo2.name.toString(),
-        fechaNacimiento: _fechaNacimiento2.text.toString(),
-        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento2.trimLeft(),
-        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        estadoCivil: estado2.trimLeft(),
-        claveParentesco: _parentesco2.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-        parentesco: parentesco2.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre3.text.toString(),
-        primerApellido: _primerApellido3.text.toString(),
-        segundoApellido: _segundoApellido3.text.toString(),
-        claveSexo: sexo3.substring(0, 1),
-        ordenSexo: sexo3.substring(0, 1),
-        sexo: _sexo3.name.toString(),
-        fechaNacimiento: _fechaNacimiento3.text.toString(),
-        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento3.trimLeft(),
-        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        estadoCivil: estado3.trimLeft(),
-        claveParentesco: _parentesco3.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-        parentesco: parentesco3.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre4.text.toString(),
-        primerApellido: _primerApellido4.text.toString(),
-        segundoApellido: _segundoApellido4.text.toString(),
-        claveSexo: sexo4.substring(0, 1),
-        ordenSexo: sexo4.substring(0, 1),
-        sexo: _sexo4.name.toString(),
-        fechaNacimiento: _fechaNacimiento4.text.toString(),
-        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento4.trimLeft(),
-        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        estadoCivil: estado4.trimLeft(),
-        claveParentesco: _parentesco4.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-        parentesco: parentesco4.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
-          estructuraFamilar) {
-
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre5.text.toString(),
-        primerApellido: _primerApellido5.text.toString(),
-        segundoApellido: _segundoApellido5.text.toString(),
-        claveSexo: sexo5.substring(0, 1),
-        ordenSexo: sexo5.substring(0, 1),
-        sexo: _sexo5.name.toString(),
-        fechaNacimiento: _fechaNacimiento5.text.toString(),
-        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento5.trimLeft(),
-        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        estadoCivil: estado5.trimLeft(),
-        claveParentesco: _parentesco5.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-        parentesco: parentesco5.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
-          estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
 
 
     }else if(_nombre7.text.toString().isEmpty){
 
-      String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
-        sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
-        sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
-        sexo1 = '3 3 Otro';
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                if(!_fechaNacimiento2.text.isEmpty) {
+                  if (_fechaNacimiento2.text.length == 10) {
+                    if (int.parse(_fechaNacimiento2.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento2.text.substring(0, 2)) <= 31) {
+                      if (int.parse(_fechaNacimiento2.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento2.text.substring(3,5)) <= 12) {
+                        if (int.parse(_fechaNacimiento2.text.substring(6, 10)) <= 2022) {
+                          if(!_fechaNacimiento3.text.isEmpty) {
+                            if (_fechaNacimiento3.text.length == 10) {
+                              if (int.parse(_fechaNacimiento3.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento3.text.substring(0, 2)) <= 31) {
+                                if (int.parse(_fechaNacimiento3.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento3.text.substring(3,5)) <= 12) {
+                                  if (int.parse(_fechaNacimiento3.text.substring(6, 10)) <= 2022) {
+                                    if(!_fechaNacimiento4.text.isEmpty) {
+                                      if (_fechaNacimiento4.text.length == 10) {
+                                        if (int.parse(_fechaNacimiento4.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento4.text.substring(0, 2)) <= 31) {
+                                          if (int.parse(_fechaNacimiento4.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento4.text.substring(3,5)) <= 12) {
+                                            if (int.parse(_fechaNacimiento4.text.substring(6, 10)) <= 2022) {
+                                              if(!_fechaNacimiento5.text.isEmpty) {
+                                                if (_fechaNacimiento5.text.length == 10) {
+                                                  if (int.parse(_fechaNacimiento5.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento5.text.substring(0, 2)) <= 31) {
+                                                    if (int.parse(_fechaNacimiento5.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento5.text.substring(3,5)) <= 12) {
+                                                      if (int.parse(_fechaNacimiento5.text.substring(6, 10)) <= 2022) {
+                                                        if(!_fechaNacimiento6.text.isEmpty) {
+                                                          if (_fechaNacimiento6.text.length == 10) {
+                                                            if (int.parse(_fechaNacimiento6.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento6.text.substring(0, 2)) <= 31) {
+                                                              if (int.parse(_fechaNacimiento6.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento6.text.substring(3,5)) <= 12) {
+                                                                if (int.parse(_fechaNacimiento6.text.substring(6, 10)) <= 2022) {
+
+
+
+                                                                  String sexo1 = _sexo1.name.toString();
+                                                                  if(sexo1 == 'hombre')
+                                                                  {
+                                                                    sexo1 = '1 1 Hombre';
+                                                                  }else if(sexo1 == 'mujer' )
+                                                                  {
+                                                                    sexo1 = '2 2 Mujer';
+                                                                  }else if(sexo1 == 'otro' )
+                                                                  {
+                                                                    sexo1 = '3 3 Otro';
+                                                                  }
+
+                                                                  var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                                                                  final estado = EstadoCivil.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+                                                                  var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                                                                  final parentesco = Parentesco.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+
+                                                                  var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                                                                  final entidadNacimiento = EntidadN.replaceAll("1", "")
+                                                                      .replaceAll("2", "");
+
+                                                                  EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                                                                    folio: int.parse(widget.folio),
+                                                                    nombre: _nombre1.text.toString(),
+                                                                    primerApellido: _primerApellido1.text.toString(),
+                                                                    segundoApellido: _segundoApellido1.text.toString(),
+                                                                    claveSexo: sexo1.substring(0,1),
+                                                                    ordenSexo: sexo1.substring(0,1),
+                                                                    sexo: _sexo1.name.toString(),
+                                                                    fechaNacimiento: _fechaNacimiento1.text.toString(),
+                                                                    claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+                                                                    entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                    claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                    ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                    estadoCivil: estado.trimLeft(),
+                                                                    claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                    ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                    parentesco: parentesco.trimLeft(),
+                                                                  );
+                                                                  await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+                                                                  }).catchError((error) {
+                                                                    print(error);
+                                                                    alertDialog(context, "Error: No se guardaron los datos");
+                                                                  });
+
+
+
+                                                                  String sexo2 = _sexo2.name.toString();
+                                                                  if (sexo2 == 'hombre') {
+                                                                    sexo2 = '1 1 Hombre';
+                                                                  } else if (sexo2 == 'mujer') {
+                                                                    sexo2 = '2 2 Mujer';
+                                                                  } else if (sexo2 == 'otro') {
+                                                                    sexo2 = '3 3 Otro';
+                                                                  }
+
+                                                                  var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+                                                                  final estado2 = EstadoCivil2.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+                                                                  var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+                                                                  final parentesco2 = Parentesco2.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+
+                                                                  var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+                                                                  final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+                                                                      .replaceAll("2", "");
+
+                                                                  EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+                                                                    folio: int.parse(widget.folio),
+                                                                    nombre: _nombre2.text.toString(),
+                                                                    primerApellido: _primerApellido2.text.toString(),
+                                                                    segundoApellido: _segundoApellido2.text.toString(),
+                                                                    claveSexo: sexo2.substring(0, 1),
+                                                                    ordenSexo: sexo2.substring(0, 1),
+                                                                    sexo: _sexo2.name.toString(),
+                                                                    fechaNacimiento: _fechaNacimiento2.text.toString(),
+                                                                    claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+                                                                    entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                    claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                    ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                    estadoCivil: estado2.trimLeft(),
+                                                                    claveParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                    ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                    parentesco: parentesco2.trimLeft(),
+                                                                  );
+                                                                  await dbHelper.saveEstructuraFamiliar(DModel2).then((
+                                                                      estructuraFamilar) {
+                                                                    alertDialog(context, "Se registro correctamente");
+                                                                  }).catchError((error) {
+                                                                    print(error);
+                                                                    alertDialog(context, "Error: No se guardaron los datos");
+                                                                  });
+
+                                                                  String sexo3 = _sexo3.name.toString();
+                                                                  if (sexo3 == 'hombre') {
+                                                                    sexo3 = '1 1 Hombre';
+                                                                  } else if (sexo3 == 'mujer') {
+                                                                    sexo3 = '2 2 Mujer';
+                                                                  } else if (sexo3 == 'otro') {
+                                                                    sexo3 = '3 3 Otro';
+                                                                  }
+
+                                                                  var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+                                                                  final estado3 = EstadoCivil3.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+                                                                  var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+                                                                  final parentesco3 = Parentesco3.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+
+                                                                  var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+                                                                  final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+                                                                      .replaceAll("2", "");
+
+                                                                  EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+                                                                    folio: int.parse(widget.folio),
+                                                                    nombre: _nombre3.text.toString(),
+                                                                    primerApellido: _primerApellido3.text.toString(),
+                                                                    segundoApellido: _segundoApellido3.text.toString(),
+                                                                    claveSexo: sexo3.substring(0, 1),
+                                                                    ordenSexo: sexo3.substring(0, 1),
+                                                                    sexo: _sexo3.name.toString(),
+                                                                    fechaNacimiento: _fechaNacimiento3.text.toString(),
+                                                                    claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+                                                                    entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                    claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                    ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                    estadoCivil: estado3.trimLeft(),
+                                                                    claveParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                    ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                    parentesco: parentesco3.trimLeft(),
+                                                                  );
+                                                                  await dbHelper.saveEstructuraFamiliar(DModel3).then((
+                                                                      estructuraFamilar) {
+                                                                    alertDialog(context, "Se registro correctamente");
+                                                                  }).catchError((error) {
+                                                                    print(error);
+                                                                    alertDialog(context, "Error: No se guardaron los datos");
+                                                                  });
+
+
+                                                                  String sexo4 = _sexo4.name.toString();
+                                                                  if (sexo4 == 'hombre') {
+                                                                    sexo4 = '1 1 Hombre';
+                                                                  } else if (sexo4 == 'mujer') {
+                                                                    sexo4 = '2 2 Mujer';
+                                                                  } else if (sexo4 == 'otro') {
+                                                                    sexo4 = '3 3 Otro';
+                                                                  }
+                                                                  var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+                                                                  final estado4 = EstadoCivil4.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+                                                                  var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+                                                                  final parentesco4 = Parentesco4.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+
+                                                                  var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+                                                                  final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+                                                                      .replaceAll("2", "");
+
+
+                                                                  EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+                                                                    folio: int.parse(widget.folio),
+                                                                    nombre: _nombre4.text.toString(),
+                                                                    primerApellido: _primerApellido4.text.toString(),
+                                                                    segundoApellido: _segundoApellido4.text.toString(),
+                                                                    claveSexo: sexo4.substring(0, 1),
+                                                                    ordenSexo: sexo4.substring(0, 1),
+                                                                    sexo: _sexo4.name.toString(),
+                                                                    fechaNacimiento: _fechaNacimiento4.text.toString(),
+                                                                    claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+                                                                    entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                    claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                    ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                    estadoCivil: estado4.trimLeft(),
+                                                                    claveParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                    ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                    parentesco: parentesco4.trimLeft(),
+                                                                  );
+                                                                  await dbHelper.saveEstructuraFamiliar(DModel4).then((
+                                                                      estructuraFamilar) {
+                                                                    alertDialog(context, "Se registro correctamente");
+
+                                                                  }).catchError((error) {
+                                                                    print(error);
+                                                                    alertDialog(context, "Error: No se guardaron los datos");
+                                                                  });
+
+                                                                  String sexo5 = _sexo5.name.toString();
+                                                                  if (sexo5 == 'hombre') {
+                                                                    sexo5 = '1 1 Hombre';
+                                                                  } else if (sexo5 == 'mujer') {
+                                                                    sexo5 = '2 2 Mujer';
+                                                                  } else if (sexo5 == 'otro') {
+                                                                    sexo5 = '3 3 Otro';
+                                                                  }
+
+
+
+
+
+                                                                  var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+                                                                  final estado5 = EstadoCivil5.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+                                                                  var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+                                                                  final parentesco5 = Parentesco5.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+
+                                                                  var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+                                                                  final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+                                                                      .replaceAll("2", "");
+
+                                                                  EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+                                                                    folio: int.parse(widget.folio),
+                                                                    nombre: _nombre5.text.toString(),
+                                                                    primerApellido: _primerApellido5.text.toString(),
+                                                                    segundoApellido: _segundoApellido5.text.toString(),
+                                                                    claveSexo: sexo5.substring(0, 1),
+                                                                    ordenSexo: sexo5.substring(0, 1),
+                                                                    sexo: _sexo5.name.toString(),
+                                                                    fechaNacimiento: _fechaNacimiento5.text.toString(),
+                                                                    claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+                                                                    entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                    claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                    ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                    estadoCivil: estado5.trimLeft(),
+                                                                    claveParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                    ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                    parentesco: parentesco5.trimLeft(),
+                                                                  );
+                                                                  await dbHelper.saveEstructuraFamiliar(DModel5).then((
+                                                                      estructuraFamilar) {
+                                                                    alertDialog(context, "Se registro correctamente");
+
+                                                                  }).catchError((error) {
+                                                                    print(error);
+                                                                    alertDialog(context, "Error: No se guardaron los datos");
+                                                                  });
+
+
+
+                                                                  String sexo6 = _sexo6.name.toString();
+                                                                  if (sexo6 == 'hombre') {
+                                                                    sexo6 = '1 1 Hombre';
+                                                                  } else if (sexo6 == 'mujer') {
+                                                                    sexo6 = '2 2 Mujer';
+                                                                  } else if (sexo6 == 'otro') {
+                                                                    sexo6 = '3 3 Otro';
+                                                                  }
+
+                                                                  var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+                                                                  final estado6 = EstadoCivil6.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+                                                                  var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+                                                                  final parentesco6 = Parentesco6.replaceAll("1", "")
+                                                                      .replaceAll("2", "")
+                                                                      .replaceAll("3", "")
+                                                                      .replaceAll("4", "")
+                                                                      .replaceAll("5", "")
+                                                                      .replaceAll("6", "")
+                                                                      .replaceAll("7", "")
+                                                                      .replaceAll("8", "")
+                                                                      .replaceAll("9", "")
+                                                                      .replaceAll("0", "");
+
+                                                                  var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+                                                                  final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+                                                                      .replaceAll("2", "");
+
+
+                                                                  EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+                                                                    folio: int.parse(widget.folio),
+                                                                    nombre: _nombre6.text.toString(),
+                                                                    primerApellido: _primerApellido6.text.toString(),
+                                                                    segundoApellido: _segundoApellido6.text.toString(),
+                                                                    claveSexo: sexo6.substring(0, 1),
+                                                                    ordenSexo: sexo6.substring(0, 1),
+                                                                    sexo: _sexo6.name.toString(),
+                                                                    fechaNacimiento: _fechaNacimiento6.text.toString(),
+                                                                    claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+                                                                    entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                    claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                    ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                    estadoCivil: estado6.trimLeft(),
+                                                                    claveParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                    ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                    parentesco: parentesco6.trimLeft(),
+                                                                  );
+                                                                  await dbHelper.saveEstructuraFamiliar(DModel6).then((
+                                                                      estructuraFamilar) {
+                                                                    alertDialog(context, "Se registro correctamente");
+                                                                    Navigator.of(context)
+                                                                        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                                                                      return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                                                                    }));
+                                                                  }).catchError((error) {
+                                                                    print(error);
+                                                                    alertDialog(context, "Error: No se guardaron los datos");
+                                                                  });
+
+
+                                                                } else {
+                                                                  alertDialog(context, "El año en la fecha no corresponde");
+                                                                }
+                                                              } else {
+                                                                alertDialog(
+                                                                    context, "El mes seleccionado en la fecha no es correcto");
+                                                              }
+                                                            } else {
+                                                              alertDialog(
+                                                                  context, "Los dias seleccionados en la fecha no son correcotos");
+                                                            }
+                                                          } else {
+                                                            alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                          }
+                                                        }else{
+                                                          alertDialog(context, "La fecha se encuentra basia");
+                                                        }
+
+
+                                                      } else {
+                                                        alertDialog(context, "El año en la fecha no corresponde");
+                                                      }
+                                                    } else {
+                                                      alertDialog(
+                                                          context, "El mes seleccionado en la fecha no es correcto");
+                                                    }
+                                                  } else {
+                                                    alertDialog(
+                                                        context, "Los dias seleccionados en la fecha no son correcotos");
+                                                  }
+                                                } else {
+                                                  alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                }
+                                              }else{
+                                                alertDialog(context, "La fecha se encuentra basia");
+                                              }
+
+
+                                            } else {
+                                              alertDialog(context, "El año en la fecha no corresponde");
+                                            }
+                                          } else {
+                                            alertDialog(
+                                                context, "El mes seleccionado en la fecha no es correcto");
+                                          }
+                                        } else {
+                                          alertDialog(
+                                              context, "Los dias seleccionados en la fecha no son correcotos");
+                                        }
+                                      } else {
+                                        alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                      }
+                                    }else{
+                                      alertDialog(context, "La fecha se encuentra basia");
+                                    }
+
+
+                                  } else {
+                                    alertDialog(context, "El año en la fecha no corresponde");
+                                  }
+                                } else {
+                                  alertDialog(
+                                      context, "El mes seleccionado en la fecha no es correcto");
+                                }
+                              } else {
+                                alertDialog(
+                                    context, "Los dias seleccionados en la fecha no son correcotos");
+                              }
+                            } else {
+                              alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                            }
+                          }else{
+                            alertDialog(context, "La fecha se encuentra basia");
+                          }
+                        } else {
+                          alertDialog(context, "El año en la fecha no corresponde");
+                        }
+                      } else {
+                        alertDialog(
+                            context, "El mes seleccionado en la fecha no es correcto");
+                      }
+                    } else {
+                      alertDialog(
+                          context, "Los dias seleccionados en la fecha no son correcotos");
+                    }
+                  } else {
+                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                  }
+                }else{
+                  alertDialog(context, "La fecha se encuentra basia");
+                }
+
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
       }
 
-      String sexo2 = _sexo2.name.toString();
-      if (sexo2 == 'hombre') {
-        sexo2 = '1 1 Hombre';
-      } else if (sexo2 == 'mujer') {
-        sexo2 = '2 2 Mujer';
-      } else if (sexo2 == 'otro') {
-        sexo2 = '3 3 Otro';
-      }
 
-      String sexo3 = _sexo3.name.toString();
-      if (sexo3 == 'hombre') {
-        sexo3 = '1 1 Hombre';
-      } else if (sexo3 == 'mujer') {
-        sexo3 = '2 2 Mujer';
-      } else if (sexo3 == 'otro') {
-        sexo3 = '3 3 Otro';
-      }
-
-      String sexo4 = _sexo4.name.toString();
-      if (sexo4 == 'hombre') {
-        sexo4 = '1 1 Hombre';
-      } else if (sexo4 == 'mujer') {
-        sexo4 = '2 2 Mujer';
-      } else if (sexo4 == 'otro') {
-        sexo4 = '3 3 Otro';
-      }
-
-      String sexo5 = _sexo5.name.toString();
-      if (sexo5 == 'hombre') {
-        sexo5 = '1 1 Hombre';
-      } else if (sexo5 == 'mujer') {
-        sexo5 = '2 2 Mujer';
-      } else if (sexo5 == 'otro') {
-        sexo5 = '3 3 Otro';
-      }
-
-      String sexo6 = _sexo6.name.toString();
-      if (sexo6 == 'hombre') {
-        sexo6 = '1 1 Hombre';
-      } else if (sexo6 == 'mujer') {
-        sexo6 = '2 2 Mujer';
-      } else if (sexo6 == 'otro') {
-        sexo6 = '3 3 Otro';
-      }
-
-
-
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
-      final estado2 = EstadoCivil2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
-      final parentesco2 = Parentesco2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
-      final estado3 = EstadoCivil3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
-      final parentesco3 = Parentesco3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
-      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
-      final estado4 = EstadoCivil4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
-      final parentesco4 = Parentesco4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
-      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
-      final estado5 = EstadoCivil5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
-      final parentesco5 = Parentesco5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
-      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
-      final estado6 = EstadoCivil6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
-      final parentesco6 = Parentesco6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
-      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
-      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre2.text.toString(),
-        primerApellido: _primerApellido2.text.toString(),
-        segundoApellido: _segundoApellido2.text.toString(),
-        claveSexo: sexo2.substring(0, 1),
-        ordenSexo: sexo2.substring(0, 1),
-        sexo: _sexo2.name.toString(),
-        fechaNacimiento: _fechaNacimiento2.text.toString(),
-        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento2.trimLeft(),
-        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        estadoCivil: estado2.trimLeft(),
-        claveParentesco: _parentesco2.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-        parentesco: parentesco2.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre3.text.toString(),
-        primerApellido: _primerApellido3.text.toString(),
-        segundoApellido: _segundoApellido3.text.toString(),
-        claveSexo: sexo3.substring(0, 1),
-        ordenSexo: sexo3.substring(0, 1),
-        sexo: _sexo3.name.toString(),
-        fechaNacimiento: _fechaNacimiento3.text.toString(),
-        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento3.trimLeft(),
-        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        estadoCivil: estado3.trimLeft(),
-        claveParentesco: _parentesco3.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-        parentesco: parentesco3.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre4.text.toString(),
-        primerApellido: _primerApellido4.text.toString(),
-        segundoApellido: _segundoApellido4.text.toString(),
-        claveSexo: sexo4.substring(0, 1),
-        ordenSexo: sexo4.substring(0, 1),
-        sexo: _sexo4.name.toString(),
-        fechaNacimiento: _fechaNacimiento4.text.toString(),
-        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento4.trimLeft(),
-        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        estadoCivil: estado4.trimLeft(),
-        claveParentesco: _parentesco4.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-        parentesco: parentesco4.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
-          estructuraFamilar) {
-
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre5.text.toString(),
-        primerApellido: _primerApellido5.text.toString(),
-        segundoApellido: _segundoApellido5.text.toString(),
-        claveSexo: sexo5.substring(0, 1),
-        ordenSexo: sexo5.substring(0, 1),
-        sexo: _sexo5.name.toString(),
-        fechaNacimiento: _fechaNacimiento5.text.toString(),
-        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento5.trimLeft(),
-        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        estadoCivil: estado5.trimLeft(),
-        claveParentesco: _parentesco5.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-        parentesco: parentesco5.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre6.text.toString(),
-        primerApellido: _primerApellido6.text.toString(),
-        segundoApellido: _segundoApellido6.text.toString(),
-        claveSexo: sexo6.substring(0, 1),
-        ordenSexo: sexo6.substring(0, 1),
-        sexo: _sexo6.name.toString(),
-        fechaNacimiento: _fechaNacimiento6.text.toString(),
-        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento6.trimLeft(),
-        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        estadoCivil: estado6.trimLeft(),
-        claveParentesco: _parentesco6.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-        parentesco: parentesco6.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel6).then((
-          estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
 
     }else if(_nombre8.text.toString().isEmpty){
 
-      String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
-        sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
-        sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
-        sexo1 = '3 3 Otro';
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                if(!_fechaNacimiento2.text.isEmpty) {
+                  if (_fechaNacimiento2.text.length == 10) {
+                    if (int.parse(_fechaNacimiento2.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento2.text.substring(0, 2)) <= 31) {
+                      if (int.parse(_fechaNacimiento2.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento2.text.substring(3,5)) <= 12) {
+                        if (int.parse(_fechaNacimiento2.text.substring(6, 10)) <= 2022) {
+                          if(!_fechaNacimiento3.text.isEmpty) {
+                            if (_fechaNacimiento3.text.length == 10) {
+                              if (int.parse(_fechaNacimiento3.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento3.text.substring(0, 2)) <= 31) {
+                                if (int.parse(_fechaNacimiento3.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento3.text.substring(3,5)) <= 12) {
+                                  if (int.parse(_fechaNacimiento3.text.substring(6, 10)) <= 2022) {
+                                    if(!_fechaNacimiento4.text.isEmpty) {
+                                      if (_fechaNacimiento4.text.length == 10) {
+                                        if (int.parse(_fechaNacimiento4.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento4.text.substring(0, 2)) <= 31) {
+                                          if (int.parse(_fechaNacimiento4.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento4.text.substring(3,5)) <= 12) {
+                                            if (int.parse(_fechaNacimiento4.text.substring(6, 10)) <= 2022) {
+                                              if(!_fechaNacimiento5.text.isEmpty) {
+                                                if (_fechaNacimiento5.text.length == 10) {
+                                                  if (int.parse(_fechaNacimiento5.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento5.text.substring(0, 2)) <= 31) {
+                                                    if (int.parse(_fechaNacimiento5.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento5.text.substring(3,5)) <= 12) {
+                                                      if (int.parse(_fechaNacimiento5.text.substring(6, 10)) <= 2022) {
+                                                        if(!_fechaNacimiento6.text.isEmpty) {
+                                                          if (_fechaNacimiento6.text.length == 10) {
+                                                            if (int.parse(_fechaNacimiento6.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento6.text.substring(0, 2)) <= 31) {
+                                                              if (int.parse(_fechaNacimiento6.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento6.text.substring(3,5)) <= 12) {
+                                                                if (int.parse(_fechaNacimiento6.text.substring(6, 10)) <= 2022) {
+                                                                  if(!_fechaNacimiento7.text.isEmpty) {
+                                                                    if (_fechaNacimiento7.text.length == 10) {
+                                                                      if (int.parse(_fechaNacimiento7.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento7.text.substring(0, 2)) <= 31) {
+                                                                        if (int.parse(_fechaNacimiento7.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento7.text.substring(3,5)) <= 12) {
+                                                                          if (int.parse(_fechaNacimiento7.text.substring(6, 10)) <= 2022) {
+
+
+                                                                            String sexo1 = _sexo1.name.toString();
+                                                                            if(sexo1 == 'hombre')
+                                                                            {
+                                                                              sexo1 = '1 1 Hombre';
+                                                                            }else if(sexo1 == 'mujer' )
+                                                                            {
+                                                                              sexo1 = '2 2 Mujer';
+                                                                            }else if(sexo1 == 'otro' )
+                                                                            {
+                                                                              sexo1 = '3 3 Otro';
+                                                                            }
+
+                                                                            var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                                                                            final estado = EstadoCivil.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+                                                                            var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                                                                            final parentesco = Parentesco.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+
+                                                                            var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                                                                            final entidadNacimiento = EntidadN.replaceAll("1", "")
+                                                                                .replaceAll("2", "");
+
+                                                                            EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                                                                              folio: int.parse(widget.folio),
+                                                                              nombre: _nombre1.text.toString(),
+                                                                              primerApellido: _primerApellido1.text.toString(),
+                                                                              segundoApellido: _segundoApellido1.text.toString(),
+                                                                              claveSexo: sexo1.substring(0,1),
+                                                                              ordenSexo: sexo1.substring(0,1),
+                                                                              sexo: _sexo1.name.toString(),
+                                                                              fechaNacimiento: _fechaNacimiento1.text.toString(),
+                                                                              claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+                                                                              entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                              claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                              ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                              estadoCivil: estado.trimLeft(),
+                                                                              claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                              ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                              parentesco: parentesco.trimLeft(),
+                                                                            );
+                                                                            await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+                                                                            }).catchError((error) {
+                                                                              print(error);
+                                                                              alertDialog(context, "Error: No se guardaron los datos");
+                                                                            });
+
+
+
+                                                                            String sexo2 = _sexo2.name.toString();
+                                                                            if (sexo2 == 'hombre') {
+                                                                              sexo2 = '1 1 Hombre';
+                                                                            } else if (sexo2 == 'mujer') {
+                                                                              sexo2 = '2 2 Mujer';
+                                                                            } else if (sexo2 == 'otro') {
+                                                                              sexo2 = '3 3 Otro';
+                                                                            }
+
+                                                                            var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+                                                                            final estado2 = EstadoCivil2.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+                                                                            var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+                                                                            final parentesco2 = Parentesco2.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+
+                                                                            var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+                                                                            final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+                                                                                .replaceAll("2", "");
+
+                                                                            EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+                                                                              folio: int.parse(widget.folio),
+                                                                              nombre: _nombre2.text.toString(),
+                                                                              primerApellido: _primerApellido2.text.toString(),
+                                                                              segundoApellido: _segundoApellido2.text.toString(),
+                                                                              claveSexo: sexo2.substring(0, 1),
+                                                                              ordenSexo: sexo2.substring(0, 1),
+                                                                              sexo: _sexo2.name.toString(),
+                                                                              fechaNacimiento: _fechaNacimiento2.text.toString(),
+                                                                              claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+                                                                              entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                              claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                              ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                              estadoCivil: estado2.trimLeft(),
+                                                                              claveParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                              ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                              parentesco: parentesco2.trimLeft(),
+                                                                            );
+                                                                            await dbHelper.saveEstructuraFamiliar(DModel2).then((
+                                                                                estructuraFamilar) {
+                                                                              alertDialog(context, "Se registro correctamente");
+                                                                            }).catchError((error) {
+                                                                              print(error);
+                                                                              alertDialog(context, "Error: No se guardaron los datos");
+                                                                            });
+
+
+
+                                                                            String sexo3 = _sexo3.name.toString();
+                                                                            if (sexo3 == 'hombre') {
+                                                                              sexo3 = '1 1 Hombre';
+                                                                            } else if (sexo3 == 'mujer') {
+                                                                              sexo3 = '2 2 Mujer';
+                                                                            } else if (sexo3 == 'otro') {
+                                                                              sexo3 = '3 3 Otro';
+                                                                            }
+
+                                                                            var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+                                                                            final estado3 = EstadoCivil3.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+                                                                            var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+                                                                            final parentesco3 = Parentesco3.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+
+                                                                            var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+                                                                            final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+                                                                                .replaceAll("2", "");
+
+                                                                            EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+                                                                              folio: int.parse(widget.folio),
+                                                                              nombre: _nombre3.text.toString(),
+                                                                              primerApellido: _primerApellido3.text.toString(),
+                                                                              segundoApellido: _segundoApellido3.text.toString(),
+                                                                              claveSexo: sexo3.substring(0, 1),
+                                                                              ordenSexo: sexo3.substring(0, 1),
+                                                                              sexo: _sexo3.name.toString(),
+                                                                              fechaNacimiento: _fechaNacimiento3.text.toString(),
+                                                                              claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+                                                                              entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                              claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                              ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                              estadoCivil: estado3.trimLeft(),
+                                                                              claveParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                              ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                              parentesco: parentesco3.trimLeft(),
+                                                                            );
+                                                                            await dbHelper.saveEstructuraFamiliar(DModel3).then((
+                                                                                estructuraFamilar) {
+                                                                              alertDialog(context, "Se registro correctamente");
+                                                                            }).catchError((error) {
+                                                                              print(error);
+                                                                              alertDialog(context, "Error: No se guardaron los datos");
+                                                                            });
+
+
+                                                                            String sexo4 = _sexo4.name.toString();
+                                                                            if (sexo4 == 'hombre') {
+                                                                              sexo4 = '1 1 Hombre';
+                                                                            } else if (sexo4 == 'mujer') {
+                                                                              sexo4 = '2 2 Mujer';
+                                                                            } else if (sexo4 == 'otro') {
+                                                                              sexo4 = '3 3 Otro';
+                                                                            }
+                                                                            var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+                                                                            final estado4 = EstadoCivil4.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+                                                                            var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+                                                                            final parentesco4 = Parentesco4.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+
+                                                                            var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+                                                                            final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+                                                                                .replaceAll("2", "");
+
+
+                                                                            EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+                                                                              folio: int.parse(widget.folio),
+                                                                              nombre: _nombre4.text.toString(),
+                                                                              primerApellido: _primerApellido4.text.toString(),
+                                                                              segundoApellido: _segundoApellido4.text.toString(),
+                                                                              claveSexo: sexo4.substring(0, 1),
+                                                                              ordenSexo: sexo4.substring(0, 1),
+                                                                              sexo: _sexo4.name.toString(),
+                                                                              fechaNacimiento: _fechaNacimiento4.text.toString(),
+                                                                              claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+                                                                              entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                              claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                              ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                              estadoCivil: estado4.trimLeft(),
+                                                                              claveParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                              ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                              parentesco: parentesco4.trimLeft(),
+                                                                            );
+                                                                            await dbHelper.saveEstructuraFamiliar(DModel4).then((
+                                                                                estructuraFamilar) {
+                                                                              alertDialog(context, "Se registro correctamente");
+
+                                                                            }).catchError((error) {
+                                                                              print(error);
+                                                                              alertDialog(context, "Error: No se guardaron los datos");
+                                                                            });
+
+
+                                                                            String sexo5 = _sexo5.name.toString();
+                                                                            if (sexo5 == 'hombre') {
+                                                                              sexo5 = '1 1 Hombre';
+                                                                            } else if (sexo5 == 'mujer') {
+                                                                              sexo5 = '2 2 Mujer';
+                                                                            } else if (sexo5 == 'otro') {
+                                                                              sexo5 = '3 3 Otro';
+                                                                            }
+
+
+
+
+
+                                                                            var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+                                                                            final estado5 = EstadoCivil5.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+                                                                            var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+                                                                            final parentesco5 = Parentesco5.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+
+                                                                            var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+                                                                            final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+                                                                                .replaceAll("2", "");
+
+                                                                            EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+                                                                              folio: int.parse(widget.folio),
+                                                                              nombre: _nombre5.text.toString(),
+                                                                              primerApellido: _primerApellido5.text.toString(),
+                                                                              segundoApellido: _segundoApellido5.text.toString(),
+                                                                              claveSexo: sexo5.substring(0, 1),
+                                                                              ordenSexo: sexo5.substring(0, 1),
+                                                                              sexo: _sexo5.name.toString(),
+                                                                              fechaNacimiento: _fechaNacimiento5.text.toString(),
+                                                                              claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+                                                                              entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                              claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                              ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                              estadoCivil: estado5.trimLeft(),
+                                                                              claveParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                              ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                              parentesco: parentesco5.trimLeft(),
+                                                                            );
+                                                                            await dbHelper.saveEstructuraFamiliar(DModel5).then((
+                                                                                estructuraFamilar) {
+                                                                              alertDialog(context, "Se registro correctamente");
+
+                                                                            }).catchError((error) {
+                                                                              print(error);
+                                                                              alertDialog(context, "Error: No se guardaron los datos");
+                                                                            });
+
+
+
+                                                                            String sexo6 = _sexo6.name.toString();
+                                                                            if (sexo6 == 'hombre') {
+                                                                              sexo6 = '1 1 Hombre';
+                                                                            } else if (sexo6 == 'mujer') {
+                                                                              sexo6 = '2 2 Mujer';
+                                                                            } else if (sexo6 == 'otro') {
+                                                                              sexo6 = '3 3 Otro';
+                                                                            }
+
+                                                                            var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+                                                                            final estado6 = EstadoCivil6.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+                                                                            var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+                                                                            final parentesco6 = Parentesco6.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+
+                                                                            var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+                                                                            final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+                                                                                .replaceAll("2", "");
+
+
+                                                                            EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+                                                                              folio: int.parse(widget.folio),
+                                                                              nombre: _nombre6.text.toString(),
+                                                                              primerApellido: _primerApellido6.text.toString(),
+                                                                              segundoApellido: _segundoApellido6.text.toString(),
+                                                                              claveSexo: sexo6.substring(0, 1),
+                                                                              ordenSexo: sexo6.substring(0, 1),
+                                                                              sexo: _sexo6.name.toString(),
+                                                                              fechaNacimiento: _fechaNacimiento6.text.toString(),
+                                                                              claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+                                                                              entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                              claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                              ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                              estadoCivil: estado6.trimLeft(),
+                                                                              claveParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                              ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                              parentesco: parentesco6.trimLeft(),
+                                                                            );
+                                                                            await dbHelper.saveEstructuraFamiliar(DModel6).then((
+                                                                                estructuraFamilar) {
+                                                                              alertDialog(context, "Se registro correctamente");
+                                                                            }).catchError((error) {
+                                                                              print(error);
+                                                                              alertDialog(context, "Error: No se guardaron los datos");
+                                                                            });
+
+
+                                                                            String sexo7 = _sexo7.name.toString();
+
+
+                                                                            if (sexo7 == 'hombre') {
+                                                                              sexo7 = '1 1 Hombre';
+                                                                            } else if (sexo7 == 'mujer') {
+                                                                              sexo7 = '2 2 Mujer';
+                                                                            } else if (sexo7 == 'otro') {
+                                                                              sexo7 = '3 3 Otro';
+                                                                            }
+
+                                                                            var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+                                                                            final estado7 = EstadoCivil7.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+                                                                            var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+                                                                            final parentesco7 = Parentesco7.replaceAll("1", "")
+                                                                                .replaceAll("2", "")
+                                                                                .replaceAll("3", "")
+                                                                                .replaceAll("4", "")
+                                                                                .replaceAll("5", "")
+                                                                                .replaceAll("6", "")
+                                                                                .replaceAll("7", "")
+                                                                                .replaceAll("8", "")
+                                                                                .replaceAll("9", "")
+                                                                                .replaceAll("0", "");
+
+                                                                            var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+                                                                            final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+                                                                                .replaceAll("2", "");
+
+                                                                            EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+                                                                              folio: int.parse(widget.folio),
+                                                                              nombre: _nombre7.text.toString(),
+                                                                              primerApellido: _primerApellido7.text.toString(),
+                                                                              segundoApellido: _segundoApellido7.text.toString(),
+                                                                              claveSexo: sexo7.substring(0, 1),
+                                                                              ordenSexo: sexo7.substring(0, 1),
+                                                                              sexo: _sexo7.name.toString(),
+                                                                              fechaNacimiento: _fechaNacimiento7.text.toString(),
+                                                                              claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+                                                                              entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                              claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+                                                                              ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+                                                                              estadoCivil: estado7.trimLeft(),
+                                                                              claveParentesco: _parentesco7.text.toString().substring(0, 1),
+                                                                              ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+                                                                              parentesco: parentesco7.trimLeft(),
+                                                                            );
+                                                                            await dbHelper.saveEstructuraFamiliar(DModel7).then((
+                                                                                estructuraFamilar) {
+                                                                              alertDialog(context, "Se registro correctamente");
+                                                                              Navigator.of(context)
+                                                                                  .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                                                                                return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                                                                              }));
+                                                                            }).catchError((error) {
+                                                                              print(error);
+                                                                              alertDialog(context, "Error: No se guardaron los datos");
+                                                                            });
+
+                                                                          } else {
+                                                                            alertDialog(context, "El año en la fecha no corresponde");
+                                                                          }
+                                                                        } else {
+                                                                          alertDialog(
+                                                                              context, "El mes seleccionado en la fecha no es correcto");
+                                                                        }
+                                                                      } else {
+                                                                        alertDialog(
+                                                                            context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                      }
+                                                                    } else {
+                                                                      alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                    }
+                                                                  }else{
+                                                                    alertDialog(context, "La fecha se encuentra basia");
+                                                                  }
+
+
+
+                                                                } else {
+                                                                  alertDialog(context, "El año en la fecha no corresponde");
+                                                                }
+                                                              } else {
+                                                                alertDialog(
+                                                                    context, "El mes seleccionado en la fecha no es correcto");
+                                                              }
+                                                            } else {
+                                                              alertDialog(
+                                                                  context, "Los dias seleccionados en la fecha no son correcotos");
+                                                            }
+                                                          } else {
+                                                            alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                          }
+                                                        }else{
+                                                          alertDialog(context, "La fecha se encuentra basia");
+                                                        }
+
+                                                      } else {
+                                                        alertDialog(context, "El año en la fecha no corresponde");
+                                                      }
+                                                    } else {
+                                                      alertDialog(
+                                                          context, "El mes seleccionado en la fecha no es correcto");
+                                                    }
+                                                  } else {
+                                                    alertDialog(
+                                                        context, "Los dias seleccionados en la fecha no son correcotos");
+                                                  }
+                                                } else {
+                                                  alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                }
+                                              }else{
+                                                alertDialog(context, "La fecha se encuentra basia");
+                                              }
+
+                                            } else {
+                                              alertDialog(context, "El año en la fecha no corresponde");
+                                            }
+                                          } else {
+                                            alertDialog(
+                                                context, "El mes seleccionado en la fecha no es correcto");
+                                          }
+                                        } else {
+                                          alertDialog(
+                                              context, "Los dias seleccionados en la fecha no son correcotos");
+                                        }
+                                      } else {
+                                        alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                      }
+                                    }else{
+                                      alertDialog(context, "La fecha se encuentra basia");
+                                    }
+
+                                  } else {
+                                    alertDialog(context, "El año en la fecha no corresponde");
+                                  }
+                                } else {
+                                  alertDialog(
+                                      context, "El mes seleccionado en la fecha no es correcto");
+                                }
+                              } else {
+                                alertDialog(
+                                    context, "Los dias seleccionados en la fecha no son correcotos");
+                              }
+                            } else {
+                              alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                            }
+                          }else{
+                            alertDialog(context, "La fecha se encuentra basia");
+                          }
+                        } else {
+                          alertDialog(context, "El año en la fecha no corresponde");
+                        }
+                      } else {
+                        alertDialog(
+                            context, "El mes seleccionado en la fecha no es correcto");
+                      }
+                    } else {
+                      alertDialog(
+                          context, "Los dias seleccionados en la fecha no son correcotos");
+                    }
+                  } else {
+                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                  }
+                }else{
+                  alertDialog(context, "La fecha se encuentra basia");
+                }
+
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
       }
 
-      String sexo2 = _sexo2.name.toString();
-      if (sexo2 == 'hombre') {
-        sexo2 = '1 1 Hombre';
-      } else if (sexo2 == 'mujer') {
-        sexo2 = '2 2 Mujer';
-      } else if (sexo2 == 'otro') {
-        sexo2 = '3 3 Otro';
-      }
 
-      String sexo3 = _sexo3.name.toString();
-      if (sexo3 == 'hombre') {
-        sexo3 = '1 1 Hombre';
-      } else if (sexo3 == 'mujer') {
-        sexo3 = '2 2 Mujer';
-      } else if (sexo3 == 'otro') {
-        sexo3 = '3 3 Otro';
-      }
-
-      String sexo4 = _sexo4.name.toString();
-      if (sexo4 == 'hombre') {
-        sexo4 = '1 1 Hombre';
-      } else if (sexo4 == 'mujer') {
-        sexo4 = '2 2 Mujer';
-      } else if (sexo4 == 'otro') {
-        sexo4 = '3 3 Otro';
-      }
-
-      String sexo5 = _sexo5.name.toString();
-      if (sexo5 == 'hombre') {
-        sexo5 = '1 1 Hombre';
-      } else if (sexo5 == 'mujer') {
-        sexo5 = '2 2 Mujer';
-      } else if (sexo5 == 'otro') {
-        sexo5 = '3 3 Otro';
-      }
-
-      String sexo6 = _sexo6.name.toString();
-      if (sexo6 == 'hombre') {
-        sexo6 = '1 1 Hombre';
-      } else if (sexo6 == 'mujer') {
-        sexo6 = '2 2 Mujer';
-      } else if (sexo6 == 'otro') {
-        sexo6 = '3 3 Otro';
-      }
-
-      String sexo7 = _sexo7.name.toString();
-      if (sexo7 == 'hombre') {
-        sexo7 = '1 1 Hombre';
-      } else if (sexo7 == 'mujer') {
-        sexo7 = '2 2 Mujer';
-      } else if (sexo7 == 'otro') {
-        sexo7 = '3 3 Otro';
-      }
-
-
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
-      final estado2 = EstadoCivil2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
-      final parentesco2 = Parentesco2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
-      final estado3 = EstadoCivil3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
-      final parentesco3 = Parentesco3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
-      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
-      final estado4 = EstadoCivil4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
-      final parentesco4 = Parentesco4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
-      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
-      final estado5 = EstadoCivil5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
-      final parentesco5 = Parentesco5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
-      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
-      final estado6 = EstadoCivil6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
-      final parentesco6 = Parentesco6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
-      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
-      final estado7 = EstadoCivil7.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
-      final parentesco7 = Parentesco7.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
-      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
-      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre2.text.toString(),
-        primerApellido: _primerApellido2.text.toString(),
-        segundoApellido: _segundoApellido2.text.toString(),
-        claveSexo: sexo2.substring(0, 1),
-        ordenSexo: sexo2.substring(0, 1),
-        sexo: _sexo2.name.toString(),
-        fechaNacimiento: _fechaNacimiento2.text.toString(),
-        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento2.trimLeft(),
-        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        estadoCivil: estado2.trimLeft(),
-        claveParentesco: _parentesco2.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-        parentesco: parentesco2.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre3.text.toString(),
-        primerApellido: _primerApellido3.text.toString(),
-        segundoApellido: _segundoApellido3.text.toString(),
-        claveSexo: sexo3.substring(0, 1),
-        ordenSexo: sexo3.substring(0, 1),
-        sexo: _sexo3.name.toString(),
-        fechaNacimiento: _fechaNacimiento3.text.toString(),
-        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento3.trimLeft(),
-        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        estadoCivil: estado3.trimLeft(),
-        claveParentesco: _parentesco3.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-        parentesco: parentesco3.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre4.text.toString(),
-        primerApellido: _primerApellido4.text.toString(),
-        segundoApellido: _segundoApellido4.text.toString(),
-        claveSexo: sexo4.substring(0, 1),
-        ordenSexo: sexo4.substring(0, 1),
-        sexo: _sexo4.name.toString(),
-        fechaNacimiento: _fechaNacimiento4.text.toString(),
-        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento4.trimLeft(),
-        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        estadoCivil: estado4.trimLeft(),
-        claveParentesco: _parentesco4.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-        parentesco: parentesco4.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
-          estructuraFamilar) {
-
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre5.text.toString(),
-        primerApellido: _primerApellido5.text.toString(),
-        segundoApellido: _segundoApellido5.text.toString(),
-        claveSexo: sexo5.substring(0, 1),
-        ordenSexo: sexo5.substring(0, 1),
-        sexo: _sexo5.name.toString(),
-        fechaNacimiento: _fechaNacimiento5.text.toString(),
-        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento5.trimLeft(),
-        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        estadoCivil: estado5.trimLeft(),
-        claveParentesco: _parentesco5.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-        parentesco: parentesco5.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre6.text.toString(),
-        primerApellido: _primerApellido6.text.toString(),
-        segundoApellido: _segundoApellido6.text.toString(),
-        claveSexo: sexo6.substring(0, 1),
-        ordenSexo: sexo6.substring(0, 1),
-        sexo: _sexo6.name.toString(),
-        fechaNacimiento: _fechaNacimiento6.text.toString(),
-        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento6.trimLeft(),
-        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        estadoCivil: estado6.trimLeft(),
-        claveParentesco: _parentesco6.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-        parentesco: parentesco6.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel6).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-
-      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre7.text.toString(),
-        primerApellido: _primerApellido7.text.toString(),
-        segundoApellido: _segundoApellido7.text.toString(),
-        claveSexo: sexo7.substring(0, 1),
-        ordenSexo: sexo7.substring(0, 1),
-        sexo: _sexo7.name.toString(),
-        fechaNacimiento: _fechaNacimiento7.text.toString(),
-        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento7.trimLeft(),
-        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-        estadoCivil: estado7.trimLeft(),
-        claveParentesco: _parentesco7.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
-        parentesco: parentesco7.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel7).then((
-          estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
 
     }else if(_nombre9.text.toString().isEmpty){
 
-      String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
-        sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
-        sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
-        sexo1 = '3 3 Otro';
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                if(!_fechaNacimiento2.text.isEmpty) {
+                  if (_fechaNacimiento2.text.length == 10) {
+                    if (int.parse(_fechaNacimiento2.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento2.text.substring(0, 2)) <= 31) {
+                      if (int.parse(_fechaNacimiento2.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento2.text.substring(3,5)) <= 12) {
+                        if (int.parse(_fechaNacimiento2.text.substring(6, 10)) <= 2022) {
+                          if(!_fechaNacimiento3.text.isEmpty) {
+                            if (_fechaNacimiento3.text.length == 10) {
+                              if (int.parse(_fechaNacimiento3.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento3.text.substring(0, 2)) <= 31) {
+                                if (int.parse(_fechaNacimiento3.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento3.text.substring(3,5)) <= 12) {
+                                  if (int.parse(_fechaNacimiento3.text.substring(6, 10)) <= 2022) {
+                                    if(!_fechaNacimiento4.text.isEmpty) {
+                                      if (_fechaNacimiento4.text.length == 10) {
+                                        if (int.parse(_fechaNacimiento4.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento4.text.substring(0, 2)) <= 31) {
+                                          if (int.parse(_fechaNacimiento4.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento4.text.substring(3,5)) <= 12) {
+                                            if (int.parse(_fechaNacimiento4.text.substring(6, 10)) <= 2022) {
+                                              if(!_fechaNacimiento5.text.isEmpty) {
+                                                if (_fechaNacimiento5.text.length == 10) {
+                                                  if (int.parse(_fechaNacimiento5.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento5.text.substring(0, 2)) <= 31) {
+                                                    if (int.parse(_fechaNacimiento5.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento5.text.substring(3,5)) <= 12) {
+                                                      if (int.parse(_fechaNacimiento5.text.substring(6, 10)) <= 2022) {
+                                                        if(!_fechaNacimiento6.text.isEmpty) {
+                                                          if (_fechaNacimiento6.text.length == 10) {
+                                                            if (int.parse(_fechaNacimiento6.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento6.text.substring(0, 2)) <= 31) {
+                                                              if (int.parse(_fechaNacimiento6.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento6.text.substring(3,5)) <= 12) {
+                                                                if (int.parse(_fechaNacimiento6.text.substring(6, 10)) <= 2022) {
+                                                                  if(!_fechaNacimiento7.text.isEmpty) {
+                                                                    if (_fechaNacimiento7.text.length == 10) {
+                                                                      if (int.parse(_fechaNacimiento7.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento7.text.substring(0, 2)) <= 31) {
+                                                                        if (int.parse(_fechaNacimiento7.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento7.text.substring(3,5)) <= 12) {
+                                                                          if (int.parse(_fechaNacimiento7.text.substring(6, 10)) <= 2022) {
+                                                                            if(!_fechaNacimiento8.text.isEmpty) {
+                                                                              if (_fechaNacimiento8.text.length == 10) {
+                                                                                if (int.parse(_fechaNacimiento8.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento8.text.substring(0, 2)) <= 31) {
+                                                                                  if (int.parse(_fechaNacimiento8.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento8.text.substring(3,5)) <= 12) {
+                                                                                    if (int.parse(_fechaNacimiento8.text.substring(6, 10)) <= 2022) {
+
+
+                                                                                      String sexo1 = _sexo1.name.toString();
+                                                                                      if(sexo1 == 'hombre')
+                                                                                      {
+                                                                                        sexo1 = '1 1 Hombre';
+                                                                                      }else if(sexo1 == 'mujer' )
+                                                                                      {
+                                                                                        sexo1 = '2 2 Mujer';
+                                                                                      }else if(sexo1 == 'otro' )
+                                                                                      {
+                                                                                        sexo1 = '3 3 Otro';
+                                                                                      }
+
+                                                                                      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                                                                                      final estado = EstadoCivil.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+                                                                                      var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                                                                                      final parentesco = Parentesco.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+
+                                                                                      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                                                                                      final entidadNacimiento = EntidadN.replaceAll("1", "")
+                                                                                          .replaceAll("2", "");
+
+                                                                                      EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                                                                                        folio: int.parse(widget.folio),
+                                                                                        nombre: _nombre1.text.toString(),
+                                                                                        primerApellido: _primerApellido1.text.toString(),
+                                                                                        segundoApellido: _segundoApellido1.text.toString(),
+                                                                                        claveSexo: sexo1.substring(0,1),
+                                                                                        ordenSexo: sexo1.substring(0,1),
+                                                                                        sexo: _sexo1.name.toString(),
+                                                                                        fechaNacimiento: _fechaNacimiento1.text.toString(),
+                                                                                        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+                                                                                        entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                                        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                                        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                                        estadoCivil: estado.trimLeft(),
+                                                                                        claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                                        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                                        parentesco: parentesco.trimLeft(),
+                                                                                      );
+                                                                                      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+                                                                                      }).catchError((error) {
+                                                                                        print(error);
+                                                                                        alertDialog(context, "Error: No se guardaron los datos");
+                                                                                      });
+
+
+
+                                                                                      String sexo2 = _sexo2.name.toString();
+                                                                                      if (sexo2 == 'hombre') {
+                                                                                        sexo2 = '1 1 Hombre';
+                                                                                      } else if (sexo2 == 'mujer') {
+                                                                                        sexo2 = '2 2 Mujer';
+                                                                                      } else if (sexo2 == 'otro') {
+                                                                                        sexo2 = '3 3 Otro';
+                                                                                      }
+
+                                                                                      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+                                                                                      final estado2 = EstadoCivil2.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+                                                                                      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+                                                                                      final parentesco2 = Parentesco2.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+
+                                                                                      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+                                                                                      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+                                                                                          .replaceAll("2", "");
+
+                                                                                      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+                                                                                        folio: int.parse(widget.folio),
+                                                                                        nombre: _nombre2.text.toString(),
+                                                                                        primerApellido: _primerApellido2.text.toString(),
+                                                                                        segundoApellido: _segundoApellido2.text.toString(),
+                                                                                        claveSexo: sexo2.substring(0, 1),
+                                                                                        ordenSexo: sexo2.substring(0, 1),
+                                                                                        sexo: _sexo2.name.toString(),
+                                                                                        fechaNacimiento: _fechaNacimiento2.text.toString(),
+                                                                                        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+                                                                                        entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                                        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                                        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                                        estadoCivil: estado2.trimLeft(),
+                                                                                        claveParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                                        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                                        parentesco: parentesco2.trimLeft(),
+                                                                                      );
+                                                                                      await dbHelper.saveEstructuraFamiliar(DModel2).then((
+                                                                                          estructuraFamilar) {
+                                                                                        alertDialog(context, "Se registro correctamente");
+                                                                                      }).catchError((error) {
+                                                                                        print(error);
+                                                                                        alertDialog(context, "Error: No se guardaron los datos");
+                                                                                      });
+
+
+
+                                                                                      String sexo3 = _sexo3.name.toString();
+                                                                                      if (sexo3 == 'hombre') {
+                                                                                        sexo3 = '1 1 Hombre';
+                                                                                      } else if (sexo3 == 'mujer') {
+                                                                                        sexo3 = '2 2 Mujer';
+                                                                                      } else if (sexo3 == 'otro') {
+                                                                                        sexo3 = '3 3 Otro';
+                                                                                      }
+
+                                                                                      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+                                                                                      final estado3 = EstadoCivil3.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+                                                                                      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+                                                                                      final parentesco3 = Parentesco3.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+
+                                                                                      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+                                                                                      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+                                                                                          .replaceAll("2", "");
+
+                                                                                      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+                                                                                        folio: int.parse(widget.folio),
+                                                                                        nombre: _nombre3.text.toString(),
+                                                                                        primerApellido: _primerApellido3.text.toString(),
+                                                                                        segundoApellido: _segundoApellido3.text.toString(),
+                                                                                        claveSexo: sexo3.substring(0, 1),
+                                                                                        ordenSexo: sexo3.substring(0, 1),
+                                                                                        sexo: _sexo3.name.toString(),
+                                                                                        fechaNacimiento: _fechaNacimiento3.text.toString(),
+                                                                                        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+                                                                                        entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                                        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                                        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                                        estadoCivil: estado3.trimLeft(),
+                                                                                        claveParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                                        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                                        parentesco: parentesco3.trimLeft(),
+                                                                                      );
+                                                                                      await dbHelper.saveEstructuraFamiliar(DModel3).then((
+                                                                                          estructuraFamilar) {
+                                                                                        alertDialog(context, "Se registro correctamente");
+                                                                                      }).catchError((error) {
+                                                                                        print(error);
+                                                                                        alertDialog(context, "Error: No se guardaron los datos");
+                                                                                      });
+
+
+                                                                                      String sexo4 = _sexo4.name.toString();
+                                                                                      if (sexo4 == 'hombre') {
+                                                                                        sexo4 = '1 1 Hombre';
+                                                                                      } else if (sexo4 == 'mujer') {
+                                                                                        sexo4 = '2 2 Mujer';
+                                                                                      } else if (sexo4 == 'otro') {
+                                                                                        sexo4 = '3 3 Otro';
+                                                                                      }
+                                                                                      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+                                                                                      final estado4 = EstadoCivil4.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+                                                                                      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+                                                                                      final parentesco4 = Parentesco4.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+
+                                                                                      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+                                                                                      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+                                                                                          .replaceAll("2", "");
+
+
+                                                                                      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+                                                                                        folio: int.parse(widget.folio),
+                                                                                        nombre: _nombre4.text.toString(),
+                                                                                        primerApellido: _primerApellido4.text.toString(),
+                                                                                        segundoApellido: _segundoApellido4.text.toString(),
+                                                                                        claveSexo: sexo4.substring(0, 1),
+                                                                                        ordenSexo: sexo4.substring(0, 1),
+                                                                                        sexo: _sexo4.name.toString(),
+                                                                                        fechaNacimiento: _fechaNacimiento4.text.toString(),
+                                                                                        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+                                                                                        entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                                        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                                        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                                        estadoCivil: estado4.trimLeft(),
+                                                                                        claveParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                                        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                                        parentesco: parentesco4.trimLeft(),
+                                                                                      );
+                                                                                      await dbHelper.saveEstructuraFamiliar(DModel4).then((
+                                                                                          estructuraFamilar) {
+                                                                                        alertDialog(context, "Se registro correctamente");
+
+                                                                                      }).catchError((error) {
+                                                                                        print(error);
+                                                                                        alertDialog(context, "Error: No se guardaron los datos");
+                                                                                      });
+
+
+                                                                                      String sexo5 = _sexo5.name.toString();
+                                                                                      if (sexo5 == 'hombre') {
+                                                                                        sexo5 = '1 1 Hombre';
+                                                                                      } else if (sexo5 == 'mujer') {
+                                                                                        sexo5 = '2 2 Mujer';
+                                                                                      } else if (sexo5 == 'otro') {
+                                                                                        sexo5 = '3 3 Otro';
+                                                                                      }
+
+
+
+
+
+                                                                                      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+                                                                                      final estado5 = EstadoCivil5.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+                                                                                      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+                                                                                      final parentesco5 = Parentesco5.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+
+                                                                                      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+                                                                                      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+                                                                                          .replaceAll("2", "");
+
+                                                                                      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+                                                                                        folio: int.parse(widget.folio),
+                                                                                        nombre: _nombre5.text.toString(),
+                                                                                        primerApellido: _primerApellido5.text.toString(),
+                                                                                        segundoApellido: _segundoApellido5.text.toString(),
+                                                                                        claveSexo: sexo5.substring(0, 1),
+                                                                                        ordenSexo: sexo5.substring(0, 1),
+                                                                                        sexo: _sexo5.name.toString(),
+                                                                                        fechaNacimiento: _fechaNacimiento5.text.toString(),
+                                                                                        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+                                                                                        entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                                        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                                        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                                        estadoCivil: estado5.trimLeft(),
+                                                                                        claveParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                                        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                                        parentesco: parentesco5.trimLeft(),
+                                                                                      );
+                                                                                      await dbHelper.saveEstructuraFamiliar(DModel5).then((
+                                                                                          estructuraFamilar) {
+                                                                                        alertDialog(context, "Se registro correctamente");
+
+                                                                                      }).catchError((error) {
+                                                                                        print(error);
+                                                                                        alertDialog(context, "Error: No se guardaron los datos");
+                                                                                      });
+
+
+
+                                                                                      String sexo6 = _sexo6.name.toString();
+                                                                                      if (sexo6 == 'hombre') {
+                                                                                        sexo6 = '1 1 Hombre';
+                                                                                      } else if (sexo6 == 'mujer') {
+                                                                                        sexo6 = '2 2 Mujer';
+                                                                                      } else if (sexo6 == 'otro') {
+                                                                                        sexo6 = '3 3 Otro';
+                                                                                      }
+
+                                                                                      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+                                                                                      final estado6 = EstadoCivil6.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+                                                                                      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+                                                                                      final parentesco6 = Parentesco6.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+
+                                                                                      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+                                                                                      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+                                                                                          .replaceAll("2", "");
+
+
+                                                                                      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+                                                                                        folio: int.parse(widget.folio),
+                                                                                        nombre: _nombre6.text.toString(),
+                                                                                        primerApellido: _primerApellido6.text.toString(),
+                                                                                        segundoApellido: _segundoApellido6.text.toString(),
+                                                                                        claveSexo: sexo6.substring(0, 1),
+                                                                                        ordenSexo: sexo6.substring(0, 1),
+                                                                                        sexo: _sexo6.name.toString(),
+                                                                                        fechaNacimiento: _fechaNacimiento6.text.toString(),
+                                                                                        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+                                                                                        entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                                        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                                        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                                        estadoCivil: estado6.trimLeft(),
+                                                                                        claveParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                                        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                                        parentesco: parentesco6.trimLeft(),
+                                                                                      );
+                                                                                      await dbHelper.saveEstructuraFamiliar(DModel6).then((
+                                                                                          estructuraFamilar) {
+                                                                                        alertDialog(context, "Se registro correctamente");
+                                                                                      }).catchError((error) {
+                                                                                        print(error);
+                                                                                        alertDialog(context, "Error: No se guardaron los datos");
+                                                                                      });
+
+
+
+                                                                                      String sexo7 = _sexo7.name.toString();
+                                                                                      if (sexo7 == 'hombre') {
+                                                                                        sexo7 = '1 1 Hombre';
+                                                                                      } else if (sexo7 == 'mujer') {
+                                                                                        sexo7 = '2 2 Mujer';
+                                                                                      } else if (sexo7 == 'otro') {
+                                                                                        sexo7 = '3 3 Otro';
+                                                                                      }
+
+                                                                                      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+                                                                                      final estado7 = EstadoCivil7.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+                                                                                      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+                                                                                      final parentesco7 = Parentesco7.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+
+                                                                                      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+                                                                                      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+                                                                                          .replaceAll("2", "");
+
+                                                                                      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+                                                                                        folio: int.parse(widget.folio),
+                                                                                        nombre: _nombre7.text.toString(),
+                                                                                        primerApellido: _primerApellido7.text.toString(),
+                                                                                        segundoApellido: _segundoApellido7.text.toString(),
+                                                                                        claveSexo: sexo7.substring(0, 1),
+                                                                                        ordenSexo: sexo7.substring(0, 1),
+                                                                                        sexo: _sexo7.name.toString(),
+                                                                                        fechaNacimiento: _fechaNacimiento7.text.toString(),
+                                                                                        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+                                                                                        entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+                                                                                        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+                                                                                        estadoCivil: estado7.trimLeft(),
+                                                                                        claveParentesco: _parentesco7.text.toString().substring(0, 1),
+                                                                                        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+                                                                                        parentesco: parentesco7.trimLeft(),
+                                                                                      );
+                                                                                      await dbHelper.saveEstructuraFamiliar(DModel7).then((
+                                                                                          estructuraFamilar) {
+                                                                                        alertDialog(context, "Se registro correctamente");
+
+                                                                                      }).catchError((error) {
+                                                                                        print(error);
+                                                                                        alertDialog(context, "Error: No se guardaron los datos");
+                                                                                      });
+
+
+                                                                                      String sexo8 = _sexo8.name.toString();
+                                                                                      if (sexo8 == 'hombre') {
+                                                                                        sexo8 = '1 1 Hombre';
+                                                                                      } else if (sexo8 == 'mujer') {
+                                                                                        sexo8 = '2 2 Mujer';
+                                                                                      } else if (sexo8 == 'otro') {
+                                                                                        sexo8 = '3 3 Otro';
+                                                                                      }
+
+                                                                                      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
+                                                                                      final estado8 = EstadoCivil8.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+                                                                                      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
+                                                                                      final parentesco8 = Parentesco8.replaceAll("1", "")
+                                                                                          .replaceAll("2", "")
+                                                                                          .replaceAll("3", "")
+                                                                                          .replaceAll("4", "")
+                                                                                          .replaceAll("5", "")
+                                                                                          .replaceAll("6", "")
+                                                                                          .replaceAll("7", "")
+                                                                                          .replaceAll("8", "")
+                                                                                          .replaceAll("9", "")
+                                                                                          .replaceAll("0", "");
+
+                                                                                      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
+                                                                                      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
+                                                                                          .replaceAll("2", "");
+
+
+                                                                                      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
+                                                                                        folio: int.parse(widget.folio),
+                                                                                        nombre: _nombre8.text.toString(),
+                                                                                        primerApellido: _primerApellido8.text.toString(),
+                                                                                        segundoApellido: _segundoApellido8.text.toString(),
+                                                                                        claveSexo: sexo8.substring(0, 1),
+                                                                                        ordenSexo: sexo8.substring(0, 1),
+                                                                                        sexo: _sexo8.name.toString(),
+                                                                                        fechaNacimiento: _fechaNacimiento8.text.toString(),
+                                                                                        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+                                                                                        entidadNacimiento: entidadNacimiento8.trimLeft(),
+                                                                                        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+                                                                                        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+                                                                                        estadoCivil: estado8.trimLeft(),
+                                                                                        claveParentesco: _parentesco8.text.toString().substring(0, 1),
+                                                                                        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+                                                                                        parentesco: parentesco8.trimLeft(),
+                                                                                      );
+                                                                                      await dbHelper.saveEstructuraFamiliar(DModel8).then((
+                                                                                          estructuraFamilar) {
+                                                                                        alertDialog(context, "Se registro correctamente");
+                                                                                        Navigator.of(context)
+                                                                                            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                                                                                          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                                                                                        }));
+                                                                                      }).catchError((error) {
+                                                                                        print(error);
+                                                                                        alertDialog(context, "Error: No se guardaron los datos");
+                                                                                      });
+                                                                                    } else {
+                                                                                      alertDialog(context, "El año en la fecha no corresponde");
+                                                                                    }
+                                                                                  } else {
+                                                                                    alertDialog(
+                                                                                        context, "El mes seleccionado en la fecha no es correcto");
+                                                                                  }
+                                                                                } else {
+                                                                                  alertDialog(
+                                                                                      context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                                }
+                                                                              } else {
+                                                                                alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                              }
+                                                                            }else{
+                                                                              alertDialog(context, "La fecha se encuentra basia");
+                                                                            }
+
+                                                                          } else {
+                                                                            alertDialog(context, "El año en la fecha no corresponde");
+                                                                          }
+                                                                        } else {
+                                                                          alertDialog(
+                                                                              context, "El mes seleccionado en la fecha no es correcto");
+                                                                        }
+                                                                      } else {
+                                                                        alertDialog(
+                                                                            context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                      }
+                                                                    } else {
+                                                                      alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                    }
+                                                                  }else{
+                                                                    alertDialog(context, "La fecha se encuentra basia");
+                                                                  }
+
+                                                                } else {
+                                                                  alertDialog(context, "El año en la fecha no corresponde");
+                                                                }
+                                                              } else {
+                                                                alertDialog(
+                                                                    context, "El mes seleccionado en la fecha no es correcto");
+                                                              }
+                                                            } else {
+                                                              alertDialog(
+                                                                  context, "Los dias seleccionados en la fecha no son correcotos");
+                                                            }
+                                                          } else {
+                                                            alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                          }
+                                                        }else{
+                                                          alertDialog(context, "La fecha se encuentra basia");
+                                                        }
+
+                                                      } else {
+                                                        alertDialog(context, "El año en la fecha no corresponde");
+                                                      }
+                                                    } else {
+                                                      alertDialog(
+                                                          context, "El mes seleccionado en la fecha no es correcto");
+                                                    }
+                                                  } else {
+                                                    alertDialog(
+                                                        context, "Los dias seleccionados en la fecha no son correcotos");
+                                                  }
+                                                } else {
+                                                  alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                }
+                                              }else{
+                                                alertDialog(context, "La fecha se encuentra basia");
+                                              }
+
+                                            } else {
+                                              alertDialog(context, "El año en la fecha no corresponde");
+                                            }
+                                          } else {
+                                            alertDialog(
+                                                context, "El mes seleccionado en la fecha no es correcto");
+                                          }
+                                        } else {
+                                          alertDialog(
+                                              context, "Los dias seleccionados en la fecha no son correcotos");
+                                        }
+                                      } else {
+                                        alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                      }
+                                    }else{
+                                      alertDialog(context, "La fecha se encuentra basia");
+                                    }
+
+                                  } else {
+                                    alertDialog(context, "El año en la fecha no corresponde");
+                                  }
+                                } else {
+                                  alertDialog(
+                                      context, "El mes seleccionado en la fecha no es correcto");
+                                }
+                              } else {
+                                alertDialog(
+                                    context, "Los dias seleccionados en la fecha no son correcotos");
+                              }
+                            } else {
+                              alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                            }
+                          }else{
+                            alertDialog(context, "La fecha se encuentra basia");
+                          }
+                        } else {
+                          alertDialog(context, "El año en la fecha no corresponde");
+                        }
+                      } else {
+                        alertDialog(
+                            context, "El mes seleccionado en la fecha no es correcto");
+                      }
+                    } else {
+                      alertDialog(
+                          context, "Los dias seleccionados en la fecha no son correcotos");
+                    }
+                  } else {
+                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                  }
+                }else{
+                  alertDialog(context, "La fecha se encuentra basia");
+                }
+
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
       }
 
-      String sexo2 = _sexo2.name.toString();
-      if (sexo2 == 'hombre') {
-        sexo2 = '1 1 Hombre';
-      } else if (sexo2 == 'mujer') {
-        sexo2 = '2 2 Mujer';
-      } else if (sexo2 == 'otro') {
-        sexo2 = '3 3 Otro';
-      }
-
-      String sexo3 = _sexo3.name.toString();
-      if (sexo3 == 'hombre') {
-        sexo3 = '1 1 Hombre';
-      } else if (sexo3 == 'mujer') {
-        sexo3 = '2 2 Mujer';
-      } else if (sexo3 == 'otro') {
-        sexo3 = '3 3 Otro';
-      }
-
-      String sexo4 = _sexo4.name.toString();
-      if (sexo4 == 'hombre') {
-        sexo4 = '1 1 Hombre';
-      } else if (sexo4 == 'mujer') {
-        sexo4 = '2 2 Mujer';
-      } else if (sexo4 == 'otro') {
-        sexo4 = '3 3 Otro';
-      }
-
-      String sexo5 = _sexo5.name.toString();
-      if (sexo5 == 'hombre') {
-        sexo5 = '1 1 Hombre';
-      } else if (sexo5 == 'mujer') {
-        sexo5 = '2 2 Mujer';
-      } else if (sexo5 == 'otro') {
-        sexo5 = '3 3 Otro';
-      }
-
-      String sexo6 = _sexo6.name.toString();
-      if (sexo6 == 'hombre') {
-        sexo6 = '1 1 Hombre';
-      } else if (sexo6 == 'mujer') {
-        sexo6 = '2 2 Mujer';
-      } else if (sexo6 == 'otro') {
-        sexo6 = '3 3 Otro';
-      }
-
-      String sexo7 = _sexo7.name.toString();
-      if (sexo7 == 'hombre') {
-        sexo7 = '1 1 Hombre';
-      } else if (sexo7 == 'mujer') {
-        sexo7 = '2 2 Mujer';
-      } else if (sexo7 == 'otro') {
-        sexo7 = '3 3 Otro';
-      }
-
-      String sexo8 = _sexo8.name.toString();
-      if (sexo8 == 'hombre') {
-        sexo8 = '1 1 Hombre';
-      } else if (sexo8 == 'mujer') {
-        sexo8 = '2 2 Mujer';
-      } else if (sexo8 == 'otro') {
-        sexo8 = '3 3 Otro';
-      }
 
 
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
-      final estado2 = EstadoCivil2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
-      final parentesco2 = Parentesco2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
-      final estado3 = EstadoCivil3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
-      final parentesco3 = Parentesco3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
-      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
-      final estado4 = EstadoCivil4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
-      final parentesco4 = Parentesco4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
-      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
-      final estado5 = EstadoCivil5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
-      final parentesco5 = Parentesco5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
-      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
-      final estado6 = EstadoCivil6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
-      final parentesco6 = Parentesco6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
-      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
-      final estado7 = EstadoCivil7.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
-      final parentesco7 = Parentesco7.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
-      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
-      final estado8 = EstadoCivil8.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
-      final parentesco8 = Parentesco8.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
-      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
-      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre2.text.toString(),
-        primerApellido: _primerApellido2.text.toString(),
-        segundoApellido: _segundoApellido2.text.toString(),
-        claveSexo: sexo2.substring(0, 1),
-        ordenSexo: sexo2.substring(0, 1),
-        sexo: _sexo2.name.toString(),
-        fechaNacimiento: _fechaNacimiento2.text.toString(),
-        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento2.trimLeft(),
-        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        estadoCivil: estado2.trimLeft(),
-        claveParentesco: _parentesco2.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-        parentesco: parentesco2.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre3.text.toString(),
-        primerApellido: _primerApellido3.text.toString(),
-        segundoApellido: _segundoApellido3.text.toString(),
-        claveSexo: sexo3.substring(0, 1),
-        ordenSexo: sexo3.substring(0, 1),
-        sexo: _sexo3.name.toString(),
-        fechaNacimiento: _fechaNacimiento3.text.toString(),
-        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento3.trimLeft(),
-        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        estadoCivil: estado3.trimLeft(),
-        claveParentesco: _parentesco3.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-        parentesco: parentesco3.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre4.text.toString(),
-        primerApellido: _primerApellido4.text.toString(),
-        segundoApellido: _segundoApellido4.text.toString(),
-        claveSexo: sexo4.substring(0, 1),
-        ordenSexo: sexo4.substring(0, 1),
-        sexo: _sexo4.name.toString(),
-        fechaNacimiento: _fechaNacimiento4.text.toString(),
-        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento4.trimLeft(),
-        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        estadoCivil: estado4.trimLeft(),
-        claveParentesco: _parentesco4.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-        parentesco: parentesco4.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
-          estructuraFamilar) {
-
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre5.text.toString(),
-        primerApellido: _primerApellido5.text.toString(),
-        segundoApellido: _segundoApellido5.text.toString(),
-        claveSexo: sexo5.substring(0, 1),
-        ordenSexo: sexo5.substring(0, 1),
-        sexo: _sexo5.name.toString(),
-        fechaNacimiento: _fechaNacimiento5.text.toString(),
-        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento5.trimLeft(),
-        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        estadoCivil: estado5.trimLeft(),
-        claveParentesco: _parentesco5.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-        parentesco: parentesco5.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre6.text.toString(),
-        primerApellido: _primerApellido6.text.toString(),
-        segundoApellido: _segundoApellido6.text.toString(),
-        claveSexo: sexo6.substring(0, 1),
-        ordenSexo: sexo6.substring(0, 1),
-        sexo: _sexo6.name.toString(),
-        fechaNacimiento: _fechaNacimiento6.text.toString(),
-        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento6.trimLeft(),
-        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        estadoCivil: estado6.trimLeft(),
-        claveParentesco: _parentesco6.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-        parentesco: parentesco6.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel6).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-
-      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre7.text.toString(),
-        primerApellido: _primerApellido7.text.toString(),
-        segundoApellido: _segundoApellido7.text.toString(),
-        claveSexo: sexo7.substring(0, 1),
-        ordenSexo: sexo7.substring(0, 1),
-        sexo: _sexo7.name.toString(),
-        fechaNacimiento: _fechaNacimiento7.text.toString(),
-        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento7.trimLeft(),
-        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-        estadoCivil: estado7.trimLeft(),
-        claveParentesco: _parentesco7.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
-        parentesco: parentesco7.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel7).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre8.text.toString(),
-        primerApellido: _primerApellido8.text.toString(),
-        segundoApellido: _segundoApellido8.text.toString(),
-        claveSexo: sexo8.substring(0, 1),
-        ordenSexo: sexo8.substring(0, 1),
-        sexo: _sexo8.name.toString(),
-        fechaNacimiento: _fechaNacimiento8.text.toString(),
-        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento8.trimLeft(),
-        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-        estadoCivil: estado8.trimLeft(),
-        claveParentesco: _parentesco8.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
-        parentesco: parentesco8.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel8).then((
-          estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
 
     }else if(_nombre10.text.toString().isEmpty){
 
-      String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
-        sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
-        sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
-        sexo1 = '3 3 Otro';
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                if(!_fechaNacimiento2.text.isEmpty) {
+                  if (_fechaNacimiento2.text.length == 10) {
+                    if (int.parse(_fechaNacimiento2.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento2.text.substring(0, 2)) <= 31) {
+                      if (int.parse(_fechaNacimiento2.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento2.text.substring(3,5)) <= 12) {
+                        if (int.parse(_fechaNacimiento2.text.substring(6, 10)) <= 2022) {
+                          if(!_fechaNacimiento3.text.isEmpty) {
+                            if (_fechaNacimiento3.text.length == 10) {
+                              if (int.parse(_fechaNacimiento3.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento3.text.substring(0, 2)) <= 31) {
+                                if (int.parse(_fechaNacimiento3.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento3.text.substring(3,5)) <= 12) {
+                                  if (int.parse(_fechaNacimiento3.text.substring(6, 10)) <= 2022) {
+                                    if(!_fechaNacimiento4.text.isEmpty) {
+                                      if (_fechaNacimiento4.text.length == 10) {
+                                        if (int.parse(_fechaNacimiento4.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento4.text.substring(0, 2)) <= 31) {
+                                          if (int.parse(_fechaNacimiento4.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento4.text.substring(3,5)) <= 12) {
+                                            if (int.parse(_fechaNacimiento4.text.substring(6, 10)) <= 2022) {
+                                              if(!_fechaNacimiento5.text.isEmpty) {
+                                                if (_fechaNacimiento5.text.length == 10) {
+                                                  if (int.parse(_fechaNacimiento5.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento5.text.substring(0, 2)) <= 31) {
+                                                    if (int.parse(_fechaNacimiento5.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento5.text.substring(3,5)) <= 12) {
+                                                      if (int.parse(_fechaNacimiento5.text.substring(6, 10)) <= 2022) {
+                                                        if(!_fechaNacimiento6.text.isEmpty) {
+                                                          if (_fechaNacimiento6.text.length == 10) {
+                                                            if (int.parse(_fechaNacimiento6.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento6.text.substring(0, 2)) <= 31) {
+                                                              if (int.parse(_fechaNacimiento6.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento6.text.substring(3,5)) <= 12) {
+                                                                if (int.parse(_fechaNacimiento6.text.substring(6, 10)) <= 2022) {
+                                                                  if(!_fechaNacimiento7.text.isEmpty) {
+                                                                    if (_fechaNacimiento7.text.length == 10) {
+                                                                      if (int.parse(_fechaNacimiento7.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento7.text.substring(0, 2)) <= 31) {
+                                                                        if (int.parse(_fechaNacimiento7.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento7.text.substring(3,5)) <= 12) {
+                                                                          if (int.parse(_fechaNacimiento7.text.substring(6, 10)) <= 2022) {
+                                                                            if(!_fechaNacimiento8.text.isEmpty) {
+                                                                              if (_fechaNacimiento8.text.length == 10) {
+                                                                                if (int.parse(_fechaNacimiento8.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento8.text.substring(0, 2)) <= 31) {
+                                                                                  if (int.parse(_fechaNacimiento8.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento8.text.substring(3,5)) <= 12) {
+                                                                                    if (int.parse(_fechaNacimiento8.text.substring(6, 10)) <= 2022) {
+                                                                                      if(!_fechaNacimiento9.text.isEmpty) {
+                                                                                        if (_fechaNacimiento9.text.length == 10) {
+                                                                                          if (int.parse(_fechaNacimiento9.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento9.text.substring(0, 2)) <= 31) {
+                                                                                            if (int.parse(_fechaNacimiento9.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento9.text.substring(3,5)) <= 12) {
+                                                                                              if (int.parse(_fechaNacimiento9.text.substring(6, 10)) <= 2022) {
+
+
+                                                                                                String sexo1 = _sexo1.name.toString();
+                                                                                                if(sexo1 == 'hombre')
+                                                                                                {
+                                                                                                  sexo1 = '1 1 Hombre';
+                                                                                                }else if(sexo1 == 'mujer' )
+                                                                                                {
+                                                                                                  sexo1 = '2 2 Mujer';
+                                                                                                }else if(sexo1 == 'otro' )
+                                                                                                {
+                                                                                                  sexo1 = '3 3 Otro';
+                                                                                                }
+
+                                                                                                var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                                                                                                final estado = EstadoCivil.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+                                                                                                var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                                                                                                final parentesco = Parentesco.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+
+                                                                                                var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                                                                                                final entidadNacimiento = EntidadN.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "");
+
+                                                                                                EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                                                                                                  folio: int.parse(widget.folio),
+                                                                                                  nombre: _nombre1.text.toString(),
+                                                                                                  primerApellido: _primerApellido1.text.toString(),
+                                                                                                  segundoApellido: _segundoApellido1.text.toString(),
+                                                                                                  claveSexo: sexo1.substring(0,1),
+                                                                                                  ordenSexo: sexo1.substring(0,1),
+                                                                                                  sexo: _sexo1.name.toString(),
+                                                                                                  fechaNacimiento: _fechaNacimiento1.text.toString(),
+                                                                                                  claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+                                                                                                  entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                                                  claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                                                  ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                                                  estadoCivil: estado.trimLeft(),
+                                                                                                  claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                                                  ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                                                  parentesco: parentesco.trimLeft(),
+                                                                                                );
+                                                                                                await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+                                                                                                }).catchError((error) {
+                                                                                                  print(error);
+                                                                                                  alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                });
+
+
+
+                                                                                                String sexo2 = _sexo2.name.toString();
+                                                                                                if (sexo2 == 'hombre') {
+                                                                                                  sexo2 = '1 1 Hombre';
+                                                                                                } else if (sexo2 == 'mujer') {
+                                                                                                  sexo2 = '2 2 Mujer';
+                                                                                                } else if (sexo2 == 'otro') {
+                                                                                                  sexo2 = '3 3 Otro';
+                                                                                                }
+
+                                                                                                var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+                                                                                                final estado2 = EstadoCivil2.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+                                                                                                var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+                                                                                                final parentesco2 = Parentesco2.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+
+                                                                                                var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+                                                                                                final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "");
+
+                                                                                                EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+                                                                                                  folio: int.parse(widget.folio),
+                                                                                                  nombre: _nombre2.text.toString(),
+                                                                                                  primerApellido: _primerApellido2.text.toString(),
+                                                                                                  segundoApellido: _segundoApellido2.text.toString(),
+                                                                                                  claveSexo: sexo2.substring(0, 1),
+                                                                                                  ordenSexo: sexo2.substring(0, 1),
+                                                                                                  sexo: _sexo2.name.toString(),
+                                                                                                  fechaNacimiento: _fechaNacimiento2.text.toString(),
+                                                                                                  claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+                                                                                                  entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                                                  claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                                                  ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                                                  estadoCivil: estado2.trimLeft(),
+                                                                                                  claveParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                                                  ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                                                  parentesco: parentesco2.trimLeft(),
+                                                                                                );
+                                                                                                await dbHelper.saveEstructuraFamiliar(DModel2).then((
+                                                                                                    estructuraFamilar) {
+                                                                                                  alertDialog(context, "Se registro correctamente");
+                                                                                                }).catchError((error) {
+                                                                                                  print(error);
+                                                                                                  alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                });
+
+
+                                                                                                String sexo3 = _sexo3.name.toString();
+                                                                                                if (sexo3 == 'hombre') {
+                                                                                                  sexo3 = '1 1 Hombre';
+                                                                                                } else if (sexo3 == 'mujer') {
+                                                                                                  sexo3 = '2 2 Mujer';
+                                                                                                } else if (sexo3 == 'otro') {
+                                                                                                  sexo3 = '3 3 Otro';
+                                                                                                }
+
+                                                                                                var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+                                                                                                final estado3 = EstadoCivil3.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+                                                                                                var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+                                                                                                final parentesco3 = Parentesco3.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+
+                                                                                                var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+                                                                                                final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "");
+
+                                                                                                EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+                                                                                                  folio: int.parse(widget.folio),
+                                                                                                  nombre: _nombre3.text.toString(),
+                                                                                                  primerApellido: _primerApellido3.text.toString(),
+                                                                                                  segundoApellido: _segundoApellido3.text.toString(),
+                                                                                                  claveSexo: sexo3.substring(0, 1),
+                                                                                                  ordenSexo: sexo3.substring(0, 1),
+                                                                                                  sexo: _sexo3.name.toString(),
+                                                                                                  fechaNacimiento: _fechaNacimiento3.text.toString(),
+                                                                                                  claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+                                                                                                  entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                                                  claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                                                  ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                                                  estadoCivil: estado3.trimLeft(),
+                                                                                                  claveParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                                                  ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                                                  parentesco: parentesco3.trimLeft(),
+                                                                                                );
+                                                                                                await dbHelper.saveEstructuraFamiliar(DModel3).then((
+                                                                                                    estructuraFamilar) {
+                                                                                                  alertDialog(context, "Se registro correctamente");
+                                                                                                }).catchError((error) {
+                                                                                                  print(error);
+                                                                                                  alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                });
+
+
+                                                                                                String sexo4 = _sexo4.name.toString();
+                                                                                                if (sexo4 == 'hombre') {
+                                                                                                  sexo4 = '1 1 Hombre';
+                                                                                                } else if (sexo4 == 'mujer') {
+                                                                                                  sexo4 = '2 2 Mujer';
+                                                                                                } else if (sexo4 == 'otro') {
+                                                                                                  sexo4 = '3 3 Otro';
+                                                                                                }
+                                                                                                var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+                                                                                                final estado4 = EstadoCivil4.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+                                                                                                var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+                                                                                                final parentesco4 = Parentesco4.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+
+                                                                                                var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+                                                                                                final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "");
+
+
+                                                                                                EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+                                                                                                  folio: int.parse(widget.folio),
+                                                                                                  nombre: _nombre4.text.toString(),
+                                                                                                  primerApellido: _primerApellido4.text.toString(),
+                                                                                                  segundoApellido: _segundoApellido4.text.toString(),
+                                                                                                  claveSexo: sexo4.substring(0, 1),
+                                                                                                  ordenSexo: sexo4.substring(0, 1),
+                                                                                                  sexo: _sexo4.name.toString(),
+                                                                                                  fechaNacimiento: _fechaNacimiento4.text.toString(),
+                                                                                                  claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+                                                                                                  entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                                                  claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                                                  ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                                                  estadoCivil: estado4.trimLeft(),
+                                                                                                  claveParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                                                  ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                                                  parentesco: parentesco4.trimLeft(),
+                                                                                                );
+                                                                                                await dbHelper.saveEstructuraFamiliar(DModel4).then((
+                                                                                                    estructuraFamilar) {
+                                                                                                  alertDialog(context, "Se registro correctamente");
+
+                                                                                                }).catchError((error) {
+                                                                                                  print(error);
+                                                                                                  alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                });
+
+
+                                                                                                String sexo5 = _sexo5.name.toString();
+                                                                                                if (sexo5 == 'hombre') {
+                                                                                                  sexo5 = '1 1 Hombre';
+                                                                                                } else if (sexo5 == 'mujer') {
+                                                                                                  sexo5 = '2 2 Mujer';
+                                                                                                } else if (sexo5 == 'otro') {
+                                                                                                  sexo5 = '3 3 Otro';
+                                                                                                }
+
+
+
+
+
+                                                                                                var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+                                                                                                final estado5 = EstadoCivil5.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+                                                                                                var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+                                                                                                final parentesco5 = Parentesco5.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+
+                                                                                                var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+                                                                                                final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "");
+
+                                                                                                EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+                                                                                                  folio: int.parse(widget.folio),
+                                                                                                  nombre: _nombre5.text.toString(),
+                                                                                                  primerApellido: _primerApellido5.text.toString(),
+                                                                                                  segundoApellido: _segundoApellido5.text.toString(),
+                                                                                                  claveSexo: sexo5.substring(0, 1),
+                                                                                                  ordenSexo: sexo5.substring(0, 1),
+                                                                                                  sexo: _sexo5.name.toString(),
+                                                                                                  fechaNacimiento: _fechaNacimiento5.text.toString(),
+                                                                                                  claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+                                                                                                  entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                                                  claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                                                  ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                                                  estadoCivil: estado5.trimLeft(),
+                                                                                                  claveParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                                                  ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                                                  parentesco: parentesco5.trimLeft(),
+                                                                                                );
+                                                                                                await dbHelper.saveEstructuraFamiliar(DModel5).then((
+                                                                                                    estructuraFamilar) {
+                                                                                                  alertDialog(context, "Se registro correctamente");
+
+                                                                                                }).catchError((error) {
+                                                                                                  print(error);
+                                                                                                  alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                });
+
+
+
+                                                                                                String sexo6 = _sexo6.name.toString();
+                                                                                                if (sexo6 == 'hombre') {
+                                                                                                  sexo6 = '1 1 Hombre';
+                                                                                                } else if (sexo6 == 'mujer') {
+                                                                                                  sexo6 = '2 2 Mujer';
+                                                                                                } else if (sexo6 == 'otro') {
+                                                                                                  sexo6 = '3 3 Otro';
+                                                                                                }
+
+                                                                                                var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+                                                                                                final estado6 = EstadoCivil6.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+                                                                                                var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+                                                                                                final parentesco6 = Parentesco6.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+
+                                                                                                var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+                                                                                                final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "");
+
+
+                                                                                                EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+                                                                                                  folio: int.parse(widget.folio),
+                                                                                                  nombre: _nombre6.text.toString(),
+                                                                                                  primerApellido: _primerApellido6.text.toString(),
+                                                                                                  segundoApellido: _segundoApellido6.text.toString(),
+                                                                                                  claveSexo: sexo6.substring(0, 1),
+                                                                                                  ordenSexo: sexo6.substring(0, 1),
+                                                                                                  sexo: _sexo6.name.toString(),
+                                                                                                  fechaNacimiento: _fechaNacimiento6.text.toString(),
+                                                                                                  claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+                                                                                                  entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                                                  claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                                                  ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                                                  estadoCivil: estado6.trimLeft(),
+                                                                                                  claveParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                                                  ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                                                  parentesco: parentesco6.trimLeft(),
+                                                                                                );
+                                                                                                await dbHelper.saveEstructuraFamiliar(DModel6).then((
+                                                                                                    estructuraFamilar) {
+                                                                                                  alertDialog(context, "Se registro correctamente");
+                                                                                                }).catchError((error) {
+                                                                                                  print(error);
+                                                                                                  alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                });
+
+
+
+                                                                                                String sexo7 = _sexo7.name.toString();
+                                                                                                if (sexo7 == 'hombre') {
+                                                                                                  sexo7 = '1 1 Hombre';
+                                                                                                } else if (sexo7 == 'mujer') {
+                                                                                                  sexo7 = '2 2 Mujer';
+                                                                                                } else if (sexo7 == 'otro') {
+                                                                                                  sexo7 = '3 3 Otro';
+                                                                                                }
+
+                                                                                                var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+                                                                                                final estado7 = EstadoCivil7.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+                                                                                                var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+                                                                                                final parentesco7 = Parentesco7.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+
+                                                                                                var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+                                                                                                final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "");
+
+                                                                                                EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+                                                                                                  folio: int.parse(widget.folio),
+                                                                                                  nombre: _nombre7.text.toString(),
+                                                                                                  primerApellido: _primerApellido7.text.toString(),
+                                                                                                  segundoApellido: _segundoApellido7.text.toString(),
+                                                                                                  claveSexo: sexo7.substring(0, 1),
+                                                                                                  ordenSexo: sexo7.substring(0, 1),
+                                                                                                  sexo: _sexo7.name.toString(),
+                                                                                                  fechaNacimiento: _fechaNacimiento7.text.toString(),
+                                                                                                  claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+                                                                                                  entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                                  claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+                                                                                                  ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+                                                                                                  estadoCivil: estado7.trimLeft(),
+                                                                                                  claveParentesco: _parentesco7.text.toString().substring(0, 1),
+                                                                                                  ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+                                                                                                  parentesco: parentesco7.trimLeft(),
+                                                                                                );
+                                                                                                await dbHelper.saveEstructuraFamiliar(DModel7).then((
+                                                                                                    estructuraFamilar) {
+                                                                                                  alertDialog(context, "Se registro correctamente");
+
+                                                                                                }).catchError((error) {
+                                                                                                  print(error);
+                                                                                                  alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                });
+
+
+                                                                                                String sexo8 = _sexo8.name.toString();
+                                                                                                if (sexo8 == 'hombre') {
+                                                                                                  sexo8 = '1 1 Hombre';
+                                                                                                } else if (sexo8 == 'mujer') {
+                                                                                                  sexo8 = '2 2 Mujer';
+                                                                                                } else if (sexo8 == 'otro') {
+                                                                                                  sexo8 = '3 3 Otro';
+                                                                                                }
+
+                                                                                                var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
+                                                                                                final estado8 = EstadoCivil8.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+                                                                                                var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
+                                                                                                final parentesco8 = Parentesco8.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+
+                                                                                                var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
+                                                                                                final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "");
+
+
+                                                                                                EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
+                                                                                                  folio: int.parse(widget.folio),
+                                                                                                  nombre: _nombre8.text.toString(),
+                                                                                                  primerApellido: _primerApellido8.text.toString(),
+                                                                                                  segundoApellido: _segundoApellido8.text.toString(),
+                                                                                                  claveSexo: sexo8.substring(0, 1),
+                                                                                                  ordenSexo: sexo8.substring(0, 1),
+                                                                                                  sexo: _sexo8.name.toString(),
+                                                                                                  fechaNacimiento: _fechaNacimiento8.text.toString(),
+                                                                                                  claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+                                                                                                  entidadNacimiento: entidadNacimiento8.trimLeft(),
+                                                                                                  claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+                                                                                                  ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+                                                                                                  estadoCivil: estado8.trimLeft(),
+                                                                                                  claveParentesco: _parentesco8.text.toString().substring(0, 1),
+                                                                                                  ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+                                                                                                  parentesco: parentesco8.trimLeft(),
+                                                                                                );
+                                                                                                await dbHelper.saveEstructuraFamiliar(DModel8).then((
+                                                                                                    estructuraFamilar) {
+                                                                                                  alertDialog(context, "Se registro correctamente");
+                                                                                                }).catchError((error) {
+                                                                                                  print(error);
+                                                                                                  alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                });
+
+
+                                                                                                String sexo9 = _sexo9.name.toString();
+                                                                                                if (sexo9 == 'hombre') {
+                                                                                                  sexo9 = '1 1 Hombre';
+                                                                                                } else if (sexo9 == 'mujer') {
+                                                                                                  sexo9 = '2 2 Mujer';
+                                                                                                } else if (sexo9 == 'otro') {
+                                                                                                  sexo9 = '3 3 Otro';
+                                                                                                }
+                                                                                                var EstadoCivil9 = _estadoCivil9.text.toString(); // 'artlang'
+                                                                                                final estado9 = EstadoCivil9.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+                                                                                                var Parentesco9 = _parentesco9.text.toString(); // 'artlang'
+                                                                                                final parentesco9 = Parentesco9.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "")
+                                                                                                    .replaceAll("3", "")
+                                                                                                    .replaceAll("4", "")
+                                                                                                    .replaceAll("5", "")
+                                                                                                    .replaceAll("6", "")
+                                                                                                    .replaceAll("7", "")
+                                                                                                    .replaceAll("8", "")
+                                                                                                    .replaceAll("9", "")
+                                                                                                    .replaceAll("0", "");
+
+                                                                                                var EntidadN9 = _entidadNacimiento9.text.toString(); // 'artlang'
+                                                                                                final entidadNacimiento9 = EntidadN9.replaceAll("1", "")
+                                                                                                    .replaceAll("2", "");
+
+                                                                                                EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
+                                                                                                  folio: int.parse(widget.folio),
+                                                                                                  nombre: _nombre9.text.toString(),
+                                                                                                  primerApellido: _primerApellido9.text.toString(),
+                                                                                                  segundoApellido: _segundoApellido9.text.toString(),
+                                                                                                  claveSexo: sexo9.substring(0, 1),
+                                                                                                  ordenSexo: sexo9.substring(0, 1),
+                                                                                                  sexo: _sexo9.name.toString(),
+                                                                                                  fechaNacimiento: _fechaNacimiento9.text.toString(),
+                                                                                                  claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
+                                                                                                  entidadNacimiento: entidadNacimiento9.trimLeft(),
+                                                                                                  claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+                                                                                                  ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+                                                                                                  estadoCivil: estado9.trimLeft(),
+                                                                                                  claveParentesco: _parentesco9.text.toString().substring(0, 1),
+                                                                                                  ordenParentesco: _parentesco9.text.toString().substring(0, 1),
+                                                                                                  parentesco: parentesco9.trimLeft(),
+                                                                                                );
+                                                                                                await dbHelper.saveEstructuraFamiliar(DModel9).then((
+                                                                                                    estructuraFamilar) {
+                                                                                                  alertDialog(context, "Se registro correctamente");
+                                                                                                  Navigator.of(context)
+                                                                                                      .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                                                                                                    return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                                                                                                  }));
+                                                                                                }).catchError((error) {
+                                                                                                  print(error);
+                                                                                                  alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                });
+
+
+                                                                                              } else {
+                                                                                                alertDialog(context, "El año en la fecha no corresponde");
+                                                                                              }
+                                                                                            } else {
+                                                                                              alertDialog(
+                                                                                                  context, "El mes seleccionado en la fecha no es correcto");
+                                                                                            }
+                                                                                          } else {
+                                                                                            alertDialog(
+                                                                                                context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                                          }
+                                                                                        } else {
+                                                                                          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                                        }
+                                                                                      }else{
+                                                                                        alertDialog(context, "La fecha se encuentra basia");
+                                                                                      }
+
+                                                                                    } else {
+                                                                                      alertDialog(context, "El año en la fecha no corresponde");
+                                                                                    }
+                                                                                  } else {
+                                                                                    alertDialog(
+                                                                                        context, "El mes seleccionado en la fecha no es correcto");
+                                                                                  }
+                                                                                } else {
+                                                                                  alertDialog(
+                                                                                      context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                                }
+                                                                              } else {
+                                                                                alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                              }
+                                                                            }else{
+                                                                              alertDialog(context, "La fecha se encuentra basia");
+                                                                            }
+
+                                                                          } else {
+                                                                            alertDialog(context, "El año en la fecha no corresponde");
+                                                                          }
+                                                                        } else {
+                                                                          alertDialog(
+                                                                              context, "El mes seleccionado en la fecha no es correcto");
+                                                                        }
+                                                                      } else {
+                                                                        alertDialog(
+                                                                            context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                      }
+                                                                    } else {
+                                                                      alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                    }
+                                                                  }else{
+                                                                    alertDialog(context, "La fecha se encuentra basia");
+                                                                  }
+
+                                                                } else {
+                                                                  alertDialog(context, "El año en la fecha no corresponde");
+                                                                }
+                                                              } else {
+                                                                alertDialog(
+                                                                    context, "El mes seleccionado en la fecha no es correcto");
+                                                              }
+                                                            } else {
+                                                              alertDialog(
+                                                                  context, "Los dias seleccionados en la fecha no son correcotos");
+                                                            }
+                                                          } else {
+                                                            alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                          }
+                                                        }else{
+                                                          alertDialog(context, "La fecha se encuentra basia");
+                                                        }
+
+                                                      } else {
+                                                        alertDialog(context, "El año en la fecha no corresponde");
+                                                      }
+                                                    } else {
+                                                      alertDialog(
+                                                          context, "El mes seleccionado en la fecha no es correcto");
+                                                    }
+                                                  } else {
+                                                    alertDialog(
+                                                        context, "Los dias seleccionados en la fecha no son correcotos");
+                                                  }
+                                                } else {
+                                                  alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                }
+                                              }else{
+                                                alertDialog(context, "La fecha se encuentra basia");
+                                              }
+
+                                            } else {
+                                              alertDialog(context, "El año en la fecha no corresponde");
+                                            }
+                                          } else {
+                                            alertDialog(
+                                                context, "El mes seleccionado en la fecha no es correcto");
+                                          }
+                                        } else {
+                                          alertDialog(
+                                              context, "Los dias seleccionados en la fecha no son correcotos");
+                                        }
+                                      } else {
+                                        alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                      }
+                                    }else{
+                                      alertDialog(context, "La fecha se encuentra basia");
+                                    }
+
+                                  } else {
+                                    alertDialog(context, "El año en la fecha no corresponde");
+                                  }
+                                } else {
+                                  alertDialog(
+                                      context, "El mes seleccionado en la fecha no es correcto");
+                                }
+                              } else {
+                                alertDialog(
+                                    context, "Los dias seleccionados en la fecha no son correcotos");
+                              }
+                            } else {
+                              alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                            }
+                          }else{
+                            alertDialog(context, "La fecha se encuentra basia");
+                          }
+                        } else {
+                          alertDialog(context, "El año en la fecha no corresponde");
+                        }
+                      } else {
+                        alertDialog(
+                            context, "El mes seleccionado en la fecha no es correcto");
+                      }
+                    } else {
+                      alertDialog(
+                          context, "Los dias seleccionados en la fecha no son correcotos");
+                    }
+                  } else {
+                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                  }
+                }else{
+                  alertDialog(context, "La fecha se encuentra basia");
+                }
+
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
       }
-
-      String sexo2 = _sexo2.name.toString();
-      if (sexo2 == 'hombre') {
-        sexo2 = '1 1 Hombre';
-      } else if (sexo2 == 'mujer') {
-        sexo2 = '2 2 Mujer';
-      } else if (sexo2 == 'otro') {
-        sexo2 = '3 3 Otro';
-      }
-
-      String sexo3 = _sexo3.name.toString();
-      if (sexo3 == 'hombre') {
-        sexo3 = '1 1 Hombre';
-      } else if (sexo3 == 'mujer') {
-        sexo3 = '2 2 Mujer';
-      } else if (sexo3 == 'otro') {
-        sexo3 = '3 3 Otro';
-      }
-
-      String sexo4 = _sexo4.name.toString();
-      if (sexo4 == 'hombre') {
-        sexo4 = '1 1 Hombre';
-      } else if (sexo4 == 'mujer') {
-        sexo4 = '2 2 Mujer';
-      } else if (sexo4 == 'otro') {
-        sexo4 = '3 3 Otro';
-      }
-
-      String sexo5 = _sexo5.name.toString();
-      if (sexo5 == 'hombre') {
-        sexo5 = '1 1 Hombre';
-      } else if (sexo5 == 'mujer') {
-        sexo5 = '2 2 Mujer';
-      } else if (sexo5 == 'otro') {
-        sexo5 = '3 3 Otro';
-      }
-
-      String sexo6 = _sexo6.name.toString();
-      if (sexo6 == 'hombre') {
-        sexo6 = '1 1 Hombre';
-      } else if (sexo6 == 'mujer') {
-        sexo6 = '2 2 Mujer';
-      } else if (sexo6 == 'otro') {
-        sexo6 = '3 3 Otro';
-      }
-
-      String sexo7 = _sexo7.name.toString();
-      if (sexo7 == 'hombre') {
-        sexo7 = '1 1 Hombre';
-      } else if (sexo7 == 'mujer') {
-        sexo7 = '2 2 Mujer';
-      } else if (sexo7 == 'otro') {
-        sexo7 = '3 3 Otro';
-      }
-
-      String sexo8 = _sexo8.name.toString();
-      if (sexo8 == 'hombre') {
-        sexo8 = '1 1 Hombre';
-      } else if (sexo8 == 'mujer') {
-        sexo8 = '2 2 Mujer';
-      } else if (sexo8 == 'otro') {
-        sexo8 = '3 3 Otro';
-      }
-
-      String sexo9 = _sexo9.name.toString();
-      if (sexo9 == 'hombre') {
-        sexo9 = '1 1 Hombre';
-      } else if (sexo9 == 'mujer') {
-        sexo9 = '2 2 Mujer';
-      } else if (sexo9 == 'otro') {
-        sexo9 = '3 3 Otro';
-      }
-
-
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
-      final estado2 = EstadoCivil2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
-      final parentesco2 = Parentesco2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
-      final estado3 = EstadoCivil3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
-      final parentesco3 = Parentesco3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
-      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
-      final estado4 = EstadoCivil4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
-      final parentesco4 = Parentesco4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
-      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
-      final estado5 = EstadoCivil5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
-      final parentesco5 = Parentesco5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
-      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
-      final estado6 = EstadoCivil6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
-      final parentesco6 = Parentesco6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
-      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
-      final estado7 = EstadoCivil7.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
-      final parentesco7 = Parentesco7.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
-      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
-      final estado8 = EstadoCivil8.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
-      final parentesco8 = Parentesco8.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
-      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil9 = _estadoCivil9.text.toString(); // 'artlang'
-      final estado9 = EstadoCivil9.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco9 = _parentesco9.text.toString(); // 'artlang'
-      final parentesco9 = Parentesco9.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN9 = _entidadNacimiento9.text.toString(); // 'artlang'
-      final entidadNacimiento9 = EntidadN9.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
-      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre2.text.toString(),
-        primerApellido: _primerApellido2.text.toString(),
-        segundoApellido: _segundoApellido2.text.toString(),
-        claveSexo: sexo2.substring(0, 1),
-        ordenSexo: sexo2.substring(0, 1),
-        sexo: _sexo2.name.toString(),
-        fechaNacimiento: _fechaNacimiento2.text.toString(),
-        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento2.trimLeft(),
-        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        estadoCivil: estado2.trimLeft(),
-        claveParentesco: _parentesco2.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-        parentesco: parentesco2.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre3.text.toString(),
-        primerApellido: _primerApellido3.text.toString(),
-        segundoApellido: _segundoApellido3.text.toString(),
-        claveSexo: sexo3.substring(0, 1),
-        ordenSexo: sexo3.substring(0, 1),
-        sexo: _sexo3.name.toString(),
-        fechaNacimiento: _fechaNacimiento3.text.toString(),
-        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento3.trimLeft(),
-        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        estadoCivil: estado3.trimLeft(),
-        claveParentesco: _parentesco3.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-        parentesco: parentesco3.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre4.text.toString(),
-        primerApellido: _primerApellido4.text.toString(),
-        segundoApellido: _segundoApellido4.text.toString(),
-        claveSexo: sexo4.substring(0, 1),
-        ordenSexo: sexo4.substring(0, 1),
-        sexo: _sexo4.name.toString(),
-        fechaNacimiento: _fechaNacimiento4.text.toString(),
-        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento4.trimLeft(),
-        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        estadoCivil: estado4.trimLeft(),
-        claveParentesco: _parentesco4.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-        parentesco: parentesco4.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
-          estructuraFamilar) {
-
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre5.text.toString(),
-        primerApellido: _primerApellido5.text.toString(),
-        segundoApellido: _segundoApellido5.text.toString(),
-        claveSexo: sexo5.substring(0, 1),
-        ordenSexo: sexo5.substring(0, 1),
-        sexo: _sexo5.name.toString(),
-        fechaNacimiento: _fechaNacimiento5.text.toString(),
-        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento5.trimLeft(),
-        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        estadoCivil: estado5.trimLeft(),
-        claveParentesco: _parentesco5.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-        parentesco: parentesco5.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre6.text.toString(),
-        primerApellido: _primerApellido6.text.toString(),
-        segundoApellido: _segundoApellido6.text.toString(),
-        claveSexo: sexo6.substring(0, 1),
-        ordenSexo: sexo6.substring(0, 1),
-        sexo: _sexo6.name.toString(),
-        fechaNacimiento: _fechaNacimiento6.text.toString(),
-        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento6.trimLeft(),
-        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        estadoCivil: estado6.trimLeft(),
-        claveParentesco: _parentesco6.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-        parentesco: parentesco6.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel6).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-
-      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre7.text.toString(),
-        primerApellido: _primerApellido7.text.toString(),
-        segundoApellido: _segundoApellido7.text.toString(),
-        claveSexo: sexo7.substring(0, 1),
-        ordenSexo: sexo7.substring(0, 1),
-        sexo: _sexo7.name.toString(),
-        fechaNacimiento: _fechaNacimiento7.text.toString(),
-        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento7.trimLeft(),
-        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-        estadoCivil: estado7.trimLeft(),
-        claveParentesco: _parentesco7.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
-        parentesco: parentesco7.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel7).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre8.text.toString(),
-        primerApellido: _primerApellido8.text.toString(),
-        segundoApellido: _segundoApellido8.text.toString(),
-        claveSexo: sexo8.substring(0, 1),
-        ordenSexo: sexo8.substring(0, 1),
-        sexo: _sexo8.name.toString(),
-        fechaNacimiento: _fechaNacimiento8.text.toString(),
-        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento8.trimLeft(),
-        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-        estadoCivil: estado8.trimLeft(),
-        claveParentesco: _parentesco8.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
-        parentesco: parentesco8.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel8).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre9.text.toString(),
-        primerApellido: _primerApellido9.text.toString(),
-        segundoApellido: _segundoApellido9.text.toString(),
-        claveSexo: sexo9.substring(0, 1),
-        ordenSexo: sexo9.substring(0, 1),
-        sexo: _sexo9.name.toString(),
-        fechaNacimiento: _fechaNacimiento9.text.toString(),
-        claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento9.trimLeft(),
-        claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
-        estadoCivil: estado9.trimLeft(),
-        claveParentesco: _parentesco9.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco9.text.toString().substring(0, 1),
-        parentesco: parentesco9.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel9).then((
-          estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
 
     }else{
 
-      String sexo1 = _sexo1.name.toString();
-      if(sexo1 == 'hombre')
-      {
-        sexo1 = '1 1 Hombre';
-      }else if(sexo1 == 'mujer' )
-      {
-        sexo1 = '2 2 Mujer';
-      }else if(sexo1 == 'otro' )
-      {
-        sexo1 = '3 3 Otro';
+      if(!_fechaNacimiento1.text.isEmpty) {
+        if (_fechaNacimiento1.text.length == 10) {
+          if (int.parse(_fechaNacimiento1.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento1.text.substring(0, 2)) <= 31) {
+            if (int.parse(_fechaNacimiento1.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento1.text.substring(3,5)) <= 12) {
+              if (int.parse(_fechaNacimiento1.text.substring(6, 10)) <= 2022) {
+                if(!_fechaNacimiento2.text.isEmpty) {
+                  if (_fechaNacimiento2.text.length == 10) {
+                    if (int.parse(_fechaNacimiento2.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento2.text.substring(0, 2)) <= 31) {
+                      if (int.parse(_fechaNacimiento2.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento2.text.substring(3,5)) <= 12) {
+                        if (int.parse(_fechaNacimiento2.text.substring(6, 10)) <= 2022) {
+                          if(!_fechaNacimiento3.text.isEmpty) {
+                            if (_fechaNacimiento3.text.length == 10) {
+                              if (int.parse(_fechaNacimiento3.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento3.text.substring(0, 2)) <= 31) {
+                                if (int.parse(_fechaNacimiento3.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento3.text.substring(3,5)) <= 12) {
+                                  if (int.parse(_fechaNacimiento3.text.substring(6, 10)) <= 2022) {
+                                    if(!_fechaNacimiento4.text.isEmpty) {
+                                      if (_fechaNacimiento4.text.length == 10) {
+                                        if (int.parse(_fechaNacimiento4.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento4.text.substring(0, 2)) <= 31) {
+                                          if (int.parse(_fechaNacimiento4.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento4.text.substring(3,5)) <= 12) {
+                                            if (int.parse(_fechaNacimiento4.text.substring(6, 10)) <= 2022) {
+                                              if(!_fechaNacimiento5.text.isEmpty) {
+                                                if (_fechaNacimiento5.text.length == 10) {
+                                                  if (int.parse(_fechaNacimiento5.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento5.text.substring(0, 2)) <= 31) {
+                                                    if (int.parse(_fechaNacimiento5.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento5.text.substring(3,5)) <= 12) {
+                                                      if (int.parse(_fechaNacimiento5.text.substring(6, 10)) <= 2022) {
+                                                        if(!_fechaNacimiento6.text.isEmpty) {
+                                                          if (_fechaNacimiento6.text.length == 10) {
+                                                            if (int.parse(_fechaNacimiento6.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento6.text.substring(0, 2)) <= 31) {
+                                                              if (int.parse(_fechaNacimiento6.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento6.text.substring(3,5)) <= 12) {
+                                                                if (int.parse(_fechaNacimiento6.text.substring(6, 10)) <= 2022) {
+                                                                  if(!_fechaNacimiento7.text.isEmpty) {
+                                                                    if (_fechaNacimiento7.text.length == 10) {
+                                                                      if (int.parse(_fechaNacimiento7.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento7.text.substring(0, 2)) <= 31) {
+                                                                        if (int.parse(_fechaNacimiento7.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento7.text.substring(3,5)) <= 12) {
+                                                                          if (int.parse(_fechaNacimiento7.text.substring(6, 10)) <= 2022) {
+                                                                            if(!_fechaNacimiento8.text.isEmpty) {
+                                                                              if (_fechaNacimiento8.text.length == 10) {
+                                                                                if (int.parse(_fechaNacimiento8.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento8.text.substring(0, 2)) <= 31) {
+                                                                                  if (int.parse(_fechaNacimiento8.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento8.text.substring(3,5)) <= 12) {
+                                                                                    if (int.parse(_fechaNacimiento8.text.substring(6, 10)) <= 2022) {
+                                                                                      if(!_fechaNacimiento9.text.isEmpty) {
+                                                                                        if (_fechaNacimiento9.text.length == 10) {
+                                                                                          if (int.parse(_fechaNacimiento9.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento9.text.substring(0, 2)) <= 31) {
+                                                                                            if (int.parse(_fechaNacimiento9.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento9.text.substring(3,5)) <= 12) {
+                                                                                              if (int.parse(_fechaNacimiento9.text.substring(6, 10)) <= 2022) {
+                                                                                                if(!_fechaNacimiento10.text.isEmpty) {
+                                                                                                  if (_fechaNacimiento10.text.length == 10) {
+                                                                                                    if (int.parse(_fechaNacimiento10.text.substring(0,2)) >= 1 && int.parse(_fechaNacimiento10.text.substring(0, 2)) <= 31) {
+                                                                                                      if (int.parse(_fechaNacimiento10.text.substring(3,5)) >= 1 && int.parse(_fechaNacimiento10.text.substring(3,5)) <= 12) {
+                                                                                                        if (int.parse(_fechaNacimiento10.text.substring(6, 10)) <= 2022) {
+
+
+                                                                                                          String sexo1 = _sexo1.name.toString();
+                                                                                                          if(sexo1 == 'hombre')
+                                                                                                          {
+                                                                                                            sexo1 = '1 1 Hombre';
+                                                                                                          }else if(sexo1 == 'mujer' )
+                                                                                                          {
+                                                                                                            sexo1 = '2 2 Mujer';
+                                                                                                          }else if(sexo1 == 'otro' )
+                                                                                                          {
+                                                                                                            sexo1 = '3 3 Otro';
+                                                                                                          }
+
+                                                                                                          var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
+                                                                                                          final estado = EstadoCivil.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco = _parentesco1.text.toString(); // 'artlang'
+                                                                                                          final parentesco = Parentesco.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento = EntidadN.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+                                                                                                          EstructuraFamilarModel DModel = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre1.text.toString(),
+                                                                                                            primerApellido: _primerApellido1.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido1.text.toString(),
+                                                                                                            claveSexo: sexo1.substring(0,1),
+                                                                                                            ordenSexo: sexo1.substring(0,1),
+                                                                                                            sexo: _sexo1.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento1.text.toString(),
+                                                                                                            claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
+                                                                                                            entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado.trimLeft(),
+                                                                                                            claveParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco1.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+
+                                                                                                          String sexo2 = _sexo2.name.toString();
+                                                                                                          if (sexo2 == 'hombre') {
+                                                                                                            sexo2 = '1 1 Hombre';
+                                                                                                          } else if (sexo2 == 'mujer') {
+                                                                                                            sexo2 = '2 2 Mujer';
+                                                                                                          } else if (sexo2 == 'otro') {
+                                                                                                            sexo2 = '3 3 Otro';
+                                                                                                          }
+
+                                                                                                          var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
+                                                                                                          final estado2 = EstadoCivil2.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
+                                                                                                          final parentesco2 = Parentesco2.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+                                                                                                          EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre2.text.toString(),
+                                                                                                            primerApellido: _primerApellido2.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido2.text.toString(),
+                                                                                                            claveSexo: sexo2.substring(0, 1),
+                                                                                                            ordenSexo: sexo2.substring(0, 1),
+                                                                                                            sexo: _sexo2.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento2.text.toString(),
+                                                                                                            claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
+                                                                                                            entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado2.trimLeft(),
+                                                                                                            claveParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco2.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco2.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel2).then((
+                                                                                                              estructuraFamilar) {
+                                                                                                            alertDialog(context, "Se registro correctamente");
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+
+
+                                                                                                          String sexo3 = _sexo3.name.toString();
+                                                                                                          if (sexo3 == 'hombre') {
+                                                                                                            sexo3 = '1 1 Hombre';
+                                                                                                          } else if (sexo3 == 'mujer') {
+                                                                                                            sexo3 = '2 2 Mujer';
+                                                                                                          } else if (sexo3 == 'otro') {
+                                                                                                            sexo3 = '3 3 Otro';
+                                                                                                          }
+
+                                                                                                          var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
+                                                                                                          final estado3 = EstadoCivil3.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
+                                                                                                          final parentesco3 = Parentesco3.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+                                                                                                          EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre3.text.toString(),
+                                                                                                            primerApellido: _primerApellido3.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido3.text.toString(),
+                                                                                                            claveSexo: sexo3.substring(0, 1),
+                                                                                                            ordenSexo: sexo3.substring(0, 1),
+                                                                                                            sexo: _sexo3.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento3.text.toString(),
+                                                                                                            claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
+                                                                                                            entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado3.trimLeft(),
+                                                                                                            claveParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco3.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco3.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel3).then((
+                                                                                                              estructuraFamilar) {
+                                                                                                            alertDialog(context, "Se registro correctamente");
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+
+                                                                                                          String sexo4 = _sexo4.name.toString();
+                                                                                                          if (sexo4 == 'hombre') {
+                                                                                                            sexo4 = '1 1 Hombre';
+                                                                                                          } else if (sexo4 == 'mujer') {
+                                                                                                            sexo4 = '2 2 Mujer';
+                                                                                                          } else if (sexo4 == 'otro') {
+                                                                                                            sexo4 = '3 3 Otro';
+                                                                                                          }
+                                                                                                          var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
+                                                                                                          final estado4 = EstadoCivil4.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
+                                                                                                          final parentesco4 = Parentesco4.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+
+                                                                                                          EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre4.text.toString(),
+                                                                                                            primerApellido: _primerApellido4.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido4.text.toString(),
+                                                                                                            claveSexo: sexo4.substring(0, 1),
+                                                                                                            ordenSexo: sexo4.substring(0, 1),
+                                                                                                            sexo: _sexo4.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento4.text.toString(),
+                                                                                                            claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
+                                                                                                            entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado4.trimLeft(),
+                                                                                                            claveParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco4.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco4.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel4).then((
+                                                                                                              estructuraFamilar) {
+                                                                                                            alertDialog(context, "Se registro correctamente");
+
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+
+                                                                                                          String sexo5 = _sexo5.name.toString();
+                                                                                                          if (sexo5 == 'hombre') {
+                                                                                                            sexo5 = '1 1 Hombre';
+                                                                                                          } else if (sexo5 == 'mujer') {
+                                                                                                            sexo5 = '2 2 Mujer';
+                                                                                                          } else if (sexo5 == 'otro') {
+                                                                                                            sexo5 = '3 3 Otro';
+                                                                                                          }
+
+
+
+
+
+                                                                                                          var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
+                                                                                                          final estado5 = EstadoCivil5.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
+                                                                                                          final parentesco5 = Parentesco5.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+                                                                                                          EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre5.text.toString(),
+                                                                                                            primerApellido: _primerApellido5.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido5.text.toString(),
+                                                                                                            claveSexo: sexo5.substring(0, 1),
+                                                                                                            ordenSexo: sexo5.substring(0, 1),
+                                                                                                            sexo: _sexo5.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento5.text.toString(),
+                                                                                                            claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
+                                                                                                            entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado5.trimLeft(),
+                                                                                                            claveParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco5.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco5.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel5).then((
+                                                                                                              estructuraFamilar) {
+                                                                                                            alertDialog(context, "Se registro correctamente");
+
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+
+
+                                                                                                          String sexo6 = _sexo6.name.toString();
+                                                                                                          if (sexo6 == 'hombre') {
+                                                                                                            sexo6 = '1 1 Hombre';
+                                                                                                          } else if (sexo6 == 'mujer') {
+                                                                                                            sexo6 = '2 2 Mujer';
+                                                                                                          } else if (sexo6 == 'otro') {
+                                                                                                            sexo6 = '3 3 Otro';
+                                                                                                          }
+
+                                                                                                          var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
+                                                                                                          final estado6 = EstadoCivil6.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
+                                                                                                          final parentesco6 = Parentesco6.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+
+                                                                                                          EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre6.text.toString(),
+                                                                                                            primerApellido: _primerApellido6.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido6.text.toString(),
+                                                                                                            claveSexo: sexo6.substring(0, 1),
+                                                                                                            ordenSexo: sexo6.substring(0, 1),
+                                                                                                            sexo: _sexo6.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento6.text.toString(),
+                                                                                                            claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
+                                                                                                            entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado6.trimLeft(),
+                                                                                                            claveParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco6.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco6.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel6).then((
+                                                                                                              estructuraFamilar) {
+                                                                                                            alertDialog(context, "Se registro correctamente");
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+
+
+                                                                                                          String sexo7 = _sexo7.name.toString();
+                                                                                                          if (sexo7 == 'hombre') {
+                                                                                                            sexo7 = '1 1 Hombre';
+                                                                                                          } else if (sexo7 == 'mujer') {
+                                                                                                            sexo7 = '2 2 Mujer';
+                                                                                                          } else if (sexo7 == 'otro') {
+                                                                                                            sexo7 = '3 3 Otro';
+                                                                                                          }
+
+                                                                                                          var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
+                                                                                                          final estado7 = EstadoCivil7.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
+                                                                                                          final parentesco7 = Parentesco7.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+                                                                                                          EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre7.text.toString(),
+                                                                                                            primerApellido: _primerApellido7.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido7.text.toString(),
+                                                                                                            claveSexo: sexo7.substring(0, 1),
+                                                                                                            ordenSexo: sexo7.substring(0, 1),
+                                                                                                            sexo: _sexo7.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento7.text.toString(),
+                                                                                                            claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
+                                                                                                            entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado7.trimLeft(),
+                                                                                                            claveParentesco: _parentesco7.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco7.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco7.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel7).then((
+                                                                                                              estructuraFamilar) {
+                                                                                                            alertDialog(context, "Se registro correctamente");
+
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+
+                                                                                                          String sexo8 = _sexo8.name.toString();
+                                                                                                          if (sexo8 == 'hombre') {
+                                                                                                            sexo8 = '1 1 Hombre';
+                                                                                                          } else if (sexo8 == 'mujer') {
+                                                                                                            sexo8 = '2 2 Mujer';
+                                                                                                          } else if (sexo8 == 'otro') {
+                                                                                                            sexo8 = '3 3 Otro';
+                                                                                                          }
+
+                                                                                                          var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
+                                                                                                          final estado8 = EstadoCivil8.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
+                                                                                                          final parentesco8 = Parentesco8.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+
+                                                                                                          EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre8.text.toString(),
+                                                                                                            primerApellido: _primerApellido8.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido8.text.toString(),
+                                                                                                            claveSexo: sexo8.substring(0, 1),
+                                                                                                            ordenSexo: sexo8.substring(0, 1),
+                                                                                                            sexo: _sexo8.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento8.text.toString(),
+                                                                                                            claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
+                                                                                                            entidadNacimiento: entidadNacimiento8.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado8.trimLeft(),
+                                                                                                            claveParentesco: _parentesco8.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco8.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco8.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel8).then((
+                                                                                                              estructuraFamilar) {
+                                                                                                            alertDialog(context, "Se registro correctamente");
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+
+                                                                                                          String sexo9 = _sexo9.name.toString();
+                                                                                                          if (sexo9 == 'hombre') {
+                                                                                                            sexo9 = '1 1 Hombre';
+                                                                                                          } else if (sexo9 == 'mujer') {
+                                                                                                            sexo9 = '2 2 Mujer';
+                                                                                                          } else if (sexo9 == 'otro') {
+                                                                                                            sexo9 = '3 3 Otro';
+                                                                                                          }
+                                                                                                          var EstadoCivil9 = _estadoCivil9.text.toString(); // 'artlang'
+                                                                                                          final estado9 = EstadoCivil9.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco9 = _parentesco9.text.toString(); // 'artlang'
+                                                                                                          final parentesco9 = Parentesco9.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN9 = _entidadNacimiento9.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento9 = EntidadN9.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+                                                                                                          EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre9.text.toString(),
+                                                                                                            primerApellido: _primerApellido9.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido9.text.toString(),
+                                                                                                            claveSexo: sexo9.substring(0, 1),
+                                                                                                            ordenSexo: sexo9.substring(0, 1),
+                                                                                                            sexo: _sexo9.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento9.text.toString(),
+                                                                                                            claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
+                                                                                                            entidadNacimiento: entidadNacimiento9.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado9.trimLeft(),
+                                                                                                            claveParentesco: _parentesco9.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco9.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco9.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel9).then((
+                                                                                                              estructuraFamilar) {
+                                                                                                            alertDialog(context, "Se registro correctamente");
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+                                                                                                          String sexo10 = _sexo10.name.toString();
+                                                                                                          if (sexo10 == 'hombre') {
+                                                                                                            sexo10 = '1 1 Hombre';
+                                                                                                          } else if (sexo10 == 'mujer') {
+                                                                                                            sexo10 = '2 2 Mujer';
+                                                                                                          } else if (sexo10 == 'otro') {
+                                                                                                            sexo10 = '3 3 Otro';
+                                                                                                          }
+
+                                                                                                          var EstadoCivil10 = _estadoCivil10.text.toString(); // 'artlang'
+                                                                                                          final estado10 = EstadoCivil10.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+                                                                                                          var Parentesco10 = _parentesco10.text.toString(); // 'artlang'
+                                                                                                          final parentesco10 = Parentesco10.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "")
+                                                                                                              .replaceAll("3", "")
+                                                                                                              .replaceAll("4", "")
+                                                                                                              .replaceAll("5", "")
+                                                                                                              .replaceAll("6", "")
+                                                                                                              .replaceAll("7", "")
+                                                                                                              .replaceAll("8", "")
+                                                                                                              .replaceAll("9", "")
+                                                                                                              .replaceAll("0", "");
+
+                                                                                                          var EntidadN10 = _entidadNacimiento10.text.toString(); // 'artlang'
+                                                                                                          final entidadNacimiento10 = EntidadN10.replaceAll("1", "")
+                                                                                                              .replaceAll("2", "");
+
+
+                                                                                                          EstructuraFamilarModel DModel10 = EstructuraFamilarModel(
+                                                                                                            folio: int.parse(widget.folio),
+                                                                                                            nombre: _nombre10.text.toString(),
+                                                                                                            primerApellido: _primerApellido10.text.toString(),
+                                                                                                            segundoApellido: _segundoApellido10.text.toString(),
+                                                                                                            claveSexo: sexo10.substring(0, 1),
+                                                                                                            ordenSexo: sexo10.substring(0, 1),
+                                                                                                            sexo: _sexo10.name.toString(),
+                                                                                                            fechaNacimiento: _fechaNacimiento10.text.toString(),
+                                                                                                            claveEntidad: _entidadNacimiento10.text.toString().substring(0, 1),
+                                                                                                            entidadNacimiento: entidadNacimiento10.trimLeft(),
+                                                                                                            claveEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
+                                                                                                            ordenEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
+                                                                                                            estadoCivil: estado10.trimLeft(),
+                                                                                                            claveParentesco: _parentesco10.text.toString().substring(0, 1),
+                                                                                                            ordenParentesco: _parentesco10.text.toString().substring(0, 1),
+                                                                                                            parentesco: parentesco10.trimLeft(),
+                                                                                                          );
+                                                                                                          await dbHelper.saveEstructuraFamiliar(DModel10).then((
+                                                                                                              estructuraFamilar) {
+                                                                                                            alertDialog(context, "Se registro correctamente");
+                                                                                                            Navigator.of(context)
+                                                                                                                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                                                                                                              return new Escolaridad_SeguridadSocialTabla(widget.folio);
+                                                                                                            }));
+                                                                                                          }).catchError((error) {
+                                                                                                            print(error);
+                                                                                                            alertDialog(context, "Error: No se guardaron los datos");
+                                                                                                          });
+
+
+                                                                                                        } else {
+                                                                                                          alertDialog(context, "El año en la fecha no corresponde");
+                                                                                                        }
+                                                                                                      } else {
+                                                                                                        alertDialog(
+                                                                                                            context, "El mes seleccionado en la fecha no es correcto");
+                                                                                                      }
+                                                                                                    } else {
+                                                                                                      alertDialog(
+                                                                                                          context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                                                    }
+                                                                                                  } else {
+                                                                                                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                                                  }
+                                                                                                }else{
+                                                                                                  alertDialog(context, "La fecha se encuentra basia");
+                                                                                                }
+
+
+                                                                                              } else {
+                                                                                                alertDialog(context, "El año en la fecha no corresponde");
+                                                                                              }
+                                                                                            } else {
+                                                                                              alertDialog(
+                                                                                                  context, "El mes seleccionado en la fecha no es correcto");
+                                                                                            }
+                                                                                          } else {
+                                                                                            alertDialog(
+                                                                                                context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                                          }
+                                                                                        } else {
+                                                                                          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                                        }
+                                                                                      }else{
+                                                                                        alertDialog(context, "La fecha se encuentra basia");
+                                                                                      }
+
+                                                                                    } else {
+                                                                                      alertDialog(context, "El año en la fecha no corresponde");
+                                                                                    }
+                                                                                  } else {
+                                                                                    alertDialog(
+                                                                                        context, "El mes seleccionado en la fecha no es correcto");
+                                                                                  }
+                                                                                } else {
+                                                                                  alertDialog(
+                                                                                      context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                                }
+                                                                              } else {
+                                                                                alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                              }
+                                                                            }else{
+                                                                              alertDialog(context, "La fecha se encuentra basia");
+                                                                            }
+
+                                                                          } else {
+                                                                            alertDialog(context, "El año en la fecha no corresponde");
+                                                                          }
+                                                                        } else {
+                                                                          alertDialog(
+                                                                              context, "El mes seleccionado en la fecha no es correcto");
+                                                                        }
+                                                                      } else {
+                                                                        alertDialog(
+                                                                            context, "Los dias seleccionados en la fecha no son correcotos");
+                                                                      }
+                                                                    } else {
+                                                                      alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                                    }
+                                                                  }else{
+                                                                    alertDialog(context, "La fecha se encuentra basia");
+                                                                  }
+
+                                                                } else {
+                                                                  alertDialog(context, "El año en la fecha no corresponde");
+                                                                }
+                                                              } else {
+                                                                alertDialog(
+                                                                    context, "El mes seleccionado en la fecha no es correcto");
+                                                              }
+                                                            } else {
+                                                              alertDialog(
+                                                                  context, "Los dias seleccionados en la fecha no son correcotos");
+                                                            }
+                                                          } else {
+                                                            alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                          }
+                                                        }else{
+                                                          alertDialog(context, "La fecha se encuentra basia");
+                                                        }
+
+                                                      } else {
+                                                        alertDialog(context, "El año en la fecha no corresponde");
+                                                      }
+                                                    } else {
+                                                      alertDialog(
+                                                          context, "El mes seleccionado en la fecha no es correcto");
+                                                    }
+                                                  } else {
+                                                    alertDialog(
+                                                        context, "Los dias seleccionados en la fecha no son correcotos");
+                                                  }
+                                                } else {
+                                                  alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                                }
+                                              }else{
+                                                alertDialog(context, "La fecha se encuentra basia");
+                                              }
+
+                                            } else {
+                                              alertDialog(context, "El año en la fecha no corresponde");
+                                            }
+                                          } else {
+                                            alertDialog(
+                                                context, "El mes seleccionado en la fecha no es correcto");
+                                          }
+                                        } else {
+                                          alertDialog(
+                                              context, "Los dias seleccionados en la fecha no son correcotos");
+                                        }
+                                      } else {
+                                        alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                                      }
+                                    }else{
+                                      alertDialog(context, "La fecha se encuentra basia");
+                                    }
+
+                                  } else {
+                                    alertDialog(context, "El año en la fecha no corresponde");
+                                  }
+                                } else {
+                                  alertDialog(
+                                      context, "El mes seleccionado en la fecha no es correcto");
+                                }
+                              } else {
+                                alertDialog(
+                                    context, "Los dias seleccionados en la fecha no son correcotos");
+                              }
+                            } else {
+                              alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                            }
+                          }else{
+                            alertDialog(context, "La fecha se encuentra basia");
+                          }
+                        } else {
+                          alertDialog(context, "El año en la fecha no corresponde");
+                        }
+                      } else {
+                        alertDialog(
+                            context, "El mes seleccionado en la fecha no es correcto");
+                      }
+                    } else {
+                      alertDialog(
+                          context, "Los dias seleccionados en la fecha no son correcotos");
+                    }
+                  } else {
+                    alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+                  }
+                }else{
+                  alertDialog(context, "La fecha se encuentra basia");
+                }
+
+              } else {
+                alertDialog(context, "El año en la fecha no corresponde");
+              }
+            } else {
+              alertDialog(
+                  context, "El mes seleccionado en la fecha no es correcto");
+            }
+          } else {
+            alertDialog(
+                context, "Los dias seleccionados en la fecha no son correcotos");
+          }
+        } else {
+          alertDialog(context, "Los digitos de la fecha no son correctos intente dd-mm-aaaa");
+        }
+      }else{
+        alertDialog(context, "La fecha se encuentra basia");
       }
 
-      String sexo2 = _sexo2.name.toString();
-      if (sexo2 == 'hombre') {
-        sexo2 = '1 1 Hombre';
-      } else if (sexo2 == 'mujer') {
-        sexo2 = '2 2 Mujer';
-      } else if (sexo2 == 'otro') {
-        sexo2 = '3 3 Otro';
-      }
-
-      String sexo3 = _sexo3.name.toString();
-      if (sexo3 == 'hombre') {
-        sexo3 = '1 1 Hombre';
-      } else if (sexo3 == 'mujer') {
-        sexo3 = '2 2 Mujer';
-      } else if (sexo3 == 'otro') {
-        sexo3 = '3 3 Otro';
-      }
-
-      String sexo4 = _sexo4.name.toString();
-      if (sexo4 == 'hombre') {
-        sexo4 = '1 1 Hombre';
-      } else if (sexo4 == 'mujer') {
-        sexo4 = '2 2 Mujer';
-      } else if (sexo4 == 'otro') {
-        sexo4 = '3 3 Otro';
-      }
-
-      String sexo5 = _sexo5.name.toString();
-      if (sexo5 == 'hombre') {
-        sexo5 = '1 1 Hombre';
-      } else if (sexo5 == 'mujer') {
-        sexo5 = '2 2 Mujer';
-      } else if (sexo5 == 'otro') {
-        sexo5 = '3 3 Otro';
-      }
-
-      String sexo6 = _sexo6.name.toString();
-      if (sexo6 == 'hombre') {
-        sexo6 = '1 1 Hombre';
-      } else if (sexo6 == 'mujer') {
-        sexo6 = '2 2 Mujer';
-      } else if (sexo6 == 'otro') {
-        sexo6 = '3 3 Otro';
-      }
-
-      String sexo7 = _sexo7.name.toString();
-      if (sexo7 == 'hombre') {
-        sexo7 = '1 1 Hombre';
-      } else if (sexo7 == 'mujer') {
-        sexo7 = '2 2 Mujer';
-      } else if (sexo7 == 'otro') {
-        sexo7 = '3 3 Otro';
-      }
-
-      String sexo8 = _sexo8.name.toString();
-      if (sexo8 == 'hombre') {
-        sexo8 = '1 1 Hombre';
-      } else if (sexo8 == 'mujer') {
-        sexo8 = '2 2 Mujer';
-      } else if (sexo8 == 'otro') {
-        sexo8 = '3 3 Otro';
-      }
-
-      String sexo9 = _sexo9.name.toString();
-      if (sexo9 == 'hombre') {
-        sexo9 = '1 1 Hombre';
-      } else if (sexo9 == 'mujer') {
-        sexo9 = '2 2 Mujer';
-      } else if (sexo9 == 'otro') {
-        sexo9 = '3 3 Otro';
-      }
-
-      String sexo10 = _sexo10.name.toString();
-      if (sexo10 == 'hombre') {
-        sexo10 = '1 1 Hombre';
-      } else if (sexo10 == 'mujer') {
-        sexo10 = '2 2 Mujer';
-      } else if (sexo10 == 'otro') {
-        sexo10 = '3 3 Otro';
-      }
-
-
-      var EstadoCivil = _estadoCivil1.text.toString(); // 'artlang'
-      final estado = EstadoCivil.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco = _parentesco1.text.toString(); // 'artlang'
-      final parentesco = Parentesco.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil2 = _estadoCivil2.text.toString(); // 'artlang'
-      final estado2 = EstadoCivil2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco2 = _parentesco2.text.toString(); // 'artlang'
-      final parentesco2 = Parentesco2.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EstadoCivil3 = _estadoCivil3.text.toString(); // 'artlang'
-      final estado3 = EstadoCivil3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco3 = _parentesco3.text.toString(); // 'artlang'
-      final parentesco3 = Parentesco3.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN3 = _entidadNacimiento3.text.toString(); // 'artlang'
-      final entidadNacimiento3 = EntidadN3.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil4 = _estadoCivil4.text.toString(); // 'artlang'
-      final estado4 = EstadoCivil4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco4 = _parentesco4.text.toString(); // 'artlang'
-      final parentesco4 = Parentesco4.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN4 = _entidadNacimiento4.text.toString(); // 'artlang'
-      final entidadNacimiento4 = EntidadN4.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil5 = _estadoCivil5.text.toString(); // 'artlang'
-      final estado5 = EstadoCivil5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco5 = _parentesco5.text.toString(); // 'artlang'
-      final parentesco5 = Parentesco5.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN5 = _entidadNacimiento5.text.toString(); // 'artlang'
-      final entidadNacimiento5 = EntidadN5.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil6 = _estadoCivil6.text.toString(); // 'artlang'
-      final estado6 = EstadoCivil6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco6 = _parentesco6.text.toString(); // 'artlang'
-      final parentesco6 = Parentesco6.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN6 = _entidadNacimiento6.text.toString(); // 'artlang'
-      final entidadNacimiento6 = EntidadN6.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil7 = _estadoCivil7.text.toString(); // 'artlang'
-      final estado7 = EstadoCivil7.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco7 = _parentesco7.text.toString(); // 'artlang'
-      final parentesco7 = Parentesco7.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN7 = _entidadNacimiento7.text.toString(); // 'artlang'
-      final entidadNacimiento7 = EntidadN7.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil8 = _estadoCivil8.text.toString(); // 'artlang'
-      final estado8 = EstadoCivil8.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco8 = _parentesco8.text.toString(); // 'artlang'
-      final parentesco8 = Parentesco8.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN8 = _entidadNacimiento8.text.toString(); // 'artlang'
-      final entidadNacimiento8 = EntidadN8.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil9 = _estadoCivil9.text.toString(); // 'artlang'
-      final estado9 = EstadoCivil9.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco9 = _parentesco9.text.toString(); // 'artlang'
-      final parentesco9 = Parentesco9.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN9 = _entidadNacimiento9.text.toString(); // 'artlang'
-      final entidadNacimiento9 = EntidadN9.replaceAll("1", "")
-          .replaceAll("2", "");
-
-      var EstadoCivil10 = _estadoCivil10.text.toString(); // 'artlang'
-      final estado10 = EstadoCivil10.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-      var Parentesco10 = _parentesco10.text.toString(); // 'artlang'
-      final parentesco10 = Parentesco10.replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
-
-      var EntidadN10 = _entidadNacimiento10.text.toString(); // 'artlang'
-      final entidadNacimiento10 = EntidadN10.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN2 = _entidadNacimiento2.text.toString(); // 'artlang'
-      final entidadNacimiento2 = EntidadN2.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      var EntidadN = _entidadNacimiento1.text.toString(); // 'artlang'
-      final entidadNacimiento = EntidadN.replaceAll("1", "")
-          .replaceAll("2", "");
-
-
-      EstructuraFamilarModel DModel = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre1.text.toString(),
-        primerApellido: _primerApellido1.text.toString(),
-        segundoApellido: _segundoApellido1.text.toString(),
-        claveSexo: sexo1.substring(0,1),
-        ordenSexo: sexo1.substring(0,1),
-        sexo: _sexo1.name.toString(),
-        fechaNacimiento: _fechaNacimiento1.text.toString(),
-        claveEntidad:_entidadNacimiento1.text.toString().substring(0,1),
-        entidadNacimiento: entidadNacimiento.trimLeft(),
-        claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil1.text.toString().substring(0, 1),
-        estadoCivil: estado.trimLeft(),
-        claveParentesco: _parentesco1.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco1.text.toString().substring(0, 1),
-        parentesco: parentesco.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel).then((estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-      EstructuraFamilarModel DModel2 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre2.text.toString(),
-        primerApellido: _primerApellido2.text.toString(),
-        segundoApellido: _segundoApellido2.text.toString(),
-        claveSexo: sexo2.substring(0, 1),
-        ordenSexo: sexo2.substring(0, 1),
-        sexo: _sexo2.name.toString(),
-        fechaNacimiento: _fechaNacimiento2.text.toString(),
-        claveEntidad: _entidadNacimiento2.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento2.trimLeft(),
-        claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil2.text.toString().substring(0, 1),
-        estadoCivil: estado2.trimLeft(),
-        claveParentesco: _parentesco2.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco2.text.toString().substring(0, 1),
-        parentesco: parentesco2.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel2).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel3 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre3.text.toString(),
-        primerApellido: _primerApellido3.text.toString(),
-        segundoApellido: _segundoApellido3.text.toString(),
-        claveSexo: sexo3.substring(0, 1),
-        ordenSexo: sexo3.substring(0, 1),
-        sexo: _sexo3.name.toString(),
-        fechaNacimiento: _fechaNacimiento3.text.toString(),
-        claveEntidad: _entidadNacimiento3.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento3.trimLeft(),
-        claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil3.text.toString().substring(0, 1),
-        estadoCivil: estado3.trimLeft(),
-        claveParentesco: _parentesco3.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco3.text.toString().substring(0, 1),
-        parentesco: parentesco3.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel3).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel4 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre4.text.toString(),
-        primerApellido: _primerApellido4.text.toString(),
-        segundoApellido: _segundoApellido4.text.toString(),
-        claveSexo: sexo4.substring(0, 1),
-        ordenSexo: sexo4.substring(0, 1),
-        sexo: _sexo4.name.toString(),
-        fechaNacimiento: _fechaNacimiento4.text.toString(),
-        claveEntidad: _entidadNacimiento4.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento4.trimLeft(),
-        claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil4.text.toString().substring(0, 1),
-        estadoCivil: estado4.trimLeft(),
-        claveParentesco: _parentesco4.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco4.text.toString().substring(0, 1),
-        parentesco: parentesco4.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel4).then((
-          estructuraFamilar) {
-
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel5 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre5.text.toString(),
-        primerApellido: _primerApellido5.text.toString(),
-        segundoApellido: _segundoApellido5.text.toString(),
-        claveSexo: sexo5.substring(0, 1),
-        ordenSexo: sexo5.substring(0, 1),
-        sexo: _sexo5.name.toString(),
-        fechaNacimiento: _fechaNacimiento5.text.toString(),
-        claveEntidad: _entidadNacimiento5.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento5.trimLeft(),
-        claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil5.text.toString().substring(0, 1),
-        estadoCivil: estado5.trimLeft(),
-        claveParentesco: _parentesco5.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco5.text.toString().substring(0, 1),
-        parentesco: parentesco5.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel5).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel6 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre6.text.toString(),
-        primerApellido: _primerApellido6.text.toString(),
-        segundoApellido: _segundoApellido6.text.toString(),
-        claveSexo: sexo6.substring(0, 1),
-        ordenSexo: sexo6.substring(0, 1),
-        sexo: _sexo6.name.toString(),
-        fechaNacimiento: _fechaNacimiento6.text.toString(),
-        claveEntidad: _entidadNacimiento6.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento6.trimLeft(),
-        claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil6.text.toString().substring(0, 1),
-        estadoCivil: estado6.trimLeft(),
-        claveParentesco: _parentesco6.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco6.text.toString().substring(0, 1),
-        parentesco: parentesco6.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel6).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-
-      EstructuraFamilarModel DModel7 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre7.text.toString(),
-        primerApellido: _primerApellido7.text.toString(),
-        segundoApellido: _segundoApellido7.text.toString(),
-        claveSexo: sexo7.substring(0, 1),
-        ordenSexo: sexo7.substring(0, 1),
-        sexo: _sexo7.name.toString(),
-        fechaNacimiento: _fechaNacimiento7.text.toString(),
-        claveEntidad: _entidadNacimiento7.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento7.trimLeft(),
-        claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil7.text.toString().substring(0, 1),
-        estadoCivil: estado7.trimLeft(),
-        claveParentesco: _parentesco7.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco7.text.toString().substring(0, 1),
-        parentesco: parentesco7.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel7).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel8 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre8.text.toString(),
-        primerApellido: _primerApellido8.text.toString(),
-        segundoApellido: _segundoApellido8.text.toString(),
-        claveSexo: sexo8.substring(0, 1),
-        ordenSexo: sexo8.substring(0, 1),
-        sexo: _sexo8.name.toString(),
-        fechaNacimiento: _fechaNacimiento8.text.toString(),
-        claveEntidad: _entidadNacimiento8.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento8.trimLeft(),
-        claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil8.text.toString().substring(0, 1),
-        estadoCivil: estado8.trimLeft(),
-        claveParentesco: _parentesco8.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco8.text.toString().substring(0, 1),
-        parentesco: parentesco8.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel8).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel9 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre9.text.toString(),
-        primerApellido: _primerApellido9.text.toString(),
-        segundoApellido: _segundoApellido9.text.toString(),
-        claveSexo: sexo9.substring(0, 1),
-        ordenSexo: sexo9.substring(0, 1),
-        sexo: _sexo9.name.toString(),
-        fechaNacimiento: _fechaNacimiento9.text.toString(),
-        claveEntidad: _entidadNacimiento9.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento9.trimLeft(),
-        claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil9.text.toString().substring(0, 1),
-        estadoCivil: estado9.trimLeft(),
-        claveParentesco: _parentesco9.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco9.text.toString().substring(0, 1),
-        parentesco: parentesco9.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel9).then((
-          estructuraFamilar) {
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
-
-      EstructuraFamilarModel DModel10 = EstructuraFamilarModel(
-        folio: int.parse(widget.folio),
-        nombre: _nombre10.text.toString(),
-        primerApellido: _primerApellido10.text.toString(),
-        segundoApellido: _segundoApellido10.text.toString(),
-        claveSexo: sexo10.substring(0, 1),
-        ordenSexo: sexo10.substring(0, 1),
-        sexo: _sexo10.name.toString(),
-        fechaNacimiento: _fechaNacimiento10.text.toString(),
-        claveEntidad: _entidadNacimiento10.text.toString().substring(0, 1),
-        entidadNacimiento: entidadNacimiento10.trimLeft(),
-        claveEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
-        ordenEstadoCivil: _estadoCivil10.text.toString().substring(0, 1),
-        estadoCivil: estado10.trimLeft(),
-        claveParentesco: _parentesco10.text.toString().substring(0, 1),
-        ordenParentesco: _parentesco10.text.toString().substring(0, 1),
-        parentesco: parentesco10.trimLeft(),
-      );
-      await dbHelper.saveEstructuraFamiliar(DModel10).then((
-          estructuraFamilar) {
-        alertDialog(context, "Se registro correctamente");
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
-        }));
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: No se guardaron los datos");
-      });
 
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -8571,7 +9982,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento1,hintName: 'DD-MM-YYYY', inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento1,hintName: 'DD-MM-YYYY', inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -8704,7 +10115,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento2,hintName: 'DD-MM-YYYY', inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento2,hintName: 'DD-MM-YYYY', inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -8846,7 +10257,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento3,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento3,hintName: 'DD-MM-YYYY',inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -8988,7 +10399,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento4,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento4,hintName: 'DD-MM-YYYY',inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9130,7 +10541,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento5,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento5,hintName: 'DD-MM-YYYY',inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9272,7 +10683,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento6,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento6,hintName: 'DD-MM-YYYY',inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9414,7 +10825,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento7,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento7,hintName: 'DD-MM-YYYY',inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9556,7 +10967,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento8,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento8,hintName: 'DD-MM-YYYY',inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9698,7 +11109,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento9,hintName: 'DD-MM-YYYY', inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento9,hintName: 'DD-MM-YYYY', inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,
@@ -9841,7 +11252,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(controller: _fechaNacimiento10,hintName: 'DD-MM-YYYY',inputType: TextInputType.number,)),
+                                DataCell(getTextDataTable(controller: _fechaNacimiento10,hintName: 'DD-MM-YYYY',inputType: TextInputType.phone,)),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 22),
                                   width: 220,

@@ -823,10 +823,10 @@ class DbHelper {
     await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Ex-Hacienda de Luna','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
     await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Nuevo','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
     await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36015,'Cerro del Cuarto','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-        await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36512,'Las Ladrilleras','Colonia','Irapuato','Guanajuato','Irapuato', 11 , 9 , 17 ,'Urbano', 6);");
-        await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36987,'El Novillero','Ranchería','Abasolo','Guanajuato',NULL, 11 , 29 , 1 ,'Rural',NULL);");
-       await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (37689,'Providencia Uno','Colonia','León','Guanajuato',NULL, 11 , 9 , 20 ,'Rural',NULL);");
-        await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (38080,'Residencial Magnolia','Fraccionamiento','Celaya','Guanajuato','Celaya', 11 , 21 , 7 ,'Urbano', 3);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36512,'Las Ladrilleras','Colonia','Irapuato','Guanajuato','Irapuato', 11 , 9 , 17 ,'Urbano', 6);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36987,'El Novillero','Ranchería','Abasolo','Guanajuato',NULL, 11 , 29 , 1 ,'Rural',NULL);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (37689,'Providencia Uno','Colonia','León','Guanajuato',NULL, 11 , 9 , 20 ,'Rural',NULL);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (38080,'Residencial Magnolia','Fraccionamiento','Celaya','Guanajuato','Celaya', 11 , 21 , 7 ,'Urbano', 3);");
     await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (38080,'Riveras del Campestre','Colonia','Celaya','Guanajuato','Celaya', 11 , 9 , 7 ,'Urbano', 3);");
 
     // Inserts de Comunidades
@@ -1233,39 +1233,40 @@ class DbHelper {
     await db.execute("INSERT INTO tb_Grupos (ClaveGrupo, Grupo) VALUES (199, 'SAN ISIDRO DE JEREZ');");
 
     //Tabla de Condiciones de salud
-    await db.execute("create table tb_CondicionesSalud(ClaveCondicionesSalud int not null,OrdenCondicionesSalud int not null,CondicionesSalud nvarchar(50) not null,ClaveClasCondicionesSalud int not null);");
-    await db.execute("insert into  tb_CondicionesSalud values (1,1,'AFECTACIÓN CEREBRAL', 2);");
-    await db.execute("insert into  tb_CondicionesSalud values (2,2,'ALZHEIMER /  DEMENCIA',1);");
-    await db.execute("insert into  tb_CondicionesSalud values (3,3,'ARTRITIS / FIBROMIALGIA', 1);");
-    await db.execute("insert into  tb_CondicionesSalud values (4,4,'ASPERGER', 3);");
-    await db.execute("insert into  tb_CondicionesSalud values (5,5,'AUTISMO', 3);");
-    await db.execute("insert into  tb_CondicionesSalud values (6,6,'CÁNCER', 1);");
-    await db.execute("insert into  tb_CondicionesSalud values (7,7,'CIEGO', 2);");
-    await db.execute("insert into  tb_CondicionesSalud values (8,8,'DEPRESIÓN', 4);");
-    await db.execute("insert into  tb_CondicionesSalud values (9,9,'DIABETES',	1);");
-    await db.execute("insert into  tb_CondicionesSalud values (10,10,'DISCAPACIDAD AUDITIVA',2 );");
-    await db.execute("insert into  tb_CondicionesSalud values (11,11,'DISCAPACIDAD VISUAL',2);");
-    await db.execute("insert into  tb_CondicionesSalud values (12,12,'DISCAPACIDAD VOCAL',2);");
-    await db.execute("insert into  tb_CondicionesSalud values (13,13,'DOWN',3);");
-    await db.execute("insert into  tb_CondicionesSalud values (14,14,'EPILEPSIA',4);");
-    await db.execute("insert into  tb_CondicionesSalud values (15,15,'EPOC',1);");
-    await db.execute("insert into  tb_CondicionesSalud values (16,16,'ESQUIZOFRENIA',4);");
-    await db.execute("insert into  tb_CondicionesSalud values (17,17,'FALTA DE MÁS DE UN MIEMBRO',2);");
-    await db.execute("insert into  tb_CondicionesSalud values (18,18,'HTA (HIPERTENSIÓN)', 1);");
-    await db.execute("insert into  tb_CondicionesSalud values (19,19,'LEUCEMIA', 1);");
-    await db.execute("insert into  tb_CondicionesSalud values (20,20,'LUPUS / PÚRPURA', 1);");
-    await db.execute("insert into  tb_CondicionesSalud values (21,21,'OBESIDAD', 1);");
-    await db.execute("insert into  tb_CondicionesSalud values (22,22,'SIDA', 1);");
-    await db.execute("insert into  tb_CondicionesSalud values (23,23,'TURNER',3);");
-    await db.execute("insert into  tb_CondicionesSalud values (24,24,'OTRAS',0);");
+    await db.execute("create table tb_CondicionesSalud(CondicionesSalud nvarchar(50) not null);");
+    await db.execute("insert into  tb_CondicionesSalud values ('1 1 AFECTACIÓN CEREBRAL 2');");
+    await db.execute("insert into  tb_CondicionesSalud values ('2 2 ALZHEIMER /  DEMENCIA 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('3 3 ARTRITIS / FIBROMIALGIA 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('4 4 ASPERGER 3');");
+    await db.execute("insert into  tb_CondicionesSalud values ('5 5 AUTISMO 3');");
+    await db.execute("insert into  tb_CondicionesSalud values ('6 6 CÁNCER 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('7 7 CIEGO 2');");
+    await db.execute("insert into  tb_CondicionesSalud values ('8 8 DEPRESIÓN 4');");
+    await db.execute("insert into  tb_CondicionesSalud values ('9 9 DIABETES 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('10 10 DISCAPACIDAD AUDITIVA 2');");
+    await db.execute("insert into  tb_CondicionesSalud values ('11 11 DISCAPACIDAD VISUAL 2');");
+    await db.execute("insert into  tb_CondicionesSalud values ('12 12 DISCAPACIDAD VOCAL 2');");
+    await db.execute("insert into  tb_CondicionesSalud values ('13 13 DOWN 3');");
+    await db.execute("insert into  tb_CondicionesSalud values ('14 14 EPILEPSIA 4');");
+    await db.execute("insert into  tb_CondicionesSalud values ('15 15 EPOC 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('16 16 ESQUIZOFRENIA 4');");
+    await db.execute("insert into  tb_CondicionesSalud values ('17 17 FALTA DE MÁS DE UN MIEMBRO 2');");
+    await db.execute("insert into  tb_CondicionesSalud values ('18 18 HTA (HIPERTENSIÓN) 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('19 19 LEUCEMIA 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('20 20 LUPUS / PÚRPURA 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('21 21 OBESIDAD 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('22 22 SIDA 1');");
+    await db.execute("insert into  tb_CondicionesSalud values ('23 23 TURNER 3');");
+    await db.execute("insert into  tb_CondicionesSalud values ('24 24 OTRAS 0');");
+
 
     //Tabla de clasificacion
-    await db.execute("create table tb_ClasCondicionesSalud(ClaveClasCondicionesSalud int not null,OrdenClasCondicionesSalud int not null,ClasCondicionesSalud nvarchar(50) not null);");
-    await db.execute("insert into  tb_ClasCondicionesSalud (ClaveClasCondicionesSalud, OrdenClasCondicionesSalud, ClasCondicionesSalud) values (1,1,'CRÓNICO DEGENERATIVA');");
-    await db.execute("insert into  tb_ClasCondicionesSalud (ClaveClasCondicionesSalud, OrdenClasCondicionesSalud, ClasCondicionesSalud) values (2,2,'DISCAPACIDAD');");
-    await db.execute("insert into  tb_ClasCondicionesSalud (ClaveClasCondicionesSalud, OrdenClasCondicionesSalud, ClasCondicionesSalud) values (3,3,'TRASTORNO');");
-    await db.execute("insert into  tb_ClasCondicionesSalud (ClaveClasCondicionesSalud, OrdenClasCondicionesSalud, ClasCondicionesSalud) values (4,4,'SINDROME');");
-    await db.execute("insert into  tb_ClasCondicionesSalud (ClaveClasCondicionesSalud, OrdenClasCondicionesSalud, ClasCondicionesSalud) values (0,99,'OTRAS');");
+    await db.execute("create table tb_ClasCondicionesSalud(ClasCondicionesSalud nvarchar(50) not null);");
+    await db.execute("insert into  tb_ClasCondicionesSalud (ClasCondicionesSalud) values ('1 1 CRÓNICO DEGENERATIVA');");
+    await db.execute("insert into  tb_ClasCondicionesSalud (ClasCondicionesSalud) values ('2 2 DISCAPACIDAD');");
+    await db.execute("insert into  tb_ClasCondicionesSalud (ClasCondicionesSalud) values ('3 3 TRASTORNO');");
+    await db.execute("insert into  tb_ClasCondicionesSalud (ClasCondicionesSalud) values ('4 4 SINDROME');");
+    await db.execute("insert into  tb_ClasCondicionesSalud (ClasCondicionesSalud) values ('0 99 OTRAS');");
 
     //Tabla de frecuencia
     await db.execute("CREATE TABLE tb_Frecuencias(ClaveFrecuencia int NOT NULL,OrdenFrecuencia int NOT NULL,Frecuencia nvarchar(15) NULL);");
@@ -1291,6 +1292,7 @@ class DbHelper {
     await db.execute("insert into tb_Duraciones  values (11,11,'11 Mes');");
     await db.execute("insert into tb_Duraciones  values (12,12,'12 Mes');");
   }
+
 
 
 
@@ -1860,5 +1862,115 @@ class DbHelper {
         fecha : datosMap[i]['fecha']
       );
     });
+  }
+
+  readSaludPertenencia(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  readSaludPertenencia2(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 1 from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  readSaludPertenencia3(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) +2 from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  readSaludPertenencia4(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 3 from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  readSaludPertenencia5(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 4 from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  readSaludPertenencia6(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 5 from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  readSaludPertenencia7(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 6 from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  readSaludPertenencia8(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 7 from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  readSaludPertenencia9(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 8 from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  readSaludPertenencia10(table, int folio) async {
+    var connection = await db;
+    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 9 from saludPertenenciaIndigena where folio = ${folio})");
+  }
+
+  Future<int> upDateSalud1(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> upDateSalud2(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 1 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> upDateSalud3(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 2 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> upDateSalud4(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 3 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> upDateSalud5(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 4 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> upDateSalud6(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 5 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> upDateSalud7(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 6 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> upDateSalud8(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 7 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> upDateSalud9(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 8 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> upDateSalud10(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+    var dbClient = await db;
+    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 9 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
   }
 }

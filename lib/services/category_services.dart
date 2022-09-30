@@ -264,4 +264,35 @@ class CategoryService {
   readDisp() async {
     return await _repository.readDispo('dispositivo');
   }
+
+  readSaludPertenencia(int folio) async {
+    return await _repository.readSaludPertenencia('saludPertenenciaIndigena' , folio);
+  }
+  readSaludPertenencia2(int folio) async {
+    return await _repository.readSaludPertenencia2('saludPertenenciaIndigena' , folio);
+  }
+  readSaludPertenencia3(int folio) async {
+    return await _repository.readSaludPertenencia3('saludPertenenciaIndigena' , folio);
+  }
+  readSaludPertenencia4(int folio) async {
+    return await _repository.readSaludPertenencia4('saludPertenenciaIndigena' , folio);
+  }
+  readSaludPertenencia5(int folio) async {
+    return await _repository.readSaludPertenencia5('saludPertenenciaIndigena' , folio);
+  }
+  readSaludPertenencia6(int folio) async {
+    return await _repository.readSaludPertenencia6('saludPertenenciaIndigena' , folio);
+  }
+  readSaludPertenencia7(int folio) async {
+    return await _repository.readSaludPertenencia7('saludPertenenciaIndigena' , folio);
+  }
+  readSaludPertenencia8(int folio) async {
+    return await _repository.readSaludPertenencia8('saludPertenenciaIndigena' , folio);
+  }
+  readSaludPertenencia9(int folio) async {
+    return await _repository.readSaludPertenencia9('saludPertenenciaIndigena' , folio);
+  }
+  readSaludPertenencia10(int folio) async {
+    return await _repository.readSaludPertenencia10('saludPertenenciaIndigena' , folio);
+  }
 }

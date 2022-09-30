@@ -185,6 +185,16 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
   List<PuebloIndigenaModel> _PueblosIndigenas = List<PuebloIndigenaModel>();
   List<ClasificacionModel> _Clasificaciones = List<ClasificacionModel>();
 
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia1 = List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia2 = List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia3 = List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia4 = List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia5 = List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia6 = List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia7 = List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia8 = List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia9 = List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia10 = List<Salud_PertenenciaIndigenenaTablaModel>();
   @override
   void initState(){
     getAllCategoriesAdicciones();
@@ -217,6 +227,530 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     getAllEstructura8();
     getAllEstructura9();
     getAllEstructura10();
+  }
+
+  getAllSaludPertenencia1() async {
+    _SaludPertenencia1 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia1.add(categoryModel);
+      });
+    });
+
+    _discapacidades1.text = _SaludPertenencia1.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia1.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia1.map((e) => e.CapacidadDiferente).first;
+    _adicciones1.text = _SaludPertenencia1.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia1.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia1.map((e) => e.Adiccion).first;
+
+    _condicionSalud1.text =  _SaludPertenencia1.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia1.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia1.map((e) => e.CondicionesSalud).first;
+
+    _peso1.text = _SaludPertenencia1.map((e) => e.peso.toString()).first;
+    _talla1.text = _SaludPertenencia1.map((e) => e.talla.toString()).first;
+    _puebloIndigena1.text = _SaludPertenencia1.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia1.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia1.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion1.text = _SaludPertenencia1.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia1.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia1.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+    _ponderacion1.text = _SaludPertenencia1.map((e) => e.ponderacion.toString()).first;
+  }
+
+  getAllSaludPertenencia2() async {
+    _SaludPertenencia2 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia2(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia2.add(categoryModel);
+      });
+    });
+
+    _discapacidades2.text = _SaludPertenencia2.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia2.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia2.map((e) => e.CapacidadDiferente).first;
+    _adicciones2.text = _SaludPertenencia2.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia2.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia2.map((e) => e.Adiccion).first;
+
+    _condicionSalud2.text =_SaludPertenencia2.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia2.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia2.map((e) => e.CondicionesSalud).first;
+
+    _peso2.text = _SaludPertenencia2.map((e) => e.peso.toString()).first;
+    _talla2.text = _SaludPertenencia2.map((e) => e.talla.toString()).first;
+    _puebloIndigena2.text = _SaludPertenencia2.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia2.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia2.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion2.text = _SaludPertenencia2.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia2.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia2.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+    _ponderacion2.text = _SaludPertenencia2.map((e) => e.ponderacion.toString()).first;
+  }
+
+  getAllSaludPertenencia3() async {
+    _SaludPertenencia3 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia3(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia3.add(categoryModel);
+      });
+    });
+
+    _discapacidades3.text = _SaludPertenencia3.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia3.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia3.map((e) => e.CapacidadDiferente).first;
+    _adicciones3.text = _SaludPertenencia3.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia3.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia3.map((e) => e.Adiccion).first;
+
+    _condicionSalud3.text =_SaludPertenencia3.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia3.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia3.map((e) => e.CondicionesSalud).first;
+
+    _peso3.text = _SaludPertenencia3.map((e) => e.peso.toString()).first;
+    _talla3.text = _SaludPertenencia3.map((e) => e.talla.toString()).first;
+    _puebloIndigena3.text = _SaludPertenencia3.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia3.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia3.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion3.text = _SaludPertenencia3.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia3.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia3.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+    _ponderacion3.text = _SaludPertenencia3.map((e) => e.ponderacion.toString()).first;
+  }
+
+  getAllSaludPertenencia4() async {
+    _SaludPertenencia4 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia4(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia4.add(categoryModel);
+      });
+    });
+
+    _discapacidades4.text = _SaludPertenencia4.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia4.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia4.map((e) => e.CapacidadDiferente).first;
+    _adicciones4.text = _SaludPertenencia4.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia4.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia4.map((e) => e.Adiccion).first;
+
+    _condicionSalud4.text =_SaludPertenencia4.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia4.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia4.map((e) => e.CondicionesSalud).first;
+
+    _peso4.text = _SaludPertenencia4.map((e) => e.peso.toString()).first;
+    _talla4.text = _SaludPertenencia4.map((e) => e.talla.toString()).first;
+    _puebloIndigena4.text = _SaludPertenencia4.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia4.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia4.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion4.text = _SaludPertenencia4.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia4.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia4.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+    _ponderacion4.text = _SaludPertenencia4.map((e) => e.ponderacion.toString()).first;
+  }
+
+  getAllSaludPertenencia5() async {
+    _SaludPertenencia5 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia5(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia5.add(categoryModel);
+      });
+    });
+
+    _discapacidades5.text = _SaludPertenencia5.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia5.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia5.map((e) => e.CapacidadDiferente).first;
+    _adicciones5.text = _SaludPertenencia5.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia5.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia5.map((e) => e.Adiccion).first;
+
+    _condicionSalud5.text =_SaludPertenencia5.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia5.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia5.map((e) => e.CondicionesSalud).first;
+
+    _peso5.text = _SaludPertenencia5.map((e) => e.peso.toString()).first;
+    _talla5.text = _SaludPertenencia5.map((e) => e.talla.toString()).first;
+    _puebloIndigena5.text = _SaludPertenencia5.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia5.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia5.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion5.text = _SaludPertenencia5.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia5.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia5.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+    _ponderacion5.text = _SaludPertenencia5.map((e) => e.ponderacion.toString()).first;
+  }
+
+  getAllSaludPertenencia6() async {
+    _SaludPertenencia6 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia6(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia6.add(categoryModel);
+      });
+    });
+
+    _discapacidades6.text = _SaludPertenencia6.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia6.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia6.map((e) => e.CapacidadDiferente).first;
+    _adicciones6.text = _SaludPertenencia6.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia6.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia6.map((e) => e.Adiccion).first;
+
+    _condicionSalud6.text =_SaludPertenencia6.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia6.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia6.map((e) => e.CondicionesSalud).first;
+
+    _peso6.text = _SaludPertenencia6.map((e) => e.peso.toString()).first;
+    _talla6.text = _SaludPertenencia6.map((e) => e.talla.toString()).first;
+    _puebloIndigena6.text = _SaludPertenencia6.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia6.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia6.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion6.text = _SaludPertenencia6.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia6.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia6.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+    _ponderacion6.text = _SaludPertenencia6.map((e) => e.ponderacion.toString()).first;
+  }
+
+  getAllSaludPertenencia7() async {
+    _SaludPertenencia7 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia7(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia7.add(categoryModel);
+      });
+    });
+
+    _discapacidades7.text = _SaludPertenencia7.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia7.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia7.map((e) => e.CapacidadDiferente).first;
+    _adicciones7.text = _SaludPertenencia7.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia7.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia7.map((e) => e.Adiccion).first;
+
+    _condicionSalud7.text =_SaludPertenencia7.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia7.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia7.map((e) => e.CondicionesSalud).first;
+
+    _peso7.text = _SaludPertenencia7.map((e) => e.peso.toString()).first;
+    _talla7.text = _SaludPertenencia7.map((e) => e.talla.toString()).first;
+    _puebloIndigena7.text = _SaludPertenencia7.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia7.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia7.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion7.text = _SaludPertenencia7.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia7.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia7.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+
+    _ponderacion7.text = _SaludPertenencia7.map((e) => e.ponderacion.toString()).first;
+  }
+
+  getAllSaludPertenencia8() async {
+    _SaludPertenencia8 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia8(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia8.add(categoryModel);
+      });
+    });
+
+    _discapacidades8.text = _SaludPertenencia8.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia8.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia8.map((e) => e.CapacidadDiferente).first;
+    _adicciones8.text = _SaludPertenencia8.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia8.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia8.map((e) => e.Adiccion).first;
+
+    _condicionSalud8.text =_SaludPertenencia8.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia8.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia8.map((e) => e.CondicionesSalud).first;
+
+    _peso8.text = _SaludPertenencia8.map((e) => e.peso.toString()).first;
+    _talla8.text = _SaludPertenencia8.map((e) => e.talla.toString()).first;
+    _puebloIndigena8.text = _SaludPertenencia8.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia8.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia8.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion8.text = _SaludPertenencia8.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia8.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia8.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+    _ponderacion8.text = _SaludPertenencia8.map((e) => e.ponderacion.toString()).first;
+  }
+
+  getAllSaludPertenencia9() async {
+    _SaludPertenencia9 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia9(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia9.add(categoryModel);
+      });
+    });
+
+    _discapacidades9.text = _SaludPertenencia9.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia9.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia9.map((e) => e.CapacidadDiferente).first;
+    _adicciones9.text = _SaludPertenencia9.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia9.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia9.map((e) => e.Adiccion).first;
+
+    _condicionSalud9.text =_SaludPertenencia9.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia9.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia9.map((e) => e.CondicionesSalud).first;
+
+    _peso9.text = _SaludPertenencia9.map((e) => e.peso.toString()).first;
+    _talla9.text = _SaludPertenencia9.map((e) => e.talla.toString()).first;
+    _puebloIndigena9.text = _SaludPertenencia9.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia9.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia9.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion9.text = _SaludPertenencia9.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia9.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia9.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+    _ponderacion9.text = _SaludPertenencia9.map((e) => e.ponderacion.toString()).first;
+  }
+
+  getAllSaludPertenencia10() async {
+    _SaludPertenencia10 = List<Salud_PertenenciaIndigenenaTablaModel>();
+    var categories = await CategoryService().readSaludPertenencia10(int.parse(widget.folio));
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
+        categoryModel.folio = category['folio'];
+        categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
+        categoryModel.OrdenCapacidadDiferente = category['OrdenCapacidadDiferente'];
+        categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
+        categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
+        categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
+        categoryModel.Adiccion = category['Adiccion'];
+        categoryModel.peso = category['peso'];
+        categoryModel.talla = category['talla'];
+        categoryModel.imc = category['imc'];
+        categoryModel.ClaveCondicionesSalud = category['ClaveCondicionesSalud'];
+        categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
+        categoryModel.CondicionesSalud = category['CondicionesSalud'];
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
+        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
+        categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
+        categoryModel.EtniaIndigena = category['EtniaIndigena'];
+
+        _SaludPertenencia10.add(categoryModel);
+      });
+    });
+
+    _discapacidades10.text = _SaludPertenencia10.map((e) => e.ClaveCapacidadDiferente).first + " " +
+        _SaludPertenencia10.map((e) => e.OrdenCapacidadDiferente).first + " " + _SaludPertenencia10.map((e) => e.CapacidadDiferente).first;
+    _adicciones10.text = _SaludPertenencia10.map((e) => e.ClaveAdiccion).first + " " +
+        _SaludPertenencia10.map((e) => e.OrdenAdiccion).first + " " + _SaludPertenencia10.map((e) => e.Adiccion).first;
+
+    _condicionSalud10.text =_SaludPertenencia10.map((e) => e.ClaveCondicionesSalud).first + " " + _SaludPertenencia10.map((e) => e.OrdenCondicionesSalud).first
+        + " " +  _SaludPertenencia10.map((e) => e.CondicionesSalud).first;
+
+    _peso10.text = _SaludPertenencia10.map((e) => e.peso.toString()).first;
+    _talla10.text = _SaludPertenencia10.map((e) => e.talla.toString()).first;
+    _puebloIndigena10.text = _SaludPertenencia10.map((e) => e.ClaveEtniaIndigena).first + " " +
+        _SaludPertenencia10.map((e) => e.OrdenEtniaIndigena).first + " " + _SaludPertenencia10.map((e) => e.EtniaIndigena).first;
+
+    _clasificacion10.text = _SaludPertenencia10.map((e) => e.ClaveClasCondicionesSalud.toString()).first + " " +  _SaludPertenencia10.map((e) => e.ClaveClasCondicionesSalud.toString()).first
+        + " " + _SaludPertenencia10.map((e) => e.ClasCondicionesSalud.toString()).first;
+
+    _ponderacion10.text = _SaludPertenencia10.map((e) => e.ponderacion.toString()).first;
+  }
+
+  cargarDatos(){
+    getAllSaludPertenencia1();
+    getAllSaludPertenencia2();
+    getAllSaludPertenencia3();
+    getAllSaludPertenencia4();
+    getAllSaludPertenencia5();
+    getAllSaludPertenencia6();
+    getAllSaludPertenencia7();
+    getAllSaludPertenencia8();
+    getAllSaludPertenencia9();
+    getAllSaludPertenencia10();
   }
 
   getAllEstructura1() async {
@@ -783,6 +1317,32 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades1.text.substring(0,1),
@@ -794,16 +1354,992 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso1.text),
         talla: double.parse(_talla1.text) ,
         imc: imC1,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
-        CondicionesSalud: _condicionSalud1.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
-        ClasCondicionesSalud: _clasificacion1.text,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud1.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud1.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft().trimRight(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion1.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion1.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion1.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena1.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena1.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  renglon2() async{
+
+    var foto64;
+    if(_image2.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image2.readAsBytesSync());
+    }
+
+    var value1 = _discapacidades2.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones2.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena2.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value4 = _condicionSalud2.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion2.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
+
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades2.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades2.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones2.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones2.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso2.text),
+        talla: double.parse(_talla2.text) ,
+        imc: imC2,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud2.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud2.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft().trimRight(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion2.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion2.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
+        ponderacion: int.parse(_ponderacion2.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena2.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena2.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  renglon3() async{
+
+    var foto64;
+    if(_image3.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image3.readAsBytesSync());
+    }
+
+
+    var value1 = _discapacidades3.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones3.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena3.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
+
+
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades3.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades3.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones3.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones3.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso3.text),
+        talla: double.parse(_talla3.text) ,
+        imc: imC3,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud3.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud3.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion3.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion3.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
+        ponderacion: int.parse(_ponderacion3.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena3.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena3.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  renglon4() async{
+    var foto64;
+    if(_image4.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image4.readAsBytesSync());
+    }
+
+    var value1 = _discapacidades4.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones4.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena4.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades4.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades4.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones4.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones4.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso4.text),
+        talla: double.parse(_talla4.text) ,
+        imc: imC4,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud4.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud4.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion4.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion4.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
+        ponderacion: int.parse(_ponderacion4.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena4.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena4.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  renglon5() async{
+    var foto64;
+    if(_image5.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image5.readAsBytesSync());
+    }
+
+    var value1 = _discapacidades5.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones5.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena5.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades5.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades5.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones5.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones5.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso5.text),
+        talla: double.parse(_talla5.text) ,
+        imc: imC5,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud5.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud5.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion5.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion5.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
+        ponderacion: int.parse(_ponderacion5.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena5.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena5.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  renglon6() async{
+    var foto64;
+    if(_image6.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image6.readAsBytesSync());
+    }
+
+    var value1 = _discapacidades6.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones6.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena6.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
+
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades6.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades6.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones6.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones6.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso6.text),
+        talla: double.parse(_talla6.text) ,
+        imc: imC6,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud6.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud6.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion6.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion6.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
+        ponderacion: int.parse(_ponderacion6.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena6.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena6.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  renglon7() async{
+    var foto64;
+    if(_image7.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image7.readAsBytesSync());
+    }
+
+    var value1 = _discapacidades7.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones7.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena7.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
+
+
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades7.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades7.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones7.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones7.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso7.text),
+        talla: double.parse(_talla7.text) ,
+        imc: imC7,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud7.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud7.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion7.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion7.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
+        ponderacion: int.parse(_ponderacion7.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena7.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena7.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  renglon8() async{
+    var foto64;
+    if(_image8.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image8.readAsBytesSync());
+    }
+
+    var value1 = _discapacidades8.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones8.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena8.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
+
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades8.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades8.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones8.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones8.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso8.text),
+        talla: double.parse(_talla8.text) ,
+        imc: imC8,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud8.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud8.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion8.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion8.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion,
+        ponderacion: int.parse(_ponderacion8.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena8.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena8.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  renglon9() async{
+    var foto64;
+    if(_image9.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image9.readAsBytesSync());
+    }
+
+    var value1 = _discapacidades9.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones9.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena9.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
+
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades9.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades9.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones9.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones9.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso9.text),
+        talla: double.parse(_talla9.text) ,
+        imc: imC9,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud9.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud9.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion9.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion9.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
+        ponderacion: int.parse(_ponderacion9.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena9.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena9.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  renglon10() async{
+    var foto64;
+    if(_image10.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image10.readAsBytesSync());
+    }
+    var value1 = _discapacidades10.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones10.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena10.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
+
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades10.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades10.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones10.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones10.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso10.text),
+        talla: double.parse(_talla10.text) ,
+        imc: imC10,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud10.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud10.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: Condiciones.trimLeft(),
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion10.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion10.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
+        ponderacion: int.parse(_ponderacion10.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena10.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena10.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
     );
 
@@ -819,7 +2355,88 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     });
   }
 
-  renglon2() async{
+  actRenglon1() async {
+    var foto64;
+
+    if(_image1.isNull){
+      foto64 = "";
+    }else{
+      foto64 = Utility.base64String(_image1.readAsBytesSync());
+    }
+
+
+    var value1 = _discapacidades1.text; // 'artlang'
+    final CapacidadesD = value1
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value2 = _adicciones1.text; // 'artlang'
+    final Adicciones = value2
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value3 = _puebloIndigena1.text; // 'artlang'
+    final Pueblo = value3
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
+        folio: int.parse(widget.folio),
+        ClaveCapacidadDiferente: _discapacidades1.text.substring(0,1),
+        OrdenCapacidadDiferente: (int.parse(_discapacidades1.text.substring(0,1)) - 1).toString(),
+        CapacidadDiferente: CapacidadesD.trimLeft() ,
+        ClaveAdiccion: _adicciones1.text.substring(0,1),
+        OrdenAdiccion: (int.parse(_adicciones1.text.substring(0,1))- 1).toString(),
+        Adiccion: Adicciones.trimLeft(),
+        peso: double.parse(_peso1.text),
+        talla: double.parse(_talla1.text) ,
+        imc: imC1,
+        ClaveCondicionesSalud: (int.parse(_condicionSalud1.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud1.text.substring(0,2).trimRight())).toString(),
+        CondicionesSalud: _condicionSalud1.text,
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion1.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion1.text.substring(0,2).trimRight())).toString(),
+        ClasCondicionesSalud: _clasificacion1.text,
+        ponderacion: int.parse(_ponderacion1.text),
+        fileFoto: foto64,
+        ClaveEtniaIndigena: _puebloIndigena1.text.substring(0,2).trimRight(),
+        OrdenEtniaIndigena: (int.parse(_puebloIndigena1.text.substring(0,2).trimRight())- 1).toString(),
+        EtniaIndigena: Pueblo.trimLeft()
+    );
+
+    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
+      alertDialog(context, "Se registro correctamente");
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  actRenglon2() async{
 
     var foto64;
     if(_image2.isNull){
@@ -881,11 +2498,11 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso2.text),
         talla: double.parse(_talla2.text) ,
         imc: imC2,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
+        ClaveCondicionesSalud: (int.parse(_condicionSalud2.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud2.text.substring(0,2).trimRight())).toString(),
         CondicionesSalud: _condicionSalud2.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion2.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion2.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: _clasificacion2.text,
         ponderacion: int.parse(_ponderacion2.text),
         fileFoto: foto64,
@@ -894,19 +2511,16 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().saveSalud(BModel).then((remesasModel) {
+    await DbHelper().upDateSalud2(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
-      }
-      ));
+
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  renglon3() async{
+  actRenglon3() async{
 
     var foto64;
     if(_image3.isNull){
@@ -969,11 +2583,11 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso3.text),
         talla: double.parse(_talla3.text) ,
         imc: imC3,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
+        ClaveCondicionesSalud: (int.parse(_condicionSalud3.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud3.text.substring(0,2).trimRight())).toString(),
         CondicionesSalud: _condicionSalud3.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion3.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion3.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: _clasificacion3.text,
         ponderacion: int.parse(_ponderacion3.text),
         fileFoto: foto64,
@@ -982,19 +2596,16 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().saveSalud(BModel).then((remesasModel) {
+    await DbHelper().upDateSalud3(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
-      }
-      ));
+
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  renglon4() async{
+  actRenglon4() async{
     var foto64;
     if(_image4.isNull){
       foto64 = "";
@@ -1055,11 +2666,11 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso4.text),
         talla: double.parse(_talla4.text) ,
         imc: imC4,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
+        ClaveCondicionesSalud: (int.parse(_condicionSalud4.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud4.text.substring(0,2).trimRight())).toString(),
         CondicionesSalud: _condicionSalud4.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion4.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion4.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: _clasificacion4.text,
         ponderacion: int.parse(_ponderacion4.text),
         fileFoto: foto64,
@@ -1068,19 +2679,16 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().saveSalud(BModel).then((remesasModel) {
+    await DbHelper().upDateSalud4(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
-      }
-      ));
+
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  renglon5() async{
+  actRenglon5() async{
     var foto64;
     if(_image5.isNull){
       foto64 = "";
@@ -1141,11 +2749,11 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso5.text),
         talla: double.parse(_talla5.text) ,
         imc: imC5,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
+        ClaveCondicionesSalud: (int.parse(_condicionSalud5.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud5.text.substring(0,2).trimRight())).toString(),
         CondicionesSalud: _condicionSalud5.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion5.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion5.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: _clasificacion5.text,
         ponderacion: int.parse(_ponderacion5.text),
         fileFoto: foto64,
@@ -1154,19 +2762,15 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().saveSalud(BModel).then((remesasModel) {
+    await DbHelper().upDateSalud5(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
-      }
-      ));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  renglon6() async{
+  actRenglon6() async{
     var foto64;
     if(_image6.isNull){
       foto64 = "";
@@ -1227,11 +2831,11 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso6.text),
         talla: double.parse(_talla6.text) ,
         imc: imC6,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
+        ClaveCondicionesSalud: (int.parse(_condicionSalud6.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud6.text.substring(0,2).trimRight())).toString(),
         CondicionesSalud: _condicionSalud6.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion6.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion6.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: _clasificacion6.text,
         ponderacion: int.parse(_ponderacion6.text),
         fileFoto: foto64,
@@ -1240,19 +2844,15 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().saveSalud(BModel).then((remesasModel) {
+    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
-      }
-      ));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  renglon7() async{
+  actRenglon7() async{
     var foto64;
     if(_image7.isNull){
       foto64 = "";
@@ -1313,11 +2913,11 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso7.text),
         talla: double.parse(_talla7.text) ,
         imc: imC7,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
+        ClaveCondicionesSalud: (int.parse(_condicionSalud7.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud7.text.substring(0,2).trimRight())).toString(),
         CondicionesSalud: _condicionSalud7.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion7.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion7.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: _clasificacion7.text,
         ponderacion: int.parse(_ponderacion7.text),
         fileFoto: foto64,
@@ -1326,19 +2926,15 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().saveSalud(BModel).then((remesasModel) {
+    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
-      }
-      ));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  renglon8() async{
+  actRenglon8() async{
     var foto64;
     if(_image8.isNull){
       foto64 = "";
@@ -1399,11 +2995,11 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso8.text),
         talla: double.parse(_talla8.text) ,
         imc: imC8,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
+        ClaveCondicionesSalud: (int.parse(_condicionSalud8.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud8.text.substring(0,2).trimRight())).toString(),
         CondicionesSalud: _condicionSalud8.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion8.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion8.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: _clasificacion8.text,
         ponderacion: int.parse(_ponderacion8.text),
         fileFoto: foto64,
@@ -1412,19 +3008,15 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().saveSalud(BModel).then((remesasModel) {
+    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
-      }
-      ));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  renglon9() async{
+  actRenglon9() async{
     var foto64;
     if(_image9.isNull){
       foto64 = "";
@@ -1485,11 +3077,11 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso9.text),
         talla: double.parse(_talla9.text) ,
         imc: imC9,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
+        ClaveCondicionesSalud: (int.parse(_condicionSalud9.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud9.text.substring(0,2).trimRight())).toString(),
         CondicionesSalud: _condicionSalud9.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion9.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion9.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: _clasificacion9.text,
         ponderacion: int.parse(_ponderacion9.text),
         fileFoto: foto64,
@@ -1498,19 +3090,16 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().saveSalud(BModel).then((remesasModel) {
+    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
-        return new Infraestructura_Vivienda(widget.folio);
-      }
-      ));
+
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  renglon10() async{
+  actRenglon10() async{
     var foto64;
     if(_image10.isNull){
       foto64 = "";
@@ -1570,11 +3159,11 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         peso: double.parse(_peso10.text),
         talla: double.parse(_talla10.text) ,
         imc: imC10,
-        ClaveCondicionesSalud: "1",
-        OrdenCondicionesSalud: "1",
+        ClaveCondicionesSalud: (int.parse(_condicionSalud10.text.substring(0,2).trimRight())).toString(),
+        OrdenCondicionesSalud: (int.parse(_condicionSalud10.text.substring(0,2).trimRight())).toString(),
         CondicionesSalud: _condicionSalud10.text,
-        ClaveClasCondicionesSalud: "1",
-        OrdenClasCondicionesSalud: "1",
+        ClaveClasCondicionesSalud: (int.parse(_clasificacion10.text.substring(0,2).trimRight())).toString(),
+        OrdenClasCondicionesSalud: (int.parse(_clasificacion10.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: _clasificacion10.text,
         ponderacion: int.parse(_ponderacion10.text),
         fileFoto: foto64,
@@ -1583,7 +3172,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().saveSalud(BModel).then((remesasModel) {
+    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
         return new Infraestructura_Vivienda(widget.folio);
@@ -1593,6 +3182,139 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
+  }
+
+  actualizar() async{
+    if(!_nombre1.text.toString().isEmpty){
+      if(!_nombre2.text.toString().isEmpty){
+        if(!_nombre3.text.toString().isEmpty){
+          if(!_nombre4.text.toString().isEmpty){
+            if(!_nombre5.text.toString().isEmpty){
+              if(!_nombre6.text.toString().isEmpty){
+                if(!_nombre7.text.toString().isEmpty){
+                  if(!_nombre8.text.toString().isEmpty){
+                    if(!_nombre9.text.toString().isEmpty){
+                      if(!_nombre10.text.toString().isEmpty){
+
+                        actRenglon1();
+                        actRenglon2();
+                        actRenglon3();
+                        actRenglon4();
+                        actRenglon5();
+                        actRenglon6();
+                        actRenglon7();
+                        actRenglon8();
+                        actRenglon9();
+                        actRenglon10();
+
+                      }else{
+                        actRenglon1();
+                        actRenglon2();
+                        actRenglon3();
+                        actRenglon4();
+                        actRenglon5();
+                        actRenglon6();
+                        actRenglon7();
+                        actRenglon8();
+                        actRenglon9();
+                        Navigator.of(context)
+                            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                          return new Infraestructura_Vivienda(widget.folio);
+                        }));
+                      }
+                    }else{
+                      actRenglon1();
+                      actRenglon2();
+                      actRenglon3();
+                      actRenglon4();
+                      actRenglon5();
+                      actRenglon6();
+                      actRenglon7();
+                      actRenglon8();
+                      Navigator.of(context)
+                          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                        return new Infraestructura_Vivienda(widget.folio);
+                      }));
+                    }
+                  }else{
+                    actRenglon1();
+                    actRenglon2();
+                    actRenglon3();
+                    actRenglon4();
+                    actRenglon5();
+                    actRenglon6();
+                    actRenglon7();
+                    Navigator.of(context)
+                        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                      return new Infraestructura_Vivienda(widget.folio);
+                    }));
+
+                  }
+                }else{
+                  actRenglon1();
+                  actRenglon2();
+                  actRenglon3();
+                  actRenglon4();
+                  actRenglon5();
+                  actRenglon6();
+                  Navigator.of(context)
+                      .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                    return new Infraestructura_Vivienda(widget.folio);
+                  }));
+
+                }
+              }else{
+                actRenglon1();
+                actRenglon2();
+                actRenglon3();
+                actRenglon4();
+                actRenglon5();
+                Navigator.of(context)
+                    .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                  return new Infraestructura_Vivienda(widget.folio);
+                }));
+              }
+            }else{
+
+              actRenglon1();
+              actRenglon2();
+              actRenglon3();
+              actRenglon4();
+              Navigator.of(context)
+                  .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+                return new Infraestructura_Vivienda(widget.folio);
+              }));
+
+            }
+          }else{
+
+            actRenglon1();
+            actRenglon2();
+            actRenglon3();
+            Navigator.of(context)
+                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+              return new Infraestructura_Vivienda(widget.folio);
+            }));
+
+          }
+        }else{
+          actRenglon1();
+          actRenglon2();
+          Navigator.of(context)
+              .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+            return new Infraestructura_Vivienda(widget.folio);
+          }));
+
+        }
+      }else{
+        actRenglon1();
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Infraestructura_Vivienda(widget.folio);
+        }));
+      }
+    }
+
   }
 
   insertDatos() async {
@@ -1728,6 +3450,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
 
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1760,9 +3483,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
                   child: FlatButton.icon(
-                    onPressed: (){
-
-                    },
+                    onPressed: cargarDatos,
                     icon: Icon(Icons.add_circle_outline,color: Colors.white),
                     label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
                   ),

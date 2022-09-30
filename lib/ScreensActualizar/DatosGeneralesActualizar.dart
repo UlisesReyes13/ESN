@@ -79,7 +79,6 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     getAllCategoriesCodigoPostal();
     getAllCategoriesCodigoPostal2();
     getAllCategoriesGrupo();
-    cargarPreferencias();
     super.initState();
     dbHelper = DbHelper();
   }
@@ -352,7 +351,11 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
       alertDialog(context, "Error: No se registro tipo de vialidad");
     } else if (cp.isEmpty) {
       alertDialog(context, "Error: No se registro Codigo Postal");
-    } else {
+    } else if(telefono.length < 10) {
+      alertDialog(context, 'El número de teléfono no debe ser menor a 10 digitos');
+    }else if (telefono.length > 10) {
+      alertDialog(context, 'El número de teléfono no debe ser mayor a 10 digitos');
+    }else{
       var value1 = tipoAsentamiento; // 'artlang'
       final nombreTipoAsentamiento = value1
           .replaceAll("1", "")
