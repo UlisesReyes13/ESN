@@ -244,7 +244,7 @@ class _ServiciosCombustibleActualizarState extends State<ServiciosCombustibleAct
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: enviar,
                     icon: Icon(Icons.arrow_forward,color: Colors.white),
                     label: Text('Continuar', style: TextStyle(color: Colors.white),),

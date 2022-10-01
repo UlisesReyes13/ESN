@@ -3338,10 +3338,8 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
-                    onPressed: (){
-
-                    },
+                  child: TextButton.icon(
+                    onPressed: cargarDatos,
                     icon: Icon(Icons.add_circle_outline,color: Colors.white),
                     label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
                   ),
@@ -3432,7 +3430,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage1,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -3507,7 +3505,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage2,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -3582,7 +3580,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage3,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -3657,7 +3655,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage4,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -3732,7 +3730,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage5,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -3807,7 +3805,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage6,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -3882,7 +3880,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage7,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -3956,7 +3954,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage8,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -4031,7 +4029,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage9,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -4106,7 +4104,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                       Container(
                                         margin: EdgeInsets.only(top: 5),
                                         width: 300,
-                                        child: FlatButton.icon(
+                                        child: TextButton.icon(
                                           onPressed: getImage10,
                                           icon: Icon(Icons.add_a_photo,color: Colors.white,),
                                           label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
@@ -4137,10 +4135,8 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
-                    onPressed: (){
-
-                    },
+                  child: TextButton.icon(
+                    onPressed: actualizar,
                     icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
                     label: Text('Actualizar', style: TextStyle(color: Colors.white),),
                   ),

@@ -16,17 +16,17 @@ import '../Comm/comHelper.dart';
 import '../DatabaseHandler/DbHelper.dart';
 
 class AportacionesEconomicasActualizar extends StatefulWidget {
-
   String folio;
 
   AportacionesEconomicasActualizar(this.folio);
 
   @override
-  State<AportacionesEconomicasActualizar> createState() => _AportacionesEconomicasState();
+  State<AportacionesEconomicasActualizar> createState() =>
+      _AportacionesEconomicasState();
 }
 
-
-class _AportacionesEconomicasState extends State<AportacionesEconomicasActualizar> {
+class _AportacionesEconomicasState
+    extends State<AportacionesEconomicasActualizar> {
   final _padre = TextEditingController();
   final _madre = TextEditingController();
   final _hijos = TextEditingController();
@@ -64,6 +64,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     cargarDatos();
     super.initState();
   }
+
   SumaApoyoS() {
     String padre = _padre.text;
     String madre = _madre.text;
@@ -73,33 +74,38 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     String becas = _becas.text;
     String otros = _otros.text;
     String pension = _pension.text;
-    if(padre.isEmpty ){
+    if (padre.isEmpty) {
       padre = "0.0";
     }
-    if (madre.isEmpty){
+    if (madre.isEmpty) {
       madre = "0.0";
     }
-    if(hijos.isEmpty){
+    if (hijos.isEmpty) {
       hijos = "0.0";
     }
-    if (prospera.isEmpty ){
+    if (prospera.isEmpty) {
       prospera = "0.0";
     }
-    if(adultosProspera.isEmpty){
+    if (adultosProspera.isEmpty) {
       adultosProspera = "0.0";
     }
-    if (becas.isEmpty){
+    if (becas.isEmpty) {
       becas = "0.0";
     }
-    if(otros.isEmpty){
+    if (otros.isEmpty) {
       otros = "0.0";
     }
-    if (pension.isEmpty){
+    if (pension.isEmpty) {
       pension = "0.0";
     }
-    double apoyoS = double.parse(padre) + double.parse(madre) + double.parse(hijos)
-        + double.parse(prospera) + double.parse(adultosProspera) + double.parse(becas)
-        + double.parse(otros) + double.parse(pension);
+    double apoyoS = double.parse(padre) +
+        double.parse(madre) +
+        double.parse(hijos) +
+        double.parse(prospera) +
+        double.parse(adultosProspera) +
+        double.parse(becas) +
+        double.parse(otros) +
+        double.parse(pension);
 
     String i = apoyoS.toStringAsFixed(2);
     final _ApoyoS = TextEditingController.fromValue(TextEditingValue(text: i));
@@ -116,35 +122,40 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     String becas = _becas.text;
     String otros = _otros.text;
     String pension = _pension.text;
-    if(padre.isEmpty){
+    if (padre.isEmpty) {
       padre = "0.0";
     }
-    if (madre.isEmpty){
+    if (madre.isEmpty) {
       madre = "0.0";
     }
-    if(hijos.isEmpty){
+    if (hijos.isEmpty) {
       hijos = "0.0";
     }
-    if (prospera.isEmpty){
+    if (prospera.isEmpty) {
       prospera = "0.0";
     }
-    if(adultosProspera.isEmpty){
+    if (adultosProspera.isEmpty) {
       adultosProspera = "0.0";
     }
-    if (becas.isEmpty){
+    if (becas.isEmpty) {
       becas = "0.0";
     }
-    if(otros.isEmpty){
+    if (otros.isEmpty) {
       otros = "0.0";
     }
-    if (pension.isEmpty){
+    if (pension.isEmpty) {
       pension = "0.0";
     }
-    double apoyoS = double.parse(padre) + double.parse(madre) + double.parse(hijos)
-        + double.parse(prospera) + double.parse(adultosProspera) + double.parse(becas)
-        + double.parse(otros) + double.parse(pension);
+    double apoyoS = double.parse(padre) +
+        double.parse(madre) +
+        double.parse(hijos) +
+        double.parse(prospera) +
+        double.parse(adultosProspera) +
+        double.parse(becas) +
+        double.parse(otros) +
+        double.parse(pension);
 
-    double apoyoM = (apoyoS/7) * 30.4;
+    double apoyoM = (apoyoS / 7) * 30.4;
 
     String i = apoyoM.toStringAsFixed(2);
     final _ApoyosM = TextEditingController.fromValue(TextEditingValue(text: i));
@@ -165,43 +176,50 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     String celular = _celular.text;
     String educacion = _educacion.text;
 
-    if(vivienda == "" ){
+    if (vivienda == "") {
       vivienda = "0.0";
     }
-    if (alimentacion.isEmpty){
+    if (alimentacion.isEmpty) {
       alimentacion = "0.0";
     }
-    if(luz.isEmpty){
+    if (luz.isEmpty) {
       luz = "0.0";
     }
-    if (gas.isEmpty){
+    if (gas.isEmpty) {
       gas = "0.0";
     }
-    if(agua.isEmpty){
+    if (agua.isEmpty) {
       agua = "0.0";
     }
-    if (telefono.isEmpty){
+    if (telefono.isEmpty) {
       telefono = "0.0";
     }
-    if(transporte.isEmpty){
+    if (transporte.isEmpty) {
       transporte = "0.0";
     }
-    if (atencionMedica.isEmpty){
+    if (atencionMedica.isEmpty) {
       atencionMedica = "0.0";
     }
-    if (otrosGastos.isEmpty){
+    if (otrosGastos.isEmpty) {
       otrosGastos = "0.0";
     }
-    if (celular.isEmpty){
+    if (celular.isEmpty) {
       celular = "0.0";
     }
-    if (educacion.isEmpty){
+    if (educacion.isEmpty) {
       educacion = "0.0";
     }
-    double egresoS = double.parse(vivienda) + double.parse(alimentacion) + double.parse(luz)
-        + double.parse(gas) + double.parse(agua) + double.parse(telefono)
-        + double.parse(transporte) + double.parse(atencionMedica) + double.parse(otrosGastos)
-        + double.parse(celular) + double.parse(educacion) ;
+    double egresoS = double.parse(vivienda) +
+        double.parse(alimentacion) +
+        double.parse(luz) +
+        double.parse(gas) +
+        double.parse(agua) +
+        double.parse(telefono) +
+        double.parse(transporte) +
+        double.parse(atencionMedica) +
+        double.parse(otrosGastos) +
+        double.parse(celular) +
+        double.parse(educacion);
 
     String i = egresoS.toStringAsFixed(2);
     final _EgresoS = TextEditingController.fromValue(TextEditingValue(text: i));
@@ -222,45 +240,52 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     String celular = _celular.text;
     String educacion = _educacion.text;
 
-    if(vivienda.isEmpty){
+    if (vivienda.isEmpty) {
       vivienda = "0.0";
     }
-    if (alimentacion.isEmpty){
+    if (alimentacion.isEmpty) {
       alimentacion = "0.0";
     }
-    if(luz.isEmpty){
+    if (luz.isEmpty) {
       luz = "0.0";
     }
-    if (gas.isEmpty){
+    if (gas.isEmpty) {
       gas = "0.0";
     }
-    if(agua.isEmpty){
+    if (agua.isEmpty) {
       agua = "0.0";
     }
-    if (telefono.isEmpty){
+    if (telefono.isEmpty) {
       telefono = "0.0";
     }
-    if(transporte.isEmpty){
+    if (transporte.isEmpty) {
       transporte = "0.0";
     }
-    if (atencionMedica.isEmpty){
+    if (atencionMedica.isEmpty) {
       atencionMedica = "0.0";
     }
-    if (otrosGastos.isEmpty){
+    if (otrosGastos.isEmpty) {
       otrosGastos = "0.0";
     }
-    if (celular.isEmpty){
+    if (celular.isEmpty) {
       celular = "0.0";
     }
-    if (educacion.isEmpty){
+    if (educacion.isEmpty) {
       educacion = "0.0";
     }
-    double egresoS = double.parse(vivienda) + double.parse(alimentacion) + double.parse(luz)
-        + double.parse(gas) + double.parse(agua) + double.parse(telefono)
-        + double.parse(transporte) + double.parse(atencionMedica) + double.parse(otrosGastos)
-        + double.parse(celular) + double.parse(educacion);
+    double egresoS = double.parse(vivienda) +
+        double.parse(alimentacion) +
+        double.parse(luz) +
+        double.parse(gas) +
+        double.parse(agua) +
+        double.parse(telefono) +
+        double.parse(transporte) +
+        double.parse(atencionMedica) +
+        double.parse(otrosGastos) +
+        double.parse(celular) +
+        double.parse(educacion);
 
-    double EgresoM = (egresoS/7) * 30.4;
+    double EgresoM = (egresoS / 7) * 30.4;
 
     String i = EgresoM.toStringAsFixed(2);
     final _EgresoM = TextEditingController.fromValue(TextEditingValue(text: i));
@@ -268,9 +293,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     return _EgresoM;
   }
 
-  getAllAportaciones() async{
+  getAllAportaciones() async {
     _AportacionesEconomicas = List<AportacionSemanal>();
-    var categories = await CategoryService().readAportaciones(int.parse(widget.folio));
+    var categories =
+        await CategoryService().readAportaciones(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = AportacionSemanal();
@@ -279,7 +305,8 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
         categoryModel.madre = category['madre'];
         categoryModel.hijos = category['hijos'];
         categoryModel.prospera = category['prospera'];
-        categoryModel.adultosMayoresProspera = category['adultosMayoresProspera'];
+        categoryModel.adultosMayoresProspera =
+            category['adultosMayoresProspera'];
         categoryModel.becas = category['becas'];
         categoryModel.otros = category['otros'];
         categoryModel.pension = category['pension'];
@@ -293,19 +320,25 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     _padre.text = _AportacionesEconomicas.map((e) => e.padre.toString()).first;
     _madre.text = _AportacionesEconomicas.map((e) => e.madre.toString()).first;
     _hijos.text = _AportacionesEconomicas.map((e) => e.hijos.toString()).first;
-    _prospera.text = _AportacionesEconomicas.map((e) => e.prospera.toString()).first;
-    _adultosProspera.text = _AportacionesEconomicas.map((e) => e.adultosMayoresProspera.toString()).first;
+    _prospera.text =
+        _AportacionesEconomicas.map((e) => e.prospera.toString()).first;
+    _adultosProspera.text =
+        _AportacionesEconomicas.map((e) => e.adultosMayoresProspera.toString())
+            .first;
     _becas.text = _AportacionesEconomicas.map((e) => e.becas.toString()).first;
     _otros.text = _AportacionesEconomicas.map((e) => e.otros.toString()).first;
-    _pension.text = _AportacionesEconomicas.map((e) => e.pension.toString()).first;
-    _totalSemanalS.text = _AportacionesEconomicas.map((e) => e.totalSemanal.toString()).first;
-    _totalMensualS.text = _AportacionesEconomicas.map((e) => e.totalMensual.toString()).first;
-
+    _pension.text =
+        _AportacionesEconomicas.map((e) => e.pension.toString()).first;
+    _totalSemanalS.text =
+        _AportacionesEconomicas.map((e) => e.totalSemanal.toString()).first;
+    _totalMensualS.text =
+        _AportacionesEconomicas.map((e) => e.totalMensual.toString()).first;
   }
 
-  getAllEgresos() async{
+  getAllEgresos() async {
     _Egresos = List<EgresoSemanal>();
-    var categories = await CategoryService().readEgresos(int.parse(widget.folio));
+    var categories =
+        await CategoryService().readEgresos(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EgresoSemanal();
@@ -335,23 +368,21 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     _agua.text = _Egresos.map((e) => e.agua.toString()).first;
     _telefono.text = _Egresos.map((e) => e.telefono.toString()).first;
     _transporte.text = _Egresos.map((e) => e.transporte.toString()).first;
-    _atencionMedica.text = _Egresos.map((e) => e.atencionMedica.toString()).first;
+    _atencionMedica.text =
+        _Egresos.map((e) => e.atencionMedica.toString()).first;
     _otrosGastos.text = _Egresos.map((e) => e.otrosGastos.toString()).first;
     _celular.text = _Egresos.map((e) => e.celular.toString()).first;
     _educacion.text = _Egresos.map((e) => e.educacion.toString()).first;
     _totalSemanalE.text = _Egresos.map((e) => e.totalSemanal.toString()).first;
     _totalMensualE.text = _Egresos.map((e) => e.totalMensual.toString()).first;
-
-
   }
 
-
-  cargarDatos(){
+  cargarDatos() {
     getAllAportaciones();
     getAllEgresos();
   }
 
-  actualizar() async{
+  actualizar() async {
     String padre = _padre.text;
     String madre = _madre.text;
     String hijos = _hijos.text;
@@ -361,28 +392,28 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     String otros = _otros.text;
     String pension = _pension.text;
 
-    if(padre.isEmpty ){
+    if (padre.isEmpty) {
       padre = "0.0";
     }
-    if (madre.isEmpty){
+    if (madre.isEmpty) {
       madre = "0.0";
     }
-    if(hijos.isEmpty){
+    if (hijos.isEmpty) {
       hijos = "0.0";
     }
-    if (prospera.isEmpty ){
+    if (prospera.isEmpty) {
       prospera = "0.0";
     }
-    if(adultosProspera.isEmpty){
+    if (adultosProspera.isEmpty) {
       adultosProspera = "0.0";
     }
-    if (becas.isEmpty){
+    if (becas.isEmpty) {
       becas = "0.0";
     }
-    if(otros.isEmpty){
+    if (otros.isEmpty) {
       otros = "0.0";
     }
-    if (pension.isEmpty){
+    if (pension.isEmpty) {
       pension = "0.0";
     }
 
@@ -397,42 +428,42 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
     String otrosGastos = _otrosGastos.text;
     String celular = _celular.text;
     String educacion = _educacion.text;
-    if(vivienda.isEmpty){
+    if (vivienda.isEmpty) {
       vivienda = "0.0";
     }
-    if (alimentacion.isEmpty){
+    if (alimentacion.isEmpty) {
       alimentacion = "0.0";
     }
-    if(luz.isEmpty){
+    if (luz.isEmpty) {
       luz = "0.0";
     }
-    if (gas.isEmpty){
+    if (gas.isEmpty) {
       gas = "0.0";
     }
-    if(agua.isEmpty){
+    if (agua.isEmpty) {
       agua = "0.0";
     }
-    if (telefono.isEmpty){
+    if (telefono.isEmpty) {
       telefono = "0.0";
     }
-    if(transporte.isEmpty){
+    if (transporte.isEmpty) {
       transporte = "0.0";
     }
-    if (atencionMedica.isEmpty){
+    if (atencionMedica.isEmpty) {
       atencionMedica = "0.0";
     }
-    if (otrosGastos.isEmpty){
+    if (otrosGastos.isEmpty) {
       otrosGastos = "0.0";
     }
-    if (celular.isEmpty){
+    if (celular.isEmpty) {
       celular = "0.0";
     }
-    if (educacion.isEmpty){
+    if (educacion.isEmpty) {
       educacion = "0.0";
     }
 
-    AportacionSemanal DModel = AportacionSemanal
-      (folio: int.parse(widget.folio),
+    AportacionSemanal DModel = AportacionSemanal(
+        folio: int.parse(widget.folio),
         padre: double.parse(padre.toString()),
         madre: double.parse(madre.toString()),
         hijos: double.parse(hijos.toString()),
@@ -442,12 +473,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
         otros: double.parse(otros.toString()),
         pension: double.parse(pension.toString()),
         totalSemanal: Suma,
-        totalMensual: SumaM
-    );
+        totalMensual: SumaM);
 
-
-    EgresoSemanal Model = EgresoSemanal
-      (folio: int.parse(widget.folio),
+    EgresoSemanal Model = EgresoSemanal(
+        folio: int.parse(widget.folio),
         vivienda: double.parse(vivienda.toString()),
         alimentacion: double.parse(alimentacion.toString()),
         luz: double.parse(luz.toString()),
@@ -460,9 +489,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
         celular: double.parse(celular.toString()),
         educacion: double.parse(educacion.toString()),
         totalSemanal: SumaES,
-        totalMensual: SumaEM
-    );
-
+        totalMensual: SumaEM);
 
     await DbHelper().upDateApoyo(DModel).then((aportacionSemanal) {
       alertDialog(context, "Se registro correctamente");
@@ -473,17 +500,16 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
 
     await DbHelper().upDateEgreso(Model).then((egresoSemanal) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new ActualizarEstudio(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -497,16 +523,20 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Folio'),
                 SizedBox(height: 5.0),
-                getTextFolio(controller: TextEditingController.fromValue(
-                    TextEditingValue(text: widget.folio)),
+                getTextFolio(
+                  controller: TextEditingController.fromValue(
+                      TextEditingValue(text: widget.folio)),
                 ),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: cargarDatos,
-                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
-                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.add_circle_outline, color: Colors.white),
+                    label: Text(
+                      'Cargar datos',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
@@ -535,7 +565,11 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Padre'),
                     SizedBox(width: 134.0),
-                    Expanded(child: getTextField(controller: _padre, inputType: TextInputType.number,),
+                    Expanded(
+                      child: getTextField(
+                        controller: _padre,
+                        inputType: TextInputType.number,
+                      ),
                     )
                   ],
                 ),
@@ -544,7 +578,9 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Madre'),
                     SizedBox(width: 128.0),
-                    Expanded(child: getTextField(controller: _madre, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _madre, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -553,7 +589,9 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Hijos'),
                     SizedBox(width: 142.0),
-                    Expanded(child: getTextField(controller: _hijos,inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _hijos, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -562,7 +600,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'PROSPERA'),
                     SizedBox(width: 70.0),
-                    Expanded(child: getTextField(controller: _prospera, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _prospera,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -570,7 +611,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                 Row(
                   children: [
                     getTextCocepto(concepto: 'Adultos Mayores \n PROSPERA'),
-                    Expanded(child: getTextField(controller: _adultosProspera,inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _adultosProspera,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -579,7 +623,9 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Becas'),
                     SizedBox(width: 133.0),
-                    Expanded(child: getTextField(controller: _becas, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _becas, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -588,7 +634,9 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Otros'),
                     SizedBox(width: 140.0),
-                    Expanded(child: getTextField(controller: _otros,inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _otros, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -597,7 +645,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Pensión'),
                     SizedBox(width: 107.0),
-                    Expanded(child: getTextField(controller: _pension,inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _pension,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -606,26 +657,32 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Total Semanal'),
                     SizedBox(width: 56.0),
-                    Expanded(child: TextField(controller: SumaApoyoS(),
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
+                    Expanded(
+                      child: TextField(
+                        controller: SumaApoyoS(),
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2.0,
+                                  color: Colors.black26,
+                                  style: BorderStyle.solid),
                             ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0, color: Colors.blue, style: BorderStyle.solid
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2.0,
+                                  color: Colors.blue,
+                                  style: BorderStyle.solid),
                             ),
-                          ),
-                          fillColor: Colors.grey[120],
-                          filled: true
+                            fillColor: Colors.grey[120],
+                            filled: true),
+                        onTap: () async {
+                          setState(() {
+                            SumaApoyoS();
+                          });
+                          ;
+                        },
                       ),
-                      onTap: () async{
-                        setState(() {
-                          SumaApoyoS();
-                        });;
-                      }
-                      ,),
                     ),
                   ],
                 ),
@@ -634,26 +691,32 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Total Mensual'),
                     SizedBox(width: 56.0),
-                    Expanded(child: TextField(controller: SumaApoyoM(),
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
+                    Expanded(
+                      child: TextField(
+                        controller: SumaApoyoM(),
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2.0,
+                                  color: Colors.black26,
+                                  style: BorderStyle.solid),
                             ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0, color: Colors.blue, style: BorderStyle.solid
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2.0,
+                                  color: Colors.blue,
+                                  style: BorderStyle.solid),
                             ),
-                          ),
-                          fillColor: Colors.grey[120],
-                          filled: true
+                            fillColor: Colors.grey[120],
+                            filled: true),
+                        onTap: () async {
+                          setState(() {
+                            SumaApoyoM();
+                          });
+                          ;
+                        },
                       ),
-                      onTap: () async{
-                        setState(() {
-                          SumaApoyoM();
-                        });;
-                      }
-                      ,),
                     ),
                   ],
                 ),
@@ -664,7 +727,6 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   endIndent: 20,
                   color: Colors.black,
                 ),
-
                 SizedBox(height: 50.0),
                 getTextAportaciones(encabezado: 'Egreso Semanal'),
                 Container(
@@ -689,7 +751,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Vivienda'),
                     SizedBox(width: 107.0),
-                    Expanded(child: getTextField(controller: _vivienda, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _vivienda,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -698,7 +763,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Alimentación'),
                     SizedBox(width: 53.0),
-                    Expanded(child: getTextField(controller: _alimentacion, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _alimentacion,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -707,7 +775,9 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Luz'),
                     SizedBox(width: 169.0),
-                    Expanded(child: getTextField(controller: _luz, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _luz, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -716,7 +786,9 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Gas'),
                     SizedBox(width: 168.0),
-                    Expanded(child: getTextField(controller: _gas, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _gas, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -725,7 +797,9 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Agua'),
                     SizedBox(width: 150.0),
-                    Expanded(child: getTextField(controller: _agua, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _agua, inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -734,7 +808,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Teléfono'),
                     SizedBox(width: 108.0),
-                    Expanded(child: getTextField(controller: _telefono, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _telefono,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -743,7 +820,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Transporte'),
                     SizedBox(width: 83.0),
-                    Expanded(child: getTextField(controller: _transporte, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _transporte,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -752,7 +832,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Atención Médica'),
                     SizedBox(width: 14.0),
-                    Expanded(child: getTextField(controller: _atencionMedica, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _atencionMedica,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -761,7 +844,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Otros Gastos'),
                     SizedBox(width: 58.0),
-                    Expanded(child: getTextField(controller: _otrosGastos, inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _otrosGastos,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -770,7 +856,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Celular'),
                     SizedBox(width: 126.0),
-                    Expanded(child: getTextField(controller: _celular,inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _celular,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -779,7 +868,10 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Educación'),
                     SizedBox(width: 87.0),
-                    Expanded(child: getTextField(controller: _educacion,inputType: TextInputType.number),
+                    Expanded(
+                      child: getTextField(
+                          controller: _educacion,
+                          inputType: TextInputType.number),
                     ),
                   ],
                 ),
@@ -788,26 +880,32 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Total Semanal'),
                     SizedBox(width: 60.0),
-                    Expanded(child: TextField(controller: SumaEgresoS(),
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
+                    Expanded(
+                      child: TextField(
+                        controller: SumaEgresoS(),
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2.0,
+                                  color: Colors.black26,
+                                  style: BorderStyle.solid),
                             ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0, color: Colors.blue, style: BorderStyle.solid
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2.0,
+                                  color: Colors.blue,
+                                  style: BorderStyle.solid),
                             ),
-                          ),
-                          fillColor: Colors.grey[120],
-                          filled: true
+                            fillColor: Colors.grey[120],
+                            filled: true),
+                        onTap: () async {
+                          setState(() {
+                            SumaEgresoS();
+                          });
+                          ;
+                        },
                       ),
-                      onTap: () async{
-                        setState(() {
-                          SumaEgresoS();
-                        });;
-                      }
-                      ,),
                     ),
                   ],
                 ),
@@ -816,26 +914,32 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                   children: [
                     getTextCocepto(concepto: 'Total Mensual'),
                     SizedBox(width: 60.0),
-                    Expanded(child: TextField(controller: SumaEgresoM(),
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
+                    Expanded(
+                      child: TextField(
+                        controller: SumaEgresoM(),
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2.0,
+                                  color: Colors.black26,
+                                  style: BorderStyle.solid),
                             ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(width: 2.0, color: Colors.blue, style: BorderStyle.solid
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2.0,
+                                  color: Colors.blue,
+                                  style: BorderStyle.solid),
                             ),
-                          ),
-                          fillColor: Colors.grey[120],
-                          filled: true
+                            fillColor: Colors.grey[120],
+                            filled: true),
+                        onTap: () async {
+                          setState(() {
+                            SumaEgresoM();
+                          });
+                          ;
+                        },
                       ),
-                      onTap: () async{
-                        setState(() {
-                          SumaEgresoM();
-                        });;
-                      }
-                      ,),
                     ),
                   ],
                 ),
@@ -850,10 +954,14 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicasActualiza
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: actualizar,
-                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
-                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_circle_right_outlined,
+                        color: Colors.white),
+                    label: Text(
+                      'Actualizar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

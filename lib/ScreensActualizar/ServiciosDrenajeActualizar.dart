@@ -9,42 +9,53 @@ import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/ServicioCombustibleActualizar.dart';
 import 'package:flutter/material.dart';
 
-enum ServDrenaje {redPublica, fosaSeptica, tuberiaGrieta, otro, sinServicio,
-  noTiene, tuberiaRio, rasSuelo, letrina, drenaje}
+enum ServDrenaje {
+  redPublica,
+  fosaSeptica,
+  tuberiaGrieta,
+  otro,
+  sinServicio,
+  noTiene,
+  tuberiaRio,
+  rasSuelo,
+  letrina,
+  drenaje
+}
 
 class ServiciosDrenajeActualizar extends StatefulWidget {
-
   String folio;
   ServiciosDrenajeActualizar(this.folio);
 
   @override
-  State<ServiciosDrenajeActualizar> createState() => _ServiciosDrenajeActualizarState();
+  State<ServiciosDrenajeActualizar> createState() =>
+      _ServiciosDrenajeActualizarState();
 }
 
-class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar> {
+class _ServiciosDrenajeActualizarState
+    extends State<ServiciosDrenajeActualizar> {
   ServDrenaje _drenaje = ServDrenaje.redPublica;
 
   enviar() async {
     String drenaje = _drenaje.name.toString();
-    if(drenaje == 'redPublica'){
+    if (drenaje == 'redPublica') {
       drenaje = '1 1 Red Pública';
-    }else if(drenaje == 'fosaSeptica'){
+    } else if (drenaje == 'fosaSeptica') {
       drenaje = '2 2 Fosa Séptica';
-    }else if(drenaje == 'tuberiaGrieta'){
+    } else if (drenaje == 'tuberiaGrieta') {
       drenaje = '3 3 Tubería que va a dar a una grieta';
-    }else if(drenaje == 'otro'){
+    } else if (drenaje == 'otro') {
       drenaje = '4 99 Otro';
-    }else if(drenaje == 'sinServicio'){
+    } else if (drenaje == 'sinServicio') {
       drenaje = '5 5 Sin Servicio';
-    }else if(drenaje == 'noTiene'){
+    } else if (drenaje == 'noTiene') {
       drenaje = '6 6 No tiene';
-    }else if(drenaje == 'tuberiaRio'){
+    } else if (drenaje == 'tuberiaRio') {
       drenaje = '7 7 Tubería que va a dar a un río';
-    }else if(drenaje == 'rasSuelo'){
+    } else if (drenaje == 'rasSuelo') {
       drenaje = '8 8 Ras de Suelo';
-    }else if(drenaje == 'letrina'){
+    } else if (drenaje == 'letrina') {
       drenaje = '9 9 Letrina';
-    }else if(drenaje == 'drenaje'){
+    } else if (drenaje == 'drenaje') {
       drenaje = '10 10 Drenaje';
     }
 
@@ -127,13 +138,17 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    Drenaje BModel = Drenaje(folio: widget.folio,claveServSanitario: int.parse(pkDrenaje.substring(0,2).trimRight()),ordenServSanitario: pkDrenaje.substring(0,2).trimRight(),servSanitario: NombreDrenaje.trimLeft());
+    Drenaje BModel = Drenaje(
+        folio: widget.folio,
+        claveServSanitario: int.parse(pkDrenaje.substring(0, 2).trimRight()),
+        ordenServSanitario: pkDrenaje.substring(0, 2).trimRight(),
+        servSanitario: NombreDrenaje.trimLeft());
     await DbHelper().upDateDrenaje(BModel).then((drenaje) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new ActualizarEstudio(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
@@ -153,9 +168,9 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Folio'),
                 SizedBox(height: 5.0),
-                getTextFolio(controller: TextEditingController.fromValue(
-                    TextEditingValue(text: widget.folio))
-                ),
+                getTextFolio(
+                    controller: TextEditingController.fromValue(
+                        TextEditingValue(text: widget.folio))),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Drenaje'),
                 SizedBox(height: 5.0),
@@ -164,7 +179,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.redPublica,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -176,7 +191,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.fosaSeptica,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -188,7 +203,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.tuberiaGrieta,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -200,7 +215,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.otro,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -212,7 +227,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.sinServicio,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -224,7 +239,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.noTiene,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -236,7 +251,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.tuberiaRio,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -248,7 +263,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.rasSuelo,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -260,7 +275,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.letrina,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -272,7 +287,7 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                   leading: Radio<ServDrenaje>(
                     value: ServDrenaje.drenaje,
                     groupValue: _drenaje,
-                    onChanged: (ServDrenaje value){
+                    onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
                       });
@@ -283,10 +298,13 @@ class _ServiciosDrenajeActualizarState extends State<ServiciosDrenajeActualizar>
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: enviar,
-                    icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_forward, color: Colors.white),
+                    label: Text(
+                      'Continuar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

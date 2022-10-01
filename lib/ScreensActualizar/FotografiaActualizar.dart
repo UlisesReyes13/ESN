@@ -22,37 +22,35 @@ class FotografiaActualizar extends StatefulWidget {
 }
 
 class _FotografiaState extends State<FotografiaActualizar> {
-
   File _image;
   final picker = ImagePicker();
 
-  Future getImage() async{
-    final pickedFile = await picker.getImage(source: ImageSource.camera,
+  Future getImage() async {
+    final pickedFile = await picker.getImage(
+        source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
         imageQuality: 50);
 
     setState(() {
-      if(pickedFile != null){
+      if (pickedFile != null) {
         _image = File(pickedFile.path);
-      }else{
+      } else {
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  actualizar() async{
+  actualizar() async {
     String foto64 = Utility.base64String(_image.readAsBytesSync());
-    FotoModel BModel = FotoModel(
-        folio: int.parse(widget.folio),
-        fileFoto: foto64
-    );
+    FotoModel BModel =
+        FotoModel(folio: int.parse(widget.folio), fileFoto: foto64);
     DbHelper().upDateFoto(BModel).then((fotoModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new ActualizarEstudio(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
@@ -85,11 +83,14 @@ class _FotografiaState extends State<FotografiaActualizar> {
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: getImage,
-                    icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                    label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
+                    icon: Icon(
+                      Icons.add_a_photo,
+                      color: Colors.white,
                     ),
+                    label: Text('Tomar Fotografia',
+                        style: TextStyle(color: Colors.white)),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
@@ -100,10 +101,14 @@ class _FotografiaState extends State<FotografiaActualizar> {
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: actualizar,
-                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
-                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_circle_right_outlined,
+                        color: Colors.white),
+                    label: Text(
+                      'Actualizar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

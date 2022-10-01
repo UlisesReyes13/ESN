@@ -12,22 +12,33 @@ import 'package:flutter/material.dart';
 import '../Comm/comHelper.dart';
 import '../DatabaseHandler/DbHelper.dart';
 
-enum uno {si , no}
-enum dos {si , no}
-enum tres {si , no}
-enum cuatro {si , no}
-enum cinco {si , no}
-enum seis {si , no}
-enum siete {si , no}
-enum ocho {si , no}
-enum nueve {si , no}
-enum diez {si , no}
-enum once {si , no}
-enum doce {si , no}
-enum menor {si, no}
+enum uno { si, no }
+
+enum dos { si, no }
+
+enum tres { si, no }
+
+enum cuatro { si, no }
+
+enum cinco { si, no }
+
+enum seis { si, no }
+
+enum siete { si, no }
+
+enum ocho { si, no }
+
+enum nueve { si, no }
+
+enum diez { si, no }
+
+enum once { si, no }
+
+enum doce { si, no }
+
+enum menor { si, no }
 
 class AlimentacionActualizar extends StatefulWidget {
-
   String folio;
 
   AlimentacionActualizar(this.folio);
@@ -37,7 +48,6 @@ class AlimentacionActualizar extends StatefulWidget {
 }
 
 class _AlimentacionState extends State<AlimentacionActualizar> {
-
   uno _uno = uno.no;
   dos _dos = dos.no;
   tres _tres = tres.no;
@@ -55,14 +65,15 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
   List<AlimentacionModel> _Alimentacion = List<AlimentacionModel>();
 
   @override
-  initState(){
+  initState() {
     getAllAlimentacion();
     super.initState();
   }
 
-  getAllAlimentacion() async{
+  getAllAlimentacion() async {
     _Alimentacion = List<AlimentacionModel>();
-    var categories = await CategoryService().readAlimentacion(int.parse(widget.folio));
+    var categories =
+        await CategoryService().readAlimentacion(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = AlimentacionModel();
@@ -80,86 +91,87 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
         categoryModel.pregunta11 = category['pregunta11'];
         categoryModel.pregunta12 = category['pregunta12'];
 
-
-
         _Alimentacion.add(categoryModel);
       });
     });
 
-    if(_Alimentacion.map((e) => e.pregunta1.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta1.toString()).first == "si") {
       _uno = uno.si;
-    }else if(_Alimentacion.map((e) => e.pregunta1.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta1.toString()).first == "no") {
       _uno = uno.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta2.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta2.toString()).first == "si") {
       _dos = dos.si;
-    }else if(_Alimentacion.map((e) => e.pregunta2.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta2.toString()).first == "no") {
       _dos = dos.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta3.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta3.toString()).first == "si") {
       _tres = tres.si;
-    }else if(_Alimentacion.map((e) => e.pregunta3.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta3.toString()).first == "no") {
       _tres = tres.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta4.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta4.toString()).first == "si") {
       _cuatro = cuatro.si;
-    }else if(_Alimentacion.map((e) => e.pregunta4.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta4.toString()).first == "no") {
       _cuatro = cuatro.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta5.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta5.toString()).first == "si") {
       _cinco = cinco.si;
-    }else if(_Alimentacion.map((e) => e.pregunta5.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta5.toString()).first == "no") {
       _cinco = cinco.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta6.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta6.toString()).first == "si") {
       _seis = seis.si;
-    }else if(_Alimentacion.map((e) => e.pregunta6.toString()).first == "no"){
-      _seis= seis.no;
+    } else if (_Alimentacion.map((e) => e.pregunta6.toString()).first == "no") {
+      _seis = seis.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta7.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta7.toString()).first == "si") {
       _siete = siete.si;
-    }else if(_Alimentacion.map((e) => e.pregunta7.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta7.toString()).first == "no") {
       _siete = siete.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta8.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta8.toString()).first == "si") {
       _ocho = ocho.si;
-    }else if(_Alimentacion.map((e) => e.pregunta8.toString()).first == "no"){
-      _ocho= ocho.no;
+    } else if (_Alimentacion.map((e) => e.pregunta8.toString()).first == "no") {
+      _ocho = ocho.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta9.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta9.toString()).first == "si") {
       _nueve = nueve.si;
-    }else if(_Alimentacion.map((e) => e.pregunta9.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta9.toString()).first == "no") {
       _nueve = nueve.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta10.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta10.toString()).first == "si") {
       _diez = diez.si;
-    }else if(_Alimentacion.map((e) => e.pregunta10.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta10.toString()).first ==
+        "no") {
       _diez = diez.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta11.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta11.toString()).first == "si") {
       _once = once.si;
-    }else if(_Alimentacion.map((e) => e.pregunta11.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta11.toString()).first ==
+        "no") {
       _once = once.no;
     }
 
-    if(_Alimentacion.map((e) => e.pregunta12.toString()).first == "si"){
+    if (_Alimentacion.map((e) => e.pregunta12.toString()).first == "si") {
       _doce = doce.si;
-    }else if(_Alimentacion.map((e) => e.pregunta12.toString()).first == "no"){
+    } else if (_Alimentacion.map((e) => e.pregunta12.toString()).first ==
+        "no") {
       _doce = doce.no;
     }
   }
 
-  actualizar() async{
+  actualizar() async {
     AlimentacionModel BModel = AlimentacionModel(
         folio: int.parse(widget.folio),
         pregunta1: _uno.name,
@@ -173,43 +185,57 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
         pregunta9: _nueve.name,
         pregunta10: _diez.name,
         pregunta11: _once.name,
-        pregunta12: _doce.name
-    );
+        pregunta12: _doce.name);
 
     await DbHelper().upDateAlimentacion(BModel).then((alimentacionModel) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new ActualizarEstudio(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
-  
 
   @override
   Widget build(BuildContext context) {
     final Orientation orientation = MediaQuery.of(context).orientation;
 
-    var encabezado1 = 'EN LOS ULTIMOS 3 MESES, POR FALTA DE DINERO U \n OTROS RECURSOS...';
-    var pregunta1 = '1. ¿Alguna vez usted  o algún adulto en su hogar tuvo una alimentación basada \n en poca variedad de alimentos?';
-    var pregunta3 = '3. ¿Alguna vez usted  o algún adulto en su hogar comió menos de lo que piensa \n debia comer?';
-    var pregunta6 = '6. ¿Alguna vez ustede o algún adulto de su hogar sólo comió una vez al día o dejo \n de come durante el día?';
-    var encabezado2 = 'SI EN EL HOGAR NO HAY PERSONAS MENORES DE 18 AÑOS \n PASE A LA SECCIÓN 8. RESULTADOS';
-    var pregunta7 = '7. ¿Alguna vez algún menor de 18 años en su hogar tuvo una alimentación basada \n en poca variedad de alimentos?';
-    var pregunta9 = '9. ¿Alguna vez en su hogar tuvieron tuvieron que disminuir la cantidad servida en \n la comida a algún menor de 18 años?';
-    var pregunta12 = '12. ¿Alguna vez algún menor de 18 años comió una vez al día o dejó de comer \n durante todo un día?';
-    if(orientation == Orientation.landscape){
-      encabezado1 = 'EN LOS ULTIMOS 3 MESES, POR FALTA DE DINERO U OTROS RECURSOS...';
-      pregunta1 = '1. ¿Alguna vez usted  o algún adulto en su hogar tuvo una alimentación basada en poca variedad de alimentos?';
-      pregunta3 = '3. ¿Alguna vez usted  o algún adulto en su hogar comió menos de lo que piensa debia comer?';
-      pregunta6 ='6. ¿Alguna vez ustede o algún adulto de su hogar sólo comió una vez al día o dejo de come durante el día?';
-      encabezado2 = 'SI EN EL HOGAR NO HAY PERSONAS MENORES DE 18 AÑOS PASE A LA SECCIÓN 8. RESULTADOS';
-      pregunta7 = '7. ¿Alguna vez algún menor de 18 años en su hogar tuvo una alimentación basada en poca variedad de alimentos?';
-      pregunta9 = '9. ¿Alguna vez en su hogar tuvieron tuvieron que disminuir la cantidad servida en la comida a algún menor de 18 años?';
-      pregunta12 = '12. ¿Alguna vez algún menor de 18 años comió una vez al día o dejó de comer durante todo un día?';
+    var encabezado1 =
+        'EN LOS ULTIMOS 3 MESES, POR FALTA DE DINERO U \n OTROS RECURSOS...';
+    var pregunta1 =
+        '1. ¿Alguna vez usted  o algún adulto en su hogar tuvo una alimentación basada \n en poca variedad de alimentos?';
+    var pregunta3 =
+        '3. ¿Alguna vez usted  o algún adulto en su hogar comió menos de lo que piensa \n debia comer?';
+    var pregunta6 =
+        '6. ¿Alguna vez ustede o algún adulto de su hogar sólo comió una vez al día o dejo \n de come durante el día?';
+    var encabezado2 =
+        'SI EN EL HOGAR NO HAY PERSONAS MENORES DE 18 AÑOS \n PASE A LA SECCIÓN 8. RESULTADOS';
+    var pregunta7 =
+        '7. ¿Alguna vez algún menor de 18 años en su hogar tuvo una alimentación basada \n en poca variedad de alimentos?';
+    var pregunta9 =
+        '9. ¿Alguna vez en su hogar tuvieron tuvieron que disminuir la cantidad servida en \n la comida a algún menor de 18 años?';
+    var pregunta12 =
+        '12. ¿Alguna vez algún menor de 18 años comió una vez al día o dejó de comer \n durante todo un día?';
+    if (orientation == Orientation.landscape) {
+      encabezado1 =
+          'EN LOS ULTIMOS 3 MESES, POR FALTA DE DINERO U OTROS RECURSOS...';
+      pregunta1 =
+          '1. ¿Alguna vez usted  o algún adulto en su hogar tuvo una alimentación basada en poca variedad de alimentos?';
+      pregunta3 =
+          '3. ¿Alguna vez usted  o algún adulto en su hogar comió menos de lo que piensa debia comer?';
+      pregunta6 =
+          '6. ¿Alguna vez ustede o algún adulto de su hogar sólo comió una vez al día o dejo de come durante el día?';
+      encabezado2 =
+          'SI EN EL HOGAR NO HAY PERSONAS MENORES DE 18 AÑOS PASE A LA SECCIÓN 8. RESULTADOS';
+      pregunta7 =
+          '7. ¿Alguna vez algún menor de 18 años en su hogar tuvo una alimentación basada en poca variedad de alimentos?';
+      pregunta9 =
+          '9. ¿Alguna vez en su hogar tuvieron tuvieron que disminuir la cantidad servida en la comida a algún menor de 18 años?';
+      pregunta12 =
+          '12. ¿Alguna vez algún menor de 18 años comió una vez al día o dejó de comer durante todo un día?';
     }
     return Scaffold(
       body: Form(
@@ -228,10 +254,13 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: getAllAlimentacion,
-                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
-                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.add_circle_outline, color: Colors.white),
+                    label: Text(
+                      'Cargar datos',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
@@ -258,7 +287,6 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
                         ),
                       ),
                     ),
-
                     Expanded(
                       child: ListTile(
                         title: Text('No'),
@@ -276,7 +304,9 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
                   ],
                 ),
                 SizedBox(height: 10.0),
-                getTextQuestion(question: '2. ¿Alguna vez usted  o algún adulto en su hogar dejó de desayunar, comer o cenar?'),
+                getTextQuestion(
+                    question:
+                        '2. ¿Alguna vez usted  o algún adulto en su hogar dejó de desayunar, comer o cenar?'),
                 Row(
                   children: <Widget>[
                     Expanded(
@@ -343,9 +373,9 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
                     ),
                   ],
                 ),
-
                 SizedBox(height: 10.0),
-                getTextQuestion(question: '4. ¿Alguna vez se quedaron sin comida?'),
+                getTextQuestion(
+                    question: '4. ¿Alguna vez se quedaron sin comida?'),
                 Row(
                   children: <Widget>[
                     //INE
@@ -380,7 +410,9 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
                   ],
                 ),
                 SizedBox(height: 10.0),
-                getTextQuestion(question: '5. ¿Alguna vez ustede o algún adulto de su hogar sintió hambre, pero no comió?'),
+                getTextQuestion(
+                    question:
+                        '5. ¿Alguna vez ustede o algún adulto de su hogar sintió hambre, pero no comió?'),
                 Row(
                   children: <Widget>[
                     //INE
@@ -494,7 +526,9 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
                   ],
                 ),
                 SizedBox(height: 10.0),
-                getTextQuestion(question: '8. ¿Alguna vez algún menor de 18 años en su hogar comió menos de lo que debia?'),
+                getTextQuestion(
+                    question:
+                        '8. ¿Alguna vez algún menor de 18 años en su hogar comió menos de lo que debia?'),
                 Row(
                   children: <Widget>[
                     //INE
@@ -564,7 +598,9 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
                   ],
                 ),
                 SizedBox(height: 10.0),
-                getTextQuestion(question: '10. ¿Alguna vez algún menor de 18 años en su hogar sintió hambre, pero no comió?'),
+                getTextQuestion(
+                    question:
+                        '10. ¿Alguna vez algún menor de 18 años en su hogar sintió hambre, pero no comió?'),
                 Row(
                   children: <Widget>[
                     //INE
@@ -599,7 +635,9 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
                   ],
                 ),
                 SizedBox(height: 10.0),
-                getTextQuestion(question: '11. ¿Alguna vez algún menor de 18 años se durmio con hambre?'),
+                getTextQuestion(
+                    question:
+                        '11. ¿Alguna vez algún menor de 18 años se durmio con hambre?'),
                 Row(
                   children: <Widget>[
                     //INE
@@ -668,15 +706,18 @@ class _AlimentacionState extends State<AlimentacionActualizar> {
                     ),
                   ],
                 ),
-
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: actualizar,
-                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
-                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_circle_right_outlined,
+                        color: Colors.white),
+                    label: Text(
+                      'Actualizar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

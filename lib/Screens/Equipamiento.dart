@@ -121,19 +121,19 @@ class _EquipamientoState extends State<Equipamiento> {
   var dbHelper;
   List<EquipamientoMovil> _Equipamiento = List<EquipamientoMovil>();
 
-  List<String> _Condiciones = ['Buena','Regular','Mala'];
+  List<String> _Condiciones = ['Buena', 'Regular', 'Mala'];
   String selectedItem = 'Seleccionar';
 
   @override
   void initState() {
-
     super.initState();
     dbHelper = DbHelper();
   }
 
-  getAllEquipamiento() async{
+  getAllEquipamiento() async {
     _Equipamiento = List<EquipamientoMovil>();
-    var categories = await CategoryService().readEquipamiento(int.parse(widget.folio));
+    var categories =
+        await CategoryService().readEquipamiento(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EquipamientoMovil();
@@ -180,208 +180,206 @@ class _EquipamientoState extends State<Equipamiento> {
 
     _condiciones.text = _Equipamiento.map((e) => e.CondicionesGenerales).first;
 
-    if(_Equipamiento.map((e) => e.tieneRefri).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneRefri).first == "si") {
       _refrigerador = Refrigerador.si;
-    }else if(_Equipamiento.map((e) => e.tieneRefri).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneRefri).first == "no") {
       _refrigerador = Refrigerador.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveRefri).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveRefri).first == "si") {
       _refrigeradorSirve = RefrigeradorSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveRefri).first == "no"){
+    } else if (_Equipamiento.map((e) => e.sirveRefri).first == "no") {
       _refrigeradorSirve = RefrigeradorSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneEstufa).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneEstufa).first == "si") {
       _estufa = Estufa.si;
-    }else if(_Equipamiento.map((e) => e.tieneEstufa).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneEstufa).first == "no") {
       _estufa = Estufa.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveEstufa).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveEstufa).first == "si") {
       _estufaSirve = EstufaSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveEstufa).first == "no"){
+    } else if (_Equipamiento.map((e) => e.sirveEstufa).first == "no") {
       _estufaSirve = EstufaSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneVideoDVDBlueRay).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneVideoDVDBlueRay).first == "si") {
       _video = Video.si;
-    }else if(_Equipamiento.map((e) => e.tieneVideoDVDBlueRay).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneVideoDVDBlueRay).first == "no") {
       _video = Video.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveVideoDVDBlueRay).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveVideoDVDBlueRay).first == "si") {
       _videoSirve = VideoSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveVideoDVDBlueRay).first == "no"){
+    } else if (_Equipamiento.map((e) => e.sirveVideoDVDBlueRay).first == "no") {
       _videoSirve = VideoSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneLavadora).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneLavadora).first == "si") {
       _lavadora = Lavadora.si;
-    }else if(_Equipamiento.map((e) => e.tieneLavadora).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneLavadora).first == "no") {
       _lavadora = Lavadora.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveLavadora).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveLavadora).first == "si") {
       _lavadoraSirve = LavadoraSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveLavadora).first == "no"){
+    } else if (_Equipamiento.map((e) => e.sirveLavadora).first == "no") {
       _lavadoraSirve = LavadoraSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneLicuadora).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneLicuadora).first == "si") {
       _licuadora = Licuadora.si;
-    }else if(_Equipamiento.map((e) => e.tieneLicuadora).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneLicuadora).first == "no") {
       _licuadora = Licuadora.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveLicuadora).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveLicuadora).first == "si") {
       _licuadoraSirve = LicuadoraSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveLicuadora).first == "no"){
+    } else if (_Equipamiento.map((e) => e.sirveLicuadora).first == "no") {
       _licuadoraSirve = LicuadoraSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneTelevision).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneTelevision).first == "si") {
       _television = Television.si;
-    }else if(_Equipamiento.map((e) => e.tieneTelevision).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneTelevision).first == "no") {
       _television = Television.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveTelevision).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveTelevision).first == "si") {
       _televisonSirve = TelevisionSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveTelevision).first == "no"){
+    } else if (_Equipamiento.map((e) => e.sirveTelevision).first == "no") {
       _televisonSirve = TelevisionSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneRadio).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneRadio).first == "si") {
       _radio = RadioE.si;
-    }else if(_Equipamiento.map((e) => e.tieneRadio).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneRadio).first == "no") {
       _radio = RadioE.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveRadio).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveRadio).first == "si") {
       _radioSirve = RadioSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveRadio).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveRadio).first == "no") {
       _radioSirve = RadioSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneSala).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneSala).first == "si") {
       _sala = Sala.si;
-    }else if(_Equipamiento.map((e) => e.tieneSala).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneSala).first == "no") {
       _sala = Sala.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveSala).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveSala).first == "si") {
       _salaSirve = SalaSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveSala).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveSala).first == "no") {
       _salaSirve = SalaSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneComedor).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneComedor).first == "si") {
       _comedor = Comedor.si;
-    }else if(_Equipamiento.map((e) => e.tieneComedor).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneComedor).first == "no") {
       _comedor = Comedor.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveComedor).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveComedor).first == "si") {
       _comedorSirve = ComedorSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveComedor).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveComedor).first == "no") {
       _comedorSirve = ComedorSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneAutoMovil).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneAutoMovil).first == "si") {
       _automovil = Automovil.si;
-    }else if(_Equipamiento.map((e) => e.tieneAutoMovil).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneAutoMovil).first == "no") {
       _automovil = Automovil.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveAutoMovil).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveAutoMovil).first == "si") {
       _automovilSirve = AutomovilSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveAutoMovil).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveAutoMovil).first == "no") {
       _automovilSirve = AutomovilSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneCama).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneCama).first == "si") {
       _cama = Cama.si;
-    }else if(_Equipamiento.map((e) => e.tieneCama).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneCama).first == "no") {
       _cama = Cama.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveCama).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveCama).first == "si") {
       _camaSirve = CamaSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveCama).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveCama).first == "no") {
       _camaSirve = CamaSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneCelular).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneCelular).first == "si") {
       _celular = Celular.si;
-    }else if(_Equipamiento.map((e) => e.tieneCelular).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneCelular).first == "no") {
       _celular = Celular.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveCelular).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveCelular).first == "si") {
       _celularSirve = CelularSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveCelular).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveCelular).first == "no") {
       _celularSirve = CelularSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneMotocicleta).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneMotocicleta).first == "si") {
       _motocicleta = Motocicleta.si;
-    }else if(_Equipamiento.map((e) => e.tieneMotocicleta).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneMotocicleta).first == "no") {
       _motocicleta = Motocicleta.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveMotocicleta).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveMotocicleta).first == "si") {
       _motocicletaSirve = MotocicletaSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveMotocicleta).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveMotocicleta).first == "no") {
       _motocicletaSirve = MotocicletaSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneComputadora).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneComputadora).first == "si") {
       _computadora = Computadora.si;
-    }else if(_Equipamiento.map((e) => e.tieneComputadora).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneComputadora).first == "no") {
       _computadora = Computadora.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveComputadora).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveComputadora).first == "si") {
       _computadoraSirve = ComputadoraSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveComputadora).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveComputadora).first == "no") {
       _computadoraSirve = ComputadoraSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneHorno).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneHorno).first == "si") {
       _horno = Horno.si;
-    }else if(_Equipamiento.map((e) => e.tieneHorno).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneHorno).first == "no") {
       _horno = Horno.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveHorno).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveHorno).first == "si") {
       _hornoSirve = HornoSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveHorno).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveHorno).first == "no") {
       _hornoSirve = HornoSirve.no;
     }
 
-    if(_Equipamiento.map((e) => e.tieneTelefono).first == "si") {
+    if (_Equipamiento.map((e) => e.tieneTelefono).first == "si") {
       _telefono = Telefono.si;
-    }else if(_Equipamiento.map((e) => e.tieneTelefono).first == "no"){
+    } else if (_Equipamiento.map((e) => e.tieneTelefono).first == "no") {
       _telefono = Telefono.no;
     }
 
-    if(_Equipamiento.map((e) => e.sirveTelefono).first == "si") {
+    if (_Equipamiento.map((e) => e.sirveTelefono).first == "si") {
       _telefonoSirve = TelefonoSirve.si;
-    }else if(_Equipamiento.map((e) => e.sirveTelefono).first == "no") {
+    } else if (_Equipamiento.map((e) => e.sirveTelefono).first == "no") {
       _telefonoSirve = TelefonoSirve.no;
     }
   }
 
-
-  cargarDatos(){
+  cargarDatos() {
     getAllEquipamiento();
   }
 
   insertDatos() async {
-
-    EquipamientoMovil DModel = EquipamientoMovil
-      (folio: int.parse(widget.folio),
+    EquipamientoMovil DModel = EquipamientoMovil(
+        folio: int.parse(widget.folio),
         pk_equipamientosRefri: "1",
         txt_desc_equipamientosRefri: "Refrigerador",
         tieneRefri: _refrigerador.name,
@@ -431,7 +429,7 @@ class _EquipamientoState extends State<Equipamiento> {
         tieneCelular: _celular.name,
         sirveCelular: _celularSirve.name,
         pk_equipamientosMotocicleta: "13",
-        txt_desc_equipamientosMotocicleta:"Motocicleta" ,
+        txt_desc_equipamientosMotocicleta: "Motocicleta",
         tieneMotocicleta: _motocicleta.name,
         sirveMotocicleta: _motocicletaSirve.name,
         pk_equipamientosComputadora: "14",
@@ -446,24 +444,23 @@ class _EquipamientoState extends State<Equipamiento> {
         txt_desc_equipamientosTelefono: "Telefono",
         tieneTelefono: _telefono.name,
         sirveTelefono: _telefonoSirve.name,
-        CondicionesGenerales: _condiciones.text.toString()
-    );
+        CondicionesGenerales: _condiciones.text.toString());
 
     await dbHelper.saveEquipamiento(DModel).then((equipamientoMovil) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new AportacionesEconomicas(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
-  actualizar() async{
-    EquipamientoMovil DModel = EquipamientoMovil
-      (folio: int.parse(widget.folio),
+  actualizar() async {
+    EquipamientoMovil DModel = EquipamientoMovil(
+        folio: int.parse(widget.folio),
         pk_equipamientosRefri: "1",
         txt_desc_equipamientosRefri: "Refrigerador",
         tieneRefri: _refrigerador.name,
@@ -513,7 +510,7 @@ class _EquipamientoState extends State<Equipamiento> {
         tieneCelular: _celular.name,
         sirveCelular: _celularSirve.name,
         pk_equipamientosMotocicleta: "13",
-        txt_desc_equipamientosMotocicleta:"Motocicleta" ,
+        txt_desc_equipamientosMotocicleta: "Motocicleta",
         tieneMotocicleta: _motocicleta.name,
         sirveMotocicleta: _motocicletaSirve.name,
         pk_equipamientosComputadora: "14",
@@ -528,15 +525,14 @@ class _EquipamientoState extends State<Equipamiento> {
         txt_desc_equipamientosTelefono: "Telefono",
         tieneTelefono: _telefono.name,
         sirveTelefono: _telefonoSirve.name,
-        CondicionesGenerales: _condiciones.text.toString()
-    );
+        CondicionesGenerales: _condiciones.text.toString());
 
     await dbHelper.upDateEquipamiento(DModel).then((equipamientoMovil) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new AportacionesEconomicas(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
@@ -588,7 +584,7 @@ class _EquipamientoState extends State<Equipamiento> {
                 context,
                 MaterialPageRoute(
                     builder: (_) => Caracteristicas_Casa(widget.folio)),
-                    (Route<dynamic> route) => false);
+                (Route<dynamic> route) => false);
           },
         ),
       ),
@@ -609,10 +605,13 @@ class _EquipamientoState extends State<Equipamiento> {
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: getAllEquipamiento,
-                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
-                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.add_circle_outline, color: Colors.white),
+                    label: Text(
+                      'Cargar datos',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
@@ -1703,40 +1702,49 @@ class _EquipamientoState extends State<Equipamiento> {
                   endIndent: 20,
                   color: Colors.black,
                 ),
-                getTextQuestion(question: 'Condiciones Generales Del Equipamiento'),
+                getTextQuestion(
+                    question: 'Condiciones Generales Del Equipamiento'),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: SearchField(
                     suggestionState: Suggestion.expand,
                     searchInputDecoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
-                        ),
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.black26,
+                            style: BorderStyle.solid),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:BorderSide(width: 2.0, color: Colors.blue, style: BorderStyle.solid
-                        ),
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.blue,
+                            style: BorderStyle.solid),
                       ),
                       filled: true,
                       fillColor: Colors.grey[120],
                     ),
                     suggestions: _Condiciones.map((condiciones) =>
-                        SearchFieldListItem(condiciones.toString(), item: condiciones)).toList(),
+                        SearchFieldListItem(condiciones.toString(),
+                            item: condiciones)).toList(),
                     textInputAction: TextInputAction.next,
                     hasOverlay: false,
                     controller: _condiciones,
                     maxSuggestionsInViewPort: 5,
                     itemHeight: 45,
-                    onSuggestionTap: (x){},
+                    onSuggestionTap: (x) {},
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: insertDatos,
-                    icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_forward, color: Colors.white),
+                    label: Text(
+                      'Continuar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
@@ -1748,10 +1756,14 @@ class _EquipamientoState extends State<Equipamiento> {
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: actualizar,
-                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
-                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_circle_right_outlined,
+                        color: Colors.white),
+                    label: Text(
+                      'Actualizar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

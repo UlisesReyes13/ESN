@@ -28,7 +28,8 @@ class ServiciosAguaActualizar extends StatefulWidget {
   ServiciosAguaActualizar(this.folio);
 
   @override
-  State<ServiciosAguaActualizar> createState() => _ServiciosAguaActualizarState();
+  State<ServiciosAguaActualizar> createState() =>
+      _ServiciosAguaActualizarState();
 }
 
 class _ServiciosAguaActualizarState extends State<ServiciosAguaActualizar> {
@@ -311,7 +312,7 @@ class _ServiciosAguaActualizarState extends State<ServiciosAguaActualizar> {
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: enviar,
                     icon: Icon(Icons.arrow_forward, color: Colors.white),
                     label: Text(

@@ -30,11 +30,11 @@ class DatosGeneralesActualizar extends StatefulWidget {
   DatosGeneralesActualizar(this.folio);
 
   @override
-  State<DatosGeneralesActualizar> createState() => _DatosGeneralesActualizarState();
+  State<DatosGeneralesActualizar> createState() =>
+      _DatosGeneralesActualizarState();
 }
 
 class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
-
   final _folio = TextEditingController();
   final _nombreComunidad = TextEditingController();
   final _estado = TextEditingController();
@@ -66,7 +66,6 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
   List<GruposModel> _Grupo = List<GruposModel>();
   List<DatosGeneralesModel> _DatosGenerales = List<DatosGeneralesModel>();
 
-
   @override
   void initState() {
     getAllCategoriesNombreAsentamiento();
@@ -83,9 +82,7 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     dbHelper = DbHelper();
   }
 
-
-  cargarPreferencias() async
-  {
+  cargarPreferencias() async {
     setState(() {
       getAllDatosgenerales();
       getAllCategoriesCodigoPostal2();
@@ -115,7 +112,8 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
   getAllDatosgenerales() async {
     _folio.text = widget.folio;
     _DatosGenerales = List<DatosGeneralesModel>();
-    var categories = await CategoryService().readDatosGeenerales(int.parse(_folio.text));
+    var categories =
+        await CategoryService().readDatosGeenerales(int.parse(_folio.text));
     categories.forEach((category) {
       setState(() {
         var categoryModel = DatosGeneralesModel();
@@ -131,7 +129,8 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
 
         categoryModel.localidad = category['localidad'];
         categoryModel.telefono = category['telefono'];
-        categoryModel.claveCodigoPostal = int.parse(category['claveCodigoPostal']);
+        categoryModel.claveCodigoPostal =
+            int.parse(category['claveCodigoPostal']);
         categoryModel.claveEstado = int.parse(category['claveEstado']);
         categoryModel.estado = category['estado'];
         categoryModel.claveComunidad = category['claveComunidad'];
@@ -139,13 +138,16 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
         categoryModel.nombreComunidad = category['nombreComunidad'];
         categoryModel.claveMunicipio = int.parse(category['claveMunicipio']);
         categoryModel.municipio = category['municipio'];
-        categoryModel.claveAsentamiento = int.parse(category['claveAsentamiento']);
+        categoryModel.claveAsentamiento =
+            int.parse(category['claveAsentamiento']);
         categoryModel.nombreAsentamiento = category['nombreAsentamiento'];
-        categoryModel.claveTipoAsentamiento = int.parse(category['claveTipoAsentamiento']);
+        categoryModel.claveTipoAsentamiento =
+            int.parse(category['claveTipoAsentamiento']);
 
         categoryModel.ordentipoAsentamiento = category['ordentipoAsentamiento'];
         categoryModel.tipoAsentamiento = category['tipoAsentamiento'];
-        categoryModel.claveTipoVialidad = int.parse(category['claveTipoVialidad']);
+        categoryModel.claveTipoVialidad =
+            int.parse(category['claveTipoVialidad']);
         categoryModel.ordentipovialidad = category['ordentipovialidad'];
         categoryModel.tipoVialidad = category['tipoVialidad'];
 
@@ -170,14 +172,21 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     _nombreComunidad.text = _DatosGenerales.map((e) => e.nombreComunidad).first;
     _estado.text = _DatosGenerales.map((e) => e.estado.toString()).first;
     _municipio.text = _DatosGenerales.map((e) => e.municipio).first;
-    _nombreAsentamiento.text = _DatosGenerales.map((e) => _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first + " " + e.nombreAsentamiento).first  ;
-    _tipoAsentamiento.text =  _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first + " " +  _DatosGenerales.map((e) => e.tipoAsentamiento).first;
-    _tipoVialidad.text = _DatosGenerales.map((e) => e.claveTipoVialidad.toString()).first + " " +  _DatosGenerales.map((e) => e.tipoVialidad).first;
+    _nombreAsentamiento.text = _DatosGenerales.map((e) =>
+        _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first +
+        " " +
+        e.nombreAsentamiento).first;
+    _tipoAsentamiento.text =
+        _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first +
+            " " +
+            _DatosGenerales.map((e) => e.tipoAsentamiento).first;
+    _tipoVialidad.text =
+        _DatosGenerales.map((e) => e.claveTipoVialidad.toString()).first +
+            " " +
+            _DatosGenerales.map((e) => e.tipoVialidad).first;
 
     getAllCategoriesGrupo();
-
   }
-
 
   getAllCategoriesCodigoPostal() async {
     _CodigoPostal = List<CodigoPostalModel>();
@@ -203,8 +212,8 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
 
   getAllCategoriesCodigoPostal2() async {
     _CodigoPostal2 = List<CodigoPostalModel>();
-    var categories = await CategoryService().readCategoriesCodigoPostal2(
-        _cp.text);
+    var categories =
+        await CategoryService().readCategoriesCodigoPostal2(_cp.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = CodigoPostalModel();
@@ -223,15 +232,9 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
       });
     });
 
-    _estado.text = _CodigoPostal2
-        .map((e) => e.Estado)
-        .first;
-    _municipio.text = _CodigoPostal2
-        .map((e) => e.Municipio)
-        .first;
-    _localidad.text = _CodigoPostal2
-        .map((e) => e.Ciudad)
-        .first;
+    _estado.text = _CodigoPostal2.map((e) => e.Estado).first;
+    _municipio.text = _CodigoPostal2.map((e) => e.Municipio).first;
+    _localidad.text = _CodigoPostal2.map((e) => e.Ciudad).first;
 
     getAllCategoriesGrupo();
   }
@@ -250,9 +253,9 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
   }
 
   getAllCategoriesGrupo() async {
-    _Grupo= List<GruposModel>();
-    var categories = await CategoryService().readCategoriesGrupo(
-        _nombreComunidad.text);
+    _Grupo = List<GruposModel>();
+    var categories =
+        await CategoryService().readCategoriesGrupo(_nombreComunidad.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = GruposModel();
@@ -263,9 +266,7 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
       });
     });
 
-    _grupo.text = _Grupo
-        .map((e) => e.Grupo)
-        .first;
+    _grupo.text = _Grupo.map((e) => e.Grupo).first;
   }
 
   getAllCategoriesMunicipios() async {
@@ -317,7 +318,6 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
   }
 
   actualizar() async {
-
     String folio = _folio.text;
     String nombreComunidad = _nombreComunidad.text;
     String estado = _estado.text;
@@ -351,11 +351,13 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
       alertDialog(context, "Error: No se registro tipo de vialidad");
     } else if (cp.isEmpty) {
       alertDialog(context, "Error: No se registro Codigo Postal");
-    } else if(telefono.length < 10) {
-      alertDialog(context, 'El número de teléfono no debe ser menor a 10 digitos');
-    }else if (telefono.length > 10) {
-      alertDialog(context, 'El número de teléfono no debe ser mayor a 10 digitos');
-    }else{
+    } else if (telefono.length < 10) {
+      alertDialog(
+          context, 'El número de teléfono no debe ser menor a 10 digitos');
+    } else if (telefono.length > 10) {
+      alertDialog(
+          context, 'El número de teléfono no debe ser mayor a 10 digitos');
+    } else {
       var value1 = tipoAsentamiento; // 'artlang'
       final nombreTipoAsentamiento = value1
           .replaceAll("1", "")
@@ -368,7 +370,6 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
           .replaceAll("8", "")
           .replaceAll("9", "")
           .replaceAll("0", "");
-
 
       var claveTipoAsentamiento = tipoAsentamiento; // 'artlang'
       final claveTipoAsenta = claveTipoAsentamiento
@@ -449,7 +450,6 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
           .replaceAll("8", "")
           .replaceAll("9", "")
           .replaceAll("0", "");
-
 
       var claveTipoVialidad = tipoVialidad; // 'artlang'
       final claveTipoVia = claveTipoVialidad
@@ -535,37 +535,29 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
           estado: _estado.text.toString(),
           claveComunidad: _Grupo.map((e) => e.ClaveGrupo).first,
           nombreComunidad: _nombreComunidad.text.toString(),
-          claveMunicipio: _CodigoPostal2
-              .map((e) => e.ClaveMunicipio)
-              .first,
+          claveMunicipio: _CodigoPostal2.map((e) => e.ClaveMunicipio).first,
           municipio: _municipio.text.toString(),
-          claveAsentamiento: _CodigoPostal2
-              .map((e) => e.Clavetipo_asenta)
-              .first,
+          claveAsentamiento:
+              _CodigoPostal2.map((e) => e.Clavetipo_asenta).first,
           nombreAsentamiento: _nombreAsentamiento.text.toString(),
-
           claveTipoAsentamiento: int.parse(claveTipoAsentam),
           ordentipoAsentamiento: int.parse(claveTipoAsentam),
           tipoAsentamiento: nombreTipoAsentamiento.trimLeft(),
           claveTipoVialidad: int.parse(claveTipoV),
           ordentipovialidad: int.parse(claveTipoV),
-          tipoVialidad: nombreTipoVialidad.trimLeft()
-      );
+          tipoVialidad: nombreTipoVialidad.trimLeft());
 
       await DbHelper().upDateDatosGenerales(BModel).then((datosGeneralesModel) {
         alertDialog(context, "Se registro correctamente");
 
-        Navigator.of(context).push(
-            MaterialPageRoute<Null>(builder: (BuildContext context) {
-              return new ActualizarEstudio(folio);
-            }
-            ));
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new ActualizarEstudio(folio);
+        }));
       }).catchError((error) {
         print(error);
         alertDialog(context, "Error: No se guardaron los datos");
       });
-
-
     }
   }
 
@@ -579,22 +571,27 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height: 10.0,),
+                SizedBox(
+                  height: 10.0,
+                ),
                 getTextQuestion(question: 'Folio'),
                 SizedBox(height: 5.0),
-                getTextFolio(controller: TextEditingController.fromValue(
-                    TextEditingValue(text: widget.folio)),
+                getTextFolio(
+                  controller: TextEditingController.fromValue(
+                      TextEditingValue(text: widget.folio)),
                 ),
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                       onPressed: cargarPreferencias,
-                      icon: Icon(Icons.add_circle_outline,
+                      icon: Icon(
+                        Icons.add_circle_outline,
                         color: Colors.white,
                       ),
-                      label: Text("Cargar Datos",
+                      label: Text(
+                        "Cargar Datos",
                         style: TextStyle(color: Colors.white),
                       )),
                   decoration: BoxDecoration(
@@ -612,20 +609,19 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     controller: _fecha,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.black26,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.blue,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         fillColor: Colors.grey[120],
-                        filled: true
-                    ),
+                        filled: true),
                   ),
                 ),
                 SizedBox(height: 10.0),
@@ -637,16 +633,16 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     suggestionState: Suggestion.expand,
                     searchInputDecoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.black26,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.blue,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       filled: true,
                       fillColor: Colors.grey[120],
@@ -672,16 +668,16 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     suggestionState: Suggestion.expand,
                     searchInputDecoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.black26,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.blue,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       filled: true,
                       fillColor: Colors.grey[120],
@@ -701,14 +697,16 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                       onPressed: getAllCategoriesCodigoPostal2,
-                      icon: Icon(Icons.search, color: Colors.white,),
+                      icon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
                       label: Text(
-                        'Buscar Código Postal', style: TextStyle(color: Colors
-                          .white)
-                        ,)
-                  ),
+                        'Buscar Código Postal',
+                        style: TextStyle(color: Colors.white),
+                      )),
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(30.0),
@@ -724,20 +722,19 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     controller: _estado,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.black26,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.blue,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         fillColor: Colors.grey[120],
-                        filled: true
-                    ),
+                        filled: true),
                   ),
                 ),
 
@@ -752,20 +749,19 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     controller: _municipio,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.black26,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.blue,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         fillColor: Colors.grey[120],
-                        filled: true
-                    ),
+                        filled: true),
                   ),
                 ),
 
@@ -779,16 +775,16 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     suggestionState: Suggestion.expand,
                     searchInputDecoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.black26,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.blue,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       filled: true,
                       fillColor: Colors.grey[120],
@@ -814,23 +810,22 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     suggestionState: Suggestion.expand,
                     searchInputDecoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.black26,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.blue,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       filled: true,
                       fillColor: Colors.grey[120],
                     ),
                     suggestions: _TiposAsentamiento.map((tiposAsentamiento) =>
-                        SearchFieldListItem(
-                            tiposAsentamiento.TipoAsentamiento,
+                        SearchFieldListItem(tiposAsentamiento.TipoAsentamiento,
                             item: tiposAsentamiento)).toList(),
                     textInputAction: TextInputAction.next,
                     hasOverlay: false,
@@ -851,20 +846,19 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     controller: _localidad,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.black26,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.blue,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         fillColor: Colors.grey[120],
-                        filled: true
-                    ),
+                        filled: true),
                   ),
                 ),
 
@@ -903,24 +897,23 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     suggestionState: Suggestion.expand,
                     searchInputDecoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.black26,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2.0,
+                        borderSide: BorderSide(
+                            width: 2.0,
                             color: Colors.blue,
-                            style: BorderStyle.solid
-                        ),
+                            style: BorderStyle.solid),
                       ),
                       filled: true,
                       fillColor: Colors.grey[120],
                     ),
                     suggestions: _TiposVialidad.map((tipovialidad) =>
-                        SearchFieldListItem(
-                            tipovialidad.TipoVialidad, item: tipovialidad))
-                        .toList(),
+                        SearchFieldListItem(tipovialidad.TipoVialidad,
+                            item: tipovialidad)).toList(),
                     textInputAction: TextInputAction.next,
                     hasOverlay: false,
                     controller: _tipoVialidad,
@@ -940,30 +933,33 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
                     controller: _telefono,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.black26,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0,
+                          borderSide: BorderSide(
+                              width: 2.0,
                               color: Colors.blue,
-                              style: BorderStyle.solid
-                          ),
+                              style: BorderStyle.solid),
                         ),
                         fillColor: Colors.grey[120],
-                        filled: true
-                    ),
+                        filled: true),
                   ),
                 ),
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: actualizar,
-                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
-                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_circle_right_outlined,
+                        color: Colors.white),
+                    label: Text(
+                      'Actualizar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
@@ -978,5 +974,3 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     );
   }
 }
-
-

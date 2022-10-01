@@ -9,7 +9,6 @@ import 'package:esn/Model/UserModel.dart';
 import 'package:esn/Screens/SignupForm.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class LoginForm extends StatefulWidget {
   @override
   _LoginFormState createState() => _LoginFormState();
@@ -44,7 +43,7 @@ class _LoginFormState extends State<LoginForm> {
             Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (_) => TablaFolios()),
-                    (Route<dynamic> route) => false);
+                (Route<dynamic> route) => false);
           });
         } else {
           alertDialog(context, "Error: Usuario no registrado");
@@ -66,7 +65,6 @@ class _LoginFormState extends State<LoginForm> {
     sp.setString("apellidoM", user.apellidoM);
     sp.setString("rol", user.rol);
     sp.setString("Password", user.Password);
-
   }
 
   @override
@@ -97,7 +95,7 @@ class _LoginFormState extends State<LoginForm> {
                 Container(
                   margin: EdgeInsets.all(30.0),
                   width: double.infinity,
-                  child: FlatButton(
+                  child: TextButton(
                     child: Text(
                       'Iniciar Sesión',
                       style: TextStyle(color: Colors.white),
@@ -114,9 +112,11 @@ class _LoginFormState extends State<LoginForm> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('No tienes cuenta? '),
-                      FlatButton(
-                        textColor: Colors.blue,
-                        child: Text('Registrar'),
+                      TextButton(
+                        child: Text('Registrar',
+                            style: TextStyle(
+                              color: Colors.blue,
+                            )),
                         onPressed: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (_) => SignupForm()));

@@ -7541,7 +7541,7 @@ class _Escolaridad_SeguridadSocialActualizarState
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: cargarDatos,
                     icon: Icon(Icons.add_circle_outline, color: Colors.white),
                     label: Text(
@@ -9202,7 +9202,7 @@ class _Escolaridad_SeguridadSocialActualizarState
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: actualizar,
                     icon: Icon(Icons.arrow_circle_right_outlined,
                         color: Colors.white),

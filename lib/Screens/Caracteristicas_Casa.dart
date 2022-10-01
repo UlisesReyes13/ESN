@@ -9,8 +9,9 @@ import 'package:flutter/material.dart';
 import '../Comm/comHelper.dart';
 import '../DatabaseHandler/DbHelper.dart';
 
-enum CocinaSeparada {si, no}
-enum CuartoBanio {si, no}
+enum CocinaSeparada { si, no }
+
+enum CuartoBanio { si, no }
 
 class Caracteristicas_Casa extends StatefulWidget {
   String folio;
@@ -21,7 +22,6 @@ class Caracteristicas_Casa extends StatefulWidget {
 }
 
 class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
-
   final _numCuartos = TextEditingController();
   final _numCuartosDormir = TextEditingController();
   CocinaSeparada _cocinaSeparada = CocinaSeparada.si;
@@ -31,12 +31,11 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
 
   @override
   void initState() {
-
     super.initState();
     dbHelper = DbHelper();
   }
 
-  getAllCasa() async{
+  getAllCasa() async {
     _CaracteristicasCasa = List<CaracteristicasCasa>();
     var categories = await CategoryService().readCasa(int.parse(widget.folio));
     categories.forEach((category) {
@@ -53,37 +52,43 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
     });
 
     _numCuartos.text = _CaracteristicasCasa.map((e) => e.numCuartos).first;
-    _numCuartosDormir.text = _CaracteristicasCasa.map((e) => e.cuartosDormir).first;
+    _numCuartosDormir.text =
+        _CaracteristicasCasa.map((e) => e.cuartosDormir).first;
 
-    if(_CaracteristicasCasa.map((e) => e.cocinaSeparada.toString()).first == "si"){
+    if (_CaracteristicasCasa.map((e) => e.cocinaSeparada.toString()).first ==
+        "si") {
       _cocinaSeparada = CocinaSeparada.si;
-    }else if(_CaracteristicasCasa.map((e) => e.cocinaSeparada.toString()).first == "no"){
+    } else if (_CaracteristicasCasa.map((e) => e.cocinaSeparada.toString())
+            .first ==
+        "no") {
       _cocinaSeparada = CocinaSeparada.no;
     }
 
-    if(_CaracteristicasCasa.map((e) => e.cuartoBanioExclusivo.toString()).first == "si"){
+    if (_CaracteristicasCasa.map((e) => e.cuartoBanioExclusivo.toString())
+            .first ==
+        "si") {
       _cuartoBanio = CuartoBanio.si;
-    }else if(_CaracteristicasCasa.map((e) => e.cuartoBanioExclusivo.toString()).first == "no"){
+    } else if (_CaracteristicasCasa.map(
+            (e) => e.cuartoBanioExclusivo.toString()).first ==
+        "no") {
       _cuartoBanio = CuartoBanio.no;
     }
-
   }
 
-  actualizar() async{
-    CaracteristicasCasa DModel = CaracteristicasCasa
-      (folio: int.parse(widget.folio),
+  actualizar() async {
+    CaracteristicasCasa DModel = CaracteristicasCasa(
+        folio: int.parse(widget.folio),
         numCuartos: _numCuartos.text.toString(),
         cuartosDormir: _numCuartosDormir.text.toString(),
         cocinaSeparada: _cocinaSeparada.name,
-        cuartoBanioExclusivo:_cuartoBanio.name
-    );
+        cuartoBanioExclusivo: _cuartoBanio.name);
 
     await dbHelper.upDateCasa(DModel).then((caracteristicasCasa) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new Equipamiento(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
@@ -91,38 +96,38 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
   }
 
   insertDatos() async {
-
-    CaracteristicasCasa DModel = CaracteristicasCasa
-      (folio: int.parse(widget.folio),
+    CaracteristicasCasa DModel = CaracteristicasCasa(
+        folio: int.parse(widget.folio),
         numCuartos: _numCuartos.text.toString(),
         cuartosDormir: _numCuartosDormir.text.toString(),
         cocinaSeparada: _cocinaSeparada.name,
-        cuartoBanioExclusivo:_cuartoBanio.name
-    );
+        cuartoBanioExclusivo: _cuartoBanio.name);
 
     await dbHelper.saveCasa(DModel).then((caracteristicasCasa) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new Equipamiento(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Caracteristicas de la Casa'),
         leading: IconButton(
-          icon : Icon(Icons.arrow_back),
-          onPressed: (){
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (_) => Infraestructura_Vivienda(widget.folio)),
-                    (Route<dynamic> route) => false);
+                MaterialPageRoute(
+                    builder: (_) => Infraestructura_Vivienda(widget.folio)),
+                (Route<dynamic> route) => false);
           },
         ),
       ),
@@ -136,17 +141,20 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Folio'),
                 SizedBox(height: 5.0),
-                getTextFolio(controller: TextEditingController.fromValue(
-                    TextEditingValue(text: widget.folio)),
+                getTextFolio(
+                  controller: TextEditingController.fromValue(
+                      TextEditingValue(text: widget.folio)),
                 ),
-
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: getAllCasa,
-                    icon: Icon(Icons.add_circle_outline,color: Colors.white),
-                    label: Text('Cargar datos', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.add_circle_outline, color: Colors.white),
+                    label: Text(
+                      'Cargar datos',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
@@ -156,11 +164,14 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Número de Cuartos'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _numCuartos, inputType: TextInputType.number),
+                getTextField(
+                    controller: _numCuartos, inputType: TextInputType.number),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Cuartos para Dormir'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _numCuartosDormir, inputType: TextInputType.number),
+                getTextField(
+                    controller: _numCuartosDormir,
+                    inputType: TextInputType.number),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Cocina Separada'),
                 ListTile(
@@ -168,7 +179,7 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                   leading: Radio<CocinaSeparada>(
                     value: CocinaSeparada.si,
                     groupValue: _cocinaSeparada,
-                    onChanged: (CocinaSeparada value){
+                    onChanged: (CocinaSeparada value) {
                       setState(() {
                         _cocinaSeparada = value;
                       });
@@ -180,7 +191,7 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                   leading: Radio<CocinaSeparada>(
                     value: CocinaSeparada.no,
                     groupValue: _cocinaSeparada,
-                    onChanged: (CocinaSeparada value){
+                    onChanged: (CocinaSeparada value) {
                       setState(() {
                         _cocinaSeparada = value;
                       });
@@ -194,7 +205,7 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                   leading: Radio<CuartoBanio>(
                     value: CuartoBanio.si,
                     groupValue: _cuartoBanio,
-                    onChanged: (CuartoBanio value){
+                    onChanged: (CuartoBanio value) {
                       setState(() {
                         _cuartoBanio = value;
                       });
@@ -206,7 +217,7 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                   leading: Radio<CuartoBanio>(
                     value: CuartoBanio.no,
                     groupValue: _cuartoBanio,
-                    onChanged: (CuartoBanio value){
+                    onChanged: (CuartoBanio value) {
                       setState(() {
                         _cuartoBanio = value;
                       });
@@ -216,26 +227,33 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                       onPressed: insertDatos,
-                      icon: Icon(Icons.arrow_forward,color: Colors.white,),
-                      label: Text('Continuar', style: TextStyle(color: Colors.white)
-                        ,)
-                  ),
+                      icon: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Continuar',
+                        style: TextStyle(color: Colors.white),
+                      )),
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: actualizar,
-                    icon: Icon(Icons.arrow_circle_right_outlined,color: Colors.white),
-                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_circle_right_outlined,
+                        color: Colors.white),
+                    label: Text(
+                      'Actualizar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

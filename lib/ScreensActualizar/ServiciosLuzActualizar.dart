@@ -9,10 +9,18 @@ import 'package:flutter/material.dart';
 
 import '../Comm/genTextFolio.dart';
 
-enum ServLuz {servicioPublico, sinContrato, plantaParticular, panelSolar,
-  otro, sinServicio, noTiene, conContrato}
-class ServiciosLuzActualizar extends StatefulWidget {
+enum ServLuz {
+  servicioPublico,
+  sinContrato,
+  plantaParticular,
+  panelSolar,
+  otro,
+  sinServicio,
+  noTiene,
+  conContrato
+}
 
+class ServiciosLuzActualizar extends StatefulWidget {
   String folio;
   ServiciosLuzActualizar(this.folio);
 
@@ -21,25 +29,24 @@ class ServiciosLuzActualizar extends StatefulWidget {
 }
 
 class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
-
   ServLuz _luz = ServLuz.servicioPublico;
   enviar() async {
     String luz = _luz.name.toString();
     if (luz == 'servicioPublico') {
       luz = '1 1 Servicio Público';
-    }else if(luz == 'sinContrato'){
+    } else if (luz == 'sinContrato') {
       luz = '2 2 Sin Contrato';
-    }else if(luz == 'plantaParticular'){
+    } else if (luz == 'plantaParticular') {
       luz = '3 3 Planta Particular';
-    }else if(luz == 'panelSolar'){
+    } else if (luz == 'panelSolar') {
       luz = '4 4 Panel Solar';
-    }else if(luz == 'otro'){
+    } else if (luz == 'otro') {
       luz = ' 5 5 Otro';
-    }else if(luz == 'sinServicio'){
+    } else if (luz == 'sinServicio') {
       luz = '6 6 Sin Servicio';
-    }else if(luz == 'noTiene'){
+    } else if (luz == 'noTiene') {
       luz = '7 7 No tiene';
-    }else if(luz == 'conContrato'){
+    } else if (luz == 'conContrato') {
       luz = '8 8 Con Contrato';
     }
 
@@ -122,13 +129,17 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    Luz BModel = Luz(folio: widget.folio,claveServLuz: int.parse(pkLuz.substring(0,2).trimRight()) , ordenServLuz: pkLuz.substring(0,2).trimRight(),servLuz: NombreLuz.trimLeft());
+    Luz BModel = Luz(
+        folio: widget.folio,
+        claveServLuz: int.parse(pkLuz.substring(0, 2).trimRight()),
+        ordenServLuz: pkLuz.substring(0, 2).trimRight(),
+        servLuz: NombreLuz.trimLeft());
     await DbHelper().upDateLuz(BModel).then((luz) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new ActualizarEstudio(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
@@ -148,9 +159,9 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Folio'),
                 SizedBox(height: 5.0),
-                getTextFolio(controller: TextEditingController.fromValue(
-                    TextEditingValue(text: widget.folio))
-                ),
+                getTextFolio(
+                    controller: TextEditingController.fromValue(
+                        TextEditingValue(text: widget.folio))),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Luz'),
                 SizedBox(height: 5.0),
@@ -159,8 +170,8 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                   leading: Radio<ServLuz>(
                     value: ServLuz.servicioPublico,
                     groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
+                    onChanged: (ServLuz value) {
+                      setState(() {
                         _luz = value;
                       });
                     },
@@ -171,8 +182,8 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                   leading: Radio<ServLuz>(
                     value: ServLuz.sinContrato,
                     groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
+                    onChanged: (ServLuz value) {
+                      setState(() {
                         _luz = value;
                       });
                     },
@@ -183,8 +194,8 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                   leading: Radio<ServLuz>(
                     value: ServLuz.plantaParticular,
                     groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
+                    onChanged: (ServLuz value) {
+                      setState(() {
                         _luz = value;
                       });
                     },
@@ -195,8 +206,8 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                   leading: Radio<ServLuz>(
                     value: ServLuz.panelSolar,
                     groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
+                    onChanged: (ServLuz value) {
+                      setState(() {
                         _luz = value;
                       });
                     },
@@ -207,8 +218,8 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                   leading: Radio<ServLuz>(
                     value: ServLuz.otro,
                     groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
+                    onChanged: (ServLuz value) {
+                      setState(() {
                         _luz = value;
                       });
                     },
@@ -219,8 +230,8 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                   leading: Radio<ServLuz>(
                     value: ServLuz.sinServicio,
                     groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
+                    onChanged: (ServLuz value) {
+                      setState(() {
                         _luz = value;
                       });
                     },
@@ -231,8 +242,8 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                   leading: Radio<ServLuz>(
                     value: ServLuz.noTiene,
                     groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
+                    onChanged: (ServLuz value) {
+                      setState(() {
                         _luz = value;
                       });
                     },
@@ -243,8 +254,8 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                   leading: Radio<ServLuz>(
                     value: ServLuz.conContrato,
                     groupValue: _luz,
-                    onChanged: (ServLuz value){
-                      setState((){
+                    onChanged: (ServLuz value) {
+                      setState(() {
                         _luz = value;
                       });
                     },
@@ -254,10 +265,13 @@ class _ServiciosLuzActualizarState extends State<ServiciosLuzActualizar> {
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: enviar,
-                    icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Actualizar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_forward, color: Colors.white),
+                    label: Text(
+                      'Actualizar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,

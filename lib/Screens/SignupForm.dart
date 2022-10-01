@@ -31,14 +31,14 @@ class _SignupFormState extends State<SignupForm> {
     dbHelper = DbHelper();
   }
 
-  setDispositivo() async{
+  setDispositivo() async {
     String dispositivo = _conDispositivo.text;
     DispoModel dModel = DispoModel(dispositivo: dispositivo);
-    await dbHelper.saveDispo(dModel).then((userData){
+    await dbHelper.saveDispo(dModel).then((userData) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
-    print(error);
-    alertDialog(context, "Error: No se guardaron los datos");
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
     });
   }
 
@@ -52,14 +52,14 @@ class _SignupFormState extends State<SignupForm> {
     String passwd = _conPassword.text;
     String cpasswd = _conCPassword.text;
 
-
     if (_formKey.currentState.validate()) {
       if (passwd != cpasswd) {
         alertDialog(context, 'La contraseña no coincide');
       } else {
         _formKey.currentState.save();
 
-        UserModel uModel = UserModel(null,nombreU,nombre,apellidoP,apellidoM,rol, passwd);
+        UserModel uModel =
+            UserModel(null, nombreU, nombre, apellidoP, apellidoM, rol, passwd);
         await dbHelper.saveData(uModel).then((userData) {
           alertDialog(context, "Se registro correctamente");
           setDispositivo();
@@ -111,20 +111,13 @@ class _SignupFormState extends State<SignupForm> {
                       icon: Icons.person,
                       hintName: 'Apellido Paterno'),
                   SizedBox(height: 10.0),
-
                   getTextFormField(
                       controller: _conApellidoM,
                       icon: Icons.person,
-                      hintName: 'Apellido Materno'
-                  ),
+                      hintName: 'Apellido Materno'),
                   SizedBox(height: 10.0),
-
                   getTextFormField(
-                      controller: _conRol,
-                      icon: Icons.person,
-                      hintName: 'Rol'
-                  ),
-
+                      controller: _conRol, icon: Icons.person, hintName: 'Rol'),
                   SizedBox(height: 10.0),
                   getTextFormField(
                     controller: _conPassword,
@@ -142,7 +135,7 @@ class _SignupFormState extends State<SignupForm> {
                   Container(
                     margin: EdgeInsets.all(30.0),
                     width: double.infinity,
-                    child: FlatButton(
+                    child: TextButton(
                       child: Text(
                         'Registrar',
                         style: TextStyle(color: Colors.white),
@@ -159,14 +152,18 @@ class _SignupFormState extends State<SignupForm> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text('Ya tienes cuenta? '),
-                        FlatButton(
-                          textColor: Colors.blue,
-                          child: Text('Ingresar'),
+                        TextButton(
+                          child: Text(
+                            'Ingresar',
+                            style: TextStyle(
+                              color: Colors.blue,
+                            ),
+                          ),
                           onPressed: () {
                             Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(builder: (_) => LoginForm()),
-                                    (Route<dynamic> route) => false);
+                                (Route<dynamic> route) => false);
                           },
                         )
                       ],

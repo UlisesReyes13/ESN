@@ -7,11 +7,17 @@ import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
 import 'package:esn/Screens/ServiciosDrenaje.dart';
 import 'package:flutter/material.dart';
 
-enum ServCombustible {gasTanque, gasNatural, parrillaElectrica,
-  leniaChimenea, leniaSinChimenea, otroCombustible, ninguno}
+enum ServCombustible {
+  gasTanque,
+  gasNatural,
+  parrillaElectrica,
+  leniaChimenea,
+  leniaSinChimenea,
+  otroCombustible,
+  ninguno
+}
 
 class ServiciosCombustible extends StatefulWidget {
-
   String folio;
 
   ServiciosCombustible(this.folio);
@@ -20,25 +26,24 @@ class ServiciosCombustible extends StatefulWidget {
   State<ServiciosCombustible> createState() => _ServiciosCombustibleState();
 }
 
-
 class _ServiciosCombustibleState extends State<ServiciosCombustible> {
   ServCombustible _combustible = ServCombustible.gasTanque;
 
   enviar() async {
     String combustible = _combustible.name.toString();
-    if(combustible == 'gasTanque'){
+    if (combustible == 'gasTanque') {
       combustible = '1 1 Gas tanque';
-    }else if(combustible == 'gasNatural'){
+    } else if (combustible == 'gasNatural') {
       combustible = '2  2 Gas Natural';
-    }else if(combustible == 'parrillaElectrica'){
+    } else if (combustible == 'parrillaElectrica') {
       combustible = '3 3 Parrilla Electrica';
-    }else if(combustible == 'leniaChimenea'){
+    } else if (combustible == 'leniaChimenea') {
       combustible = '4 4 Leña o Carbón con Chimenea';
-    }else if(combustible == 'leniaSinChimenea'){
+    } else if (combustible == 'leniaSinChimenea') {
       combustible = '5 5 Leña o Carbón sin Chimenea';
-    }else if(combustible == 'otroCombustible') {
+    } else if (combustible == 'otroCombustible') {
       combustible = '6 6 Otro Combustible';
-    }else if(combustible == 'ninguno'){
+    } else if (combustible == 'ninguno') {
       combustible = '7 7 Ninguno';
     }
 
@@ -121,13 +126,17 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    Gas BModel = Gas(folio: widget.folio,claveServGas: int.parse(pkConbustible.substring(0,2).trimRight()),ordenServGas: pkConbustible.substring(0,2).trimRight(),servGas:NombreCombustible.trimLeft() );
+    Gas BModel = Gas(
+        folio: widget.folio,
+        claveServGas: int.parse(pkConbustible.substring(0, 2).trimRight()),
+        ordenServGas: pkConbustible.substring(0, 2).trimRight(),
+        servGas: NombreCombustible.trimLeft());
     await DbHelper().upDateGas(BModel).then((gas) {
       alertDialog(context, "Se registro correctamente");
-      Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new EstructuraFamiliarTabla(widget.folio);
-      }
-      ));
+      }));
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
@@ -141,11 +150,12 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
         title: Text('Servicios'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: (){
+          onPressed: () {
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (_) => ServiciosDrenaje(widget.folio)),
-                    (Route<dynamic> route) => false);
+                MaterialPageRoute(
+                    builder: (_) => ServiciosDrenaje(widget.folio)),
+                (Route<dynamic> route) => false);
           },
         ),
       ),
@@ -159,9 +169,9 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Folio'),
                 SizedBox(height: 5.0),
-                getTextFolio(controller: TextEditingController.fromValue(
-                    TextEditingValue(text: widget.folio))
-                ),
+                getTextFolio(
+                    controller: TextEditingController.fromValue(
+                        TextEditingValue(text: widget.folio))),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Combustible'),
                 SizedBox(height: 5.0),
@@ -170,7 +180,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                   leading: Radio<ServCombustible>(
                     value: ServCombustible.gasTanque,
                     groupValue: _combustible,
-                    onChanged: (ServCombustible value){
+                    onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
                       });
@@ -182,7 +192,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                   leading: Radio<ServCombustible>(
                     value: ServCombustible.gasNatural,
                     groupValue: _combustible,
-                    onChanged: (ServCombustible value){
+                    onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
                       });
@@ -194,7 +204,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                   leading: Radio<ServCombustible>(
                     value: ServCombustible.parrillaElectrica,
                     groupValue: _combustible,
-                    onChanged: (ServCombustible value){
+                    onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
                       });
@@ -206,7 +216,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                   leading: Radio<ServCombustible>(
                     value: ServCombustible.leniaChimenea,
                     groupValue: _combustible,
-                    onChanged: (ServCombustible value){
+                    onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
                       });
@@ -218,7 +228,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                   leading: Radio<ServCombustible>(
                     value: ServCombustible.leniaSinChimenea,
                     groupValue: _combustible,
-                    onChanged: (ServCombustible value){
+                    onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
                       });
@@ -230,7 +240,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                   leading: Radio<ServCombustible>(
                     value: ServCombustible.otroCombustible,
                     groupValue: _combustible,
-                    onChanged: (ServCombustible value){
+                    onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
                       });
@@ -242,22 +252,24 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                   leading: Radio<ServCombustible>(
                     value: ServCombustible.ninguno,
                     groupValue: _combustible,
-                    onChanged: (ServCombustible value){
+                    onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
                       });
                     },
                   ),
                 ),
-
                 SizedBox(height: 5.0),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
-                  child: FlatButton.icon(
+                  child: TextButton.icon(
                     onPressed: enviar,
-                    icon: Icon(Icons.arrow_forward,color: Colors.white),
-                    label: Text('Continuar', style: TextStyle(color: Colors.white),),
+                    icon: Icon(Icons.arrow_forward, color: Colors.white),
+                    label: Text(
+                      'Continuar',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   decoration: BoxDecoration(
                     color: Colors.blue,
