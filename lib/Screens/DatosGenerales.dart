@@ -49,6 +49,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   final _cp = TextEditingController();
   final _telefono = TextEditingController();
   final _cdispo = TextEditingController();
+  final _folioDispo = TextEditingController();
   var dbHelper;
   var cargar;
 
@@ -358,6 +359,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     String tipoVialidad = _tipoVialidad.text;
     String cp = _cp.text;
     String telefono = _telefono.text;
+    String dispFolio = _cdispo.text + _folio.text;
 
     if (nombreComunidad.isEmpty) {
       alertDialog(context, "Error: No se registro nombre de la comunidad");
@@ -622,9 +624,11 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     } else if (cp.isEmpty) {
       alertDialog(context, "Error: No se registro Codigo Postal");
     } else if (telefono.length < 10) {
-      alertDialog(
-          context, 'El número de teléfono no debe ser menor a 10 digitos');
-    } else {
+      alertDialog(context, 'El número de teléfono no debe ser menor a 10 digitos');
+    } else  if (telefono.length > 10) {
+        alertDialog(context, 'El número de teléfono no debe ser mayor a 10 digitos');
+    }else{
+
       var value1 = tipoAsentamiento; // 'artlang'
       final nombreTipoAsentamiento = value1
           .replaceAll("1", "")
@@ -853,8 +857,27 @@ class _DatosGeneralesState extends State<DatosGenerales> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(height: 10.0),
-                getTextField(
-                  controller: _cdispo,
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextField(
+                    readOnly: true,
+                    controller: _cdispo,
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 2.0,
+                              color: Colors.black26,
+                              style: BorderStyle.solid),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 2.0,
+                              color: Colors.blue,
+                              style: BorderStyle.solid),
+                        ),
+                        fillColor: Colors.grey[120],
+                        filled: true),
+                  ),
                 ),
                 SizedBox(
                   height: 10.0,

@@ -251,7 +251,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -302,7 +302,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -353,7 +353,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -404,7 +404,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -455,7 +455,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -506,7 +506,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -557,7 +557,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -609,7 +609,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -660,7 +660,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -711,7 +711,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
-        categoryModel.ponderacion = category['ponderacion'];
+        categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto = category['fileFoto'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
@@ -1534,7 +1534,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value4 = _condicionSalud1.text; // 'artlang'
+    var value4 = _condicionSalud3.text; // 'artlang'
     final Condiciones = value4
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -1547,7 +1547,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value5 = _clasificacion1.text; // 'artlang'
+    var value5 = _clasificacion3.text; // 'artlang'
     final Clasificacion = value5
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -1644,7 +1644,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value4 = _condicionSalud1.text; // 'artlang'
+    var value4 = _condicionSalud4.text; // 'artlang'
     final Condiciones = value4
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -1657,7 +1657,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value5 = _clasificacion1.text; // 'artlang'
+    var value5 = _clasificacion4.text; // 'artlang'
     final Clasificacion = value5
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -1751,7 +1751,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value4 = _condicionSalud1.text; // 'artlang'
+    var value4 = _condicionSalud5.text; // 'artlang'
     final Condiciones = value4
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -1764,7 +1764,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value5 = _clasificacion1.text; // 'artlang'
+    var value5 = _clasificacion5.text; // 'artlang'
     final Clasificacion = value5
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -1857,7 +1857,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value4 = _condicionSalud1.text; // 'artlang'
+    var value4 = _condicionSalud6.text; // 'artlang'
     final Condiciones = value4
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -1870,7 +1870,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value5 = _clasificacion1.text; // 'artlang'
+    var value5 = _clasificacion6.text; // 'artlang'
     final Clasificacion = value5
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -1965,7 +1965,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value4 = _condicionSalud1.text; // 'artlang'
+    var value4 = _condicionSalud7.text; // 'artlang'
     final Condiciones = value4
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -1978,7 +1978,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value5 = _clasificacion1.text; // 'artlang'
+    var value5 = _clasificacion7.text; // 'artlang'
     final Clasificacion = value5
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -2074,7 +2074,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value4 = _condicionSalud1.text; // 'artlang'
+    var value4 = _condicionSalud8.text; // 'artlang'
     final Condiciones = value4
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -2087,7 +2087,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value5 = _clasificacion1.text; // 'artlang'
+    var value5 = _clasificacion8.text; // 'artlang'
     final Clasificacion = value5
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -2182,7 +2182,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value4 = _condicionSalud1.text; // 'artlang'
+    var value4 = _condicionSalud9.text; // 'artlang'
     final Condiciones = value4
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -2195,7 +2195,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value5 = _clasificacion1.text; // 'artlang'
+    var value5 = _clasificacion9.text; // 'artlang'
     final Clasificacion = value5
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -2290,7 +2290,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value4 = _condicionSalud1.text; // 'artlang'
+    var value4 = _condicionSalud10.text; // 'artlang'
     final Condiciones = value4
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -2303,7 +2303,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var value5 = _clasificacion1.text; // 'artlang'
+    var value5 = _clasificacion10.text; // 'artlang'
     final Clasificacion = value5
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -2404,6 +2404,32 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud1.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion1.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades1.text.substring(0,1),
@@ -2417,10 +2443,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC1,
         ClaveCondicionesSalud: (int.parse(_condicionSalud1.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud1.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud1.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion1.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion1.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion1.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion1.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena1.text.substring(0,2).trimRight(),
@@ -2484,6 +2510,32 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud2.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion2.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
 
 
 
@@ -2500,10 +2552,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC2,
         ClaveCondicionesSalud: (int.parse(_condicionSalud2.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud2.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud2.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion2.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion2.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion2.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion2.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena2.text.substring(0,2).trimRight(),
@@ -2569,6 +2621,33 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud3.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion3.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
 
 
 
@@ -2585,10 +2664,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC3,
         ClaveCondicionesSalud: (int.parse(_condicionSalud3.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud3.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud3.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion3.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion3.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion3.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion3.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena3.text.substring(0,2).trimRight(),
@@ -2652,6 +2731,33 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud4.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion4.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
 
 
 
@@ -2668,10 +2774,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC4,
         ClaveCondicionesSalud: (int.parse(_condicionSalud4.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud4.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud4.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion4.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion4.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion4.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion4.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena4.text.substring(0,2).trimRight(),
@@ -2735,6 +2841,33 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud5.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion5.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
 
 
 
@@ -2751,10 +2884,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC5,
         ClaveCondicionesSalud: (int.parse(_condicionSalud5.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud5.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud5.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion5.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion5.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion5.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion5.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena5.text.substring(0,2).trimRight(),
@@ -2817,6 +2950,32 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud6.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion6.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
 
 
 
@@ -2833,10 +2992,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC6,
         ClaveCondicionesSalud: (int.parse(_condicionSalud6.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud6.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud6.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion6.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion6.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion6.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion6.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena6.text.substring(0,2).trimRight(),
@@ -2844,7 +3003,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
+    await DbHelper().upDateSalud6(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -2899,6 +3058,33 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud7.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion7.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
 
 
 
@@ -2915,10 +3101,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC7,
         ClaveCondicionesSalud: (int.parse(_condicionSalud7.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud7.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud7.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion7.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion7.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion7.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion7.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena7.text.substring(0,2).trimRight(),
@@ -2926,7 +3112,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
+    await DbHelper().upDateSalud7(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -2981,6 +3167,33 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud8.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion8.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
 
 
 
@@ -2997,10 +3210,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC8,
         ClaveCondicionesSalud: (int.parse(_condicionSalud8.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud8.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud8.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion8.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion8.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion8.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion8.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena8.text.substring(0,2).trimRight(),
@@ -3008,7 +3221,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
+    await DbHelper().upDateSalud8(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -3063,6 +3276,33 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud9.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion9.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
 
 
 
@@ -3079,10 +3319,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC9,
         ClaveCondicionesSalud: (int.parse(_condicionSalud9.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud9.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud9.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion9.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion9.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion9.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion9.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena9.text.substring(0,2).trimRight(),
@@ -3090,7 +3330,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
+    await DbHelper().upDateSalud9(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
 
     }).catchError((error) {
@@ -3145,6 +3385,33 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    var value4 = _condicionSalud10.text; // 'artlang'
+    final Condiciones = value4
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+    var value5 = _clasificacion10.text; // 'artlang'
+    final Clasificacion = value5
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "");
+
+
 
 
 
@@ -3161,10 +3428,10 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         imc: imC10,
         ClaveCondicionesSalud: (int.parse(_condicionSalud10.text.substring(0,2).trimRight())).toString(),
         OrdenCondicionesSalud: (int.parse(_condicionSalud10.text.substring(0,2).trimRight())).toString(),
-        CondicionesSalud: _condicionSalud10.text,
+        CondicionesSalud: Condiciones.trimLeft(),
         ClaveClasCondicionesSalud: (int.parse(_clasificacion10.text.substring(0,2).trimRight())).toString(),
         OrdenClasCondicionesSalud: (int.parse(_clasificacion10.text.substring(0,2).trimRight())).toString(),
-        ClasCondicionesSalud: _clasificacion10.text,
+        ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion10.text),
         fileFoto: foto64,
         ClaveEtniaIndigena: _puebloIndigena10.text.substring(0,2).trimRight(),
@@ -3172,7 +3439,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         EtniaIndigena: Pueblo.trimLeft()
     );
 
-    await DbHelper().upDateSalud1(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
+    await DbHelper().upDateSalud10(BModel).then((salud_pertenenciaIndigenenaTablaModel) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
         return new Infraestructura_Vivienda(widget.folio);
@@ -3217,6 +3484,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                         actRenglon7();
                         actRenglon8();
                         actRenglon9();
+
                         Navigator.of(context)
                             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
                           return new Infraestructura_Vivienda(widget.folio);
@@ -3231,6 +3499,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                       actRenglon6();
                       actRenglon7();
                       actRenglon8();
+
                       Navigator.of(context)
                           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
                         return new Infraestructura_Vivienda(widget.folio);
@@ -3244,6 +3513,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                     actRenglon5();
                     actRenglon6();
                     actRenglon7();
+
                     Navigator.of(context)
                         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
                       return new Infraestructura_Vivienda(widget.folio);
@@ -3257,6 +3527,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                   actRenglon4();
                   actRenglon5();
                   actRenglon6();
+
                   Navigator.of(context)
                       .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
                     return new Infraestructura_Vivienda(widget.folio);
@@ -3269,6 +3540,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                 actRenglon3();
                 actRenglon4();
                 actRenglon5();
+
                 Navigator.of(context)
                     .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
                   return new Infraestructura_Vivienda(widget.folio);
@@ -3280,6 +3552,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
               actRenglon2();
               actRenglon3();
               actRenglon4();
+
               Navigator.of(context)
                   .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
                 return new Infraestructura_Vivienda(widget.folio);
@@ -3291,6 +3564,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
             actRenglon1();
             actRenglon2();
             actRenglon3();
+
             Navigator.of(context)
                 .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
               return new Infraestructura_Vivienda(widget.folio);
@@ -3300,6 +3574,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         }else{
           actRenglon1();
           actRenglon2();
+
           Navigator.of(context)
               .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
             return new Infraestructura_Vivienda(widget.folio);
@@ -3308,6 +3583,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         }
       }else{
         actRenglon1();
+
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
           return new Infraestructura_Vivienda(widget.folio);
@@ -3447,7 +3723,6 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         }));
       }
     }
-
   }
 
 

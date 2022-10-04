@@ -36,6 +36,7 @@ class DatosGeneralesModel {
   String folioDisp;
 
   DatosGeneralesModel({
+    this.folioDisp,
       this.folio,
       this.fechaCaptura,
       this.calle,
@@ -65,11 +66,12 @@ class DatosGeneralesModel {
 
       this.claveTipoVialidad,
       this.ordentipovialidad,
-      this.tipoVialidad,
-      this.folioDisp});
+      this.tipoVialidad
+      });
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
+      'folioDisp' : folioDisp,
 
       'folio': folio,
       'fechaCaptura': fechaCaptura,
@@ -101,9 +103,7 @@ class DatosGeneralesModel {
 
       'claveTipoVialidad': claveTipoVialidad,
       'ordentipovialidad': ordentipovialidad,
-      'tipoVialidad': tipoVialidad,
-
-      'folioDisp' : folioDisp
+      'tipoVialidad': tipoVialidad
 
     };
     return map;
@@ -111,6 +111,7 @@ class DatosGeneralesModel {
 
   DatosGeneralesModel.fromMap(Map<String, dynamic> map) {
 
+    folioDisp = map['folioDisp'];
     folio = map['folio'];
     fechaCaptura = map['fechaCaptura'];
     calle = map['calle'];
@@ -143,7 +144,7 @@ class DatosGeneralesModel {
     ordentipovialidad = map['ordentipovialidad'];
     tipoVialidad = map['tipoVialidad'];
 
-    folioDisp = map['folioDisp'];
+
 
   }
 }

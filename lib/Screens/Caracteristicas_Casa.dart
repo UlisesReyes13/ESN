@@ -76,45 +76,51 @@ class _Caracteristicas_CasaState extends State<Caracteristicas_Casa> {
   }
 
   actualizar() async {
-    CaracteristicasCasa DModel = CaracteristicasCasa(
-        folio: int.parse(widget.folio),
-        numCuartos: _numCuartos.text.toString(),
-        cuartosDormir: _numCuartosDormir.text.toString(),
-        cocinaSeparada: _cocinaSeparada.name,
-        cuartoBanioExclusivo: _cuartoBanio.name);
+    if (int.parse(_numCuartos.text) < int.parse(_numCuartosDormir.text)) {
+      alertDialog(context, 'Verificar el número de cuartos');
+    } else {
+      CaracteristicasCasa DModel = CaracteristicasCasa(
+          folio: int.parse(widget.folio),
+          numCuartos: _numCuartos.text.toString(),
+          cuartosDormir: _numCuartosDormir.text.toString(),
+          cocinaSeparada: _cocinaSeparada.name,
+          cuartoBanioExclusivo: _cuartoBanio.name);
 
-    await dbHelper.upDateCasa(DModel).then((caracteristicasCasa) {
-      alertDialog(context, "Se registro correctamente");
-      Navigator.of(context)
-          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Equipamiento(widget.folio);
-      }));
-    }).catchError((error) {
-      print(error);
-      alertDialog(context, "Error: No se guardaron los datos");
-    });
+      await dbHelper.upDateCasa(DModel).then((caracteristicasCasa) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Equipamiento(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+    }
   }
-
   insertDatos() async {
-    CaracteristicasCasa DModel = CaracteristicasCasa(
-        folio: int.parse(widget.folio),
-        numCuartos: _numCuartos.text.toString(),
-        cuartosDormir: _numCuartosDormir.text.toString(),
-        cocinaSeparada: _cocinaSeparada.name,
-        cuartoBanioExclusivo: _cuartoBanio.name);
+    if (int.parse(_numCuartos.text) < int.parse(_numCuartosDormir.text)) {
+      alertDialog(context, 'Verificar el número de cuartos');
+    } else {
+      CaracteristicasCasa DModel = CaracteristicasCasa(
+          folio: int.parse(widget.folio),
+          numCuartos: _numCuartos.text.toString(),
+          cuartosDormir: _numCuartosDormir.text.toString(),
+          cocinaSeparada: _cocinaSeparada.name,
+          cuartoBanioExclusivo: _cuartoBanio.name);
 
-    await dbHelper.saveCasa(DModel).then((caracteristicasCasa) {
-      alertDialog(context, "Se registro correctamente");
-      Navigator.of(context)
-          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Equipamiento(widget.folio);
-      }));
-    }).catchError((error) {
-      print(error);
-      alertDialog(context, "Error: No se guardaron los datos");
-    });
+      await dbHelper.saveCasa(DModel).then((caracteristicasCasa) {
+        alertDialog(context, "Se registro correctamente");
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new Equipamiento(widget.folio);
+        }));
+      }).catchError((error) {
+        print(error);
+        alertDialog(context, "Error: No se guardaron los datos");
+      });
+    }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
