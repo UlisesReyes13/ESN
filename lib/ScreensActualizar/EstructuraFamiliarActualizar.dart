@@ -13,7 +13,6 @@ import 'package:esn/ScreensActualizar/Escolaridad_SeguridadSocialActualizar.dart
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
-import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 
 enum Sexo { hombre, mujer, otro }
 
@@ -146,7 +145,7 @@ class _EstructuraFamiliarActualizarState
       List<EstructuraFamilarModel>();
 
   getTitular() {
-    String t = '6 6 Titular';
+    String t = '6 0 Titular';
     _parentesco1.text = t;
   }
 
@@ -1320,7 +1319,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -1448,7 +1447,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -1638,7 +1637,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -1890,7 +1889,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -2204,7 +2203,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -2580,7 +2579,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -3018,7 +3017,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -3518,7 +3517,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -4080,7 +4079,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);
@@ -4704,7 +4703,7 @@ class _EstructuraFamiliarActualizarState
         alertDialog(context, "Se registro correctamente");
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Escolaridad_SeguridadSocialTabla(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }).catchError((error) {
         print(error);

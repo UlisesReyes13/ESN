@@ -15,7 +15,7 @@ import 'package:esn/Model/TipoEmpleoModel.dart';
 import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/Escolaridad_SeguridadSocialActualizar.dart';
 import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
-import 'package:esn/ScreensActualizar/Salud_PertenenciaIndigenaActualizar.dart';
+import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -4979,7 +4979,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -6438,7 +6438,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -6733,7 +6733,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -7029,7 +7029,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -7325,7 +7325,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-        return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+        return new ActualizarEstudio(widget.folio);
       }));
     }).catchError((error) {
       print(error);
@@ -7367,7 +7367,7 @@ class _Escolaridad_SeguridadSocialActualizarState
                         upDateRenglon9();
                         Navigator.of(context).push(MaterialPageRoute<Null>(
                             builder: (BuildContext context) {
-                          return new Salud_PertenenciaIndigenaActualizar(
+                          return new ActualizarEstudio(
                               widget.folio);
                         }));
                       }
@@ -7383,7 +7383,7 @@ class _Escolaridad_SeguridadSocialActualizarState
 
                       Navigator.of(context).push(MaterialPageRoute<Null>(
                           builder: (BuildContext context) {
-                        return new Salud_PertenenciaIndigenaActualizar(
+                        return new ActualizarEstudio(
                             widget.folio);
                       }));
                     }
@@ -7397,7 +7397,7 @@ class _Escolaridad_SeguridadSocialActualizarState
                     upDateRenglon7();
                     Navigator.of(context).push(MaterialPageRoute<Null>(
                         builder: (BuildContext context) {
-                      return new Salud_PertenenciaIndigenaActualizar(
+                      return new ActualizarEstudio(
                           widget.folio);
                     }));
                   }
@@ -7410,7 +7410,7 @@ class _Escolaridad_SeguridadSocialActualizarState
                   upDateRenglon6();
                   Navigator.of(context).push(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return new Salud_PertenenciaIndigenaActualizar(
+                    return new ActualizarEstudio(
                         widget.folio);
                   }));
                 }
@@ -7422,7 +7422,7 @@ class _Escolaridad_SeguridadSocialActualizarState
                 upDateRenglon5();
                 Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
-                  return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+                  return new ActualizarEstudio(widget.folio);
                 }));
               }
             } else {
@@ -7432,7 +7432,7 @@ class _Escolaridad_SeguridadSocialActualizarState
               upDateRenglon4();
               Navigator.of(context).push(
                   MaterialPageRoute<Null>(builder: (BuildContext context) {
-                return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+                return new ActualizarEstudio(widget.folio);
               }));
             }
           } else {
@@ -7441,7 +7441,7 @@ class _Escolaridad_SeguridadSocialActualizarState
             upDateRenglon3();
             Navigator.of(context)
                 .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-              return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+              return new ActualizarEstudio(widget.folio);
             }));
           }
         } else {
@@ -7449,14 +7449,14 @@ class _Escolaridad_SeguridadSocialActualizarState
           upDateRenglon2();
           Navigator.of(context)
               .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-            return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+            return new ActualizarEstudio(widget.folio);
           }));
         }
       } else {
         upDateRenglon1();
         Navigator.of(context)
             .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new Salud_PertenenciaIndigenaActualizar(widget.folio);
+          return new ActualizarEstudio(widget.folio);
         }));
       }
     }

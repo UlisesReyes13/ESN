@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 enum ServBanio {
   sanitario,
-  anitario,
+  sindescarga,
   aguaConCubeta,
   letrinaSeca,
   pozo_hoyo,
@@ -35,21 +35,21 @@ class _ServiciosBaniosActualizarState extends State<ServiciosBaniosActualizar> {
   Actualizar() async {
     String banio = _banio.name.toString();
     if (banio == 'sanitario') {
-      banio = '1 1 Descarga Directa';
-    } else if (banio == 'anitario') {
-      banio = '2 2 Sin Descarga Directa';
+      banio = '1 1 SANITARIO / BAÑO CON DESCARGA DIRECTA';
+    } else if (banio == 'sindescarga') {
+      banio = '2 2 SANITARIO / BAÑO SIN DESCARGA DIRECTA';
     } else if (banio == 'aguaConCubeta') {
-      banio = '8 8 Agua Con Cubeta';
+      banio = '8 8 AGUA CON CUBETA';
     } else if (banio == 'letrinaSeca') {
-      banio = '3 3 Letrina Seca';
+      banio = '3 3 LETRINA SECA';
     } else if (banio == 'pozo_hoyo') {
-      banio = '4 4 Pozo u Hoyo';
+      banio = '4 4 POZO U HOYO';
     } else if (banio == 'noTiene') {
-      banio = '7 7 No tiene';
+      banio = '7 7 NO TIENE';
     } else if (banio == 'rasSuelo') {
-      banio = '5 5 Ras de Suelo';
+      banio = '5 5 RAZ DEL SUELO';
     } else if (banio == 'otro') {
-      banio = '6 6 Otro';
+      banio = '6 6 OTRO';
     }
 
     var nomBanio = banio; // 'artlang'
@@ -180,9 +180,9 @@ class _ServiciosBaniosActualizarState extends State<ServiciosBaniosActualizar> {
                   ),
                 ),
                 ListTile(
-                  title: Text('Anitario / Baño Sin Descarga Directa'),
+                  title: Text('Sanitario / Baño Sin Descarga Directa'),
                   leading: Radio<ServBanio>(
-                    value: ServBanio.anitario,
+                    value: ServBanio.sindescarga,
                     groupValue: _banio,
                     onChanged: (ServBanio value) {
                       setState(() {

@@ -143,7 +143,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       List<EstructuraFamilarModel>();
 
   getTitular() {
-    String t = '6 6 Titular';
+    String t = '6 0 Titular';
     _parentesco1.text = t;
   }
 
