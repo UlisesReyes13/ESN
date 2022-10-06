@@ -37,7 +37,7 @@ import '../Model/DocumentosModel.dart';
 class DbHelper {
   static Database _db;
 
-  static const String DB_Name = 'encuesta6.db';
+  static const String DB_Name = 'encuesta.db';
   static const String Table_User = 'usuario';
   static const String Table_Data = 'datosGenerales';
   static const String Table_Servicios = 'servicios';
@@ -375,13 +375,14 @@ class DbHelper {
   }
 
   initDb() async {
-    io.Directory documentsDirectory = await getApplicationDocumentsDirectory();
+    io.Directory documentsDirectory = await getExternalStorageDirectory();
     String path = join(documentsDirectory.path, DB_Name);
     var db = await openDatabase(path, version: Version, onCreate: _onCreate);
     return db;
   }
 
   _onCreate(Database db, int intVersion) async {
+
     await db.execute("CREATE TABLE $Table_User ( $C_idUsuario INTEGER not null primary key AUTOINCREMENT , $C_NombreUsuario TEXT, $C_Nombre TEXT, $C_ApellidoP TEXT,$C_ApellidoM TEXT,$C_Rol TEXT,$C_Password TEXT);");
     await db.execute("CREATE TABLE $Table_Data ($C_Folio INTEGER not null Primary key AUTOINCREMENT ,$C_FolioDisp TEXT,$C_FechaCaptura TEXT, $C_Calle TEXT, $C_EntreCalles TEXT,$C_ClaveGrupo int, $C_Grupo TEXT,$C_NoExt TEXT,$C_NoInt TEXT,$C_Fecha TEXT,$C_Localidad TEXT,$C_Telefono TEXT,$C_CP TEXT,$C_ClaveEstado TEXT,$C_Estado TEXT, $C_ClaveComunidad int , $C_NombreComunidad TEXT, $C_ClaveMunicipio TEXT,$C_Municipio TEXT,$C_ClaveAsentamiento TEXT,$C_NombreAsentamiento TEXT ,$C_ClaveTipoAsentamiento TEXT, $C_OrdenTipoAsentamiento TEXT, $C_TipoAsentamiento TEXT, $C_ClaveTipoVialidad TEXT, $C_OrdenTipoVialidad TEXT, $C_TipoVialidad TEXT);");
     await db.execute("CREATE TABLE $Table_Servicios ($C_Folio int, $C_FolioDisp TEXT,$C_pk_bano TEXT , $C_int_orden_bano TEXT, $C_txt_desc_bano TEXT, $C_ClaveServAgua TEXT, $C_OrdenServAgua TEXT, $C_ServAgua TEXT, $C_ClaveServGas TEXT, $C_OrdenServGas TEXT, $C_ServGas TEXT, $C_ClaveServLuz TEXT, $C_OrdenServLuz TEXT, $C_ServLuz TEXT, $C_ClaveServSanitario TEXT, $C_OrdenServSanitario TEXT, $C_ServSanitario TEXT);");
@@ -808,26 +809,6 @@ class DbHelper {
     await db.execute("INSERT INTO tb_TiposMuro (TipoMuro) VALUES ('5 5 DESHECHOS, CARTON');");
     await db.execute("INSERT INTO tb_TiposMuro (TipoMuro) VALUES ('6 6 CARRIZO, BAMBU');");
     await db.execute("INSERT INTO tb_TiposMuro (TipoMuro) VALUES ('7 7 OTROS');");
-
-    //Tabla Codigo Postal
-    await db.execute("CREATE TABLE tb_CPs (ClaveCP INTEGER, Asentamiento TEXT,TipoAsentamiento TEXT, Municipio TEXT, Estado TEXT, Ciudad TEXT, ClaveEstado INTEGER, Clavetipo_asenta INTEGER , ClaveMunicipio INTEGER, TipoZona TEXT, ClaveCiudad INTEGER);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP,Asentamiento,TipoAsentamiento,Municipio,Estado,Ciudad,ClaveEstado,Clavetipo_asenta,ClaveMunicipio,TipoZona,ClaveCiudad) VALUES (36000,'Guanajuato Centro','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36003,'Alameda','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Cata','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Garrapata','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Mellado','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'Cerro de San Antonio','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'La Gualdra','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'San Luisito','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Ex-Hacienda de Durán','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Ex-Hacienda de Luna','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Nuevo','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36015,'Cerro del Cuarto','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36512,'Las Ladrilleras','Colonia','Irapuato','Guanajuato','Irapuato', 11 , 9 , 17 ,'Urbano', 6);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36987,'El Novillero','Ranchería','Abasolo','Guanajuato',NULL, 11 , 29 , 1 ,'Rural',NULL);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (37689,'Providencia Uno','Colonia','León','Guanajuato',NULL, 11 , 9 , 20 ,'Rural',NULL);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (38080,'Residencial Magnolia','Fraccionamiento','Celaya','Guanajuato','Celaya', 11 , 21 , 7 ,'Urbano', 3);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (38080,'Riveras del Campestre','Colonia','Celaya','Guanajuato','Celaya', 11 , 9 , 7 ,'Urbano', 3);");
 
     // Inserts de Comunidades
     await db.execute("CREATE TABLE tb_Comunidades(pk_Comunidad int NOT NULL,Comunidad nvarchar(255) NULL);");
@@ -1291,9 +1272,12 @@ class DbHelper {
     await db.execute("insert into tb_Duraciones  values (10,10,'10 Mes');");
     await db.execute("insert into tb_Duraciones  values (11,11,'11 Mes');");
     await db.execute("insert into tb_Duraciones  values (12,12,'12 Mes');");
+
+
+    //Tabla cp
+
+
   }
-
-
 
 
   readData(table) async {
