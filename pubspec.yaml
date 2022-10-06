@@ -28,15 +28,23 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.1
 
+  #Ruta
   path_provider: ^1.6.5
+  #Base de datos
   sqflite: ^1.3.0
+  #Alertas
   toast: ^0.1.5
+  #Obtener los datos entre pantallas
   shared_preferences: ^0.5.10
+  #Listas desplegables
   searchfield: ^0.6.9
+  #Formato de fecha
   intl: ^0.17.0
   get: ^4.6.5
+  #Usar la camara
   image_picker: ^0.8.0+1
-  grouped_buttons: ^1.0.4
+  #Dar un formato a un text-field
+  masked_text_field: any
 
 dev_dependencies:
   flutter_test:

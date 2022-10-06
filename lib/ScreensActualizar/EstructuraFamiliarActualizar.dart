@@ -1,5 +1,6 @@
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genTextDataTable.dart';
+import 'package:esn/Comm/genTextDate.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
@@ -13,6 +14,7 @@ import 'package:esn/ScreensActualizar/Escolaridad_SeguridadSocialActualizar.dart
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
+import 'package:masked_text_field/masked_text_field.dart';
 
 enum Sexo { hombre, mujer, otro }
 
@@ -4712,6 +4714,10 @@ class _EstructuraFamiliarActualizarState
     }
   }
 
+  fecha(){
+    String fecha1 = _fechaNacimiento1.text;
+    print(fecha1);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -4828,10 +4834,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento1,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  inputType: TextInputType.number,
+                                  hintName: 'DD-MM-AAAA',
                                 )),
                                 DataCell(
                                   Container(
@@ -4981,10 +4987,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento2,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  hintName: 'DD-MM-AAAA',
+                                  inputType: TextInputType.number,
                                 )),
                                 DataCell(
                                   Container(
@@ -5145,10 +5151,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento3,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  hintName: 'DD-MM-AAAA',
+                                  inputType: TextInputType.number,
                                 )),
                                 DataCell(
                                   Container(
@@ -5309,10 +5315,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento4,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  hintName: 'DD-MM-AAAA',
+                                  inputType: TextInputType.number,
                                 )),
                                 DataCell(
                                   Container(
@@ -5473,10 +5479,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento5,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  hintName: 'DD-MM-AAAA',
+                                  inputType: TextInputType.number,
                                 )),
                                 DataCell(
                                   Container(
@@ -5637,10 +5643,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento6,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  hintName: 'DD-MM-AAAA',
+                                  inputType: TextInputType.number,
                                 )),
                                 DataCell(
                                   Container(
@@ -5801,10 +5807,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento7,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  hintName: 'DD-MM-AAAA',
+                                  inputType: TextInputType.number,
                                 )),
                                 DataCell(
                                   Container(
@@ -5965,10 +5971,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento8,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  hintName: 'DD-MM-AAAA',
+                                  inputType: TextInputType.number,
                                 )),
                                 DataCell(
                                   Container(
@@ -6129,10 +6135,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento9,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  hintName: 'DD-MM-AAAA',
+                                  inputType: TextInputType.number,
                                 )),
                                 DataCell(
                                   Container(
@@ -6294,10 +6300,10 @@ class _EstructuraFamiliarActualizarState
                                     ],
                                   ),
                                 ),
-                                DataCell(getTextDataTable(
+                                DataCell(getTextDate(
                                   controller: _fechaNacimiento10,
-                                  hintName: 'DD-MM-YYYY',
-                                  inputType: TextInputType.phone,
+                                  hintName: 'DD-MM-AAAA',
+                                  inputType: TextInputType.number,
                                 )),
                                 DataCell(
                                   Container(
