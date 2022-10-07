@@ -403,6 +403,7 @@ class DbHelper {
     await db.execute("CREATE TABLE $Table_Dispositivo ($C_Dispositivo TEXT);");
     //Tabla de salud_ pertenencia
     await db.execute("CREATE TABLE $Table_Salud ($C_Folio int, $C_FolioDisp TEXT,$C_ClaveCapacidadDiferente TEXT, $C_OrdenCapacidadDiferente TEXT, $C_CapacidadDiferente TEXT, $C_ClaveAdiccion TEXT, $C_OrdenAdiccion TEXT, $C_Adiccion TEXT, $C_peso double, $C_talla double, $C_imc double, $C_ClaveCondicionesSalud TEXT, $C_OrdenCondicionesSalud TEXT, $C_CondicionesSalud TEXT, $C_ClaveClasCondicionesSalud TEXT, $C_OrdenClasCondicionesSalud TEXT, $C_ClasCondicionesSalud TEXT, $C_ponderacion TEXT, $C_fileFoto TEXT, $C_ClaveEtniaIndigena TEXT,$C_OrdenEtniaIndigena TEXT, $C_EtniaIndigena TEXT);");
+/*
 
     //NOMBRE ASENTAMIENTO
     await db.execute("CREATE TABLE Asentamientos (NombreAsentamientos TEXT);");
@@ -1272,10 +1273,20 @@ class DbHelper {
     await db.execute("insert into tb_Duraciones  values (10,10,'10 Mes');");
     await db.execute("insert into tb_Duraciones  values (11,11,'11 Mes');");
     await db.execute("insert into tb_Duraciones  values (12,12,'12 Mes');");
-
+*/
 
     //Tabla cp
-
+    await db.execute("CREATE TABLE tb_CPs (ClaveCP INTEGER, Asentamiento TEXT,TipoAsentamiento TEXT, Municipio TEXT, Estado TEXT, Ciudad TEXT, ClaveEstado INTEGER, Clavetipo_asenta INTEGER , ClaveMunicipio INTEGER, TipoZona TEXT, ClaveCiudad INTEGER);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP,Asentamiento,TipoAsentamiento,Municipio,Estado,Ciudad,ClaveEstado,Clavetipo_asenta,ClaveMunicipio,TipoZona,ClaveCiudad) VALUES (36000,'Guanajuato Centro','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36003,'Alameda','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Cata','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Garrapata','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Mellado','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'Cerro de San Antonio','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'La Gualdra','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'San Luisito','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Ex-Hacienda de Durán','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Ex-Hacienda de Luna','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
 
   }
 
@@ -1283,6 +1294,11 @@ class DbHelper {
   readData(table) async {
     var connection = await db;
     return await connection.query(table);
+  }
+
+  readCp() async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT DISTINCT ClaveCP FROM tb_CPs");
   }
 
   readFolio(table) async {

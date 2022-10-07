@@ -101,7 +101,7 @@ class CategoryService {
   }
 
   readCategoriesCodigoPostal() async{
-    return await _repository.readData('tb_CPs');
+    return await _repository.readCp();
   }
 
   readCategoriesCodigoPostal2(String CP) async{
