@@ -13833,7 +13833,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -13865,7 +13865,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -13899,7 +13899,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(Container(
                                   margin: EdgeInsets.only(top: 5),
-                                  width: 220,
+                                  width: 300,
                                   child: TextFormField(
                                     controller: _parentesco1,
                                     readOnly: true,
@@ -13986,7 +13986,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14018,7 +14018,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14053,7 +14053,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14150,7 +14150,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14182,7 +14182,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14217,7 +14217,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14314,7 +14314,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14346,7 +14346,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14381,7 +14381,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14478,7 +14478,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14510,7 +14510,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14545,7 +14545,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14642,7 +14642,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14674,7 +14674,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14709,7 +14709,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14806,7 +14806,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14838,7 +14838,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14873,7 +14873,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -14970,7 +14970,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -15002,7 +15002,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -15037,7 +15037,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -15134,7 +15134,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -15166,7 +15166,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -15201,7 +15201,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -15299,7 +15299,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -15331,7 +15331,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(
@@ -15366,7 +15366,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 22),
-                                    width: 220,
+                                    width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
                                       searchInputDecoration: InputDecoration(

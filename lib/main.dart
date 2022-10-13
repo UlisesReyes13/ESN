@@ -1,4 +1,6 @@
+import 'package:esn/Model/EscolaridadSeguridadSocial.dart';
 import 'package:esn/Screens/DatosGenerales.dart';
+import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/Salud_PertenenciaIndigenaTabla.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
 import 'package:esn/Screens/TablaFolios.dart';

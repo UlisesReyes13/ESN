@@ -2,6 +2,7 @@ import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genSearchField.dart';
 import 'package:esn/Comm/genTextDataTable.dart';
 import 'package:esn/Comm/genTextFolio.dart';
+import 'package:esn/Comm/genTextTipoEmpleado.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/DerechohabienciasModel.dart';
 import 'package:esn/Model/EscolaridadSeguridadSocial.dart';
@@ -7702,7 +7703,7 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataColumn(label: Text('Nombres')),
                               DataColumn(label: Text('Escolaridad')),
                               DataColumn(label: Text('Grado')),
-                              DataColumn(label: Text('Asisiste Escuela')),
+                              DataColumn(label: Text('Asiste Escuela')),
                               DataColumn(label: Text('Ocupación')),
                               DataColumn(label: Text('Tipo De Empleo')),
                               DataColumn(label: Text('Prestaciones Laborales')),
@@ -7784,7 +7785,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo1,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(
@@ -7945,7 +7946,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo2,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(
@@ -8106,7 +8107,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo3,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(
@@ -8267,7 +8268,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo4,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(
@@ -8428,7 +8429,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo5,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(
@@ -8589,7 +8590,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo6,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(
@@ -8750,7 +8751,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo7,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(
@@ -8911,7 +8912,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo8,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(
@@ -9072,7 +9073,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo9,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(
@@ -9234,7 +9235,7 @@ class _Escolaridad_SeguridadSocialTablaState
                                         SearchFieldListItem(ocupacion.ocupacion,
                                             item: ocupacion)).toList(),
                                     hintName: 'Ocupación')),
-                                DataCell(getSearchField(
+                                DataCell(getSearchTipoEmpleado(
                                     controller: _tipoEmpleo10,
                                     suggestions: _TipoEmpleo.map((tipoEmpleo) =>
                                         SearchFieldListItem(

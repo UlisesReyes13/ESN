@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:masked_text_field/masked_text_field.dart';
+import 'package:searchfield/searchfield.dart';
 
-class getTextDate extends StatelessWidget {
+class getSearchTipoEmpleado extends StatelessWidget {
   TextEditingController controller;
+  List suggestions;
   String hintName;
-  TextInputType inputType;
 
 
-  getTextDate({this.controller, this.hintName, this.inputType});
+  getSearchTipoEmpleado({this.controller, this.suggestions, this.hintName});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 22),
-      width: 300,
-      child: MaskedTextField(
-        textFieldController: controller,
-        inputDecoration: InputDecoration(
+      width: 400,
+      child: SearchField(
+        suggestionState: Suggestion.expand,
+        searchInputDecoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
           ),
@@ -28,12 +28,13 @@ class getTextDate extends StatelessWidget {
           fillColor: Colors.grey[200],
           filled: true,
         ),
-        mask: 'xx-xx-xxxx',
-        maxLength: 10,
-        keyboardType: inputType,
-        onChange: (String value){
-          print(value);
-        },
+        suggestions: suggestions,
+        textInputAction: TextInputAction.next,
+        hasOverlay: true,
+        controller: controller,
+        maxSuggestionsInViewPort: 5,
+        itemHeight: 57,
+        onSuggestionTap: (x) {},
       ),
     );
   }

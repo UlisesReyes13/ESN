@@ -12,7 +12,7 @@ class getSearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 22),
-      width: 220,
+      width: 300,
       child: SearchField(
         suggestionState: Suggestion.expand,
         searchInputDecoration: InputDecoration(

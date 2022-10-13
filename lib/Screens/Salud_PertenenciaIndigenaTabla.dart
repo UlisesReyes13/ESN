@@ -3807,7 +3807,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC1(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -3882,7 +3882,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC2(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -3957,7 +3957,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC3(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4032,7 +4032,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC4(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4107,7 +4107,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC5(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4182,7 +4182,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC6(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4257,7 +4257,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC7(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4332,7 +4332,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC8(),
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
@@ -4406,7 +4406,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC9(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4481,7 +4481,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC10(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(

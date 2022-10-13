@@ -36,7 +36,7 @@ class _ResolucionState extends State<Resolucion> {
   List<ResolucionBALModel> _ResolucionBal = List<ResolucionBALModel>();
 
   apoyo _apoyo;
-  List<String> _Tipo = ['Cuata', 'Beca', 'Media Beca'];
+  List<String> _Tipo = ['Cuota', 'Beca', 'Media Beca'];
   List<FrecuenciaModel> _Frecuencia = List<FrecuenciaModel>();
   List<DuracionModel> _Duracion = List<DuracionModel>();
 
@@ -317,7 +317,7 @@ class _ResolucionState extends State<Resolucion> {
                   color: Colors.black,
                 ),
                 getTextEquipamiento(
-                    encabezado: 'Resolución del Banco de Aliementos'),
+                    encabezado: 'Resolución del Banco de Alimentos'),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Tipo:'),
                 Container(

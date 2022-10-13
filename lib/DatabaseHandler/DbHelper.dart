@@ -664,14 +664,14 @@ class DbHelper {
     await db.execute("INSERT INTO tb_Ocupaciones (Ocupacion) VALUES ('23 23 Pescador');");
     await db.execute("INSERT INTO tb_Ocupaciones (Ocupacion) VALUES ('24 24 Ama de Casa');");
     await db.execute("INSERT INTO tb_Ocupaciones (Ocupacion) VALUES ('25 25 Estudiante');");
-
+*/
     //Tabla TiposEmpleado
     await db.execute("CREATE TABLE tb_TipoEmpleos (TipoEmpleo TEXT);");
     await db.execute("INSERT INTO tb_TipoEmpleos (TipoEmpleo) VALUES ('1 1 N/A');");
     await db.execute("INSERT INTO tb_TipoEmpleos (TipoEmpleo) VALUES ('2 2 Asalariado');");
     await db.execute("INSERT INTO tb_TipoEmpleos (TipoEmpleo) VALUES ('3 3 Propio con sueldo asignado / independiente con pago');");
     await db.execute("INSERT INTO tb_TipoEmpleos (TipoEmpleo) VALUES ('4 4 Propio sin sueldo asignado / independiente sin pago');");
-
+/*
     //Tabla de Discpacidades
     await db.execute("CREATE TABLE tb_CapacidadesDiferentes (CapacidadDiferente TEXT);");
     await db.execute("INSERT INTO tb_CapacidadesDiferentes (CapacidadDiferente) VALUES ('1 0 N/A');");
