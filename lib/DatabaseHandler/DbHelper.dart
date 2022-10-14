@@ -193,7 +193,11 @@ class DbHelper {
   //Ponderación
   static const String C_ponderacion = 'ponderacion';
   //Foto
-  static const String C_fileFoto = 'fileFoto';
+  static const String C_fileFoto1 = 'fileFoto1';
+  static const String C_fileFoto2 = 'fileFoto2';
+  static const String C_fileFoto3 = 'fileFoto3';
+  static const String C_fileFoto4 = 'fileFoto4';
+  static const String C_fileFoto5 = 'fileFoto5';
   //Pueblo indigena
   static const String C_ClaveEtniaIndigena = 'ClaveEtniaIndigena';
   static const String C_OrdenEtniaIndigena = 'OrdenEtniaIndigena';
@@ -402,7 +406,7 @@ class DbHelper {
     await db.execute("CREATE TABLE $Table_Fotografia ($C_Folio int , $C_FolioDisp TEXT,$C_FileFoto TEXT);");
     await db.execute("CREATE TABLE $Table_Dispositivo ($C_Dispositivo TEXT);");
     //Tabla de salud_ pertenencia
-    await db.execute("CREATE TABLE $Table_Salud ($C_Folio int, $C_FolioDisp TEXT,$C_ClaveCapacidadDiferente TEXT, $C_OrdenCapacidadDiferente TEXT, $C_CapacidadDiferente TEXT, $C_ClaveAdiccion TEXT, $C_OrdenAdiccion TEXT, $C_Adiccion TEXT, $C_peso double, $C_talla double, $C_imc double, $C_ClaveCondicionesSalud TEXT, $C_OrdenCondicionesSalud TEXT, $C_CondicionesSalud TEXT, $C_ClaveClasCondicionesSalud TEXT, $C_OrdenClasCondicionesSalud TEXT, $C_ClasCondicionesSalud TEXT, $C_ponderacion TEXT, $C_fileFoto TEXT, $C_ClaveEtniaIndigena TEXT,$C_OrdenEtniaIndigena TEXT, $C_EtniaIndigena TEXT);");
+    await db.execute("CREATE TABLE $Table_Salud ($C_Folio int, $C_FolioDisp TEXT,$C_ClaveCapacidadDiferente TEXT, $C_OrdenCapacidadDiferente TEXT, $C_CapacidadDiferente TEXT, $C_ClaveAdiccion TEXT, $C_OrdenAdiccion TEXT, $C_Adiccion TEXT, $C_peso double, $C_talla double, $C_imc double, $C_ClaveCondicionesSalud TEXT, $C_OrdenCondicionesSalud TEXT, $C_CondicionesSalud TEXT, $C_ClaveClasCondicionesSalud TEXT, $C_OrdenClasCondicionesSalud TEXT, $C_ClasCondicionesSalud TEXT, $C_ponderacion TEXT, $C_fileFoto1 TEXT,$C_fileFoto2 TEXT,$C_fileFoto3 TEXT,$C_fileFoto4 TEXT,$C_fileFoto5 TEXT, $C_ClaveEtniaIndigena TEXT,$C_OrdenEtniaIndigena TEXT, $C_EtniaIndigena TEXT);");
 /*
 
     //NOMBRE ASENTAMIENTO
@@ -1299,6 +1303,11 @@ class DbHelper {
   readCp() async {
     var connection = await db;
     return await connection.rawQuery("SELECT DISTINCT ClaveCP FROM tb_CPs");
+  }
+
+  readVivienda() async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT tipoVivienda FROM tb_TipoVivienda ORDER BY orden");
   }
 
   readFolio(table) async {

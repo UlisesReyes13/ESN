@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 import 'package:esn/Comm/comHelper.dart';
+import 'package:esn/Comm/genBotonFotografia.dart';
 import 'package:esn/Comm/genSearchField.dart';
 import 'package:esn/Comm/genTextDataTable.dart';
 import 'package:esn/Comm/genTextFolio.dart';
@@ -40,7 +41,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion1 = TextEditingController();
   final _ponderacion1 = TextEditingController();
 
-  File _image1;
+  File _image1_1;
+  File _image1_2;
+  File _image1_3;
+  File _image1_4;
+  File _image1_5;
 
   final _nombre2 = TextEditingController();
   final _discapacidades2 = TextEditingController();
@@ -52,7 +57,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion2 = TextEditingController();
   final _ponderacion2 = TextEditingController();
 
-  File _image2;
+  File _image2_1;
+  File _image2_2;
+  File _image2_3;
+  File _image2_4;
+  File _image2_5;
 
   final _nombre3 = TextEditingController();
   final _discapacidades3 = TextEditingController();
@@ -64,7 +73,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion3 = TextEditingController();
   final _ponderacion3 = TextEditingController();
 
-  File _image3;
+  File _image3_1;
+  File _image3_2;
+  File _image3_3;
+  File _image3_4;
+  File _image3_5;
 
   final _nombre4 = TextEditingController();
   final _discapacidades4 = TextEditingController();
@@ -76,7 +89,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion4 = TextEditingController();
   final _ponderacion4 = TextEditingController();
 
-  File _image4;
+  File _image4_1;
+  File _image4_2;
+  File _image4_3;
+  File _image4_4;
+  File _image4_5;
 
   final _nombre5 = TextEditingController();
   final _discapacidades5 = TextEditingController();
@@ -88,7 +105,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion5 = TextEditingController();
   final _ponderacion5 = TextEditingController();
 
-  File _image5;
+  File _image5_1;
+  File _image5_2;
+  File _image5_3;
+  File _image5_4;
+  File _image5_5;
 
   final _nombre6 = TextEditingController();
   final _discapacidades6 = TextEditingController();
@@ -100,7 +121,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion6 = TextEditingController();
   final _ponderacion6 = TextEditingController();
 
-  File _image6;
+  File _image6_1;
+  File _image6_2;
+  File _image6_3;
+  File _image6_4;
+  File _image6_5;
 
   final _nombre7 = TextEditingController();
   final _discapacidades7 = TextEditingController();
@@ -112,7 +137,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion7 = TextEditingController();
   final _ponderacion7 = TextEditingController();
 
-  File _image7;
+  File _image7_1;
+  File _image7_2;
+  File _image7_3;
+  File _image7_4;
+  File _image7_5;
 
   final _nombre8 = TextEditingController();
   final _discapacidades8 = TextEditingController();
@@ -124,7 +153,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion8 = TextEditingController();
   final _ponderacion8 = TextEditingController();
 
-  File _image8;
+  File _image8_1;
+  File _image8_2;
+  File _image8_3;
+  File _image8_4;
+  File _image8_5;
 
   final _nombre9 = TextEditingController();
   final _discapacidades9 = TextEditingController();
@@ -136,7 +169,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion9 = TextEditingController();
   final _ponderacion9 = TextEditingController();
 
-  File _image9;
+  File _image9_1;
+  File _image9_2;
+  File _image9_3;
+  File _image9_4;
+  File _image9_5;
 
   final _nombre10 = TextEditingController();
   final _discapacidades10 = TextEditingController();
@@ -148,7 +185,12 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   final _clasificacion10 = TextEditingController();
   final _ponderacion10 = TextEditingController();
 
-  File _image10;
+  File _image10_1;
+  File _image10_2;
+  File _image10_3;
+  File _image10_4;
+  File _image10_5;
+
   final picker = ImagePicker();
 
   String imc;
@@ -250,7 +292,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -301,7 +347,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -352,7 +402,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -403,7 +457,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -454,7 +512,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -505,7 +567,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -556,7 +622,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -608,7 +678,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -659,7 +733,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -710,7 +788,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
-        categoryModel.fileFoto = category['fileFoto'];
+        categoryModel.fileFoto1 = category['fileFoto1'];
+        categoryModel.fileFoto2 = category['fileFoto2'];
+        categoryModel.fileFoto3 = category['fileFoto3'];
+        categoryModel.fileFoto4 = category['fileFoto4'];
+        categoryModel.fileFoto5 = category['fileFoto5'];
         categoryModel.ClaveEtniaIndigena = category['ClaveEtniaIndigena'];
         categoryModel.OrdenEtniaIndigena = category['OrdenEtniaIndigena'];
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
@@ -903,7 +985,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
 
 
-  Future getImage1() async{
+  Future getImage1_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -911,14 +993,70 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image1 = File(pickedFile.path);
+        _image1_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage1_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image1_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage1_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image1_3 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage1_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image1_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage1_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image1_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  Future getImage2() async{
+  Future getImage2_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -926,7 +1064,67 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image2 = File(pickedFile.path);
+        _image2_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage2_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image2_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage2_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image2_3 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage2_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image2_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage2_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image2_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
 
@@ -934,7 +1132,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
     });
   }
 
-  Future getImage3() async{
+  Future getImage3_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -942,7 +1140,67 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image3 = File(pickedFile.path);
+        _image3_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage3_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image3_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage3_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image3_3 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage3_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image3_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage3_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image3_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
 
@@ -950,7 +1208,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
     });
   }
 
-  Future getImage4() async{
+  Future getImage4_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -958,14 +1216,70 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image4 = File(pickedFile.path);
+        _image4_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage4_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image4_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage4_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image4_3 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage4_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image4_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage4_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image4_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  Future getImage5() async{
+  Future getImage5_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -973,14 +1287,70 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image5 = File(pickedFile.path);
+        _image5_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage5_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image5_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage5_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image5_3 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage5_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image5_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage5_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image5_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  Future getImage6() async{
+  Future getImage6_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -988,14 +1358,70 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image6 = File(pickedFile.path);
+        _image6_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage6_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image6_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage6_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image6_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage6_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image6_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage6_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image6_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  Future getImage7() async{
+  Future getImage7_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -1003,14 +1429,70 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image7 = File(pickedFile.path);
+        _image7_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage7_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image7_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage7_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image7_3 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage7_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image7_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage7_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image7_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  Future getImage8() async{
+  Future getImage8_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -1018,14 +1500,70 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image8 = File(pickedFile.path);
+        _image8_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage8_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image8_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage8_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image8_3 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage8_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image8_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage8_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image8_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  Future getImage9() async{
+  Future getImage9_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -1033,14 +1571,70 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image9 = File(pickedFile.path);
+        _image9_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage9_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image9_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage9_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image9_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage9_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image9_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage9_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image9_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  Future getImage10() async{
+  Future getImage10_1() async{
     final pickedFile = await picker.getImage(source: ImageSource.camera,
         maxHeight: 480,
         maxWidth: 648,
@@ -1048,7 +1642,66 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
     setState(() {
       if(pickedFile != null){
-        _image10 = File(pickedFile.path);
+        _image10_1 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage10_2() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image10_2 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage10_3() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image10_3 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+
+      }
+    });
+  }
+  Future getImage10_4() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image10_4 = File(pickedFile.path);
+      }else{
+        alertDialog(context, 'Imagen no Seleccionada');
+      }
+    });
+  }
+  Future getImage10_5() async{
+    final pickedFile = await picker.getImage(source: ImageSource.camera,
+        maxHeight: 480,
+        maxWidth: 648,
+        imageQuality: 50);
+
+    setState(() {
+      if(pickedFile != null){
+        _image10_5 = File(pickedFile.path);
       }else{
         alertDialog(context, 'Imagen no Seleccionada');
 
@@ -1206,7 +1859,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
     imC10 = double.parse(i);
     return _imc;
   }
-  
+
   getAllCategoriesDiscapacidades() async {
     _Discapacidades = List<CapacidadesDiferentes>();
     var categories = await CategoryService().readCategoriesDiscapacidades();
@@ -1268,14 +1921,41 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   renglon1() async {
-    var foto64;
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
 
-    if(_image1.isNull){
-      foto64 = "";
+    if(_image1_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image1.readAsBytesSync());
+      foto1 = Utility.base64String(_image1_1.readAsBytesSync());
     }
 
+    if(_image1_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image1_2.readAsBytesSync());
+    }
+
+    if(_image1_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image1_3.readAsBytesSync());
+    }
+
+    if(_image1_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image1_4.readAsBytesSync());
+    }
+
+    if(_image1_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image1_5.readAsBytesSync());
+    }
 
     var value1 = _discapacidades1.text; // 'artlang'
     final CapacidadesD = value1
@@ -1360,7 +2040,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion1.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion1.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena1.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena1.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -1376,11 +2060,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
   renglon2() async{
 
-    var foto64;
-    if(_image2.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image2_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image2.readAsBytesSync());
+      foto1 = Utility.base64String(_image2_1.readAsBytesSync());
+    }
+
+    if(_image2_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image2_2.readAsBytesSync());
+    }
+
+    if(_image2_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image2_3.readAsBytesSync());
+    }
+
+    if(_image2_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image2_4.readAsBytesSync());
+    }
+
+    if(_image2_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image2_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades2.text; // 'artlang'
@@ -1469,7 +2182,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion2.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion2.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena2.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena2.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -1486,13 +2203,41 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
   renglon3() async{
 
-    var foto64;
-    if(_image3.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image3_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image3.readAsBytesSync());
+      foto1 = Utility.base64String(_image3_1.readAsBytesSync());
     }
 
+    if(_image3_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image3_2.readAsBytesSync());
+    }
+
+    if(_image3_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image3_3.readAsBytesSync());
+    }
+
+    if(_image3_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image3_4.readAsBytesSync());
+    }
+
+    if(_image3_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image3_5.readAsBytesSync());
+    }
 
     var value1 = _discapacidades3.text; // 'artlang'
     final CapacidadesD = value1
@@ -1581,7 +2326,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion3.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion3.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena3.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena3.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -1597,11 +2346,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   renglon4() async{
-    var foto64;
-    if(_image4.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image4_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image4.readAsBytesSync());
+      foto1 = Utility.base64String(_image4_1.readAsBytesSync());
+    }
+
+    if(_image4_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image4_2.readAsBytesSync());
+    }
+
+    if(_image4_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image4_3.readAsBytesSync());
+    }
+
+    if(_image4_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image4_4.readAsBytesSync());
+    }
+
+    if(_image4_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image4_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades4.text; // 'artlang'
@@ -1688,7 +2466,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion4.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion4.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena4.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena4.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -1704,11 +2486,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   renglon5() async{
-    var foto64;
-    if(_image5.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image5_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image5.readAsBytesSync());
+      foto1 = Utility.base64String(_image5_1.readAsBytesSync());
+    }
+
+    if(_image5_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image5_2.readAsBytesSync());
+    }
+
+    if(_image5_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image5_3.readAsBytesSync());
+    }
+
+    if(_image5_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image5_4.readAsBytesSync());
+    }
+
+    if(_image5_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image5_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades5.text; // 'artlang'
@@ -1795,7 +2606,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion5.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion5.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena5.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena5.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -1810,11 +2625,41 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   renglon6() async{
-    var foto64;
-    if(_image6.isNull){
-      foto64 = "";
+
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image6_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image6.readAsBytesSync());
+      foto1 = Utility.base64String(_image6_1.readAsBytesSync());
+    }
+
+    if(_image6_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image6_2.readAsBytesSync());
+    }
+
+    if(_image6_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image6_3.readAsBytesSync());
+    }
+
+    if(_image6_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image6_4.readAsBytesSync());
+    }
+
+    if(_image6_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image6_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades6.text; // 'artlang'
@@ -1903,7 +2748,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion6.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion6.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena6.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena6.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -1918,11 +2767,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   renglon7() async{
-    var foto64;
-    if(_image7.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image7_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image7.readAsBytesSync());
+      foto1 = Utility.base64String(_image7_1.readAsBytesSync());
+    }
+
+    if(_image7_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image7_2.readAsBytesSync());
+    }
+
+    if(_image7_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image7_3.readAsBytesSync());
+    }
+
+    if(_image7_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image7_4.readAsBytesSync());
+    }
+
+    if(_image7_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image7_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades7.text; // 'artlang'
@@ -2012,7 +2890,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion7.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion7.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena7.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena7.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -2027,11 +2909,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   renglon8() async{
-    var foto64;
-    if(_image8.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image8_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image8.readAsBytesSync());
+      foto1 = Utility.base64String(_image8_1.readAsBytesSync());
+    }
+
+    if(_image8_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image8_2.readAsBytesSync());
+    }
+
+    if(_image8_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image8_3.readAsBytesSync());
+    }
+
+    if(_image8_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image8_4.readAsBytesSync());
+    }
+
+    if(_image8_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image8_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades8.text; // 'artlang'
@@ -2120,7 +3031,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion8.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion,
         ponderacion: int.parse(_ponderacion8.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena8.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena8.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -2135,11 +3050,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   renglon9() async{
-    var foto64;
-    if(_image9.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image9_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image9.readAsBytesSync());
+      foto1 = Utility.base64String(_image9_1.readAsBytesSync());
+    }
+
+    if(_image9_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image9_2.readAsBytesSync());
+    }
+
+    if(_image9_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image9_3.readAsBytesSync());
+    }
+
+    if(_image9_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image9_4.readAsBytesSync());
+    }
+
+    if(_image9_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image9_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades9.text; // 'artlang'
@@ -2228,7 +3172,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion9.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion9.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena9.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena9.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -2244,12 +3192,43 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   renglon10() async{
-    var foto64;
-    if(_image10.isNull){
-      foto64 = "";
+
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image10_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image10.readAsBytesSync());
+      foto1 = Utility.base64String(_image10_1.readAsBytesSync());
     }
+
+    if(_image10_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image10_2.readAsBytesSync());
+    }
+
+    if(_image10_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image10_3.readAsBytesSync());
+    }
+
+    if(_image10_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image10_4.readAsBytesSync());
+    }
+
+    if(_image10_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image10_5.readAsBytesSync());
+    }
+
     var value1 = _discapacidades10.text; // 'artlang'
     final CapacidadesD = value1
         .replaceAll("1", "")
@@ -2336,7 +3315,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion10.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion10.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena10.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena10.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -2355,14 +3338,41 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   actRenglon1() async {
-    var foto64;
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
 
-    if(_image1.isNull){
-      foto64 = "";
+    if(_image1_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image1.readAsBytesSync());
+      foto1 = Utility.base64String(_image1_1.readAsBytesSync());
     }
 
+    if(_image1_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image1_2.readAsBytesSync());
+    }
+
+    if(_image1_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image1_3.readAsBytesSync());
+    }
+
+    if(_image1_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image1_4.readAsBytesSync());
+    }
+
+    if(_image1_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image1_5.readAsBytesSync());
+    }
 
     var value1 = _discapacidades1.text; // 'artlang'
     final CapacidadesD = value1
@@ -2447,7 +3457,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion1.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion1.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena1.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena1.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -2463,11 +3477,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
   actRenglon2() async{
 
-    var foto64;
-    if(_image2.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image2_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image2.readAsBytesSync());
+      foto1 = Utility.base64String(_image2_1.readAsBytesSync());
+    }
+
+    if(_image2_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image2_2.readAsBytesSync());
+    }
+
+    if(_image2_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image2_3.readAsBytesSync());
+    }
+
+    if(_image2_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image2_4.readAsBytesSync());
+    }
+
+    if(_image2_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image2_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades2.text; // 'artlang'
@@ -2556,7 +3599,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion2.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion2.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena2.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena2.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -2573,11 +3620,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
 
   actRenglon3() async{
 
-    var foto64;
-    if(_image3.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image3_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image3.readAsBytesSync());
+      foto1 = Utility.base64String(_image3_1.readAsBytesSync());
+    }
+
+    if(_image3_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image3_2.readAsBytesSync());
+    }
+
+    if(_image3_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image3_3.readAsBytesSync());
+    }
+
+    if(_image3_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image3_4.readAsBytesSync());
+    }
+
+    if(_image3_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image3_5.readAsBytesSync());
     }
 
 
@@ -2668,7 +3744,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion3.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion3.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena3.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena3.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -2684,11 +3764,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   actRenglon4() async{
-    var foto64;
-    if(_image4.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image4_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image4.readAsBytesSync());
+      foto1 = Utility.base64String(_image4_1.readAsBytesSync());
+    }
+
+    if(_image4_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image4_2.readAsBytesSync());
+    }
+
+    if(_image4_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image4_3.readAsBytesSync());
+    }
+
+    if(_image4_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image4_4.readAsBytesSync());
+    }
+
+    if(_image4_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image4_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades4.text; // 'artlang'
@@ -2778,7 +3887,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion4.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion4.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena4.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena4.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -2794,11 +3907,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   actRenglon5() async{
-    var foto64;
-    if(_image5.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image5_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image5.readAsBytesSync());
+      foto1 = Utility.base64String(_image5_1.readAsBytesSync());
+    }
+
+    if(_image5_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image5_2.readAsBytesSync());
+    }
+
+    if(_image5_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image5_3.readAsBytesSync());
+    }
+
+    if(_image5_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image5_4.readAsBytesSync());
+    }
+
+    if(_image5_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image5_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades5.text; // 'artlang'
@@ -2888,7 +4030,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion5.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion5.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena5.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena5.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -2903,11 +4049,41 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   actRenglon6() async{
-    var foto64;
-    if(_image6.isNull){
-      foto64 = "";
+
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image6_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image6.readAsBytesSync());
+      foto1 = Utility.base64String(_image6_1.readAsBytesSync());
+    }
+
+    if(_image6_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image6_2.readAsBytesSync());
+    }
+
+    if(_image6_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image6_3.readAsBytesSync());
+    }
+
+    if(_image6_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image6_4.readAsBytesSync());
+    }
+
+    if(_image6_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image6_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades6.text; // 'artlang'
@@ -2996,7 +4172,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion6.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion6.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena6.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena6.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -3011,11 +4191,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   actRenglon7() async{
-    var foto64;
-    if(_image7.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image7_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image7.readAsBytesSync());
+      foto1 = Utility.base64String(_image7_1.readAsBytesSync());
+    }
+
+    if(_image7_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image7_2.readAsBytesSync());
+    }
+
+    if(_image7_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image7_3.readAsBytesSync());
+    }
+
+    if(_image7_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image7_4.readAsBytesSync());
+    }
+
+    if(_image7_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image7_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades7.text; // 'artlang'
@@ -3105,7 +4314,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion7.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion7.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena7.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena7.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -3120,11 +4333,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   actRenglon8() async{
-    var foto64;
-    if(_image8.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image8_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image8.readAsBytesSync());
+      foto1 = Utility.base64String(_image8_1.readAsBytesSync());
+    }
+
+    if(_image8_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image8_2.readAsBytesSync());
+    }
+
+    if(_image8_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image8_3.readAsBytesSync());
+    }
+
+    if(_image8_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image8_4.readAsBytesSync());
+    }
+
+    if(_image8_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image8_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades8.text; // 'artlang'
@@ -3214,7 +4456,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion8.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion8.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena8.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena8.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -3229,11 +4475,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   actRenglon9() async{
-    var foto64;
-    if(_image9.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image9_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image9.readAsBytesSync());
+      foto1 = Utility.base64String(_image9_1.readAsBytesSync());
+    }
+
+    if(_image9_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image9_2.readAsBytesSync());
+    }
+
+    if(_image9_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image9_3.readAsBytesSync());
+    }
+
+    if(_image9_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image9_4.readAsBytesSync());
+    }
+
+    if(_image9_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image9_5.readAsBytesSync());
     }
 
     var value1 = _discapacidades9.text; // 'artlang'
@@ -3300,7 +4575,10 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         .replaceAll("8", "")
         .replaceAll("9", "")
         .replaceAll("0", "");
-    
+
+
+
+
 
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
@@ -3320,7 +4598,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion9.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion9.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena9.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena9.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -3336,11 +4618,40 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
 
   actRenglon10() async{
-    var foto64;
-    if(_image10.isNull){
-      foto64 = "";
+    var foto1;
+    var foto2;
+    var foto3;
+    var foto4;
+    var foto5;
+
+    if(_image10_1.isNull){
+      foto1 = "";
     }else{
-      foto64 = Utility.base64String(_image10.readAsBytesSync());
+      foto1 = Utility.base64String(_image10_1.readAsBytesSync());
+    }
+
+    if(_image10_2.isNull){
+      foto2 = "";
+    }else{
+      foto2 = Utility.base64String(_image10_2.readAsBytesSync());
+    }
+
+    if(_image10_3.isNull){
+      foto3 = "";
+    }else{
+      foto3 = Utility.base64String(_image10_3.readAsBytesSync());
+    }
+
+    if(_image10_4.isNull){
+      foto4 = "";
+    }else{
+      foto4 = Utility.base64String(_image10_4.readAsBytesSync());
+    }
+
+    if(_image10_5.isNull){
+      foto5 = "";
+    }else{
+      foto5 = Utility.base64String(_image10_5.readAsBytesSync());
     }
     var value1 = _discapacidades10.text; // 'artlang'
     final CapacidadesD = value1
@@ -3408,7 +4719,6 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         .replaceAll("0", "");
 
 
-    
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades10.text.substring(0,1),
@@ -3427,7 +4737,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
         OrdenClasCondicionesSalud: (int.parse(_clasificacion10.text.substring(0,2).trimRight())).toString(),
         ClasCondicionesSalud: Clasificacion.trimLeft(),
         ponderacion: int.parse(_ponderacion10.text),
-        fileFoto: foto64,
+        fileFoto1: foto1,
+        fileFoto2: foto2,
+        fileFoto3: foto3,
+        fileFoto4: foto4,
+        fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena10.text.substring(0,2).trimRight(),
         OrdenEtniaIndigena: (int.parse(_puebloIndigena10.text.substring(0,2).trimRight())- 1).toString(),
         EtniaIndigena: Pueblo.trimLeft()
@@ -3588,9 +4902,11 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   }
   
 
-    @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Form(
         child: SingleChildScrollView(
           child: Container(
@@ -3657,7 +4973,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC1(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -3692,24 +5008,35 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image1 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image1_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion:getImage1_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage1,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image1_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion:getImage1_2),
+                                      Container(
+                                          child: _image1_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion:getImage1_3),
+                                      Container(
+                                          child: _image1_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion:getImage1_4),
+                                      Container(
+                                          child: _image1_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion:getImage1_5),
                                     ],
                                   ),
                                 ),
@@ -3732,7 +5059,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC2(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -3767,24 +5094,35 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image2 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image2_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage2_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage2,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image2_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage2_2),
+                                      Container(
+                                          child: _image2_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage2_3),
+                                      Container(
+                                          child: _image2_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage2_4),
+                                      Container(
+                                          child: _image2_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage2_5),
                                     ],
                                   ),
                                 ),
@@ -3807,7 +5145,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC3(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -3842,24 +5180,35 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image3 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image3_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage3_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage3,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image3_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage3_2),
+                                      Container(
+                                          child: _image3_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage3_3),
+                                      Container(
+                                          child: _image3_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage3_4),
+                                      Container(
+                                          child: _image3_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage3_5),
                                     ],
                                   ),
                                 ),
@@ -3882,7 +5231,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC4(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -3917,24 +5266,35 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image4 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image4_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage4_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage4,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image4_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage4_2),
+                                      Container(
+                                          child: _image4_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage4_3),
+                                      Container(
+                                          child: _image4_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage4_4),
+                                      Container(
+                                          child: _image4_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage4_5),
                                     ],
                                   ),
                                 ),
@@ -3957,7 +5317,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC5(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -3992,24 +5352,41 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image5 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image5_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage5_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage5,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image5_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage5_2),
+                                      Container(
+                                          child: _image5_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage5_3),
+                                      Container(
+                                          child: _image5_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage5_4),
+                                      Container(
+                                          child: _image5_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage5_5),
+                                      Container(
+                                          child: _image5_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage5_5),
                                     ],
                                   ),
                                 ),
@@ -4032,7 +5409,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC6(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4067,24 +5444,35 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image6 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image6_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage6_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage6,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image6_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage6_1),
+                                      Container(
+                                          child: _image6_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage6_3),
+                                      Container(
+                                          child: _image6_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage6_4),
+                                      Container(
+                                          child: _image6_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage6_5),
                                     ],
                                   ),
                                 ),
@@ -4107,7 +5495,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC7(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4142,24 +5530,35 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image7 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image7_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage7_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage7,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image7_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage7_2),
+                                      Container(
+                                          child: _image7_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage7_3),
+                                      Container(
+                                          child: _image7_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage7_4),
+                                      Container(
+                                          child: _image7_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage7_5),
                                     ],
                                   ),
                                 ),
@@ -4182,7 +5581,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC8(),
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
@@ -4216,24 +5615,35 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image8 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image8_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage8_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage8,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image8_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage8_2),
+                                      Container(
+                                          child: _image8_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage8_3),
+                                      Container(
+                                          child: _image8_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage8_4),
+                                      Container(
+                                          child: _image8_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage8_5),
                                     ],
                                   ),
                                 ),
@@ -4256,7 +5666,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC9(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4291,24 +5701,35 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image9 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image9_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage9_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage9,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image9_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage9_2),
+                                      Container(
+                                          child: _image9_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage9_3),
+                                      Container(
+                                          child: _image9_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage9_4),
+                                      Container(
+                                          child: _image9_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage9_5),
                                     ],
                                   ),
                                 ),
@@ -4331,7 +5752,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    width: 220,
+                                    width: 300,
                                     child: TextField(controller: IMC10(),
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
@@ -4366,24 +5787,35 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                   Column(
                                     children: [
                                       Container(
-                                          child: _image10 == null
-                                              ? Text('Imagen No Seleccionda')
-                                              : Text('Imagen Seleccionada')
+                                          child: _image10_1 == null
+                                              ? Text('Imagen 1 No Seleccionda')
+                                              : Text('Imagen 1 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage10_1),
                                       Container(
-                                        margin: EdgeInsets.only(top: 5),
-                                        width: 300,
-                                        child: TextButton.icon(
-                                          onPressed: getImage10,
-                                          icon: Icon(Icons.add_a_photo,color: Colors.white,),
-                                          label: Text('Tomar Fotografia', style: TextStyle(color: Colors.white)
-                                          ),
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.blue,
-                                          borderRadius: BorderRadius.circular(30.0),
-                                        ),
+                                          child: _image10_2 == null
+                                              ? Text('Imagen 2 No Seleccionda')
+                                              : Text('Imagen 2 Seleccionada')
                                       ),
+                                      botonFoto(funcion: getImage10_2),
+                                      Container(
+                                          child: _image10_3 == null
+                                              ? Text('Imagen 3 No Seleccionda')
+                                              : Text('Imagen 3 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage10_3),
+                                      Container(
+                                          child: _image10_4 == null
+                                              ? Text('Imagen 4 No Seleccionda')
+                                              : Text('Imagen 4 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage10_4),
+                                      Container(
+                                          child: _image10_5 == null
+                                              ? Text('Imagen 5 No Seleccionda')
+                                              : Text('Imagen 5 Seleccionada')
+                                      ),
+                                      botonFoto(funcion: getImage10_5),
                                     ],
                                   ),
                                 ),
@@ -4398,8 +5830,6 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                     ),
                   ),
                 ),
-
-
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),

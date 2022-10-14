@@ -30,36 +30,16 @@ class Salud_PertenenciaIndigenenaTablaModel {
   int ponderacion;
 
   //Foto
-  String fileFoto;
+  String fileFoto1;
+  String fileFoto2;
+  String fileFoto3;
+  String fileFoto4;
+  String fileFoto5;
 
   //Pueblo indigena
   String ClaveEtniaIndigena;
   String OrdenEtniaIndigena;
   String EtniaIndigena;
-
-  Salud_PertenenciaIndigenenaTablaModel({
-      this.folio,
-      this.ClaveCapacidadDiferente,
-      this.OrdenCapacidadDiferente,
-      this.CapacidadDiferente,
-      this.ClaveAdiccion,
-      this.OrdenAdiccion,
-      this.Adiccion,
-      this.peso,
-      this.talla,
-      this.imc,
-      this.ClaveCondicionesSalud,
-      this.OrdenCondicionesSalud,
-      this.CondicionesSalud,
-      this.ClaveClasCondicionesSalud,
-      this.OrdenClasCondicionesSalud,
-      this.ClasCondicionesSalud,
-      this.ponderacion,
-      this.fileFoto,
-      this.ClaveEtniaIndigena,
-      this.OrdenEtniaIndigena,
-      this.EtniaIndigena});
-
 
     Map<String,dynamic> toMap(){
       var map = <String, dynamic>{
@@ -94,7 +74,11 @@ class Salud_PertenenciaIndigenenaTablaModel {
       'ponderacion' : ponderacion,
 
       //Foto
-      'fileFoto' : fileFoto,
+      'fileFoto1' : fileFoto1,
+      'fileFoto2' : fileFoto2,
+      'fileFoto3' : fileFoto3,
+      'fileFoto4' : fileFoto4,
+      'fileFoto5' : fileFoto5,
 
       //Pueblo indigena
       'ClaveEtniaIndigena' : ClaveEtniaIndigena,
@@ -103,6 +87,34 @@ class Salud_PertenenciaIndigenenaTablaModel {
       };
       return map;
       }
+
+
+  Salud_PertenenciaIndigenenaTablaModel({
+      this.folio,
+      this.ClaveCapacidadDiferente,
+      this.OrdenCapacidadDiferente,
+      this.CapacidadDiferente,
+      this.ClaveAdiccion,
+      this.OrdenAdiccion,
+      this.Adiccion,
+      this.peso,
+      this.talla,
+      this.imc,
+      this.ClaveCondicionesSalud,
+      this.OrdenCondicionesSalud,
+      this.CondicionesSalud,
+      this.ClaveClasCondicionesSalud,
+      this.OrdenClasCondicionesSalud,
+      this.ClasCondicionesSalud,
+      this.ponderacion,
+      this.fileFoto1,
+      this.fileFoto2,
+      this.fileFoto3,
+      this.fileFoto4,
+      this.fileFoto5,
+      this.ClaveEtniaIndigena,
+      this.OrdenEtniaIndigena,
+      this.EtniaIndigena});
 
       Salud_PertenenciaIndigenenaTablaModel.fromMap(Map<String, dynamic> map){
         folio = map['folio'];
@@ -135,7 +147,11 @@ class Salud_PertenenciaIndigenenaTablaModel {
         ponderacion = map['ponderacion'];
 
         //Foto
-        fileFoto = map['fileFoto'];
+        fileFoto1 = map['fileFoto1'];
+        fileFoto2 = map['fileFoto2'];
+        fileFoto3 = map['fileFoto3'];
+        fileFoto4 = map['fileFoto4'];
+        fileFoto5 = map['fileFoto5'];
 
         //Pueblo indigena
         ClaveEtniaIndigena = map['ClaveEtniaIndigena'];

@@ -13,7 +13,7 @@ class getSearchTipoEmpleado extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 22),
-      width: 400,
+      width: 450,
       child: SearchField(
         suggestionState: Suggestion.expand,
         searchInputDecoration: InputDecoration(

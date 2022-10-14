@@ -77,7 +77,7 @@ class CategoryService {
   }
 
   readCategoriesTipoVivienda() async {
-    return await _repository.readData('tb_TipoVivienda');
+    return await _repository.readVivienda();
   }
 
   readCategoriesTipoPiso() async{
