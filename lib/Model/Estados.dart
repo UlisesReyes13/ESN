@@ -1,5 +1,6 @@
 class Estados {
   int ClaveEstado;
+
   String Estado;
 
   Estados(this.ClaveEstado, this.Estado);

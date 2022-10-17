@@ -12,7 +12,6 @@ import 'package:esn/Model/Municipios.dart';
 import 'package:esn/Model/TipoVialidad.dart';
 import 'package:esn/Model/TiposAsentamiento.dart';
 import 'package:esn/Screens/LoginForm.dart';
-import 'package:esn/Screens/ServiciosBanios.dart';
 import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/ServiciosBanioActualizar.dart';
 import 'package:esn/services/category_services.dart';
@@ -35,6 +34,7 @@ class DatosGeneralesActualizar extends StatefulWidget {
 }
 
 class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
+  final _fechaCaptura = TextEditingController();
   final _folio = TextEditingController();
   final _nombreComunidad = TextEditingController();
   final _estado = TextEditingController();
@@ -51,6 +51,8 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
   final _tipoVialidad = TextEditingController();
   final _cp = TextEditingController();
   final _telefono = TextEditingController();
+  final _cdispo = TextEditingController();
+  final _folioDispo = TextEditingController();
   var dbHelper;
   var cargar;
 
@@ -65,6 +67,8 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
   List<ComunidadesModel> _Comunidades = List<ComunidadesModel>();
   List<GruposModel> _Grupo = List<GruposModel>();
   List<DatosGeneralesModel> _DatosGenerales = List<DatosGeneralesModel>();
+  List<TiposAsentamiento> _TiposAsentamiento2 = List<TiposAsentamiento>();
+  List<TiposVialidad> _TiposVialidad2 = List<TiposVialidad>();
 
   @override
   void initState() {
@@ -74,20 +78,17 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     getAllCategoriesTiposAsentamientos();
     getAllCategoriesTipoVialidad();
     getAllCategoriesEstados();
+    getFolio();
     getDate();
     getAllCategoriesCodigoPostal();
-    getAllCategoriesCodigoPostal2();
-    getAllCategoriesGrupo();
+    
     super.initState();
     dbHelper = DbHelper();
   }
 
   cargarPreferencias() async {
-    setState(() {
-      getAllDatosgenerales();
-      getAllCategoriesCodigoPostal2();
-      getAllCategoriesGrupo();
-    });
+    await getAllDatosgenerales();
+    getAllCategoriesCodigoPostal2();
   }
 
   getDate() {
@@ -110,10 +111,9 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
   }
 
   getAllDatosgenerales() async {
-    _folio.text = widget.folio;
     _DatosGenerales = List<DatosGeneralesModel>();
     var categories =
-        await CategoryService().readDatosGeenerales(int.parse(_folio.text));
+    await CategoryService().readDatosGeenerales(int.parse(_folio.text) - 1);
     categories.forEach((category) {
       setState(() {
         var categoryModel = DatosGeneralesModel();
@@ -154,8 +154,10 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
         _DatosGenerales.add(categoryModel);
       });
     });
+
     getAllCategoriesCodigoPostal2();
     _folio.text = _DatosGenerales.map((e) => e.folio.toString()).first;
+    _fechaCaptura.text = _DatosGenerales.map((e) => e.fechaCaptura).first;
     _calle.text = _DatosGenerales.map((e) => e.calle).first;
     _entreCalles.text = _DatosGenerales.map((e) => e.entreCalles).first;
 
@@ -167,15 +169,10 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     _telefono.text = _DatosGenerales.map((e) => e.telefono).first;
     _cp.text = _DatosGenerales.map((e) => e.claveCodigoPostal.toString()).first;
 
-    _estado.text = _DatosGenerales.map((e) => e.estado.toString()).first;
-
     _nombreComunidad.text = _DatosGenerales.map((e) => e.nombreComunidad).first;
     _estado.text = _DatosGenerales.map((e) => e.estado.toString()).first;
     _municipio.text = _DatosGenerales.map((e) => e.municipio).first;
-    _nombreAsentamiento.text = _DatosGenerales.map((e) =>
-        _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first +
-        " " +
-        e.nombreAsentamiento).first;
+    _nombreAsentamiento.text = _DatosGenerales.map((e) => e.nombreAsentamiento).first;
     _tipoAsentamiento.text =
         _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first +
             " " +
@@ -184,8 +181,6 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
         _DatosGenerales.map((e) => e.claveTipoVialidad.toString()).first +
             " " +
             _DatosGenerales.map((e) => e.tipoVialidad).first;
-
-    getAllCategoriesGrupo();
   }
 
   getAllCategoriesCodigoPostal() async {
@@ -213,7 +208,7 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
   getAllCategoriesCodigoPostal2() async {
     _CodigoPostal2 = List<CodigoPostalModel>();
     var categories =
-        await CategoryService().readCategoriesCodigoPostal2(_cp.text);
+    await CategoryService().readCategoriesCodigoPostal2(_cp.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = CodigoPostalModel();
@@ -255,7 +250,7 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
   getAllCategoriesGrupo() async {
     _Grupo = List<GruposModel>();
     var categories =
-        await CategoryService().readCategoriesGrupo(_nombreComunidad.text);
+    await CategoryService().readCategoriesGrupo(_nombreComunidad.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = GruposModel();
@@ -317,8 +312,31 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     });
   }
 
+  getFolio() async {
+    _Folio = List<DatosGeneralesModel>();
+    var categories = await CategoryService().Folio();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = DatosGeneralesModel();
+        categoryModel.folio = category['folio'];
+        _Folio.add(categoryModel);
+        var ltFolio = _Folio.map((e) => e.folio + 1);
+        final lastFolio =
+        ltFolio.toString().replaceAll("(", "").replaceAll(")", "");
+        _folio.text = lastFolio;
+      });
+    });
+  }
+
+
+  
+
+    
+  
+
   actualizar() async {
     String folio = _folio.text;
+    String fechaCaptura = _fechaCaptura.text;
     String nombreComunidad = _nombreComunidad.text;
     String estado = _estado.text;
     String tipoAsentamiento = _tipoAsentamiento.text;
@@ -334,6 +352,27 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     String tipoVialidad = _tipoVialidad.text;
     String cp = _cp.text;
     String telefono = _telefono.text;
+    String dispFolio = _cdispo.text + _folio.text;
+
+    _TiposAsentamiento2 = List<TiposAsentamiento>();
+    var categories = await CategoryService().readTipoAsenta(_tipoAsentamiento.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = TiposAsentamiento();
+        categoryModel.Orden = category['Orden'];
+        _TiposAsentamiento2.add(categoryModel);
+      });
+    });
+
+    _TiposVialidad2 = List<TiposVialidad>();
+    var categories1 = await CategoryService().readTipoVialidad(_tipoVialidad.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = TiposVialidad();
+        categoryModel1.Orden = category['Orden'];
+        _TiposVialidad2.add(categoryModel1);
+      });
+    });
 
     if (nombreComunidad.isEmpty) {
       alertDialog(context, "Error: No se registro nombre de la comunidad");
@@ -519,6 +558,7 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
       var claveTipoV = claveTipoVia.substring(0, 2);
       DatosGeneralesModel BModel = DatosGeneralesModel(
           folio: int.parse(folio),
+          fechaCaptura: fechaCaptura,
           calle: calle,
           entreCalles: entreCalles,
           claveGrupo: _Grupo.map((e) => e.ClaveGrupo).first,
@@ -538,13 +578,13 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
           claveMunicipio: _CodigoPostal2.map((e) => e.ClaveMunicipio).first,
           municipio: _municipio.text.toString(),
           claveAsentamiento:
-              _CodigoPostal2.map((e) => e.Clavetipo_asenta).first,
+          _CodigoPostal2.map((e) => e.Clavetipo_asenta).first,
           nombreAsentamiento: _nombreAsentamiento.text.toString(),
           claveTipoAsentamiento: int.parse(claveTipoAsentam),
-          ordentipoAsentamiento: int.parse(claveTipoAsentam),
+          ordentipoAsentamiento: int.parse(_TiposAsentamiento2.map((e) => e.Orden).first),
           tipoAsentamiento: nombreTipoAsentamiento.trimLeft(),
           claveTipoVialidad: int.parse(claveTipoV),
-          ordentipovialidad: int.parse(claveTipoV),
+          ordentipovialidad: int.parse(_TiposVialidad2.map((e) => e.Orden).first),
           tipoVialidad: nombreTipoVialidad.trimLeft());
 
       await DbHelper().upDateDatosGenerales(BModel).then((datosGeneralesModel) {
@@ -560,6 +600,7 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
       });
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -974,3 +1015,4 @@ class _DatosGeneralesActualizarState extends State<DatosGeneralesActualizar> {
     );
   }
 }
+

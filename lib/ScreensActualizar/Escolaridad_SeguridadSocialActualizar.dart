@@ -41,52 +41,57 @@ class _Escolaridad_SeguridadSocialActualizarState
   List<GradosEscolaresModel> _GradoEscolar = List<GradosEscolaresModel>();
   List<OcupacionesModel> _Ocupacion = List<OcupacionesModel>();
   List<TipoEmpleoModel> _TipoEmpleo = List<TipoEmpleoModel>();
-  List<DerechoHabienciasModel> _Derechohabiencia =
-      List<DerechoHabienciasModel>();
-  List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia =
-      List<MotivoDerechoHabienciasModel>();
+  List<DerechoHabienciasModel> _Derechohabiencia = List<DerechoHabienciasModel>();
+  List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia = List<MotivoDerechoHabienciasModel>();
+
+  List<EscolaridadesModel> _EscolaridadOrden2 = List<EscolaridadesModel>();
+  List<GradosEscolaresModel> _GradoEscolar2 = List<GradosEscolaresModel>();
+  List<OcupacionesModel> _Ocupacion2 = List<OcupacionesModel>();
+  List<TipoEmpleoModel> _TipoEmpleo2 = List<TipoEmpleoModel>();
+  List<DerechoHabienciasModel> _Derechohabiencia2 = List<DerechoHabienciasModel>();
+  List<MotivoDerechoHabienciasModel>_MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
 
   List<EstructuraFamilarModel> _EstructuraFamiliar1 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
   List<EstructuraFamilarModel> _EstructuraFamiliar2 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
   List<EstructuraFamilarModel> _EstructuraFamiliar3 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
   List<EstructuraFamilarModel> _EstructuraFamiliar4 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
   List<EstructuraFamilarModel> _EstructuraFamiliar5 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
   List<EstructuraFamilarModel> _EstructuraFamiliar6 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
   List<EstructuraFamilarModel> _EstructuraFamiliar7 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
   List<EstructuraFamilarModel> _EstructuraFamiliar8 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
   List<EstructuraFamilarModel> _EstructuraFamiliar9 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
   List<EstructuraFamilarModel> _EstructuraFamiliar10 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel>();
 
   List<EscolaridadSeguridadSocial> _Escolaridad1 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
   List<EscolaridadSeguridadSocial> _Escolaridad2 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
   List<EscolaridadSeguridadSocial> _Escolaridad3 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
   List<EscolaridadSeguridadSocial> _Escolaridad4 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
   List<EscolaridadSeguridadSocial> _Escolaridad5 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
   List<EscolaridadSeguridadSocial> _Escolaridad6 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
   List<EscolaridadSeguridadSocial> _Escolaridad7 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
   List<EscolaridadSeguridadSocial> _Escolaridad8 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
   List<EscolaridadSeguridadSocial> _Escolaridad9 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
   List<EscolaridadSeguridadSocial> _Escolaridad10 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial>();
 
   final _escolaridad1 = TextEditingController();
   final _gradoEscolar1 = TextEditingController();
@@ -363,7 +368,6 @@ class _Escolaridad_SeguridadSocialActualizarState
     getAllEstructura3();
     getAllEstructura4();
 
-    cargarDatos();
     super.initState();
     dbHelper = DbHelper();
   }
@@ -384,7 +388,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad1() async {
     _Escolaridad1 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad1(int.parse(widget.folio));
+    await CategoryService().readEscolaridad1(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -405,9 +409,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -415,48 +419,37 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad1.add(categoryModel);
       });
     });
     _escolaridad1.text = _Escolaridad1.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad1.map((e) => e.ClaveEscolaridad).first +
-        " " +
         _Escolaridad1.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar1.text = _Escolaridad1.map((e) => e.ClaveGradoEscolar).first +
-        " " +
-        _Escolaridad1.map((e) => e.GradoEscolar).first;
+    _gradoEscolar1.text = _Escolaridad1.map((e) => e.ClaveGradoEscolar).first ;
+
 
     _ocupacion1.text = _Escolaridad1.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad1.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad1.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo1.text = _Escolaridad1.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad1.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad1.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia1.text =
         _Escolaridad1.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad1.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
             _Escolaridad1.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia1.text =
         _Escolaridad1.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad1.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad1.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -480,7 +473,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad2() async {
     _Escolaridad2 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad2(int.parse(widget.folio));
+    await CategoryService().readEscolaridad2(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -501,9 +494,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -511,48 +504,36 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad2.add(categoryModel);
       });
     });
     _escolaridad2.text = _Escolaridad2.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad2.map((e) => e.ClaveEscolaridad).first +
-        " " +
         _Escolaridad2.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar2.text = _Escolaridad2.map((e) => e.ClaveGradoEscolar).first +
-        " " +
-        _Escolaridad2.map((e) => e.GradoEscolar).first;
+    _gradoEscolar2.text = _Escolaridad2.map((e) => e.ClaveGradoEscolar).first ;
 
     _ocupacion2.text = _Escolaridad2.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad2.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad2.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo2.text = _Escolaridad2.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad2.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad2.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia2.text =
         _Escolaridad2.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad2.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
             _Escolaridad2.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia2.text =
         _Escolaridad2.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad2.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad2.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -576,7 +557,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad3() async {
     _Escolaridad3 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad3(int.parse(widget.folio));
+    await CategoryService().readEscolaridad3(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -597,9 +578,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -607,48 +588,37 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad3.add(categoryModel);
       });
     });
     _escolaridad3.text = _Escolaridad3.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad3.map((e) => e.ClaveEscolaridad).first +
-        " " +
         _Escolaridad3.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar3.text = _Escolaridad3.map((e) => e.ClaveGradoEscolar).first +
-        " " +
-        _Escolaridad3.map((e) => e.GradoEscolar).first;
+    _gradoEscolar3.text = _Escolaridad3.map((e) => e.ClaveGradoEscolar).first ;
+
 
     _ocupacion3.text = _Escolaridad3.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad3.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad3.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo3.text = _Escolaridad3.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad3.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad3.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia3.text =
         _Escolaridad3.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad3.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
             _Escolaridad3.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia3.text =
         _Escolaridad3.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad3.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad3.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -672,7 +642,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad4() async {
     _Escolaridad4 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad4(int.parse(widget.folio));
+    await CategoryService().readEscolaridad4(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -693,9 +663,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -703,48 +673,37 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad4.add(categoryModel);
       });
     });
     _escolaridad4.text = _Escolaridad4.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad4.map((e) => e.ClaveEscolaridad).first +
-        " " +
         _Escolaridad4.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar4.text = _Escolaridad4.map((e) => e.ClaveGradoEscolar).first +
-        " " +
-        _Escolaridad4.map((e) => e.GradoEscolar).first;
+    _gradoEscolar4.text = _Escolaridad4.map((e) => e.ClaveGradoEscolar).first ;
+
 
     _ocupacion4.text = _Escolaridad4.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad4.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad4.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo4.text = _Escolaridad4.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad4.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad4.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia4.text =
         _Escolaridad4.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad4.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
             _Escolaridad4.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia4.text =
         _Escolaridad4.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad4.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad4.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -768,7 +727,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad5() async {
     _Escolaridad5 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad5(int.parse(widget.folio));
+    await CategoryService().readEscolaridad5(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -789,9 +748,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -799,48 +758,36 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad5.add(categoryModel);
       });
     });
     _escolaridad5.text = _Escolaridad5.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad5.map((e) => e.ClaveEscolaridad).first +
-        " " +
         _Escolaridad5.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar5.text = _Escolaridad5.map((e) => e.ClaveGradoEscolar).first +
-        " " +
-        _Escolaridad5.map((e) => e.GradoEscolar).first;
+    _gradoEscolar5.text = _Escolaridad5.map((e) => e.ClaveGradoEscolar).first ;
 
     _ocupacion5.text = _Escolaridad5.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad5.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad5.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo5.text = _Escolaridad5.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad5.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad5.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia5.text =
         _Escolaridad5.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad5.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
             _Escolaridad5.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia5.text =
         _Escolaridad5.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad5.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad5.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -864,7 +811,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad6() async {
     _Escolaridad6 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad6(int.parse(widget.folio));
+    await CategoryService().readEscolaridad6(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -885,9 +832,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -895,48 +842,37 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad6.add(categoryModel);
       });
     });
     _escolaridad6.text = _Escolaridad6.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad6.map((e) => e.ClaveEscolaridad).first +
-        " " +
         _Escolaridad6.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar6.text = _Escolaridad6.map((e) => e.ClaveGradoEscolar).first +
-        " " +
-        _Escolaridad6.map((e) => e.GradoEscolar).first;
+    _gradoEscolar6.text = _Escolaridad6.map((e) => e.ClaveGradoEscolar).first ;
 
     _ocupacion6.text = _Escolaridad6.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad6.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad6.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo6.text = _Escolaridad6.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad6.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad6.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia6.text =
         _Escolaridad6.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad6.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
+
             _Escolaridad6.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia6.text =
         _Escolaridad6.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad6.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad6.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -960,7 +896,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad7() async {
     _Escolaridad7 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad7(int.parse(widget.folio));
+    await CategoryService().readEscolaridad7(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -981,9 +917,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -991,48 +927,36 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad7.add(categoryModel);
       });
     });
     _escolaridad7.text = _Escolaridad7.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad7.map((e) => e.ClaveEscolaridad).first +
-        " " +
         _Escolaridad7.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar7.text = _Escolaridad7.map((e) => e.ClaveGradoEscolar).first +
-        " " +
-        _Escolaridad7.map((e) => e.GradoEscolar).first;
+    _gradoEscolar7.text = _Escolaridad7.map((e) => e.ClaveGradoEscolar).first ;
 
     _ocupacion7.text = _Escolaridad7.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad7.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad7.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo7.text = _Escolaridad7.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad7.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad7.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia7.text =
         _Escolaridad7.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad7.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
             _Escolaridad7.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia7.text =
         _Escolaridad7.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad7.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad7.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -1056,7 +980,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad8() async {
     _Escolaridad8 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad8(int.parse(widget.folio));
+    await CategoryService().readEscolaridad8(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -1077,9 +1001,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -1087,48 +1011,37 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad8.add(categoryModel);
       });
     });
     _escolaridad8.text = _Escolaridad8.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad8.map((e) => e.ClaveEscolaridad).first +
-        " " +
+
         _Escolaridad8.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar8.text = _Escolaridad8.map((e) => e.ClaveGradoEscolar).first +
-        " " +
-        _Escolaridad8.map((e) => e.GradoEscolar).first;
+    _gradoEscolar8.text = _Escolaridad8.map((e) => e.ClaveGradoEscolar).first ;
 
     _ocupacion8.text = _Escolaridad8.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad8.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad8.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo8.text = _Escolaridad8.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad8.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad8.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia8.text =
         _Escolaridad8.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad8.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
             _Escolaridad8.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia8.text =
         _Escolaridad8.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad8.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad8.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -1152,7 +1065,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad9() async {
     _Escolaridad9 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad9(int.parse(widget.folio));
+    await CategoryService().readEscolaridad9(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -1173,9 +1086,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -1183,48 +1096,36 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad9.add(categoryModel);
       });
     });
     _escolaridad9.text = _Escolaridad9.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad9.map((e) => e.ClaveEscolaridad).first +
-        " " +
         _Escolaridad9.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar9.text = _Escolaridad9.map((e) => e.ClaveGradoEscolar).first +
-        " " +
-        _Escolaridad9.map((e) => e.GradoEscolar).first;
+    _gradoEscolar9.text = _Escolaridad9.map((e) => e.ClaveGradoEscolar).first ;
 
     _ocupacion9.text = _Escolaridad9.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad9.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad9.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo9.text = _Escolaridad9.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad9.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad9.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia9.text =
         _Escolaridad9.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad9.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
             _Escolaridad9.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia9.text =
         _Escolaridad9.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad9.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad9.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -1248,7 +1149,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEscolaridad10() async {
     _Escolaridad10 = List<EscolaridadSeguridadSocial>();
     var categories =
-        await CategoryService().readEscolaridad10(int.parse(widget.folio));
+    await CategoryService().readEscolaridad10(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadSeguridadSocial();
@@ -1269,9 +1170,9 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.TipoEmpleo = category['TipoEmpleo'];
         categoryModel.pk_prestacioneslab = category['pk_prestacioneslab'];
         categoryModel.int_OrdenPrestacionesLab =
-            category['int_OrdenPrestacionesLab'];
+        category['int_OrdenPrestacionesLab'];
         categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
+        category['txt_desc_prestacioneslab'];
         categoryModel.ClaveJubilacion = category['ClaveJubilacion'];
         categoryModel.OrdenJubilacion = category['OrdenJubilacion'];
         categoryModel.Jubilacion = category['Jubilacion'];
@@ -1279,49 +1180,37 @@ class _Escolaridad_SeguridadSocialActualizarState
         categoryModel.OrdenDerechohabiencia = category['OrdenDerechohabiencia'];
         categoryModel.Derechohabiencia = category['Derechohabiencia'];
         categoryModel.ClaveMotivoDerechohabiencia =
-            category['ClaveMotivoDerechohabiencia'];
+        category['ClaveMotivoDerechohabiencia'];
         categoryModel.OrdenMotivoDerechohabiencia =
-            category['OrdenMotivoDerechohabiencia'];
+        category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
 
         _Escolaridad10.add(categoryModel);
       });
     });
     _escolaridad10.text = _Escolaridad10.map((e) => e.ClaveEscolaridad).first +
         " " +
-        _Escolaridad10.map((e) => e.ClaveEscolaridad).first +
-        " " +
         _Escolaridad10.map((e) => e.Escolaridad).first;
 
     _gradoEscolar10.text =
-        _Escolaridad10.map((e) => e.ClaveGradoEscolar).first +
-            " " +
-            _Escolaridad10.map((e) => e.GradoEscolar).first;
+        _Escolaridad10.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion10.text = _Escolaridad10.map((e) => e.ClaveOcupacion).first +
-        " " +
-        _Escolaridad10.map((e) => e.OrdenOcupacion).first +
         " " +
         _Escolaridad10.map((e) => e.Ocupacion).first;
 
     _tipoEmpleo10.text = _Escolaridad10.map((e) => e.ClaveTipoEmpleo).first +
-        " " +
-        _Escolaridad10.map((e) => e.OrdenTipoEmpleo).first +
         " " +
         _Escolaridad10.map((e) => e.TipoEmpleo).first;
 
     _derechohabiencia10.text =
         _Escolaridad10.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-            _Escolaridad10.map((e) => e.OrdenDerechohabiencia).first +
-            " " +
             _Escolaridad10.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia10.text =
         _Escolaridad10.map((e) => e.ClaveMotivoDerechohabiencia).first +
-            " " +
-            _Escolaridad10.map((e) => e.OrdenMotivoDerechohabiencia).first +
             " " +
             _Escolaridad10.map((e) => e.MotivoDerechohabiencia).first;
 
@@ -1345,7 +1234,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura1() async {
     _EstructuraFamiliar1 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura1(int.parse(widget.folio));
+    await CategoryService().readEstructura1(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1359,7 +1248,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura2() async {
     _EstructuraFamiliar2 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura2(int.parse(widget.folio));
+    await CategoryService().readEstructura2(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1373,7 +1262,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura3() async {
     _EstructuraFamiliar3 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura3(int.parse(widget.folio));
+    await CategoryService().readEstructura3(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1387,7 +1276,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura4() async {
     _EstructuraFamiliar4 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura4(int.parse(widget.folio));
+    await CategoryService().readEstructura4(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1401,7 +1290,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura5() async {
     _EstructuraFamiliar5 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura5(int.parse(widget.folio));
+    await CategoryService().readEstructura5(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1415,7 +1304,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura6() async {
     _EstructuraFamiliar6 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura6(int.parse(widget.folio));
+    await CategoryService().readEstructura6(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1429,7 +1318,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura7() async {
     _EstructuraFamiliar7 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura7(int.parse(widget.folio));
+    await CategoryService().readEstructura7(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1443,7 +1332,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura8() async {
     _EstructuraFamiliar8 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura8(int.parse(widget.folio));
+    await CategoryService().readEstructura8(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1457,7 +1346,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura9() async {
     _EstructuraFamiliar9 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura9(int.parse(widget.folio));
+    await CategoryService().readEstructura9(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1471,7 +1360,7 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllEstructura10() async {
     _EstructuraFamiliar10 = List<EstructuraFamilarModel>();
     var categories =
-        await CategoryService().readEstructura10(int.parse(widget.folio));
+    await CategoryService().readEstructura10(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = EstructuraFamilarModel();
@@ -1738,24 +1627,84 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado = '3 3 Otro';
     }
 
+
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar1.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion1.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia1.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad1.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad1.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar1.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar1.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar1.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
       AsisteEscuela: _asisteEscuela1.name,
       ClaveOcupacion: _ocupacion1.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion1.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo1.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK.trimRight(),
@@ -1766,12 +1715,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado.substring(0, 1),
       Jubilacion: _jubilacionPensionado1.name,
       ClaveDerechohabiencia: _derechohabiencia1.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia1.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0, 2),
+      _motivoderechohabiencia1.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab.trimLeft(),
     );
     await dbHelper
@@ -2028,24 +1977,84 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar1.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion1.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia1.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad1.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad1.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar1.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar1.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar1.text.substring(0, 2)) - 1).toString(),
+
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
       AsisteEscuela: _asisteEscuela1.name,
       ClaveOcupacion: _ocupacion1.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion1.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo1.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK.trimRight(),
@@ -2056,12 +2065,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado.substring(0, 1),
       Jubilacion: _jubilacionPensionado1.name,
       ClaveDerechohabiencia: _derechohabiencia1.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia1.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0, 2),
+      _motivoderechohabiencia1.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab.trimLeft(),
     );
     await dbHelper
@@ -2318,24 +2327,84 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado2 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar2.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion2.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia2.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel2 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad2.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad2.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad2.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar2.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar2.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar2.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+
 
       ClaveAsisteEscuela: asisteEscuela2.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela2.substring(0, 1),
       AsisteEscuela: _asisteEscuela2.name,
       ClaveOcupacion: _ocupacion2.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion2.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion2.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo2.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo2.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK2.trimRight(),
@@ -2346,12 +2415,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado2.substring(0, 1),
       Jubilacion: _jubilacionPensionado2.name,
       ClaveDerechohabiencia: _derechohabiencia2.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia2.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho2.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2),
+      _motivoderechohabiencia2.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
     );
     await dbHelper
@@ -2608,24 +2677,84 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado2 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar2.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion2.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia2.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
+
     EscolaridadSeguridadSocial DModel2 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad2.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad2.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad2.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar2.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar2.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar2.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela2.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela2.substring(0, 1),
       AsisteEscuela: _asisteEscuela2.name,
       ClaveOcupacion: _ocupacion2.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion2.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion2.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo2.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo2.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK2.trimRight(),
@@ -2636,12 +2765,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado2.substring(0, 1),
       Jubilacion: _jubilacionPensionado2.name,
       ClaveDerechohabiencia: _derechohabiencia2.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia2.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho2.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2),
+      _motivoderechohabiencia2.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
     );
     await dbHelper
@@ -2898,24 +3027,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado3 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar3.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion3.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia3.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel3 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad3.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad3.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad3.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar3.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar3.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar3.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela3.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela3.substring(0, 1),
       AsisteEscuela: _asisteEscuela3.name,
       ClaveOcupacion: _ocupacion3.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion3.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion3.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo3.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo3.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK3.trimRight(),
@@ -2926,12 +3114,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado3.substring(0, 1),
       Jubilacion: _jubilacionPensionado3.name,
       ClaveDerechohabiencia: _derechohabiencia3.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia3.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho3.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2),
+      _motivoderechohabiencia3.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
     );
     await dbHelper
@@ -3188,24 +3376,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado3 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar3.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion3.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia3.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel3 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad3.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad3.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad3.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar3.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar3.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar3.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela3.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela3.substring(0, 1),
       AsisteEscuela: _asisteEscuela3.name,
       ClaveOcupacion: _ocupacion3.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion3.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion3.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo3.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo3.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK3.trimRight(),
@@ -3216,12 +3463,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado3.substring(0, 1),
       Jubilacion: _jubilacionPensionado3.name,
       ClaveDerechohabiencia: _derechohabiencia3.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia3.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho3.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2),
+      _motivoderechohabiencia3.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
     );
     await dbHelper
@@ -3478,24 +3725,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado4 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar4.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion4.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia4.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel4 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad4.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad4.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad4.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar4.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar4.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar4.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela4.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela4.substring(0, 1),
       AsisteEscuela: _asisteEscuela4.name,
       ClaveOcupacion: _ocupacion4.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion4.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion4.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo4.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo4.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK4.trimRight(),
@@ -3506,12 +3812,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado4.substring(0, 1),
       Jubilacion: _jubilacionPensionado4.name,
       ClaveDerechohabiencia: _derechohabiencia4.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia4.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho4.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2),
+      _motivoderechohabiencia4.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
     );
     await dbHelper
@@ -3769,24 +4075,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado4 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar4.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion4.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia4.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel4 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad4.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad4.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad4.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar4.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar4.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar4.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela4.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela4.substring(0, 1),
       AsisteEscuela: _asisteEscuela4.name,
       ClaveOcupacion: _ocupacion4.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion4.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion4.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo4.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo4.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK4.trimRight(),
@@ -3797,12 +4162,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado4.substring(0, 1),
       Jubilacion: _jubilacionPensionado4.name,
       ClaveDerechohabiencia: _derechohabiencia4.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia4.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho4.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2),
+      _motivoderechohabiencia4.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
     );
     await dbHelper
@@ -4060,24 +4425,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado5 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar5.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion5.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia5.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel5 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad5.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad5.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad5.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar5.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar5.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar5.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela5.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela5.substring(0, 1),
       AsisteEscuela: _asisteEscuela5.name,
       ClaveOcupacion: _ocupacion5.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion5.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion5.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo5.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo5.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK5.trimRight(),
@@ -4088,12 +4512,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado5.substring(0, 1),
       Jubilacion: _jubilacionPensionado5.name,
       ClaveDerechohabiencia: _derechohabiencia5.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia5.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho5.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2),
+      _motivoderechohabiencia5.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
     );
     await dbHelper
@@ -4351,24 +4775,84 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado5 = '3 3 Otro';
     }
 
+
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar5.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion5.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia5.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel5 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad5.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad5.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad5.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar5.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar5.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar5.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela5.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela5.substring(0, 1),
       AsisteEscuela: _asisteEscuela5.name,
       ClaveOcupacion: _ocupacion5.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion5.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion5.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo5.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo5.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK5.trimRight(),
@@ -4379,12 +4863,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado5.substring(0, 1),
       Jubilacion: _jubilacionPensionado5.name,
       ClaveDerechohabiencia: _derechohabiencia5.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia5.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho5.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2),
+      _motivoderechohabiencia5.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
     );
     await dbHelper
@@ -4642,24 +5126,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado6 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar6.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion6.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia6.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel6 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad6.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad6.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad6.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar6.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar6.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar6.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela6.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela6.substring(0, 1),
       AsisteEscuela: _asisteEscuela6.name,
       ClaveOcupacion: _ocupacion6.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion6.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion6.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo6.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo6.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK6.trimRight(),
@@ -4670,12 +5213,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado6.substring(0, 1),
       Jubilacion: _jubilacionPensionado6.name,
       ClaveDerechohabiencia: _derechohabiencia6.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia6.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho6.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2),
+      _motivoderechohabiencia6.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
     );
     await dbHelper
@@ -4937,24 +5480,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado6 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar6.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion6.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia6.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel6 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad6.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad6.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad6.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar6.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar6.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar6.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela6.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela6.substring(0, 1),
       AsisteEscuela: _asisteEscuela6.name,
       ClaveOcupacion: _ocupacion6.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion6.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion6.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo6.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo6.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK6.trimRight(),
@@ -4965,12 +5567,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado6.substring(0, 1),
       Jubilacion: _jubilacionPensionado6.name,
       ClaveDerechohabiencia: _derechohabiencia6.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia6.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho6.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2),
+      _motivoderechohabiencia6.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
     );
     await dbHelper
@@ -5232,24 +5834,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado7 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar7.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion7.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia7.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel7 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad7.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad7.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad7.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar7.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar7.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar7.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela7.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela7.substring(0, 1),
       AsisteEscuela: _asisteEscuela7.name,
       ClaveOcupacion: _ocupacion7.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion7.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion7.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo7.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo7.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK7.trimRight(),
@@ -5260,12 +5921,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado7.substring(0, 1),
       Jubilacion: _jubilacionPensionado7.name,
       ClaveDerechohabiencia: _derechohabiencia7.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia7.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho7.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2),
+      _motivoderechohabiencia7.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
     );
     await dbHelper
@@ -5523,24 +6184,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado7 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar7.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion7.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia7.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel7 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad7.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad7.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad7.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar7.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar7.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar7.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela7.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela7.substring(0, 1),
       AsisteEscuela: _asisteEscuela7.name,
       ClaveOcupacion: _ocupacion7.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion7.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion7.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo7.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo7.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK7.trimRight(),
@@ -5551,12 +6271,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado7.substring(0, 1),
       Jubilacion: _jubilacionPensionado7.name,
       ClaveDerechohabiencia: _derechohabiencia7.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia7.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho7.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2),
+      _motivoderechohabiencia7.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
     );
     await dbHelper
@@ -5814,24 +6534,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado8 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar8.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion8.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia8.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel8 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad8.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad8.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad8.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar8.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar8.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar8.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela8.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela8.substring(0, 1),
       AsisteEscuela: _asisteEscuela8.name,
       ClaveOcupacion: _ocupacion8.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion8.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion8.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo8.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo8.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK8.trimRight(),
@@ -5842,12 +6621,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado8.substring(0, 1),
       Jubilacion: _jubilacionPensionado8.name,
       ClaveDerechohabiencia: _derechohabiencia8.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia8.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho8.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2),
+      _motivoderechohabiencia8.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
     );
     await dbHelper
@@ -6105,24 +6884,82 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado8 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar8.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion8.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia8.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel8 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad8.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad8.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad8.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar8.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar8.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar8.text.substring(0, 2)) - 1).toString(),
-
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
       ClaveAsisteEscuela: asisteEscuela8.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela8.substring(0, 1),
       AsisteEscuela: _asisteEscuela8.name,
       ClaveOcupacion: _ocupacion8.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion8.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion8.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo8.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo8.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK8.trimRight(),
@@ -6133,12 +6970,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado8.substring(0, 1),
       Jubilacion: _jubilacionPensionado8.name,
       ClaveDerechohabiencia: _derechohabiencia8.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia8.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho8.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2),
+      _motivoderechohabiencia8.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
     );
     await dbHelper
@@ -6396,24 +7233,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado9 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar9.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion9.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia9.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel9 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad9.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad9.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad9.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar9.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar9.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar9.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela9.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela9.substring(0, 1),
       AsisteEscuela: _asisteEscuela9.name,
       ClaveOcupacion: _ocupacion9.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion9.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion9.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo9.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo9.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK9.trimRight(),
@@ -6424,12 +7320,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado9.substring(0, 1),
       Jubilacion: _jubilacionPensionado9.name,
       ClaveDerechohabiencia: _derechohabiencia9.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia9.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho9.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia9.text.substring(0, 2),
+      _motivoderechohabiencia9.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia9.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
     );
     await dbHelper
@@ -6682,6 +7578,66 @@ class _Escolaridad_SeguridadSocialActualizarState
       asisteEscuela9 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar9.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion9.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia9.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     String Jubilado9 = _jubilacionPensionado9.name.toString();
     if (Jubilado9 == 'si') {
       Jubilado9 = '1 1 Si';
@@ -6694,21 +7650,20 @@ class _Escolaridad_SeguridadSocialActualizarState
     EscolaridadSeguridadSocial DModel9 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad9.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad9.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad9.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar9.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar9.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar9.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela9.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela9.substring(0, 1),
       AsisteEscuela: _asisteEscuela9.name,
       ClaveOcupacion: _ocupacion9.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion9.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion9.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo9.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo9.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK9.trimRight(),
@@ -6719,12 +7674,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado9.substring(0, 1),
       Jubilacion: _jubilacionPensionado9.name,
       ClaveDerechohabiencia: _derechohabiencia9.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia9.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho9.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia9.text.substring(0, 2),
+      _motivoderechohabiencia9.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia9.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
     );
     await dbHelper
@@ -6793,7 +7748,7 @@ class _Escolaridad_SeguridadSocialActualizarState
         .replaceAll("0", "");
 
     var motivoDerecho10 =
-        _motivoderechohabiencia10.text.toString(); // 'artlang'
+    _motivoderechohabiencia10.text.toString(); // 'artlang'
     final motivoDereHab10 = motivoDerecho10
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -6987,24 +7942,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado10 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar10.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion10.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia10.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel10 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad10.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad10.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad10.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar10.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar10.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar10.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela10.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela10.substring(0, 1),
       AsisteEscuela: _asisteEscuela10.name,
       ClaveOcupacion: _ocupacion10.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion10.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion10.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo10.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo10.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK10.trimRight(),
@@ -7015,12 +8029,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado10.substring(0, 1),
       Jubilacion: _jubilacionPensionado10.name,
       ClaveDerechohabiencia: _derechohabiencia10.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia10.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho10.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia10.text.substring(0, 2),
+      _motivoderechohabiencia10.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia10.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
     );
     await dbHelper
@@ -7089,7 +8103,7 @@ class _Escolaridad_SeguridadSocialActualizarState
         .replaceAll("0", "");
 
     var motivoDerecho10 =
-        _motivoderechohabiencia10.text.toString(); // 'artlang'
+    _motivoderechohabiencia10.text.toString(); // 'artlang'
     final motivoDereHab10 = motivoDerecho10
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -7283,24 +8297,83 @@ class _Escolaridad_SeguridadSocialActualizarState
       Jubilado10 = '3 3 Otro';
     }
 
+    _EscolaridadOrden2 = List<EscolaridadesModel>();
+    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = EscolaridadesModel();
+        categoryModel.Orden = category['Orden'];
+        _EscolaridadOrden2.add(categoryModel);
+      });
+    });
+
+    _GradoEscolar2 = List<GradosEscolaresModel>();
+    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar10.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = GradosEscolaresModel();
+        categoryModel1.Orden = category['Orden'];
+        _GradoEscolar2.add(categoryModel1);
+      });
+    });
+
+    _Ocupacion2 = List<OcupacionesModel>();
+    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion10.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel2 = OcupacionesModel();
+        categoryModel2.Orden = category['Orden'];
+        _Ocupacion2.add(categoryModel2);
+      });
+    });
+
+    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoEmpleoModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoEmpleo2.add(categoryModel3);
+      });
+    });
+
+    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel4 = DerechoHabienciasModel();
+        categoryModel4.Orden = category['Orden'];
+        _Derechohabiencia2.add(categoryModel4);
+      });
+    });
+
+    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia10.text);
+    categories5.forEach((category) {
+      setState(() {
+        var categoryModel5 = MotivoDerechoHabienciasModel();
+        categoryModel5.Orden = category['Orden'];
+        _MotivioDerechohabiencia2.add(categoryModel5);
+      });
+    });
+
     EscolaridadSeguridadSocial DModel10 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad10.text.substring(0, 2),
-      OrdenEscolaridad: _escolaridad10.text.substring(0, 2),
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad10.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar10.text.substring(0, 2),
+      ClaveGradoEscolar: _gradoEscolar10.text,
       //arreglar
-      GradoEscolar:
-          (int.parse(_gradoEscolar10.text.substring(0, 2)) - 1).toString(),
+      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
 
       ClaveAsisteEscuela: asisteEscuela10.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela10.substring(0, 1),
       AsisteEscuela: _asisteEscuela10.name,
       ClaveOcupacion: _ocupacion10.text.substring(0, 2),
-      OrdenOcupacion: _ocupacion10.text.substring(0, 2),
+      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion10.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 1),
-      OrdenTipoEmpleo: _tipoEmpleo10.text.substring(0, 1),
+      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo10.trimLeft(),
 
       pk_prestacioneslab: prestacionesPK10.trimRight(),
@@ -7311,12 +8384,12 @@ class _Escolaridad_SeguridadSocialActualizarState
       OrdenJubilacion: Jubilado10.substring(0, 1),
       Jubilacion: _jubilacionPensionado10.name,
       ClaveDerechohabiencia: _derechohabiencia10.text.substring(0, 1),
-      OrdenDerechohabiencia: _derechohabiencia10.text.substring(0, 1),
+      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho10.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia10.text.substring(0, 2),
+      _motivoderechohabiencia10.text.substring(0, 2),
       OrdenMotivoDerechohabiencia:
-          _motivoderechohabiencia10.text.substring(0, 2),
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
     );
     await dbHelper
@@ -7332,6 +8405,130 @@ class _Escolaridad_SeguridadSocialActualizarState
       alertDialog(context, "Error: No se guardaron los datos");
     });
     //////////////////////////////////////////////////////////////////
+  }
+
+  insertarDatos() async {
+    if (!_nombre1.text.toString().isEmpty) {
+      if (!_nombre2.text.toString().isEmpty) {
+        if (!_nombre3.text.toString().isEmpty) {
+          if (!_nombre4.text.toString().isEmpty) {
+            if (!_nombre5.text.toString().isEmpty) {
+              if (!_nombre6.text.toString().isEmpty) {
+                if (!_nombre7.text.toString().isEmpty) {
+                  if (!_nombre8.text.toString().isEmpty) {
+                    if (!_nombre9.text.toString().isEmpty) {
+                      if (!_nombre10.text.toString().isEmpty) {
+                        renglon1();
+                        renglon2();
+                        renglon3();
+                        renglon4();
+                        renglon5();
+                        renglon6();
+                        renglon7();
+                        renglon8();
+                        renglon9();
+                        renglon10();
+                      } else {
+                        renglon1();
+                        renglon2();
+                        renglon3();
+                        renglon4();
+                        renglon5();
+                        renglon6();
+                        renglon7();
+                        renglon8();
+                        renglon9();
+                        Navigator.of(context).push(MaterialPageRoute<Null>(
+                            builder: (BuildContext context) {
+                              return new ActualizarEstudio(
+                                  widget.folio);
+                            }));
+                      }
+                    } else {
+                      renglon1();
+                      renglon2();
+                      renglon3();
+                      renglon4();
+                      renglon5();
+                      renglon6();
+                      renglon7();
+                      renglon8();
+                      Navigator.of(context).push(MaterialPageRoute<Null>(
+                          builder: (BuildContext context) {
+                            return new ActualizarEstudio(widget.folio);
+                          }));
+                    }
+                  } else {
+                    renglon1();
+                    renglon2();
+                    renglon3();
+                    renglon4();
+                    renglon5();
+                    renglon6();
+                    renglon7();
+                    Navigator.of(context).push(MaterialPageRoute<Null>(
+                        builder: (BuildContext context) {
+                          return new ActualizarEstudio(widget.folio);
+                        }));
+                  }
+                } else {
+                  renglon1();
+                  renglon2();
+                  renglon3();
+                  renglon4();
+                  renglon5();
+                  renglon6();
+                  Navigator.of(context).push(
+                      MaterialPageRoute<Null>(builder: (BuildContext context) {
+                        return new ActualizarEstudio(widget.folio);
+                      }));
+                }
+              } else {
+                renglon1();
+                renglon2();
+                renglon3();
+                renglon4();
+                renglon5();
+                Navigator.of(context).push(
+                    MaterialPageRoute<Null>(builder: (BuildContext context) {
+                      return new ActualizarEstudio(widget.folio);
+                    }));
+              }
+            } else {
+              renglon1();
+              renglon2();
+              renglon3();
+              renglon4();
+              Navigator.of(context).push(
+                  MaterialPageRoute<Null>(builder: (BuildContext context) {
+                    return new ActualizarEstudio(widget.folio);
+                  }));
+            }
+          } else {
+            renglon1();
+            renglon2();
+            renglon3();
+            Navigator.of(context)
+                .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+              return new ActualizarEstudio(widget.folio);
+            }));
+          }
+        } else {
+          renglon1();
+          renglon2();
+          Navigator.of(context)
+              .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+            return new ActualizarEstudio(widget.folio);
+          }));
+        }
+      } else {
+        renglon1();
+        Navigator.of(context)
+            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new ActualizarEstudio(widget.folio);
+        }));
+      }
+    }
   }
 
   actualizar() async {
@@ -7367,9 +8564,9 @@ class _Escolaridad_SeguridadSocialActualizarState
                         upDateRenglon9();
                         Navigator.of(context).push(MaterialPageRoute<Null>(
                             builder: (BuildContext context) {
-                          return new ActualizarEstudio(
-                              widget.folio);
-                        }));
+                              return new ActualizarEstudio(
+                                  widget.folio);
+                            }));
                       }
                     } else {
                       upDateRenglon1();
@@ -7383,9 +8580,8 @@ class _Escolaridad_SeguridadSocialActualizarState
 
                       Navigator.of(context).push(MaterialPageRoute<Null>(
                           builder: (BuildContext context) {
-                        return new ActualizarEstudio(
-                            widget.folio);
-                      }));
+                            return new ActualizarEstudio(widget.folio);
+                          }));
                     }
                   } else {
                     upDateRenglon1();
@@ -7397,9 +8593,8 @@ class _Escolaridad_SeguridadSocialActualizarState
                     upDateRenglon7();
                     Navigator.of(context).push(MaterialPageRoute<Null>(
                         builder: (BuildContext context) {
-                      return new ActualizarEstudio(
-                          widget.folio);
-                    }));
+                          return new ActualizarEstudio(widget.folio);
+                        }));
                   }
                 } else {
                   upDateRenglon1();
@@ -7410,9 +8605,8 @@ class _Escolaridad_SeguridadSocialActualizarState
                   upDateRenglon6();
                   Navigator.of(context).push(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return new ActualizarEstudio(
-                        widget.folio);
-                  }));
+                        return new ActualizarEstudio(widget.folio);
+                      }));
                 }
               } else {
                 upDateRenglon1();
@@ -7422,8 +8616,8 @@ class _Escolaridad_SeguridadSocialActualizarState
                 upDateRenglon5();
                 Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
-                  return new ActualizarEstudio(widget.folio);
-                }));
+                      return new ActualizarEstudio(widget.folio);
+                    }));
               }
             } else {
               upDateRenglon1();
@@ -7432,8 +8626,8 @@ class _Escolaridad_SeguridadSocialActualizarState
               upDateRenglon4();
               Navigator.of(context).push(
                   MaterialPageRoute<Null>(builder: (BuildContext context) {
-                return new ActualizarEstudio(widget.folio);
-              }));
+                    return new ActualizarEstudio(widget.folio);
+                  }));
             }
           } else {
             upDateRenglon1();
@@ -7513,12 +8707,12 @@ class _Escolaridad_SeguridadSocialActualizarState
   getAllCategoriesMotivoDerechohabiencias() async {
     _MotivioDerechohabiencia = List<MotivoDerechoHabienciasModel>();
     var categories =
-        await CategoryService().readCategoriesMotivoDerechohabiencias();
+    await CategoryService().readCategoriesMotivoDerechohabiencias();
     categories.forEach((category) {
       setState(() {
         var categoryModel = MotivoDerechoHabienciasModel();
         categoryModel.motivoDerechoHabiencia =
-            category['MotivoDerechohabiencia'];
+        category['MotivoDerechohabiencia'];
         _MotivioDerechohabiencia.add(categoryModel);
       });
     });

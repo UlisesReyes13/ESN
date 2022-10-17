@@ -4906,7 +4906,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+
       body: Form(
         child: SingleChildScrollView(
           child: Container(
@@ -4942,7 +4942,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                       children : [
                         Container(
                           child: DataTable(
-                            columnSpacing: 30,
+                            columnSpacing: 50,
                             dataRowHeight: 100,
                             columns: [
                               DataColumn(label: Text('1')),
@@ -4964,7 +4964,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre1, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades1, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones1,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5005,39 +5005,47 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion1, hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image1_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 10.0),
+                                            Container(
+                                                child: _image1_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion:getImage1_1),
+                                            Container(
+                                                child: _image1_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion:getImage1_2),
+                                            Container(
+                                                child: _image1_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion:getImage1_3),
+                                            Container(
+                                                child: _image1_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion:getImage1_4),
+                                            Container(
+                                                child: _image1_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion:getImage1_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion:getImage1_1),
-                                      Container(
-                                          child: _image1_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion:getImage1_2),
-                                      Container(
-                                          child: _image1_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion:getImage1_3),
-                                      Container(
-                                          child: _image1_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion:getImage1_4),
-                                      Container(
-                                          child: _image1_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion:getImage1_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena1,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5050,7 +5058,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre2, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades2, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones2,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5091,39 +5099,47 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion2, hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image2_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 10.0),
+                                            Container(
+                                                child: _image2_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage2_1),
+                                            Container(
+                                                child: _image2_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage2_2),
+                                            Container(
+                                                child: _image2_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage2_3),
+                                            Container(
+                                                child: _image2_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage2_4),
+                                            Container(
+                                                child: _image2_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage2_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion: getImage2_1),
-                                      Container(
-                                          child: _image2_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage2_2),
-                                      Container(
-                                          child: _image2_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage2_3),
-                                      Container(
-                                          child: _image2_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage2_4),
-                                      Container(
-                                          child: _image2_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage2_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena2,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5136,7 +5152,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre3, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades3, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones3,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5177,39 +5193,47 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion3, hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image3_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 10.0),
+                                            Container(
+                                                child: _image3_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage3_1),
+                                            Container(
+                                                child: _image3_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage3_2),
+                                            Container(
+                                                child: _image3_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage3_3),
+                                            Container(
+                                                child: _image3_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage3_4),
+                                            Container(
+                                                child: _image3_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage3_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion: getImage3_1),
-                                      Container(
-                                          child: _image3_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage3_2),
-                                      Container(
-                                          child: _image3_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage3_3),
-                                      Container(
-                                          child: _image3_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage3_4),
-                                      Container(
-                                          child: _image3_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage3_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena3,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5222,7 +5246,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre4, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades4, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones4,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5263,39 +5287,47 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion4, hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image4_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 10.0),
+                                            Container(
+                                                child: _image4_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage4_1),
+                                            Container(
+                                                child: _image4_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage4_2),
+                                            Container(
+                                                child: _image4_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage4_3),
+                                            Container(
+                                                child: _image4_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage4_4),
+                                            Container(
+                                                child: _image4_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage4_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion: getImage4_1),
-                                      Container(
-                                          child: _image4_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage4_2),
-                                      Container(
-                                          child: _image4_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage4_3),
-                                      Container(
-                                          child: _image4_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage4_4),
-                                      Container(
-                                          child: _image4_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage4_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena4,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5308,7 +5340,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre5, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades5, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones5,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5349,45 +5381,53 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion5, hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image5_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 10.0),
+                                            Container(
+                                                child: _image5_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage5_1),
+                                            Container(
+                                                child: _image5_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage5_2),
+                                            Container(
+                                                child: _image5_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage5_3),
+                                            Container(
+                                                child: _image5_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage5_4),
+                                            Container(
+                                                child: _image5_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage5_5),
+                                            Container(
+                                                child: _image5_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage5_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion: getImage5_1),
-                                      Container(
-                                          child: _image5_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage5_2),
-                                      Container(
-                                          child: _image5_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage5_3),
-                                      Container(
-                                          child: _image5_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage5_4),
-                                      Container(
-                                          child: _image5_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage5_5),
-                                      Container(
-                                          child: _image5_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage5_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena5,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5400,7 +5440,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre6, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades6, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones6,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5441,39 +5481,47 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion6 , hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image6_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: Container(
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.vertical,
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 10.0),
+                                            Container(
+                                                child: _image6_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage6_1),
+                                            Container(
+                                                child: _image6_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage6_1),
+                                            Container(
+                                                child: _image6_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage6_3),
+                                            Container(
+                                                child: _image6_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage6_4),
+                                            Container(
+                                                child: _image6_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage6_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion: getImage6_1),
-                                      Container(
-                                          child: _image6_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage6_1),
-                                      Container(
-                                          child: _image6_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage6_3),
-                                      Container(
-                                          child: _image6_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage6_4),
-                                      Container(
-                                          child: _image6_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage6_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena6,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5486,7 +5534,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre7, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades7, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones7,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5527,39 +5575,47 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion7, hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image7_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 10.0),
+                                            Container(
+                                                child: _image7_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage7_1),
+                                            Container(
+                                                child: _image7_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage7_2),
+                                            Container(
+                                                child: _image7_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage7_3),
+                                            Container(
+                                                child: _image7_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage7_4),
+                                            Container(
+                                                child: _image7_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage7_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion: getImage7_1),
-                                      Container(
-                                          child: _image7_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage7_2),
-                                      Container(
-                                          child: _image7_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage7_3),
-                                      Container(
-                                          child: _image7_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage7_4),
-                                      Container(
-                                          child: _image7_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage7_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena7,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5572,7 +5628,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre8, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades8, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones8,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5612,39 +5668,47 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion8, hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image8_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 10.0),
+                                            Container(
+                                                child: _image8_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage8_1),
+                                            Container(
+                                                child: _image8_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage8_2),
+                                            Container(
+                                                child: _image8_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage8_3),
+                                            Container(
+                                                child: _image8_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage8_4),
+                                            Container(
+                                                child: _image8_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage8_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion: getImage8_1),
-                                      Container(
-                                          child: _image8_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage8_2),
-                                      Container(
-                                          child: _image8_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage8_3),
-                                      Container(
-                                          child: _image8_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage8_4),
-                                      Container(
-                                          child: _image8_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage8_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena8,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5657,7 +5721,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre9, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades9, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones9,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5698,39 +5762,46 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion9, hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image9_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                                child: _image9_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage9_1),
+                                            Container(
+                                                child: _image9_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage9_2),
+                                            Container(
+                                                child: _image9_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage9_3),
+                                            Container(
+                                                child: _image9_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage9_4),
+                                            Container(
+                                                child: _image9_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage9_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion: getImage9_1),
-                                      Container(
-                                          child: _image9_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage9_2),
-                                      Container(
-                                          child: _image9_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage9_3),
-                                      Container(
-                                          child: _image9_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage9_4),
-                                      Container(
-                                          child: _image9_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage9_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena9,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5743,7 +5814,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                 DataCell(getTextDataTable(controller: _nombre10, hintName: 'Nombres')),
                                 DataCell(getSearchField(controller: _discapacidades10, suggestions: _Discapacidades.map((discapacidad) =>
                                     SearchFieldListItem(discapacidad.CapacidadDiferente, item: discapacidad)).toList(),
-                                    hintName: 'Discapacidades Diferentes')),
+                                    hintName: 'Capacidades Diferentes')),
                                 DataCell(getSearchField(controller: _adicciones10,suggestions: _Adicciones.map((adiccion) =>
                                     SearchFieldListItem(adiccion.Adiccion, item: adiccion)).toList(),
                                     hintName: 'Adicciones')),
@@ -5784,39 +5855,47 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                                     hintName: 'Clasificación')),
                                 DataCell(getTextDataTable(controller: _ponderacion10, hintName: 'Ponderación',)),
                                 DataCell(
-                                  Column(
-                                    children: [
-                                      Container(
-                                          child: _image10_1 == null
-                                              ? Text('Imagen 1 No Seleccionda')
-                                              : Text('Imagen 1 Seleccionada')
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            SizedBox(height: 10.0),
+                                            Container(
+                                                child: _image10_1 == null
+                                                    ? Text('Imagen 1 No Seleccionda')
+                                                    : Text('Imagen 1 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage10_1),
+                                            Container(
+                                                child: _image10_2 == null
+                                                    ? Text('Imagen 2 No Seleccionda')
+                                                    : Text('Imagen 2 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage10_2),
+                                            Container(
+                                                child: _image10_3 == null
+                                                    ? Text('Imagen 3 No Seleccionda')
+                                                    : Text('Imagen 3 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage10_3),
+                                            Container(
+                                                child: _image10_4 == null
+                                                    ? Text('Imagen 4 No Seleccionda')
+                                                    : Text('Imagen 4 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage10_4),
+                                            Container(
+                                                child: _image10_5 == null
+                                                    ? Text('Imagen 5 No Seleccionda')
+                                                    : Text('Imagen 5 Seleccionada')
+                                            ),
+                                            botonFoto(funcion: getImage10_5),
+                                          ],
+                                        ),
                                       ),
-                                      botonFoto(funcion: getImage10_1),
-                                      Container(
-                                          child: _image10_2 == null
-                                              ? Text('Imagen 2 No Seleccionda')
-                                              : Text('Imagen 2 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage10_2),
-                                      Container(
-                                          child: _image10_3 == null
-                                              ? Text('Imagen 3 No Seleccionda')
-                                              : Text('Imagen 3 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage10_3),
-                                      Container(
-                                          child: _image10_4 == null
-                                              ? Text('Imagen 4 No Seleccionda')
-                                              : Text('Imagen 4 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage10_4),
-                                      Container(
-                                          child: _image10_5 == null
-                                              ? Text('Imagen 5 No Seleccionda')
-                                              : Text('Imagen 5 Seleccionada')
-                                      ),
-                                      botonFoto(funcion: getImage10_5),
-                                    ],
+                                    ),
                                   ),
                                 ),
                                 DataCell(getSearchField(controller: _puebloIndigena10,suggestions: _PueblosIndigenas.map((pueblo) =>
@@ -5830,6 +5909,7 @@ class _Salud_PertenenciaIndigenaActualizarState extends State<Salud_PertenenciaI
                     ),
                   ),
                 ),
+
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),

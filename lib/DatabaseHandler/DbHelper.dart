@@ -193,11 +193,7 @@ class DbHelper {
   //Ponderación
   static const String C_ponderacion = 'ponderacion';
   //Foto
-  static const String C_fileFoto1 = 'fileFoto1';
-  static const String C_fileFoto2 = 'fileFoto2';
-  static const String C_fileFoto3 = 'fileFoto3';
-  static const String C_fileFoto4 = 'fileFoto4';
-  static const String C_fileFoto5 = 'fileFoto5';
+  static const String C_fileFoto = 'fileFoto';
   //Pueblo indigena
   static const String C_ClaveEtniaIndigena = 'ClaveEtniaIndigena';
   static const String C_OrdenEtniaIndigena = 'OrdenEtniaIndigena';
@@ -406,7 +402,7 @@ class DbHelper {
     await db.execute("CREATE TABLE $Table_Fotografia ($C_Folio int , $C_FolioDisp TEXT,$C_FileFoto TEXT);");
     await db.execute("CREATE TABLE $Table_Dispositivo ($C_Dispositivo TEXT);");
     //Tabla de salud_ pertenencia
-    await db.execute("CREATE TABLE $Table_Salud ($C_Folio int, $C_FolioDisp TEXT,$C_ClaveCapacidadDiferente TEXT, $C_OrdenCapacidadDiferente TEXT, $C_CapacidadDiferente TEXT, $C_ClaveAdiccion TEXT, $C_OrdenAdiccion TEXT, $C_Adiccion TEXT, $C_peso double, $C_talla double, $C_imc double, $C_ClaveCondicionesSalud TEXT, $C_OrdenCondicionesSalud TEXT, $C_CondicionesSalud TEXT, $C_ClaveClasCondicionesSalud TEXT, $C_OrdenClasCondicionesSalud TEXT, $C_ClasCondicionesSalud TEXT, $C_ponderacion TEXT, $C_fileFoto1 TEXT,$C_fileFoto2 TEXT,$C_fileFoto3 TEXT,$C_fileFoto4 TEXT,$C_fileFoto5 TEXT, $C_ClaveEtniaIndigena TEXT,$C_OrdenEtniaIndigena TEXT, $C_EtniaIndigena TEXT);");
+    await db.execute("CREATE TABLE $Table_Salud ($C_Folio int, $C_FolioDisp TEXT,$C_ClaveCapacidadDiferente TEXT, $C_OrdenCapacidadDiferente TEXT, $C_CapacidadDiferente TEXT, $C_ClaveAdiccion TEXT, $C_OrdenAdiccion TEXT, $C_Adiccion TEXT, $C_peso double, $C_talla double, $C_imc double, $C_ClaveCondicionesSalud TEXT, $C_OrdenCondicionesSalud TEXT, $C_CondicionesSalud TEXT, $C_ClaveClasCondicionesSalud TEXT, $C_OrdenClasCondicionesSalud TEXT, $C_ClasCondicionesSalud TEXT, $C_ponderacion TEXT, $C_fileFoto TEXT, $C_ClaveEtniaIndigena TEXT,$C_OrdenEtniaIndigena TEXT, $C_EtniaIndigena TEXT);");
 /*
 
     //NOMBRE ASENTAMIENTO
@@ -670,11 +666,11 @@ class DbHelper {
     await db.execute("INSERT INTO tb_Ocupaciones (Ocupacion) VALUES ('25 25 Estudiante');");
 */
     //Tabla TiposEmpleado
-    await db.execute("CREATE TABLE tb_TipoEmpleos (TipoEmpleo TEXT);");
-    await db.execute("INSERT INTO tb_TipoEmpleos (TipoEmpleo) VALUES ('1 1 N/A');");
-    await db.execute("INSERT INTO tb_TipoEmpleos (TipoEmpleo) VALUES ('2 2 Asalariado');");
-    await db.execute("INSERT INTO tb_TipoEmpleos (TipoEmpleo) VALUES ('3 3 Propio con sueldo asignado / independiente con pago');");
-    await db.execute("INSERT INTO tb_TipoEmpleos (TipoEmpleo) VALUES ('4 4 Propio sin sueldo asignado / independiente sin pago');");
+    //await db.execute("CREATE TABLE tb_TipoEmpleos (Orden TEXT, TipoEmpleo TEXT);");
+    //await db.execute("INSERT INTO tb_TipoEmpleos (Orden, TipoEmpleo) VALUES ('1', 1 N/A');");
+    //await db.execute("INSERT INTO tb_TipoEmpleos (Orden, TipoEmpleo) VALUES ('2', 2 Asalariado');");
+    //await db.execute("INSERT INTO tb_TipoEmpleos (Orden, TipoEmpleo) VALUES ('3', 3 Propio con sueldo asignado / independiente con pago');");
+    //await db.execute("INSERT INTO tb_TipoEmpleos (Orden, TipoEmpleo) VALUES ('4', 4 Propio sin sueldo asignado / independiente sin pago');");
 /*
     //Tabla de Discpacidades
     await db.execute("CREATE TABLE tb_CapacidadesDiferentes (CapacidadDiferente TEXT);");
@@ -1305,9 +1301,66 @@ class DbHelper {
     return await connection.rawQuery("SELECT DISTINCT ClaveCP FROM tb_CPs");
   }
 
-  readVivienda() async {
+  readOrdenTipoAsenta(String Asienta) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT tipoVivienda FROM tb_TipoVivienda ORDER BY orden");
+    return await connection.rawQuery("SELECT Orden  FROM TiposAsentamiento where tipoAsentamiento like '${Asienta}'");
+  }
+
+  readOrdenTipoVialidad(String Vialidad) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM TiposVialidad where TipoVialidad like '${Vialidad}'");
+  }
+
+  readParentesco() async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Parentesco FROM tb_Parentescos ORDER BY Orden");
+  }
+
+  readOrdenEstado(String Estado) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_Estados where Estado like '${Estado}'");
+  }
+
+  readOrdenEstadosCivil(String Civil) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_EstadosCiviles where EstadoCivil like '${Civil}'");
+  }
+
+  readOrdenParentesco(String Parentesco) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_Parentescos where Parentesco like '${Parentesco}'");
+  }
+
+  //
+
+  readOrdenEscolaridad(String escolar) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_Escolaridades where Escolaridad like '${escolar}'");
+  }
+
+  readOrdenGrado(String grado) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_GradosEscolares where GradoEscolar like '${grado}'");
+  }
+
+  readOrdenOcupacion(String ocupacion) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_Ocupaciones where Ocupacion like '${ocupacion}'");
+  }
+
+  readOrdenTipoEmpleo(String tipoEmple) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_TipoEmpleos where TipoEmpleo like '${tipoEmple}'");
+  }
+
+  readOrdenDerechoA(String derecho) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_Derechohabiencias where Derechohabiencia like '${derecho}'");
+  }
+
+  readOrdenMotivoDerecho(String motivoDere) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_MotivoDerechohabiencias where MotivoDerechohabiencia like '${motivoDere}'");
   }
 
   readFolio(table) async {

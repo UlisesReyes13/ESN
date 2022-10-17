@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:esn/Comm/comHelper.dart';
-import 'package:esn/Comm/genBotonFotografia.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
@@ -108,7 +107,23 @@ class _FotografiaState extends State<Fotografia> {
                       ? Text('Imagen No Seleccionda')
                       : Image.file(_image),
                 ),
-                botonFoto(funcion: getImage),
+                Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: double.infinity,
+                  child: TextButton.icon(
+                    onPressed: getImage,
+                    icon: Icon(
+                      Icons.add_a_photo,
+                      color: Colors.white,
+                    ),
+                    label: Text('Tomar Fotografia',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,

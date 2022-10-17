@@ -16,6 +16,50 @@ class CategoryService {
     return await _repository.readData('TiposVialidad');
   }
 
+  readTipoAsenta(String Asienta) async {
+    return await _repository.readOrdenTipoAsenta(Asienta);
+  }
+
+  readTipoVialidad(String Vialidad) async {
+    return await _repository.readOrdenTipoVialidad(Vialidad);
+  }
+
+  readOrdenEstado(String Estado) async {
+    return await _repository.readOrdenEstado(Estado);
+  }
+
+  readOrdenEstadoCivil(String Civil) async {
+    return await _repository.readOrdenEstadosCivil(Civil);
+  }
+
+  readOrdenParentesco(String Parentesco) async {
+    return await _repository.readOrdenParentesco(Parentesco);
+  }
+
+  readOrdenEscolaridad(String escolaridad) async {
+    return await _repository.readOrdenEscolaridad(escolaridad);
+  }
+
+  readOrdenGrado(String grado) async {
+    return await _repository.readOrdenGrado(grado);
+  }
+
+  readOrdenOcupacion(String Ocupacion) async {
+    return await _repository.readOrdenOcupacion(Ocupacion);
+  }
+
+  readOrdenTipoEmpl(String TipoEmpleo) async {
+    return await _repository.readOrdenTipoEmpleo(TipoEmpleo);
+  }
+
+  readOrdenDerecho(String derecho) async {
+    return await _repository.readOrdenDerechoA(derecho);
+  }
+
+  readOrdenMotivoDerecho(String motivoDerecho) async {
+    return await _repository.readOrdenMotivoDerecho(motivoDerecho);
+  }
+
   readCtegoriesMunicipios() async {
     return await _repository.readData('tb_Municipios');
   }
@@ -29,7 +73,7 @@ class CategoryService {
   }
 
   readCategoriesParentesco() async {
-    return await _repository.readData('tb_Parentescos');
+    return await _repository.readParentesco();
   }
 
   Folio() async {
@@ -77,7 +121,7 @@ class CategoryService {
   }
 
   readCategoriesTipoVivienda() async {
-    return await _repository.readVivienda();
+    return await _repository.readData('tb_TipoVivienda');
   }
 
   readCategoriesTipoPiso() async{
@@ -295,4 +339,7 @@ class CategoryService {
   readSaludPertenencia10(int folio) async {
     return await _repository.readSaludPertenencia10('saludPertenenciaIndigena' , folio);
   }
+
+
+
 }
