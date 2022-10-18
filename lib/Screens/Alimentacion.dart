@@ -3,7 +3,6 @@ import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/AlimentacionModel.dart';
 import 'package:esn/Screens/Documentos.dart';
-import 'package:esn/Screens/Documentos.dart';
 import 'package:esn/Screens/Remesas.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';

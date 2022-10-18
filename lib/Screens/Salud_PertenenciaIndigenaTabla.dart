@@ -1,9 +1,6 @@
-import 'dart:io' as Io;
-import 'dart:convert';
 import 'dart:io';
 
 import 'dart:math';
-import 'dart:typed_data';
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genBotonFotografia.dart';
 import 'package:esn/Comm/genSearchField.dart';

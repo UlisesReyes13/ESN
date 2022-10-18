@@ -1,4 +1,3 @@
-import 'package:esn/Screens/DatosGenerales.dart';
 import 'package:esn/Screens/TablaFolios.dart';
 import 'package:esn/ScreensActualizar/AlimentacionActualizar.dart';
 import 'package:esn/ScreensActualizar/AportacionesEconomicasActualizar.dart';
@@ -6,9 +5,10 @@ import 'package:esn/ScreensActualizar/ApoyosEnEspecieActualizar.dart';
 import 'package:esn/ScreensActualizar/Caracteristicas_CasaActualizar.dart';
 import 'package:esn/ScreensActualizar/DatosGeneralesActualizar.dart';
 
-
 import 'package:esn/ScreensActualizar/DocumentosActualizar.dart';
-import 'package:esn/ScreensActualizar/EquipamientoActualizar.dart';import 'package:esn/ScreensActualizar/Escolaridad_SeguridadSocialActualizar.dart';import 'package:esn/ScreensActualizar/EstructuraFamiliarActualizar.dart';
+import 'package:esn/ScreensActualizar/EquipamientoActualizar.dart';
+import 'package:esn/ScreensActualizar/Escolaridad_SeguridadSocialActualizar.dart';
+import 'package:esn/ScreensActualizar/EstructuraFamiliarActualizar.dart';
 import 'package:esn/ScreensActualizar/FotografiaActualizar.dart';
 import 'package:esn/ScreensActualizar/Infraestructura_ViviendaActualizar.dart';
 import 'package:esn/ScreensActualizar/RemesasActualizar.dart';
