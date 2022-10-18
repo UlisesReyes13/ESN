@@ -1691,7 +1691,7 @@ class _Escolaridad_SeguridadSocialTablaState
     EscolaridadSeguridadSocial DModel = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad1.text.substring(0, 2),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden.toString()).first,
       Escolaridad: escolaridad.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar1.text,
       //arreglar

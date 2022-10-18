@@ -9,7 +9,7 @@ import 'package:esn/Screens/Documentos.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 
-enum Curp { si, no }
+enum Curp { si, no, incompleto }
 
 enum ActaNacimiento { si, no }
 
@@ -53,17 +53,17 @@ class _DocumentosState extends State<Documentos> {
       _curp = Curp.si;
     } else if (_Documentos.map((e) => e.curp.toString()).first == "no") {
       _curp = Curp.no;
+    } else if (_Documentos.map((e) => e.curp.toString()).first == "incompleto") {
+      _curp = Curp.incompleto;
     }
 
     if (_Documentos.map((e) => e.actaNacimiento.toString()).first == "si") {
       _actaNacimiento = ActaNacimiento.si;
-    } else if (_Documentos.map((e) => e.actaNacimiento.toString()).first ==
-        "no") {
+    } else if (_Documentos.map((e) => e.actaNacimiento.toString()).first == "no") {
       _actaNacimiento = ActaNacimiento.no;
     }
 
-    if (_Documentos.map((e) => e.comprobanteDomicilio.toString()).first ==
-        "si") {
+    if (_Documentos.map((e) => e.comprobanteDomicilio.toString()).first == "si") {
       _comprobanteDomicilio = ComprobanteDomicilio.si;
     } else if (_Documentos.map((e) => e.comprobanteDomicilio.toString())
             .first ==
@@ -186,6 +186,20 @@ class _DocumentosState extends State<Documentos> {
                         title: Text('No'),
                         leading: Radio<Curp>(
                           value: Curp.no,
+                          groupValue: _curp,
+                          onChanged: (Curp value) {
+                            setState(() {
+                              _curp = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListTile(
+                        title: Text('Incompleto'),
+                        leading: Radio<Curp>(
+                          value: Curp.incompleto,
                           groupValue: _curp,
                           onChanged: (Curp value) {
                             setState(() {

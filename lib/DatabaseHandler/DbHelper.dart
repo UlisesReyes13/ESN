@@ -1363,6 +1363,31 @@ class DbHelper {
     return await connection.rawQuery("SELECT Orden  FROM tb_MotivoDerechohabiencias where MotivoDerechohabiencia like '${motivoDere}'");
   }
 
+  readOrdenCasa(String casa) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_TipoVivienda where TipoVivienda like '${casa}'");
+  }
+
+  readOrdenPiso(String piso) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_TipoPisos where TipoPiso like '${piso}'");
+  }
+
+  readOrdenTenencia(String tenencia) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_Tenencias where Tenencia like '${tenencia}'");
+  }
+
+  readOrdenTecho(String techo) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_Techos where Techo like '${techo}'");
+  }
+
+  readOrdenMuros(String muros) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_TiposMuro where TipoMuro like '${muros}'");
+  }
+
   readFolio(table) async {
     var connection = await db;
     return await connection.query(table, where: "folio = (select max(folio) from datosGenerales)");

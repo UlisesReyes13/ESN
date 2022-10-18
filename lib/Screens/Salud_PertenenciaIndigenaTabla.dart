@@ -1,5 +1,9 @@
+import 'dart:io' as Io;
+import 'dart:convert';
 import 'dart:io';
+
 import 'dart:math';
+import 'dart:typed_data';
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genBotonFotografia.dart';
 import 'package:esn/Comm/genSearchField.dart';
@@ -275,7 +279,7 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     _SaludPertenencia1 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories = await CategoryService().readSaludPertenencia(int.parse(widget.folio));
     categories.forEach((category) {
-      setState(() {
+      setState(()  {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente = category['ClaveCapacidadDiferente'];
@@ -304,7 +308,14 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
         categoryModel.EtniaIndigena = category['EtniaIndigena'];
 
         _SaludPertenencia1.add(categoryModel);
+
+        /*
+        if(category['fileFoto1'] != null) {
+          return String f1 = category['fileFoto1'];
+        }
+         */
       });
+
     });
 
     _discapacidades1.text = _SaludPertenencia1.map((e) => e.ClaveCapacidadDiferente).first + " " +
@@ -325,6 +336,13 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
 
     _ponderacion1.text = _SaludPertenencia1.map((e) => e.ponderacion.toString()).first;
   }
+/*
+  decodeFile1() async {
+    String bs4str = "/9j/4QejRXhpZgAASUkqAAgAAAAUACACBAABAA....";
+    Uint8List decodedbytes = base64.decode(bs4str);
+    _image1_1 = await File("image.jpg").writeAsBytes(decodedbytes);
+  }
+*/
 
   getAllSaludPertenencia2() async {
     _SaludPertenencia2 = List<Salud_PertenenciaIndigenenaTablaModel>();
@@ -1723,6 +1741,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC1 = double.parse(i);
+    if(imC1 >= 40.0){
+      _condicionSalud1.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -1739,6 +1760,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC2 = double.parse(i);
+    if(imC2 >= 40.0){
+      _condicionSalud2.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -1754,6 +1778,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC3 = double.parse(i);
+    if(imC3 >= 40.0){
+      _condicionSalud3.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -1769,6 +1796,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC4 = double.parse(i);
+    if(imC4 >= 40.0){
+      _condicionSalud4.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -1784,6 +1814,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC5 = double.parse(i);
+    if(imC5 >= 40.0){
+      _condicionSalud5.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -1799,6 +1832,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC6 = double.parse(i);
+    if(imC6 >= 40.0){
+      _condicionSalud6.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -1814,6 +1850,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC7 = double.parse(i);
+    if(imC7 >= 40.0){
+      _condicionSalud7.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -1829,6 +1868,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC8 = double.parse(i);
+    if(imC8 >= 40.0){
+      _condicionSalud8.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -1844,6 +1886,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC9 = double.parse(i);
+    if(imC9 >= 40.0){
+      _condicionSalud9.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -1859,6 +1904,9 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC10 = double.parse(i);
+    if(imC10 >= 40.0){
+      _condicionSalud10.text = '25 25 Obesidad Mórbida';
+    }
     return _imc;
   }
 
@@ -5158,31 +5206,31 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                           SizedBox(height: 10.0),
                                           Container(
                                               child: _image1_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                           botonFoto(funcion:getImage1_1),
                                           Container(
                                               child: _image1_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion:getImage1_2),
                                           Container(
                                               child: _image1_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion:getImage1_3),
                                           Container(
                                               child: _image1_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion:getImage1_4),
                                           Container(
                                               child: _image1_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion:getImage1_5),
@@ -5252,31 +5300,31 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                           SizedBox(height: 10.0),
                                           Container(
                                               child: _image2_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage2_1),
                                           Container(
                                               child: _image2_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage2_2),
                                           Container(
                                               child: _image2_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage2_3),
                                           Container(
                                               child: _image2_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage2_4),
                                           Container(
                                               child: _image2_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage2_5),
@@ -5346,31 +5394,31 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                           SizedBox(height: 10.0),
                                           Container(
                                               child: _image3_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                          botonFoto(funcion: getImage3_1),
                                           Container(
                                               child: _image3_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage3_2),
                                           Container(
                                               child: _image3_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage3_3),
                                           Container(
                                               child: _image3_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage3_4),
                                           Container(
                                               child: _image3_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage3_5),
@@ -5440,31 +5488,31 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                           SizedBox(height: 10.0),
                                           Container(
                                               child: _image4_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage4_1),
                                           Container(
                                               child: _image4_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage4_2),
                                           Container(
                                               child: _image4_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage4_3),
                                           Container(
                                               child: _image4_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage4_4),
                                           Container(
                                               child: _image4_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage4_5),
@@ -5534,37 +5582,37 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                           SizedBox(height: 10.0),
                                           Container(
                                               child: _image5_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage5_1),
                                           Container(
                                               child: _image5_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage5_2),
                                           Container(
                                               child: _image5_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage5_3),
                                           Container(
                                               child: _image5_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage5_4),
                                           Container(
                                               child: _image5_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage5_5),
                                           Container(
                                               child: _image5_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage5_5),
@@ -5634,31 +5682,31 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                           SizedBox(height: 10.0),
                                           Container(
                                               child: _image6_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage6_1),
                                           Container(
                                               child: _image6_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage6_1),
                                           Container(
                                               child: _image6_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage6_3),
                                           Container(
                                               child: _image6_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage6_4),
                                           Container(
                                               child: _image6_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage6_5),
@@ -5728,31 +5776,31 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                           SizedBox(height: 10.0),
                                           Container(
                                               child: _image7_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage7_1),
                                           Container(
                                               child: _image7_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage7_2),
                                           Container(
                                               child: _image7_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage7_3),
                                           Container(
                                               child: _image7_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage7_4),
                                           Container(
                                               child: _image7_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage7_5),
@@ -5821,31 +5869,31 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                           SizedBox(height: 10.0),
                                           Container(
                                               child: _image8_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage8_1),
                                           Container(
                                               child: _image8_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage8_2),
                                           Container(
                                               child: _image8_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage8_3),
                                           Container(
                                               child: _image8_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage8_4),
                                           Container(
                                               child: _image8_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage8_5),
@@ -5914,31 +5962,31 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                         children: [
                                           Container(
                                               child: _image9_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage9_1),
                                           Container(
                                               child: _image9_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage9_2),
                                           Container(
                                               child: _image9_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage9_3),
                                           Container(
                                               child: _image9_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage9_4),
                                           Container(
                                               child: _image9_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage9_5),
@@ -6008,31 +6056,31 @@ class _Salud_PertenenciaIndigenaTablaState extends State<Salud_PertenenciaIndige
                                           SizedBox(height: 10.0),
                                           Container(
                                               child: _image10_1 == null
-                                                  ? Text('Imagen 1 No Seleccionda')
+                                                  ? Text('Imagen 1 No Seleccionada')
                                                   : Text('Imagen 1 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage10_1),
                                           Container(
                                               child: _image10_2 == null
-                                                  ? Text('Imagen 2 No Seleccionda')
+                                                  ? Text('Imagen 2 No Seleccionada')
                                                   : Text('Imagen 2 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage10_2),
                                           Container(
                                               child: _image10_3 == null
-                                                  ? Text('Imagen 3 No Seleccionda')
+                                                  ? Text('Imagen 3 No Seleccionada')
                                                   : Text('Imagen 3 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage10_3),
                                           Container(
                                               child: _image10_4 == null
-                                                  ? Text('Imagen 4 No Seleccionda')
+                                                  ? Text('Imagen 4 No Seleccionada')
                                                   : Text('Imagen 4 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage10_4),
                                           Container(
                                               child: _image10_5 == null
-                                                  ? Text('Imagen 5 No Seleccionda')
+                                                  ? Text('Imagen 5 No Seleccionada')
                                                   : Text('Imagen 5 Seleccionada')
                                           ),
                                           botonFoto(funcion: getImage10_5),

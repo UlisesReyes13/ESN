@@ -30,13 +30,18 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
   List<TipoTechoModel> _TipoTecho = List<TipoTechoModel>();
   List<TipoMuroModel> _TipoMuro = List<TipoMuroModel>();
 
+  List<TipoViviendaModel> _TipoVivienda2 = List<TipoViviendaModel>();
+  List<TipoPisoModel> _TipoPiso2 = List<TipoPisoModel>();
+  List<TipoTenenciaModel> _TipoTenencia2 = List<TipoTenenciaModel>();
+  List<TipoTechoModel> _TipoTecho2 = List<TipoTechoModel>();
+  List<TipoMuroModel> _TipoMuro2 = List<TipoMuroModel>();
+
   final _tipoCasa = TextEditingController();
   final _tipoPiso = TextEditingController();
   final _tipoTenencia = TextEditingController();
   final _tipoTecho = TextEditingController();
   final _tipoMuro = TextEditingController();
-  List<EstadoCasaConstruccionModel> _EstadoCasa =
-      List<EstadoCasaConstruccionModel>();
+  List<EstadoCasaConstruccionModel> _EstadoCasa = List<EstadoCasaConstruccionModel>();
   var dbHelper = DbHelper();
 
   @override
@@ -80,36 +85,77 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
 
     _tipoCasa.text = _EstadoCasa.map((e) => e.ClaveTipoVivienda).first +
         " " +
-        _EstadoCasa.map((e) => e.OrdenTipoVivienda).first +
-        " " +
         _EstadoCasa.map((e) => e.TipoVivienda).first;
 
     _tipoPiso.text = _EstadoCasa.map((e) => e.ClaveTipoPiso).first +
-        " " +
-        _EstadoCasa.map((e) => e.OrdenTipoPiso).first +
         " " +
         _EstadoCasa.map((e) => e.TipoPiso).first;
 
     _tipoTenencia.text = _EstadoCasa.map((e) => e.ClaveTenencia).first +
         " " +
-        _EstadoCasa.map((e) => e.OrdenTenencia).first +
-        " " +
         _EstadoCasa.map((e) => e.Tenencia).first;
 
     _tipoTecho.text = _EstadoCasa.map((e) => e.ClaveTecho).first +
-        " " +
-        _EstadoCasa.map((e) => e.OrdenTecho).first +
         " " +
         _EstadoCasa.map((e) => e.Techo).first;
 
     _tipoMuro.text = _EstadoCasa.map((e) => e.ClaveTipoMuro).first +
         " " +
-        _EstadoCasa.map((e) => e.OrdenTipoMuro).first +
-        " " +
         _EstadoCasa.map((e) => e.TipoMuro).first;
   }
 
   actualizar() async {
+
+    _TipoVivienda2 = List<TipoViviendaModel>();
+    var categories = await CategoryService().readOrdencasa(_tipoCasa.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = TipoViviendaModel();
+        categoryModel.Orden = category['Orden'];
+        _TipoVivienda2.add(categoryModel);
+      });
+    });
+
+    _TipoPiso2 = List<TipoPisoModel>();
+    var categories1 = await CategoryService().readOrdenPiso(_tipoPiso.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = TipoPisoModel();
+        categoryModel1.Orden = category['Orden'];
+        _TipoPiso2.add(categoryModel1);
+      });
+    });
+
+    _TipoTenencia2 = List<TipoTenenciaModel>();
+    var categories2 = await CategoryService().readOrdenTenencia(_tipoTenencia.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoTenenciaModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoTenencia2.add(categoryModel3);
+      });
+    });
+
+    _TipoTecho2 = List<TipoTechoModel>();
+    var categories4 = await CategoryService().readOrdenTecho(_tipoTecho.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel5 = TipoTechoModel();
+        categoryModel5.Orden = category['Orden'];
+        _TipoTecho2.add(categoryModel5);
+      });
+    });
+
+    _TipoMuro2 = List<TipoMuroModel>();
+    var categories3 = await CategoryService().readOrdenMuro(_tipoMuro.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = TipoMuroModel();
+        categoryModel4.Orden = category['Orden'];
+        _TipoMuro2.add(categoryModel4);
+      });
+    });
+
     var TipoCasa = _tipoCasa.text.toString(); // 'artlang'
     final tipoCasa = TipoCasa.replaceAll("1", "")
         .replaceAll("2", "")
@@ -173,19 +219,19 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
     EstadoCasaConstruccionModel DModel = EstadoCasaConstruccionModel(
         folio: int.parse(widget.folio),
         ClaveTipoVivienda: _tipoCasa.text.toString().substring(0, 1),
-        OrdenTipoVivienda: _tipoCasa.text.toString().substring(0, 1),
+        OrdenTipoVivienda: _TipoVivienda2.map((e) => e.Orden).first,
         TipoVivienda: tipoCasa.trimLeft(),
         ClaveTipoPiso: _tipoPiso.text.toString().substring(0, 1),
-        OrdenTipoPiso: _tipoPiso.text.toString().substring(0, 1),
+        OrdenTipoPiso: _TipoPiso2.map((e) => e.Orden).first,
         TipoPiso: tipoPiso.trimLeft(),
         ClaveTenencia: _tipoTenencia.text.toString().substring(0, 1),
-        OrdenTenencia: _tipoTenencia.text.toString().substring(0, 1),
+        OrdenTenencia: _TipoTenencia2.map((e) => e.Orden).first,
         Tenencia: tipoTenencia.trimLeft(),
         ClaveTecho: _tipoTecho.text.toString().substring(0, 1),
-        OrdenTecho: _tipoTecho.text.toString().substring(0, 1),
+        OrdenTecho: _TipoTecho2.map((e) => e.Orden).first,
         Techo: tipoTecho.trimLeft(),
         ClaveTipoMuro: _tipoMuro.text.toString().substring(0, 1),
-        OrdenTipoMuro: _tipoMuro.text.toString().substring(0, 1),
+        OrdenTipoMuro: _TipoMuro2.map((e) => e.Orden).first,
         TipoMuro: tipoMuro.trimLeft());
 
     await dbHelper.upDateVivienda(DModel).then((estadoCasaConstruccionModel) {
@@ -261,6 +307,58 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
   }
 
   insertDatos() async {
+
+    _TipoVivienda2 = List<TipoViviendaModel>();
+    var categories = await CategoryService().readOrdencasa(_tipoCasa.text);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = TipoViviendaModel();
+        categoryModel.Orden = category['Orden'];
+        _TipoVivienda2.add(categoryModel);
+      });
+    });
+
+    _TipoPiso2 = List<TipoPisoModel>();
+    var categories1 = await CategoryService().readOrdenPiso(_tipoPiso.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel1 = TipoPisoModel();
+        categoryModel1.Orden = category['Orden'];
+        _TipoPiso2.add(categoryModel1);
+      });
+    });
+
+    _TipoTenencia2 = List<TipoTenenciaModel>();
+    var categories2 = await CategoryService().readOrdenTenencia(_tipoTenencia.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = TipoTenenciaModel();
+        categoryModel3.Orden = category['Orden'];
+        _TipoTenencia2.add(categoryModel3);
+      });
+    });
+
+    _TipoTecho2 = List<TipoTechoModel>();
+    var categories4 = await CategoryService().readOrdenTecho(_tipoTecho.text);
+    categories4.forEach((category) {
+      setState(() {
+        var categoryModel5 = TipoTechoModel();
+        categoryModel5.Orden = category['Orden'];
+        _TipoTecho2.add(categoryModel5);
+      });
+    });
+
+    _TipoMuro2 = List<TipoMuroModel>();
+    var categories3 = await CategoryService().readOrdenMuro(_tipoMuro.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = TipoMuroModel();
+        categoryModel4.Orden = category['Orden'];
+        _TipoMuro2.add(categoryModel4);
+      });
+    });
+
+
     var TipoCasa = _tipoCasa.text.toString(); // 'artlang'
     final tipoCasa = TipoCasa.replaceAll("1", "")
         .replaceAll("2", "")
@@ -324,19 +422,19 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
     EstadoCasaConstruccionModel DModel = EstadoCasaConstruccionModel(
         folio: int.parse(widget.folio),
         ClaveTipoVivienda: _tipoCasa.text.toString().substring(0, 1),
-        OrdenTipoVivienda: _tipoCasa.text.toString().substring(0, 1),
+        OrdenTipoVivienda: _TipoVivienda2.map((e) => e.Orden).first,
         TipoVivienda: tipoCasa.trimLeft(),
         ClaveTipoPiso: _tipoPiso.text.toString().substring(0, 1),
-        OrdenTipoPiso: _tipoPiso.text.toString().substring(0, 1),
+        OrdenTipoPiso: _TipoPiso2.map((e) => e.Orden).first,
         TipoPiso: tipoPiso.trimLeft(),
         ClaveTenencia: _tipoTenencia.text.toString().substring(0, 1),
-        OrdenTenencia: _tipoTenencia.text.toString().substring(0, 1),
+        OrdenTenencia: _TipoTenencia2.map((e) => e.Orden).first,
         Tenencia: tipoTenencia.trimLeft(),
         ClaveTecho: _tipoTecho.text.toString().substring(0, 1),
-        OrdenTecho: _tipoTecho.text.toString().substring(0, 1),
+        OrdenTecho: _TipoTecho2.map((e) => e.Orden).first,
         Techo: tipoTecho.trimLeft(),
         ClaveTipoMuro: _tipoMuro.text.toString().substring(0, 1),
-        OrdenTipoMuro: _tipoMuro.text.toString().substring(0, 1),
+        OrdenTipoMuro: _TipoMuro2.map((e) => e.Orden).first,
         TipoMuro: tipoMuro.trimLeft());
 
     await dbHelper.saveVivienda(DModel).then((estadoCasaConstruccionModel) {

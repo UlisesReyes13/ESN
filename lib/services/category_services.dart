@@ -60,6 +60,26 @@ class CategoryService {
     return await _repository.readOrdenMotivoDerecho(motivoDerecho);
   }
 
+  readOrdencasa(String casa) async {
+    return await _repository.readOrdenCasa(casa);
+  }
+
+  readOrdenPiso(String piso) async {
+    return await _repository.readOrdenPiso(piso);
+  }
+
+  readOrdenTenencia(String tenencia) async {
+    return await _repository.readOrdenTenencia(tenencia);
+  }
+
+  readOrdenTecho(String techo) async {
+    return await _repository.readOrdenTecho(techo);
+  }
+
+  readOrdenMuro(String muro) async {
+    return await _repository.readOrdenMuros(muro);
+  }
+
   readCtegoriesMunicipios() async {
     return await _repository.readData('tb_Municipios');
   }

@@ -93,6 +93,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     var formato = new DateFormat('yyyy-MM-dd');
     String fecha = formato.format(now);
     _fecha.text = fecha;
+    _noInt.text = 'N/A';
   }
 
   getAllCategoriesNombreAsentamiento() async {
@@ -1228,7 +1229,29 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'No.Interior'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _noInt),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextField(controller: _noInt,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2.0, color: Colors.blue, style: BorderStyle.solid
+                          ),
+                        ),
+                        fillColor: Colors.grey[120],
+                        filled: true
+                    ),
+                    onTap: () async{
+                      setState(() {
+                        _noInt.text = '';
+                      });
+                    },
+                  ),
+                ),
 
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Grupo'),
