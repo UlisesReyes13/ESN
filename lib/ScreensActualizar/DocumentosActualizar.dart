@@ -10,7 +10,7 @@ import 'package:esn/ScreensActualizar/ResolucionActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 
-enum Curp { si, no }
+enum Curp { si, no , incompleto}
 
 enum ActaNacimiento { si, no }
 
@@ -34,16 +34,10 @@ class _DocumentosState extends State<DocumentosActualizar> {
   List<DocumentosModel> _Documentos = List<DocumentosModel>();
   var dbHelper;
 
-  @override
-  initState() {
-    getAllDocumentos();
-    super.initState();
-  }
-
   getAllDocumentos() async {
     _Documentos = List<DocumentosModel>();
     var categories =
-        await CategoryService().readDocmentos(int.parse(widget.folio));
+    await CategoryService().readDocmentos(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = DocumentosModel();
@@ -60,20 +54,20 @@ class _DocumentosState extends State<DocumentosActualizar> {
       _curp = Curp.si;
     } else if (_Documentos.map((e) => e.curp.toString()).first == "no") {
       _curp = Curp.no;
+    } else if (_Documentos.map((e) => e.curp.toString()).first == "incompleto") {
+      _curp = Curp.incompleto;
     }
 
     if (_Documentos.map((e) => e.actaNacimiento.toString()).first == "si") {
       _actaNacimiento = ActaNacimiento.si;
-    } else if (_Documentos.map((e) => e.actaNacimiento.toString()).first ==
-        "no") {
+    } else if (_Documentos.map((e) => e.actaNacimiento.toString()).first == "no") {
       _actaNacimiento = ActaNacimiento.no;
     }
 
-    if (_Documentos.map((e) => e.comprobanteDomicilio.toString()).first ==
-        "si") {
+    if (_Documentos.map((e) => e.comprobanteDomicilio.toString()).first == "si") {
       _comprobanteDomicilio = ComprobanteDomicilio.si;
     } else if (_Documentos.map((e) => e.comprobanteDomicilio.toString())
-            .first ==
+        .first ==
         "no") {
       _comprobanteDomicilio = ComprobanteDomicilio.no;
     }
@@ -105,6 +99,25 @@ class _DocumentosState extends State<DocumentosActualizar> {
     });
   }
 
+  enviar() async {
+    DocumentosModel BModel = DocumentosModel(
+        folio: int.parse(widget.folio),
+        curp: _curp.name,
+        actaNacimiento: _actaNacimiento.name,
+        comprobanteDomicilio: _comprobanteDomicilio.name,
+        ine: _ine.name);
+
+    await DbHelper().saveDocumentos(BModel).then((documentosModel) {
+      alertDialog(context, "Se registro correctamente");
+      Navigator.of(context)
+          .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+        return new ActualizarEstudio(widget.folio);
+      }));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,6 +174,20 @@ class _DocumentosState extends State<DocumentosActualizar> {
                         title: Text('No'),
                         leading: Radio<Curp>(
                           value: Curp.no,
+                          groupValue: _curp,
+                          onChanged: (Curp value) {
+                            setState(() {
+                              _curp = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListTile(
+                        title: Text('Incompleto'),
+                        leading: Radio<Curp>(
+                          value: Curp.incompleto,
                           groupValue: _curp,
                           onChanged: (Curp value) {
                             setState(() {

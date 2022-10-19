@@ -8,6 +8,7 @@ import 'package:esn/Screens/TablaFolios.dart';
 import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/EstructuraFamiliarActualizar.dart';
 import 'package:flutter/material.dart';
+import 'Screens/Documentos.dart';
 import 'Screens/LoginForm.dart';
 
 void main() {
