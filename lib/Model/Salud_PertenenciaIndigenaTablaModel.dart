@@ -41,6 +41,8 @@ class Salud_PertenenciaIndigenenaTablaModel {
   String OrdenEtniaIndigena;
   String EtniaIndigena;
 
+  String incompleto;
+
     Map<String,dynamic> toMap(){
       var map = <String, dynamic>{
         'folio' : folio,
@@ -83,7 +85,8 @@ class Salud_PertenenciaIndigenenaTablaModel {
       //Pueblo indigena
       'ClaveEtniaIndigena' : ClaveEtniaIndigena,
       'OrdenEtniaIndigena' : OrdenEtniaIndigena,
-      'EtniaIndigena' : EtniaIndigena
+      'EtniaIndigena' : EtniaIndigena,
+        'incompleto' : incompleto
       };
       return map;
       }
@@ -114,7 +117,9 @@ class Salud_PertenenciaIndigenenaTablaModel {
       this.fileFoto5,
       this.ClaveEtniaIndigena,
       this.OrdenEtniaIndigena,
-      this.EtniaIndigena});
+      this.EtniaIndigena,
+      this.incompleto
+  });
 
       Salud_PertenenciaIndigenenaTablaModel.fromMap(Map<String, dynamic> map){
         folio = map['folio'];
@@ -157,5 +162,6 @@ class Salud_PertenenciaIndigenenaTablaModel {
         ClaveEtniaIndigena = map['ClaveEtniaIndigena'];
         OrdenEtniaIndigena = map['OrdenEtniaIndigena'];
         EtniaIndigena = map['EtniaIndigena'];
+        incompleto = map['incompleto'];
     }
 }

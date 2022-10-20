@@ -2460,9 +2460,11 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena1.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
-    setIncompleto1();
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto1.name.toString());
+    
     await DbHelper().saveSalud(BModel).then((remesasModel) {
+      setIncompleto1();
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -2479,7 +2481,9 @@ class _Salud_PertenenciaIndigenaTablaState
     }
     print(incompleto);
 
-    await dbHelper.updateIncompleto(incompleto,int.parse(widget.folio)).then((incom) {
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -2626,9 +2630,30 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena2.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto2.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+      setIncompleto2();
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  setIncompleto2() async {
+    String incompleto = _incompleto2.name.toString();
+    if (incompleto == '') {
+      incompleto = "Completo";
+    } else {
+      incompleto = "Incompleto";
+    }
+    print(incompleto);
+
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -2775,9 +2800,30 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena3.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto3.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+      setIncompleto3();
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  setIncompleto3() async {
+    String incompleto = _incompleto3.name.toString();
+    if (incompleto == '') {
+      incompleto = "Completo";
+    } else {
+      incompleto = "Incompleto";
+    }
+    print(incompleto);
+
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -2924,9 +2970,30 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena4.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto4.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+      setIncompleto4();
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  setIncompleto4() async {
+    String incompleto = _incompleto4.name.toString();
+    if (incompleto == '') {
+      incompleto = "Completo";
+    } else {
+      incompleto = "Incompleto";
+    }
+    print(incompleto);
+
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -3073,9 +3140,30 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena5.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto5.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+      setIncompleto5();
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  setIncompleto5() async {
+    String incompleto = _incompleto5.name.toString();
+    if (incompleto == '') {
+      incompleto = "Completo";
+    } else {
+      incompleto = "Incompleto";
+    }
+    print(incompleto);
+
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -3222,9 +3310,30 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena6.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto6.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+      setIncompleto6();
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  setIncompleto6() async {
+    String incompleto = _incompleto6.name.toString();
+    if (incompleto == '') {
+      incompleto = "Completo";
+    } else {
+      incompleto = "Incompleto";
+    }
+    print(incompleto);
+
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -3371,9 +3480,30 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena7.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto7.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+      setIncompleto7();
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  setIncompleto7() async {
+    String incompleto = _incompleto7.name.toString();
+    if (incompleto == '') {
+      incompleto = "Completo";
+    } else {
+      incompleto = "Incompleto";
+    }
+    print(incompleto);
+
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -3520,9 +3650,30 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena8.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto8.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+      setIncompleto8();
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  setIncompleto8() async {
+    String incompleto = _incompleto8.name.toString();
+    if (incompleto == '') {
+      incompleto = "Completo";
+    } else {
+      incompleto = "Incompleto";
+    }
+    print(incompleto);
+
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -3669,9 +3820,30 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena9.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto9.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
+      alertDialog(context, "Se registro correctamente");
+      setIncompleto9();
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  setIncompleto9() async {
+    String incompleto = _incompleto9.name.toString();
+    if (incompleto == '') {
+      incompleto = "Completo";
+    } else {
+      incompleto = "Incompleto";
+    }
+    print(incompleto);
+
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
@@ -3818,14 +3990,35 @@ class _Salud_PertenenciaIndigenaTablaState
         OrdenEtniaIndigena:
             (int.parse(_puebloIndigena10.text.substring(0, 2).trimRight()) - 1)
                 .toString(),
-        EtniaIndigena: Pueblo.trimLeft());
+        EtniaIndigena: Pueblo.trimLeft(),
+        incompleto: _incompleto10.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
+      setIncompleto10();
       Navigator.of(context)
           .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
         return new Infraestructura_Vivienda(widget.folio);
       }));
+    }).catchError((error) {
+      print(error);
+      alertDialog(context, "Error: No se guardaron los datos");
+    });
+  }
+
+  setIncompleto10() async {
+    String incompleto = _incompleto10.name.toString();
+    if (incompleto == '') {
+      incompleto = "Completo";
+    } else {
+      incompleto = "Incompleto";
+    }
+    print(incompleto);
+
+    await dbHelper
+        .updateIncompleto(incompleto, int.parse(widget.folio))
+        .then((incom) {
+      alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
       print(error);
       alertDialog(context, "Error: No se guardaron los datos");
@@ -6361,13 +6554,6 @@ class _Salud_PertenenciaIndigenaTablaState
                                                     : Text(
                                                         'Imagen 4 Seleccionada')),
                                             botonFoto(funcion: getImage5_4),
-                                            Container(
-                                                child: _image5_5 == null
-                                                    ? Text(
-                                                        'Imagen 5 No Seleccionada')
-                                                    : Text(
-                                                        'Imagen 5 Seleccionada')),
-                                            botonFoto(funcion: getImage5_5),
                                             Container(
                                                 child: _image5_5 == null
                                                     ? Text(

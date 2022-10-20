@@ -19,7 +19,6 @@ import 'package:esn/Model/NombreAsentamiento.dart';
 import 'package:esn/Model/RemesasModel.dart';
 import 'package:esn/Model/ResolucionBALModel.dart';
 import 'package:esn/Model/ResolucionModel.dart';
-import 'package:esn/Model/SaludPerteneciaIndigenaModel.dart';
 import 'package:esn/Model/Salud_PertenenciaIndigenaTablaModel.dart';
 import 'package:esn/Model/UserModel.dart';
 import 'package:esn/Model/banio.dart';
@@ -37,7 +36,7 @@ import '../Model/DocumentosModel.dart';
 class DbHelper {
   static Database _db;
 
-  static const String DB_Name = 'encuesta.db';
+  static const String DB_Name = 'esn.db';
   static const String Table_User = 'usuario';
   static const String Table_Data = 'datosGenerales';
   static const String Table_Servicios = 'servicios';
