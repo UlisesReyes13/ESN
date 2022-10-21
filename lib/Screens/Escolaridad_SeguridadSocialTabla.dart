@@ -367,6 +367,12 @@ class _Escolaridad_SeguridadSocialTablaState
     getAllEstructura2();
     getAllEstructura3();
     getAllEstructura4();
+    getAllEstructura5();
+    getAllEstructura6();
+    getAllEstructura7();
+    getAllEstructura8();
+    getAllEstructura9();
+    getAllEstructura10();
 
     super.initState();
     dbHelper = DbHelper();
