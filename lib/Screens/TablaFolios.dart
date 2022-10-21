@@ -56,11 +56,13 @@ class _TablaFoliosState extends State<TablaFolios> {
       columns: [
         DataColumn(label: Text('No. Folio')),
         DataColumn(label: Text('Fecha')),
+        DataColumn(label: Text('Estatus')),
         DataColumn(label: Text('Editar')),
       ],
       rows: _Datos.map((e) => DataRow(cells: [
             DataCell(Text(e.folio.toString())),
             DataCell(Text(e.fecha)),
+            DataCell(Text(e.incompleto.toString())),
             DataCell(IconButton(
               icon: Icon(Icons.edit),
               onPressed: () {

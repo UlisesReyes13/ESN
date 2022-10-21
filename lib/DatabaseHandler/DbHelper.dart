@@ -37,7 +37,7 @@ import '../Model/DocumentosModel.dart';
 class DbHelper {
   static Database _db;
 
-  static const String DB_Name = 'encuesta.db';
+  static const String DB_Name = 'esn.db';
   static const String Table_User = 'usuario';
   static const String Table_Data = 'datosGenerales';
   static const String Table_Servicios = 'servicios';
@@ -1303,7 +1303,7 @@ class DbHelper {
 
   readOrdenTipoAsenta(String Asienta) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM TiposAsentamiento where tipoAsentamiento like '${Asienta}'");
+    return await connection.rawQuery("SELECT Orden FROM TiposAsentamiento where tipoAsentamiento like '${Asienta}'");
   }
 
   readOrdenTipoVialidad(String Vialidad) async {
@@ -1946,7 +1946,8 @@ class DbHelper {
     return List.generate(datosMap.length, (i){
       return DatosGeneralesModel(
         folio : datosMap[i]['folio'],
-        fecha : datosMap[i]['fecha']
+        fecha : datosMap[i]['fecha'],
+        incompleto: datosMap[i]['incompleto']
       );
     });
   }
@@ -2058,6 +2059,13 @@ class DbHelper {
   Future<int> upDateSalud10(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
     var dbClient = await db;
     var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 9 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    return res;
+  }
+
+  Future<int> updateIncompleto(String incom, int folio) async {
+    var dbClient = await db;
+    var res = await dbClient.rawUpdate("UPDATE ${Table_Data} SET incompleto = ? WHERE folio = ?", [incom, folio]);
+    print(res);
     return res;
   }
 }

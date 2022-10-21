@@ -65,9 +65,7 @@ class _DocumentosState extends State<Documentos> {
 
     if (_Documentos.map((e) => e.comprobanteDomicilio.toString()).first == "si") {
       _comprobanteDomicilio = ComprobanteDomicilio.si;
-    } else if (_Documentos.map((e) => e.comprobanteDomicilio.toString())
-            .first ==
-        "no") {
+    } else if (_Documentos.map((e) => e.comprobanteDomicilio.toString()).first == "no") {
       _comprobanteDomicilio = ComprobanteDomicilio.no;
     }
 

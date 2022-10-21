@@ -2,10 +2,7 @@ import 'package:esn/Comm/genTextEquipamiento.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Model/AlimentacionModel.dart';
-import 'package:esn/Screens/Documentos.dart';
-import 'package:esn/Screens/Resolucion.dart';
 import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
-import 'package:esn/ScreensActualizar/DocumentosActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 

@@ -3,14 +3,14 @@ import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/DocumentosModel.dart';
-import 'package:esn/Screens/Alimentacion.dart';
-import 'package:esn/Screens/Remesas.dart';
 import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
-import 'package:esn/ScreensActualizar/ResolucionActualizar.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 
-enum Curp { si, no , incompleto}
+
+
+enum Curp { si, no, incompleto}
+
 
 enum ActaNacimiento { si, no }
 
@@ -54,7 +54,9 @@ class _DocumentosState extends State<DocumentosActualizar> {
       _curp = Curp.si;
     } else if (_Documentos.map((e) => e.curp.toString()).first == "no") {
       _curp = Curp.no;
+
     } else if (_Documentos.map((e) => e.curp.toString()).first == "incompleto") {
+
       _curp = Curp.incompleto;
     }
 

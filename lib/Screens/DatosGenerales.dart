@@ -15,6 +15,8 @@ import 'package:esn/Model/UserModel.dart';
 import 'package:esn/Screens/LoginForm.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
 import 'package:esn/Screens/TablaFolios.dart';
+import 'package:esn/replaceAll/replaceAllLetter.dart';
+import 'package:esn/replaceAll/replaceAllNum.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Comm/genTextField.dart';
@@ -404,164 +406,22 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       alertDialog(
           context, 'El número de teléfono no debe ser mayor a 10 digitos');
     } else {
+
+      replaceAllNum rpn = new replaceAllNum();
+      replaceAllLetter rpl = new replaceAllLetter();
       var value1 = tipoAsentamiento; // 'artlang'
-      final nombreTipoAsentamiento = value1
-          .replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
+      final nombreTipoAsentamiento = rpn.replaceNum(value1).toString();
 
       var claveTipoAsentamiento = tipoAsentamiento; // 'artlang'
-      final claveTipoAsenta = claveTipoAsentamiento
-          .replaceAll("A", "")
-          .replaceAll("B", "")
-          .replaceAll("C", "")
-          .replaceAll("D", "")
-          .replaceAll("E", "")
-          .replaceAll("F", "")
-          .replaceAll("G", "")
-          .replaceAll("H", "")
-          .replaceAll("I", "")
-          .replaceAll("J", "")
-          .replaceAll("K", "")
-          .replaceAll("L", "")
-          .replaceAll("M", "")
-          .replaceAll("N", "")
-          .replaceAll("Ñ", "")
-          .replaceAll("O", "")
-          .replaceAll("P", "")
-          .replaceAll("Q", "")
-          .replaceAll("R", "")
-          .replaceAll("S", "")
-          .replaceAll("T", "")
-          .replaceAll("V", "")
-          .replaceAll("W", "")
-          .replaceAll("X", "")
-          .replaceAll("Y", "")
-          .replaceAll("Z", "")
-          .replaceAll("a", "")
-          .replaceAll("b", "")
-          .replaceAll("c", "")
-          .replaceAll("d", "")
-          .replaceAll("e", "")
-          .replaceAll("f", "")
-          .replaceAll("g", "")
-          .replaceAll("h", "")
-          .replaceAll("i", "")
-          .replaceAll("j", "")
-          .replaceAll("k", "")
-          .replaceAll("l", "")
-          .replaceAll("m", "")
-          .replaceAll("n", "")
-          .replaceAll("ñ", "")
-          .replaceAll("o", "")
-          .replaceAll("p", "")
-          .replaceAll("q", "")
-          .replaceAll("r", "")
-          .replaceAll("s", "")
-          .replaceAll("t", "")
-          .replaceAll("u", "")
-          .replaceAll("v", "")
-          .replaceAll("w", "")
-          .replaceAll("x", "")
-          .replaceAll("y", "")
-          .replaceAll("Á", "")
-          .replaceAll("É", "")
-          .replaceAll("Í", "")
-          .replaceAll("Ó", "")
-          .replaceAll("Ú", "")
-          .replaceAll("á", "")
-          .replaceAll("é", "")
-          .replaceAll("í", "")
-          .replaceAll("ó", "")
-          .replaceAll("ú", "")
-          .replaceAll("z", "");
+      final claveTipoAsenta = rpl.replaceLetter(claveTipoAsentamiento).toString();
       var claveTipoAsentam = claveTipoAsenta.substring(0, 2);
 
       var value = tipoVialidad; // 'artlang'
-      final nombreTipoVialidad = value
-          .replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
+      final nombreTipoVialidad = rpn.replaceNum(value).toString();
 
       var claveTipoVialidad = tipoVialidad; // 'artlang'
-      final claveTipoVia = claveTipoVialidad
-          .replaceAll("A", "")
-          .replaceAll("B", "")
-          .replaceAll("C", "")
-          .replaceAll("D", "")
-          .replaceAll("E", "")
-          .replaceAll("F", "")
-          .replaceAll("G", "")
-          .replaceAll("H", "")
-          .replaceAll("I", "")
-          .replaceAll("J", "")
-          .replaceAll("K", "")
-          .replaceAll("L", "")
-          .replaceAll("M", "")
-          .replaceAll("N", "")
-          .replaceAll("Ñ", "")
-          .replaceAll("O", "")
-          .replaceAll("P", "")
-          .replaceAll("Q", "")
-          .replaceAll("R", "")
-          .replaceAll("S", "")
-          .replaceAll("T", "")
-          .replaceAll("V", "")
-          .replaceAll("W", "")
-          .replaceAll("X", "")
-          .replaceAll("Y", "")
-          .replaceAll("Z", "")
-          .replaceAll("a", "")
-          .replaceAll("b", "")
-          .replaceAll("c", "")
-          .replaceAll("d", "")
-          .replaceAll("e", "")
-          .replaceAll("f", "")
-          .replaceAll("g", "")
-          .replaceAll("h", "")
-          .replaceAll("i", "")
-          .replaceAll("j", "")
-          .replaceAll("k", "")
-          .replaceAll("l", "")
-          .replaceAll("m", "")
-          .replaceAll("n", "")
-          .replaceAll("ñ", "")
-          .replaceAll("o", "")
-          .replaceAll("p", "")
-          .replaceAll("q", "")
-          .replaceAll("r", "")
-          .replaceAll("s", "")
-          .replaceAll("t", "")
-          .replaceAll("u", "")
-          .replaceAll("v", "")
-          .replaceAll("w", "")
-          .replaceAll("x", "")
-          .replaceAll("y", "")
-          .replaceAll("Á", "")
-          .replaceAll("É", "")
-          .replaceAll("Í", "")
-          .replaceAll("Ó", "")
-          .replaceAll("Ú", "")
-          .replaceAll("á", "")
-          .replaceAll("é", "")
-          .replaceAll("í", "")
-          .replaceAll("ó", "")
-          .replaceAll("ú", "")
-          .replaceAll("z", "");
+      final claveTipoVia = rpl.replaceLetter(claveTipoVialidad).toString();
+
       var claveTipoV = claveTipoVia.substring(0, 2);
       DatosGeneralesModel BModel = DatosGeneralesModel(
           folio: int.parse(folio),
@@ -607,6 +467,8 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       });
     }
   }
+
+
 
   insertDatosGenerales() async {
     String folio = _folio.text;
@@ -670,164 +532,21 @@ class _DatosGeneralesState extends State<DatosGenerales> {
         });
       });
 
+      replaceAllNum rpn = new replaceAllNum();
+      replaceAllLetter rpl = new replaceAllLetter();
       var value1 = tipoAsentamiento; // 'artlang'
-      final nombreTipoAsentamiento = value1
-          .replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
+      final nombreTipoAsentamiento = rpn.replaceNum(value1).toString();
 
       var claveTipoAsentamiento = tipoAsentamiento; // 'artlang'
-      final claveTipoAsenta = claveTipoAsentamiento
-          .replaceAll("A", "")
-          .replaceAll("B", "")
-          .replaceAll("C", "")
-          .replaceAll("D", "")
-          .replaceAll("E", "")
-          .replaceAll("F", "")
-          .replaceAll("G", "")
-          .replaceAll("H", "")
-          .replaceAll("I", "")
-          .replaceAll("J", "")
-          .replaceAll("K", "")
-          .replaceAll("L", "")
-          .replaceAll("M", "")
-          .replaceAll("N", "")
-          .replaceAll("Ñ", "")
-          .replaceAll("O", "")
-          .replaceAll("P", "")
-          .replaceAll("Q", "")
-          .replaceAll("R", "")
-          .replaceAll("S", "")
-          .replaceAll("T", "")
-          .replaceAll("V", "")
-          .replaceAll("W", "")
-          .replaceAll("X", "")
-          .replaceAll("Y", "")
-          .replaceAll("Z", "")
-          .replaceAll("a", "")
-          .replaceAll("b", "")
-          .replaceAll("c", "")
-          .replaceAll("d", "")
-          .replaceAll("e", "")
-          .replaceAll("f", "")
-          .replaceAll("g", "")
-          .replaceAll("h", "")
-          .replaceAll("i", "")
-          .replaceAll("j", "")
-          .replaceAll("k", "")
-          .replaceAll("l", "")
-          .replaceAll("m", "")
-          .replaceAll("n", "")
-          .replaceAll("ñ", "")
-          .replaceAll("o", "")
-          .replaceAll("p", "")
-          .replaceAll("q", "")
-          .replaceAll("r", "")
-          .replaceAll("s", "")
-          .replaceAll("t", "")
-          .replaceAll("u", "")
-          .replaceAll("v", "")
-          .replaceAll("w", "")
-          .replaceAll("x", "")
-          .replaceAll("y", "")
-          .replaceAll("Á", "")
-          .replaceAll("É", "")
-          .replaceAll("Í", "")
-          .replaceAll("Ó", "")
-          .replaceAll("Ú", "")
-          .replaceAll("á", "")
-          .replaceAll("é", "")
-          .replaceAll("í", "")
-          .replaceAll("ó", "")
-          .replaceAll("ú", "")
-          .replaceAll("z", "");
+      final claveTipoAsenta = rpl.replaceLetter(claveTipoAsentamiento).toString();
       var claveTipoAsentam = claveTipoAsenta.substring(0, 2);
 
       var value = tipoVialidad; // 'artlang'
-      final nombreTipoVialidad = value
-          .replaceAll("1", "")
-          .replaceAll("2", "")
-          .replaceAll("3", "")
-          .replaceAll("4", "")
-          .replaceAll("5", "")
-          .replaceAll("6", "")
-          .replaceAll("7", "")
-          .replaceAll("8", "")
-          .replaceAll("9", "")
-          .replaceAll("0", "");
+      final nombreTipoVialidad = rpn.replaceNum(value).toString();
 
       var claveTipoVialidad = tipoVialidad; // 'artlang'
-      final claveTipoVia = claveTipoVialidad
-          .replaceAll("A", "")
-          .replaceAll("B", "")
-          .replaceAll("C", "")
-          .replaceAll("D", "")
-          .replaceAll("E", "")
-          .replaceAll("F", "")
-          .replaceAll("G", "")
-          .replaceAll("H", "")
-          .replaceAll("I", "")
-          .replaceAll("J", "")
-          .replaceAll("K", "")
-          .replaceAll("L", "")
-          .replaceAll("M", "")
-          .replaceAll("N", "")
-          .replaceAll("Ñ", "")
-          .replaceAll("O", "")
-          .replaceAll("P", "")
-          .replaceAll("Q", "")
-          .replaceAll("R", "")
-          .replaceAll("S", "")
-          .replaceAll("T", "")
-          .replaceAll("V", "")
-          .replaceAll("W", "")
-          .replaceAll("X", "")
-          .replaceAll("Y", "")
-          .replaceAll("Z", "")
-          .replaceAll("a", "")
-          .replaceAll("b", "")
-          .replaceAll("c", "")
-          .replaceAll("d", "")
-          .replaceAll("e", "")
-          .replaceAll("f", "")
-          .replaceAll("g", "")
-          .replaceAll("h", "")
-          .replaceAll("i", "")
-          .replaceAll("j", "")
-          .replaceAll("k", "")
-          .replaceAll("l", "")
-          .replaceAll("m", "")
-          .replaceAll("n", "")
-          .replaceAll("ñ", "")
-          .replaceAll("o", "")
-          .replaceAll("p", "")
-          .replaceAll("q", "")
-          .replaceAll("r", "")
-          .replaceAll("s", "")
-          .replaceAll("t", "")
-          .replaceAll("u", "")
-          .replaceAll("v", "")
-          .replaceAll("w", "")
-          .replaceAll("x", "")
-          .replaceAll("y", "")
-          .replaceAll("Á", "")
-          .replaceAll("É", "")
-          .replaceAll("Í", "")
-          .replaceAll("Ó", "")
-          .replaceAll("Ú", "")
-          .replaceAll("á", "")
-          .replaceAll("é", "")
-          .replaceAll("í", "")
-          .replaceAll("ó", "")
-          .replaceAll("ú", "")
-          .replaceAll("z", "");
+      final claveTipoVia = rpl.replaceLetter(claveTipoVialidad).toString();
+
       var claveTipoV = claveTipoVia.substring(0, 2);
 
 
