@@ -1,7 +1,8 @@
 class CondicioneSaludModel{
   String CondicionesSalud;
+  bool value;
 
-  CondicioneSaludModel({this.CondicionesSalud});
+  CondicioneSaludModel({this.CondicionesSalud, this.value = false});
 
   Map<String, dynamic> toMap(){
     return {
