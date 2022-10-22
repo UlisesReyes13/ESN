@@ -45,6 +45,7 @@ class _Escolaridad_SeguridadSocialTablaState
   List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia = List<MotivoDerechoHabienciasModel>();
 
   List<EscolaridadesModel> _EscolaridadOrden2 = List<EscolaridadesModel>();
+  List<EscolaridadesModel> _EscolaridadOrden3 = List<EscolaridadesModel>();
   List<GradosEscolaresModel> _GradoEscolar2 = List<GradosEscolaresModel>();
   List<OcupacionesModel> _Ocupacion2 = List<OcupacionesModel>();
   List<TipoEmpleoModel> _TipoEmpleo2 = List<TipoEmpleoModel>();
@@ -435,7 +436,7 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
     _escolaridad1.text = _Escolaridad1.map((e) => e.ClaveEscolaridad).first +
-        " " +
+          " " +
         _Escolaridad1.map((e) => e.Escolaridad).first;
 
     _gradoEscolar1.text = _Escolaridad1.map((e) => e.ClaveGradoEscolar).first ;
@@ -1027,8 +1028,8 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
     _escolaridad8.text = _Escolaridad8.map((e) => e.ClaveEscolaridad).first +
-        " " +
 
+        " " +
         _Escolaridad8.map((e) => e.Escolaridad).first;
 
     _gradoEscolar8.text = _Escolaridad8.map((e) => e.ClaveGradoEscolar).first ;
@@ -1694,9 +1695,9 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    EscolaridadSeguridadSocial DModel = EscolaridadSeguridadSocial(
+    EscolaridadSeguridadSocial DModel11 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad1.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad1.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden.toString()).first,
       Escolaridad: escolaridad.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar1.text,
@@ -1706,10 +1707,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
       AsisteEscuela: _asisteEscuela1.name,
-      ClaveOcupacion: _ocupacion1.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion1.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo.trimLeft(),
 
@@ -1724,13 +1725,13 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0, 2),
+          _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
           _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab.trimLeft(),
     );
     await dbHelper
-        .saveEscolaridadSocial(DModel)
+        .saveEscolaridadSocial(DModel11)
         .then((escolaridadSeguridadSocial) {
       alertDialog(context, "Se registro correctamente");
     }).catchError((error) {
@@ -2045,7 +2046,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad1.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad1.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar1.text,
@@ -2056,10 +2057,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
       AsisteEscuela: _asisteEscuela1.name,
-      ClaveOcupacion: _ocupacion1.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion1.text.substring(0, 2).trimRight() ,
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo.trimLeft(),
 
@@ -2074,7 +2075,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0, 2),
+          _motivoderechohabiencia1.text.substring(0,2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab.trimLeft(),
@@ -2395,7 +2396,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel2 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad2.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad2.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad2.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar2.text,
@@ -2406,10 +2407,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela2.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela2.substring(0, 1),
       AsisteEscuela: _asisteEscuela2.name,
-      ClaveOcupacion: _ocupacion2.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion2.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion2.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo2.trimLeft(),
 
@@ -2424,7 +2425,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho2.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2),
+          _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
@@ -2746,7 +2747,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel2 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad2.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad2.text.substring(0, 2).trimRight(),
         OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad2.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar2.text,
@@ -2756,10 +2757,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela2.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela2.substring(0, 1),
       AsisteEscuela: _asisteEscuela2.name,
-      ClaveOcupacion: _ocupacion2.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion2.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion2.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo2.trimLeft(),
 
@@ -2774,7 +2775,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho2.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2),
+          _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
@@ -3095,7 +3096,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel3 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad3.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad3.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad3.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar3.text,
@@ -3105,10 +3106,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela3.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela3.substring(0, 1),
       AsisteEscuela: _asisteEscuela3.name,
-      ClaveOcupacion: _ocupacion3.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion3.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion3.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo3.trimLeft(),
 
@@ -3123,7 +3124,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho3.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2),
+          _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
@@ -3444,7 +3445,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel3 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad3.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad3.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad3.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar3.text,
@@ -3454,10 +3455,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela3.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela3.substring(0, 1),
       AsisteEscuela: _asisteEscuela3.name,
-      ClaveOcupacion: _ocupacion3.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion3.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion3.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo3.trimLeft(),
 
@@ -3472,7 +3473,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho3.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2),
+          _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
@@ -3793,7 +3794,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel4 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad4.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad4.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad4.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar4.text,
@@ -3803,10 +3804,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela4.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela4.substring(0, 1),
       AsisteEscuela: _asisteEscuela4.name,
-      ClaveOcupacion: _ocupacion4.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion4.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion4.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo4.trimLeft(),
 
@@ -3821,7 +3822,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho4.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2),
+          _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
@@ -4143,7 +4144,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel4 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad4.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad4.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad4.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar4.text,
@@ -4153,10 +4154,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela4.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela4.substring(0, 1),
       AsisteEscuela: _asisteEscuela4.name,
-      ClaveOcupacion: _ocupacion4.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion4.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion4.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo4.trimLeft(),
 
@@ -4171,7 +4172,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho4.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2),
+          _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
@@ -4493,7 +4494,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel5 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad5.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad5.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad5.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar5.text,
@@ -4503,10 +4504,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela5.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela5.substring(0, 1),
       AsisteEscuela: _asisteEscuela5.name,
-      ClaveOcupacion: _ocupacion5.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion5.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion5.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo5.trimLeft(),
 
@@ -4521,7 +4522,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho5.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2),
+          _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
@@ -4844,7 +4845,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel5 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad5.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad5.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad5.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar5.text,
@@ -4854,10 +4855,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela5.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela5.substring(0, 1),
       AsisteEscuela: _asisteEscuela5.name,
-      ClaveOcupacion: _ocupacion5.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion5.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion5.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo5.trimLeft(),
 
@@ -4872,7 +4873,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho5.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2),
+          _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
@@ -5194,7 +5195,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel6 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad6.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad6.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad6.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar6.text,
@@ -5204,10 +5205,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela6.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela6.substring(0, 1),
       AsisteEscuela: _asisteEscuela6.name,
-      ClaveOcupacion: _ocupacion6.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion6.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion6.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo6.trimLeft(),
 
@@ -5222,7 +5223,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho6.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2),
+          _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
@@ -5548,7 +5549,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel6 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad6.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad6.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad6.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar6.text,
@@ -5558,10 +5559,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela6.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela6.substring(0, 1),
       AsisteEscuela: _asisteEscuela6.name,
-      ClaveOcupacion: _ocupacion6.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion6.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion6.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo6.trimLeft(),
 
@@ -5576,7 +5577,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho6.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2),
+          _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
@@ -5902,7 +5903,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel7 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad7.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad7.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad7.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar7.text,
@@ -5912,10 +5913,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela7.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela7.substring(0, 1),
       AsisteEscuela: _asisteEscuela7.name,
-      ClaveOcupacion: _ocupacion7.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion7.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion7.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo7.trimLeft(),
 
@@ -5930,7 +5931,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho7.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2),
+          _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
@@ -6252,7 +6253,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel7 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad7.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad7.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad7.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar7.text,
@@ -6262,10 +6263,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela7.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela7.substring(0, 1),
       AsisteEscuela: _asisteEscuela7.name,
-      ClaveOcupacion: _ocupacion7.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion7.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion7.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo7.trimLeft(),
 
@@ -6280,7 +6281,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho7.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2),
+          _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
@@ -6602,7 +6603,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel8 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad8.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad8.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad8.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar8.text,
@@ -6612,10 +6613,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela8.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela8.substring(0, 1),
       AsisteEscuela: _asisteEscuela8.name,
-      ClaveOcupacion: _ocupacion8.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion8.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion8.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo8.trimLeft(),
 
@@ -6630,7 +6631,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho8.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2),
+          _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
@@ -6952,7 +6953,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel8 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad8.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad8.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad8.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar8.text,
@@ -6961,10 +6962,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela8.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela8.substring(0, 1),
       AsisteEscuela: _asisteEscuela8.name,
-      ClaveOcupacion: _ocupacion8.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion8.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion8.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo8.trimLeft(),
 
@@ -6979,7 +6980,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho8.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2),
+          _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
@@ -7301,7 +7302,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel9 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad9.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad9.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad9.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar9.text,
@@ -7311,10 +7312,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela9.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela9.substring(0, 1),
       AsisteEscuela: _asisteEscuela9.name,
-      ClaveOcupacion: _ocupacion9.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion9.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion9.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo9.trimLeft(),
 
@@ -7329,7 +7330,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho9.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia9.text.substring(0, 2),
+          _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
@@ -7655,7 +7656,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel9 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad9.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad9.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad9.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar9.text,
@@ -7665,10 +7666,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela9.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela9.substring(0, 1),
       AsisteEscuela: _asisteEscuela9.name,
-      ClaveOcupacion: _ocupacion9.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion9.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion9.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo9.trimLeft(),
 
@@ -7683,7 +7684,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho9.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia9.text.substring(0, 2),
+      _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
@@ -8010,7 +8011,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel10 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad10.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad10.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad10.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar10.text,
@@ -8020,10 +8021,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela10.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela10.substring(0, 1),
       AsisteEscuela: _asisteEscuela10.name,
-      ClaveOcupacion: _ocupacion10.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion10.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion10.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo10.trimLeft(),
 
@@ -8038,7 +8039,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho10.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia10.text.substring(0, 2),
+          _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
@@ -8365,7 +8366,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     EscolaridadSeguridadSocial DModel10 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad10.text.substring(0, 2),
+      ClaveEscolaridad: _escolaridad10.text.substring(0, 2).trimRight(),
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad10.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar10.text,
@@ -8375,10 +8376,10 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela10.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela10.substring(0, 1),
       AsisteEscuela: _asisteEscuela10.name,
-      ClaveOcupacion: _ocupacion10.text.substring(0, 2),
+      ClaveOcupacion: _ocupacion10.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion10.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 1),
+      ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo10.trimLeft(),
 
@@ -8393,7 +8394,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho10.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia10.text.substring(0, 2),
+      _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
       _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
@@ -8477,63 +8478,63 @@ class _Escolaridad_SeguridadSocialTablaState
                       }));
                     }
                   } else {
-                    renglon1();
-                    renglon2();
-                    renglon3();
-                    renglon4();
-                    renglon5();
-                    renglon6();
-                    renglon7();
+                      renglon1();
+                      renglon2();
+                      renglon3();
+                      renglon4();
+                      renglon5();
+                      renglon6();
+                      renglon7();
                     Navigator.of(context).push(MaterialPageRoute<Null>(
                         builder: (BuildContext context) {
                       return new Salud_PertenenciaIndigenaTabla(widget.folio);
                     }));
                   }
                 } else {
-                  renglon1();
-                  renglon2();
-                  renglon3();
-                  renglon4();
-                  renglon5();
-                  renglon6();
+                    renglon1();
+                    renglon2();
+                    renglon3();
+                    renglon4();
+                    renglon5();
+                    renglon6();
                   Navigator.of(context).push(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
                     return new Salud_PertenenciaIndigenaTabla(widget.folio);
                   }));
                 }
               } else {
-                renglon1();
-                renglon2();
-                renglon3();
-                renglon4();
-                renglon5();
-                Navigator.of(context).push(
+                  await renglon1();
+                  await renglon2();
+                  await renglon3();
+                  await renglon4();
+                  await renglon5();
+                  Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
                   return new Salud_PertenenciaIndigenaTabla(widget.folio);
                 }));
               }
             } else {
-              renglon1();
-              renglon2();
-              renglon3();
-              renglon4();
+                renglon1();
+                renglon2();
+                renglon3();
+                renglon4();
               Navigator.of(context).push(
                   MaterialPageRoute<Null>(builder: (BuildContext context) {
                 return new Salud_PertenenciaIndigenaTabla(widget.folio);
               }));
             }
           } else {
-            renglon1();
-            renglon2();
-            renglon3();
+             renglon1();
+             renglon2();
+             renglon3();
             Navigator.of(context)
                 .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
               return new Salud_PertenenciaIndigenaTabla(widget.folio);
             }));
           }
         } else {
-          renglon1();
-          renglon2();
+           renglon1();
+           renglon2();
           Navigator.of(context)
               .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
             return new Salud_PertenenciaIndigenaTabla(widget.folio);
@@ -8551,16 +8552,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
   actualizar() async {
 
-    print(_nombre1.text.toString());
-    print(_nombre2.text.toString());
-    print(_nombre3.text.toString());
-    print(_nombre4.text.toString());
-    print(_nombre5.text.toString());
-    print(_nombre6.text.toString() + "y");
-    print(_nombre7.text.toString());
-    print(_nombre8.text.toString());
-    print(_nombre9.text.toString());
-    print(_nombre10.text.toString());
+
 
     if (!_nombre1.text.toString().isEmpty) {
       if (!_nombre2.text.toString().isEmpty) {
@@ -8633,6 +8625,7 @@ class _Escolaridad_SeguridadSocialTablaState
                   upDateRenglon4();
                   upDateRenglon5();
                   upDateRenglon6();
+
                   Navigator.of(context).push(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
                     return new Salud_PertenenciaIndigenaTabla(widget.folio);
@@ -8644,6 +8637,7 @@ class _Escolaridad_SeguridadSocialTablaState
                 upDateRenglon3();
                 upDateRenglon4();
                 upDateRenglon5();
+                print("entro aqui");
                 Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
                   return new Salud_PertenenciaIndigenaTabla(widget.folio);
@@ -8654,6 +8648,7 @@ class _Escolaridad_SeguridadSocialTablaState
               upDateRenglon2();
               upDateRenglon3();
               upDateRenglon4();
+              print("entro por aca");
               Navigator.of(context).push(
                   MaterialPageRoute<Null>(builder: (BuildContext context) {
                 return new Salud_PertenenciaIndigenaTabla(widget.folio);
