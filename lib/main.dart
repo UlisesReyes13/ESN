@@ -21,11 +21,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'ESN',
+      title: 'ESN v1.1',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Escolaridad_SeguridadSocialTabla('104'),
+
+
+      home: LoginForm(),
+
     );
   }
 }

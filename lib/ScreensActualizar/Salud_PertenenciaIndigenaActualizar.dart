@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:io'; 
 
 import 'dart:math';
 import 'package:esn/Comm/comHelper.dart';
@@ -10,7 +10,7 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/AdiccionesModel.dart';
 import 'package:esn/Model/ClasificacionModel.dart';
-import 'package:esn/Model/CondicionesSaludModel.dart';
+import 'package:esn/Model/CondicionesSaludModel.dart'; 
 import 'package:esn/Model/DiscapacidadesModel.dart';
 import 'package:esn/Model/EstructuraFamiliarModel.dart';
 import 'package:esn/Model/PuebloIndigenaModel.dart';
@@ -305,6 +305,9 @@ class _Salud_PertenenciaIndigenaActualizarState
 
   List<CapacidadesDiferentes> _Discapacidades = List<CapacidadesDiferentes>();
   List<CondicioneSaludModel> _Condiciones = List<CondicioneSaludModel>();
+
+  var dataList = <CondicioneSaludModel>[].obs;
+
   List<AdiccionesModel> _Adicciones = List<AdiccionesModel>();
   List<PuebloIndigenaModel> _PueblosIndigenas = List<PuebloIndigenaModel>();
   List<ClasificacionModel> _Clasificaciones = List<ClasificacionModel>();
@@ -348,6 +351,8 @@ class _Salud_PertenenciaIndigenaActualizarState
     IMC10();
     cargarnombres();
     dbHelper = DbHelper();
+
+    dataList = _Condiciones;
   }
 
   cargarnombres() {
@@ -6836,4 +6841,5 @@ class _Salud_PertenenciaIndigenaActualizarState
       ),
     );
   }
+
 }

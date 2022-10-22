@@ -25,7 +25,7 @@ import 'package:get/get.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:image_picker/image_picker.dart';
 
-enum Check { incompleto }
+enum Check { incompleto, completo}
 
 class Salud_PertenenciaIndigenaTabla extends StatefulWidget {
   String folio;
@@ -53,7 +53,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image1_3;
   File _image1_4;
   File _image1_5;
-  Check _incompleto1;
+  Check _incompleto1 = Check.completo;
 
   var foto1_1 = null;
   var foto1_2 = null;
@@ -76,7 +76,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image2_3;
   File _image2_4;
   File _image2_5;
-  Check _incompleto2;
+  Check _incompleto2 = Check.completo;
 
   var foto2_1 = null;
   var foto2_2 = null;
@@ -99,7 +99,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image3_3;
   File _image3_4;
   File _image3_5;
-  Check _incompleto3;
+  Check _incompleto3 = Check.completo;
 
   var foto3_1 = null;
   var foto3_2 = null;
@@ -122,7 +122,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image4_3;
   File _image4_4;
   File _image4_5;
-  Check _incompleto4;
+  Check _incompleto4 = Check.completo;
 
   var foto4_1 = null;
   var foto4_2 = null;
@@ -145,7 +145,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image5_3;
   File _image5_4;
   File _image5_5;
-  Check _incompleto5;
+  Check _incompleto5 = Check.completo;
 
   var foto5_1 = null;
   var foto5_2 = null;
@@ -168,7 +168,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image6_3;
   File _image6_4;
   File _image6_5;
-  Check _incompleto6;
+  Check _incompleto6 = Check.completo;
 
   var foto6_1 = null;
   var foto6_2 = null;
@@ -191,7 +191,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image7_3;
   File _image7_4;
   File _image7_5;
-  Check _incompleto7;
+  Check _incompleto7 = Check.completo;
 
   var foto7_1 = null;
   var foto7_2 = null;
@@ -214,7 +214,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image8_3;
   File _image8_4;
   File _image8_5;
-  Check _incompleto8;
+  Check _incompleto8 = Check.completo;
 
   var foto8_1 = null;
   var foto8_2 = null;
@@ -237,7 +237,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image9_3;
   File _image9_4;
   File _image9_5;
-  Check _incompleto9;
+  Check _incompleto9 = Check.completo;
 
   var foto9_1 = null;
   var foto9_2 = null;
@@ -260,7 +260,7 @@ class _Salud_PertenenciaIndigenaTablaState
   File _image10_3;
   File _image10_4;
   File _image10_5;
-  Check _incompleto10;
+  Check _incompleto10 = Check.completo;
 
   var foto10_1 = null;
   var foto10_2 = null;
@@ -3499,11 +3499,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto1() async {
     String incompleto = _incompleto1.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -3669,11 +3665,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto2() async {
     String incompleto = _incompleto2.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -3839,11 +3831,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto3() async {
     String incompleto = _incompleto3.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -4009,11 +3997,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto4() async {
     String incompleto = _incompleto4.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -4179,11 +4163,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto5() async {
     String incompleto = _incompleto5.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -4349,11 +4329,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto6() async {
     String incompleto = _incompleto6.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -4519,11 +4495,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto7() async {
     String incompleto = _incompleto7.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -4689,11 +4661,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto8() async {
     String incompleto = _incompleto8.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -4859,11 +4827,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto9() async {
     String incompleto = _incompleto9.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -5033,11 +4997,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto10() async {
     String incompleto = _incompleto10.name.toString();
-    if (incompleto == '') {
-      incompleto = "Completo";
-    } else {
-      incompleto = "Incompleto";
-    }
+    
     print(incompleto);
 
     await dbHelper
@@ -6977,10 +6937,6 @@ class _Salud_PertenenciaIndigenaTablaState
     }
   }
 
-  prueba(){
-    var inr = _incompleto1.name.toString();
-    print(inr);
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -8522,7 +8478,7 @@ class _Salud_PertenenciaIndigenaTablaState
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
                   child: TextButton.icon(
-                    onPressed: prueba,
+                    onPressed: actualizar,
                     icon: Icon(Icons.arrow_circle_right_outlined,
                         color: Colors.white),
                     label: Text(
