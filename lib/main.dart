@@ -9,6 +9,7 @@ import 'package:esn/ScreensActualizar/ActualizarEstudio.dart';
 import 'package:esn/ScreensActualizar/EstructuraFamiliarActualizar.dart';
 import 'package:esn/ScreensActualizar/Salud_PertenenciaIndigenaActualizar.dart';
 import 'package:flutter/material.dart';
+import 'Screens/ApoyosEnEspecie.dart';
 import 'Screens/LoginForm.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Salud_PertenenciaIndigenaActualizar('4'),
+      home: EstructuraFamiliarTabla('99'),
     );
   }
 }

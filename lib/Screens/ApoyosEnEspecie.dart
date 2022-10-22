@@ -6,9 +6,12 @@ import 'package:esn/Screens/AportacionesEconomicas.dart';
 import 'package:esn/Screens/Remesas.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
+import 'package:searchfield/searchfield.dart';
 
 import '../Comm/comHelper.dart';
 import '../DatabaseHandler/DbHelper.dart';
+import '../Model/ApoyoFrecuencia.dart';
+import '../Model/ApoyosGobMx.dart';
 
 class ApoyosEnEspecie extends StatefulWidget {
   String folio;
@@ -24,6 +27,106 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
   final _quienProporciona = TextEditingController();
   final _frecuenciaApoyo = TextEditingController();
   List<ApoyoEnEspecieModel> _ApoyoEspecie = List<ApoyoEnEspecieModel>();
+  List<ApoyosGobMx> _Apoyo = List<ApoyosGobMx>();
+  List<ApoyoFrecuencia> _Frecuencia = List<ApoyoFrecuencia>();
+  List<ApoyosGobMx> _Proporcionado = List<ApoyosGobMx>();
+  List<ApoyosGobMx> _ClaveApoyo = List<ApoyosGobMx>();
+  List<ApoyosGobMx> _OrdenApoyo = List<ApoyosGobMx>();
+  List<ApoyoFrecuencia> _ClaveFrecuencia = List<ApoyoFrecuencia>();
+  List<ApoyoFrecuencia> _OrdenFrecuencia = List<ApoyoFrecuencia>();
+
+  @override
+  void initState() {
+    getAllCategoriesApoyo();
+    getAllCategoriesProporcionado();
+    getAllCategoriesFrecuencia();
+    super.initState();
+
+  }
+
+  getClaveApoyo(String Apoyo) async{
+    _ClaveApoyo = List<ApoyosGobMx>();
+    var categories = await CategoryService().readClaveApoyo(Apoyo);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ApoyosGobMx();
+        categoryModel.ClaveApoyo = category['ClaveApoyo'];
+        _ClaveApoyo.add(categoryModel);
+      });
+    });
+  }
+
+  getOrdenApoyo(String Apoyo) async{
+    _OrdenApoyo = List<ApoyosGobMx>();
+    var categories = await CategoryService().readOrdenApoyo(Apoyo);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ApoyosGobMx();
+        categoryModel.OrdenApoyo = category['OrdenApoyo'];
+        _OrdenApoyo.add(categoryModel);
+      });
+    });
+  }
+
+  getOrdenFrecuencia(String Frecuencia) async{
+    _OrdenFrecuencia = List<ApoyoFrecuencia>();
+    var categories = await CategoryService().readOrdenFrecuencia(Frecuencia);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ApoyoFrecuencia();
+        categoryModel.OrdenFrecuencia = category['OrdenFrecuencia'];
+        _OrdenFrecuencia.add(categoryModel);
+      });
+    });
+  }
+
+  getClaveFrecuencia(String Frecuencia) async{
+    _ClaveFrecuencia = List<ApoyoFrecuencia>();
+    var categories = await CategoryService().readClaveFrecuencia(Frecuencia);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ApoyoFrecuencia();
+        categoryModel.ClaveFrecuencia = category['ClaveFrecuencia'];
+        _ClaveFrecuencia.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesApoyo() async {
+    _Apoyo = List<ApoyosGobMx>();
+    var categories = await CategoryService().readCategoriesApoyos();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ApoyosGobMx();
+        categoryModel.Apoyo = category['Apoyo'];
+        _Apoyo.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesProporcionado() async {
+    _Proporcionado = List<ApoyosGobMx>();
+    var categories = await CategoryService().readProporcionado();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ApoyosGobMx();
+        categoryModel.ProporcionadoPor = category['ProporcionadoPor'];
+        _Proporcionado.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesFrecuencia() async {
+    _Frecuencia = List<ApoyoFrecuencia>();
+    var categories = await CategoryService().readCategoriesFrecuenciasA();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ApoyoFrecuencia();
+        categoryModel.Frecuencia = category['Frecuencia'];
+        _Frecuencia.add(categoryModel);
+      });
+    });
+  }
 
   getAllApoyo() async {
     _ApoyoEspecie = List<ApoyoEnEspecieModel>();
@@ -33,27 +136,41 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
       setState(() {
         var categoryModel = ApoyoEnEspecieModel();
         categoryModel.folio = category['folio'];
-        categoryModel.tipoApoyo = category['tipoApoyo'];
-        categoryModel.quienProporciona = category['quienProporciona'];
-        categoryModel.frecuenciaApoyo = category['frecuenciaApoyo'];
+        categoryModel.apoyo = category['apoyo'];
+        categoryModel.proporcionadoPor = category['proporcionadoPor'];
+        categoryModel.frecuencia = category['frecuencia'];
 
         _ApoyoEspecie.add(categoryModel);
       });
     });
 
-    _tipoApoyo.text = _ApoyoEspecie.map((e) => e.tipoApoyo.toString()).first;
+    _tipoApoyo.text = _ApoyoEspecie.map((e) => e.apoyo.toString()).first;
     _quienProporciona.text =
-        _ApoyoEspecie.map((e) => e.quienProporciona.toString()).first;
+        _ApoyoEspecie.map((e) => e.proporcionadoPor.toString()).first;
     _frecuenciaApoyo.text =
-        _ApoyoEspecie.map((e) => e.frecuenciaApoyo.toString()).first;
+        _ApoyoEspecie.map((e) => e.frecuencia.toString()).first;
+  }
+
+  metodos(String Apoyo, String Frecuencia)async{
+    await getClaveApoyo(Apoyo);
+    await getOrdenApoyo(Apoyo);
+    await getOrdenFrecuencia(Frecuencia);
+    await getClaveFrecuencia(Frecuencia);
   }
 
   actualizar() async {
+
+    await metodos(_tipoApoyo.text,_frecuenciaApoyo.text);
+
     ApoyoEnEspecieModel DModel = ApoyoEnEspecieModel(
         folio: int.parse(widget.folio),
-        tipoApoyo: _tipoApoyo.text.toString(),
-        frecuenciaApoyo: _quienProporciona.text.toString(),
-        quienProporciona: _frecuenciaApoyo.text.toString());
+        claveApoyo: _ClaveApoyo.map((e) => e.ClaveApoyo).first,
+        ordenApoyo: _OrdenApoyo.map((e) => e.OrdenApoyo).first,
+        apoyo: _tipoApoyo.text.toString(),
+        proporcionadoPor: _quienProporciona.text.toString(),
+        claveFrecuencia: _ClaveFrecuencia.map((e) => e.ClaveFrecuencia).first,
+        ordenFrecuencia: _OrdenFrecuencia.map((e) => e.OrdenFrecuencia).first,
+        frecuencia: _frecuenciaApoyo.text.toString());
 
     await DbHelper().upDateApoyoEspecie(DModel).then((apoyosEnEspecie) {
       alertDialog(context, "Se registro correctamente");
@@ -68,11 +185,18 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
   }
 
   insertDatos() async {
+
+    await metodos(_tipoApoyo.text,_frecuenciaApoyo.text);
+
     ApoyoEnEspecieModel DModel = ApoyoEnEspecieModel(
         folio: int.parse(widget.folio),
-        tipoApoyo: _tipoApoyo.text.toString(),
-        frecuenciaApoyo: _quienProporciona.text.toString(),
-        quienProporciona: _frecuenciaApoyo.text.toString());
+        claveApoyo: _ClaveApoyo.map((e) => e.ClaveApoyo).first,
+        ordenApoyo: _OrdenApoyo.map((e) => e.OrdenApoyo).first,
+        apoyo: _tipoApoyo.text.toString(),
+        proporcionadoPor: _quienProporciona.text.toString(),
+        claveFrecuencia: _ClaveFrecuencia.map((e) => e.ClaveFrecuencia).first,
+        ordenFrecuencia: _OrdenFrecuencia.map((e) => e.OrdenFrecuencia).first,
+        frecuencia: _frecuenciaApoyo.text.toString());
 
     await DbHelper().saveApoyoEnEspecie(DModel).then((apoyosEnEspecie) {
       alertDialog(context, "Se registro correctamente");
@@ -135,15 +259,105 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Tipo de Apoyo'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _tipoApoyo),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: SearchField(
+                    suggestionState: Suggestion.expand,
+                    searchInputDecoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.black26,
+                            style: BorderStyle.solid),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.blue,
+                            style: BorderStyle.solid),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[120],
+                    ),
+                    suggestions: _Apoyo.map((apoyo) =>
+                        SearchFieldListItem(apoyo.Apoyo.toString(),
+                            item: apoyo)).toList(),
+                    textInputAction: TextInputAction.next,
+                    hasOverlay: false,
+                    controller: _tipoApoyo,
+                    maxSuggestionsInViewPort: 5,
+                    itemHeight: 45,
+                    onSuggestionTap: (x) {},
+                  ),
+                ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Quien lo Proporciona'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _quienProporciona),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: SearchField(
+                    suggestionState: Suggestion.expand,
+                    searchInputDecoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.black26,
+                            style: BorderStyle.solid),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.blue,
+                            style: BorderStyle.solid),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[120],
+                    ),
+                    suggestions: _Proporcionado.map((proporcionado) =>
+                        SearchFieldListItem(proporcionado.ProporcionadoPor.toString(),
+                            item: proporcionado)).toList(),
+                    textInputAction: TextInputAction.next,
+                    hasOverlay: false,
+                    controller: _quienProporciona,
+                    maxSuggestionsInViewPort: 5,
+                    itemHeight: 45,
+                    onSuggestionTap: (x) {},
+                  ),
+                ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Frecuencia del Apoyo'),
                 SizedBox(height: 5.0),
-                getTextField(controller: _frecuenciaApoyo),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: SearchField(
+                    suggestionState: Suggestion.expand,
+                    searchInputDecoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.black26,
+                            style: BorderStyle.solid),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            width: 2.0,
+                            color: Colors.blue,
+                            style: BorderStyle.solid),
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[120],
+                    ),
+                    suggestions: _Frecuencia.map((frecuencia) =>
+                        SearchFieldListItem(frecuencia.Frecuencia.toString(),
+                            item: frecuencia)).toList(),
+                    textInputAction: TextInputAction.next,
+                    hasOverlay: false,
+                    controller: _frecuenciaApoyo,
+                    maxSuggestionsInViewPort: 5,
+                    itemHeight: 45,
+                    onSuggestionTap: (x) {},
+                  ),
+                ),
                 SizedBox(height: 10.0),
                 Container(
                   margin: EdgeInsets.all(20.0),

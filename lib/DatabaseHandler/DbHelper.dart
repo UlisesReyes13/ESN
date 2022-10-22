@@ -1300,6 +1300,11 @@ class DbHelper {
     return await connection.rawQuery("SELECT DISTINCT ClaveCP FROM tb_CPs");
   }
 
+  readProporcionado() async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT DISTINCT ProporcionadoPor FROM tb_ApoyosGobMx;");
+  }
+
   readOrdenTipoAsenta(String Asienta) async {
     var connection = await db;
     return await connection.rawQuery("SELECT Orden FROM TiposAsentamiento where tipoAsentamiento like '${Asienta}'");
@@ -1318,6 +1323,26 @@ class DbHelper {
   readOrdenEstado(String Estado) async {
     var connection = await db;
     return await connection.rawQuery("SELECT Orden  FROM tb_Estados where Estado like '${Estado}'");
+  }
+
+  readClaveApoyo(String Apoyo) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT ClaveApoyo  FROM tb_ApoyosGobMx where Apoyo like '${Apoyo}'");
+  }
+
+  readOrdenFrecuencia(String Frecuencia) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT OrdenFrecuencia  FROM tb_FrecuenciasApoyos where Frecuencia like '${Frecuencia}'");
+  }
+
+  readClaveFreciencia(String Frecuencia) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT ClaveFrecuencia  FROM tb_FrecuenciasApoyos where Frecuencia like '${Frecuencia}'");
+  }
+
+  readOrdenApoyo(String Apoyo) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT OrdenApoyo  FROM tb_ApoyosGobMx where Apoyo like '${Apoyo}'");
   }
 
   readOrdenEstadosCivil(String Civil) async {

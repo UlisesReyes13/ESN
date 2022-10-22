@@ -1,27 +1,49 @@
 class ApoyoEnEspecieModel{
   int folio;
-  String tipoApoyo;
-  String quienProporciona;
-  String frecuenciaApoyo;
+  String folioDispo;
+  int claveApoyo;
+  int ordenApoyo;
+  String apoyo;
+  String proporcionadoPor;
+  int claveFrecuencia;
+  int ordenFrecuencia;
+  String frecuencia;
+
 
   ApoyoEnEspecieModel({
-      this.folio, this.tipoApoyo, this.quienProporciona, this.frecuenciaApoyo});
+      this.folio,
+      this.folioDispo,
+      this.claveApoyo,
+      this.ordenApoyo,
+      this.apoyo,
+      this.proporcionadoPor,
+      this.claveFrecuencia,
+      this.ordenFrecuencia,
+      this.frecuencia});
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       'folio': folio,
-      'tipoApoyo': tipoApoyo,
-      'quienProporciona': quienProporciona,
-      'frecuenciaApoyo': frecuenciaApoyo,
+      'folioDispo': folioDispo,
+      'claveApoyo': claveApoyo,
+      'ordenApoyo': ordenApoyo,
+      'apoyo': apoyo,
+      'proporcionadoPor': proporcionadoPor,
+      'claveFrecuencia': claveFrecuencia,
+      'frecuencia': frecuencia,
     };
     return map;
   }
 
   ApoyoEnEspecieModel.fromMap(Map<String, dynamic> map) {
     folio = map['folio'];
-    tipoApoyo = map['tipoApoyo'];
-    quienProporciona = map['quienProporciona'];
-    frecuenciaApoyo = map['frecuenciaApoyo'];
+    folioDispo = map['folioDispo'];
+    claveApoyo = map['claveApoyo'];
+    ordenApoyo = map['ordenApoyo'];
+    apoyo = map['apoyo'];
+    proporcionadoPor = map['proporcionadoPor'];
+    claveFrecuencia = map['claveFrecuencia'];
+    frecuencia = map['frecuencia'];
   }
 
 }

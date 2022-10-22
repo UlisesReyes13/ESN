@@ -11,6 +11,18 @@ class CategoryService {
   readCtegoriesNomAsen() async {
     return await _repository.readData('Asentamientos');
   }
+  
+  readCategoriesApoyos() async{
+    return await _repository.readData('tb_ApoyosGobMx');
+  }
+
+  readProporcionado() async{
+    return await _repository.readProporcionado();
+  }
+
+  readCategoriesFrecuenciasA() async{
+    return await _repository.readData('tb_FrecuenciasApoyos');
+  }
 
   readCtegoriesTipoVialidad() async {
     return await _repository.readData('TiposVialidad');
@@ -26,6 +38,22 @@ class CategoryService {
 
   readOrdenEstado(String Estado) async {
     return await _repository.readOrdenEstado(Estado);
+  }
+
+  readOrdenApoyo(String Apoyo) async {
+    return await _repository.readOrdenApoyo(Apoyo);
+  }
+
+  readClaveApoyo(String Frecuencia) async {
+    return await _repository.readClaveApoyo(Frecuencia);
+  }
+
+  readOrdenFrecuencia(String Frecuencia) async {
+    return await _repository.readOrdenFrecuencia(Frecuencia);
+  }
+
+  readClaveFrecuencia(String Frecuencia) async {
+    return await _repository.readClaveFreciencia(Frecuencia);
   }
 
   readOrdenEstadoCivil(String Civil) async {

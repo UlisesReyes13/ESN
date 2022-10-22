@@ -8414,6 +8414,18 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   insertarDatos() async {
+
+    print(_nombre1.text.toString());
+    print(_nombre2.text.toString());
+    print(_nombre3.text.toString());
+    print(_nombre4.text.toString());
+    print(_nombre5.text.toString());
+    print(_nombre6.text.toString());
+    print(_nombre7.text.toString());
+    print(_nombre8.text.toString());
+    print(_nombre9.text.toString());
+    print(_nombre10.text.toString());
+
     if (!_nombre1.text.toString().isEmpty) {
       if (!_nombre2.text.toString().isEmpty) {
         if (!_nombre3.text.toString().isEmpty) {
@@ -8538,6 +8550,18 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   actualizar() async {
+
+    print(_nombre1.text.toString());
+    print(_nombre2.text.toString());
+    print(_nombre3.text.toString());
+    print(_nombre4.text.toString());
+    print(_nombre5.text.toString());
+    print(_nombre6.text.toString() + "y");
+    print(_nombre7.text.toString());
+    print(_nombre8.text.toString());
+    print(_nombre9.text.toString());
+    print(_nombre10.text.toString());
+
     if (!_nombre1.text.toString().isEmpty) {
       if (!_nombre2.text.toString().isEmpty) {
         if (!_nombre3.text.toString().isEmpty) {
