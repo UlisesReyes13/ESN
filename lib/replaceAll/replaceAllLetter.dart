@@ -69,4 +69,10 @@ class replaceAllLetter {
 
     return val;
   }
+
+  replaceSymbol(String value) {
+    var val = value.replaceAll("[", "").replaceAll("]", "");
+
+    return val;
+  }
 }

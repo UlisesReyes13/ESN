@@ -11,7 +11,6 @@ import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/AdiccionesModel.dart';
 import 'package:esn/Model/ClasificacionModel.dart';
 import 'package:esn/Model/CondicionesSaludModel.dart';
-import 'package:esn/Model/DatosGeneralesModel.dart';
 import 'package:esn/Model/DiscapacidadesModel.dart';
 import 'package:esn/Model/EstructuraFamiliarModel.dart';
 import 'package:esn/Model/PuebloIndigenaModel.dart';

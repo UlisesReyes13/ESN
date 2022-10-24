@@ -1,9 +1,9 @@
 class PrestacionesLaboralesModel{
-  String prestacion;
+  String txt_desc_prestacioneslab;
   bool value;
 
-  PrestacionesLaboralesModel({this.prestacion, this.value = false});
+  PrestacionesLaboralesModel({this.txt_desc_prestacioneslab, this.value = false});
 
   @override
-  String toString() => prestacion;
+  String toString() => txt_desc_prestacioneslab;
 }

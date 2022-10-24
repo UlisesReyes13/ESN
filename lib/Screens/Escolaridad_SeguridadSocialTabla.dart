@@ -1,6 +1,7 @@
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genSearchField.dart';
 import 'package:esn/Comm/genTextDataTable.dart';
+import 'package:esn/Comm/genTextExpand.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextTipoEmpleado.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
@@ -13,9 +14,9 @@ import 'package:esn/Model/MotivoDerechoHabiencia.dart';
 import 'package:esn/Model/OcupacionesModel.dart';
 import 'package:esn/Model/PrestacionesLaboralesModel.dart';
 import 'package:esn/Model/TipoEmpleoModel.dart';
-import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
 import 'package:esn/Screens/Salud_PertenenciaIndigenaTabla.dart';
+import 'package:esn/replaceAll/replaceAllLetter.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,16 +42,20 @@ class _Escolaridad_SeguridadSocialTablaState
   List<GradosEscolaresModel> _GradoEscolar = List<GradosEscolaresModel>();
   List<OcupacionesModel> _Ocupacion = List<OcupacionesModel>();
   List<TipoEmpleoModel> _TipoEmpleo = List<TipoEmpleoModel>();
-  List<DerechoHabienciasModel> _Derechohabiencia = List<DerechoHabienciasModel>();
-  List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia = List<MotivoDerechoHabienciasModel>();
+  List<DerechoHabienciasModel> _Derechohabiencia =
+      List<DerechoHabienciasModel>();
+  List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia =
+      List<MotivoDerechoHabienciasModel>();
 
   List<EscolaridadesModel> _EscolaridadOrden2 = List<EscolaridadesModel>();
   List<EscolaridadesModel> _EscolaridadOrden3 = List<EscolaridadesModel>();
   List<GradosEscolaresModel> _GradoEscolar2 = List<GradosEscolaresModel>();
   List<OcupacionesModel> _Ocupacion2 = List<OcupacionesModel>();
   List<TipoEmpleoModel> _TipoEmpleo2 = List<TipoEmpleoModel>();
-  List<DerechoHabienciasModel> _Derechohabiencia2 = List<DerechoHabienciasModel>();
-  List<MotivoDerechoHabienciasModel>_MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+  List<DerechoHabienciasModel> _Derechohabiencia2 =
+      List<DerechoHabienciasModel>();
+  List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia2 =
+      List<MotivoDerechoHabienciasModel>();
 
   List<EstructuraFamilarModel> _EstructuraFamiliar1 =
       List<EstructuraFamilarModel>();
@@ -194,162 +199,174 @@ class _Escolaridad_SeguridadSocialTablaState
   JubilacionPensionado _jubilacionPensionado10;
   final _nombre10 = TextEditingController();
 
-  final dataList1 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
-  ].obs;
-
-  final selectedItems1 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList2 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab:
+            '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems2 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList3 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab:
+            '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems3 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList4 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab:
+            '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems4 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList5 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab:
+            '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems5 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList6 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab:
+            '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems6 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList7 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab:
+            '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems7 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList8 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab:
+            '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems8 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList9 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab:
+            '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems9 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList10 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab:
+            '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(
+        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems10 = <PrestacionesLaboralesModel>[].obs;
@@ -364,6 +381,7 @@ class _Escolaridad_SeguridadSocialTablaState
     getAllCategoriesMotivoDerechohabiencias();
     getAllCategortegoriesTipoEmpleo();
     getAllCategoriesOcupacion();
+    getAllPrestacionesLaborales();
     getAllEstructura1();
     getAllEstructura2();
     getAllEstructura3();
@@ -436,11 +454,10 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
     _escolaridad1.text = _Escolaridad1.map((e) => e.ClaveEscolaridad).first +
-          " " +
+        " " +
         _Escolaridad1.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar1.text = _Escolaridad1.map((e) => e.ClaveGradoEscolar).first ;
-
+    _gradoEscolar1.text = _Escolaridad1.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion1.text = _Escolaridad1.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -524,7 +541,7 @@ class _Escolaridad_SeguridadSocialTablaState
         " " +
         _Escolaridad2.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar2.text = _Escolaridad2.map((e) => e.ClaveGradoEscolar).first ;
+    _gradoEscolar2.text = _Escolaridad2.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion2.text = _Escolaridad2.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -608,8 +625,7 @@ class _Escolaridad_SeguridadSocialTablaState
         " " +
         _Escolaridad3.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar3.text = _Escolaridad3.map((e) => e.ClaveGradoEscolar).first ;
-
+    _gradoEscolar3.text = _Escolaridad3.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion3.text = _Escolaridad3.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -693,8 +709,7 @@ class _Escolaridad_SeguridadSocialTablaState
         " " +
         _Escolaridad4.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar4.text = _Escolaridad4.map((e) => e.ClaveGradoEscolar).first ;
-
+    _gradoEscolar4.text = _Escolaridad4.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion4.text = _Escolaridad4.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -778,7 +793,7 @@ class _Escolaridad_SeguridadSocialTablaState
         " " +
         _Escolaridad5.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar5.text = _Escolaridad5.map((e) => e.ClaveGradoEscolar).first ;
+    _gradoEscolar5.text = _Escolaridad5.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion5.text = _Escolaridad5.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -862,7 +877,7 @@ class _Escolaridad_SeguridadSocialTablaState
         " " +
         _Escolaridad6.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar6.text = _Escolaridad6.map((e) => e.ClaveGradoEscolar).first ;
+    _gradoEscolar6.text = _Escolaridad6.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion6.text = _Escolaridad6.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -875,7 +890,6 @@ class _Escolaridad_SeguridadSocialTablaState
     _derechohabiencia6.text =
         _Escolaridad6.map((e) => e.ClaveDerechohabiencia).first +
             " " +
-
             _Escolaridad6.map((e) => e.Derechohabiencia).first;
 
     _motivoderechohabiencia6.text =
@@ -947,7 +961,7 @@ class _Escolaridad_SeguridadSocialTablaState
         " " +
         _Escolaridad7.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar7.text = _Escolaridad7.map((e) => e.ClaveGradoEscolar).first ;
+    _gradoEscolar7.text = _Escolaridad7.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion7.text = _Escolaridad7.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -1028,11 +1042,10 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
     _escolaridad8.text = _Escolaridad8.map((e) => e.ClaveEscolaridad).first +
-
         " " +
         _Escolaridad8.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar8.text = _Escolaridad8.map((e) => e.ClaveGradoEscolar).first ;
+    _gradoEscolar8.text = _Escolaridad8.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion8.text = _Escolaridad8.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -1116,7 +1129,7 @@ class _Escolaridad_SeguridadSocialTablaState
         " " +
         _Escolaridad9.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar9.text = _Escolaridad9.map((e) => e.ClaveGradoEscolar).first ;
+    _gradoEscolar9.text = _Escolaridad9.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion9.text = _Escolaridad9.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -1200,8 +1213,7 @@ class _Escolaridad_SeguridadSocialTablaState
         " " +
         _Escolaridad10.map((e) => e.Escolaridad).first;
 
-    _gradoEscolar10.text =
-        _Escolaridad10.map((e) => e.ClaveGradoEscolar).first;
+    _gradoEscolar10.text = _Escolaridad10.map((e) => e.ClaveGradoEscolar).first;
 
     _ocupacion10.text = _Escolaridad10.map((e) => e.ClaveOcupacion).first +
         " " +
@@ -1634,9 +1646,9 @@ class _Escolaridad_SeguridadSocialTablaState
       Jubilado = '3 3 Otro';
     }
 
-
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -1646,7 +1658,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar1.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar1.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -1656,7 +1669,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion1.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion1.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -1666,7 +1680,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -1676,7 +1691,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -1686,7 +1702,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia1.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia1.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -1985,7 +2002,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -1995,7 +2013,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar1.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar1.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -2005,7 +2024,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion1.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion1.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -2015,7 +2035,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -2025,7 +2046,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -2035,7 +2057,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia1.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia1.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -2057,7 +2080,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
       AsisteEscuela: _asisteEscuela1.name,
-      ClaveOcupacion: _ocupacion1.text.substring(0, 2).trimRight() ,
+      ClaveOcupacion: _ocupacion1.text.substring(0, 2).trimRight(),
       OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
       Ocupacion: ocupacion.trimLeft(),
       ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
@@ -2075,9 +2098,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0,2).trimRight(),
+          _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab.trimLeft(),
     );
     await dbHelper
@@ -2335,7 +2358,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -2345,7 +2369,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar2.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar2.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -2355,7 +2380,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion2.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion2.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -2365,7 +2391,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -2375,7 +2402,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -2385,7 +2413,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia2.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia2.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -2402,7 +2431,6 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveGradoEscolar: _gradoEscolar2.text,
       //arreglar
       GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
 
       ClaveAsisteEscuela: asisteEscuela2.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela2.substring(0, 1),
@@ -2427,7 +2455,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
     );
     await dbHelper
@@ -2685,7 +2713,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -2695,7 +2724,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar2.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar2.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -2705,7 +2735,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion2.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion2.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -2715,7 +2746,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -2725,7 +2757,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -2735,7 +2768,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia2.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia2.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -2744,11 +2778,10 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-
     EscolaridadSeguridadSocial DModel2 = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad2.text.substring(0, 2).trimRight(),
-        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
       Escolaridad: escolaridad2.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar2.text,
       //arreglar
@@ -2777,7 +2810,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
     );
     await dbHelper
@@ -3035,7 +3068,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -3045,7 +3079,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar3.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar3.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -3055,7 +3090,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion3.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion3.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -3065,7 +3101,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -3075,7 +3112,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -3085,7 +3123,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia3.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia3.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -3126,7 +3165,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
     );
     await dbHelper
@@ -3384,7 +3423,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -3394,7 +3434,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar3.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar3.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -3404,7 +3445,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion3.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion3.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -3414,7 +3456,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -3424,7 +3467,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -3434,7 +3478,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia3.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia3.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -3475,7 +3520,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
     );
     await dbHelper
@@ -3733,7 +3778,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -3743,7 +3789,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar4.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar4.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -3753,7 +3800,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion4.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion4.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -3763,7 +3811,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -3773,7 +3822,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -3783,7 +3833,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia4.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia4.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -3824,7 +3875,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
     );
     await dbHelper
@@ -4083,7 +4134,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -4093,7 +4145,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar4.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar4.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -4103,7 +4156,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion4.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion4.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -4113,7 +4167,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -4123,7 +4178,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -4133,7 +4189,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia4.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia4.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -4174,7 +4231,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
     );
     await dbHelper
@@ -4433,7 +4490,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -4443,7 +4501,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar5.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar5.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -4453,7 +4512,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion5.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion5.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -4463,7 +4523,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -4473,7 +4534,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -4483,7 +4545,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia5.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia5.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -4524,7 +4587,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
     );
     await dbHelper
@@ -4782,9 +4845,9 @@ class _Escolaridad_SeguridadSocialTablaState
       Jubilado5 = '3 3 Otro';
     }
 
-
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -4794,7 +4857,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar5.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar5.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -4804,7 +4868,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion5.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion5.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -4814,7 +4879,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -4824,7 +4890,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -4834,7 +4901,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia5.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia5.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -4875,7 +4943,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
     );
     await dbHelper
@@ -5134,7 +5202,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -5144,7 +5213,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar6.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar6.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -5154,7 +5224,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion6.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion6.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -5164,7 +5235,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -5174,7 +5246,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -5184,7 +5257,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia6.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia6.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -5225,7 +5299,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
     );
     await dbHelper
@@ -5488,7 +5562,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -5498,7 +5573,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar6.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar6.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -5508,7 +5584,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion6.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion6.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -5518,7 +5595,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -5528,7 +5606,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -5538,7 +5617,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia6.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia6.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -5579,7 +5659,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
     );
     await dbHelper
@@ -5842,7 +5922,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -5852,7 +5933,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar7.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar7.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -5862,7 +5944,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion7.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion7.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -5872,7 +5955,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -5882,7 +5966,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -5892,7 +5977,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia7.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia7.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -5933,7 +6019,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
     );
     await dbHelper
@@ -6192,7 +6278,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -6202,7 +6289,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar7.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar7.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -6212,7 +6300,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion7.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion7.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -6222,7 +6311,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -6232,7 +6322,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -6242,7 +6333,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia7.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia7.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -6283,7 +6375,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
     );
     await dbHelper
@@ -6542,7 +6634,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -6552,7 +6645,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar8.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar8.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -6562,7 +6656,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion8.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion8.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -6572,7 +6667,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -6582,7 +6678,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -6592,7 +6689,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia8.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia8.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -6633,7 +6731,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
     );
     await dbHelper
@@ -6892,7 +6990,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -6902,7 +7001,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar8.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar8.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -6912,7 +7012,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion8.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion8.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -6922,7 +7023,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -6932,7 +7034,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -6942,7 +7045,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia8.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia8.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -6982,7 +7086,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
     );
     await dbHelper
@@ -7241,7 +7345,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -7251,7 +7356,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar9.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar9.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -7261,7 +7367,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion9.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion9.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -7271,7 +7378,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -7281,7 +7389,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -7291,7 +7400,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia9.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia9.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -7332,7 +7442,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
     );
     await dbHelper
@@ -7586,7 +7696,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -7596,7 +7707,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar9.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar9.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -7606,7 +7718,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion9.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion9.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -7616,7 +7729,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -7626,7 +7740,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -7636,7 +7751,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia9.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia9.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -7684,9 +7800,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho9.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
     );
     await dbHelper
@@ -7950,7 +8066,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -7960,7 +8077,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar10.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar10.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -7970,7 +8088,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion10.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion10.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -7980,7 +8099,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -7990,7 +8110,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -8000,7 +8121,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia10.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia10.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -8041,7 +8163,7 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveMotivoDerechohabiencia:
           _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
     );
     await dbHelper
@@ -8305,7 +8427,8 @@ class _Escolaridad_SeguridadSocialTablaState
     }
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
-    var categories = await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
+    var categories =
+        await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -8315,7 +8438,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
-    var categories1 = await CategoryService().readOrdenGrado(_gradoEscolar10.text);
+    var categories1 =
+        await CategoryService().readOrdenGrado(_gradoEscolar10.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -8325,7 +8449,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Ocupacion2 = List<OcupacionesModel>();
-    var categories2 = await CategoryService().readOrdenOcupacion(_ocupacion10.text);
+    var categories2 =
+        await CategoryService().readOrdenOcupacion(_ocupacion10.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -8335,7 +8460,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
-    var categories3 = await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
+    var categories3 =
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -8345,7 +8471,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
-    var categories4 = await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
+    var categories4 =
+        await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -8355,7 +8482,8 @@ class _Escolaridad_SeguridadSocialTablaState
     });
 
     _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
-    var categories5 = await CategoryService().readOrdenMotivoDerecho(_motivoderechohabiencia10.text);
+    var categories5 = await CategoryService()
+        .readOrdenMotivoDerecho(_motivoderechohabiencia10.text);
     categories5.forEach((category) {
       setState(() {
         var categoryModel5 = MotivoDerechoHabienciasModel();
@@ -8394,9 +8522,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho10.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
     );
     await dbHelper
@@ -8415,7 +8543,6 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   insertarDatos() async {
-
     print(_nombre1.text.toString());
     print(_nombre2.text.toString());
     print(_nombre3.text.toString());
@@ -8478,63 +8605,63 @@ class _Escolaridad_SeguridadSocialTablaState
                       }));
                     }
                   } else {
-                      renglon1();
-                      renglon2();
-                      renglon3();
-                      renglon4();
-                      renglon5();
-                      renglon6();
-                      renglon7();
-                    Navigator.of(context).push(MaterialPageRoute<Null>(
-                        builder: (BuildContext context) {
-                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                    }));
-                  }
-                } else {
                     renglon1();
                     renglon2();
                     renglon3();
                     renglon4();
                     renglon5();
                     renglon6();
+                    renglon7();
+                    Navigator.of(context).push(MaterialPageRoute<Null>(
+                        builder: (BuildContext context) {
+                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                    }));
+                  }
+                } else {
+                  renglon1();
+                  renglon2();
+                  renglon3();
+                  renglon4();
+                  renglon5();
+                  renglon6();
                   Navigator.of(context).push(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
                     return new Salud_PertenenciaIndigenaTabla(widget.folio);
                   }));
                 }
               } else {
-                  await renglon1();
-                  await renglon2();
-                  await renglon3();
-                  await renglon4();
-                  await renglon5();
-                  Navigator.of(context).push(
+                await renglon1();
+                await renglon2();
+                await renglon3();
+                await renglon4();
+                await renglon5();
+                Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
                   return new Salud_PertenenciaIndigenaTabla(widget.folio);
                 }));
               }
             } else {
-                renglon1();
-                renglon2();
-                renglon3();
-                renglon4();
+              renglon1();
+              renglon2();
+              renglon3();
+              renglon4();
               Navigator.of(context).push(
                   MaterialPageRoute<Null>(builder: (BuildContext context) {
                 return new Salud_PertenenciaIndigenaTabla(widget.folio);
               }));
             }
           } else {
-             renglon1();
-             renglon2();
-             renglon3();
+            renglon1();
+            renglon2();
+            renglon3();
             Navigator.of(context)
                 .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
               return new Salud_PertenenciaIndigenaTabla(widget.folio);
             }));
           }
         } else {
-           renglon1();
-           renglon2();
+          renglon1();
+          renglon2();
           Navigator.of(context)
               .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
             return new Salud_PertenenciaIndigenaTabla(widget.folio);
@@ -8551,9 +8678,6 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   actualizar() async {
-
-
-
     if (!_nombre1.text.toString().isEmpty) {
       if (!_nombre2.text.toString().isEmpty) {
         if (!_nombre3.text.toString().isEmpty) {
@@ -8743,6 +8867,138 @@ class _Escolaridad_SeguridadSocialTablaState
     });
   }
 
+  List<PrestacionesLaboralesModel> _PrestacionesList = [];
+  List<PrestacionesLaboralesModel> _selectedItem1 = [];
+  getAllPrestacionesLaborales() async {
+    _PrestacionesList = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPrestacionesLaborales();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.txt_desc_prestacioneslab =
+            category['txt_desc_prestacioneslab'];
+        _PrestacionesList.add(categoryModel);
+      });
+    });
+  }
+
+  final _prestacion1 = TextEditingController();
+  final _prestacion2 = TextEditingController();
+  final _prestacion3 = TextEditingController();
+  final _prestacion4 = TextEditingController();
+  final _prestacion5 = TextEditingController();
+  final _prestacion6 = TextEditingController();
+  final _prestacion7 = TextEditingController();
+  final _prestacion8 = TextEditingController();
+  final _prestacion9 = TextEditingController();
+  final _prestacion10 = TextEditingController();
+
+  addChecked1() {
+    List<PrestacionesLaboralesModel> previa1 = [];
+    previa1 = _PrestacionesList;
+    _selectedItem1.clear();
+    for (var select1 in previa1) {
+      if (select1.value) _selectedItem1.add(select1);
+    }
+    setState(() => previa1 = _selectedItem1);
+
+    print(_selectedItem1);
+
+    var prestacion1 = _selectedItem1.toString();
+
+    replaceAllLetter rpl = new replaceAllLetter();
+
+    var pk1;
+    String orden1;
+    var pk2;
+    String orden2;
+    var pk3;
+    String orden3;
+    var pk4;
+    String orden4;
+    var pk5;
+    String orden5;
+    var pk6;
+    String orden6;
+    var pk7;
+    String orden7;
+    var pk8;
+    String orden8;
+    var pk9;
+    String orden9;
+    for (var i = 0; i < _selectedItem1.length; i++) {
+      switch (_selectedItem1[i].txt_desc_prestacioneslab.toString()) {
+        case "Incapacidad por Enfermedad, accidente o maternidad":
+          pk1 = 1;
+          orden1 = "A";
+          break;
+        case "SAR o AFORE":
+          pk2 = 2;
+          orden2 = "B";
+          break;
+        case "Crédito para vivienda":
+          pk3 = 3;
+          orden3 = "C";
+          break;
+        case "Guardería":
+          pk4 = 4;
+          orden4 = "D";
+          break;
+        case "Aguinaldo":
+          pk5 = 5;
+          orden5 = "E";
+          break;
+        case "Seguro de vida":
+          pk6 = 6;
+          orden6 = "F";
+          break;
+        case "No tiene derecho a ninguna prestación":
+          pk7 = 7;
+          orden7 = "G";
+          break;
+        case "Otro tipo de seguro contratado":
+          pk8 = 8;
+          orden8 = "H";
+          break;
+        case "N/A":
+          pk9 = 9;
+          orden9 = "I";
+          break;
+      }
+
+      final _pk1 = pk1;
+      final _orden1 = orden1;
+
+      final _pk2 = pk2;
+      final _orden2 = orden2;
+
+      final _pk3 = pk3;
+      final _orden3 = orden3;
+
+      final _pk4 = pk4;
+      final _orden4 = orden4;
+
+      final _pk5 = pk5;
+      final _orden5 = orden5;
+
+      final _pk6 = pk6;
+      final _orden6 = orden6;
+
+      final _pk7 = pk7;
+      final _orden7 = orden7;
+
+      final _pk8 = pk8;
+      final _orden8 = orden8;
+
+      final _pk9 = pk9;
+      final _orden9 = orden9;
+
+      final prestacionFinal1 = rpl.replaceSymbol(prestacion1);
+
+      _prestacion1.text = prestacionFinal1;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -8796,7 +9052,7 @@ class _Escolaridad_SeguridadSocialTablaState
                         Container(
                           child: DataTable(
                             columnSpacing: 30,
-                            dataRowHeight: 100,
+                            dataRowHeight: 150,
                             columns: [
                               DataColumn(label: Text('No.')),
                               DataColumn(label: Text('Nombres')),
@@ -8896,8 +9152,84 @@ class _Escolaridad_SeguridadSocialTablaState
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>
-                                            Column(children: genarateItems1())),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 5.0,
+                                            ),
+                                            genTextExpand(
+                                                controller: _prestacion1,
+                                                hintName:
+                                                    'Prestaciones Laborales',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _PrestacionesList
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _PrestacionesList[
+                                                                            index]
+                                                                        .value = !_PrestacionesList[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _PrestacionesList[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _PrestacionesList[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_PrestacionesList[
+                                                                          index]
+                                                                      .txt_desc_prestacioneslab
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked1,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -9057,8 +9389,84 @@ class _Escolaridad_SeguridadSocialTablaState
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.vertical,
                                       child: Container(
-                                        child: Obx(() =>
-                                            Column(children: genarateItems2())),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 5.0,
+                                            ),
+                                            genTextExpand(
+                                                controller: _prestacion1,
+                                                hintName:
+                                                    'Prestaciones Laborales',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _PrestacionesList
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _PrestacionesList[
+                                                                            index]
+                                                                        .value = !_PrestacionesList[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _PrestacionesList[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _PrestacionesList[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_PrestacionesList[
+                                                                          index]
+                                                                      .txt_desc_prestacioneslab
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked1,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -10480,7 +10888,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList1[i].value,
-          title: Text(dataList1[i].prestacion),
+          title: Text(dataList1[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList1[i].value = v ?? false;
             dataList1.refresh();
@@ -10495,7 +10903,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList2[i].value,
-          title: Text(dataList2[i].prestacion),
+          title: Text(dataList2[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList2[i].value = v ?? false;
             dataList2.refresh();
@@ -10510,7 +10918,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList3[i].value,
-          title: Text(dataList3[i].prestacion),
+          title: Text(dataList3[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList3[i].value = v ?? false;
             dataList3.refresh();
@@ -10525,7 +10933,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList4[i].value,
-          title: Text(dataList4[i].prestacion),
+          title: Text(dataList4[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList4[i].value = v ?? false;
             dataList4.refresh();
@@ -10540,7 +10948,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList5[i].value,
-          title: Text(dataList5[i].prestacion),
+          title: Text(dataList5[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList5[i].value = v ?? false;
             dataList5.refresh();
@@ -10555,7 +10963,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList6[i].value,
-          title: Text(dataList6[i].prestacion),
+          title: Text(dataList6[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList6[i].value = v ?? false;
             dataList6.refresh();
@@ -10570,7 +10978,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList7[i].value,
-          title: Text(dataList7[i].prestacion),
+          title: Text(dataList7[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList7[i].value = v ?? false;
             dataList7.refresh();
@@ -10585,7 +10993,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList9[i].value,
-          title: Text(dataList9[i].prestacion),
+          title: Text(dataList9[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList9[i].value = v ?? false;
             dataList9.refresh();
@@ -10600,7 +11008,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList9[i].value,
-          title: Text(dataList9[i].prestacion),
+          title: Text(dataList9[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList9[i].value = v ?? false;
             dataList9.refresh();
@@ -10615,7 +11023,7 @@ class _Escolaridad_SeguridadSocialTablaState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList10[i].value,
-          title: Text(dataList10[i].prestacion),
+          title: Text(dataList10[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList10[i].value = v ?? false;
             dataList10.refresh();
