@@ -3,6 +3,7 @@ import 'package:esn/Comm/genSearchField.dart';
 import 'package:esn/Comm/genTextDataTable.dart';
 import 'package:esn/Comm/genTextExpand.dart';
 import 'package:esn/Comm/genTextFolio.dart';
+import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Comm/genTextTipoEmpleado.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/DerechohabienciasModel.dart';
@@ -17,9 +18,9 @@ import 'package:esn/Model/TipoEmpleoModel.dart';
 import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
 import 'package:esn/Screens/Salud_PertenenciaIndigenaTabla.dart';
 import 'package:esn/replaceAll/replaceAllLetter.dart';
+import 'package:esn/replaceAll/replaceAllNum.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:searchfield/searchfield.dart';
 
 enum AsisteEscuela { na, si, no }
@@ -38,66 +39,43 @@ class Escolaridad_SeguridadSocialTabla extends StatefulWidget {
 
 class _Escolaridad_SeguridadSocialTablaState
     extends State<Escolaridad_SeguridadSocialTabla> {
-  List<EscolaridadesModel> _Escolaridad = List<EscolaridadesModel>();
-  List<GradosEscolaresModel> _GradoEscolar = List<GradosEscolaresModel>();
-  List<OcupacionesModel> _Ocupacion = List<OcupacionesModel>();
-  List<TipoEmpleoModel> _TipoEmpleo = List<TipoEmpleoModel>();
-  List<DerechoHabienciasModel> _Derechohabiencia =
-      List<DerechoHabienciasModel>();
-  List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia =
-      List<MotivoDerechoHabienciasModel>();
+  List<EscolaridadesModel> _Escolaridad = [];
+  List<GradosEscolaresModel> _GradoEscolar = [];
+  List<OcupacionesModel> _Ocupacion = [];
+  List<TipoEmpleoModel> _TipoEmpleo = [];
+  List<DerechoHabienciasModel> _Derechohabiencia = [];
+  List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia = [];
+  List<PrestacionesLaboralesModel> _PrestacionesList = [];
 
-  List<EscolaridadesModel> _EscolaridadOrden2 = List<EscolaridadesModel>();
-  List<EscolaridadesModel> _EscolaridadOrden3 = List<EscolaridadesModel>();
-  List<GradosEscolaresModel> _GradoEscolar2 = List<GradosEscolaresModel>();
-  List<OcupacionesModel> _Ocupacion2 = List<OcupacionesModel>();
-  List<TipoEmpleoModel> _TipoEmpleo2 = List<TipoEmpleoModel>();
-  List<DerechoHabienciasModel> _Derechohabiencia2 =
-      List<DerechoHabienciasModel>();
-  List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia2 =
-      List<MotivoDerechoHabienciasModel>();
+  List<EscolaridadesModel> _EscolaridadOrden2 = [];
+  List<EscolaridadesModel> _EscolaridadOrden3 = [];
+  List<GradosEscolaresModel> _GradoEscolar2 = [];
+  List<OcupacionesModel> _Ocupacion2 = [];
+  List<TipoEmpleoModel> _TipoEmpleo2 = [];
+  List<DerechoHabienciasModel> _Derechohabiencia2 = [];
+  List<MotivoDerechoHabienciasModel> _MotivioDerechohabiencia2 = [];
 
-  List<EstructuraFamilarModel> _EstructuraFamiliar1 =
-      List<EstructuraFamilarModel>();
-  List<EstructuraFamilarModel> _EstructuraFamiliar2 =
-      List<EstructuraFamilarModel>();
-  List<EstructuraFamilarModel> _EstructuraFamiliar3 =
-      List<EstructuraFamilarModel>();
-  List<EstructuraFamilarModel> _EstructuraFamiliar4 =
-      List<EstructuraFamilarModel>();
-  List<EstructuraFamilarModel> _EstructuraFamiliar5 =
-      List<EstructuraFamilarModel>();
-  List<EstructuraFamilarModel> _EstructuraFamiliar6 =
-      List<EstructuraFamilarModel>();
-  List<EstructuraFamilarModel> _EstructuraFamiliar7 =
-      List<EstructuraFamilarModel>();
-  List<EstructuraFamilarModel> _EstructuraFamiliar8 =
-      List<EstructuraFamilarModel>();
-  List<EstructuraFamilarModel> _EstructuraFamiliar9 =
-      List<EstructuraFamilarModel>();
-  List<EstructuraFamilarModel> _EstructuraFamiliar10 =
-      List<EstructuraFamilarModel>();
+  List<EstructuraFamilarModel> _EstructuraFamiliar1 = [];
+  List<EstructuraFamilarModel> _EstructuraFamiliar2 = [];
+  List<EstructuraFamilarModel> _EstructuraFamiliar3 = [];
+  List<EstructuraFamilarModel> _EstructuraFamiliar4 = [];
+  List<EstructuraFamilarModel> _EstructuraFamiliar5 = [];
+  List<EstructuraFamilarModel> _EstructuraFamiliar6 = [];
+  List<EstructuraFamilarModel> _EstructuraFamiliar7 = [];
+  List<EstructuraFamilarModel> _EstructuraFamiliar8 = [];
+  List<EstructuraFamilarModel> _EstructuraFamiliar9 = [];
+  List<EstructuraFamilarModel> _EstructuraFamiliar10 = [];
 
-  List<EscolaridadSeguridadSocial> _Escolaridad1 =
-      List<EscolaridadSeguridadSocial>();
-  List<EscolaridadSeguridadSocial> _Escolaridad2 =
-      List<EscolaridadSeguridadSocial>();
-  List<EscolaridadSeguridadSocial> _Escolaridad3 =
-      List<EscolaridadSeguridadSocial>();
-  List<EscolaridadSeguridadSocial> _Escolaridad4 =
-      List<EscolaridadSeguridadSocial>();
-  List<EscolaridadSeguridadSocial> _Escolaridad5 =
-      List<EscolaridadSeguridadSocial>();
-  List<EscolaridadSeguridadSocial> _Escolaridad6 =
-      List<EscolaridadSeguridadSocial>();
-  List<EscolaridadSeguridadSocial> _Escolaridad7 =
-      List<EscolaridadSeguridadSocial>();
-  List<EscolaridadSeguridadSocial> _Escolaridad8 =
-      List<EscolaridadSeguridadSocial>();
-  List<EscolaridadSeguridadSocial> _Escolaridad9 =
-      List<EscolaridadSeguridadSocial>();
-  List<EscolaridadSeguridadSocial> _Escolaridad10 =
-      List<EscolaridadSeguridadSocial>();
+  List<EscolaridadSeguridadSocial> _Escolaridad1 = [];
+  List<EscolaridadSeguridadSocial> _Escolaridad2 = [];
+  List<EscolaridadSeguridadSocial> _Escolaridad3 = [];
+  List<EscolaridadSeguridadSocial> _Escolaridad4 = [];
+  List<EscolaridadSeguridadSocial> _Escolaridad5 = [];
+  List<EscolaridadSeguridadSocial> _Escolaridad6 = [];
+  List<EscolaridadSeguridadSocial> _Escolaridad7 = [];
+  List<EscolaridadSeguridadSocial> _Escolaridad8 = [];
+  List<EscolaridadSeguridadSocial> _Escolaridad9 = [];
+  List<EscolaridadSeguridadSocial> _Escolaridad10 = [];
 
   final _escolaridad1 = TextEditingController();
   final _gradoEscolar1 = TextEditingController();
@@ -108,6 +86,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela1 = AsisteEscuela.si;
   JubilacionPensionado _jubilacionPensionado1;
   final _nombre1 = TextEditingController();
+  final _prestacion1 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem1 = [];
 
   final _escolaridad2 = TextEditingController();
   final _gradoEscolar2 = TextEditingController();
@@ -118,6 +98,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela2;
   JubilacionPensionado _jubilacionPensionado2;
   final _nombre2 = TextEditingController();
+  final _prestacion2 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem2 = [];
 
   final _escolaridad3 = TextEditingController();
   final _gradoEscolar3 = TextEditingController();
@@ -128,6 +110,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela3;
   JubilacionPensionado _jubilacionPensionado3;
   final _nombre3 = TextEditingController();
+  final _prestacion3 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem3 = [];
 
   final _escolaridad4 = TextEditingController();
   final _gradoEscolar4 = TextEditingController();
@@ -138,6 +122,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela4;
   JubilacionPensionado _jubilacionPensionado4;
   final _nombre4 = TextEditingController();
+  final _prestacion4 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem4 = [];
 
   final _escolaridad5 = TextEditingController();
   final _gradoEscolar5 = TextEditingController();
@@ -148,6 +134,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela5;
   JubilacionPensionado _jubilacionPensionado5;
   final _nombre5 = TextEditingController();
+  final _prestacion5 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem5 = [];
 
   final _escolaridad6 = TextEditingController();
   final _gradoEscolar6 = TextEditingController();
@@ -158,6 +146,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela6;
   JubilacionPensionado _jubilacionPensionado6;
   final _nombre6 = TextEditingController();
+  final _prestacion6 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem6 = [];
 
   final _escolaridad7 = TextEditingController();
   final _gradoEscolar7 = TextEditingController();
@@ -168,6 +158,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela7;
   JubilacionPensionado _jubilacionPensionado7;
   final _nombre7 = TextEditingController();
+  final _prestacion7 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem7 = [];
 
   final _escolaridad8 = TextEditingController();
   final _gradoEscolar8 = TextEditingController();
@@ -178,6 +170,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela8;
   JubilacionPensionado _jubilacionPensionado8;
   final _nombre8 = TextEditingController();
+  final _prestacion8 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem8 = [];
 
   final _escolaridad9 = TextEditingController();
   final _gradoEscolar9 = TextEditingController();
@@ -188,6 +182,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela9;
   JubilacionPensionado _jubilacionPensionado9;
   final _nombre9 = TextEditingController();
+  final _prestacion9 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem9 = [];
 
   final _escolaridad10 = TextEditingController();
   final _gradoEscolar10 = TextEditingController();
@@ -198,178 +194,8 @@ class _Escolaridad_SeguridadSocialTablaState
   AsisteEscuela _asisteEscuela10;
   JubilacionPensionado _jubilacionPensionado10;
   final _nombre10 = TextEditingController();
-
-
-  final dataList2 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab:
-            '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
-  ].obs;
-
-  final selectedItems2 = <PrestacionesLaboralesModel>[].obs;
-
-  final dataList3 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab:
-            '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
-  ].obs;
-
-  final selectedItems3 = <PrestacionesLaboralesModel>[].obs;
-
-  final dataList4 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab:
-            '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
-  ].obs;
-
-  final selectedItems4 = <PrestacionesLaboralesModel>[].obs;
-
-  final dataList5 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab:
-            '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
-  ].obs;
-
-  final selectedItems5 = <PrestacionesLaboralesModel>[].obs;
-
-  final dataList6 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab:
-            '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
-  ].obs;
-
-  final selectedItems6 = <PrestacionesLaboralesModel>[].obs;
-
-  final dataList7 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab:
-            '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
-  ].obs;
-
-  final selectedItems7 = <PrestacionesLaboralesModel>[].obs;
-
-  final dataList8 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab:
-            '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
-  ].obs;
-
-  final selectedItems8 = <PrestacionesLaboralesModel>[].obs;
-
-  final dataList9 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab:
-            '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
-  ].obs;
-
-  final selectedItems9 = <PrestacionesLaboralesModel>[].obs;
-
-  final dataList10 = <PrestacionesLaboralesModel>[
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab:
-            '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(
-        txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
-  ].obs;
-
-  final selectedItems10 = <PrestacionesLaboralesModel>[].obs;
+  final _prestacion10 = TextEditingController();
+  List<PrestacionesLaboralesModel> _selectedItem10 = [];
 
   var dbHelper;
 
@@ -397,21 +223,8 @@ class _Escolaridad_SeguridadSocialTablaState
     dbHelper = DbHelper();
   }
 
-  cargarDatos() {
-    getAllEscolaridad1();
-    getAllEscolaridad2();
-    getAllEscolaridad3();
-    getAllEscolaridad4();
-    getAllEscolaridad5();
-    getAllEscolaridad6();
-    getAllEscolaridad7();
-    getAllEscolaridad8();
-    getAllEscolaridad9();
-    getAllEscolaridad10();
-  }
-
   getAllEscolaridad1() async {
-    _Escolaridad1 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad1 = [];
     var categories =
         await CategoryService().readEscolaridad1(int.parse(widget.folio));
     categories.forEach((category) {
@@ -495,7 +308,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEscolaridad2() async {
-    _Escolaridad2 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad2 = [];
     var categories =
         await CategoryService().readEscolaridad2(int.parse(widget.folio));
     categories.forEach((category) {
@@ -579,7 +392,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEscolaridad3() async {
-    _Escolaridad3 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad3 = [];
     var categories =
         await CategoryService().readEscolaridad3(int.parse(widget.folio));
     categories.forEach((category) {
@@ -663,7 +476,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEscolaridad4() async {
-    _Escolaridad4 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad4 = [];
     var categories =
         await CategoryService().readEscolaridad4(int.parse(widget.folio));
     categories.forEach((category) {
@@ -747,7 +560,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEscolaridad5() async {
-    _Escolaridad5 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad5 = [];
     var categories =
         await CategoryService().readEscolaridad5(int.parse(widget.folio));
     categories.forEach((category) {
@@ -831,7 +644,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEscolaridad6() async {
-    _Escolaridad6 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad6 = [];
     var categories =
         await CategoryService().readEscolaridad6(int.parse(widget.folio));
     categories.forEach((category) {
@@ -915,7 +728,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEscolaridad7() async {
-    _Escolaridad7 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad7 = [];
     var categories =
         await CategoryService().readEscolaridad7(int.parse(widget.folio));
     categories.forEach((category) {
@@ -999,7 +812,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEscolaridad8() async {
-    _Escolaridad8 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad8 = [];
     var categories =
         await CategoryService().readEscolaridad8(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1083,7 +896,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEscolaridad9() async {
-    _Escolaridad9 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad9 = [];
     var categories =
         await CategoryService().readEscolaridad9(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1167,7 +980,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEscolaridad10() async {
-    _Escolaridad10 = List<EscolaridadSeguridadSocial>();
+    _Escolaridad10 = [];
     var categories =
         await CategoryService().readEscolaridad10(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1250,8 +1063,21 @@ class _Escolaridad_SeguridadSocialTablaState
     }
   }
 
+  cargarDatos() {
+    getAllEscolaridad1();
+    getAllEscolaridad2();
+    getAllEscolaridad3();
+    getAllEscolaridad4();
+    getAllEscolaridad5();
+    getAllEscolaridad6();
+    getAllEscolaridad7();
+    getAllEscolaridad8();
+    getAllEscolaridad9();
+    getAllEscolaridad10();
+  }
+
   getAllEstructura1() async {
-    _EstructuraFamiliar1 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar1 = [];
     var categories =
         await CategoryService().readEstructura1(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1265,7 +1091,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEstructura2() async {
-    _EstructuraFamiliar2 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar2 = [];
     var categories =
         await CategoryService().readEstructura2(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1279,7 +1105,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEstructura3() async {
-    _EstructuraFamiliar3 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar3 = [];
     var categories =
         await CategoryService().readEstructura3(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1293,7 +1119,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEstructura4() async {
-    _EstructuraFamiliar4 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar4 = [];
     var categories =
         await CategoryService().readEstructura4(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1307,7 +1133,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEstructura5() async {
-    _EstructuraFamiliar5 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar5 = [];
     var categories =
         await CategoryService().readEstructura5(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1321,7 +1147,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEstructura6() async {
-    _EstructuraFamiliar6 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar6 = [];
     var categories =
         await CategoryService().readEstructura6(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1335,7 +1161,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEstructura7() async {
-    _EstructuraFamiliar7 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar7 = [];
     var categories =
         await CategoryService().readEstructura7(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1349,7 +1175,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEstructura8() async {
-    _EstructuraFamiliar8 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar8 = [];
     var categories =
         await CategoryService().readEstructura8(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1363,7 +1189,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEstructura9() async {
-    _EstructuraFamiliar9 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar9 = [];
     var categories =
         await CategoryService().readEstructura9(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1377,7 +1203,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllEstructura10() async {
-    _EstructuraFamiliar10 = List<EstructuraFamilarModel>();
+    _EstructuraFamiliar10 = [];
     var categories =
         await CategoryService().readEstructura10(int.parse(widget.folio));
     categories.forEach((category) {
@@ -1391,7 +1217,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   getAllCategoriesEscolaridades() async {
-    _Escolaridad = List<EscolaridadesModel>();
+    _Escolaridad = [];
     var categories = await CategoryService().readCategoriesEcolaridades();
     categories.forEach((category) {
       setState(() {
@@ -1402,231 +1228,108 @@ class _Escolaridad_SeguridadSocialTablaState
     });
   }
 
+  getAllCategoriesGradoEscolar() async {
+    _GradoEscolar = [];
+    var categories = await CategoryService().readCategoriesGradosEscolares();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = GradosEscolaresModel();
+        categoryModel.grado = category['GradoEscolar'];
+        _GradoEscolar.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesOcupacion() async {
+    _Ocupacion = [];
+    var categories = await CategoryService().readCategoriesOcupaciones();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = OcupacionesModel();
+        categoryModel.ocupacion = category['Ocupacion'];
+        _Ocupacion.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategortegoriesTipoEmpleo() async {
+    _TipoEmpleo = [];
+    var categories = await CategoryService().readCategoriesTipoEmpleos();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = TipoEmpleoModel();
+        categoryModel.TipoEmpleo = category['TipoEmpleo'];
+        _TipoEmpleo.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesDerechohabiencia() async {
+    _Derechohabiencia = [];
+    var categories = await CategoryService().readCategoriesDerechohabiencias();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = DerechoHabienciasModel();
+        categoryModel.derechoHabiencia = category['Derechohabiencia'];
+        _Derechohabiencia.add(categoryModel);
+      });
+    });
+  }
+
+  getAllCategoriesMotivoDerechohabiencias() async {
+    _MotivioDerechohabiencia = [];
+    var categories =
+        await CategoryService().readCategoriesMotivoDerechohabiencias();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = MotivoDerechoHabienciasModel();
+        categoryModel.motivoDerechoHabiencia =
+            category['MotivoDerechohabiencia'];
+        _MotivioDerechohabiencia.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPrestacionesLaborales() async {
+    _PrestacionesList = [];
+    var categories = await CategoryService().readPrestacionesLaborales();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.txt_desc_prestacioneslab =
+            category['txt_desc_prestacioneslab'];
+        _PrestacionesList.add(categoryModel);
+      });
+    });
+  }
+
   renglon1() async {
-    var Escolaridad = _escolaridad1.text.toString(); // 'artlang'
-    final escolaridad = Escolaridad.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl1 = new replaceAllLetter();
+    replaceAllNum rpn1 = new replaceAllNum();
 
-    var Ocupacion = _ocupacion1.text.toString(); // 'artlang'
-    final ocupacion = Ocupacion.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Escolaridad = _escolaridad1.text.toString();
+    final escolaridad = rpn1.replaceNum(Escolaridad);
 
-    var TipoEmpleo = _tipoEmpleo1.text.toString(); // 'artlang'
-    final tipoEmpleo = TipoEmpleo.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion = _ocupacion1.text.toString();
+    final ocupacion = rpn1.replaceNum(Ocupacion);
 
-    var derecho = _derechohabiencia1.text.toString(); // 'artlang'
-    final Derecho = derecho
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo = _tipoEmpleo1.text.toString();
+    final tipoEmpleo = rpn1.replaceNum(TipoEmpleo);
 
-    var motivoDerecho = _motivoderechohabiencia1.text.toString(); // 'artlang'
-    final motivoDereHab = motivoDerecho
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho = _derechohabiencia1.text.toString();
+    final Derecho = rpn1.replaceNum(derecho);
 
-    selectedItems1.clear();
-    selectedItems1.addAll((dataList1.where((p0) => p0.value)));
+    var motivoDerecho = _motivoderechohabiencia1.text.toString();
+    final motivoDereHab = rpn1.replaceNum(motivoDerecho);
 
-    var pkPrestaciones = selectedItems1.toString(); // 'artlang'
-    final prestacionesPK = pkPrestaciones
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones = _prestacion1.text.toString();
+    final prestacionesPK = rpl1.replaceLetter(pkPrestaciones);
 
-    var intPrestaciones = selectedItems1.toString(); // 'artlang'
-    final prestacionesInt = intPrestaciones
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones = _prestacion1.text.toString();
+    final prestacionesInt = rpl1.replaceOrdPresta(intPrestaciones);
 
-    var Prestaciones = selectedItems1.toString(); // 'artlang'
-    final prestaciones = Prestaciones.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones = _prestacion1.text.toString();
+    final prestaciones = rpl1.replaceAll(Prestaciones);
 
     String asisteEscuela = _asisteEscuela1.name.toString();
     if (asisteEscuela == 'si') {
@@ -1657,7 +1360,7 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _GradoEscolar2 = List<GradosEscolaresModel>();
+    _GradoEscolar2 = [];
     var categories1 =
         await CategoryService().readOrdenGrado(_gradoEscolar1.text);
     categories1.forEach((category) {
@@ -1668,7 +1371,7 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _Ocupacion2 = List<OcupacionesModel>();
+    _Ocupacion2 = [];
     var categories2 =
         await CategoryService().readOrdenOcupacion(_ocupacion1.text);
     categories2.forEach((category) {
@@ -1679,7 +1382,7 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    _TipoEmpleo2 = [];
     var categories3 =
         await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
     categories3.forEach((category) {
@@ -1690,7 +1393,7 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    _Derechohabiencia2 = [];
     var categories4 =
         await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
     categories4.forEach((category) {
@@ -1701,7 +1404,7 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    _MotivioDerechohabiencia2 = [];
     var categories5 = await CategoryService()
         .readOrdenMotivoDerecho(_motivoderechohabiencia1.text);
     categories5.forEach((category) {
@@ -1718,9 +1421,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden.toString()).first,
       Escolaridad: escolaridad.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar1.text,
-      //arreglar
       GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
       ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
       AsisteEscuela: _asisteEscuela1.name,
@@ -1730,11 +1431,9 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo.trimLeft(),
-
       pk_prestacioneslab: prestacionesPK.trimRight(),
       int_OrdenPrestacionesLab: prestacionesInt.trimRight().trimLeft(),
       txt_desc_prestacioneslab: prestaciones.trimLeft(),
-
       ClaveJubilacion: Jubilado.substring(0, 1),
       OrdenJubilacion: Jubilado.substring(0, 1),
       Jubilacion: _jubilacionPensionado1.name,
@@ -1758,230 +1457,32 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   upDateRenglon1() async {
-    var Escolaridad = _escolaridad1.text.toString(); // 'artlang'
-    final escolaridad = Escolaridad.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl1 = new replaceAllLetter();
+    replaceAllNum rpn1 = new replaceAllNum();
 
-    var Ocupacion = _ocupacion1.text.toString(); // 'artlang'
-    final ocupacion = Ocupacion.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Escolaridad = _escolaridad1.text.toString();
+    final escolaridad = rpn1.replaceNum(Escolaridad);
 
-    var TipoEmpleo = _tipoEmpleo1.text.toString(); // 'artlang'
-    final tipoEmpleo = TipoEmpleo.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion = _ocupacion1.text.toString();
+    final ocupacion = rpn1.replaceNum(Ocupacion);
 
-    var derecho = _derechohabiencia1.text.toString(); // 'artlang'
-    final Derecho = derecho
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo = _tipoEmpleo1.text.toString();
+    final tipoEmpleo = rpn1.replaceNum(TipoEmpleo);
 
-    var motivoDerecho = _motivoderechohabiencia1.text.toString(); // 'artlang'
-    final motivoDereHab = motivoDerecho
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho = _derechohabiencia1.text.toString();
+    final Derecho = rpn1.replaceNum(derecho);
 
-    selectedItems1.clear();
-    selectedItems1.addAll((dataList1.where((p0) => p0.value)));
+    var motivoDerecho = _motivoderechohabiencia1.text.toString();
+    final motivoDereHab = rpn1.replaceNum(motivoDerecho);
 
-    var pkPrestaciones = selectedItems1.toString(); // 'artlang'
-    final prestacionesPK = pkPrestaciones
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones = _prestacion1.text.toString();
+    final prestacionesPK = rpl1.replaceLetter(pkPrestaciones);
 
-    var intPrestaciones = selectedItems1.toString(); // 'artlang'
-    final prestacionesInt = intPrestaciones
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones = _prestacion1.text.toString();
+    final prestacionesInt = rpl1.replaceOrdPresta(intPrestaciones);
 
-    var Prestaciones = selectedItems1.toString(); // 'artlang'
-    final prestaciones = Prestaciones.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones = _prestacion1.text.toString();
+    final prestaciones = rpl1.replaceAll(Prestaciones);
 
     String asisteEscuela = _asisteEscuela1.name.toString();
     if (asisteEscuela == 'si') {
@@ -2003,7 +1504,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -2012,9 +1513,9 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _GradoEscolar2 = List<GradosEscolaresModel>();
+    _GradoEscolar2 = [];
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar1.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar1.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -2023,9 +1524,9 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _Ocupacion2 = List<OcupacionesModel>();
+    _Ocupacion2 = [];
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion1.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion1.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -2034,9 +1535,9 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _TipoEmpleo2 = List<TipoEmpleoModel>();
+    _TipoEmpleo2 = [];
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -2045,9 +1546,9 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _Derechohabiencia2 = List<DerechoHabienciasModel>();
+    _Derechohabiencia2 = [];
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -2056,7 +1557,7 @@ class _Escolaridad_SeguridadSocialTablaState
       });
     });
 
-    _MotivioDerechohabiencia2 = List<MotivoDerechoHabienciasModel>();
+    _MotivioDerechohabiencia2 = [];
     var categories5 = await CategoryService()
         .readOrdenMotivoDerecho(_motivoderechohabiencia1.text);
     categories5.forEach((category) {
@@ -2070,13 +1571,10 @@ class _Escolaridad_SeguridadSocialTablaState
     EscolaridadSeguridadSocial DModel = EscolaridadSeguridadSocial(
       folio: int.parse(widget.folio),
       ClaveEscolaridad: _escolaridad1.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden.toString()).first,
       Escolaridad: escolaridad.trimLeft(),
       ClaveGradoEscolar: _gradoEscolar1.text,
-      //arreglar
-
       GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
       ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
       OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
       AsisteEscuela: _asisteEscuela1.name,
@@ -2086,11 +1584,9 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo.trimLeft(),
-
       pk_prestacioneslab: prestacionesPK.trimRight(),
       int_OrdenPrestacionesLab: prestacionesInt.trimRight().trimLeft(),
       txt_desc_prestacioneslab: prestaciones.trimLeft(),
-
       ClaveJubilacion: Jubilado.substring(0, 1),
       OrdenJubilacion: Jubilado.substring(0, 1),
       Jubilacion: _jubilacionPensionado1.name,
@@ -2098,9 +1594,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab.trimLeft(),
     );
     await dbHelper
@@ -2176,10 +1672,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems2.clear();
-    selectedItems2.addAll((dataList2.where((p0) => p0.value)));
-
-    var pkPrestaciones2 = selectedItems2.toString(); // 'artlang'
+    var pkPrestaciones2 = _prestacion2.text.toString(); // 'artlang'
     final prestacionesPK2 = pkPrestaciones2
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -2247,7 +1740,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones2 = selectedItems2.toString(); // 'artlang'
+    var intPrestaciones2 = _prestacion2.text.toString(); // 'artlang'
     final prestacionesInt2 = intPrestaciones2
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -2299,7 +1792,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones2 = selectedItems2.toString(); // 'artlang'
+    var Prestaciones2 = _prestacion2.text.toString(); // 'artlang'
     final prestaciones2 = Prestaciones2.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -2359,7 +1852,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -2370,7 +1863,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar2.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar2.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -2381,7 +1874,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion2.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion2.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -2392,7 +1885,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -2403,7 +1896,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -2453,9 +1946,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho2.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
     );
     await dbHelper
@@ -2531,10 +2024,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems2.clear();
-    selectedItems2.addAll((dataList2.where((p0) => p0.value)));
-
-    var pkPrestaciones2 = selectedItems2.toString(); // 'artlang'
+    var pkPrestaciones2 = _prestacion2.text.toString(); // 'artlang'
     final prestacionesPK2 = pkPrestaciones2
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -2602,7 +2092,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones2 = selectedItems2.toString(); // 'artlang'
+    var intPrestaciones2 = _prestacion2.text.toString(); // 'artlang'
     final prestacionesInt2 = intPrestaciones2
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -2654,7 +2144,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones2 = selectedItems2.toString(); // 'artlang'
+    var Prestaciones2 = _prestacion2.text.toString(); // 'artlang'
     final prestaciones2 = Prestaciones2.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -2714,7 +2204,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -2725,7 +2215,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar2.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar2.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -2736,7 +2226,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion2.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion2.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -2747,7 +2237,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -2758,7 +2248,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -2808,9 +2298,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho2.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
     );
     await dbHelper
@@ -2886,10 +2376,8 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems3.clear();
-    selectedItems3.addAll((dataList3.where((p0) => p0.value)));
 
-    var pkPrestaciones3 = selectedItems3.toString(); // 'artlang'
+    var pkPrestaciones3 = _prestacion3.text.toString(); // 'artlang'
     final prestacionesPK3 = pkPrestaciones3
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -2957,7 +2445,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones3 = selectedItems3.toString(); // 'artlang'
+    var intPrestaciones3 = _prestacion3.text.toString(); // 'artlang'
     final prestacionesInt3 = intPrestaciones3
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -3009,7 +2497,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones3 = selectedItems3.toString(); // 'artlang'
+    var Prestaciones3 = _prestacion3.text.toString(); // 'artlang'
     final prestaciones3 = Prestaciones3.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -3069,7 +2557,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -3080,7 +2568,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar3.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar3.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -3091,7 +2579,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion3.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion3.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -3102,7 +2590,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -3113,7 +2601,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -3163,9 +2651,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho3.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
     );
     await dbHelper
@@ -3241,10 +2729,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems3.clear();
-    selectedItems3.addAll((dataList3.where((p0) => p0.value)));
-
-    var pkPrestaciones3 = selectedItems3.toString(); // 'artlang'
+    var pkPrestaciones3 = _prestacion3.text.toString(); // 'artlang'
     final prestacionesPK3 = pkPrestaciones3
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -3312,7 +2797,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones3 = selectedItems3.toString(); // 'artlang'
+    var intPrestaciones3 = _prestacion3.text.toString(); // 'artlang'
     final prestacionesInt3 = intPrestaciones3
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -3364,7 +2849,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones3 = selectedItems3.toString(); // 'artlang'
+    var Prestaciones3 = _prestacion3.text.toString(); // 'artlang'
     final prestaciones3 = Prestaciones3.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -3424,7 +2909,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -3435,7 +2920,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar3.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar3.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -3446,7 +2931,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion3.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion3.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -3457,7 +2942,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -3468,7 +2953,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -3518,9 +3003,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho3.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
     );
     await dbHelper
@@ -3596,10 +3081,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems4.clear();
-    selectedItems4.addAll((dataList4.where((p0) => p0.value)));
-
-    var pkPrestaciones4 = selectedItems4.toString(); // 'artlang'
+    var pkPrestaciones4 = _prestacion4.text.toString(); // 'artlang'
     final prestacionesPK4 = pkPrestaciones4
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -3667,7 +3149,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones4 = selectedItems4.toString(); // 'artlang'
+    var intPrestaciones4 = _prestacion4.text.toString(); // 'artlang'
     final prestacionesInt4 = intPrestaciones4
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -3719,7 +3201,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones4 = selectedItems4.toString(); // 'artlang'
+    var Prestaciones4 = _prestacion4.text.toString(); // 'artlang'
     final prestaciones4 = Prestaciones4.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -3779,7 +3261,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -3790,7 +3272,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar4.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar4.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -3801,7 +3283,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion4.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion4.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -3812,7 +3294,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -3823,7 +3305,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -3873,9 +3355,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho4.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
     );
     await dbHelper
@@ -3952,10 +3434,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems4.clear();
-    selectedItems4.addAll((dataList4.where((p0) => p0.value)));
-
-    var pkPrestaciones4 = selectedItems4.toString(); // 'artlang'
+    var pkPrestaciones4 = _prestacion4.text.toString(); // 'artlang'
     final prestacionesPK4 = pkPrestaciones4
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -4023,7 +3502,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones4 = selectedItems4.toString(); // 'artlang'
+    var intPrestaciones4 = _prestacion4.text.toString(); // 'artlang'
     final prestacionesInt4 = intPrestaciones4
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -4075,7 +3554,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones4 = selectedItems4.toString(); // 'artlang'
+    var Prestaciones4 = _prestacion4.text.toString(); // 'artlang'
     final prestaciones4 = Prestaciones4.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -4135,7 +3614,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -4146,7 +3625,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar4.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar4.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -4157,7 +3636,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion4.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion4.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -4168,7 +3647,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -4179,7 +3658,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -4229,9 +3708,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho4.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
     );
     await dbHelper
@@ -4308,10 +3787,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems5.clear();
-    selectedItems5.addAll((dataList5.where((p0) => p0.value)));
-
-    var pkPrestaciones5 = selectedItems5.toString(); // 'artlang'
+    var pkPrestaciones5 = _prestacion5.text.toString(); // 'artlang'
     final prestacionesPK5 = pkPrestaciones5
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -4379,7 +3855,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones5 = selectedItems5.toString(); // 'artlang'
+    var intPrestaciones5 = _prestacion5.text.toString(); // 'artlang'
     final prestacionesInt5 = intPrestaciones5
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -4431,7 +3907,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones5 = selectedItems5.toString(); // 'artlang'
+    var Prestaciones5 = _prestacion5.text.toString(); // 'artlang'
     final prestaciones5 = Prestaciones5.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -4491,7 +3967,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -4502,7 +3978,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar5.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar5.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -4513,7 +3989,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion5.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion5.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -4524,7 +4000,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -4535,7 +4011,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -4585,9 +4061,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho5.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
     );
     await dbHelper
@@ -4664,10 +4140,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems5.clear();
-    selectedItems5.addAll((dataList5.where((p0) => p0.value)));
-
-    var pkPrestaciones5 = selectedItems5.toString(); // 'artlang'
+    var pkPrestaciones5 = _prestacion5.text.toString(); // 'artlang'
     final prestacionesPK5 = pkPrestaciones5
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -4735,7 +4208,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones5 = selectedItems5.toString(); // 'artlang'
+    var intPrestaciones5 = _prestacion5.text.toString(); // 'artlang'
     final prestacionesInt5 = intPrestaciones5
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -4787,7 +4260,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones5 = selectedItems5.toString(); // 'artlang'
+    var Prestaciones5 = _prestacion5.text.toString(); // 'artlang'
     final prestaciones5 = Prestaciones5.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -4847,7 +4320,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -4858,7 +4331,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar5.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar5.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -4869,7 +4342,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion5.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion5.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -4880,7 +4353,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -4891,7 +4364,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -4941,9 +4414,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho5.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
     );
     await dbHelper
@@ -5020,10 +4493,8 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems6.clear();
-    selectedItems6.addAll((dataList6.where((p0) => p0.value)));
-
-    var pkPrestaciones6 = selectedItems6.toString(); // 'artlang'
+    
+    var pkPrestaciones6 = _prestacion6.text.toString(); // 'artlang'
     final prestacionesPK6 = pkPrestaciones6
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -5091,7 +4562,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones6 = selectedItems6.toString(); // 'artlang'
+    var intPrestaciones6 = _prestacion6.text.toString(); // 'artlang'
     final prestacionesInt6 = intPrestaciones6
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -5143,7 +4614,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones6 = selectedItems6.toString(); // 'artlang'
+    var Prestaciones6 = _prestacion6.text.toString(); // 'artlang'
     final prestaciones6 = Prestaciones6.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -5203,7 +4674,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -5214,7 +4685,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar6.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar6.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -5225,7 +4696,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion6.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion6.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -5236,7 +4707,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -5247,7 +4718,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -5297,9 +4768,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho6.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
     );
     await dbHelper
@@ -5380,10 +4851,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems6.clear();
-    selectedItems6.addAll((dataList6.where((p0) => p0.value)));
-
-    var pkPrestaciones6 = selectedItems6.toString(); // 'artlang'
+    var pkPrestaciones6 = _prestacion6.text.toString(); // 'artlang'
     final prestacionesPK6 = pkPrestaciones6
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -5451,7 +4919,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones6 = selectedItems6.toString(); // 'artlang'
+    var intPrestaciones6 = _prestacion6.text.toString(); // 'artlang'
     final prestacionesInt6 = intPrestaciones6
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -5503,7 +4971,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones6 = selectedItems6.toString(); // 'artlang'
+    var Prestaciones6 = _prestacion6.text.toString(); // 'artlang'
     final prestaciones6 = Prestaciones6.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -5563,7 +5031,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -5574,7 +5042,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar6.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar6.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -5585,7 +5053,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion6.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion6.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -5596,7 +5064,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -5607,7 +5075,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -5657,9 +5125,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho6.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
     );
     await dbHelper
@@ -5740,10 +5208,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems7.clear();
-    selectedItems7.addAll((dataList7.where((p0) => p0.value)));
-
-    var pkPrestaciones7 = selectedItems7.toString(); // 'artlang'
+    var pkPrestaciones7 = _prestacion7.text.toString(); // 'artlang'
     final prestacionesPK7 = pkPrestaciones7
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -5811,7 +5276,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones7 = selectedItems7.toString(); // 'artlang'
+    var intPrestaciones7 = _prestacion7.text.toString(); // 'artlang'
     final prestacionesInt7 = intPrestaciones7
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -5863,7 +5328,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones7 = selectedItems7.toString(); // 'artlang'
+    var Prestaciones7 = _prestacion7.text.toString(); // 'artlang'
     final prestaciones7 = Prestaciones7.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -5923,7 +5388,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -5934,7 +5399,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar7.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar7.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -5945,7 +5410,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion7.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion7.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -5956,7 +5421,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -5967,7 +5432,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -6017,9 +5482,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho7.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
     );
     await dbHelper
@@ -6096,10 +5561,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems7.clear();
-    selectedItems7.addAll((dataList7.where((p0) => p0.value)));
-
-    var pkPrestaciones7 = selectedItems7.toString(); // 'artlang'
+    var pkPrestaciones7 = _prestacion7.text.toString(); // 'artlang'
     final prestacionesPK7 = pkPrestaciones7
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -6167,7 +5629,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones7 = selectedItems7.toString(); // 'artlang'
+    var intPrestaciones7 = _prestacion7.text.toString(); // 'artlang'
     final prestacionesInt7 = intPrestaciones7
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -6219,7 +5681,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones7 = selectedItems7.toString(); // 'artlang'
+    var Prestaciones7 = _prestacion7.text.toString(); // 'artlang'
     final prestaciones7 = Prestaciones7.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -6279,7 +5741,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -6290,7 +5752,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar7.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar7.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -6301,7 +5763,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion7.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion7.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -6312,7 +5774,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -6323,7 +5785,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -6373,9 +5835,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho7.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
     );
     await dbHelper
@@ -6390,6 +5852,7 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   renglon8() async {
+    
     var Escolaridad8 = _escolaridad8.text.toString(); // 'artlang'
     final escolaridad8 = Escolaridad8.replaceAll("1", "")
         .replaceAll("2", "")
@@ -6452,10 +5915,8 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems8.clear();
-    selectedItems8.addAll((dataList8.where((p0) => p0.value)));
-
-    var pkPrestaciones8 = selectedItems8.toString(); // 'artlang'
+    
+    var pkPrestaciones8 = _prestacion8.text.toString(); // 'artlang'
     final prestacionesPK8 = pkPrestaciones8
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -6523,7 +5984,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones8 = selectedItems8.toString(); // 'artlang'
+    var intPrestaciones8 = _prestacion8.text.toString(); // 'artlang'
     final prestacionesInt8 = intPrestaciones8
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -6575,7 +6036,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones8 = selectedItems8.toString(); // 'artlang'
+    var Prestaciones8 = _prestacion8.text.toString(); // 'artlang'
     final prestaciones8 = Prestaciones8.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -6635,7 +6096,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -6646,7 +6107,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar8.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar8.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -6657,7 +6118,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion8.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion8.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -6668,7 +6129,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -6679,7 +6140,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -6729,9 +6190,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho8.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
     );
     await dbHelper
@@ -6808,10 +6269,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems8.clear();
-    selectedItems8.addAll((dataList8.where((p0) => p0.value)));
-
-    var pkPrestaciones8 = selectedItems8.toString(); // 'artlang'
+    var pkPrestaciones8 = _prestacion8.text.toString(); // 'artlang'
     final prestacionesPK8 = pkPrestaciones8
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -6879,7 +6337,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones8 = selectedItems8.toString(); // 'artlang'
+    var intPrestaciones8 = _prestacion8.text.toString(); // 'artlang'
     final prestacionesInt8 = intPrestaciones8
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -6931,7 +6389,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones8 = selectedItems8.toString(); // 'artlang'
+    var Prestaciones8 = _prestacion8.text.toString(); // 'artlang'
     final prestaciones8 = Prestaciones8.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -6991,7 +6449,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -7002,7 +6460,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar8.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar8.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -7013,7 +6471,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion8.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion8.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -7024,7 +6482,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -7035,7 +6493,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -7084,9 +6542,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho8.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
     );
     await dbHelper
@@ -7163,10 +6621,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems9.clear();
-    selectedItems9.addAll((dataList9.where((p0) => p0.value)));
-
-    var pkPrestaciones9 = selectedItems9.toString(); // 'artlang'
+    var pkPrestaciones9 = _prestacion9.text.toString(); // 'artlang'
     final prestacionesPK9 = pkPrestaciones9
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -7234,7 +6689,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones9 = selectedItems9.toString(); // 'artlang'
+    var intPrestaciones9 = _prestacion9.text.toString(); // 'artlang'
     final prestacionesInt9 = intPrestaciones9
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -7286,7 +6741,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones9 = selectedItems9.toString(); // 'artlang'
+    var Prestaciones9 = _prestacion9.text.toString(); // 'artlang'
     final prestaciones9 = Prestaciones9.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -7346,7 +6801,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -7357,7 +6812,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar9.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar9.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -7368,7 +6823,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion9.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion9.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -7379,7 +6834,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -7390,7 +6845,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -7440,9 +6895,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho9.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
     );
     await dbHelper
@@ -7523,10 +6978,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems9.clear();
-    selectedItems9.addAll((dataList9.where((p0) => p0.value)));
-
-    var pkPrestaciones9 = selectedItems9.toString(); // 'artlang'
+    var pkPrestaciones9 = _prestacion9.text.toString(); // 'artlang'
     final prestacionesPK9 = pkPrestaciones9
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -7594,7 +7046,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones9 = selectedItems9.toString(); // 'artlang'
+    var intPrestaciones9 = _prestacion9.text.toString(); // 'artlang'
     final prestacionesInt9 = intPrestaciones9
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -7646,7 +7098,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones9 = selectedItems9.toString(); // 'artlang'
+    var Prestaciones9 = _prestacion9.text.toString(); // 'artlang'
     final prestaciones9 = Prestaciones9.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -7697,7 +7149,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -7708,7 +7160,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar9.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar9.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -7719,7 +7171,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion9.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion9.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -7730,7 +7182,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -7741,7 +7193,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -7800,9 +7252,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho9.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
     );
     await dbHelper
@@ -7871,7 +7323,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("0", "");
 
     var motivoDerecho10 =
-        _motivoderechohabiencia10.text.toString(); // 'artlang'
+    _motivoderechohabiencia10.text.toString(); // 'artlang'
     final motivoDereHab10 = motivoDerecho10
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -7884,10 +7336,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    selectedItems10.clear();
-    selectedItems10.addAll((dataList10.where((p0) => p0.value)));
-
-    var pkPrestaciones10 = selectedItems10.toString(); // 'artlang'
+    var pkPrestaciones10 = _prestacion10.text.toString(); // 'artlang'
     final prestacionesPK10 = pkPrestaciones10
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -7955,7 +7404,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones10 = selectedItems10.toString(); // 'artlang'
+    var intPrestaciones10 = _prestacion10.text.toString(); // 'artlang'
     final prestacionesInt10 = intPrestaciones10
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -8007,7 +7456,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones10 = selectedItems10.toString(); // 'artlang'
+    var Prestaciones10 = _prestacion10.text.toString(); // 'artlang'
     final prestaciones10 = Prestaciones10.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -8067,7 +7516,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -8078,7 +7527,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar10.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar10.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -8089,7 +7538,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion10.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion10.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -8100,7 +7549,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -8111,7 +7560,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -8161,9 +7610,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho10.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
     );
     await dbHelper
@@ -8232,7 +7681,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("0", "");
 
     var motivoDerecho10 =
-        _motivoderechohabiencia10.text.toString(); // 'artlang'
+    _motivoderechohabiencia10.text.toString(); // 'artlang'
     final motivoDereHab10 = motivoDerecho10
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -8244,11 +7693,9 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("8", "")
         .replaceAll("9", "")
         .replaceAll("0", "");
+    
 
-    selectedItems10.clear();
-    selectedItems10.addAll((dataList10.where((p0) => p0.value)));
-
-    var pkPrestaciones10 = selectedItems10.toString(); // 'artlang'
+    var pkPrestaciones10 = _prestacion10.text.toString(); // 'artlang'
     final prestacionesPK10 = pkPrestaciones10
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -8316,7 +7763,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("ú", "")
         .replaceAll("z", "");
 
-    var intPrestaciones10 = selectedItems10.toString(); // 'artlang'
+    var intPrestaciones10 = _prestacion10.text.toString(); // 'artlang'
     final prestacionesInt10 = intPrestaciones10
         .replaceAll("[", "")
         .replaceAll("]", "")
@@ -8368,7 +7815,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    var Prestaciones10 = selectedItems10.toString(); // 'artlang'
+    var Prestaciones10 = _prestacion10.text.toString(); // 'artlang'
     final prestaciones10 = Prestaciones10.replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("1", "")
@@ -8428,7 +7875,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-        await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
+    await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -8439,7 +7886,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-        await CategoryService().readOrdenGrado(_gradoEscolar10.text);
+    await CategoryService().readOrdenGrado(_gradoEscolar10.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -8450,7 +7897,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-        await CategoryService().readOrdenOcupacion(_ocupacion10.text);
+    await CategoryService().readOrdenOcupacion(_ocupacion10.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -8461,7 +7908,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
+    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -8472,7 +7919,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-        await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
+    await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -8522,9 +7969,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho10.trimLeft(),
       ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
+      _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
     );
     await dbHelper
@@ -8586,9 +8033,9 @@ class _Escolaridad_SeguridadSocialTablaState
                         renglon9();
                         Navigator.of(context).push(MaterialPageRoute<Null>(
                             builder: (BuildContext context) {
-                          return new Salud_PertenenciaIndigenaTabla(
-                              widget.folio);
-                        }));
+                              return new Salud_PertenenciaIndigenaTabla(
+                                  widget.folio);
+                            }));
                       }
                     } else {
                       renglon1();
@@ -8601,8 +8048,8 @@ class _Escolaridad_SeguridadSocialTablaState
                       renglon8();
                       Navigator.of(context).push(MaterialPageRoute<Null>(
                           builder: (BuildContext context) {
-                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                      }));
+                            return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                          }));
                     }
                   } else {
                     renglon1();
@@ -8614,8 +8061,8 @@ class _Escolaridad_SeguridadSocialTablaState
                     renglon7();
                     Navigator.of(context).push(MaterialPageRoute<Null>(
                         builder: (BuildContext context) {
-                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                    }));
+                          return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                        }));
                   }
                 } else {
                   renglon1();
@@ -8626,8 +8073,8 @@ class _Escolaridad_SeguridadSocialTablaState
                   renglon6();
                   Navigator.of(context).push(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                  }));
+                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                      }));
                 }
               } else {
                 await renglon1();
@@ -8637,8 +8084,8 @@ class _Escolaridad_SeguridadSocialTablaState
                 await renglon5();
                 Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
-                  return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                }));
+                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                    }));
               }
             } else {
               renglon1();
@@ -8647,8 +8094,8 @@ class _Escolaridad_SeguridadSocialTablaState
               renglon4();
               Navigator.of(context).push(
                   MaterialPageRoute<Null>(builder: (BuildContext context) {
-                return new Salud_PertenenciaIndigenaTabla(widget.folio);
-              }));
+                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                  }));
             }
           } else {
             renglon1();
@@ -8710,9 +8157,9 @@ class _Escolaridad_SeguridadSocialTablaState
                         upDateRenglon9();
                         Navigator.of(context).push(MaterialPageRoute<Null>(
                             builder: (BuildContext context) {
-                          return new Salud_PertenenciaIndigenaTabla(
-                              widget.folio);
-                        }));
+                              return new Salud_PertenenciaIndigenaTabla(
+                                  widget.folio);
+                            }));
                       }
                     } else {
                       upDateRenglon1();
@@ -8726,8 +8173,8 @@ class _Escolaridad_SeguridadSocialTablaState
 
                       Navigator.of(context).push(MaterialPageRoute<Null>(
                           builder: (BuildContext context) {
-                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                      }));
+                            return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                          }));
                     }
                   } else {
                     upDateRenglon1();
@@ -8739,8 +8186,8 @@ class _Escolaridad_SeguridadSocialTablaState
                     upDateRenglon7();
                     Navigator.of(context).push(MaterialPageRoute<Null>(
                         builder: (BuildContext context) {
-                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                    }));
+                          return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                        }));
                   }
                 } else {
                   upDateRenglon1();
@@ -8752,8 +8199,8 @@ class _Escolaridad_SeguridadSocialTablaState
 
                   Navigator.of(context).push(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                  }));
+                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                      }));
                 }
               } else {
                 upDateRenglon1();
@@ -8764,8 +8211,8 @@ class _Escolaridad_SeguridadSocialTablaState
                 print("entro aqui");
                 Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
-                  return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                }));
+                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                    }));
               }
             } else {
               upDateRenglon1();
@@ -8775,8 +8222,8 @@ class _Escolaridad_SeguridadSocialTablaState
               print("entro por aca");
               Navigator.of(context).push(
                   MaterialPageRoute<Null>(builder: (BuildContext context) {
-                return new Salud_PertenenciaIndigenaTabla(widget.folio);
-              }));
+                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                  }));
             }
           } else {
             upDateRenglon1();
@@ -8805,94 +8252,6 @@ class _Escolaridad_SeguridadSocialTablaState
     }
   }
 
-  getAllCategoriesGradoEscolar() async {
-    _GradoEscolar = List<GradosEscolaresModel>();
-    var categories = await CategoryService().readCategoriesGradosEscolares();
-    categories.forEach((category) {
-      setState(() {
-        var categoryModel = GradosEscolaresModel();
-        categoryModel.grado = category['GradoEscolar'];
-        _GradoEscolar.add(categoryModel);
-      });
-    });
-  }
-
-  getAllCategoriesOcupacion() async {
-    _Ocupacion = List<OcupacionesModel>();
-    var categories = await CategoryService().readCategoriesOcupaciones();
-    categories.forEach((category) {
-      setState(() {
-        var categoryModel = OcupacionesModel();
-        categoryModel.ocupacion = category['Ocupacion'];
-        _Ocupacion.add(categoryModel);
-      });
-    });
-  }
-
-  getAllCategortegoriesTipoEmpleo() async {
-    _TipoEmpleo = List<TipoEmpleoModel>();
-    var categories = await CategoryService().readCategoriesTipoEmpleos();
-    categories.forEach((category) {
-      setState(() {
-        var categoryModel = TipoEmpleoModel();
-        categoryModel.TipoEmpleo = category['TipoEmpleo'];
-        _TipoEmpleo.add(categoryModel);
-      });
-    });
-  }
-
-  getAllCategoriesDerechohabiencia() async {
-    _Derechohabiencia = List<DerechoHabienciasModel>();
-    var categories = await CategoryService().readCategoriesDerechohabiencias();
-    categories.forEach((category) {
-      setState(() {
-        var categoryModel = DerechoHabienciasModel();
-        categoryModel.derechoHabiencia = category['Derechohabiencia'];
-        _Derechohabiencia.add(categoryModel);
-      });
-    });
-  }
-
-  getAllCategoriesMotivoDerechohabiencias() async {
-    _MotivioDerechohabiencia = List<MotivoDerechoHabienciasModel>();
-    var categories =
-        await CategoryService().readCategoriesMotivoDerechohabiencias();
-    categories.forEach((category) {
-      setState(() {
-        var categoryModel = MotivoDerechoHabienciasModel();
-        categoryModel.motivoDerechoHabiencia =
-            category['MotivoDerechohabiencia'];
-        _MotivioDerechohabiencia.add(categoryModel);
-      });
-    });
-  }
-
-  List<PrestacionesLaboralesModel> _PrestacionesList = [];
-  List<PrestacionesLaboralesModel> _selectedItem1 = [];
-  getAllPrestacionesLaborales() async {
-    _PrestacionesList = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPrestacionesLaborales();
-    categories.forEach((category) {
-      setState(() {
-        var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.txt_desc_prestacioneslab =
-            category['txt_desc_prestacioneslab'];
-        _PrestacionesList.add(categoryModel);
-      });
-    });
-  }
-
-  final _prestacion1 = TextEditingController();
-  final _prestacion2 = TextEditingController();
-  final _prestacion3 = TextEditingController();
-  final _prestacion4 = TextEditingController();
-  final _prestacion5 = TextEditingController();
-  final _prestacion6 = TextEditingController();
-  final _prestacion7 = TextEditingController();
-  final _prestacion8 = TextEditingController();
-  final _prestacion9 = TextEditingController();
-  final _prestacion10 = TextEditingController();
-
   addChecked1() {
     List<PrestacionesLaboralesModel> previa1 = [];
     previa1 = _PrestacionesList;
@@ -8901,103 +8260,148 @@ class _Escolaridad_SeguridadSocialTablaState
       if (select1.value) _selectedItem1.add(select1);
     }
     setState(() => previa1 = _selectedItem1);
-
     print(_selectedItem1);
-
     var prestacion1 = _selectedItem1.toString();
-
     replaceAllLetter rpl = new replaceAllLetter();
-
-    var pk1;
-    String orden1;
-    var pk2;
-    String orden2;
-    var pk3;
-    String orden3;
-    var pk4;
-    String orden4;
-    var pk5;
-    String orden5;
-    var pk6;
-    String orden6;
-    var pk7;
-    String orden7;
-    var pk8;
-    String orden8;
-    var pk9;
-    String orden9;
-    for (var i = 0; i < _selectedItem1.length; i++) {
-      switch (_selectedItem1[i].txt_desc_prestacioneslab.toString()) {
-        case "Incapacidad por Enfermedad, accidente o maternidad":
-          pk1 = 1;
-          orden1 = "A";
-          break;
-        case "SAR o AFORE":
-          pk2 = 2;
-          orden2 = "B";
-          break;
-        case "Crédito para vivienda":
-          pk3 = 3;
-          orden3 = "C";
-          break;
-        case "Guardería":
-          pk4 = 4;
-          orden4 = "D";
-          break;
-        case "Aguinaldo":
-          pk5 = 5;
-          orden5 = "E";
-          break;
-        case "Seguro de vida":
-          pk6 = 6;
-          orden6 = "F";
-          break;
-        case "No tiene derecho a ninguna prestación":
-          pk7 = 7;
-          orden7 = "G";
-          break;
-        case "Otro tipo de seguro contratado":
-          pk8 = 8;
-          orden8 = "H";
-          break;
-        case "N/A":
-          pk9 = 9;
-          orden9 = "I";
-          break;
-      }
-
-      final _pk1 = pk1;
-      final _orden1 = orden1;
-
-      final _pk2 = pk2;
-      final _orden2 = orden2;
-
-      final _pk3 = pk3;
-      final _orden3 = orden3;
-
-      final _pk4 = pk4;
-      final _orden4 = orden4;
-
-      final _pk5 = pk5;
-      final _orden5 = orden5;
-
-      final _pk6 = pk6;
-      final _orden6 = orden6;
-
-      final _pk7 = pk7;
-      final _orden7 = orden7;
-
-      final _pk8 = pk8;
-      final _orden8 = orden8;
-
-      final _pk9 = pk9;
-      final _orden9 = orden9;
-
-      final prestacionFinal1 = rpl.replaceSymbol(prestacion1);
-
-      _prestacion1.text = prestacionFinal1;
-    }
+    final prestacionFinal1 = rpl.replaceSymbol(prestacion1);
+    _prestacion1.text = prestacionFinal1;
   }
+
+  addChecked2() {
+    List<PrestacionesLaboralesModel> previa2 = [];
+    previa2 = _PrestacionesList;
+    _selectedItem2.clear();
+    for (var select2 in previa2) {
+      if (select2.value) _selectedItem2.add(select2);
+    }
+    setState(() => previa2 = _selectedItem2);
+    print(_selectedItem2);
+    var prestacion2 = _selectedItem2.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final prestacionFinal2 = rpl.replaceSymbol(prestacion2);
+    _prestacion2.text = prestacionFinal2;
+  }
+
+  addChecked3() {
+    List<PrestacionesLaboralesModel> previa3 = [];
+    previa3 = _PrestacionesList;
+    _selectedItem3.clear();
+    for (var select3 in previa3) {
+      if (select3.value) _selectedItem3.add(select3);
+    }
+    setState(() => previa3 = _selectedItem3);
+    print(_selectedItem3);
+    var prestacion3 = _selectedItem3.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final prestacionFinal3 = rpl.replaceSymbol(prestacion3);
+    _prestacion3.text = prestacionFinal3;
+  }
+
+  addChecked4() {
+    List<PrestacionesLaboralesModel> previa4 = [];
+    previa4 = _PrestacionesList;
+    _selectedItem4.clear();
+    for (var select4 in previa4) {
+      if (select4.value) _selectedItem4.add(select4);
+    }
+    setState(() => previa4 = _selectedItem4);
+    print(_selectedItem4);
+    var prestacion4 = _selectedItem4.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final prestacionFinal4 = rpl.replaceSymbol(prestacion4);
+    _prestacion4.text = prestacionFinal4;
+  }
+
+  addChecked5() {
+    List<PrestacionesLaboralesModel> previa5 = [];
+    previa5 = _PrestacionesList;
+    _selectedItem5.clear();
+    for (var select5 in previa5) {
+      if (select5.value) _selectedItem5.add(select5);
+    }
+    setState(() => previa5 = _selectedItem5);
+    print(_selectedItem5);
+    var prestacion5 = _selectedItem5.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final prestacionFinal5 = rpl.replaceSymbol(prestacion5);
+    _prestacion5.text = prestacionFinal5;
+  }
+
+  addChecked6() {
+    List<PrestacionesLaboralesModel> previa6 = [];
+    previa6 = _PrestacionesList;
+    _selectedItem6.clear();
+    for (var select6 in previa6) {
+      if (select6.value) _selectedItem6.add(select6);
+    }
+    setState(() => previa6 = _selectedItem6);
+    print(_selectedItem6);
+    var prestacion6 = _selectedItem6.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final prestacionFinal6 = rpl.replaceSymbol(prestacion6);
+    _prestacion6.text = prestacionFinal6;
+  }
+
+  addChecked7() {
+    List<PrestacionesLaboralesModel> previa7 = [];
+    previa7 = _PrestacionesList;
+    _selectedItem7.clear();
+    for (var select7 in previa7) {
+      if (select7.value) _selectedItem7.add(select7);
+    }
+    setState(() => previa7 = _selectedItem7);
+    print(_selectedItem7);
+    var prestacion7 = _selectedItem7.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final prestacionFinal7 = rpl.replaceSymbol(prestacion7);
+    _prestacion7.text = prestacionFinal7;
+  }
+
+  addChecked8() {
+    List<PrestacionesLaboralesModel> previa8 = [];
+    previa8 = _PrestacionesList;
+    _selectedItem8.clear();
+    for (var select8 in previa8) {
+      if (select8.value) _selectedItem8.add(select8);
+    }
+    setState(() => previa8 = _selectedItem8);
+    print(_selectedItem8);
+    var prestacion8 = _selectedItem8.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final prestacionFinal8 = rpl.replaceSymbol(prestacion8);
+    _prestacion8.text = prestacionFinal8;
+  }
+
+  addChecked9() {
+    List<PrestacionesLaboralesModel> previa9 = [];
+    previa9 = _PrestacionesList;
+    _selectedItem9.clear();
+    for (var select9 in previa9) {
+      if (select9.value) _selectedItem9.add(select9);
+    }
+    setState(() => previa9 = _selectedItem9);
+    print(_selectedItem9);
+    var prestacion9 = _selectedItem9.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final prestacionFinal9 = rpl.replaceSymbol(prestacion9);
+    _prestacion9.text = prestacionFinal9;
+  }
+
+  addChecked10() {
+    List<PrestacionesLaboralesModel> previa10 = [];
+    previa10 = _PrestacionesList;
+    _selectedItem10.clear();
+    for (var select10 in previa10) {
+      if (select10.value) _selectedItem10.add(select10);
+    }
+    setState(() => previa10 = _selectedItem10);
+    print(_selectedItem10);
+    var prestacion10 = _selectedItem10.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final prestacionFinal10 = rpl.replaceSymbol(prestacion10);
+    _prestacion10.text = prestacionFinal10;
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -9019,233 +8423,313 @@ class _Escolaridad_SeguridadSocialTablaState
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Container(
-            child: Column(
-              children: [
-                SizedBox(height: 10.0),
-                getTextFolio(
+            child: Column(children: [
+              SizedBox(height: 5.0),
+              getTextQuestion(question: 'Folio'),
+              getTextFolio(
                   controller: TextEditingController.fromValue(
-                      TextEditingValue(text: widget.folio)),
-                ),
-                Container(
-                  margin: EdgeInsets.all(20.0),
-                  width: double.infinity,
-                  child: TextButton.icon(
+                      TextEditingValue(text: widget.folio))),
+              Container(
+                margin: EdgeInsets.all(20.0),
+                width: double.infinity,
+                child: TextButton.icon(
                     onPressed: cargarDatos,
                     icon: Icon(Icons.add_circle_outline, color: Colors.white),
                     label: Text(
-                      'Cargar datos',
+                      'Cargar Datos',
                       style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
+                    )),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(30.0),
                 ),
-                SizedBox(height: 10.0),
-                Container(
-                  padding: EdgeInsets.all(20),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Container(
-                          child: DataTable(
-                            columnSpacing: 30,
-                            dataRowHeight: 150,
-                            columns: [
-                              DataColumn(label: Text('No.')),
-                              DataColumn(label: Text('Nombres')),
-                              DataColumn(label: Text('Escolaridad')),
-                              DataColumn(label: Text('Grado')),
-                              DataColumn(label: Text('Asiste Escuela')),
-                              DataColumn(label: Text('Ocupación')),
-                              DataColumn(label: Text('Tipo De Empleo')),
-                              DataColumn(label: Text('Prestaciones Laborales')),
-                              DataColumn(label: Text('Jubilado o Pensionado')),
-                              DataColumn(label: Text('Derechohabiencia')),
-                              DataColumn(
-                                  label: Text('Motivo Derechohabiencia')),
-                            ],
-                            rows: [
-                              DataRow(cells: [
-                                DataCell(Text('1')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre1, hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad1,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar1,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela1,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela1 = value;
-                                              });
-                                            },
-                                          ),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Container(
+                        child: DataTable(
+                          dataRowHeight: 170,
+                          columns: [
+                            DataColumn(label: Text('No.')),
+                            DataColumn(label: Text('Nombres')),
+                            DataColumn(label: Text('Escolaridad')),
+                            DataColumn(label: Text('Grado')),
+                            DataColumn(label: Text('Asiste Escuela')),
+                            DataColumn(label: Text('Ocupación')),
+                            DataColumn(label: Text('Tipo De Empleo')),
+                            DataColumn(label: Text('Prestaciones Laborales')),
+                            DataColumn(label: Text('Jubilado o Pensionado')),
+                            DataColumn(label: Text('Derechohabiencia')),
+                            DataColumn(label: Text('Motivo Derechohabiencia')),
+                          ],
+                          rows: [
+                            DataRow(cells: [
+                              DataCell(Text('1')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre1, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad1,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar1,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Si'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela1,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela1 = value;
+                                            });
+                                          },
                                         ),
                                       ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela1,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela1 = value;
-                                              });
-                                            },
-                                          ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('No'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela1,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela1 = value;
+                                            });
+                                          },
                                         ),
                                       ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela1,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela1 = value;
-                                              });
-                                            },
-                                          ),
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela1,
+                                          onChanged: (AsisteEscuela value) {
+                                            setState(() {
+                                              _asisteEscuela1 = value;
+                                            });
+                                          },
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion1,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo1,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo De Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Column(
-                                          children: [
-                                            SizedBox(
-                                              height: 5.0,
-                                            ),
-                                            genTextExpand(
-                                                controller: _prestacion1,
-                                                hintName:
-                                                    'Prestaciones Laborales',
-                                                inputType:
-                                                    TextInputType.multiline),
-                                            ElevatedButton(
-                                              child: Text('Abrir Opciones'),
-                                              onPressed: () =>
-                                                  showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .vertical(
-                                                          top: Radius.circular(
-                                                              30.0),
-                                                        ),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion1,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo1,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion1,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
                                                       ),
-                                                      context: context,
-                                                      builder: (BuildContext
-                                                          context) {
-                                                        return StatefulBuilder(
-                                                            builder: (context,
-                                                                setstate) {
-                                                          return SizedBox(
-                                                            height: 500,
-                                                            child: ListView
-                                                                .builder(
-                                                              itemCount:
-                                                                  _PrestacionesList
-                                                                      .length,
-                                                              itemBuilder:
-                                                                  (context,
-                                                                          index) =>
-                                                                      InkWell(
-                                                                onTap: () {
-                                                                  setstate(() {
-                                                                    _PrestacionesList[
-                                                                            index]
-                                                                        .value = !_PrestacionesList[
-                                                                            index]
-                                                                        .value;
-                                                                  });
-                                                                },
-                                                                child: ListTile(
-                                                                  leading:
-                                                                      Checkbox(
-                                                                          value: _PrestacionesList[index]
-                                                                              .value,
-                                                                          onChanged:
-                                                                              (checked) {
-                                                                            setstate(() {
-                                                                              _PrestacionesList[index].value = checked;
-                                                                            });
-                                                                          }),
-                                                                  title: Text(_PrestacionesList[
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
                                                                           index]
-                                                                      .txt_desc_prestacioneslab
-                                                                      .toString()),
-                                                                ),
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
                                                               ),
                                                             ),
-                                                          );
-                                                        });
-                                                      }),
-                                            ),
-                                            ElevatedButton(
-                                                onPressed: addChecked1,
-                                                child: Text('Agregar')),
-                                          ],
-                                        ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked1,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado1,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado1 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado1,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado1 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado1,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado1 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia1,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia1,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('2')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre2, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad2,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar2,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
                                   children: <Widget>[
                                     Expanded(
                                       child: ListTile(
                                         title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado1,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela2,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado1 = value;
+                                              _asisteEscuela2 = value;
                                             });
                                           },
                                         ),
@@ -9254,13 +8738,12 @@ class _Escolaridad_SeguridadSocialTablaState
                                     Expanded(
                                       child: ListTile(
                                         title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado1,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela2,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado1 = value;
+                                              _asisteEscuela2 = value;
                                             });
                                           },
                                         ),
@@ -9268,221 +8751,215 @@ class _Escolaridad_SeguridadSocialTablaState
                                     ),
                                     Expanded(
                                       child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado1,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela2,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado1 = value;
+                                              _asisteEscuela2 = value;
                                             });
                                           },
                                         ),
                                       ),
                                     ),
                                   ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia1,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia1,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ]),
-                              DataRow(cells: [
-                                DataCell(Text('2')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre2, hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad2,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar2,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela2,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela2 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela2,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela2 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela2,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela2 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion2,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo2,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo De Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Column(
-                                          children: [
-                                            SizedBox(
-                                              height: 5.0,
-                                            ),
-                                            genTextExpand(
-                                                controller: _prestacion1,
-                                                hintName:
-                                                    'Prestaciones Laborales',
-                                                inputType:
-                                                    TextInputType.multiline),
-                                            ElevatedButton(
-                                              child: Text('Abrir Opciones'),
-                                              onPressed: () =>
-                                                  showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .vertical(
-                                                          top: Radius.circular(
-                                                              30.0),
-                                                        ),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion2,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo2,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion2,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
                                                       ),
-                                                      context: context,
-                                                      builder: (BuildContext
-                                                          context) {
-                                                        return StatefulBuilder(
-                                                            builder: (context,
-                                                                setstate) {
-                                                          return SizedBox(
-                                                            height: 500,
-                                                            child: ListView
-                                                                .builder(
-                                                              itemCount:
-                                                                  _PrestacionesList
-                                                                      .length,
-                                                              itemBuilder:
-                                                                  (context,
-                                                                          index) =>
-                                                                      InkWell(
-                                                                onTap: () {
-                                                                  setstate(() {
-                                                                    _PrestacionesList[
-                                                                            index]
-                                                                        .value = !_PrestacionesList[
-                                                                            index]
-                                                                        .value;
-                                                                  });
-                                                                },
-                                                                child: ListTile(
-                                                                  leading:
-                                                                      Checkbox(
-                                                                          value: _PrestacionesList[index]
-                                                                              .value,
-                                                                          onChanged:
-                                                                              (checked) {
-                                                                            setstate(() {
-                                                                              _PrestacionesList[index].value = checked;
-                                                                            });
-                                                                          }),
-                                                                  title: Text(_PrestacionesList[
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
                                                                           index]
-                                                                      .txt_desc_prestacioneslab
-                                                                      .toString()),
-                                                                ),
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
                                                               ),
                                                             ),
-                                                          );
-                                                        });
-                                                      }),
-                                            ),
-                                            ElevatedButton(
-                                                onPressed: addChecked1,
-                                                child: Text('Agregar')),
-                                          ],
-                                        ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked2,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado2,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado2 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado2,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado2 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado2,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado2 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia2,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia2,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('3')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre3, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad3,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar3,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
                                   children: <Widget>[
                                     Expanded(
                                       child: ListTile(
                                         title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado2,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela3,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado2 = value;
+                                              _asisteEscuela3 = value;
                                             });
                                           },
                                         ),
@@ -9491,13 +8968,12 @@ class _Escolaridad_SeguridadSocialTablaState
                                     Expanded(
                                       child: ListTile(
                                         title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado2,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela3,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado2 = value;
+                                              _asisteEscuela3 = value;
                                             });
                                           },
                                         ),
@@ -9505,145 +8981,215 @@ class _Escolaridad_SeguridadSocialTablaState
                                     ),
                                     Expanded(
                                       child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado2,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela3,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado2 = value;
+                                              _asisteEscuela3 = value;
                                             });
                                           },
                                         ),
                                       ),
                                     ),
                                   ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia2,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia2,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ]),
-                              DataRow(cells: [
-                                DataCell(Text('3')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre3, hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad3,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar3,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela3,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela3 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela3,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela3 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela3,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela3 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion3,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo3,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo De Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Obx(() =>
-                                            Column(children: genarateItems3())),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion3,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo3,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion3,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
+                                                                          index]
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked3,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado3,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado3 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado3,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado3 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado3,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado3 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia3,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia3,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('4')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre4, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad4,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar4,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
                                   children: <Widget>[
                                     Expanded(
                                       child: ListTile(
                                         title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado3,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela4,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado3 = value;
+                                              _asisteEscuela4 = value;
                                             });
                                           },
                                         ),
@@ -9652,13 +9198,12 @@ class _Escolaridad_SeguridadSocialTablaState
                                     Expanded(
                                       child: ListTile(
                                         title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado3,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela4,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado3 = value;
+                                              _asisteEscuela4 = value;
                                             });
                                           },
                                         ),
@@ -9666,145 +9211,215 @@ class _Escolaridad_SeguridadSocialTablaState
                                     ),
                                     Expanded(
                                       child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado3,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela4,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado3 = value;
+                                              _asisteEscuela4 = value;
                                             });
                                           },
                                         ),
                                       ),
                                     ),
                                   ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia3,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia3,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ]),
-                              DataRow(cells: [
-                                DataCell(Text('4')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre4, hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad4,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar4,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela4,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela4 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela4,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela4 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela4,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela4 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion4,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo4,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo De Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Obx(() =>
-                                            Column(children: genarateItems4())),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion4,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo4,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion4,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
+                                                                          index]
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked4,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado4,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado4 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado4,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado4 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado4,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado4 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia4,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia4,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('5')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre5, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad5,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar5,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
                                   children: <Widget>[
                                     Expanded(
                                       child: ListTile(
                                         title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado4,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela5,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado4 = value;
+                                              _asisteEscuela5 = value;
                                             });
                                           },
                                         ),
@@ -9813,13 +9428,12 @@ class _Escolaridad_SeguridadSocialTablaState
                                     Expanded(
                                       child: ListTile(
                                         title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado4,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela5,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado4 = value;
+                                              _asisteEscuela5 = value;
                                             });
                                           },
                                         ),
@@ -9827,145 +9441,215 @@ class _Escolaridad_SeguridadSocialTablaState
                                     ),
                                     Expanded(
                                       child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado4,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela5,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado4 = value;
+                                              _asisteEscuela5 = value;
                                             });
                                           },
                                         ),
                                       ),
                                     ),
                                   ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia4,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia4,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ]),
-                              DataRow(cells: [
-                                DataCell(Text('5')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre5, hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad5,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar5,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela5,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela5 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela5,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela5 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela5,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela5 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion5,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo5,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo de Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Obx(() =>
-                                            Column(children: genarateItems5())),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion5,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo5,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo de Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion5,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
+                                                                          index]
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked5,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado5,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado5 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado5,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado5 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado5,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado5 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia5,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia5,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('6')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre6, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad6,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar6,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
                                   children: <Widget>[
                                     Expanded(
                                       child: ListTile(
                                         title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado5,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela6,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado5 = value;
+                                              _asisteEscuela6 = value;
                                             });
                                           },
                                         ),
@@ -9974,13 +9658,12 @@ class _Escolaridad_SeguridadSocialTablaState
                                     Expanded(
                                       child: ListTile(
                                         title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado5,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela6,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado5 = value;
+                                              _asisteEscuela6 = value;
                                             });
                                           },
                                         ),
@@ -9988,145 +9671,215 @@ class _Escolaridad_SeguridadSocialTablaState
                                     ),
                                     Expanded(
                                       child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado5,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela6,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado5 = value;
+                                              _asisteEscuela6 = value;
                                             });
                                           },
                                         ),
                                       ),
                                     ),
                                   ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia5,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia5,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ]),
-                              DataRow(cells: [
-                                DataCell(Text('6')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre6, hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad6,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar6,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela6,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela6 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela6,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela6 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela6,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela6 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion6,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo6,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo De Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Obx(() =>
-                                            Column(children: genarateItems6())),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion6,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo6,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion6,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
+                                                                          index]
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked6,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado6,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado6 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado6,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado6 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado6,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado6 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia6,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia6,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('7')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre7, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad7,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar7,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
                                   children: <Widget>[
                                     Expanded(
                                       child: ListTile(
                                         title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado6,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela7,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado6 = value;
+                                              _asisteEscuela7 = value;
                                             });
                                           },
                                         ),
@@ -10135,13 +9888,12 @@ class _Escolaridad_SeguridadSocialTablaState
                                     Expanded(
                                       child: ListTile(
                                         title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado6,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela7,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado6 = value;
+                                              _asisteEscuela7 = value;
                                             });
                                           },
                                         ),
@@ -10149,145 +9901,215 @@ class _Escolaridad_SeguridadSocialTablaState
                                     ),
                                     Expanded(
                                       child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado6,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela7,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado6 = value;
+                                              _asisteEscuela7 = value;
                                             });
                                           },
                                         ),
                                       ),
                                     ),
                                   ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia6,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia6,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ]),
-                              DataRow(cells: [
-                                DataCell(Text('7')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre7, hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad7,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar7,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela7,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela7 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela7,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela7 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela7,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela7 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion7,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo7,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo de Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Obx(() =>
-                                            Column(children: genarateItems7())),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion7,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo7,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo de Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion7,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
+                                                                          index]
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked7,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado7,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado7 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado7,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado7 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado7,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado7 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia7,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia7,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('8')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre8, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad8,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar8,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
                                   children: <Widget>[
                                     Expanded(
                                       child: ListTile(
                                         title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado7,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela8,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado7 = value;
+                                              _asisteEscuela8 = value;
                                             });
                                           },
                                         ),
@@ -10296,13 +10118,12 @@ class _Escolaridad_SeguridadSocialTablaState
                                     Expanded(
                                       child: ListTile(
                                         title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado7,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela8,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado7 = value;
+                                              _asisteEscuela8 = value;
                                             });
                                           },
                                         ),
@@ -10310,145 +10131,215 @@ class _Escolaridad_SeguridadSocialTablaState
                                     ),
                                     Expanded(
                                       child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado7,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela8,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado7 = value;
+                                              _asisteEscuela8 = value;
                                             });
                                           },
                                         ),
                                       ),
                                     ),
                                   ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia7,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia7,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ]),
-                              DataRow(cells: [
-                                DataCell(Text('8')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre8, hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad8,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar8,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela8,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela8 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela8,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela8 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela8,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela8 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion8,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo8,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo De Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Obx(() =>
-                                            Column(children: genarateItems8())),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion8,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo8,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion8,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
+                                                                          index]
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked8,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado8,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado8 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado8,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado8 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado8,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado8 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia8,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia8,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('9')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre9, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad9,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar9,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
                                   children: <Widget>[
                                     Expanded(
                                       child: ListTile(
                                         title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado8,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela9,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado8 = value;
+                                              _asisteEscuela9 = value;
                                             });
                                           },
                                         ),
@@ -10457,13 +10348,12 @@ class _Escolaridad_SeguridadSocialTablaState
                                     Expanded(
                                       child: ListTile(
                                         title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado8,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela9,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado8 = value;
+                                              _asisteEscuela9 = value;
                                             });
                                           },
                                         ),
@@ -10471,145 +10361,215 @@ class _Escolaridad_SeguridadSocialTablaState
                                     ),
                                     Expanded(
                                       child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado8,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela9,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado8 = value;
+                                              _asisteEscuela9 = value;
                                             });
                                           },
                                         ),
                                       ),
                                     ),
                                   ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia8,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia8,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ]),
-                              DataRow(cells: [
-                                DataCell(Text('9')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre9, hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad9,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar9,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela9,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela9 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela9,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela9 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela9,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela9 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion9,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo9,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo de Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Obx(() =>
-                                            Column(children: genarateItems9())),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion9,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo9,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo de Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion9,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
+                                                                          index]
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked9,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado9,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado9 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado9,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado9 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado9,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado9 = value;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia9,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia9,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                            DataRow(cells: [
+                              DataCell(Text('10')),
+                              DataCell(getTextDataTable(
+                                  controller: _nombre10, hintName: 'Nombres')),
+                              DataCell(getSearchField(
+                                  controller: _escolaridad10,
+                                  suggestions: _Escolaridad.map((escolaridad) =>
+                                      SearchFieldListItem(
+                                          escolaridad.escolaridad,
+                                          item: escolaridad)).toList(),
+                                  hintName: 'Escolaridad')),
+                              DataCell(getSearchField(
+                                  controller: _gradoEscolar10,
+                                  suggestions: _GradoEscolar.map(
+                                      (gradoEscolar) => SearchFieldListItem(
+                                          gradoEscolar.grado,
+                                          item: gradoEscolar)).toList(),
+                                  hintName: 'Grado')),
+                              DataCell(
+                                Row(
                                   children: <Widget>[
                                     Expanded(
                                       child: ListTile(
                                         title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado9,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.si,
+                                          groupValue: _asisteEscuela10,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado9 = value;
+                                              _asisteEscuela10 = value;
                                             });
                                           },
                                         ),
@@ -10618,13 +10578,12 @@ class _Escolaridad_SeguridadSocialTablaState
                                     Expanded(
                                       child: ListTile(
                                         title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado9,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.no,
+                                          groupValue: _asisteEscuela10,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado9 = value;
+                                              _asisteEscuela10 = value;
                                             });
                                           },
                                         ),
@@ -10632,403 +10591,232 @@ class _Escolaridad_SeguridadSocialTablaState
                                     ),
                                     Expanded(
                                       child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado9,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
+                                        title: Text('Otro'),
+                                        leading: Radio<AsisteEscuela>(
+                                          value: AsisteEscuela.na,
+                                          groupValue: _asisteEscuela10,
+                                          onChanged: (AsisteEscuela value) {
                                             setState(() {
-                                              _jubilacionPensionado9 = value;
+                                              _asisteEscuela10 = value;
                                             });
                                           },
                                         ),
                                       ),
                                     ),
                                   ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia9,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia9,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ]),
-                              DataRow(cells: [
-                                DataCell(Text('10')),
-                                DataCell(getTextDataTable(
-                                    controller: _nombre10,
-                                    hintName: 'Nombres')),
-                                DataCell(getSearchField(
-                                    controller: _escolaridad10,
-                                    suggestions: _Escolaridad.map(
-                                        (escolaridad) => SearchFieldListItem(
-                                            escolaridad.escolaridad,
-                                            item: escolaridad)).toList(),
-                                    hintName: 'Escolaridad')),
-                                DataCell(getSearchField(
-                                    controller: _gradoEscolar10,
-                                    suggestions: _GradoEscolar.map(
-                                        (gradoEscolar) => SearchFieldListItem(
-                                            gradoEscolar.grado,
-                                            item: gradoEscolar)).toList(),
-                                    hintName: 'Grado')),
-                                DataCell(
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Si'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.si,
-                                            groupValue: _asisteEscuela10,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela10 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('No'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.no,
-                                            groupValue: _asisteEscuela10,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela10 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: ListTile(
-                                          title: Text('Otro'),
-                                          leading: Radio<AsisteEscuela>(
-                                            value: AsisteEscuela.na,
-                                            groupValue: _asisteEscuela10,
-                                            onChanged: (AsisteEscuela value) {
-                                              setState(() {
-                                                _asisteEscuela10 = value;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _ocupacion10,
-                                    suggestions: _Ocupacion.map((ocupacion) =>
-                                        SearchFieldListItem(ocupacion.ocupacion,
-                                            item: ocupacion)).toList(),
-                                    hintName: 'Ocupación')),
-                                DataCell(getSearchTipoEmpleado(
-                                    controller: _tipoEmpleo10,
-                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                        SearchFieldListItem(
-                                            tipoEmpleo.TipoEmpleo,
-                                            item: tipoEmpleo)).toList(),
-                                    hintName: 'Tipo De Empleo')),
-                                DataCell(
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      scrollDirection: Axis.vertical,
-                                      child: Container(
-                                        child: Obx(() => Column(
-                                            children: genarateItems10())),
+                              ),
+                              DataCell(getSearchField(
+                                  controller: _ocupacion10,
+                                  suggestions: _Ocupacion.map((ocupacion) =>
+                                      SearchFieldListItem(ocupacion.ocupacion,
+                                          item: ocupacion)).toList(),
+                                  hintName: 'Ocupación')),
+                              DataCell(getSearchTipoEmpleado(
+                                  controller: _tipoEmpleo10,
+                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
+                                          item: tipoEmpleo)).toList(),
+                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _prestacion10,
+                                              hintName:
+                                                  'Prestaciones Laborales',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _PrestacionesList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _PrestacionesList[
+                                                                          index]
+                                                                      .value = !_PrestacionesList[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _PrestacionesList[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _PrestacionesList[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_PrestacionesList[
+                                                                        index]
+                                                                    .txt_desc_prestacioneslab
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked10,
+                                              child: Text('Agregar')),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                DataCell(Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      child: ListTile(
-                                        title: Text('Si'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.si,
-                                          groupValue: _jubilacionPensionado10,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
-                                            setState(() {
-                                              _jubilacionPensionado10 = value;
-                                            });
-                                          },
-                                        ),
+                              ),
+                              DataCell(Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('Si'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.si,
+                                        groupValue: _jubilacionPensionado10,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado10 = value;
+                                          });
+                                        },
                                       ),
                                     ),
-                                    Expanded(
-                                      child: ListTile(
-                                        title: Text('No'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.no,
-                                          groupValue: _jubilacionPensionado10,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
-                                            setState(() {
-                                              _jubilacionPensionado10 = value;
-                                            });
-                                          },
-                                        ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('No'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.no,
+                                        groupValue: _jubilacionPensionado10,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado10 = value;
+                                          });
+                                        },
                                       ),
                                     ),
-                                    Expanded(
-                                      child: ListTile(
-                                        title: Text('N/A'),
-                                        leading: Radio<JubilacionPensionado>(
-                                          value: JubilacionPensionado.na,
-                                          groupValue: _jubilacionPensionado10,
-                                          onChanged:
-                                              (JubilacionPensionado value) {
-                                            setState(() {
-                                              _jubilacionPensionado10 = value;
-                                            });
-                                          },
-                                        ),
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('N/A'),
+                                      leading: Radio<JubilacionPensionado>(
+                                        value: JubilacionPensionado.na,
+                                        groupValue: _jubilacionPensionado10,
+                                        onChanged:
+                                            (JubilacionPensionado value) {
+                                          setState(() {
+                                            _jubilacionPensionado10 = value;
+                                          });
+                                        },
                                       ),
                                     ),
-                                  ],
-                                )),
-                                DataCell(getSearchField(
-                                    controller: _derechohabiencia10,
-                                    suggestions: _Derechohabiencia.map(
-                                            (derechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    derechohabiencia
-                                                        .derechoHabiencia,
-                                                    item: derechohabiencia))
-                                        .toList(),
-                                    hintName: 'Derechohabiencia')),
-                                DataCell(getSearchField(
-                                    controller: _motivoderechohabiencia10,
-                                    suggestions: _MotivioDerechohabiencia.map(
-                                            (motivoderechohabiencia) =>
-                                                SearchFieldListItem(
-                                                    motivoderechohabiencia
-                                                        .motivoDerechoHabiencia,
-                                                    item:
-                                                        motivoderechohabiencia))
-                                        .toList(),
-                                    hintName: 'Motivo Derechohabiencia'))
-                              ])
-                            ],
-                          ),
+                                  ),
+                                ],
+                              )),
+                              DataCell(getSearchField(
+                                  controller: _derechohabiencia10,
+                                  suggestions: _Derechohabiencia.map(
+                                      (derechohabiencia) => SearchFieldListItem(
+                                          derechohabiencia.derechoHabiencia,
+                                          item: derechohabiencia)).toList(),
+                                  hintName: 'Derechohabiencia')),
+                              DataCell(getSearchField(
+                                  controller: _motivoderechohabiencia10,
+                                  suggestions: _MotivioDerechohabiencia.map(
+                                          (motivoderechohabiencia) =>
+                                              SearchFieldListItem(
+                                                  motivoderechohabiencia
+                                                      .motivoDerechoHabiencia,
+                                                  item: motivoderechohabiencia))
+                                      .toList(),
+                                  hintName: 'Motivo Derechohabiencia'))
+                            ]),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(20.0),
-                  width: double.infinity,
-                  child: TextButton.icon(
-                      onPressed: insertarDatos,
-                      icon: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
                       ),
-                      label: Text(
-                        'Continuar',
-                        style: TextStyle(color: Colors.white),
-                      )),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(30.0),
+                    ],
                   ),
                 ),
-                SizedBox(height: 10.0),
-                Container(
-                  margin: EdgeInsets.all(20.0),
-                  width: double.infinity,
-                  child: TextButton.icon(
-                    onPressed: actualizar,
-                    icon: Icon(Icons.arrow_circle_right_outlined,
-                        color: Colors.white),
-                    label: Text(
-                      'Actualizar',
-                      style: TextStyle(color: Colors.white),
+              ),
+              Container(
+                margin: EdgeInsets.all(20.0),
+                width: double.infinity,
+                child: TextButton.icon(
+                    onPressed: insertarDatos,
+                    icon: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
                     ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(30.0),
+                    label: Text(
+                      'Continuar',
+                      style: TextStyle(color: Colors.white),
+                    )),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Container(
+                margin: EdgeInsets.all(20.0),
+                width: double.infinity,
+                child: TextButton.icon(
+                  onPressed: actualizar,
+                  icon: Icon(Icons.arrow_circle_right_outlined,
+                      color: Colors.white),
+                  label: Text(
+                    'Actualizar',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
-              ],
-            ),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+              ),
+            ]),
           ),
         ),
       ),
     );
-  }
-
-  List<Widget> genarateItems1() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList1.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList1[i].value,
-          title: Text(dataList1[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList1[i].value = v ?? false;
-            dataList1.refresh();
-          }));
-    }
-    return result;
-  }
-
-  List<Widget> genarateItems2() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList2.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList2[i].value,
-          title: Text(dataList2[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList2[i].value = v ?? false;
-            dataList2.refresh();
-          }));
-    }
-    return result;
-  }
-
-  List<Widget> genarateItems3() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList3.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList3[i].value,
-          title: Text(dataList3[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList3[i].value = v ?? false;
-            dataList3.refresh();
-          }));
-    }
-    return result;
-  }
-
-  List<Widget> genarateItems4() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList4.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList4[i].value,
-          title: Text(dataList4[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList4[i].value = v ?? false;
-            dataList4.refresh();
-          }));
-    }
-    return result;
-  }
-
-  List<Widget> genarateItems5() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList5.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList5[i].value,
-          title: Text(dataList5[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList5[i].value = v ?? false;
-            dataList5.refresh();
-          }));
-    }
-    return result;
-  }
-
-  List<Widget> genarateItems6() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList6.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList6[i].value,
-          title: Text(dataList6[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList6[i].value = v ?? false;
-            dataList6.refresh();
-          }));
-    }
-    return result;
-  }
-
-  List<Widget> genarateItems7() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList7.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList7[i].value,
-          title: Text(dataList7[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList7[i].value = v ?? false;
-            dataList7.refresh();
-          }));
-    }
-    return result;
-  }
-
-  List<Widget> genarateItems8() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList9.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList9[i].value,
-          title: Text(dataList9[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList9[i].value = v ?? false;
-            dataList9.refresh();
-          }));
-    }
-    return result;
-  }
-
-  List<Widget> genarateItems9() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList9.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList9[i].value,
-          title: Text(dataList9[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList9[i].value = v ?? false;
-            dataList9.refresh();
-          }));
-    }
-    return result;
-  }
-
-  List<Widget> genarateItems10() {
-    final result = <Widget>[];
-    for (int i = 0; i < dataList10.length; i++) {
-      result.add(CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          value: dataList10[i].value,
-          title: Text(dataList10[i].txt_desc_prestacioneslab),
-          onChanged: (v) {
-            dataList10[i].value = v ?? false;
-            dataList10.refresh();
-          }));
-    }
-    return result;
   }
 }

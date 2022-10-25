@@ -14,7 +14,7 @@ class getTextDataTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 5),
+      margin: EdgeInsets.only(bottom: 54),
       width: 300,
       child: TextFormField(
         textCapitalization: TextCapitalization.words,

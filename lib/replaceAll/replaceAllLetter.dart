@@ -1,7 +1,7 @@
 class replaceAllLetter {
-
   replaceLetter(String value) {
-    String val = value.replaceAll("[", "")
+    String val = value
+        .replaceAll("[", "")
         .replaceAll("]", "")
         .replaceAll("A", "")
         .replaceAll("B", "")
@@ -65,13 +65,114 @@ class replaceAllLetter {
         .replaceAll("í", "")
         .replaceAll("ó", "")
         .replaceAll("ú", "")
-        .replaceAll("z", "");
+        .replaceAll("z", "")
+        .replaceAll(",", "")
+        .replaceAll("/", "");
 
     return val;
   }
 
   replaceSymbol(String value) {
     var val = value.replaceAll("[", "").replaceAll("]", "");
+
+    return val;
+  }
+
+  replaceOrdPresta(String value) {
+    var val = value
+        .replaceAll("a", "")
+        .replaceAll("b", "")
+        .replaceAll("c", "")
+        .replaceAll("d", "")
+        .replaceAll("e", "")
+        .replaceAll("f", "")
+        .replaceAll("g", "")
+        .replaceAll("h", "")
+        .replaceAll("i", "")
+        .replaceAll("j", "")
+        .replaceAll("k", "")
+        .replaceAll("l", "")
+        .replaceAll("m", "")
+        .replaceAll("n", "")
+        .replaceAll("ñ", "")
+        .replaceAll("o", "")
+        .replaceAll("p", "")
+        .replaceAll("q", "")
+        .replaceAll("r", "")
+        .replaceAll("s", "")
+        .replaceAll("t", "")
+        .replaceAll("u", "")
+        .replaceAll("v", "")
+        .replaceAll("w", "")
+        .replaceAll("x", "")
+        .replaceAll("y", "")
+        .replaceAll("Á", "")
+        .replaceAll("É", "")
+        .replaceAll("Í", "")
+        .replaceAll("Ó", "")
+        .replaceAll("Ú", "")
+        .replaceAll("á", "")
+        .replaceAll("é", "")
+        .replaceAll("í", "")
+        .replaceAll("ó", "")
+        .replaceAll("ú", "")
+        .replaceAll("z", "")
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "")
+        .replaceAll(",", "")
+        .replaceAll("/", "");
+
+    return val;
+  }
+
+  replaceAll(String value) {
+    var val = value
+        .replaceAll("1", "")
+        .replaceAll("2", "")
+        .replaceAll("3", "")
+        .replaceAll("4", "")
+        .replaceAll("5", "")
+        .replaceAll("6", "")
+        .replaceAll("7", "")
+        .replaceAll("8", "")
+        .replaceAll("9", "")
+        .replaceAll("0", "")
+        .replaceAll("A", "")
+        .replaceAll("B", "")
+        .replaceAll("C", "")
+        .replaceAll("D", "")
+        .replaceAll("E", "")
+        .replaceAll("F", "")
+        .replaceAll("G", "")
+        .replaceAll("H", "")
+        .replaceAll("I", "")
+        .replaceAll("J", "")
+        .replaceAll("K", "")
+        .replaceAll("L", "")
+        .replaceAll("M", "")
+        .replaceAll("N", "")
+        .replaceAll("Ñ", "")
+        .replaceAll("O", "")
+        .replaceAll("P", "")
+        .replaceAll("Q", "")
+        .replaceAll("R", "")
+        .replaceAll("S", "")
+        .replaceAll("T", "")
+        .replaceAll("V", "")
+        .replaceAll("W", "")
+        .replaceAll("X", "")
+        .replaceAll("Y", "")
+        .replaceAll("Z", "")
+        .replaceAll(",", "")
+        .replaceAll("/", "");
 
     return val;
   }
