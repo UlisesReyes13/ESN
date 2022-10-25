@@ -5,6 +5,7 @@ import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genBotonFotografia.dart';
 import 'package:esn/Comm/genSearchField.dart';
 import 'package:esn/Comm/genTextDataTable.dart';
+import 'package:esn/Comm/genTextExpand.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
@@ -17,6 +18,7 @@ import 'package:esn/Model/PuebloIndigenaModel.dart';
 import 'package:esn/Model/Salud_PertenenciaIndigenaTablaModel.dart';
 import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/Infraestructura_Vivienda.dart';
+import 'package:esn/replaceAll/replaceAllLetter.dart';
 import 'package:esn/services/Utility.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -161,6 +163,8 @@ class _Salud_PertenenciaIndigenaTablaState
   final _puebloIndigena6 = TextEditingController();
   final _clasificacion6 = TextEditingController();
   final _ponderacion6 = TextEditingController();
+  List<CondicioneSaludModel> selectedItemsCond6 = [];
+  List<ClasificacionModel> selectedItemsClas6 = [];
 
   File _image6_1;
   File _image6_2;
@@ -175,6 +179,36 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto6_4 = null;
   var foto6_5 = null;
 
+  addChecked6Cond(){
+    List<CondicioneSaludModel> previa6Cond = [];
+    previa6Cond = _Condiciones;
+    selectedItemsCond6.clear();
+    for(var select6Cond in previa6Cond){
+      if (select6Cond.value) selectedItemsCond6.add(select6Cond);
+    }
+    setState(() => previa6Cond = selectedItemsCond6);
+    print(selectedItemsCond6);
+    var condicion6 = selectedItemsCond6.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal6 = rpl.replaceSymbol(condicion6);
+    _condicionSalud6.text = condicionFinal6;
+  }
+
+  addChecked6Clas(){
+    List<ClasificacionModel> previa6CLas = [];
+    previa6CLas = _Clasificaciones;
+    selectedItemsClas6.clear();
+    for(var select6Clas in previa6CLas){
+      if (select6Clas.value) selectedItemsClas6.add(select6Clas);
+    }
+    setState(() => previa6CLas = selectedItemsClas6);
+    print(selectedItemsClas6);
+    var clasificacion6 = selectedItemsClas6.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal6 = rpl.replaceSymbol(clasificacion6);
+    _clasificacion6.text = clasificacionFinal6;
+  }
+
   final _nombre7 = TextEditingController();
   final _discapacidades7 = TextEditingController();
   final _adicciones7 = TextEditingController();
@@ -184,6 +218,9 @@ class _Salud_PertenenciaIndigenaTablaState
   final _puebloIndigena7 = TextEditingController();
   final _clasificacion7 = TextEditingController();
   final _ponderacion7 = TextEditingController();
+  List<CondicioneSaludModel> selectedItemsCond7 = [];
+  List<ClasificacionModel> selectedItemsClas7 = [];
+  
 
   File _image7_1;
   File _image7_2;
@@ -197,6 +234,36 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto7_3 = null;
   var foto7_4 = null;
   var foto7_5 = null;
+
+  addChecked7Cond(){
+    List<CondicioneSaludModel> previa7Cond = [];
+    previa7Cond = _Condiciones;
+    selectedItemsCond7.clear();
+    for(var select7Cond in previa7Cond){
+      if (select7Cond.value) selectedItemsCond7.add(select7Cond);
+    }
+    setState(() => previa7Cond = selectedItemsCond7);
+    print(selectedItemsCond7);
+    var condicion7 = selectedItemsCond7.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal7 = rpl.replaceSymbol(condicion7);
+    _condicionSalud7.text = condicionFinal7;
+  }
+
+  addChecked7Clas(){
+    List<ClasificacionModel> previa7CLas = [];
+    previa7CLas = _Clasificaciones;
+    selectedItemsClas7.clear();
+    for(var select7Clas in previa7CLas){
+      if (select7Clas.value) selectedItemsClas7.add(select7Clas);
+    }
+    setState(() => previa7CLas = selectedItemsClas7);
+    print(selectedItemsClas7);
+    var clasificacion7 = selectedItemsClas7.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal7 = rpl.replaceSymbol(clasificacion7);
+    _clasificacion7.text = clasificacionFinal7;
+  }
 
   final _nombre8 = TextEditingController();
   final _discapacidades8 = TextEditingController();
@@ -221,6 +288,39 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto8_4 = null;
   var foto8_5 = null;
 
+  List<CondicioneSaludModel> selectedItemsCond8 = [];
+  List<ClasificacionModel> selectedItemsClas8 = [];
+
+addChecked8Cond(){
+    List<CondicioneSaludModel> previa8Cond = [];
+    previa8Cond = _Condiciones;
+    selectedItemsCond8.clear();
+    for(var select8Cond in previa8Cond){
+      if (select8Cond.value) selectedItemsCond8.add(select8Cond);
+    }
+    setState(() => previa8Cond = selectedItemsCond8);
+    print(selectedItemsCond8);
+    var condicion8 = selectedItemsCond8.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal8 = rpl.replaceSymbol(condicion8);
+    _condicionSalud8.text = condicionFinal8;
+  }
+
+  addChecked8Clas(){
+    List<ClasificacionModel> previa8CLas = [];
+    previa8CLas = _Clasificaciones;
+    selectedItemsClas8.clear();
+    for(var select8Clas in previa8CLas){
+      if (select8Clas.value) selectedItemsClas8.add(select8Clas);
+    }
+    setState(() => previa8CLas = selectedItemsClas8);
+    print(selectedItemsClas8);
+    var clasificacion8 = selectedItemsClas8.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal8 = rpl.replaceSymbol(clasificacion8);
+    _clasificacion8.text = clasificacionFinal8;
+  }
+
   final _nombre9 = TextEditingController();
   final _discapacidades9 = TextEditingController();
   final _adicciones9 = TextEditingController();
@@ -244,6 +344,39 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto9_4 = null;
   var foto9_5 = null;
 
+  List<CondicioneSaludModel> selectedItemsCond9 = [];
+  List<ClasificacionModel> selectedItemsClas9 = [];
+
+addChecked9Cond(){
+    List<CondicioneSaludModel> previa9Cond = [];
+    previa9Cond = _Condiciones;
+    selectedItemsCond9.clear();
+    for(var select9Cond in previa9Cond){
+      if (select9Cond.value) selectedItemsCond9.add(select9Cond);
+    }
+    setState(() => previa9Cond = selectedItemsCond9);
+    print(selectedItemsCond9);
+    var condicion9 = selectedItemsCond9.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal9 = rpl.replaceSymbol(condicion9);
+    _condicionSalud9.text = condicionFinal9;
+  }
+
+  addChecked9Clas(){
+    List<ClasificacionModel> previa9CLas = [];
+    previa9CLas = _Clasificaciones;
+    selectedItemsClas9.clear();
+    for(var select9Clas in previa9CLas){
+      if (select9Clas.value) selectedItemsClas9.add(select9Clas);
+    }
+    setState(() => previa9CLas = selectedItemsClas9);
+    print(selectedItemsClas9);
+    var clasificacion9 = selectedItemsClas9.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal9 = rpl.replaceSymbol(clasificacion9);
+    _clasificacion9.text = clasificacionFinal9;
+  }
+
   final _nombre10 = TextEditingController();
   final _discapacidades10 = TextEditingController();
   final _adicciones10 = TextEditingController();
@@ -266,6 +399,38 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto10_3 = null;
   var foto10_4 = null;
   var foto10_5 = null;
+  List<CondicioneSaludModel> selectedItemsCond10 = [];
+  List<ClasificacionModel> selectedItemsClas10 = [];
+
+addChecked10Cond(){
+    List<CondicioneSaludModel> previa10Cond = [];
+    previa10Cond = _Condiciones;
+    selectedItemsCond10.clear();
+    for(var select10Cond in previa10Cond){
+      if (select10Cond.value) selectedItemsCond10.add(select10Cond);
+    }
+    setState(() => previa10Cond = selectedItemsCond10);
+    print(selectedItemsCond10);
+    var condicion10 = selectedItemsCond10.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal10 = rpl.replaceSymbol(condicion10);
+    _condicionSalud10.text = condicionFinal10;
+  }
+
+  addChecked10Clas(){
+    List<ClasificacionModel> previa10CLas = [];
+    previa10CLas = _Clasificaciones;
+    selectedItemsClas10.clear();
+    for(var select10Clas in previa10CLas){
+      if (select10Clas.value) selectedItemsClas10.add(select10Clas);
+    }
+    setState(() => previa10CLas = selectedItemsClas10);
+    print(selectedItemsClas10);
+    var clasificacion10 = selectedItemsClas10.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal10 = rpl.replaceSymbol(clasificacion10);
+    _clasificacion10.text = clasificacionFinal10;
+  }
 
   final picker = ImagePicker();
 
@@ -3351,7 +3516,6 @@ class _Salud_PertenenciaIndigenaTablaState
           _OrdenCapacidades.add(categoryModel2);
         });
       });
-
 
 
       _OrdenAdicciones = List<AdiccionesModel>();
@@ -8369,20 +8533,176 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud6,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion6,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _condicionSalud6,
+                                              hintName:
+                                                  'Condiciones Salud',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Condiciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Condiciones[
+                                                                          index]
+                                                                      .value = !_Condiciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Condiciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Condiciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Condiciones[
+                                                                        index]
+                                                                    .CondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked6Cond,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _clasificacion6,
+                                              hintName:
+                                                  'Clasificación',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Clasificaciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Clasificaciones[
+                                                                          index]
+                                                                      .value = !_Clasificaciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Clasificaciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Clasificaciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Clasificaciones[
+                                                                        index]
+                                                                    .ClasCondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked6Clas,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion6,
                                   hintName: 'Ponderación',
@@ -8513,20 +8833,176 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud7,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion7,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _condicionSalud7,
+                                              hintName:
+                                                  'Condiciones de Salud',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Condiciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Condiciones[
+                                                                          index]
+                                                                      .value = !_Condiciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Condiciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Condiciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Condiciones[
+                                                                        index]
+                                                                    .CondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked7Cond,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _clasificacion7,
+                                              hintName:
+                                                  'Clasificación',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Clasificaciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Clasificaciones[
+                                                                          index]
+                                                                      .value = !_Clasificaciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Clasificaciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Clasificaciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Clasificaciones[
+                                                                        index]
+                                                                    .ClasCondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked7Clas,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion7,
                                   hintName: 'Ponderación',
@@ -8654,20 +9130,176 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud8,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion8,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _condicionSalud8,
+                                              hintName:
+                                                  'Condiciones de Salud',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Condiciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Condiciones[
+                                                                          index]
+                                                                      .value = !_Condiciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Condiciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Condiciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Condiciones[
+                                                                        index]
+                                                                    .CondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked8Cond,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _clasificacion8,
+                                              hintName:
+                                                  'Clasificación',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Clasificaciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Clasificaciones[
+                                                                          index]
+                                                                      .value = !_Clasificaciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Clasificaciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Clasificaciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Clasificaciones[
+                                                                        index]
+                                                                    .ClasCondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked8Clas,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion8,
                                   hintName: 'Ponderación',
@@ -8798,20 +9430,176 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud9,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion9,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _condicionSalud9,
+                                              hintName:
+                                                  'Condiciones de Salud',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Condiciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Condiciones[
+                                                                          index]
+                                                                      .value = !_Condiciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Condiciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Condiciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Condiciones[
+                                                                        index]
+                                                                    .CondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked9Cond,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _clasificacion9,
+                                              hintName:
+                                                  'Clasificación',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Clasificaciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Clasificaciones[
+                                                                          index]
+                                                                      .value = !_Clasificaciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Clasificaciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Clasificaciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Clasificaciones[
+                                                                        index]
+                                                                    .ClasCondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked9Clas,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion9,
                                   hintName: 'Ponderación',
@@ -8942,20 +9730,176 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud10,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion10,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _condicionSalud10,
+                                              hintName:
+                                                  'Condiciones de Salud',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Condiciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Condiciones[
+                                                                          index]
+                                                                      .value = !_Condiciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Condiciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Condiciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Condiciones[
+                                                                        index]
+                                                                    .CondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked10Cond,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.vertical,
+                                    child: Container(
+                                      child: Column(
+                                        children: [
+                                          genTextExpand(
+                                              controller: _clasificacion10,
+                                              hintName:
+                                                  'Clasificación',
+                                              inputType:
+                                                  TextInputType.multiline),
+                                          ElevatedButton(
+                                            child: Text('Abrir Opciones'),
+                                            onPressed: () =>
+                                                showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.vertical(
+                                                        top: Radius.circular(
+                                                            30.0),
+                                                      ),
+                                                    ),
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return StatefulBuilder(
+                                                          builder: (context,
+                                                              setstate) {
+                                                        return SizedBox(
+                                                          height: 500,
+                                                          child:
+                                                              ListView.builder(
+                                                            itemCount:
+                                                                _Clasificaciones
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                        index) =>
+                                                                    InkWell(
+                                                              onTap: () {
+                                                                setstate(() {
+                                                                  _Clasificaciones[
+                                                                          index]
+                                                                      .value = !_Clasificaciones[
+                                                                          index]
+                                                                      .value;
+                                                                });
+                                                              },
+                                                              child: ListTile(
+                                                                leading:
+                                                                    Checkbox(
+                                                                        value: _Clasificaciones[index]
+                                                                            .value,
+                                                                        onChanged:
+                                                                            (checked) {
+                                                                          setstate(
+                                                                              () {
+                                                                            _Clasificaciones[index].value =
+                                                                                checked;
+                                                                          });
+                                                                        }),
+                                                                title: Text(_Clasificaciones[
+                                                                        index]
+                                                                    .ClasCondicionesSalud
+                                                                    .toString()),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                    }),
+                                          ),
+                                          ElevatedButton(
+                                              onPressed: addChecked10Clas,
+                                              child: Text('Agregar')),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion10,
                                   hintName: 'Ponderación',

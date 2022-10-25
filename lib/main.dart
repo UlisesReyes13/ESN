@@ -32,12 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
-
-
-      home: Escolaridad_SeguridadSocialTabla('99999'),
-
-
+      home: Salud_PertenenciaIndigenaTabla('99999'),
     );
   }
 }
