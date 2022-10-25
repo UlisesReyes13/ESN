@@ -88,6 +88,20 @@ class CategoryService {
     return await _repository.readOrdenMotivoDerecho(motivoDerecho);
   }
 
+  readOrdenCapacidadesDif(String capacidades) async {
+    return await _repository.readOrdenCapacidadesDif(capacidades);
+  }
+
+  readOrdenAdicciones(String Adiccion) async {
+    return await _repository.readOrdenAdicciones(Adiccion);
+  }
+
+  readOrdenPuebloIndigena(String pueblo) async {
+    return await _repository.readOrdenPuebloIndigena(pueblo);
+  }
+
+
+
   readOrdencasa(String casa) async {
     return await _repository.readOrdenCasa(casa);
   }

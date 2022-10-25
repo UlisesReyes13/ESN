@@ -331,6 +331,10 @@ class _Salud_PertenenciaIndigenaTablaState
       List<Salud_PertenenciaIndigenenaTablaModel>();
   List<Salud_PertenenciaIndigenenaTablaModel> _SaludPertenencia10 =
       List<Salud_PertenenciaIndigenenaTablaModel>();
+  List<CapacidadesDiferentes> _OrdenCapacidades = List<CapacidadesDiferentes>();
+  List<AdiccionesModel> _OrdenAdicciones = List<AdiccionesModel>();
+  List<PuebloIndigenaModel> _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+
   @override
   void initState() {
     getAllCategoriesAdicciones();
@@ -364,6 +368,9 @@ class _Salud_PertenenciaIndigenaTablaState
     getAllEstructura9();
     getAllEstructura10();
   }
+
+
+
 
   getAllSaludPertenencia1() async {
     _SaludPertenencia1 = List<Salud_PertenenciaIndigenenaTablaModel>();
@@ -411,19 +418,11 @@ class _Salud_PertenenciaIndigenaTablaState
             .first +
             " " +
             _SaludPertenencia1
-                .map((e) => e.OrdenCapacidadDiferente)
-                .first +
-            " " +
-            _SaludPertenencia1
                 .map((e) => e.CapacidadDiferente)
                 .first;
     _adicciones1.text = _SaludPertenencia1
         .map((e) => e.ClaveAdiccion)
         .first +
-        " " +
-        _SaludPertenencia1
-            .map((e) => e.OrdenAdiccion)
-            .first +
         " " +
         _SaludPertenencia1
             .map((e) => e.Adiccion)
@@ -452,10 +451,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _SaludPertenencia1
             .map((e) => e.ClaveEtniaIndigena)
             .first +
-            " " +
-            _SaludPertenencia1
-                .map((e) => e.OrdenEtniaIndigena)
-                .first +
             " " +
             _SaludPertenencia1
                 .map((e) => e.EtniaIndigena)
@@ -643,19 +638,11 @@ class _Salud_PertenenciaIndigenaTablaState
             .first +
             " " +
             _SaludPertenencia2
-                .map((e) => e.OrdenCapacidadDiferente)
-                .first +
-            " " +
-            _SaludPertenencia2
                 .map((e) => e.CapacidadDiferente)
                 .first;
     _adicciones2.text = _SaludPertenencia2
         .map((e) => e.ClaveAdiccion)
         .first +
-        " " +
-        _SaludPertenencia2
-            .map((e) => e.OrdenAdiccion)
-            .first +
         " " +
         _SaludPertenencia2
             .map((e) => e.Adiccion)
@@ -684,10 +671,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _SaludPertenencia2
             .map((e) => e.ClaveEtniaIndigena)
             .first +
-            " " +
-            _SaludPertenencia2
-                .map((e) => e.OrdenEtniaIndigena)
-                .first +
             " " +
             _SaludPertenencia2
                 .map((e) => e.EtniaIndigena)
@@ -775,19 +758,11 @@ class _Salud_PertenenciaIndigenaTablaState
             .first +
             " " +
             _SaludPertenencia3
-                .map((e) => e.OrdenCapacidadDiferente)
-                .first +
-            " " +
-            _SaludPertenencia3
                 .map((e) => e.CapacidadDiferente)
                 .first;
     _adicciones3.text = _SaludPertenencia3
         .map((e) => e.ClaveAdiccion)
         .first +
-        " " +
-        _SaludPertenencia3
-            .map((e) => e.OrdenAdiccion)
-            .first +
         " " +
         _SaludPertenencia3
             .map((e) => e.Adiccion)
@@ -816,10 +791,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _SaludPertenencia3
             .map((e) => e.ClaveEtniaIndigena)
             .first +
-            " " +
-            _SaludPertenencia3
-                .map((e) => e.OrdenEtniaIndigena)
-                .first +
             " " +
             _SaludPertenencia3
                 .map((e) => e.EtniaIndigena)
@@ -957,19 +928,11 @@ class _Salud_PertenenciaIndigenaTablaState
             .first +
             " " +
             _SaludPertenencia4
-                .map((e) => e.OrdenCapacidadDiferente)
-                .first +
-            " " +
-            _SaludPertenencia4
                 .map((e) => e.CapacidadDiferente)
                 .first;
     _adicciones4.text = _SaludPertenencia4
         .map((e) => e.ClaveAdiccion)
         .first +
-        " " +
-        _SaludPertenencia4
-            .map((e) => e.OrdenAdiccion)
-            .first +
         " " +
         _SaludPertenencia4
             .map((e) => e.Adiccion)
@@ -998,10 +961,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _SaludPertenencia4
             .map((e) => e.ClaveEtniaIndigena)
             .first +
-            " " +
-            _SaludPertenencia4
-                .map((e) => e.OrdenEtniaIndigena)
-                .first +
             " " +
             _SaludPertenencia4
                 .map((e) => e.EtniaIndigena)
@@ -1139,21 +1098,12 @@ class _Salud_PertenenciaIndigenaTablaState
             .first +
             " " +
             _SaludPertenencia5
-                .map((e) => e.OrdenCapacidadDiferente)
-                .first +
-            " " +
-            _SaludPertenencia5
                 .map((e) => e.CapacidadDiferente)
                 .first;
     _adicciones5.text = _SaludPertenencia5
         .map((e) => e.ClaveAdiccion)
         .first +
-        " " +
-        _SaludPertenencia5
-            .map((e) => e.OrdenAdiccion)
-            .first +
-        " " +
-        _SaludPertenencia5
+        " " +        _SaludPertenencia5
             .map((e) => e.Adiccion)
             .first;
 
@@ -1180,10 +1130,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _SaludPertenencia5
             .map((e) => e.ClaveEtniaIndigena)
             .first +
-            " " +
-            _SaludPertenencia5
-                .map((e) => e.OrdenEtniaIndigena)
-                .first +
             " " +
             _SaludPertenencia5
                 .map((e) => e.EtniaIndigena)
@@ -1322,19 +1268,11 @@ class _Salud_PertenenciaIndigenaTablaState
             .first +
             " " +
             _SaludPertenencia6
-                .map((e) => e.OrdenCapacidadDiferente)
-                .first +
-            " " +
-            _SaludPertenencia6
                 .map((e) => e.CapacidadDiferente)
                 .first;
     _adicciones6.text = _SaludPertenencia6
         .map((e) => e.ClaveAdiccion)
         .first +
-        " " +
-        _SaludPertenencia6
-            .map((e) => e.OrdenAdiccion)
-            .first +
         " " +
         _SaludPertenencia6
             .map((e) => e.Adiccion)
@@ -1363,10 +1301,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _SaludPertenencia6
             .map((e) => e.ClaveEtniaIndigena)
             .first +
-            " " +
-            _SaludPertenencia6
-                .map((e) => e.OrdenEtniaIndigena)
-                .first +
             " " +
             _SaludPertenencia6
                 .map((e) => e.EtniaIndigena)
@@ -1504,19 +1438,11 @@ class _Salud_PertenenciaIndigenaTablaState
             .first +
             " " +
             _SaludPertenencia7
-                .map((e) => e.OrdenCapacidadDiferente)
-                .first +
-            " " +
-            _SaludPertenencia7
                 .map((e) => e.CapacidadDiferente)
                 .first;
     _adicciones7.text = _SaludPertenencia7
         .map((e) => e.ClaveAdiccion)
         .first +
-        " " +
-        _SaludPertenencia7
-            .map((e) => e.OrdenAdiccion)
-            .first +
         " " +
         _SaludPertenencia7
             .map((e) => e.Adiccion)
@@ -1545,10 +1471,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _SaludPertenencia7
             .map((e) => e.ClaveEtniaIndigena)
             .first +
-            " " +
-            _SaludPertenencia7
-                .map((e) => e.OrdenEtniaIndigena)
-                .first +
             " " +
             _SaludPertenencia7
                 .map((e) => e.EtniaIndigena)
@@ -1686,19 +1608,11 @@ class _Salud_PertenenciaIndigenaTablaState
             .first +
             " " +
             _SaludPertenencia8
-                .map((e) => e.OrdenCapacidadDiferente)
-                .first +
-            " " +
-            _SaludPertenencia8
                 .map((e) => e.CapacidadDiferente)
                 .first;
     _adicciones8.text = _SaludPertenencia8
         .map((e) => e.ClaveAdiccion)
         .first +
-        " " +
-        _SaludPertenencia8
-            .map((e) => e.OrdenAdiccion)
-            .first +
         " " +
         _SaludPertenencia8
             .map((e) => e.Adiccion)
@@ -1727,10 +1641,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _SaludPertenencia8
             .map((e) => e.ClaveEtniaIndigena)
             .first +
-            " " +
-            _SaludPertenencia8
-                .map((e) => e.OrdenEtniaIndigena)
-                .first +
             " " +
             _SaludPertenencia8
                 .map((e) => e.EtniaIndigena)
@@ -1868,19 +1778,11 @@ class _Salud_PertenenciaIndigenaTablaState
             .first +
             " " +
             _SaludPertenencia9
-                .map((e) => e.OrdenCapacidadDiferente)
-                .first +
-            " " +
-            _SaludPertenencia9
                 .map((e) => e.CapacidadDiferente)
                 .first;
     _adicciones9.text = _SaludPertenencia9
         .map((e) => e.ClaveAdiccion)
         .first +
-        " " +
-        _SaludPertenencia9
-            .map((e) => e.OrdenAdiccion)
-            .first +
         " " +
         _SaludPertenencia9
             .map((e) => e.Adiccion)
@@ -1909,10 +1811,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _SaludPertenencia9
             .map((e) => e.ClaveEtniaIndigena)
             .first +
-            " " +
-            _SaludPertenencia9
-                .map((e) => e.OrdenEtniaIndigena)
-                .first +
             " " +
             _SaludPertenencia9
                 .map((e) => e.EtniaIndigena)
@@ -2048,12 +1946,8 @@ class _Salud_PertenenciaIndigenaTablaState
     _discapacidades10.text =
         _SaludPertenencia10.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia10.map((e) => e.OrdenCapacidadDiferente).first +
-            " " +
             _SaludPertenencia10.map((e) => e.CapacidadDiferente).first;
     _adicciones10.text = _SaludPertenencia10.map((e) => e.ClaveAdiccion).first +
-        " " +
-        _SaludPertenencia10.map((e) => e.OrdenAdiccion).first +
         " " +
         _SaludPertenencia10.map((e) => e.Adiccion).first;
 
@@ -2068,8 +1962,6 @@ class _Salud_PertenenciaIndigenaTablaState
     _talla10.text = _SaludPertenencia10.map((e) => e.talla.toString()).first;
     _puebloIndigena10.text =
         _SaludPertenencia10.map((e) => e.ClaveEtniaIndigena).first +
-            " " +
-            _SaludPertenencia10.map((e) => e.OrdenEtniaIndigena).first +
             " " +
             _SaludPertenencia10.map((e) => e.EtniaIndigena).first;
 
@@ -3346,6 +3238,8 @@ class _Salud_PertenenciaIndigenaTablaState
     });
   }
 
+
+
   renglon1() async {
     var foto1;
     var foto2;
@@ -3448,15 +3342,49 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+
+      _OrdenCapacidades = List<CapacidadesDiferentes>();
+      var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades1.text);
+      categories1.forEach((category) {
+        setState(() {
+          var categoryModel2 = CapacidadesDiferentes();
+          categoryModel2.Orden = category['Orden'];
+          _OrdenCapacidades.add(categoryModel2);
+        });
+      });
+
+
+
+      _OrdenAdicciones = List<AdiccionesModel>();
+      var categories2 = await CategoryService().readOrdenAdicciones(_adicciones1.text);
+      categories2.forEach((category) {
+        setState(() {
+          var categoryModel3 = AdiccionesModel();
+          categoryModel3.Orden = category['Orden'];
+          _OrdenAdicciones.add(categoryModel3);
+        });
+      });
+
+
+
+      _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+      var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena1.text);
+      categories3.forEach((category) {
+        setState(() {
+          var categoryModel4 = PuebloIndigenaModel();
+          categoryModel4.Orden = category['Orden'];
+          _OrdenPuebloIndigena.add(categoryModel4);
+        });
+      });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades1.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-            (int.parse(_discapacidades1.text.substring(0, 1)) - 1).toString(),
+        OrdenCapacidadDiferente: _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones1.text.substring(0, 1),
-        OrdenAdiccion:
-            (int.parse(_adicciones1.text.substring(0, 1)) - 1).toString(),
+        OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso1.text),
         talla: double.parse(_talla1.text),
@@ -3482,9 +3410,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto4: foto4,
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena1.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena1.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto1.name.toString());
     
@@ -3513,6 +3439,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon2() async {
+
     var foto1;
     var foto2;
     var foto3;
@@ -3614,15 +3541,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades2.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones2.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena2.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades2.text.substring(0, 1),
         OrdenCapacidadDiferente:
-            (int.parse(_discapacidades2.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones2.text.substring(0, 1),
         OrdenAdiccion:
-            (int.parse(_adicciones2.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso2.text),
         talla: double.parse(_talla2.text),
@@ -3649,8 +3611,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena2.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena2.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto2.name.toString());
 
@@ -3679,6 +3640,8 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon3() async {
+
+
     var foto1;
     var foto2;
     var foto3;
@@ -3780,15 +3743,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades3.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones3.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena3.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades3.text.substring(0, 1),
         OrdenCapacidadDiferente:
-            (int.parse(_discapacidades3.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones3.text.substring(0, 1),
         OrdenAdiccion:
-            (int.parse(_adicciones3.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso3.text),
         talla: double.parse(_talla3.text),
@@ -3815,8 +3813,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena3.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena3.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto3.name.toString());
 
@@ -3845,6 +3842,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon4() async {
+
     var foto1;
     var foto2;
     var foto3;
@@ -3946,15 +3944,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades4.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones4.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena4.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades4.text.substring(0, 1),
         OrdenCapacidadDiferente:
-            (int.parse(_discapacidades4.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones4.text.substring(0, 1),
         OrdenAdiccion:
-            (int.parse(_adicciones4.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso4.text),
         talla: double.parse(_talla4.text),
@@ -3981,8 +4014,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena4.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena4.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto4.name.toString());
 
@@ -4011,6 +4043,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon5() async {
+
     var foto1;
     var foto2;
     var foto3;
@@ -4112,15 +4145,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades5.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones5.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena5.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades5.text.substring(0, 1),
         OrdenCapacidadDiferente:
-            (int.parse(_discapacidades5.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones5.text.substring(0, 1),
         OrdenAdiccion:
-            (int.parse(_adicciones5.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso5.text),
         talla: double.parse(_talla5.text),
@@ -4147,8 +4215,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena5.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena5.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto5.name.toString());
 
@@ -4177,6 +4244,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon6() async {
+
     var foto1;
     var foto2;
     var foto3;
@@ -4278,15 +4346,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades6.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones6.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena6.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades6.text.substring(0, 1),
         OrdenCapacidadDiferente:
-            (int.parse(_discapacidades6.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones6.text.substring(0, 1),
         OrdenAdiccion:
-            (int.parse(_adicciones6.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso6.text),
         talla: double.parse(_talla6.text),
@@ -4313,8 +4416,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena6.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena6.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto6.name.toString());
 
@@ -4343,6 +4445,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon7() async {
+
     var foto1;
     var foto2;
     var foto3;
@@ -4444,15 +4547,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades7.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones7.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena7.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades7.text.substring(0, 1),
         OrdenCapacidadDiferente:
-            (int.parse(_discapacidades7.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones7.text.substring(0, 1),
         OrdenAdiccion:
-            (int.parse(_adicciones7.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso7.text),
         talla: double.parse(_talla7.text),
@@ -4479,8 +4617,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena7.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena7.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto7.name.toString());
 
@@ -4509,6 +4646,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon8() async {
+
     var foto1;
     var foto2;
     var foto3;
@@ -4610,15 +4748,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades8.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones8.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena8.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades8.text.substring(0, 1),
         OrdenCapacidadDiferente:
-            (int.parse(_discapacidades8.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones8.text.substring(0, 1),
         OrdenAdiccion:
-            (int.parse(_adicciones8.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso8.text),
         talla: double.parse(_talla8.text),
@@ -4645,8 +4818,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena8.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena8.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto8.name.toString());
 
@@ -4675,6 +4847,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon9() async {
+
     var foto1;
     var foto2;
     var foto3;
@@ -4776,15 +4949,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades9.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones9.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena9.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades9.text.substring(0, 1),
         OrdenCapacidadDiferente:
-            (int.parse(_discapacidades9.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones9.text.substring(0, 1),
         OrdenAdiccion:
-            (int.parse(_adicciones9.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso9.text),
         talla: double.parse(_talla9.text),
@@ -4811,8 +5019,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena9.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena9.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto9.name.toString());
 
@@ -4841,6 +5048,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon10() async {
+
     var foto1;
     var foto2;
     var foto3;
@@ -4942,15 +5150,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades10.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones10.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena10.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades10.text.substring(0, 1),
         OrdenCapacidadDiferente:
-            (int.parse(_discapacidades10.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones10.text.substring(0, 1),
         OrdenAdiccion:
-            (int.parse(_adicciones10.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso10.text),
         talla: double.parse(_talla10.text),
@@ -4977,8 +5220,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5,
         ClaveEtniaIndigena: _puebloIndigena10.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-            (int.parse(_puebloIndigena10.text.substring(0, 2).trimRight()) - 1)
-                .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft(),
         incompleto: _incompleto10.name.toString());
 
@@ -5011,6 +5253,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon1() async {
+
 
     if(foto1_1 != null) {
       foto1_1 = foto1_1;
@@ -5127,15 +5370,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades1.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones1.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena1.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades1.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades1.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones1.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones1.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso1.text),
         talla: double.parse(_talla1.text),
@@ -5162,8 +5440,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto1_5,
         ClaveEtniaIndigena: _puebloIndigena1.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena1.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
@@ -5177,6 +5454,7 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon2() async {
+
 
     if(foto2_1 != null) {
       foto2_1 = foto2_1;
@@ -5294,15 +5572,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades2.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones2.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena2.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades2.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades2.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones2.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones2.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso2.text),
         talla: double.parse(_talla2.text),
@@ -5329,8 +5642,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto2_5,
         ClaveEtniaIndigena: _puebloIndigena2.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena2.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
@@ -5461,15 +5773,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades3.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones3.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena3.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades3.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades3.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones3.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones3.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso3.text),
         talla: double.parse(_talla3.text),
@@ -5496,8 +5843,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto3_5,
         ClaveEtniaIndigena: _puebloIndigena3.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena3.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
@@ -5628,15 +5974,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades4.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones4.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena4.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades4.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades4.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones4.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones4.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso4.text),
         talla: double.parse(_talla4.text),
@@ -5663,8 +6044,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto4_5,
         ClaveEtniaIndigena: _puebloIndigena4.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena4.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
@@ -5794,15 +6174,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades5.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones5.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena5.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades5.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades5.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones5.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones5.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso5.text),
         talla: double.parse(_talla5.text),
@@ -5829,8 +6244,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto5_5,
         ClaveEtniaIndigena: _puebloIndigena5.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena5.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
@@ -5961,15 +6375,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades6.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones6.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena6.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades6.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades6.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones6.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones6.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso6.text),
         talla: double.parse(_talla6.text),
@@ -5996,8 +6445,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto6_5,
         ClaveEtniaIndigena: _puebloIndigena6.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena6.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
@@ -6129,15 +6577,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades8.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones8.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena8.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades7.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades7.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones7.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones7.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso7.text),
         talla: double.parse(_talla7.text),
@@ -6164,8 +6647,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto7_5,
         ClaveEtniaIndigena: _puebloIndigena7.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena7.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
@@ -6296,15 +6778,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades8.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones8.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena8.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades8.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades8.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones8.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones8.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso8.text),
         talla: double.parse(_talla8.text),
@@ -6331,8 +6848,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto8_5,
         ClaveEtniaIndigena: _puebloIndigena8.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena8.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
@@ -6463,15 +6979,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades9.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones9.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena9.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades9.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades9.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones9.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones9.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso9.text),
         talla: double.parse(_talla9.text),
@@ -6498,8 +7049,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto9_5,
         ClaveEtniaIndigena: _puebloIndigena9.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena9.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
@@ -6629,15 +7179,50 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades10.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
+      });
+    });
+
+
+
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones10.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
+      });
+    });
+
+
+
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena10.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
+      });
+    });
+
+
     Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
         folio: int.parse(widget.folio),
         ClaveCapacidadDiferente: _discapacidades10.text.substring(0, 1),
         OrdenCapacidadDiferente:
-        (int.parse(_discapacidades10.text.substring(0, 1)) - 1).toString(),
+        _OrdenCapacidades.map((e) => e.Orden).first,
         CapacidadDiferente: CapacidadesD.trimLeft(),
         ClaveAdiccion: _adicciones10.text.substring(0, 1),
         OrdenAdiccion:
-        (int.parse(_adicciones10.text.substring(0, 1)) - 1).toString(),
+        _OrdenAdicciones.map((e) => e.Orden).first,
         Adiccion: Adicciones.trimLeft(),
         peso: double.parse(_peso10.text),
         talla: double.parse(_talla10.text),
@@ -6664,8 +7249,7 @@ class _Salud_PertenenciaIndigenaTablaState
         fileFoto5: foto10_5,
         ClaveEtniaIndigena: _puebloIndigena10.text.substring(0, 2).trimRight(),
         OrdenEtniaIndigena:
-        (int.parse(_puebloIndigena10.text.substring(0, 2).trimRight()) - 1)
-            .toString(),
+        _OrdenPuebloIndigena.map((e) => e.Orden).first,
         EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()

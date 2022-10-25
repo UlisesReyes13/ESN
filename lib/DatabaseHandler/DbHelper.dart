@@ -1387,6 +1387,21 @@ class DbHelper {
     return await connection.rawQuery("SELECT Orden  FROM tb_MotivoDerechohabiencias where MotivoDerechohabiencia like '${motivoDere}'");
   }
 
+  readOrdenCapacidadesDif(String Capacidades) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_CapacidadesDiferentes where CapacidadDiferente like '${Capacidades}'");
+  }
+
+  readOrdenAdicciones(String Adicciones) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_Adicciones where Adiccion like '${Adicciones}'");
+  }
+
+  readOrdenPuebloIndigena(String Pueblo) async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT Orden  FROM tb_EtniasIndigenas where EtniaIndigena like '${Pueblo}'");
+  }
+
   readOrdenCasa(String casa) async {
     var connection = await db;
     return await connection.rawQuery("SELECT Orden  FROM tb_TipoVivienda where TipoVivienda like '${casa}'");
