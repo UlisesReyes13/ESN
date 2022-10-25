@@ -11,7 +11,6 @@ import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/AdiccionesModel.dart';
 import 'package:esn/Model/ClasificacionModel.dart';
 import 'package:esn/Model/CondicionesSaludModel.dart';
-import 'package:esn/Model/DatosGeneralesModel.dart';
 import 'package:esn/Model/DiscapacidadesModel.dart';
 import 'package:esn/Model/EstructuraFamiliarModel.dart';
 import 'package:esn/Model/PuebloIndigenaModel.dart';
@@ -5581,8 +5580,6 @@ class _Salud_PertenenciaIndigenaTablaState
         _OrdenCapacidades.add(categoryModel2);
       });
     });
-
-
 
     _OrdenAdicciones = List<AdiccionesModel>();
     var categories2 = await CategoryService().readOrdenAdicciones(_adicciones2.text);

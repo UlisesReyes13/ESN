@@ -195,160 +195,160 @@ class _Escolaridad_SeguridadSocialActualizarState
 
   final dataList1 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems1 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList2 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems2 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList3 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems3 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList4 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems4 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList5 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems5 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList6 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems6 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList7 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems7 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList8 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems8 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList9 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems9 = <PrestacionesLaboralesModel>[].obs;
 
   final dataList10 = <PrestacionesLaboralesModel>[
     PrestacionesLaboralesModel(
-        prestacion: '1A incapacidad por enfermedad, accidente o maternidad'),
-    PrestacionesLaboralesModel(prestacion: '2B sar o afore'),
-    PrestacionesLaboralesModel(prestacion: '3C crédito para vivienda'),
-    PrestacionesLaboralesModel(prestacion: '4D guardería'),
-    PrestacionesLaboralesModel(prestacion: '5E aguinaldo'),
-    PrestacionesLaboralesModel(prestacion: '6F seguro de vida'),
+        txt_desc_prestacioneslab: '1A incapacidad por enfermedad, accidente o maternidad'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '2B sar o afore'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '3C crédito para vivienda'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '4D guardería'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '5E aguinaldo'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '6F seguro de vida'),
     PrestacionesLaboralesModel(
-        prestacion: '7G no tiene derecho a ninguna prestación'),
-    PrestacionesLaboralesModel(prestacion: '8H otro tipo de seguro contratado'),
-    PrestacionesLaboralesModel(prestacion: '9I n/a'),
+        txt_desc_prestacioneslab: '7G no tiene derecho a ninguna prestación'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '8H otro tipo de seguro contratado'),
+    PrestacionesLaboralesModel(txt_desc_prestacioneslab: '9I n/a'),
   ].obs;
 
   final selectedItems10 = <PrestacionesLaboralesModel>[].obs;
@@ -10424,7 +10424,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList1[i].value,
-          title: Text(dataList1[i].prestacion),
+          title: Text(dataList1[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList1[i].value = v ?? false;
             dataList1.refresh();
@@ -10439,7 +10439,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList2[i].value,
-          title: Text(dataList2[i].prestacion),
+          title: Text(dataList2[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList2[i].value = v ?? false;
             dataList2.refresh();
@@ -10454,7 +10454,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList3[i].value,
-          title: Text(dataList3[i].prestacion),
+          title: Text(dataList3[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList3[i].value = v ?? false;
             dataList3.refresh();
@@ -10469,7 +10469,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList4[i].value,
-          title: Text(dataList4[i].prestacion),
+          title: Text(dataList4[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList4[i].value = v ?? false;
             dataList4.refresh();
@@ -10484,7 +10484,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList5[i].value,
-          title: Text(dataList5[i].prestacion),
+          title: Text(dataList5[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList5[i].value = v ?? false;
             dataList5.refresh();
@@ -10499,7 +10499,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList6[i].value,
-          title: Text(dataList6[i].prestacion),
+          title: Text(dataList6[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList6[i].value = v ?? false;
             dataList6.refresh();
@@ -10514,7 +10514,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList7[i].value,
-          title: Text(dataList7[i].prestacion),
+          title: Text(dataList7[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList7[i].value = v ?? false;
             dataList7.refresh();
@@ -10529,7 +10529,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList9[i].value,
-          title: Text(dataList9[i].prestacion),
+          title: Text(dataList9[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList9[i].value = v ?? false;
             dataList9.refresh();
@@ -10544,7 +10544,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList9[i].value,
-          title: Text(dataList9[i].prestacion),
+          title: Text(dataList9[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList9[i].value = v ?? false;
             dataList9.refresh();
@@ -10559,7 +10559,7 @@ class _Escolaridad_SeguridadSocialActualizarState
       result.add(CheckboxListTile(
           controlAffinity: ListTileControlAffinity.leading,
           value: dataList10[i].value,
-          title: Text(dataList10[i].prestacion),
+          title: Text(dataList10[i].txt_desc_prestacioneslab),
           onChanged: (v) {
             dataList10[i].value = v ?? false;
             dataList10.refresh();

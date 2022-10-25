@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
-class getTextDataTable extends StatelessWidget {
+class genTextExpand extends StatefulWidget {
   TextEditingController controller;
   String hintName;
-  bool isObscureText;
   TextInputType inputType;
-  bool isEnable;
   String keyb;
 
+  genTextExpand({this.controller, this.hintName, this.inputType, this.keyb});
 
-  getTextDataTable({this.controller, this.hintName,this.isObscureText = false, this.inputType, this.isEnable = true});
+  @override
+  State<genTextExpand> createState() => _genTextExpandState();
+}
 
+class _genTextExpandState extends State<genTextExpand> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 54),
-      width: 300,
+      margin: EdgeInsets.only(top: 30),
+      width: 600,
       child: TextFormField(
         textCapitalization: TextCapitalization.words,
-        controller: controller,
-        obscureText: isObscureText,
-        enabled: isEnable,
-        keyboardType: inputType,
+        controller: widget.controller,
+        keyboardType: widget.inputType,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
@@ -29,8 +29,8 @@ class getTextDataTable extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.blue),
           ),
-          hintText: hintName,
-          labelText: hintName,
+          hintText: widget.hintName,
+          labelText: widget.hintName,
           fillColor: Colors.grey[200],
           filled: true,
         ),

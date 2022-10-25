@@ -1,8 +1,14 @@
 import 'package:esn/Model/EscolaridadSeguridadSocial.dart';
+import 'package:esn/Screens/Alimentacion.dart';
+import 'package:esn/Screens/AportacionesEconomicas.dart';
 import 'package:esn/Screens/DatosGenerales.dart';
+import 'package:esn/Screens/Documentos.dart';
 import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
 import 'package:esn/Screens/Remesas.dart';
+import 'package:esn/Screens/Fotografia.dart';
+import 'package:esn/Screens/Remesas.dart';
+import 'package:esn/Screens/Resolucion.dart';
 import 'package:esn/Screens/Salud_PertenenciaIndigenaTabla.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
 import 'package:esn/Screens/TablaFolios.dart';
@@ -28,7 +34,9 @@ class MyApp extends StatelessWidget {
       ),
 
 
-      home: Salud_PertenenciaIndigenaTabla("1006"),
+
+      home: Escolaridad_SeguridadSocialTabla('99999'),
+
 
     );
   }

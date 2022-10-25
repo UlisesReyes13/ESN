@@ -11,8 +11,8 @@ class getSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 22),
-      width: 300,
+      margin: EdgeInsets.only(top: 25),
+      width: 400,
       child: SearchField(
         suggestionState: Suggestion.expand,
         searchInputDecoration: InputDecoration(
