@@ -1,5 +1,5 @@
 import 'package:esn/Comm/comHelper.dart';
-import 'package:esn/Comm/genTextDataTable.dart';
+import 'package:esn/Comm/genTextName.dart';
 import 'package:esn/Comm/genTextDate.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
@@ -8,12 +8,11 @@ import 'package:esn/Model/EstadosCiviles.dart';
 import 'package:esn/Model/EstadosModel.dart';
 import 'package:esn/Model/EstructuraFamiliarModel.dart';
 import 'package:esn/Model/Parentesco.dart';
+import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/ServiciosCombustible.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
-import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
-
 enum Sexo { hombre, mujer, otro }
 
 class EstructuraFamiliarTabla extends StatefulWidget {
@@ -35,6 +34,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento1 = TextEditingController();
   final _estadoCivil1 = TextEditingController();
   final _parentesco1 = TextEditingController();
+  final _curp1 = TextEditingController();
 
   final _nombre2 = TextEditingController();
   final _primerApellido2 = TextEditingController();
@@ -44,6 +44,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento2 = TextEditingController();
   final _estadoCivil2 = TextEditingController();
   final _parentesco2 = TextEditingController();
+  final _curp2 = TextEditingController();
 
   final _nombre3 = TextEditingController();
   final _primerApellido3 = TextEditingController();
@@ -53,6 +54,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento3 = TextEditingController();
   final _estadoCivil3 = TextEditingController();
   final _parentesco3 = TextEditingController();
+  final _curp3 = TextEditingController();
 
   final _nombre4 = TextEditingController();
   final _primerApellido4 = TextEditingController();
@@ -62,6 +64,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento4 = TextEditingController();
   final _estadoCivil4 = TextEditingController();
   final _parentesco4 = TextEditingController();
+  final _curp4 = TextEditingController();
 
   final _nombre5 = TextEditingController();
   final _primerApellido5 = TextEditingController();
@@ -71,6 +74,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento5 = TextEditingController();
   final _estadoCivil5 = TextEditingController();
   final _parentesco5 = TextEditingController();
+  final _curp5 = TextEditingController();
 
   final _nombre6 = TextEditingController();
   final _primerApellido6 = TextEditingController();
@@ -80,6 +84,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento6 = TextEditingController();
   final _estadoCivil6 = TextEditingController();
   final _parentesco6 = TextEditingController();
+  final _curp6 = TextEditingController();
 
   final _nombre7 = TextEditingController();
   final _primerApellido7 = TextEditingController();
@@ -89,6 +94,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento7 = TextEditingController();
   final _estadoCivil7 = TextEditingController();
   final _parentesco7 = TextEditingController();
+  final _curp7 = TextEditingController();
 
   final _nombre8 = TextEditingController();
   final _primerApellido8 = TextEditingController();
@@ -98,6 +104,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento8 = TextEditingController();
   final _estadoCivil8 = TextEditingController();
   final _parentesco8 = TextEditingController();
+  final _curp8 = TextEditingController();
 
   final _nombre9 = TextEditingController();
   final _primerApellido9 = TextEditingController();
@@ -107,6 +114,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento9 = TextEditingController();
   final _estadoCivil9 = TextEditingController();
   final _parentesco9 = TextEditingController();
+  final _curp9 = TextEditingController();
 
   final _nombre10 = TextEditingController();
   final _primerApellido10 = TextEditingController();
@@ -116,6 +124,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento10 = TextEditingController();
   final _estadoCivil10 = TextEditingController();
   final _parentesco10 = TextEditingController();
+  final _curp10 = TextEditingController();
 
   var dbHelper;
   List<EstadosCiviles> _EstadosCiviles = List<EstadosCiviles>();
@@ -17122,7 +17131,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                       children: [
                         Container(
                           child: DataTable(
-                            columnSpacing: 30,
                             dataRowHeight: 100,
                             columns: [
                               DataColumn(
@@ -17135,18 +17143,19 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               DataColumn(label: Text('Sexo')),
                               DataColumn(label: Text('Fecha de Nacimiento')),
                               DataColumn(label: Text('Entidad de Nacimiento')),
+                              DataColumn(label: Text('CURP')),
                               DataColumn(label: Text('Estado Civil')),
                               DataColumn(label: Text('Parentesco')),
                             ],
                             rows: [
                               DataRow(cells: [
                                 DataCell(Text('1')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre1, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido1,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido1,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17204,7 +17213,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17234,9 +17243,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp1,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17294,12 +17327,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('2')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre2, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido2,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido2,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17357,7 +17390,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17387,9 +17420,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp2,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17424,7 +17481,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17458,12 +17515,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('3')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre3, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido3,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido3,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17521,7 +17578,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17551,9 +17608,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp3,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17588,7 +17669,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17622,12 +17703,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('4')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre4, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido4,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido4,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17685,7 +17766,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17715,9 +17796,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp4,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17752,7 +17857,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17786,12 +17891,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('5')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre5, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido5,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido5,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17849,7 +17954,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17879,9 +17984,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp5,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17916,7 +18045,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17950,12 +18079,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('6')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre6, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido6,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido6,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -18013,7 +18142,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18043,9 +18172,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp6,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18080,7 +18233,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18114,12 +18267,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('7')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre7, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido7,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido7,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -18177,7 +18330,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18207,9 +18360,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp7,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18244,7 +18421,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18278,12 +18455,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('8')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre8, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido8,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido8,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -18341,7 +18518,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18371,9 +18548,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp8,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18408,7 +18609,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18442,12 +18643,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('9')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre9, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido9,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido9,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -18505,7 +18706,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18535,9 +18736,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp9,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18572,7 +18797,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18606,14 +18831,14 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('10')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre10,
                                     hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido10,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
-                                    controller: _segundoApellido10,
+                                DataCell(genTextName(
+                                  controller: _segundoApellido10,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
@@ -18670,7 +18895,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18700,9 +18925,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp10,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18737,7 +18986,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,

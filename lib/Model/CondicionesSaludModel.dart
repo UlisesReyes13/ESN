@@ -13,4 +13,7 @@ class CondicioneSaludModel{
   CondicioneSaludModel.fromMap(Map<String, dynamic> map){
     CondicionesSalud = map['CondicionesSalud'];
   }
+
+  @override
+  String toString() => CondicionesSalud;
 }

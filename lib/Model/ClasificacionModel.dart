@@ -24,4 +24,7 @@ class ClasificacionModel {
     OrdenClasCondicionesSalud = map['OrdenClasCondicionesSalud'];
     ClasCondicionesSalud = map['ClasCondicionesSalud'];
   }
+
+  @override
+  String toString() => ClasCondicionesSalud;
 }
