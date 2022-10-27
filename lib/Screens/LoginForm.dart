@@ -71,7 +71,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ESN'),
+        title: Text('ESN V1.0.1'),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
