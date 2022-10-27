@@ -34,9 +34,7 @@ class MyApp extends StatelessWidget {
       ),
 
 
-
-      home: LoginForm(),
-
+      home: EstructuraFamiliarTabla('99911'),
 
     );
   }

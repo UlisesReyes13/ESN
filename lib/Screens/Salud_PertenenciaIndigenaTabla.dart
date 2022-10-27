@@ -5,6 +5,7 @@ import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genBotonFotografia.dart';
 import 'package:esn/Comm/genSearchField.dart';
 import 'package:esn/Comm/genTextDataTable.dart';
+import 'package:esn/Comm/genTextExpand.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
@@ -17,6 +18,7 @@ import 'package:esn/Model/PuebloIndigenaModel.dart';
 import 'package:esn/Model/Salud_PertenenciaIndigenaTablaModel.dart';
 import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/Infraestructura_Vivienda.dart';
+import 'package:esn/replaceAll/replaceAllLetter.dart';
 import 'package:esn/services/Utility.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +26,7 @@ import 'package:get/get.dart';
 import 'package:searchfield/searchfield.dart';
 import 'package:image_picker/image_picker.dart';
 
-enum Check { incompleto, completo}
+enum Check { incompleto, completo }
 
 class Salud_PertenenciaIndigenaTabla extends StatefulWidget {
   String folio;
@@ -59,6 +61,38 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto1_3 = null;
   var foto1_4 = null;
   var foto1_5 = null;
+  List<CondicioneSaludModel> selectedItemsCond1 = [];
+  List<ClasificacionModel> selectedItemsClas1 = [];
+
+  addChecked1Cond() {
+    List<CondicioneSaludModel> previa1Cond = [];
+    previa1Cond = _Condiciones;
+    selectedItemsCond1.clear();
+    for (var select1Cond in previa1Cond) {
+      if (select1Cond.value) selectedItemsCond1.add(select1Cond);
+    }
+    setState(() => previa1Cond = selectedItemsCond1);
+    print(selectedItemsCond1);
+    var condicion1 = selectedItemsCond1.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal1 = rpl.replaceSymbol(condicion1);
+    _condicionSalud1.text = condicionFinal1;
+  }
+
+  addChecked1Clas() {
+    List<ClasificacionModel> previa1CLas = [];
+    previa1CLas = _Clasificaciones;
+    selectedItemsClas1.clear();
+    for (var select1Clas in previa1CLas) {
+      if (select1Clas.value) selectedItemsClas1.add(select1Clas);
+    }
+    setState(() => previa1CLas = selectedItemsClas1);
+    print(selectedItemsClas1);
+    var clasificacion1 = selectedItemsClas1.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal1 = rpl.replaceSymbol(clasificacion1);
+    _clasificacion1.text = clasificacionFinal1;
+  }
 
   final _nombre2 = TextEditingController();
   final _discapacidades2 = TextEditingController();
@@ -82,6 +116,38 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto2_3 = null;
   var foto2_4 = null;
   var foto2_5 = null;
+  List<CondicioneSaludModel> selectedItemsCond2 = [];
+  List<ClasificacionModel> selectedItemsClas2 = [];
+
+  addChecked2Cond() {
+    List<CondicioneSaludModel> previa2Cond = [];
+    previa2Cond = _Condiciones;
+    selectedItemsCond2.clear();
+    for (var select2Cond in previa2Cond) {
+      if (select2Cond.value) selectedItemsCond2.add(select2Cond);
+    }
+    setState(() => previa2Cond = selectedItemsCond2);
+    print(selectedItemsCond2);
+    var condicion2 = selectedItemsCond2.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal2 = rpl.replaceSymbol(condicion2);
+    _condicionSalud2.text = condicionFinal2;
+  }
+
+  addChecked2Clas() {
+    List<ClasificacionModel> previa2CLas = [];
+    previa2CLas = _Clasificaciones;
+    selectedItemsClas2.clear();
+    for (var select2Clas in previa2CLas) {
+      if (select2Clas.value) selectedItemsClas2.add(select2Clas);
+    }
+    setState(() => previa2CLas = selectedItemsClas2);
+    print(selectedItemsClas2);
+    var clasificacion2 = selectedItemsClas2.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal2 = rpl.replaceSymbol(clasificacion2);
+    _clasificacion2.text = clasificacionFinal2;
+  }
 
   final _nombre3 = TextEditingController();
   final _discapacidades3 = TextEditingController();
@@ -105,6 +171,38 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto3_3 = null;
   var foto3_4 = null;
   var foto3_5 = null;
+  List<CondicioneSaludModel> selectedItemsCond3 = [];
+  List<ClasificacionModel> selectedItemsClas3 = [];
+
+  addChecked3Cond() {
+    List<CondicioneSaludModel> previa3Cond = [];
+    previa3Cond = _Condiciones;
+    selectedItemsCond3.clear();
+    for (var select3Cond in previa3Cond) {
+      if (select3Cond.value) selectedItemsCond3.add(select3Cond);
+    }
+    setState(() => previa3Cond = selectedItemsCond3);
+    print(selectedItemsCond3);
+    var condicion3 = selectedItemsCond3.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal3 = rpl.replaceSymbol(condicion3);
+    _condicionSalud3.text = condicionFinal3;
+  }
+
+  addChecked3Clas() {
+    List<ClasificacionModel> previa3CLas = [];
+    previa3CLas = _Clasificaciones;
+    selectedItemsClas3.clear();
+    for (var select3Clas in previa3CLas) {
+      if (select3Clas.value) selectedItemsClas3.add(select3Clas);
+    }
+    setState(() => previa3CLas = selectedItemsClas3);
+    print(selectedItemsClas3);
+    var clasificacion3 = selectedItemsClas3.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal3 = rpl.replaceSymbol(clasificacion3);
+    _clasificacion3.text = clasificacionFinal3;
+  }
 
   final _nombre4 = TextEditingController();
   final _discapacidades4 = TextEditingController();
@@ -128,6 +226,38 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto4_3 = null;
   var foto4_4 = null;
   var foto4_5 = null;
+  List<CondicioneSaludModel> selectedItemsCond4 = [];
+  List<ClasificacionModel> selectedItemsClas4 = [];
+
+  addChecked4Cond() {
+    List<CondicioneSaludModel> previa4Cond = [];
+    previa4Cond = _Condiciones;
+    selectedItemsCond4.clear();
+    for (var select4Cond in previa4Cond) {
+      if (select4Cond.value) selectedItemsCond4.add(select4Cond);
+    }
+    setState(() => previa4Cond = selectedItemsCond4);
+    print(selectedItemsCond4);
+    var condicion4 = selectedItemsCond4.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal4 = rpl.replaceSymbol(condicion4);
+    _condicionSalud4.text = condicionFinal4;
+  }
+
+  addChecked4Clas() {
+    List<ClasificacionModel> previa4CLas = [];
+    previa4CLas = _Clasificaciones;
+    selectedItemsClas4.clear();
+    for (var select4Clas in previa4CLas) {
+      if (select4Clas.value) selectedItemsClas4.add(select4Clas);
+    }
+    setState(() => previa4CLas = selectedItemsClas4);
+    print(selectedItemsClas4);
+    var clasificacion4 = selectedItemsClas4.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal4 = rpl.replaceSymbol(clasificacion4);
+    _clasificacion4.text = clasificacionFinal4;
+  }
 
   final _nombre5 = TextEditingController();
   final _discapacidades5 = TextEditingController();
@@ -151,6 +281,38 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto5_3 = null;
   var foto5_4 = null;
   var foto5_5 = null;
+  List<CondicioneSaludModel> selectedItemsCond5 = [];
+  List<ClasificacionModel> selectedItemsClas5 = [];
+
+  addChecked5Cond() {
+    List<CondicioneSaludModel> previa5Cond = [];
+    previa5Cond = _Condiciones;
+    selectedItemsCond5.clear();
+    for (var select5Cond in previa5Cond) {
+      if (select5Cond.value) selectedItemsCond5.add(select5Cond);
+    }
+    setState(() => previa5Cond = selectedItemsCond5);
+    print(selectedItemsCond5);
+    var condicion5 = selectedItemsCond5.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal5 = rpl.replaceSymbol(condicion5);
+    _condicionSalud5.text = condicionFinal5;
+  }
+
+  addChecked5Clas() {
+    List<ClasificacionModel> previa5CLas = [];
+    previa5CLas = _Clasificaciones;
+    selectedItemsClas5.clear();
+    for (var select5Clas in previa5CLas) {
+      if (select5Clas.value) selectedItemsClas5.add(select5Clas);
+    }
+    setState(() => previa5CLas = selectedItemsClas5);
+    print(selectedItemsClas5);
+    var clasificacion5 = selectedItemsClas5.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal5 = rpl.replaceSymbol(clasificacion5);
+    _clasificacion5.text = clasificacionFinal5;
+  }
 
   final _nombre6 = TextEditingController();
   final _discapacidades6 = TextEditingController();
@@ -161,6 +323,8 @@ class _Salud_PertenenciaIndigenaTablaState
   final _puebloIndigena6 = TextEditingController();
   final _clasificacion6 = TextEditingController();
   final _ponderacion6 = TextEditingController();
+  List<CondicioneSaludModel> selectedItemsCond6 = [];
+  List<ClasificacionModel> selectedItemsClas6 = [];
 
   File _image6_1;
   File _image6_2;
@@ -175,6 +339,36 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto6_4 = null;
   var foto6_5 = null;
 
+  addChecked6Cond() {
+    List<CondicioneSaludModel> previa6Cond = [];
+    previa6Cond = _Condiciones;
+    selectedItemsCond6.clear();
+    for (var select6Cond in previa6Cond) {
+      if (select6Cond.value) selectedItemsCond6.add(select6Cond);
+    }
+    setState(() => previa6Cond = selectedItemsCond6);
+    print(selectedItemsCond6);
+    var condicion6 = selectedItemsCond6.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal6 = rpl.replaceSymbol(condicion6);
+    _condicionSalud6.text = condicionFinal6;
+  }
+
+  addChecked6Clas() {
+    List<ClasificacionModel> previa6CLas = [];
+    previa6CLas = _Clasificaciones;
+    selectedItemsClas6.clear();
+    for (var select6Clas in previa6CLas) {
+      if (select6Clas.value) selectedItemsClas6.add(select6Clas);
+    }
+    setState(() => previa6CLas = selectedItemsClas6);
+    print(selectedItemsClas6);
+    var clasificacion6 = selectedItemsClas6.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal6 = rpl.replaceSymbol(clasificacion6);
+    _clasificacion6.text = clasificacionFinal6;
+  }
+
   final _nombre7 = TextEditingController();
   final _discapacidades7 = TextEditingController();
   final _adicciones7 = TextEditingController();
@@ -184,6 +378,8 @@ class _Salud_PertenenciaIndigenaTablaState
   final _puebloIndigena7 = TextEditingController();
   final _clasificacion7 = TextEditingController();
   final _ponderacion7 = TextEditingController();
+  List<CondicioneSaludModel> selectedItemsCond7 = [];
+  List<ClasificacionModel> selectedItemsClas7 = [];
 
   File _image7_1;
   File _image7_2;
@@ -197,6 +393,36 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto7_3 = null;
   var foto7_4 = null;
   var foto7_5 = null;
+
+  addChecked7Cond() {
+    List<CondicioneSaludModel> previa7Cond = [];
+    previa7Cond = _Condiciones;
+    selectedItemsCond7.clear();
+    for (var select7Cond in previa7Cond) {
+      if (select7Cond.value) selectedItemsCond7.add(select7Cond);
+    }
+    setState(() => previa7Cond = selectedItemsCond7);
+    print(selectedItemsCond7);
+    var condicion7 = selectedItemsCond7.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal7 = rpl.replaceSymbol(condicion7);
+    _condicionSalud7.text = condicionFinal7;
+  }
+
+  addChecked7Clas() {
+    List<ClasificacionModel> previa7CLas = [];
+    previa7CLas = _Clasificaciones;
+    selectedItemsClas7.clear();
+    for (var select7Clas in previa7CLas) {
+      if (select7Clas.value) selectedItemsClas7.add(select7Clas);
+    }
+    setState(() => previa7CLas = selectedItemsClas7);
+    print(selectedItemsClas7);
+    var clasificacion7 = selectedItemsClas7.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal7 = rpl.replaceSymbol(clasificacion7);
+    _clasificacion7.text = clasificacionFinal7;
+  }
 
   final _nombre8 = TextEditingController();
   final _discapacidades8 = TextEditingController();
@@ -221,6 +447,39 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto8_4 = null;
   var foto8_5 = null;
 
+  List<CondicioneSaludModel> selectedItemsCond8 = [];
+  List<ClasificacionModel> selectedItemsClas8 = [];
+
+  addChecked8Cond() {
+    List<CondicioneSaludModel> previa8Cond = [];
+    previa8Cond = _Condiciones;
+    selectedItemsCond8.clear();
+    for (var select8Cond in previa8Cond) {
+      if (select8Cond.value) selectedItemsCond8.add(select8Cond);
+    }
+    setState(() => previa8Cond = selectedItemsCond8);
+    print(selectedItemsCond8);
+    var condicion8 = selectedItemsCond8.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal8 = rpl.replaceSymbol(condicion8);
+    _condicionSalud8.text = condicionFinal8;
+  }
+
+  addChecked8Clas() {
+    List<ClasificacionModel> previa8CLas = [];
+    previa8CLas = _Clasificaciones;
+    selectedItemsClas8.clear();
+    for (var select8Clas in previa8CLas) {
+      if (select8Clas.value) selectedItemsClas8.add(select8Clas);
+    }
+    setState(() => previa8CLas = selectedItemsClas8);
+    print(selectedItemsClas8);
+    var clasificacion8 = selectedItemsClas8.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal8 = rpl.replaceSymbol(clasificacion8);
+    _clasificacion8.text = clasificacionFinal8;
+  }
+
   final _nombre9 = TextEditingController();
   final _discapacidades9 = TextEditingController();
   final _adicciones9 = TextEditingController();
@@ -244,6 +503,39 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto9_4 = null;
   var foto9_5 = null;
 
+  List<CondicioneSaludModel> selectedItemsCond9 = [];
+  List<ClasificacionModel> selectedItemsClas9 = [];
+
+  addChecked9Cond() {
+    List<CondicioneSaludModel> previa9Cond = [];
+    previa9Cond = _Condiciones;
+    selectedItemsCond9.clear();
+    for (var select9Cond in previa9Cond) {
+      if (select9Cond.value) selectedItemsCond9.add(select9Cond);
+    }
+    setState(() => previa9Cond = selectedItemsCond9);
+    print(selectedItemsCond9);
+    var condicion9 = selectedItemsCond9.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal9 = rpl.replaceSymbol(condicion9);
+    _condicionSalud9.text = condicionFinal9;
+  }
+
+  addChecked9Clas() {
+    List<ClasificacionModel> previa9CLas = [];
+    previa9CLas = _Clasificaciones;
+    selectedItemsClas9.clear();
+    for (var select9Clas in previa9CLas) {
+      if (select9Clas.value) selectedItemsClas9.add(select9Clas);
+    }
+    setState(() => previa9CLas = selectedItemsClas9);
+    print(selectedItemsClas9);
+    var clasificacion9 = selectedItemsClas9.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal9 = rpl.replaceSymbol(clasificacion9);
+    _clasificacion9.text = clasificacionFinal9;
+  }
+
   final _nombre10 = TextEditingController();
   final _discapacidades10 = TextEditingController();
   final _adicciones10 = TextEditingController();
@@ -266,6 +558,38 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto10_3 = null;
   var foto10_4 = null;
   var foto10_5 = null;
+  List<CondicioneSaludModel> selectedItemsCond10 = [];
+  List<ClasificacionModel> selectedItemsClas10 = [];
+
+  addChecked10Cond() {
+    List<CondicioneSaludModel> previa10Cond = [];
+    previa10Cond = _Condiciones;
+    selectedItemsCond10.clear();
+    for (var select10Cond in previa10Cond) {
+      if (select10Cond.value) selectedItemsCond10.add(select10Cond);
+    }
+    setState(() => previa10Cond = selectedItemsCond10);
+    print(selectedItemsCond10);
+    var condicion10 = selectedItemsCond10.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final condicionFinal10 = rpl.replaceSymbol(condicion10);
+    _condicionSalud10.text = condicionFinal10;
+  }
+
+  addChecked10Clas() {
+    List<ClasificacionModel> previa10CLas = [];
+    previa10CLas = _Clasificaciones;
+    selectedItemsClas10.clear();
+    for (var select10Clas in previa10CLas) {
+      if (select10Clas.value) selectedItemsClas10.add(select10Clas);
+    }
+    setState(() => previa10CLas = selectedItemsClas10);
+    print(selectedItemsClas10);
+    var clasificacion10 = selectedItemsClas10.toString();
+    replaceAllLetter rpl = new replaceAllLetter();
+    final clasificacionFinal10 = rpl.replaceSymbol(clasificacion10);
+    _clasificacion10.text = clasificacionFinal10;
+  }
 
   final picker = ImagePicker();
 
@@ -368,21 +692,18 @@ class _Salud_PertenenciaIndigenaTablaState
     getAllEstructura10();
   }
 
-
-
-
   getAllSaludPertenencia1() async {
     _SaludPertenencia1 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -394,9 +715,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -412,82 +733,43 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _discapacidades1.text =
-        _SaludPertenencia1
-            .map((e) => e.ClaveCapacidadDiferente)
-            .first +
+        _SaludPertenencia1.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia1
-                .map((e) => e.CapacidadDiferente)
-                .first;
-    _adicciones1.text = _SaludPertenencia1
-        .map((e) => e.ClaveAdiccion)
-        .first +
+            _SaludPertenencia1.map((e) => e.CapacidadDiferente).first;
+    _adicciones1.text = _SaludPertenencia1.map((e) => e.ClaveAdiccion).first +
         " " +
-        _SaludPertenencia1
-            .map((e) => e.Adiccion)
-            .first;
+        _SaludPertenencia1.map((e) => e.Adiccion).first;
 
     _condicionSalud1.text =
-        _SaludPertenencia1
-            .map((e) => e.ClaveCondicionesSalud)
-            .first +
+        _SaludPertenencia1.map((e) => e.ClaveCondicionesSalud).first +
             " " +
-            _SaludPertenencia1
-                .map((e) => e.OrdenCondicionesSalud)
-                .first +
+            _SaludPertenencia1.map((e) => e.OrdenCondicionesSalud).first +
             " " +
-            _SaludPertenencia1
-                .map((e) => e.CondicionesSalud)
-                .first;
+            _SaludPertenencia1.map((e) => e.CondicionesSalud).first;
 
-    _peso1.text = _SaludPertenencia1
-        .map((e) => e.peso.toString())
-        .first;
-    _talla1.text = _SaludPertenencia1
-        .map((e) => e.talla.toString())
-        .first;
+    _peso1.text = _SaludPertenencia1.map((e) => e.peso.toString()).first;
+    _talla1.text = _SaludPertenencia1.map((e) => e.talla.toString()).first;
     _puebloIndigena1.text =
-        _SaludPertenencia1
-            .map((e) => e.ClaveEtniaIndigena)
-            .first +
+        _SaludPertenencia1.map((e) => e.ClaveEtniaIndigena).first +
             " " +
-            _SaludPertenencia1
-                .map((e) => e.EtniaIndigena)
-                .first;
+            _SaludPertenencia1.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion1.text = _SaludPertenencia1
-        .map(
-            (e) => e.ClaveClasCondicionesSalud.toString())
-        .first +
+    _clasificacion1.text = _SaludPertenencia1.map(
+            (e) => e.ClaveClasCondicionesSalud.toString()).first +
         " " +
-        _SaludPertenencia1
-            .map((e) => e.ClaveClasCondicionesSalud.toString())
+        _SaludPertenencia1.map((e) => e.ClaveClasCondicionesSalud.toString())
             .first +
         " " +
-        _SaludPertenencia1
-            .map((e) => e.ClasCondicionesSalud.toString())
-            .first;
+        _SaludPertenencia1.map((e) => e.ClasCondicionesSalud.toString()).first;
 
     _ponderacion1.text =
-        _SaludPertenencia1
-            .map((e) => e.ponderacion.toString())
-            .first;
+        _SaludPertenencia1.map((e) => e.ponderacion.toString()).first;
 
-    setFoto1(_SaludPertenencia1
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2(_SaludPertenencia1
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3(_SaludPertenencia1
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4(_SaludPertenencia1
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5(_SaludPertenencia1
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1(_SaludPertenencia1.map((e) => e.fileFoto1.toString()).first);
+    setFoto2(_SaludPertenencia1.map((e) => e.fileFoto2.toString()).first);
+    setFoto3(_SaludPertenencia1.map((e) => e.fileFoto3.toString()).first);
+    setFoto4(_SaludPertenencia1.map((e) => e.fileFoto4.toString()).first);
+    setFoto5(_SaludPertenencia1.map((e) => e.fileFoto5.toString()).first);
   }
 
   setFoto1(String foto) {
@@ -593,15 +875,15 @@ class _Salud_PertenenciaIndigenaTablaState
   getAllSaludPertenencia2() async {
     _SaludPertenencia2 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia2(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia2(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -613,9 +895,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -632,96 +914,57 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _discapacidades2.text =
-        _SaludPertenencia2
-            .map((e) => e.ClaveCapacidadDiferente)
-            .first +
+        _SaludPertenencia2.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia2
-                .map((e) => e.CapacidadDiferente)
-                .first;
-    _adicciones2.text = _SaludPertenencia2
-        .map((e) => e.ClaveAdiccion)
-        .first +
+            _SaludPertenencia2.map((e) => e.CapacidadDiferente).first;
+    _adicciones2.text = _SaludPertenencia2.map((e) => e.ClaveAdiccion).first +
         " " +
-        _SaludPertenencia2
-            .map((e) => e.Adiccion)
-            .first;
+        _SaludPertenencia2.map((e) => e.Adiccion).first;
 
     _condicionSalud2.text =
-        _SaludPertenencia2
-            .map((e) => e.ClaveCondicionesSalud)
-            .first +
+        _SaludPertenencia2.map((e) => e.ClaveCondicionesSalud).first +
             " " +
-            _SaludPertenencia2
-                .map((e) => e.OrdenCondicionesSalud)
-                .first +
+            _SaludPertenencia2.map((e) => e.OrdenCondicionesSalud).first +
             " " +
-            _SaludPertenencia2
-                .map((e) => e.CondicionesSalud)
-                .first;
+            _SaludPertenencia2.map((e) => e.CondicionesSalud).first;
 
-    _peso2.text = _SaludPertenencia2
-        .map((e) => e.peso.toString())
-        .first;
-    _talla2.text = _SaludPertenencia2
-        .map((e) => e.talla.toString())
-        .first;
+    _peso2.text = _SaludPertenencia2.map((e) => e.peso.toString()).first;
+    _talla2.text = _SaludPertenencia2.map((e) => e.talla.toString()).first;
     _puebloIndigena2.text =
-        _SaludPertenencia2
-            .map((e) => e.ClaveEtniaIndigena)
-            .first +
+        _SaludPertenencia2.map((e) => e.ClaveEtniaIndigena).first +
             " " +
-            _SaludPertenencia2
-                .map((e) => e.EtniaIndigena)
-                .first;
+            _SaludPertenencia2.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion2.text = _SaludPertenencia2
-        .map(
-            (e) => e.ClaveClasCondicionesSalud.toString())
-        .first +
+    _clasificacion2.text = _SaludPertenencia2.map(
+            (e) => e.ClaveClasCondicionesSalud.toString()).first +
         " " +
-        _SaludPertenencia2
-            .map((e) => e.ClaveClasCondicionesSalud.toString())
+        _SaludPertenencia2.map((e) => e.ClaveClasCondicionesSalud.toString())
             .first +
         " " +
-        _SaludPertenencia2
-            .map((e) => e.ClasCondicionesSalud.toString())
-            .first;
+        _SaludPertenencia2.map((e) => e.ClasCondicionesSalud.toString()).first;
 
     _ponderacion2.text =
-        _SaludPertenencia2
-            .map((e) => e.ponderacion.toString())
-            .first;
+        _SaludPertenencia2.map((e) => e.ponderacion.toString()).first;
 
-    setFoto1_2(_SaludPertenencia2
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2_2(_SaludPertenencia2
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3_2(_SaludPertenencia2
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4_2(_SaludPertenencia2
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5_2(_SaludPertenencia2
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1_2(_SaludPertenencia2.map((e) => e.fileFoto1.toString()).first);
+    setFoto2_2(_SaludPertenencia2.map((e) => e.fileFoto2.toString()).first);
+    setFoto3_2(_SaludPertenencia2.map((e) => e.fileFoto3.toString()).first);
+    setFoto4_2(_SaludPertenencia2.map((e) => e.fileFoto4.toString()).first);
+    setFoto5_2(_SaludPertenencia2.map((e) => e.fileFoto5.toString()).first);
   }
 
   getAllSaludPertenencia3() async {
     _SaludPertenencia3 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia3(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia3(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -733,9 +976,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -752,82 +995,43 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _discapacidades3.text =
-        _SaludPertenencia3
-            .map((e) => e.ClaveCapacidadDiferente)
-            .first +
+        _SaludPertenencia3.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia3
-                .map((e) => e.CapacidadDiferente)
-                .first;
-    _adicciones3.text = _SaludPertenencia3
-        .map((e) => e.ClaveAdiccion)
-        .first +
+            _SaludPertenencia3.map((e) => e.CapacidadDiferente).first;
+    _adicciones3.text = _SaludPertenencia3.map((e) => e.ClaveAdiccion).first +
         " " +
-        _SaludPertenencia3
-            .map((e) => e.Adiccion)
-            .first;
+        _SaludPertenencia3.map((e) => e.Adiccion).first;
 
     _condicionSalud3.text =
-        _SaludPertenencia3
-            .map((e) => e.ClaveCondicionesSalud)
-            .first +
+        _SaludPertenencia3.map((e) => e.ClaveCondicionesSalud).first +
             " " +
-            _SaludPertenencia3
-                .map((e) => e.OrdenCondicionesSalud)
-                .first +
+            _SaludPertenencia3.map((e) => e.OrdenCondicionesSalud).first +
             " " +
-            _SaludPertenencia3
-                .map((e) => e.CondicionesSalud)
-                .first;
+            _SaludPertenencia3.map((e) => e.CondicionesSalud).first;
 
-    _peso3.text = _SaludPertenencia3
-        .map((e) => e.peso.toString())
-        .first;
-    _talla3.text = _SaludPertenencia3
-        .map((e) => e.talla.toString())
-        .first;
+    _peso3.text = _SaludPertenencia3.map((e) => e.peso.toString()).first;
+    _talla3.text = _SaludPertenencia3.map((e) => e.talla.toString()).first;
     _puebloIndigena3.text =
-        _SaludPertenencia3
-            .map((e) => e.ClaveEtniaIndigena)
-            .first +
+        _SaludPertenencia3.map((e) => e.ClaveEtniaIndigena).first +
             " " +
-            _SaludPertenencia3
-                .map((e) => e.EtniaIndigena)
-                .first;
+            _SaludPertenencia3.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion3.text = _SaludPertenencia3
-        .map(
-            (e) => e.ClaveClasCondicionesSalud.toString())
-        .first +
+    _clasificacion3.text = _SaludPertenencia3.map(
+            (e) => e.ClaveClasCondicionesSalud.toString()).first +
         " " +
-        _SaludPertenencia3
-            .map((e) => e.ClaveClasCondicionesSalud.toString())
+        _SaludPertenencia3.map((e) => e.ClaveClasCondicionesSalud.toString())
             .first +
         " " +
-        _SaludPertenencia3
-            .map((e) => e.ClasCondicionesSalud.toString())
-            .first;
+        _SaludPertenencia3.map((e) => e.ClasCondicionesSalud.toString()).first;
 
     _ponderacion3.text =
-        _SaludPertenencia3
-            .map((e) => e.ponderacion.toString())
-            .first;
+        _SaludPertenencia3.map((e) => e.ponderacion.toString()).first;
 
-    setFoto1_3(_SaludPertenencia3
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2_3(_SaludPertenencia3
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3_3(_SaludPertenencia3
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4_3(_SaludPertenencia3
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5_3(_SaludPertenencia3
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1_3(_SaludPertenencia3.map((e) => e.fileFoto1.toString()).first);
+    setFoto2_3(_SaludPertenencia3.map((e) => e.fileFoto2.toString()).first);
+    setFoto3_3(_SaludPertenencia3.map((e) => e.fileFoto3.toString()).first);
+    setFoto4_3(_SaludPertenencia3.map((e) => e.fileFoto4.toString()).first);
+    setFoto5_3(_SaludPertenencia3.map((e) => e.fileFoto5.toString()).first);
   }
 
   setFoto1_3(String foto) {
@@ -883,15 +1087,15 @@ class _Salud_PertenenciaIndigenaTablaState
   getAllSaludPertenencia4() async {
     _SaludPertenencia4 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia4(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia4(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -903,9 +1107,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -922,82 +1126,43 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _discapacidades4.text =
-        _SaludPertenencia4
-            .map((e) => e.ClaveCapacidadDiferente)
-            .first +
+        _SaludPertenencia4.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia4
-                .map((e) => e.CapacidadDiferente)
-                .first;
-    _adicciones4.text = _SaludPertenencia4
-        .map((e) => e.ClaveAdiccion)
-        .first +
+            _SaludPertenencia4.map((e) => e.CapacidadDiferente).first;
+    _adicciones4.text = _SaludPertenencia4.map((e) => e.ClaveAdiccion).first +
         " " +
-        _SaludPertenencia4
-            .map((e) => e.Adiccion)
-            .first;
+        _SaludPertenencia4.map((e) => e.Adiccion).first;
 
     _condicionSalud4.text =
-        _SaludPertenencia4
-            .map((e) => e.ClaveCondicionesSalud)
-            .first +
+        _SaludPertenencia4.map((e) => e.ClaveCondicionesSalud).first +
             " " +
-            _SaludPertenencia4
-                .map((e) => e.OrdenCondicionesSalud)
-                .first +
+            _SaludPertenencia4.map((e) => e.OrdenCondicionesSalud).first +
             " " +
-            _SaludPertenencia4
-                .map((e) => e.CondicionesSalud)
-                .first;
+            _SaludPertenencia4.map((e) => e.CondicionesSalud).first;
 
-    _peso4.text = _SaludPertenencia4
-        .map((e) => e.peso.toString())
-        .first;
-    _talla4.text = _SaludPertenencia4
-        .map((e) => e.talla.toString())
-        .first;
+    _peso4.text = _SaludPertenencia4.map((e) => e.peso.toString()).first;
+    _talla4.text = _SaludPertenencia4.map((e) => e.talla.toString()).first;
     _puebloIndigena4.text =
-        _SaludPertenencia4
-            .map((e) => e.ClaveEtniaIndigena)
-            .first +
+        _SaludPertenencia4.map((e) => e.ClaveEtniaIndigena).first +
             " " +
-            _SaludPertenencia4
-                .map((e) => e.EtniaIndigena)
-                .first;
+            _SaludPertenencia4.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion4.text = _SaludPertenencia4
-        .map(
-            (e) => e.ClaveClasCondicionesSalud.toString())
-        .first +
+    _clasificacion4.text = _SaludPertenencia4.map(
+            (e) => e.ClaveClasCondicionesSalud.toString()).first +
         " " +
-        _SaludPertenencia4
-            .map((e) => e.ClaveClasCondicionesSalud.toString())
+        _SaludPertenencia4.map((e) => e.ClaveClasCondicionesSalud.toString())
             .first +
         " " +
-        _SaludPertenencia4
-            .map((e) => e.ClasCondicionesSalud.toString())
-            .first;
+        _SaludPertenencia4.map((e) => e.ClasCondicionesSalud.toString()).first;
 
     _ponderacion4.text =
-        _SaludPertenencia4
-            .map((e) => e.ponderacion.toString())
-            .first;
+        _SaludPertenencia4.map((e) => e.ponderacion.toString()).first;
 
-    setFoto1_4(_SaludPertenencia4
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2_4(_SaludPertenencia4
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3_4(_SaludPertenencia4
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4_4(_SaludPertenencia4
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5_4(_SaludPertenencia4
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1_4(_SaludPertenencia4.map((e) => e.fileFoto1.toString()).first);
+    setFoto2_4(_SaludPertenencia4.map((e) => e.fileFoto2.toString()).first);
+    setFoto3_4(_SaludPertenencia4.map((e) => e.fileFoto3.toString()).first);
+    setFoto4_4(_SaludPertenencia4.map((e) => e.fileFoto4.toString()).first);
+    setFoto5_4(_SaludPertenencia4.map((e) => e.fileFoto5.toString()).first);
   }
 
   setFoto1_4(String foto) {
@@ -1053,15 +1218,15 @@ class _Salud_PertenenciaIndigenaTablaState
   getAllSaludPertenencia5() async {
     _SaludPertenencia5 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia5(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia5(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -1073,9 +1238,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -1092,82 +1257,43 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _discapacidades5.text =
-        _SaludPertenencia5
-            .map((e) => e.ClaveCapacidadDiferente)
-            .first +
+        _SaludPertenencia5.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia5
-                .map((e) => e.CapacidadDiferente)
-                .first;
-    _adicciones5.text = _SaludPertenencia5
-        .map((e) => e.ClaveAdiccion)
-        .first +
-        " " +        _SaludPertenencia5
-            .map((e) => e.Adiccion)
-            .first;
+            _SaludPertenencia5.map((e) => e.CapacidadDiferente).first;
+    _adicciones5.text = _SaludPertenencia5.map((e) => e.ClaveAdiccion).first +
+        " " +
+        _SaludPertenencia5.map((e) => e.Adiccion).first;
 
     _condicionSalud5.text =
-        _SaludPertenencia5
-            .map((e) => e.ClaveCondicionesSalud)
-            .first +
+        _SaludPertenencia5.map((e) => e.ClaveCondicionesSalud).first +
             " " +
-            _SaludPertenencia5
-                .map((e) => e.OrdenCondicionesSalud)
-                .first +
+            _SaludPertenencia5.map((e) => e.OrdenCondicionesSalud).first +
             " " +
-            _SaludPertenencia5
-                .map((e) => e.CondicionesSalud)
-                .first;
+            _SaludPertenencia5.map((e) => e.CondicionesSalud).first;
 
-    _peso5.text = _SaludPertenencia5
-        .map((e) => e.peso.toString())
-        .first;
-    _talla5.text = _SaludPertenencia5
-        .map((e) => e.talla.toString())
-        .first;
+    _peso5.text = _SaludPertenencia5.map((e) => e.peso.toString()).first;
+    _talla5.text = _SaludPertenencia5.map((e) => e.talla.toString()).first;
     _puebloIndigena5.text =
-        _SaludPertenencia5
-            .map((e) => e.ClaveEtniaIndigena)
-            .first +
+        _SaludPertenencia5.map((e) => e.ClaveEtniaIndigena).first +
             " " +
-            _SaludPertenencia5
-                .map((e) => e.EtniaIndigena)
-                .first;
+            _SaludPertenencia5.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion5.text = _SaludPertenencia5
-        .map(
-            (e) => e.ClaveClasCondicionesSalud.toString())
-        .first +
+    _clasificacion5.text = _SaludPertenencia5.map(
+            (e) => e.ClaveClasCondicionesSalud.toString()).first +
         " " +
-        _SaludPertenencia5
-            .map((e) => e.ClaveClasCondicionesSalud.toString())
+        _SaludPertenencia5.map((e) => e.ClaveClasCondicionesSalud.toString())
             .first +
         " " +
-        _SaludPertenencia5
-            .map((e) => e.ClasCondicionesSalud.toString())
-            .first;
+        _SaludPertenencia5.map((e) => e.ClasCondicionesSalud.toString()).first;
 
     _ponderacion5.text =
-        _SaludPertenencia5
-            .map((e) => e.ponderacion.toString())
-            .first;
+        _SaludPertenencia5.map((e) => e.ponderacion.toString()).first;
 
-
-    setFoto1_5(_SaludPertenencia5
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2_5(_SaludPertenencia5
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3_5(_SaludPertenencia5
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4_5(_SaludPertenencia5
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5_5(_SaludPertenencia5
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1_5(_SaludPertenencia5.map((e) => e.fileFoto1.toString()).first);
+    setFoto2_5(_SaludPertenencia5.map((e) => e.fileFoto2.toString()).first);
+    setFoto3_5(_SaludPertenencia5.map((e) => e.fileFoto3.toString()).first);
+    setFoto4_5(_SaludPertenencia5.map((e) => e.fileFoto4.toString()).first);
+    setFoto5_5(_SaludPertenencia5.map((e) => e.fileFoto5.toString()).first);
   }
 
   setFoto1_5(String foto) {
@@ -1223,15 +1349,15 @@ class _Salud_PertenenciaIndigenaTablaState
   getAllSaludPertenencia6() async {
     _SaludPertenencia6 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia6(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia6(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -1243,9 +1369,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -1262,82 +1388,43 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _discapacidades6.text =
-        _SaludPertenencia6
-            .map((e) => e.ClaveCapacidadDiferente)
-            .first +
+        _SaludPertenencia6.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia6
-                .map((e) => e.CapacidadDiferente)
-                .first;
-    _adicciones6.text = _SaludPertenencia6
-        .map((e) => e.ClaveAdiccion)
-        .first +
+            _SaludPertenencia6.map((e) => e.CapacidadDiferente).first;
+    _adicciones6.text = _SaludPertenencia6.map((e) => e.ClaveAdiccion).first +
         " " +
-        _SaludPertenencia6
-            .map((e) => e.Adiccion)
-            .first;
+        _SaludPertenencia6.map((e) => e.Adiccion).first;
 
     _condicionSalud6.text =
-        _SaludPertenencia6
-            .map((e) => e.ClaveCondicionesSalud)
-            .first +
+        _SaludPertenencia6.map((e) => e.ClaveCondicionesSalud).first +
             " " +
-            _SaludPertenencia6
-                .map((e) => e.OrdenCondicionesSalud)
-                .first +
+            _SaludPertenencia6.map((e) => e.OrdenCondicionesSalud).first +
             " " +
-            _SaludPertenencia6
-                .map((e) => e.CondicionesSalud)
-                .first;
+            _SaludPertenencia6.map((e) => e.CondicionesSalud).first;
 
-    _peso6.text = _SaludPertenencia6
-        .map((e) => e.peso.toString())
-        .first;
-    _talla6.text = _SaludPertenencia6
-        .map((e) => e.talla.toString())
-        .first;
+    _peso6.text = _SaludPertenencia6.map((e) => e.peso.toString()).first;
+    _talla6.text = _SaludPertenencia6.map((e) => e.talla.toString()).first;
     _puebloIndigena6.text =
-        _SaludPertenencia6
-            .map((e) => e.ClaveEtniaIndigena)
-            .first +
+        _SaludPertenencia6.map((e) => e.ClaveEtniaIndigena).first +
             " " +
-            _SaludPertenencia6
-                .map((e) => e.EtniaIndigena)
-                .first;
+            _SaludPertenencia6.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion6.text = _SaludPertenencia6
-        .map(
-            (e) => e.ClaveClasCondicionesSalud.toString())
-        .first +
+    _clasificacion6.text = _SaludPertenencia6.map(
+            (e) => e.ClaveClasCondicionesSalud.toString()).first +
         " " +
-        _SaludPertenencia6
-            .map((e) => e.ClaveClasCondicionesSalud.toString())
+        _SaludPertenencia6.map((e) => e.ClaveClasCondicionesSalud.toString())
             .first +
         " " +
-        _SaludPertenencia6
-            .map((e) => e.ClasCondicionesSalud.toString())
-            .first;
+        _SaludPertenencia6.map((e) => e.ClasCondicionesSalud.toString()).first;
 
     _ponderacion6.text =
-        _SaludPertenencia6
-            .map((e) => e.ponderacion.toString())
-            .first;
+        _SaludPertenencia6.map((e) => e.ponderacion.toString()).first;
 
-    setFoto1_6(_SaludPertenencia6
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2_6(_SaludPertenencia6
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3_6(_SaludPertenencia6
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4_6(_SaludPertenencia6
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5_6(_SaludPertenencia6
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1_6(_SaludPertenencia6.map((e) => e.fileFoto1.toString()).first);
+    setFoto2_6(_SaludPertenencia6.map((e) => e.fileFoto2.toString()).first);
+    setFoto3_6(_SaludPertenencia6.map((e) => e.fileFoto3.toString()).first);
+    setFoto4_6(_SaludPertenencia6.map((e) => e.fileFoto4.toString()).first);
+    setFoto5_6(_SaludPertenencia6.map((e) => e.fileFoto5.toString()).first);
   }
 
   setFoto1_6(String foto) {
@@ -1393,15 +1480,15 @@ class _Salud_PertenenciaIndigenaTablaState
   getAllSaludPertenencia7() async {
     _SaludPertenencia7 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia7(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia7(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -1413,9 +1500,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -1432,82 +1519,43 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _discapacidades7.text =
-        _SaludPertenencia7
-            .map((e) => e.ClaveCapacidadDiferente)
-            .first +
+        _SaludPertenencia7.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia7
-                .map((e) => e.CapacidadDiferente)
-                .first;
-    _adicciones7.text = _SaludPertenencia7
-        .map((e) => e.ClaveAdiccion)
-        .first +
+            _SaludPertenencia7.map((e) => e.CapacidadDiferente).first;
+    _adicciones7.text = _SaludPertenencia7.map((e) => e.ClaveAdiccion).first +
         " " +
-        _SaludPertenencia7
-            .map((e) => e.Adiccion)
-            .first;
+        _SaludPertenencia7.map((e) => e.Adiccion).first;
 
     _condicionSalud7.text =
-        _SaludPertenencia7
-            .map((e) => e.ClaveCondicionesSalud)
-            .first +
+        _SaludPertenencia7.map((e) => e.ClaveCondicionesSalud).first +
             " " +
-            _SaludPertenencia7
-                .map((e) => e.OrdenCondicionesSalud)
-                .first +
+            _SaludPertenencia7.map((e) => e.OrdenCondicionesSalud).first +
             " " +
-            _SaludPertenencia7
-                .map((e) => e.CondicionesSalud)
-                .first;
+            _SaludPertenencia7.map((e) => e.CondicionesSalud).first;
 
-    _peso7.text = _SaludPertenencia7
-        .map((e) => e.peso.toString())
-        .first;
-    _talla7.text = _SaludPertenencia7
-        .map((e) => e.talla.toString())
-        .first;
+    _peso7.text = _SaludPertenencia7.map((e) => e.peso.toString()).first;
+    _talla7.text = _SaludPertenencia7.map((e) => e.talla.toString()).first;
     _puebloIndigena7.text =
-        _SaludPertenencia7
-            .map((e) => e.ClaveEtniaIndigena)
-            .first +
+        _SaludPertenencia7.map((e) => e.ClaveEtniaIndigena).first +
             " " +
-            _SaludPertenencia7
-                .map((e) => e.EtniaIndigena)
-                .first;
+            _SaludPertenencia7.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion7.text = _SaludPertenencia7
-        .map(
-            (e) => e.ClaveClasCondicionesSalud.toString())
-        .first +
+    _clasificacion7.text = _SaludPertenencia7.map(
+            (e) => e.ClaveClasCondicionesSalud.toString()).first +
         " " +
-        _SaludPertenencia7
-            .map((e) => e.ClaveClasCondicionesSalud.toString())
+        _SaludPertenencia7.map((e) => e.ClaveClasCondicionesSalud.toString())
             .first +
         " " +
-        _SaludPertenencia7
-            .map((e) => e.ClasCondicionesSalud.toString())
-            .first;
+        _SaludPertenencia7.map((e) => e.ClasCondicionesSalud.toString()).first;
 
     _ponderacion7.text =
-        _SaludPertenencia7
-            .map((e) => e.ponderacion.toString())
-            .first;
+        _SaludPertenencia7.map((e) => e.ponderacion.toString()).first;
 
-    setFoto1_7(_SaludPertenencia7
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2_7(_SaludPertenencia7
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3_7(_SaludPertenencia7
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4_7(_SaludPertenencia7
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5_7(_SaludPertenencia7
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1_7(_SaludPertenencia7.map((e) => e.fileFoto1.toString()).first);
+    setFoto2_7(_SaludPertenencia7.map((e) => e.fileFoto2.toString()).first);
+    setFoto3_7(_SaludPertenencia7.map((e) => e.fileFoto3.toString()).first);
+    setFoto4_7(_SaludPertenencia7.map((e) => e.fileFoto4.toString()).first);
+    setFoto5_7(_SaludPertenencia7.map((e) => e.fileFoto5.toString()).first);
   }
 
   setFoto1_7(String foto) {
@@ -1563,15 +1611,15 @@ class _Salud_PertenenciaIndigenaTablaState
   getAllSaludPertenencia8() async {
     _SaludPertenencia8 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia8(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia8(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -1583,9 +1631,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -1602,82 +1650,43 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _discapacidades8.text =
-        _SaludPertenencia8
-            .map((e) => e.ClaveCapacidadDiferente)
-            .first +
+        _SaludPertenencia8.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia8
-                .map((e) => e.CapacidadDiferente)
-                .first;
-    _adicciones8.text = _SaludPertenencia8
-        .map((e) => e.ClaveAdiccion)
-        .first +
+            _SaludPertenencia8.map((e) => e.CapacidadDiferente).first;
+    _adicciones8.text = _SaludPertenencia8.map((e) => e.ClaveAdiccion).first +
         " " +
-        _SaludPertenencia8
-            .map((e) => e.Adiccion)
-            .first;
+        _SaludPertenencia8.map((e) => e.Adiccion).first;
 
     _condicionSalud8.text =
-        _SaludPertenencia8
-            .map((e) => e.ClaveCondicionesSalud)
-            .first +
+        _SaludPertenencia8.map((e) => e.ClaveCondicionesSalud).first +
             " " +
-            _SaludPertenencia8
-                .map((e) => e.OrdenCondicionesSalud)
-                .first +
+            _SaludPertenencia8.map((e) => e.OrdenCondicionesSalud).first +
             " " +
-            _SaludPertenencia8
-                .map((e) => e.CondicionesSalud)
-                .first;
+            _SaludPertenencia8.map((e) => e.CondicionesSalud).first;
 
-    _peso8.text = _SaludPertenencia8
-        .map((e) => e.peso.toString())
-        .first;
-    _talla8.text = _SaludPertenencia8
-        .map((e) => e.talla.toString())
-        .first;
+    _peso8.text = _SaludPertenencia8.map((e) => e.peso.toString()).first;
+    _talla8.text = _SaludPertenencia8.map((e) => e.talla.toString()).first;
     _puebloIndigena8.text =
-        _SaludPertenencia8
-            .map((e) => e.ClaveEtniaIndigena)
-            .first +
+        _SaludPertenencia8.map((e) => e.ClaveEtniaIndigena).first +
             " " +
-            _SaludPertenencia8
-                .map((e) => e.EtniaIndigena)
-                .first;
+            _SaludPertenencia8.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion8.text = _SaludPertenencia8
-        .map(
-            (e) => e.ClaveClasCondicionesSalud.toString())
-        .first +
+    _clasificacion8.text = _SaludPertenencia8.map(
+            (e) => e.ClaveClasCondicionesSalud.toString()).first +
         " " +
-        _SaludPertenencia8
-            .map((e) => e.ClaveClasCondicionesSalud.toString())
+        _SaludPertenencia8.map((e) => e.ClaveClasCondicionesSalud.toString())
             .first +
         " " +
-        _SaludPertenencia8
-            .map((e) => e.ClasCondicionesSalud.toString())
-            .first;
+        _SaludPertenencia8.map((e) => e.ClasCondicionesSalud.toString()).first;
 
     _ponderacion8.text =
-        _SaludPertenencia8
-            .map((e) => e.ponderacion.toString())
-            .first;
+        _SaludPertenencia8.map((e) => e.ponderacion.toString()).first;
 
-    setFoto1_8(_SaludPertenencia8
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2_8(_SaludPertenencia8
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3_8(_SaludPertenencia8
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4_8(_SaludPertenencia8
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5_8(_SaludPertenencia8
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1_8(_SaludPertenencia8.map((e) => e.fileFoto1.toString()).first);
+    setFoto2_8(_SaludPertenencia8.map((e) => e.fileFoto2.toString()).first);
+    setFoto3_8(_SaludPertenencia8.map((e) => e.fileFoto3.toString()).first);
+    setFoto4_8(_SaludPertenencia8.map((e) => e.fileFoto4.toString()).first);
+    setFoto5_8(_SaludPertenencia8.map((e) => e.fileFoto5.toString()).first);
   }
 
   setFoto1_8(String foto) {
@@ -1733,15 +1742,15 @@ class _Salud_PertenenciaIndigenaTablaState
   getAllSaludPertenencia9() async {
     _SaludPertenencia9 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia9(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia9(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -1753,9 +1762,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -1772,96 +1781,56 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _discapacidades9.text =
-        _SaludPertenencia9
-            .map((e) => e.ClaveCapacidadDiferente)
-            .first +
+        _SaludPertenencia9.map((e) => e.ClaveCapacidadDiferente).first +
             " " +
-            _SaludPertenencia9
-                .map((e) => e.CapacidadDiferente)
-                .first;
-    _adicciones9.text = _SaludPertenencia9
-        .map((e) => e.ClaveAdiccion)
-        .first +
+            _SaludPertenencia9.map((e) => e.CapacidadDiferente).first;
+    _adicciones9.text = _SaludPertenencia9.map((e) => e.ClaveAdiccion).first +
         " " +
-        _SaludPertenencia9
-            .map((e) => e.Adiccion)
-            .first;
+        _SaludPertenencia9.map((e) => e.Adiccion).first;
 
     _condicionSalud9.text =
-        _SaludPertenencia9
-            .map((e) => e.ClaveCondicionesSalud)
-            .first +
+        _SaludPertenencia9.map((e) => e.ClaveCondicionesSalud).first +
             " " +
-            _SaludPertenencia9
-                .map((e) => e.OrdenCondicionesSalud)
-                .first +
+            _SaludPertenencia9.map((e) => e.OrdenCondicionesSalud).first +
             " " +
-            _SaludPertenencia9
-                .map((e) => e.CondicionesSalud)
-                .first;
+            _SaludPertenencia9.map((e) => e.CondicionesSalud).first;
 
-    _peso9.text = _SaludPertenencia9
-        .map((e) => e.peso.toString())
-        .first;
-    _talla9.text = _SaludPertenencia9
-        .map((e) => e.talla.toString())
-        .first;
+    _peso9.text = _SaludPertenencia9.map((e) => e.peso.toString()).first;
+    _talla9.text = _SaludPertenencia9.map((e) => e.talla.toString()).first;
     _puebloIndigena9.text =
-        _SaludPertenencia9
-            .map((e) => e.ClaveEtniaIndigena)
-            .first +
+        _SaludPertenencia9.map((e) => e.ClaveEtniaIndigena).first +
             " " +
-            _SaludPertenencia9
-                .map((e) => e.EtniaIndigena)
-                .first;
+            _SaludPertenencia9.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion9.text = _SaludPertenencia9
-        .map(
-            (e) => e.ClaveClasCondicionesSalud.toString())
-        .first +
+    _clasificacion9.text = _SaludPertenencia9.map(
+            (e) => e.ClaveClasCondicionesSalud.toString()).first +
         " " +
-        _SaludPertenencia9
-            .map((e) => e.ClaveClasCondicionesSalud.toString())
+        _SaludPertenencia9.map((e) => e.ClaveClasCondicionesSalud.toString())
             .first +
         " " +
-        _SaludPertenencia9
-            .map((e) => e.ClasCondicionesSalud.toString())
-            .first;
+        _SaludPertenencia9.map((e) => e.ClasCondicionesSalud.toString()).first;
 
     _ponderacion9.text =
-        _SaludPertenencia9
-            .map((e) => e.ponderacion.toString())
-            .first;
+        _SaludPertenencia9.map((e) => e.ponderacion.toString()).first;
 
-    setFoto1_9(_SaludPertenencia9
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2_9(_SaludPertenencia9
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3_9(_SaludPertenencia9
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4_9(_SaludPertenencia9
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5_9(_SaludPertenencia9
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1_9(_SaludPertenencia9.map((e) => e.fileFoto1.toString()).first);
+    setFoto2_9(_SaludPertenencia9.map((e) => e.fileFoto2.toString()).first);
+    setFoto3_9(_SaludPertenencia9.map((e) => e.fileFoto3.toString()).first);
+    setFoto4_9(_SaludPertenencia9.map((e) => e.fileFoto4.toString()).first);
+    setFoto5_9(_SaludPertenencia9.map((e) => e.fileFoto5.toString()).first);
   }
 
-  setFoto1_9(String foto){
+  setFoto1_9(String foto) {
     setState(() {
       if (foto != "") {
         foto9_1 = foto;
-
       } else {
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  setFoto2_9(String foto){
+  setFoto2_9(String foto) {
     setState(() {
       if (foto != "") {
         foto9_2 = foto;
@@ -1871,7 +1840,7 @@ class _Salud_PertenenciaIndigenaTablaState
     });
   }
 
-  setFoto3_9(String foto){
+  setFoto3_9(String foto) {
     setState(() {
       if (foto != "") {
         foto9_3 = foto;
@@ -1881,7 +1850,7 @@ class _Salud_PertenenciaIndigenaTablaState
     });
   }
 
-  setFoto4_9(String foto){
+  setFoto4_9(String foto) {
     setState(() {
       if (foto != "") {
         foto9_4 = foto;
@@ -1891,7 +1860,7 @@ class _Salud_PertenenciaIndigenaTablaState
     });
   }
 
-  setFoto5_9(String foto){
+  setFoto5_9(String foto) {
     setState(() {
       if (foto != "") {
         foto9_5 = foto;
@@ -1904,15 +1873,15 @@ class _Salud_PertenenciaIndigenaTablaState
   getAllSaludPertenencia10() async {
     _SaludPertenencia10 = List<Salud_PertenenciaIndigenenaTablaModel>();
     var categories =
-    await CategoryService().readSaludPertenencia10(int.parse(widget.folio));
+        await CategoryService().readSaludPertenencia10(int.parse(widget.folio));
     categories.forEach((category) {
       setState(() {
         var categoryModel = Salud_PertenenciaIndigenenaTablaModel();
         categoryModel.folio = category['folio'];
         categoryModel.ClaveCapacidadDiferente =
-        category['ClaveCapacidadDiferente'];
+            category['ClaveCapacidadDiferente'];
         categoryModel.OrdenCapacidadDiferente =
-        category['OrdenCapacidadDiferente'];
+            category['OrdenCapacidadDiferente'];
         categoryModel.CapacidadDiferente = category['CapacidadDiferente'];
         categoryModel.ClaveAdiccion = category['ClaveAdiccion'];
         categoryModel.OrdenAdiccion = category['OrdenAdiccion'];
@@ -1924,9 +1893,9 @@ class _Salud_PertenenciaIndigenaTablaState
         categoryModel.OrdenCondicionesSalud = category['OrdenCondicionesSalud'];
         categoryModel.CondicionesSalud = category['CondicionesSalud'];
         categoryModel.ClaveClasCondicionesSalud =
-        category['ClaveClasCondicionesSalud'];
+            category['ClaveClasCondicionesSalud'];
         categoryModel.OrdenClasCondicionesSalud =
-        category['OrdenClasCondicionesSalud'];
+            category['OrdenClasCondicionesSalud'];
         categoryModel.ClasCondicionesSalud = category['ClasCondicionesSalud'];
         categoryModel.ponderacion = int.parse(category['ponderacion']);
         categoryModel.fileFoto1 = category['fileFoto1'];
@@ -1975,35 +1944,24 @@ class _Salud_PertenenciaIndigenaTablaState
     _ponderacion10.text =
         _SaludPertenencia10.map((e) => e.ponderacion.toString()).first;
 
-    setFoto1_10(_SaludPertenencia10
-        .map((e) => e.fileFoto1.toString())
-        .first);
-    setFoto2_10(_SaludPertenencia10
-        .map((e) => e.fileFoto2.toString())
-        .first);
-    setFoto3_10(_SaludPertenencia10
-        .map((e) => e.fileFoto3.toString())
-        .first);
-    setFoto4_10(_SaludPertenencia10
-        .map((e) => e.fileFoto4.toString())
-        .first);
-    setFoto5_10(_SaludPertenencia10
-        .map((e) => e.fileFoto5.toString())
-        .first);
+    setFoto1_10(_SaludPertenencia10.map((e) => e.fileFoto1.toString()).first);
+    setFoto2_10(_SaludPertenencia10.map((e) => e.fileFoto2.toString()).first);
+    setFoto3_10(_SaludPertenencia10.map((e) => e.fileFoto3.toString()).first);
+    setFoto4_10(_SaludPertenencia10.map((e) => e.fileFoto4.toString()).first);
+    setFoto5_10(_SaludPertenencia10.map((e) => e.fileFoto5.toString()).first);
   }
 
-  setFoto1_10(String foto){
+  setFoto1_10(String foto) {
     setState(() {
       if (foto != "") {
         foto9_1 = foto;
-
       } else {
         alertDialog(context, 'Imagen no Seleccionada');
       }
     });
   }
 
-  setFoto2_10(String foto){
+  setFoto2_10(String foto) {
     setState(() {
       if (foto != "") {
         foto9_2 = foto;
@@ -2013,7 +1971,7 @@ class _Salud_PertenenciaIndigenaTablaState
     });
   }
 
-  setFoto3_10(String foto){
+  setFoto3_10(String foto) {
     setState(() {
       if (foto != "") {
         foto9_3 = foto;
@@ -2023,7 +1981,7 @@ class _Salud_PertenenciaIndigenaTablaState
     });
   }
 
-  setFoto4_10(String foto){
+  setFoto4_10(String foto) {
     setState(() {
       if (foto != "") {
         foto9_4 = foto;
@@ -2033,7 +1991,7 @@ class _Salud_PertenenciaIndigenaTablaState
     });
   }
 
-  setFoto5_10(String foto){
+  setFoto5_10(String foto) {
     setState(() {
       if (foto != "") {
         foto9_5 = foto;
@@ -2042,7 +2000,6 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     });
   }
-
 
   cargarDatos() {
     getAllSaludPertenencia1();
@@ -3237,8 +3194,6 @@ class _Salud_PertenenciaIndigenaTablaState
     });
   }
 
-
-
   renglon1() async {
     var foto1;
     var foto2;
@@ -3341,78 +3296,78 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-
-      _OrdenCapacidades = List<CapacidadesDiferentes>();
-      var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades1.text);
-      categories1.forEach((category) {
-        setState(() {
-          var categoryModel2 = CapacidadesDiferentes();
-          categoryModel2.Orden = category['Orden'];
-          _OrdenCapacidades.add(categoryModel2);
-        });
+    _OrdenCapacidades = List<CapacidadesDiferentes>();
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades1.text);
+    categories1.forEach((category) {
+      setState(() {
+        var categoryModel2 = CapacidadesDiferentes();
+        categoryModel2.Orden = category['Orden'];
+        _OrdenCapacidades.add(categoryModel2);
       });
+    });
 
-
-
-      _OrdenAdicciones = List<AdiccionesModel>();
-      var categories2 = await CategoryService().readOrdenAdicciones(_adicciones1.text);
-      categories2.forEach((category) {
-        setState(() {
-          var categoryModel3 = AdiccionesModel();
-          categoryModel3.Orden = category['Orden'];
-          _OrdenAdicciones.add(categoryModel3);
-        });
+    _OrdenAdicciones = List<AdiccionesModel>();
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones1.text);
+    categories2.forEach((category) {
+      setState(() {
+        var categoryModel3 = AdiccionesModel();
+        categoryModel3.Orden = category['Orden'];
+        _OrdenAdicciones.add(categoryModel3);
       });
+    });
 
-
-
-      _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-      var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena1.text);
-      categories3.forEach((category) {
-        setState(() {
-          var categoryModel4 = PuebloIndigenaModel();
-          categoryModel4.Orden = category['Orden'];
-          _OrdenPuebloIndigena.add(categoryModel4);
-        });
+    _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena1.text);
+    categories3.forEach((category) {
+      setState(() {
+        var categoryModel4 = PuebloIndigenaModel();
+        categoryModel4.Orden = category['Orden'];
+        _OrdenPuebloIndigena.add(categoryModel4);
       });
+    });
 
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades1.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones1.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso1.text),
+            talla: double.parse(_talla1.text),
+            imc: imC1,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion1.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena1.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto1.name.toString());
 
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades1.text.substring(0, 1),
-        OrdenCapacidadDiferente: _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones1.text.substring(0, 1),
-        OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso1.text),
-        talla: double.parse(_talla1.text),
-        imc: imC1,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft().trimRight(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion1.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena1.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto1.name.toString());
-    
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       setIncompleto1();
       alertDialog(context, "Se registro correctamente");
@@ -3424,7 +3379,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto1() async {
     String incompleto = _incompleto1.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -3438,7 +3393,6 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon2() async {
-
     var foto1;
     var foto2;
     var foto3;
@@ -3541,7 +3495,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades2.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades2.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -3550,10 +3505,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones2.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones2.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -3562,10 +3516,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena2.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena2.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -3574,45 +3527,44 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades2.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones2.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso2.text),
-        talla: double.parse(_talla2.text),
-        imc: imC2,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft().trimRight(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion2.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena2.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto2.name.toString());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades2.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones2.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso2.text),
+            talla: double.parse(_talla2.text),
+            imc: imC2,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion2.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena2.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto2.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -3625,7 +3577,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto2() async {
     String incompleto = _incompleto2.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -3639,8 +3591,6 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon3() async {
-
-
     var foto1;
     var foto2;
     var foto3;
@@ -3743,7 +3693,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades3.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades3.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -3752,10 +3703,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones3.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones3.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -3764,10 +3714,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena3.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena3.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -3776,45 +3725,44 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades3.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones3.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso3.text),
-        talla: double.parse(_talla3.text),
-        imc: imC3,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion3.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena3.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto3.name.toString());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades3.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones3.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso3.text),
+            talla: double.parse(_talla3.text),
+            imc: imC3,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion3.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena3.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto3.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -3827,7 +3775,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto3() async {
     String incompleto = _incompleto3.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -3841,7 +3789,6 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon4() async {
-
     var foto1;
     var foto2;
     var foto3;
@@ -3944,7 +3891,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades4.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades4.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -3953,10 +3901,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones4.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones4.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -3965,10 +3912,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena4.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena4.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -3977,45 +3923,44 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades4.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones4.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso4.text),
-        talla: double.parse(_talla4.text),
-        imc: imC4,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion4.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena4.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto4.name.toString());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades4.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones4.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso4.text),
+            talla: double.parse(_talla4.text),
+            imc: imC4,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion4.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena4.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto4.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -4028,7 +3973,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto4() async {
     String incompleto = _incompleto4.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -4042,7 +3987,6 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon5() async {
-
     var foto1;
     var foto2;
     var foto3;
@@ -4145,7 +4089,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades5.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades5.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -4154,10 +4099,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones5.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones5.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -4166,10 +4110,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena5.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena5.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -4178,45 +4121,44 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades5.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones5.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso5.text),
-        talla: double.parse(_talla5.text),
-        imc: imC5,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion5.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena5.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto5.name.toString());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades5.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones5.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso5.text),
+            talla: double.parse(_talla5.text),
+            imc: imC5,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion5.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena5.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto5.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -4229,7 +4171,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto5() async {
     String incompleto = _incompleto5.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -4243,7 +4185,6 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon6() async {
-
     var foto1;
     var foto2;
     var foto3;
@@ -4346,7 +4287,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades6.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades6.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -4355,10 +4297,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones6.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones6.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -4367,10 +4308,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena6.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena6.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -4379,45 +4319,44 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades6.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones6.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso6.text),
-        talla: double.parse(_talla6.text),
-        imc: imC6,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion6.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena6.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto6.name.toString());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades6.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones6.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso6.text),
+            talla: double.parse(_talla6.text),
+            imc: imC6,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion6.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena6.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto6.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -4430,7 +4369,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto6() async {
     String incompleto = _incompleto6.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -4444,7 +4383,6 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon7() async {
-
     var foto1;
     var foto2;
     var foto3;
@@ -4547,7 +4485,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades7.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades7.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -4556,10 +4495,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones7.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones7.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -4568,10 +4506,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena7.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena7.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -4580,45 +4517,44 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades7.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones7.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso7.text),
-        talla: double.parse(_talla7.text),
-        imc: imC7,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion7.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena7.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto7.name.toString());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades7.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones7.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso7.text),
+            talla: double.parse(_talla7.text),
+            imc: imC7,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion7.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena7.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto7.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -4631,7 +4567,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto7() async {
     String incompleto = _incompleto7.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -4645,7 +4581,6 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon8() async {
-
     var foto1;
     var foto2;
     var foto3;
@@ -4748,7 +4683,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades8.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades8.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -4757,10 +4693,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones8.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones8.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -4769,10 +4704,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena8.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena8.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -4781,45 +4715,44 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades8.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones8.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso8.text),
-        talla: double.parse(_talla8.text),
-        imc: imC8,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion,
-        ponderacion: int.parse(_ponderacion8.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena8.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto8.name.toString());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades8.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones8.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso8.text),
+            talla: double.parse(_talla8.text),
+            imc: imC8,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion,
+            ponderacion: int.parse(_ponderacion8.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena8.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto8.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -4832,7 +4765,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto8() async {
     String incompleto = _incompleto8.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -4846,7 +4779,6 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon9() async {
-
     var foto1;
     var foto2;
     var foto3;
@@ -4949,7 +4881,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades9.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades9.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -4958,10 +4891,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones9.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones9.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -4970,10 +4902,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena9.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena9.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -4982,45 +4913,44 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades9.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones9.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso9.text),
-        talla: double.parse(_talla9.text),
-        imc: imC9,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion9.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena9.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto9.name.toString());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades9.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones9.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso9.text),
+            talla: double.parse(_talla9.text),
+            imc: imC9,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion9.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena9.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto9.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -5033,7 +4963,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto9() async {
     String incompleto = _incompleto9.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -5047,7 +4977,6 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   renglon10() async {
-
     var foto1;
     var foto2;
     var foto3;
@@ -5150,7 +5079,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades10.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades10.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -5159,10 +5089,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones10.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones10.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -5171,10 +5100,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena10.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena10.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -5183,45 +5111,44 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades10.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones10.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso10.text),
-        talla: double.parse(_talla10.text),
-        imc: imC10,
-        ClaveCondicionesSalud:
-            (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenCondicionesSalud:
-            (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
-                .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-            (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
-                .toString(),
-        OrdenClasCondicionesSalud:
-            (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
-                .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion10.text),
-        fileFoto1: foto1,
-        fileFoto2: foto2,
-        fileFoto3: foto3,
-        fileFoto4: foto4,
-        fileFoto5: foto5,
-        ClaveEtniaIndigena: _puebloIndigena10.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft(),
-        incompleto: _incompleto10.name.toString());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades10.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones10.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso10.text),
+            talla: double.parse(_talla10.text),
+            imc: imC10,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion10.text),
+            fileFoto1: foto1,
+            fileFoto2: foto2,
+            fileFoto3: foto3,
+            fileFoto4: foto4,
+            fileFoto5: foto5,
+            ClaveEtniaIndigena:
+                _puebloIndigena10.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft(),
+            incompleto: _incompleto10.name.toString());
 
     await DbHelper().saveSalud(BModel).then((remesasModel) {
       alertDialog(context, "Se registro correctamente");
@@ -5238,7 +5165,7 @@ class _Salud_PertenenciaIndigenaTablaState
 
   setIncompleto10() async {
     String incompleto = _incompleto10.name.toString();
-    
+
     print(incompleto);
 
     await dbHelper
@@ -5252,11 +5179,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon1() async {
-
-
-    if(foto1_1 != null) {
+    if (foto1_1 != null) {
       foto1_1 = foto1_1;
-    }else{
+    } else {
       if (_image1_1.isNull) {
         foto1_1 = "";
       } else {
@@ -5264,9 +5189,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto1_2 != null) {
+    if (foto1_2 != null) {
       foto1_2 = foto1_2;
-    }else{
+    } else {
       if (_image1_2.isNull) {
         foto1_2 = "";
       } else {
@@ -5274,9 +5199,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto1_3 != null) {
+    if (foto1_3 != null) {
       foto1_3 = foto1_3;
-    }else{
+    } else {
       if (_image1_3.isNull) {
         foto1_3 = "";
       } else {
@@ -5284,9 +5209,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto1_4 != null) {
+    if (foto1_4 != null) {
       foto1_4 = foto1_4;
-    }else{
+    } else {
       if (_image1_4.isNull) {
         foto1_4 = "";
       } else {
@@ -5294,9 +5219,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto1_5 != null) {
+    if (foto1_5 != null) {
       foto1_5 = foto1_5;
-    }else{
+    } else {
       if (_image1_5.isNull) {
         foto1_5 = "";
       } else {
@@ -5370,7 +5295,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades1.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades1.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -5379,10 +5305,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones1.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones1.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -5391,10 +5316,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena1.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena1.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -5403,44 +5327,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades1.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones1.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso1.text),
-        talla: double.parse(_talla1.text),
-        imc: imC1,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion1.text),
-        fileFoto1: foto1_1,
-        fileFoto2: foto1_2,
-        fileFoto3: foto1_3,
-        fileFoto4: foto1_4,
-        fileFoto5: foto1_5,
-        ClaveEtniaIndigena: _puebloIndigena1.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades1.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones1.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso1.text),
+            talla: double.parse(_talla1.text),
+            imc: imC1,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion1.text),
+            fileFoto1: foto1_1,
+            fileFoto2: foto1_2,
+            fileFoto3: foto1_3,
+            fileFoto4: foto1_4,
+            fileFoto5: foto1_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena1.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud1(BModel)
@@ -5453,11 +5376,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon2() async {
-
-
-    if(foto2_1 != null) {
+    if (foto2_1 != null) {
       foto2_1 = foto2_1;
-    }else{
+    } else {
       if (_image2_1.isNull) {
         foto2_1 = "";
       } else {
@@ -5465,9 +5386,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto2_2 != null) {
+    if (foto2_2 != null) {
       foto2_2 = foto2_2;
-    }else{
+    } else {
       if (_image2_2.isNull) {
         foto2_2 = "";
       } else {
@@ -5475,9 +5396,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto2_3 != null) {
+    if (foto2_3 != null) {
       foto2_3 = foto2_3;
-    }else{
+    } else {
       if (_image2_3.isNull) {
         foto2_3 = "";
       } else {
@@ -5485,9 +5406,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto2_4 != null) {
+    if (foto2_4 != null) {
       foto2_4 = foto2_4;
-    }else{
+    } else {
       if (_image2_4.isNull) {
         foto2_4 = "";
       } else {
@@ -5495,16 +5416,15 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto2_5 != null) {
+    if (foto2_5 != null) {
       foto2_5 = foto2_5;
-    }else{
+    } else {
       if (_image2_5.isNull) {
         foto2_5 = "";
       } else {
         foto2_5 = Utility.base64String(_image2_5.readAsBytesSync());
       }
     }
-
 
     var value1 = _discapacidades2.text; // 'artlang'
     final CapacidadesD = value1
@@ -5572,7 +5492,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades2.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades2.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -5582,7 +5503,8 @@ class _Salud_PertenenciaIndigenaTablaState
     });
 
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones2.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones2.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -5591,10 +5513,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena2.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena2.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -5603,44 +5524,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades2.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones2.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso2.text),
-        talla: double.parse(_talla2.text),
-        imc: imC2,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion2.text),
-        fileFoto1: foto2_1,
-        fileFoto2: foto2_2,
-        fileFoto3: foto2_3,
-        fileFoto4: foto2_4,
-        fileFoto5: foto2_5,
-        ClaveEtniaIndigena: _puebloIndigena2.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades2.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones2.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso2.text),
+            talla: double.parse(_talla2.text),
+            imc: imC2,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion2.text),
+            fileFoto1: foto2_1,
+            fileFoto2: foto2_2,
+            fileFoto3: foto2_3,
+            fileFoto4: foto2_4,
+            fileFoto5: foto2_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena2.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud2(BModel)
@@ -5653,10 +5573,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon3() async {
-
-    if(foto3_1 != null) {
+    if (foto3_1 != null) {
       foto3_1 = foto3_1;
-    }else{
+    } else {
       if (_image3_1.isNull) {
         foto3_1 = "";
       } else {
@@ -5664,9 +5583,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto3_2 != null) {
+    if (foto3_2 != null) {
       foto3_2 = foto3_2;
-    }else{
+    } else {
       if (_image3_2.isNull) {
         foto3_2 = "";
       } else {
@@ -5674,9 +5593,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto3_3 != null) {
+    if (foto3_3 != null) {
       foto3_3 = foto3_3;
-    }else{
+    } else {
       if (_image3_3.isNull) {
         foto3_3 = "";
       } else {
@@ -5684,10 +5603,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-
-    if(foto3_4 != null) {
+    if (foto3_4 != null) {
       foto3_4 = foto3_4;
-    }else{
+    } else {
       if (_image3_4.isNull) {
         foto3_4 = "";
       } else {
@@ -5695,9 +5613,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto3_5 != null) {
+    if (foto3_5 != null) {
       foto3_5 = foto3_5;
-    }else{
+    } else {
       if (_image3_5.isNull) {
         foto3_5 = "";
       } else {
@@ -5771,7 +5689,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades3.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades3.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -5780,10 +5699,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones3.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones3.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -5792,10 +5710,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena3.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena3.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -5804,44 +5721,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades3.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones3.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso3.text),
-        talla: double.parse(_talla3.text),
-        imc: imC3,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion3.text),
-        fileFoto1: foto3_1,
-        fileFoto2: foto3_2,
-        fileFoto3: foto3_3,
-        fileFoto4: foto3_4,
-        fileFoto5: foto3_5,
-        ClaveEtniaIndigena: _puebloIndigena3.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades3.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones3.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso3.text),
+            talla: double.parse(_talla3.text),
+            imc: imC3,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion3.text),
+            fileFoto1: foto3_1,
+            fileFoto2: foto3_2,
+            fileFoto3: foto3_3,
+            fileFoto4: foto3_4,
+            fileFoto5: foto3_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena3.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud3(BModel)
@@ -5854,10 +5770,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon4() async {
-
-    if(foto4_1 != null) {
+    if (foto4_1 != null) {
       foto4_1 = foto4_1;
-    }else{
+    } else {
       if (_image4_1.isNull) {
         foto4_1 = "";
       } else {
@@ -5865,9 +5780,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto4_2 != null) {
+    if (foto4_2 != null) {
       foto4_2 = foto4_2;
-    }else{
+    } else {
       if (_image4_2.isNull) {
         foto4_2 = "";
       } else {
@@ -5875,9 +5790,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto4_3 != null) {
+    if (foto4_3 != null) {
       foto4_3 = foto4_3;
-    }else{
+    } else {
       if (_image4_3.isNull) {
         foto4_3 = "";
       } else {
@@ -5885,9 +5800,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto4_4 != null) {
+    if (foto4_4 != null) {
       foto4_4 = foto4_4;
-    }else{
+    } else {
       if (_image4_4.isNull) {
         foto4_4 = "";
       } else {
@@ -5895,16 +5810,15 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto4_5 != null) {
+    if (foto4_5 != null) {
       foto4_5 = foto4_5;
-    }else{
+    } else {
       if (_image4_5.isNull) {
         foto4_5 = "";
       } else {
         foto4_5 = Utility.base64String(_image4_5.readAsBytesSync());
       }
     }
-
 
     var value1 = _discapacidades4.text; // 'artlang'
     final CapacidadesD = value1
@@ -5972,7 +5886,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades4.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades4.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -5981,10 +5896,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones4.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones4.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -5993,10 +5907,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena4.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena4.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -6005,44 +5918,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades4.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones4.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso4.text),
-        talla: double.parse(_talla4.text),
-        imc: imC4,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion4.text),
-        fileFoto1: foto4_1,
-        fileFoto2: foto4_2,
-        fileFoto3: foto4_3,
-        fileFoto4: foto4_4,
-        fileFoto5: foto4_5,
-        ClaveEtniaIndigena: _puebloIndigena4.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades4.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones4.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso4.text),
+            talla: double.parse(_talla4.text),
+            imc: imC4,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion4.text),
+            fileFoto1: foto4_1,
+            fileFoto2: foto4_2,
+            fileFoto3: foto4_3,
+            fileFoto4: foto4_4,
+            fileFoto5: foto4_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena4.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud4(BModel)
@@ -6055,10 +5967,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon5() async {
-
-    if(foto5_1 != null) {
+    if (foto5_1 != null) {
       foto5_1 = foto5_1;
-    }else{
+    } else {
       if (_image5_1.isNull) {
         foto5_1 = "";
       } else {
@@ -6066,9 +5977,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto5_2 != null) {
+    if (foto5_2 != null) {
       foto5_2 = foto5_2;
-    }else{
+    } else {
       if (_image5_2.isNull) {
         foto5_2 = "";
       } else {
@@ -6076,9 +5987,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto5_3 != null) {
+    if (foto5_3 != null) {
       foto5_3 = foto5_3;
-    }else{
+    } else {
       if (_image5_3.isNull) {
         foto5_3 = "";
       } else {
@@ -6086,9 +5997,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto5_4 != null) {
+    if (foto5_4 != null) {
       foto5_4 = foto5_4;
-    }else{
+    } else {
       if (_image5_4.isNull) {
         foto5_4 = "";
       } else {
@@ -6096,9 +6007,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto5_5 != null) {
+    if (foto5_5 != null) {
       foto5_5 = foto5_5;
-    }else{
+    } else {
       if (_image5_5.isNull) {
         foto5_5 = "";
       } else {
@@ -6172,7 +6083,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades5.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades5.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -6181,10 +6093,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones5.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones5.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -6193,10 +6104,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena5.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena5.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -6205,44 +6115,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades5.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones5.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso5.text),
-        talla: double.parse(_talla5.text),
-        imc: imC5,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion5.text),
-        fileFoto1: foto5_1,
-        fileFoto2: foto5_2,
-        fileFoto3: foto5_3,
-        fileFoto4: foto5_4,
-        fileFoto5: foto5_5,
-        ClaveEtniaIndigena: _puebloIndigena5.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades5.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones5.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso5.text),
+            talla: double.parse(_talla5.text),
+            imc: imC5,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion5.text),
+            fileFoto1: foto5_1,
+            fileFoto2: foto5_2,
+            fileFoto3: foto5_3,
+            fileFoto4: foto5_4,
+            fileFoto5: foto5_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena5.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud5(BModel)
@@ -6255,10 +6164,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon6() async {
-
-    if(foto6_1 != null) {
+    if (foto6_1 != null) {
       foto6_1 = foto6_1;
-    }else{
+    } else {
       if (_image6_1.isNull) {
         foto6_1 = "";
       } else {
@@ -6266,9 +6174,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto6_2 != null) {
+    if (foto6_2 != null) {
       foto6_2 = foto6_2;
-    }else{
+    } else {
       if (_image6_2.isNull) {
         foto6_2 = "";
       } else {
@@ -6276,9 +6184,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto6_3 != null) {
+    if (foto6_3 != null) {
       foto6_3 = foto6_3;
-    }else{
+    } else {
       if (_image6_3.isNull) {
         foto6_3 = "";
       } else {
@@ -6286,9 +6194,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto6_4 != null) {
+    if (foto6_4 != null) {
       foto6_4 = foto6_4;
-    }else{
+    } else {
       if (_image6_4.isNull) {
         foto6_4 = "";
       } else {
@@ -6296,16 +6204,15 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto6_5 != null) {
+    if (foto6_5 != null) {
       foto6_5 = foto6_5;
-    }else{
+    } else {
       if (_image6_5.isNull) {
         foto6_5 = "";
       } else {
         foto6_5 = Utility.base64String(_image6_5.readAsBytesSync());
       }
     }
-
 
     var value1 = _discapacidades6.text; // 'artlang'
     final CapacidadesD = value1
@@ -6373,7 +6280,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades6.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades6.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -6382,10 +6290,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones6.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones6.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -6394,10 +6301,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena6.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena6.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -6406,44 +6312,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades6.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones6.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso6.text),
-        talla: double.parse(_talla6.text),
-        imc: imC6,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion6.text),
-        fileFoto1: foto6_1,
-        fileFoto2: foto6_2,
-        fileFoto3: foto6_3,
-        fileFoto4: foto6_4,
-        fileFoto5: foto6_5,
-        ClaveEtniaIndigena: _puebloIndigena6.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades6.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones6.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso6.text),
+            talla: double.parse(_talla6.text),
+            imc: imC6,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion6.text),
+            fileFoto1: foto6_1,
+            fileFoto2: foto6_2,
+            fileFoto3: foto6_3,
+            fileFoto4: foto6_4,
+            fileFoto5: foto6_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena6.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud6(BModel)
@@ -6456,10 +6361,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon7() async {
-
-    if(foto7_1 != null) {
+    if (foto7_1 != null) {
       foto7_1 = foto7_1;
-    }else{
+    } else {
       if (_image7_1.isNull) {
         foto7_1 = "";
       } else {
@@ -6467,9 +6371,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto7_2 != null) {
+    if (foto7_2 != null) {
       foto7_2 = foto7_2;
-    }else{
+    } else {
       if (_image7_2.isNull) {
         foto7_2 = "";
       } else {
@@ -6477,9 +6381,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto7_3 != null) {
+    if (foto7_3 != null) {
       foto7_3 = foto7_3;
-    }else{
+    } else {
       if (_image7_3.isNull) {
         foto7_3 = "";
       } else {
@@ -6487,9 +6391,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto7_4 != null) {
+    if (foto7_4 != null) {
       foto7_4 = foto7_4;
-    }else{
+    } else {
       if (_image7_4.isNull) {
         foto7_4 = "";
       } else {
@@ -6497,17 +6401,15 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto7_5 != null) {
+    if (foto7_5 != null) {
       foto7_5 = foto7_5;
-    }else{
+    } else {
       if (_image7_5.isNull) {
         foto7_5 = "";
       } else {
         foto7_5 = Utility.base64String(_image7_5.readAsBytesSync());
       }
     }
-
-
 
     var value1 = _discapacidades7.text; // 'artlang'
     final CapacidadesD = value1
@@ -6575,7 +6477,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades8.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades8.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -6584,10 +6487,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones8.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones8.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -6596,10 +6498,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena8.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena8.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -6608,44 +6509,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades7.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones7.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso7.text),
-        talla: double.parse(_talla7.text),
-        imc: imC7,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion7.text),
-        fileFoto1: foto7_1,
-        fileFoto2: foto7_2,
-        fileFoto3: foto7_3,
-        fileFoto4: foto7_4,
-        fileFoto5: foto7_5,
-        ClaveEtniaIndigena: _puebloIndigena7.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades7.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones7.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso7.text),
+            talla: double.parse(_talla7.text),
+            imc: imC7,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion7.text),
+            fileFoto1: foto7_1,
+            fileFoto2: foto7_2,
+            fileFoto3: foto7_3,
+            fileFoto4: foto7_4,
+            fileFoto5: foto7_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena7.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud7(BModel)
@@ -6658,10 +6558,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon8() async {
-
-    if(foto8_1 != null) {
+    if (foto8_1 != null) {
       foto8_1 = foto8_1;
-    }else{
+    } else {
       if (_image8_1.isNull) {
         foto8_1 = "";
       } else {
@@ -6669,9 +6568,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto8_2 != null) {
+    if (foto8_2 != null) {
       foto8_2 = foto8_2;
-    }else{
+    } else {
       if (_image8_2.isNull) {
         foto8_2 = "";
       } else {
@@ -6679,9 +6578,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto8_3 != null) {
+    if (foto8_3 != null) {
       foto8_3 = foto8_3;
-    }else{
+    } else {
       if (_image8_3.isNull) {
         foto8_3 = "";
       } else {
@@ -6689,9 +6588,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto8_4 != null) {
+    if (foto8_4 != null) {
       foto8_4 = foto8_4;
-    }else{
+    } else {
       if (_image8_4.isNull) {
         foto8_4 = "";
       } else {
@@ -6699,16 +6598,15 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto8_5 != null) {
+    if (foto8_5 != null) {
       foto8_5 = foto8_5;
-    }else{
+    } else {
       if (_image8_5.isNull) {
         foto8_5 = "";
       } else {
         foto8_5 = Utility.base64String(_image8_5.readAsBytesSync());
       }
     }
-
 
     var value1 = _discapacidades8.text; // 'artlang'
     final CapacidadesD = value1
@@ -6776,7 +6674,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades8.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades8.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -6785,10 +6684,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones8.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones8.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -6797,10 +6695,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena8.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena8.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -6809,44 +6706,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades8.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones8.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso8.text),
-        talla: double.parse(_talla8.text),
-        imc: imC8,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion8.text),
-        fileFoto1: foto8_1,
-        fileFoto2: foto8_2,
-        fileFoto3: foto8_3,
-        fileFoto4: foto8_4,
-        fileFoto5: foto8_5,
-        ClaveEtniaIndigena: _puebloIndigena8.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades8.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones8.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso8.text),
+            talla: double.parse(_talla8.text),
+            imc: imC8,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion8.text),
+            fileFoto1: foto8_1,
+            fileFoto2: foto8_2,
+            fileFoto3: foto8_3,
+            fileFoto4: foto8_4,
+            fileFoto5: foto8_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena8.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud8(BModel)
@@ -6859,10 +6755,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon9() async {
-
-    if(foto9_1 != null) {
+    if (foto9_1 != null) {
       foto9_1 = foto9_1;
-    }else{
+    } else {
       if (_image9_1.isNull) {
         foto9_1 = "";
       } else {
@@ -6870,9 +6765,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto9_2 != null) {
+    if (foto9_2 != null) {
       foto9_2 = foto9_2;
-    }else{
+    } else {
       if (_image9_2.isNull) {
         foto9_2 = "";
       } else {
@@ -6880,9 +6775,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto9_3 != null) {
+    if (foto9_3 != null) {
       foto9_3 = foto9_3;
-    }else{
+    } else {
       if (_image9_3.isNull) {
         foto9_3 = "";
       } else {
@@ -6890,9 +6785,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto9_4 != null) {
+    if (foto9_4 != null) {
       foto9_4 = foto9_4;
-    }else{
+    } else {
       if (_image9_4.isNull) {
         foto9_4 = "";
       } else {
@@ -6900,16 +6795,15 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto9_5 != null) {
+    if (foto9_5 != null) {
       foto9_5 = foto9_5;
-    }else{
+    } else {
       if (_image9_5.isNull) {
         foto9_5 = "";
       } else {
         foto9_5 = Utility.base64String(_image9_5.readAsBytesSync());
       }
     }
-
 
     var value1 = _discapacidades9.text; // 'artlang'
     final CapacidadesD = value1
@@ -6977,7 +6871,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades9.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades9.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -6986,10 +6881,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones9.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones9.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -6998,10 +6892,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena9.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena9.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -7010,44 +6903,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades9.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones9.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso9.text),
-        talla: double.parse(_talla9.text),
-        imc: imC9,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion9.text),
-        fileFoto1: foto9_1,
-        fileFoto2: foto9_2,
-        fileFoto3: foto9_3,
-        fileFoto4: foto9_4,
-        fileFoto5: foto9_5,
-        ClaveEtniaIndigena: _puebloIndigena9.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades9.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones9.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso9.text),
+            talla: double.parse(_talla9.text),
+            imc: imC9,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion9.text),
+            fileFoto1: foto9_1,
+            fileFoto2: foto9_2,
+            fileFoto3: foto9_3,
+            fileFoto4: foto9_4,
+            fileFoto5: foto9_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena9.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud9(BModel)
@@ -7060,10 +6952,9 @@ class _Salud_PertenenciaIndigenaTablaState
   }
 
   actRenglon10() async {
-
-    if(foto10_1 != null) {
+    if (foto10_1 != null) {
       foto10_1 = foto10_1;
-    }else{
+    } else {
       if (_image10_1.isNull) {
         foto10_1 = "";
       } else {
@@ -7071,9 +6962,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto10_2 != null) {
+    if (foto10_2 != null) {
       foto10_2 = foto10_2;
-    }else{
+    } else {
       if (_image10_2.isNull) {
         foto10_2 = "";
       } else {
@@ -7081,9 +6972,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto10_3 != null) {
+    if (foto10_3 != null) {
       foto10_3 = foto10_3;
-    }else{
+    } else {
       if (_image10_3.isNull) {
         foto10_3 = "";
       } else {
@@ -7091,9 +6982,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto10_4 != null) {
+    if (foto10_4 != null) {
       foto10_4 = foto10_4;
-    }else{
+    } else {
       if (_image10_4.isNull) {
         foto10_4 = "";
       } else {
@@ -7101,9 +6992,9 @@ class _Salud_PertenenciaIndigenaTablaState
       }
     }
 
-    if(foto10_5 != null) {
+    if (foto10_5 != null) {
       foto10_5 = foto10_5;
-    }else{
+    } else {
       if (_image10_5.isNull) {
         foto10_5 = "";
       } else {
@@ -7177,7 +7068,8 @@ class _Salud_PertenenciaIndigenaTablaState
         .replaceAll("0", "");
 
     _OrdenCapacidades = List<CapacidadesDiferentes>();
-    var categories1 = await CategoryService().readOrdenCapacidadesDif(_discapacidades10.text);
+    var categories1 =
+        await CategoryService().readOrdenCapacidadesDif(_discapacidades10.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel2 = CapacidadesDiferentes();
@@ -7186,10 +7078,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenAdicciones = List<AdiccionesModel>();
-    var categories2 = await CategoryService().readOrdenAdicciones(_adicciones10.text);
+    var categories2 =
+        await CategoryService().readOrdenAdicciones(_adicciones10.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = AdiccionesModel();
@@ -7198,10 +7089,9 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-
     _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
-    var categories3 = await CategoryService().readOrdenPuebloIndigena(_puebloIndigena10.text);
+    var categories3 =
+        await CategoryService().readOrdenPuebloIndigena(_puebloIndigena10.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel4 = PuebloIndigenaModel();
@@ -7210,44 +7100,43 @@ class _Salud_PertenenciaIndigenaTablaState
       });
     });
 
-
-    Salud_PertenenciaIndigenenaTablaModel BModel = Salud_PertenenciaIndigenenaTablaModel(
-        folio: int.parse(widget.folio),
-        ClaveCapacidadDiferente: _discapacidades10.text.substring(0, 1),
-        OrdenCapacidadDiferente:
-        _OrdenCapacidades.map((e) => e.Orden).first,
-        CapacidadDiferente: CapacidadesD.trimLeft(),
-        ClaveAdiccion: _adicciones10.text.substring(0, 1),
-        OrdenAdiccion:
-        _OrdenAdicciones.map((e) => e.Orden).first,
-        Adiccion: Adicciones.trimLeft(),
-        peso: double.parse(_peso10.text),
-        talla: double.parse(_talla10.text),
-        imc: imC10,
-        ClaveCondicionesSalud:
-        (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenCondicionesSalud:
-        (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
-            .toString(),
-        CondicionesSalud: Condiciones.trimLeft(),
-        ClaveClasCondicionesSalud:
-        (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
-            .toString(),
-        OrdenClasCondicionesSalud:
-        (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
-            .toString(),
-        ClasCondicionesSalud: Clasificacion.trimLeft(),
-        ponderacion: int.parse(_ponderacion10.text),
-        fileFoto1: foto10_1,
-        fileFoto2: foto10_2,
-        fileFoto3: foto10_3,
-        fileFoto4: foto10_4,
-        fileFoto5: foto10_5,
-        ClaveEtniaIndigena: _puebloIndigena10.text.substring(0, 2).trimRight(),
-        OrdenEtniaIndigena:
-        _OrdenPuebloIndigena.map((e) => e.Orden).first,
-        EtniaIndigena: Pueblo.trimLeft());
+    Salud_PertenenciaIndigenenaTablaModel BModel =
+        Salud_PertenenciaIndigenenaTablaModel(
+            folio: int.parse(widget.folio),
+            ClaveCapacidadDiferente: _discapacidades10.text.substring(0, 1),
+            OrdenCapacidadDiferente:
+                _OrdenCapacidades.map((e) => e.Orden).first,
+            CapacidadDiferente: CapacidadesD.trimLeft(),
+            ClaveAdiccion: _adicciones10.text.substring(0, 1),
+            OrdenAdiccion: _OrdenAdicciones.map((e) => e.Orden).first,
+            Adiccion: Adicciones.trimLeft(),
+            peso: double.parse(_peso10.text),
+            talla: double.parse(_talla10.text),
+            imc: imC10,
+            ClaveCondicionesSalud:
+                (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenCondicionesSalud:
+                (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
+                    .toString(),
+            CondicionesSalud: Condiciones.trimLeft(),
+            ClaveClasCondicionesSalud:
+                (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
+                    .toString(),
+            OrdenClasCondicionesSalud:
+                (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
+                    .toString(),
+            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ponderacion: int.parse(_ponderacion10.text),
+            fileFoto1: foto10_1,
+            fileFoto2: foto10_2,
+            fileFoto3: foto10_3,
+            fileFoto4: foto10_4,
+            fileFoto5: foto10_5,
+            ClaveEtniaIndigena:
+                _puebloIndigena10.text.substring(0, 2).trimRight(),
+            OrdenEtniaIndigena: _OrdenPuebloIndigena.map((e) => e.Orden).first,
+            EtniaIndigena: Pueblo.trimLeft());
 
     await DbHelper()
         .upDateSalud10(BModel)
@@ -7572,8 +7461,7 @@ class _Salud_PertenenciaIndigenaTablaState
                       children: [
                         Container(
                           child: DataTable(
-                            columnSpacing: 50,
-                            dataRowHeight: 100,
+                            dataRowHeight: 170,
                             columns: [
                               DataColumn(label: Text('1')),
                               DataColumn(label: Text('Nombres')),
@@ -7621,7 +7509,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                     inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC1(),
@@ -7649,20 +7537,172 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud1,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion1,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud1,
+                                                hintName: 'Condiciones Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked1Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion1,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked1Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion1,
                                   hintName: 'Ponderación',
@@ -7676,39 +7716,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                           children: [
                                             SizedBox(height: 10.0),
                                             Container(
-                                                child: foto1_1 != null || _image1_1 != null
+                                                child: foto1_1 != null ||
+                                                        _image1_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage1_1),
                                             Container(
-                                                child: foto1_2 != null || _image1_2 != null
+                                                child: foto1_2 != null ||
+                                                        _image1_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage1_2),
                                             Container(
-                                                child: foto1_3 != null || _image1_3 != null
+                                                child: foto1_3 != null ||
+                                                        _image1_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage1_3),
                                             Container(
-                                                child: foto1_4 != null || _image1_4 != null
+                                                child: foto1_4 != null ||
+                                                        _image1_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage1_4),
                                             Container(
-                                                child: foto1_5 != null || _image1_5 != null
+                                                child: foto1_5 != null ||
+                                                        _image1_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage1_5),
                                           ],
                                         ),
@@ -7793,20 +7838,172 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud2,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion2,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud2,
+                                                hintName: 'Condiciones Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked2Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion2,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked2Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion2,
                                   hintName: 'Ponderación',
@@ -7820,39 +8017,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                           children: [
                                             SizedBox(height: 10.0),
                                             Container(
-                                                child: foto2_1 != null || _image2_1 != null
+                                                child: foto2_1 != null ||
+                                                        _image2_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage2_1),
                                             Container(
-                                                child: foto2_2 != null || _image2_2 != null
+                                                child: foto2_2 != null ||
+                                                        _image2_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage2_2),
                                             Container(
-                                                child: foto2_3 != null || _image2_3 != null
+                                                child: foto2_3 != null ||
+                                                        _image2_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage2_3),
                                             Container(
-                                                child: foto2_4 != null || _image2_4 != null
+                                                child: foto2_4 != null ||
+                                                        _image2_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage2_4),
                                             Container(
-                                                child: foto2_5 != null || _image2_5 != null
+                                                child: foto2_5 != null ||
+                                                        _image2_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage2_5),
                                           ],
                                         ),
@@ -7937,20 +8139,172 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud3,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion3,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud3,
+                                                hintName: 'Condiciones Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked3Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion3,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked3Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion3,
                                   hintName: 'Ponderación',
@@ -7964,39 +8318,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                           children: [
                                             SizedBox(height: 10.0),
                                             Container(
-                                                child: foto3_1 != null || _image3_1 != null
+                                                child: foto3_1 != null ||
+                                                        _image3_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage3_1),
                                             Container(
-                                                child: foto3_2 != null || _image3_2 != null
+                                                child: foto3_2 != null ||
+                                                        _image3_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage3_2),
                                             Container(
-                                                child: foto3_3 != null || _image3_3 != null
+                                                child: foto3_3 != null ||
+                                                        _image3_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage3_3),
                                             Container(
-                                                child: foto3_4 != null || _image3_4 != null
+                                                child: foto3_4 != null ||
+                                                        _image3_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage3_4),
                                             Container(
-                                                child: foto3_5 != null || _image3_5 != null
+                                                child: foto3_5 != null ||
+                                                        _image3_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage3_5),
                                           ],
                                         ),
@@ -8081,20 +8440,172 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud4,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion4,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud4,
+                                                hintName: 'Condiciones Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked4Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion4,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked4Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion4,
                                   hintName: 'Ponderación',
@@ -8108,39 +8619,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                           children: [
                                             SizedBox(height: 10.0),
                                             Container(
-                                                child: foto1_1 != null || _image1_1 != null
+                                                child: foto1_1 != null ||
+                                                        _image1_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage1_1),
                                             Container(
-                                                child: foto4_2 != null || _image4_2 != null
+                                                child: foto4_2 != null ||
+                                                        _image4_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage4_2),
                                             Container(
-                                                child: foto4_3 != null || _image4_3 != null
+                                                child: foto4_3 != null ||
+                                                        _image4_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage4_3),
                                             Container(
-                                                child: foto4_4 != null || _image4_4 != null
+                                                child: foto4_4 != null ||
+                                                        _image4_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage4_4),
                                             Container(
-                                                child: foto4_5 != null || _image4_5 != null
+                                                child: foto4_5 != null ||
+                                                        _image4_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage4_5),
                                           ],
                                         ),
@@ -8225,20 +8741,172 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud5,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion5,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud5,
+                                                hintName: 'Condiciones Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked5Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion5,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked5Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion5,
                                   hintName: 'Ponderación',
@@ -8252,39 +8920,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                           children: [
                                             SizedBox(height: 10.0),
                                             Container(
-                                                child: foto5_1 != null || _image5_1 != null
+                                                child: foto5_1 != null ||
+                                                        _image5_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage5_1),
                                             Container(
-                                                child: foto5_2 != null || _image5_2 != null
+                                                child: foto5_2 != null ||
+                                                        _image5_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage5_2),
                                             Container(
-                                                child: foto5_3 != null || _image5_3 != null
+                                                child: foto5_3 != null ||
+                                                        _image5_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage5_3),
                                             Container(
-                                                child: foto5_4 != null || _image5_4 != null
+                                                child: foto5_4 != null ||
+                                                        _image5_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage5_4),
                                             Container(
-                                                child: foto5_5 != null || _image5_5 != null
+                                                child: foto5_5 != null ||
+                                                        _image5_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage5_5),
                                           ],
                                         ),
@@ -8369,20 +9042,172 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud6,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion6,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud6,
+                                                hintName: 'Condiciones Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked6Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion6,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked6Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion6,
                                   hintName: 'Ponderación',
@@ -8396,39 +9221,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                           children: [
                                             SizedBox(height: 10.0),
                                             Container(
-                                                child: foto6_1 != null || _image6_1 != null
+                                                child: foto6_1 != null ||
+                                                        _image6_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage6_1),
                                             Container(
-                                                child: foto6_2 != null || _image6_2 != null
+                                                child: foto6_2 != null ||
+                                                        _image6_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage6_2),
                                             Container(
-                                                child: foto6_3 != null || _image6_3 != null
+                                                child: foto6_3 != null ||
+                                                        _image6_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage6_3),
                                             Container(
-                                                child: foto6_4 != null || _image6_4 != null
+                                                child: foto6_4 != null ||
+                                                        _image6_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage6_4),
                                             Container(
-                                                child: foto6_5 != null || _image6_5 != null
+                                                child: foto6_5 != null ||
+                                                        _image6_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage6_5),
                                           ],
                                         ),
@@ -8513,20 +9343,173 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud7,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion7,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud7,
+                                                hintName:
+                                                    'Condiciones de Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked7Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion7,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked7Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion7,
                                   hintName: 'Ponderación',
@@ -8540,39 +9523,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                           children: [
                                             SizedBox(height: 10.0),
                                             Container(
-                                                child: foto7_1 != null || _image7_1 != null
+                                                child: foto7_1 != null ||
+                                                        _image7_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage7_1),
                                             Container(
-                                                child: foto7_2 != null || _image7_2 != null
+                                                child: foto7_2 != null ||
+                                                        _image7_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage7_2),
                                             Container(
-                                                child: foto7_3 != null || _image7_3 != null
+                                                child: foto7_3 != null ||
+                                                        _image7_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage7_3),
                                             Container(
-                                                child: foto7_4 != null || _image7_4 != null
+                                                child: foto7_4 != null ||
+                                                        _image7_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage7_4),
                                             Container(
-                                                child: foto7_5 != null || _image7_5 != null
+                                                child: foto7_5 != null ||
+                                                        _image7_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage7_5),
                                           ],
                                         ),
@@ -8654,20 +9642,173 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud8,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion8,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud8,
+                                                hintName:
+                                                    'Condiciones de Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked8Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion8,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked8Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion8,
                                   hintName: 'Ponderación',
@@ -8681,39 +9822,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                           children: [
                                             SizedBox(height: 10.0),
                                             Container(
-                                                child: foto8_1 != null || _image8_1 != null
+                                                child: foto8_1 != null ||
+                                                        _image8_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage8_1),
                                             Container(
-                                                child: foto8_2 != null || _image8_2 != null
+                                                child: foto8_2 != null ||
+                                                        _image8_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage8_2),
                                             Container(
-                                                child: foto8_3 != null || _image8_3 != null
+                                                child: foto8_3 != null ||
+                                                        _image8_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage8_3),
                                             Container(
-                                                child: foto8_4 != null || _image8_4 != null
+                                                child: foto8_4 != null ||
+                                                        _image8_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage8_4),
                                             Container(
-                                                child: foto8_5 != null || _image8_5 != null
+                                                child: foto8_5 != null ||
+                                                        _image8_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage8_5),
                                           ],
                                         ),
@@ -8798,20 +9944,173 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud9,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion9,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud9,
+                                                hintName:
+                                                    'Condiciones de Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked9Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion9,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked9Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion9,
                                   hintName: 'Ponderación',
@@ -8824,39 +10123,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                         child: Column(
                                           children: [
                                             Container(
-                                                child: foto9_1 != null || _image9_1 != null
+                                                child: foto9_1 != null ||
+                                                        _image9_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage9_1),
                                             Container(
-                                                child: foto9_2 != null || _image9_2 != null
+                                                child: foto9_2 != null ||
+                                                        _image9_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage9_2),
                                             Container(
-                                                child: foto9_3 != null || _image9_3 != null
+                                                child: foto9_3 != null ||
+                                                        _image9_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage9_3),
                                             Container(
-                                                child: foto9_4 != null || _image9_4 != null
+                                                child: foto9_4 != null ||
+                                                        _image9_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage9_4),
                                             Container(
-                                                child: foto9_5 != null || _image9_5 != null
+                                                child: foto9_5 != null ||
+                                                        _image9_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage9_5),
                                           ],
                                         ),
@@ -8942,20 +10246,173 @@ class _Salud_PertenenciaIndigenaTablaState
                                     ),
                                   ),
                                 ),
-                                DataCell(getSearchField(
-                                    controller: _condicionSalud10,
-                                    suggestions: _Condiciones.map((condicion) =>
-                                        SearchFieldListItem(
-                                            condicion.CondicionesSalud,
-                                            item: condicion)).toList(),
-                                    hintName: 'Condiciones De Salud')),
-                                DataCell(getSearchField(
-                                    controller: _clasificacion10,
-                                    suggestions: _Clasificaciones.map(
-                                        (clasificacion) => SearchFieldListItem(
-                                            clasificacion.ClasCondicionesSalud,
-                                            item: clasificacion)).toList(),
-                                    hintName: 'Clasificación')),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _condicionSalud10,
+                                                hintName:
+                                                    'Condiciones de Salud',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Condiciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Condiciones[
+                                                                            index]
+                                                                        .value = !_Condiciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Condiciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Condiciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Condiciones[
+                                                                          index]
+                                                                      .CondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked10Cond,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Container(
+                                        child: Column(
+                                          children: [
+                                            genTextExpand(
+                                                controller: _clasificacion10,
+                                                hintName: 'Clasificación',
+                                                inputType:
+                                                    TextInputType.multiline),
+                                            ElevatedButton(
+                                              child: Text('Abrir Opciones'),
+                                              onPressed: () =>
+                                                  showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              30.0),
+                                                        ),
+                                                      ),
+                                                      context: context,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return StatefulBuilder(
+                                                            builder: (context,
+                                                                setstate) {
+                                                          return SizedBox(
+                                                            height: 500,
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  _Clasificaciones
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                          index) =>
+                                                                      InkWell(
+                                                                onTap: () {
+                                                                  setstate(() {
+                                                                    _Clasificaciones[
+                                                                            index]
+                                                                        .value = !_Clasificaciones[
+                                                                            index]
+                                                                        .value;
+                                                                  });
+                                                                },
+                                                                child: ListTile(
+                                                                  leading:
+                                                                      Checkbox(
+                                                                          value: _Clasificaciones[index]
+                                                                              .value,
+                                                                          onChanged:
+                                                                              (checked) {
+                                                                            setstate(() {
+                                                                              _Clasificaciones[index].value = checked;
+                                                                            });
+                                                                          }),
+                                                                  title: Text(_Clasificaciones[
+                                                                          index]
+                                                                      .ClasCondicionesSalud
+                                                                      .toString()),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }),
+                                            ),
+                                            ElevatedButton(
+                                                onPressed: addChecked10Clas,
+                                                child: Text('Agregar')),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 DataCell(getTextDataTable(
                                   controller: _ponderacion10,
                                   hintName: 'Ponderación',
@@ -8969,39 +10426,44 @@ class _Salud_PertenenciaIndigenaTablaState
                                           children: [
                                             SizedBox(height: 10.0),
                                             Container(
-                                                child: foto10_1 != null || _image10_1 != null
+                                                child: foto10_1 != null ||
+                                                        _image10_1 != null
                                                     ? Text(
-                                                    'Imagen 1 Seleccionada')
+                                                        'Imagen 1 Seleccionada')
                                                     : Text(
-                                                    'Imagen 1 No Seleccionada')),
+                                                        'Imagen 1 No Seleccionada')),
                                             botonFoto(funcion: getImage10_1),
                                             Container(
-                                                child: foto10_2 != null || _image10_2 != null
+                                                child: foto10_2 != null ||
+                                                        _image10_2 != null
                                                     ? Text(
-                                                    'Imagen 2 Seleccionada')
+                                                        'Imagen 2 Seleccionada')
                                                     : Text(
-                                                    'Imagen 2 No Seleccionada')),
+                                                        'Imagen 2 No Seleccionada')),
                                             botonFoto(funcion: getImage10_2),
                                             Container(
-                                                child: foto10_3 != null || _image10_3 != null
+                                                child: foto10_3 != null ||
+                                                        _image10_3 != null
                                                     ? Text(
-                                                    'Imagen 3 Seleccionada')
+                                                        'Imagen 3 Seleccionada')
                                                     : Text(
-                                                    'Imagen 3 No Seleccionada')),
+                                                        'Imagen 3 No Seleccionada')),
                                             botonFoto(funcion: getImage10_3),
                                             Container(
-                                                child: foto10_4 != null || _image10_4 != null
+                                                child: foto10_4 != null ||
+                                                        _image10_4 != null
                                                     ? Text(
-                                                    'Imagen 4 Seleccionada')
+                                                        'Imagen 4 Seleccionada')
                                                     : Text(
-                                                    'Imagen 4 No Seleccionada')),
+                                                        'Imagen 4 No Seleccionada')),
                                             botonFoto(funcion: getImage10_4),
                                             Container(
-                                                child: foto10_5 != null || _image10_5 != null
+                                                child: foto10_5 != null ||
+                                                        _image10_5 != null
                                                     ? Text(
-                                                    'Imagen 5 Seleccionada')
+                                                        'Imagen 5 Seleccionada')
                                                     : Text(
-                                                    'Imagen 5 No Seleccionada')),
+                                                        'Imagen 5 No Seleccionada')),
                                             botonFoto(funcion: getImage10_5),
                                           ],
                                         ),

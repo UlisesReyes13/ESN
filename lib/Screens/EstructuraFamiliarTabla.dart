@@ -1,5 +1,5 @@
 import 'package:esn/Comm/comHelper.dart';
-import 'package:esn/Comm/genTextDataTable.dart';
+import 'package:esn/Comm/genTextName.dart';
 import 'package:esn/Comm/genTextDate.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
@@ -8,12 +8,11 @@ import 'package:esn/Model/EstadosCiviles.dart';
 import 'package:esn/Model/EstadosModel.dart';
 import 'package:esn/Model/EstructuraFamiliarModel.dart';
 import 'package:esn/Model/Parentesco.dart';
+import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/ServiciosCombustible.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
-import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
-
 enum Sexo { hombre, mujer, otro }
 
 class EstructuraFamiliarTabla extends StatefulWidget {
@@ -35,6 +34,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento1 = TextEditingController();
   final _estadoCivil1 = TextEditingController();
   final _parentesco1 = TextEditingController();
+  final _curp1 = TextEditingController();
 
   final _nombre2 = TextEditingController();
   final _primerApellido2 = TextEditingController();
@@ -44,6 +44,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento2 = TextEditingController();
   final _estadoCivil2 = TextEditingController();
   final _parentesco2 = TextEditingController();
+  final _curp2 = TextEditingController();
 
   final _nombre3 = TextEditingController();
   final _primerApellido3 = TextEditingController();
@@ -53,6 +54,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento3 = TextEditingController();
   final _estadoCivil3 = TextEditingController();
   final _parentesco3 = TextEditingController();
+  final _curp3 = TextEditingController();
 
   final _nombre4 = TextEditingController();
   final _primerApellido4 = TextEditingController();
@@ -62,6 +64,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento4 = TextEditingController();
   final _estadoCivil4 = TextEditingController();
   final _parentesco4 = TextEditingController();
+  final _curp4 = TextEditingController();
 
   final _nombre5 = TextEditingController();
   final _primerApellido5 = TextEditingController();
@@ -71,6 +74,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento5 = TextEditingController();
   final _estadoCivil5 = TextEditingController();
   final _parentesco5 = TextEditingController();
+  final _curp5 = TextEditingController();
 
   final _nombre6 = TextEditingController();
   final _primerApellido6 = TextEditingController();
@@ -80,6 +84,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento6 = TextEditingController();
   final _estadoCivil6 = TextEditingController();
   final _parentesco6 = TextEditingController();
+  final _curp6 = TextEditingController();
 
   final _nombre7 = TextEditingController();
   final _primerApellido7 = TextEditingController();
@@ -89,6 +94,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento7 = TextEditingController();
   final _estadoCivil7 = TextEditingController();
   final _parentesco7 = TextEditingController();
+  final _curp7 = TextEditingController();
 
   final _nombre8 = TextEditingController();
   final _primerApellido8 = TextEditingController();
@@ -98,6 +104,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento8 = TextEditingController();
   final _estadoCivil8 = TextEditingController();
   final _parentesco8 = TextEditingController();
+  final _curp8 = TextEditingController();
 
   final _nombre9 = TextEditingController();
   final _primerApellido9 = TextEditingController();
@@ -107,6 +114,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento9 = TextEditingController();
   final _estadoCivil9 = TextEditingController();
   final _parentesco9 = TextEditingController();
+  final _curp9 = TextEditingController();
 
   final _nombre10 = TextEditingController();
   final _primerApellido10 = TextEditingController();
@@ -116,6 +124,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento10 = TextEditingController();
   final _estadoCivil10 = TextEditingController();
   final _parentesco10 = TextEditingController();
+  final _curp10 = TextEditingController();
 
   var dbHelper;
   List<EstadosCiviles> _EstadosCiviles = List<EstadosCiviles>();
@@ -1172,6 +1181,3236 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     await getOrdenParentesco(parentesco);
   }
 
+
+
+
+  nombreCurp() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido1.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido1.text.toString();
+    var quinceavaLetra = _segundoApellido1.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre1.text;
+    var DieciseisLetra = "";
+
+    if(_primerApellido1.text.substring(0,1) == "Ñ" || _primerApellido1.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+     primeraLetra = _primerApellido1.text.substring(0, 1);
+  }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp1.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp1.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido1.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido1.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre1.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento1.text.substring(8,10);
+    var mes = _fechaNacimiento1.text.substring(3,5);
+    var dia = _fechaNacimiento1.text.substring(0,2);
+
+    String sex = _sexo1.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento1.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp1.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp1.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido1.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento1.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp1.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
+
+  valoresClaveFecha(String curp){
+    var valorLetra1 = null;
+    if(curp == "0"){
+      valorLetra1 = 0;
+    }else if(curp == "1"){
+      valorLetra1 = 1;
+    }else if(curp == "2"){
+      valorLetra1 = 2;
+    }else if(curp == "3"){
+      valorLetra1 = 3;
+    }else if(curp == "4") {
+      valorLetra1 = 4;
+    }else if(curp == "5"){
+      valorLetra1 = 5;
+    }else if(curp == "6"){
+      valorLetra1 = 6;
+    }else if(curp == "7"){
+      valorLetra1 = 7;
+    }else if(curp == "8"){
+      valorLetra1 = 8;
+    }else if(curp == "9") {
+      valorLetra1 = 9;
+    }
+    return valorLetra1;
+  }
+
+  valoresClave(String curp){
+    var valorLetra1 = null;
+    if(curp == "A"){
+      valorLetra1 = 10;
+    }else if(curp == "B"){
+      valorLetra1 = 11;
+    }else if(curp == "C"){
+      valorLetra1 = 12;
+    }else if(curp == "D"){
+      valorLetra1 = 13;
+    }else if(curp == "E") {
+      valorLetra1 = 14;
+    }else if(curp == "F"){
+      valorLetra1 = 15;
+    }else if(curp == "G"){
+      valorLetra1 = 16;
+    }else if(curp == "H"){
+      valorLetra1 = 17;
+    }else if(curp == "I"){
+      valorLetra1 = 18;
+    }else if(curp == "J"){
+      valorLetra1 = 19;
+    }else if(curp == "K"){
+      valorLetra1 = 20;
+    }else if(curp == "L"){
+      valorLetra1 = 21;
+    }else if(curp == "M") {
+      valorLetra1 = 22;
+    }else if(curp == "N"){
+      valorLetra1 = 23;
+    }else if(curp == "Ñ"){
+      valorLetra1 = 24;
+    }else if(curp == "O"){
+      valorLetra1 = 25;
+    }else if(curp == "P"){
+      valorLetra1 = 26;
+    }else if(curp == "Q"){
+      valorLetra1 = 27;
+    }else if(curp == "R"){
+      valorLetra1 = 28;
+    }else if(curp == "S"){
+      valorLetra1 = 29;
+    }else if(curp == "T") {
+      valorLetra1 = 30;
+    }else if(curp == "U"){
+      valorLetra1 = 31;
+    }else if(curp == "V"){
+      valorLetra1 = 32;
+    }else if(curp == "W"){
+      valorLetra1 = 33;
+    }else if(curp == "X"){
+      valorLetra1 = 34;
+    }else if(curp == "Y"){
+      valorLetra1 = 35;
+    }else if(curp == "Z"){
+      valorLetra1 = 36;
+    }
+
+    return valorLetra1;
+  }
+
+  nombreCurp2() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido2.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido2.text.toString();
+    var quinceavaLetra = _segundoApellido2.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre2.text;
+    var DieciseisLetra = "";
+    if(_primerApellido2.text.substring(0,1) == "Ñ" || _primerApellido2.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+      primeraLetra = _primerApellido2.text.substring(0, 1);
+    }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp2.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp2.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido2.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido2.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre2.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento2.text.substring(8,10);
+    var mes = _fechaNacimiento2.text.substring(3,5);
+    var dia = _fechaNacimiento2.text.substring(0,2);
+
+    String sex = _sexo2.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento2.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp2.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp2.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido2.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento2.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp2.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
+
+  nombreCurp3() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido3.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido3.text.toString();
+    var quinceavaLetra = _segundoApellido3.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre3.text;
+    var DieciseisLetra = "";
+    if(_primerApellido3.text.substring(0,1) == "Ñ" || _primerApellido3.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+      primeraLetra = _primerApellido3.text.substring(0, 1);
+    }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp3.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp3.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido3.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido3.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre3.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento3.text.substring(8,10);
+    var mes = _fechaNacimiento3.text.substring(3,5);
+    var dia = _fechaNacimiento3.text.substring(0,2);
+
+    String sex = _sexo3.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento3.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp3.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp3.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido3.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento3.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp3.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
+
+  nombreCurp4() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido4.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido4.text.toString();
+    var quinceavaLetra = _segundoApellido4.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre4.text;
+    var DieciseisLetra = "";
+    if(_primerApellido4.text.substring(0,1) == "Ñ" || _primerApellido4.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+      primeraLetra = _primerApellido4.text.substring(0, 1);
+    }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp4.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp4.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido4.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido4.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre4.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento4.text.substring(8,10);
+    var mes = _fechaNacimiento4.text.substring(3,5);
+    var dia = _fechaNacimiento4.text.substring(0,2);
+
+    String sex = _sexo4.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento4.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp4.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp4.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido4.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento4.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp4.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
+
+  nombreCurp5() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido5.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido5.text.toString();
+    var quinceavaLetra = _segundoApellido5.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre5.text;
+    var DieciseisLetra = "";
+    if(_primerApellido5.text.substring(0,1) == "Ñ" || _primerApellido5.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+      primeraLetra = _primerApellido5.text.substring(0, 1);
+    }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp5.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp5.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido5.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido5.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre5.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento5.text.substring(8,10);
+    var mes = _fechaNacimiento5.text.substring(3,5);
+    var dia = _fechaNacimiento5.text.substring(0,2);
+
+    String sex = _sexo5.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento5.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp5.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp5.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido5.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento5.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp5.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
+
+  nombreCurp6() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido6.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido6.text.toString();
+    var quinceavaLetra = _segundoApellido6.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre6.text;
+    var DieciseisLetra = "";
+    if(_primerApellido6.text.substring(0,1) == "Ñ" || _primerApellido6.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+      primeraLetra = _primerApellido6.text.substring(0, 1);
+    }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp6.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp6.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido6.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido6.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre6.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento6.text.substring(8,10);
+    var mes = _fechaNacimiento6.text.substring(3,5);
+    var dia = _fechaNacimiento6.text.substring(0,2);
+
+    String sex = _sexo6.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento6.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp6.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp6.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido6.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento6.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp6.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
+
+  nombreCurp7() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido7.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido7.text.toString();
+    var quinceavaLetra = _segundoApellido7.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre7.text;
+    var DieciseisLetra = "";
+    if(_primerApellido7.text.substring(0,1) == "Ñ" || _primerApellido7.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+      primeraLetra = _primerApellido7.text.substring(0, 1);
+    }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp7.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp7.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido7.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido7.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre7.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento7.text.substring(8,10);
+    var mes = _fechaNacimiento7.text.substring(3,5);
+    var dia = _fechaNacimiento7.text.substring(0,2);
+
+    String sex = _sexo7.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento7.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp7.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp7.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido7.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento7.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp7.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
+
+  nombreCurp8() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido8.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido8.text.toString();
+    var quinceavaLetra = _segundoApellido8.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre8.text;
+    var DieciseisLetra = "";
+    if(_primerApellido8.text.substring(0,1) == "Ñ" || _primerApellido8.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+      primeraLetra = _primerApellido8.text.substring(0, 1);
+    }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp8.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp8.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido8.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido8.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre8.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento8.text.substring(8,10);
+    var mes = _fechaNacimiento8.text.substring(3,5);
+    var dia = _fechaNacimiento8.text.substring(0,2);
+
+    String sex = _sexo8.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento8.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp8.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp8.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido8.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento8.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp8.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
+
+  nombreCurp9() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido9.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido9.text.toString();
+    var quinceavaLetra = _segundoApellido9.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre9.text;
+    var DieciseisLetra = "";
+    if(_primerApellido9.text.substring(0,1) == "Ñ" || _primerApellido9.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+      primeraLetra = _primerApellido9.text.substring(0, 1);
+    }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp9.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp9.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido9.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido9.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre9.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento9.text.substring(8,10);
+    var mes = _fechaNacimiento9.text.substring(3,5);
+    var dia = _fechaNacimiento9.text.substring(0,2);
+
+    String sex = _sexo9.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento9.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp9.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp9.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido9.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento9.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp9.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
+
+  nombreCurp10() async{
+    var primeraLetra = "";
+    var SegundaLetra = "";
+    var segundaLetra = _primerApellido10.text.toString(); // 'artlang'
+    var terceraLetra = "";
+    var cuartaLetra = "";
+    var entidadN = "";
+    var catorceavaLetra = _primerApellido10.text.toString();
+    var quinceavaLetra = _segundoApellido10.text.toString();
+    var curp2 = "";
+    var CatorceavaLetra = "";
+    var curp3 = "";
+    var QuinceavaLetra = "";
+    var dieciseisLetra = _nombre10.text;
+    var DieciseisLetra = "";
+    if(_primerApellido10.text.substring(0,1) == "Ñ" || _primerApellido10.text.substring(0,1) == "ñ"){
+      primeraLetra = "X";
+    }else{
+      primeraLetra = _primerApellido10.text.substring(0, 1);
+    }
+    if(segundaLetra.substring(0,1) == "A" || segundaLetra.substring(0,1) == "E" || segundaLetra.substring(0,1) == "O" || segundaLetra.substring(0,1) == "U" || segundaLetra.substring(0,1) == "I"){
+      var letra2 =segundaLetra.substring(1,segundaLetra.length);
+      SegundaLetra = letra2.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      // _curp10.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      SegundaLetra = segundaLetra.replaceAll("B", "")
+          .replaceAll("C", "")
+          .replaceAll("D", "")
+          .replaceAll("F", "")
+          .replaceAll("G", "")
+          .replaceAll("H", "")
+          .replaceAll("J", "")
+          .replaceAll("K", "")
+          .replaceAll("L", "")
+          .replaceAll("M", "")
+          .replaceAll("N", "")
+          .replaceAll("Ñ", "")
+          .replaceAll("P", "")
+          .replaceAll("Q", "")
+          .replaceAll("R", "")
+          .replaceAll("S", "")
+          .replaceAll("T", "")
+          .replaceAll("U", "")
+          .replaceAll("V", "")
+          .replaceAll("W", "")
+          .replaceAll("X", "")
+          .replaceAll("Y", "")
+          .replaceAll("Z", "")
+          .replaceAll("b", "")
+          .replaceAll("c", "")
+          .replaceAll("d", "")
+          .replaceAll("f", "")
+          .replaceAll("g", "")
+          .replaceAll("h", "")
+          .replaceAll("j", "")
+          .replaceAll("k", "")
+          .replaceAll("l", "")
+          .replaceAll("m", "")
+          .replaceAll("n", "")
+          .replaceAll("p", "")
+          .replaceAll("q", "")
+          .replaceAll("r", "")
+          .replaceAll("s", "")
+          .replaceAll("t", "")
+          .replaceAll("v", "")
+          .replaceAll("w", "")
+          .replaceAll("x", "")
+          .replaceAll("y", "")
+          .replaceAll("z", "");
+
+      //_curp10.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp2 = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+    if(_segundoApellido10.text.isEmpty){
+      terceraLetra = "X";
+    }else {
+      terceraLetra = _segundoApellido10.text.substring(0, 1).toUpperCase();
+    }
+
+    cuartaLetra = _nombre10.text.substring(0, 1).toUpperCase();
+    var anio = _fechaNacimiento10.text.substring(8,10);
+    var mes = _fechaNacimiento10.text.substring(3,5);
+    var dia = _fechaNacimiento10.text.substring(0,2);
+
+    String sex = _sexo10.name.toString();
+    if (sex == 'hombre') {
+      sex = 'H';
+    } else if (sex == 'mujer') {
+      sex = 'M';
+    }
+
+    var entidad = _entidadNacimiento10.text.substring(0,2).trimRight();
+    if(entidad == "1"){
+      entidadN = "AS";
+    }else if(entidad == "2"){
+      entidadN = "BC";
+    }else if(entidad == "3"){
+      entidadN = "BS";
+    }else if(entidad == "4"){
+      entidadN = "CC";
+    }else if(entidad == "5"){
+      entidadN = "CL";
+    }else if(entidad == "6"){
+      entidadN = "CM";
+    }else if(entidad == "7"){
+      entidadN = "CS";
+    }else if(entidad == "8"){
+      entidadN = "CH";
+    }else if(entidad == "9"){
+      entidadN = "DF";
+    }else if(entidad == "10"){
+      entidadN = "DG";
+    }else if(entidad == "11"){
+      entidadN = "GT";
+    }else if(entidad == "12"){
+      entidadN = "GR";
+    }else if(entidad == "13"){
+      entidadN = "HG";
+    }else if(entidad == "14"){
+      entidadN = "JC";
+    }else if(entidad == "15"){
+      entidadN = "MC";
+    }else if(entidad == "16"){
+      entidadN = "MN";
+    }else if(entidad == "17"){
+      entidadN = "MS";
+    }else if(entidad == "18"){
+      entidadN = "NT";
+    }else if(entidad == "19"){
+      entidadN = "NL";
+    }else if(entidad == "20"){
+      entidadN = "OC";
+    }else if(entidad == "21"){
+      entidadN = "PL";
+    }else if(entidad == "22"){
+      entidadN = "QT";
+    }else if(entidad == "23"){
+      entidadN = "QR";
+    }else if(entidad == "24"){
+      entidadN = "SP";
+    }else if(entidad == "25"){
+      entidadN = "SL";
+    }else if(entidad == "26"){
+      entidadN = "SR";
+    }else if(entidad == "27"){
+      entidadN = "TC";
+    }else if(entidad == "28"){
+      entidadN = "TS";
+    }else if(entidad == "29"){
+      entidadN = "TL";
+    }else if(entidad == "30"){
+      entidadN = "VZ";
+    }else if(entidad == "31"){
+      entidadN = "YN";
+    }else if(entidad == "32"){
+      entidadN = "ZS";
+    }else if(entidad == "33"){
+      entidadN = "NE";
+    }
+
+    if(catorceavaLetra.substring(0,1) == "A" || catorceavaLetra.substring(0,1) == "E" || catorceavaLetra.substring(0,1) == "O" || catorceavaLetra.substring(0,1) == "U" || catorceavaLetra.substring(0,1) == "I"){
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      // _curp10.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+
+
+    }else {
+      var letra14 =catorceavaLetra.substring(1,catorceavaLetra.length);
+      CatorceavaLetra = letra14.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "");
+
+
+      //_curp10.text = SegundaLetra.toUpperCase().substring(0, 1).trimRight();
+
+      curp3 = CatorceavaLetra.toUpperCase().substring(0, 1).trimRight();
+    }
+
+    if(_segundoApellido10.text.isEmpty){
+      QuinceavaLetra = "X";
+    }else {
+      var letra15 = quinceavaLetra.substring(1, quinceavaLetra.length);
+      QuinceavaLetra = letra15.replaceAll("A", "")
+          .replaceAll("E", "")
+          .replaceAll("I", "")
+          .replaceAll("O", "")
+          .replaceAll("U", "")
+          .replaceAll("a", "")
+          .replaceAll("e", "")
+          .replaceAll("i", "")
+          .replaceAll("o", "")
+          .replaceAll("u", "").substring(0, 1);
+    }
+
+    var letra16 = dieciseisLetra.substring(1,dieciseisLetra.length);
+    DieciseisLetra = letra16.replaceAll("A", "")
+        .replaceAll("E", "")
+        .replaceAll("I", "")
+        .replaceAll("O", "")
+        .replaceAll("U", "")
+        .replaceAll("a", "")
+        .replaceAll("e", "")
+        .replaceAll("i", "")
+        .replaceAll("o", "")
+        .replaceAll("u", "").substring(0,1);
+
+    var homonimia = "";
+    if(int.parse(_fechaNacimiento10.text.substring(6,10)) < 2000){
+      homonimia = "0";
+    }else{
+      homonimia = "A";
+    }
+
+
+    int valorLetra1 = valoresClave(primeraLetra);
+    int valorLetra2 = valoresClave(curp2);
+    int valorLetra3 = valoresClave(terceraLetra);
+    int valorLetra4 = valoresClave(cuartaLetra);
+
+    int valorLetra5 = valoresClaveFecha(anio.substring(0,1));
+    int valorLetra6 = valoresClaveFecha(anio.substring(1,2));
+    int valorLetra7 = valoresClaveFecha(mes.substring(0,1));
+    int valorLetra8 = valoresClaveFecha(mes.substring(1,2));
+    int valorLetra9 = valoresClaveFecha(dia.substring(0,1));
+    int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
+
+
+    int valorLetra11 = valoresClave(sex);
+    int valorLetra12 = valoresClave(entidadN.substring(0,1));
+    int valorLetra13 = valoresClave(entidadN.substring(1,2));
+    int valorLetra14 = valoresClave(curp3);
+    int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
+    int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
+    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
+        (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
+        (valorLetra9 * 10) + (valorLetra10 * 9) + (valorLetra11 * 8) + (valorLetra12 * 7) + (valorLetra13 * 6) +
+        (valorLetra14 * 5) + (valorLetra15 * 4) + (valorLetra16 * 3) + (valorLetra17 * 2);
+
+    int claveUnica = clave * 9;
+
+
+    _curp10.text = primeraLetra + curp2 + terceraLetra + cuartaLetra + anio + mes + dia + sex + entidadN + curp3 + QuinceavaLetra.toUpperCase() + DieciseisLetra.toUpperCase() + homonimia + claveUnica.toString().substring(4,5);
+
+  }
 
   enviar() async {
     if (_nombre1.text.toString().isEmpty) {
@@ -17122,7 +20361,6 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                       children: [
                         Container(
                           child: DataTable(
-                            columnSpacing: 30,
                             dataRowHeight: 100,
                             columns: [
                               DataColumn(
@@ -17135,18 +20373,19 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               DataColumn(label: Text('Sexo')),
                               DataColumn(label: Text('Fecha de Nacimiento')),
                               DataColumn(label: Text('Entidad de Nacimiento')),
+                              DataColumn(label: Text('CURP')),
                               DataColumn(label: Text('Estado Civil')),
                               DataColumn(label: Text('Parentesco')),
                             ],
                             rows: [
                               DataRow(cells: [
                                 DataCell(Text('1')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre1, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido1,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido1,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17204,7 +20443,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17234,9 +20473,34 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp1,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        //curp fucion
+                                        nombreCurp();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17294,12 +20558,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('2')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre2, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido2,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido2,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17357,7 +20621,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17387,9 +20651,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp2,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        nombreCurp2();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17424,7 +20712,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17458,12 +20746,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('3')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre3, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido3,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido3,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17521,7 +20809,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17551,9 +20839,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp3,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        nombreCurp3();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17588,7 +20900,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17622,12 +20934,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('4')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre4, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido4,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido4,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17685,7 +20997,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17715,9 +21027,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp4,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        nombreCurp4();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17752,7 +21088,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17786,12 +21122,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('5')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre5, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido5,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido5,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -17849,7 +21185,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17879,9 +21215,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp5,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        nombreCurp5();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17916,7 +21276,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -17950,12 +21310,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('6')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre6, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido6,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido6,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -18013,7 +21373,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18043,9 +21403,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp6,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        nombreCurp6();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18080,7 +21464,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18114,12 +21498,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('7')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre7, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido7,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido7,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -18177,7 +21561,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18207,9 +21591,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp7,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        nombreCurp7();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18244,7 +21652,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18278,12 +21686,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('8')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre8, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido8,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido8,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -18341,7 +21749,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18371,9 +21779,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp8,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        nombreCurp8();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18408,7 +21840,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18442,12 +21874,12 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('9')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre9, hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido9,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _segundoApellido9,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
@@ -18505,7 +21937,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18535,9 +21967,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp9,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        nombreCurp9();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18572,7 +22028,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18606,14 +22062,14 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('10')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _nombre10,
                                     hintName: 'Nombres')),
-                                DataCell(getTextDataTable(
+                                DataCell(genTextName(
                                     controller: _primerApellido10,
                                     hintName: 'Apellido Paterno')),
-                                DataCell(getTextDataTable(
-                                    controller: _segundoApellido10,
+                                DataCell(genTextName(
+                                  controller: _segundoApellido10,
                                     hintName: 'Apellido Materno')),
                                 DataCell(
                                   Row(
@@ -18670,7 +22126,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18700,9 +22156,33 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
+                                DataCell(Container(
+                                  margin: EdgeInsets.only(top: 18),
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _curp10,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              width: 2.0, color: Colors.blue, style: BorderStyle.solid),
+                                        ),
+                                        fillColor: Colors.grey[120],
+                                        filled: true,
+                                        labelText: 'Presiona para generar CURP'),
+                                    onTap: () async {
+                                      setState(() {
+                                        nombreCurp10();
+                                      });
+                                    },
+                                  ),
+                                ),),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
@@ -18737,7 +22217,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 ),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 22),
+                                    margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: SearchField(
                                       suggestionState: Suggestion.expand,
