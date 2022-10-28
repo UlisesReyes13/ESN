@@ -1384,6 +1384,7 @@ class _Escolaridad_SeguridadSocialTablaState
     var motivoDerecho = _motivoderechohabiencia1.text.toString();
     final motivoDereHab = rpn1.replaceNum(motivoDerecho);
 
+    
     var pkPrestaciones = _prestacion1.text.toString();
     final prestacionesPK = rpl1.replaceLetter(pkPrestaciones);
 

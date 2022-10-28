@@ -32,10 +32,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+<<<<<<< HEAD
 
 
       home: Salud_PertenenciaIndigenaTabla("99912"),
 
+=======
+      home: EstructuraFamiliarTabla('99911'),
+>>>>>>> 70bb407bdf755a9dbb606083a5ff177165273376
     );
   }
 }

@@ -30,6 +30,8 @@ class ServiciosDrenaje extends StatefulWidget {
 
 class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
   ServDrenaje _drenaje = ServDrenaje.redPublica;
+  final _otro = TextEditingController();
+  bool val = false; 
 
   enviar() async {
     String drenaje = _drenaje.name.toString();
@@ -138,7 +140,8 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
         folio: widget.folio,
         claveServSanitario: int.parse(pkDrenaje.substring(0, 2).trimRight()),
         ordenServSanitario: pkDrenaje.substring(0, 2).trimRight(),
-        servSanitario: NombreDrenaje.trimLeft());
+        servSanitario: NombreDrenaje.trimLeft(),
+        otroSanitario: _otro.text);
     await DbHelper().upDateDrenaje(BModel).then((drenaje) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
@@ -190,6 +193,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = false;
                       });
                     },
                   ),
@@ -202,6 +206,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = false;
                       });
                     },
                   ),
@@ -214,6 +219,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = false;
                       });
                     },
                   ),
@@ -226,6 +232,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = true;
                       });
                     },
                   ),
@@ -238,6 +245,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = false;
                       });
                     },
                   ),
@@ -250,6 +258,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = false;
                       });
                     },
                   ),
@@ -262,6 +271,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = false;
                       });
                     },
                   ),
@@ -274,6 +284,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = false;
                       });
                     },
                   ),
@@ -286,6 +297,7 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = false;
                       });
                     },
                   ),
@@ -298,8 +310,30 @@ class _ServiciosDrenajeState extends State<ServiciosDrenaje> {
                     onChanged: (ServDrenaje value) {
                       setState(() {
                         _drenaje = value;
+                        val = false;
                       });
                     },
+                  ),
+                ),
+                SizedBox(height: 5.0,),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otro,
+                    enabled: val,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Servicio',
+                      labelText: 'Otro Servicio',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
                   ),
                 ),
                 SizedBox(height: 5.0),

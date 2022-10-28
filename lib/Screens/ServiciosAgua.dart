@@ -4,6 +4,8 @@ import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Agua.dart';
 import 'package:esn/Screens/ServiciosLuz.dart';
+import 'package:esn/replaceAll/replaceAllLetter.dart';
+import 'package:esn/replaceAll/replaceAllNum.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Screens/ServiciosDrenaje.dart';
 
@@ -31,6 +33,8 @@ class ServiciosAgua extends StatefulWidget {
 
 class _ServiciosAguaState extends State<ServiciosAgua> {
   ServAgua _agua = ServAgua.tomaDomiciliaria;
+  final _otro = TextEditingController();
+  bool val = false;
 
   enviar() async {
     String agua = _agua.name.toString();
@@ -58,90 +62,20 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
       agua = '11 11 Pluvial';
     }
 
+    replaceAllLetter rpl = new replaceAllLetter();
+    replaceAllNum rpn = new replaceAllNum();
     var nomAgua = agua; // 'artlang'
-    final tipoAgua = nomAgua
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    final tipoAgua = rpn.replaceNum(nomAgua);
 
     var aguapk = agua; // 'artlang'
-    final pkAgua = aguapk
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    final pkAgua = rpl.replaceLetter(aguapk);
 
     Agua BModel = Agua(
         folio: widget.folio,
         claveServAgua: int.parse(pkAgua.substring(0, 2).trimRight()),
         ordenServAgua: pkAgua.substring(0, 2).trimRight(),
-        servAgua: tipoAgua.trimLeft());
+        servAgua: tipoAgua.trimLeft(),
+        otroAgua: _otro.text);
     await DbHelper().upDateAgua(BModel).then((agua) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
@@ -193,6 +127,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
                   ),
@@ -205,6 +140,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
                   ),
@@ -217,6 +153,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
                   ),
@@ -229,6 +166,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
                   ),
@@ -241,6 +179,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
                   ),
@@ -253,6 +192,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
                   ),
@@ -265,6 +205,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
                   ),
@@ -277,6 +218,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
                   ),
@@ -289,6 +231,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
                   ),
@@ -301,6 +244,7 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = true;
                       });
                     },
                   ),
@@ -313,8 +257,30 @@ class _ServiciosAguaState extends State<ServiciosAgua> {
                     onChanged: (ServAgua value) {
                       setState(() {
                         _agua = value;
+                        val = false;
                       });
                     },
+                  ),
+                ),
+                SizedBox(height: 5.0,),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otro,
+                    enabled: val,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Servicio',
+                      labelText: 'Otro Servicio',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
                   ),
                 ),
                 SizedBox(height: 5.0),

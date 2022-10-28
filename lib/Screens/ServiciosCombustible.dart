@@ -28,6 +28,8 @@ class ServiciosCombustible extends StatefulWidget {
 
 class _ServiciosCombustibleState extends State<ServiciosCombustible> {
   ServCombustible _combustible = ServCombustible.gasTanque;
+  final _otro = TextEditingController();
+  bool val = false;
 
   enviar() async {
     String combustible = _combustible.name.toString();
@@ -130,7 +132,8 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
         folio: widget.folio,
         claveServGas: int.parse(pkConbustible.substring(0, 2).trimRight()),
         ordenServGas: pkConbustible.substring(0, 2).trimRight(),
-        servGas: NombreCombustible.trimLeft());
+        servGas: NombreCombustible.trimLeft(),
+        otroGas: _otro.text);
     await DbHelper().upDateGas(BModel).then((gas) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
@@ -183,6 +186,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                     onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
+                        val = false;
                       });
                     },
                   ),
@@ -195,6 +199,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                     onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
+                        val = false;
                       });
                     },
                   ),
@@ -207,6 +212,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                     onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
+                        val = false;
                       });
                     },
                   ),
@@ -219,6 +225,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                     onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
+                        val = false;
                       });
                     },
                   ),
@@ -231,6 +238,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                     onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
+                        val = false;
                       });
                     },
                   ),
@@ -243,6 +251,7 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                     onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
+                        val = true;
                       });
                     },
                   ),
@@ -255,8 +264,30 @@ class _ServiciosCombustibleState extends State<ServiciosCombustible> {
                     onChanged: (ServCombustible value) {
                       setState(() {
                         _combustible = value;
+                        val = false;
                       });
                     },
+                  ),
+                ),
+                SizedBox(height: 5.0,),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otro,
+                    enabled: val,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Servicio',
+                      labelText: 'Otro Servicio',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
                   ),
                 ),
                 SizedBox(height: 5.0),

@@ -3,15 +3,17 @@ class Banio{
   int pk_bano ;
   String int_orden_bano ;
   String txt_desc_bano ;
+  String otroBano;
 
-  Banio({this.folio,this.pk_bano, this.int_orden_bano, this.txt_desc_bano});
+  Banio({this.folio,this.pk_bano, this.int_orden_bano, this.txt_desc_bano,this.otroBano});
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       'folio': folio,
       'pk_bano': pk_bano,
       'int_orden_bano': int_orden_bano,
-      'txt_desc_bano': txt_desc_bano
+      'txt_desc_bano': txt_desc_bano,
+      'otroBano' : otroBano
     };
     return map;
   }
@@ -21,6 +23,7 @@ class Banio{
     pk_bano = map['pk_bano'];
     int_orden_bano = map['int_orden_bano'];
     txt_desc_bano = map['txt_desc_bano'];
+    otroBano = map['otroBano'];
   }
 
 }

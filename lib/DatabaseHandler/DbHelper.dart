@@ -1763,7 +1763,7 @@ class DbHelper {
 
   Future<int> upDateBanio(Banio banio) async{
     var dbClient = await db;
-    var res = await dbClient.insert(Table_Servicios, banio.toMap());
+    var res = await dbClient.update(Table_Servicios, banio.toMap(), where: "folio = ${banio.folio}");
     return res;
   }
 

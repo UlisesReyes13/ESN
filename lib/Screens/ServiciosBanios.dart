@@ -1,10 +1,13 @@
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genTextFolio.dart';
+import 'package:esn/Comm/genTextFormField.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/banio.dart';
 import 'package:esn/Screens/DatosGenerales.dart';
 import 'package:esn/Screens/ServiciosLuz.dart';
+import 'package:esn/replaceAll/replaceAllLetter.dart';
+import 'package:esn/replaceAll/replaceAllNum.dart';
 import 'package:flutter/material.dart';
 
 enum ServBanio {
@@ -30,6 +33,8 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
   List<Banio> _Banio = List<Banio>();
 
   ServBanio _banio = ServBanio.sanitario;
+  final _otro = TextEditingController();
+  bool val = false;
 
   Actualizar() async {
     String banio = _banio.name.toString();
@@ -51,90 +56,20 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
       banio = '6 6 OTRO';
     }
 
+    replaceAllNum rpn = new replaceAllNum();
+    replaceAllLetter rpl = new replaceAllLetter();
     var nomBanio = banio; // 'artlang'
-    final tipoBanio = nomBanio
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    final tipoBanio = rpn.replaceNum(nomBanio);
 
     var baniopk = banio; // 'artlang'
-    final pkBanio = baniopk
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    final pkBanio = rpl.replaceLetter(baniopk);
 
     Banio BModel = Banio(
         folio: widget.folio,
         pk_bano: int.parse(pkBanio.substring(0, 2).trimRight()),
         int_orden_bano: pkBanio.substring(0, 2).trimRight(),
-        txt_desc_bano: tipoBanio.trimLeft());
+        txt_desc_bano: tipoBanio.trimLeft(),
+        otroBano: _otro.text);
     await DbHelper().upDateBanio(BModel).then((banio) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
@@ -167,90 +102,22 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
       banio = '6 6 OTRO';
     }
 
+    replaceAllNum rpn = new replaceAllNum();
+    replaceAllLetter rpl = new replaceAllLetter();
+
     var nomBanio = banio; // 'artlang'
-    final tipoBanio = nomBanio
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    final tipoBanio = rpn.replaceNum(nomBanio);
 
     var baniopk = banio; // 'artlang'
-    final pkBanio = baniopk
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    final pkBanio = rpl.replaceLetter(baniopk);
 
     Banio BModel = Banio(
         folio: widget.folio,
         pk_bano: int.parse(pkBanio.substring(0, 2).trimRight()),
         int_orden_bano: pkBanio.substring(0, 2).trimRight(),
-        txt_desc_bano: tipoBanio.trimLeft());
+        txt_desc_bano: tipoBanio.trimLeft(),
+        otroBano : _otro.text);
+
     await DbHelper().saveBanio(BModel).then((banio) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
@@ -302,6 +169,7 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
                     onChanged: (ServBanio value) {
                       setState(() {
                         _banio = value;
+                        val = false;
                       });
                     },
                   ),
@@ -314,6 +182,7 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
                     onChanged: (ServBanio value) {
                       setState(() {
                         _banio = value;
+                        val = false;
                       });
                     },
                   ),
@@ -326,6 +195,7 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
                     onChanged: (ServBanio value) {
                       setState(() {
                         _banio = value;
+                        val = false;
                       });
                     },
                   ),
@@ -338,6 +208,7 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
                     onChanged: (ServBanio value) {
                       setState(() {
                         _banio = value;
+                        val = false;
                       });
                     },
                   ),
@@ -350,6 +221,7 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
                     onChanged: (ServBanio value) {
                       setState(() {
                         _banio = value;
+                        val = false;
                       });
                     },
                   ),
@@ -362,6 +234,7 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
                     onChanged: (ServBanio value) {
                       setState(() {
                         _banio = value;
+                        val = true;
                       });
                     },
                   ),
@@ -374,6 +247,7 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
                     onChanged: (ServBanio value) {
                       setState(() {
                         _banio = value;
+                        val = false;
                       });
                     },
                   ),
@@ -386,11 +260,35 @@ class _ServiciosBaniosState extends State<ServiciosBanios> {
                     onChanged: (ServBanio value) {
                       setState(() {
                         _banio = value;
+                        val = false;
                       });
                     },
                   ),
                 ),
                 SizedBox(height: 5.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otro,
+                    enabled: val,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Servicio',
+                      labelText: 'Otro Servicio',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 5.0,
+                ),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
