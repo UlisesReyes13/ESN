@@ -198,6 +198,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -217,6 +218,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       _entidadNacimiento1.text = _EstructuraFamiliar1.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar1.map((e) => e.entidadNacimiento).first;
+      _curp1.text = _EstructuraFamiliar1.map((e) => e.curp).first;
       _estadoCivil1.text =
           _EstructuraFamiliar1.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -239,6 +241,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar1.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar1.map((e) => e.entidadNacimiento).first;
+      _curp1.text = _EstructuraFamiliar1.map((e) => e.curp).first;
       _estadoCivil1.text =
           _EstructuraFamiliar1.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -256,6 +259,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
       _fechaNacimiento1.text = _EstructuraFamiliar1.map((e) => e.fechaNacimiento).first;
       _entidadNacimiento1.text = _EstructuraFamiliar1.map((e) => e.claveEntidad).first +
               " " + _EstructuraFamiliar1.map((e) => e.entidadNacimiento).first;
+      _curp1.text = _EstructuraFamiliar1.map((e) => e.curp).first;
       _estadoCivil1.text = _EstructuraFamiliar1.map((e) => e.claveEstadoCivil).first +
               " " + _EstructuraFamiliar1.map((e) => e.estadoCivil).first;
       _parentesco1.text =
@@ -280,6 +284,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -303,6 +308,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar2.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar2.map((e) => e.entidadNacimiento).first;
+      _curp2.text = _EstructuraFamiliar2.map((e) => e.curp).first;
       _estadoCivil2.text =
           _EstructuraFamiliar2.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -325,6 +331,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar2.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar2.map((e) => e.entidadNacimiento).first;
+      _curp2.text = _EstructuraFamiliar2.map((e) => e.curp).first;
       _estadoCivil2.text =
           _EstructuraFamiliar2.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -347,6 +354,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar2.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar2.map((e) => e.entidadNacimiento).first;
+      _curp2.text = _EstructuraFamiliar2.map((e) => e.curp).first;
       _estadoCivil2.text =
           _EstructuraFamiliar2.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -373,6 +381,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -396,6 +405,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar3.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar3.map((e) => e.entidadNacimiento).first;
+      _curp3.text = _EstructuraFamiliar3.map((e) => e.curp).first;
       _estadoCivil3.text =
           _EstructuraFamiliar3.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -418,6 +428,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar3.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar3.map((e) => e.entidadNacimiento).first;
+      _curp3.text = _EstructuraFamiliar3.map((e) => e.curp).first;
       _estadoCivil3.text =
           _EstructuraFamiliar3.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -440,6 +451,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar3.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar3.map((e) => e.entidadNacimiento).first;
+      _curp3.text = _EstructuraFamiliar3.map((e) => e.curp).first;
       _estadoCivil3.text =
           _EstructuraFamiliar3.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -466,6 +478,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -489,6 +502,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar4.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar4.map((e) => e.entidadNacimiento).first;
+      _curp4.text = _EstructuraFamiliar4.map((e) => e.curp).first;
       _estadoCivil4.text =
           _EstructuraFamiliar4.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -511,6 +525,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar4.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar4.map((e) => e.entidadNacimiento).first;
+      _curp4.text = _EstructuraFamiliar4.map((e) => e.curp).first;
       _estadoCivil4.text =
           _EstructuraFamiliar4.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -533,6 +548,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar4.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar4.map((e) => e.entidadNacimiento).first;
+      _curp4.text = _EstructuraFamiliar4.map((e) => e.curp).first;
       _estadoCivil4.text =
           _EstructuraFamiliar4.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -559,6 +575,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -582,6 +599,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar5.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar5.map((e) => e.entidadNacimiento).first;
+      _curp5.text =  _EstructuraFamiliar5.map((e) => e.curp).first;
       _estadoCivil5.text =
           _EstructuraFamiliar5.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -604,6 +622,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar5.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar5.map((e) => e.entidadNacimiento).first;
+      _curp5.text =  _EstructuraFamiliar5.map((e) => e.curp).first;
       _estadoCivil5.text =
           _EstructuraFamiliar5.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -626,6 +645,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar5.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar5.map((e) => e.entidadNacimiento).first;
+      _curp5.text =  _EstructuraFamiliar5.map((e) => e.curp).first;
       _estadoCivil5.text =
           _EstructuraFamiliar5.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -652,6 +672,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -675,6 +696,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar6.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar6.map((e) => e.entidadNacimiento).first;
+      _curp6.text = _EstructuraFamiliar6.map((e) => e.curp).first;
       _estadoCivil6.text =
           _EstructuraFamiliar6.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -697,6 +719,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar6.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar6.map((e) => e.entidadNacimiento).first;
+      _curp6.text = _EstructuraFamiliar6.map((e) => e.curp).first;
       _estadoCivil6.text =
           _EstructuraFamiliar6.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -719,6 +742,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar6.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar6.map((e) => e.entidadNacimiento).first;
+      _curp6.text = _EstructuraFamiliar6.map((e) => e.curp).first;
       _estadoCivil6.text =
           _EstructuraFamiliar6.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -745,6 +769,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -768,6 +793,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar7.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar7.map((e) => e.entidadNacimiento).first;
+      _curp7.text = _EstructuraFamiliar7.map((e) => e.curp).first;
       _estadoCivil7.text =
           _EstructuraFamiliar7.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -790,6 +816,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar7.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar7.map((e) => e.entidadNacimiento).first;
+      _curp7.text = _EstructuraFamiliar7.map((e) => e.curp).first;
       _estadoCivil7.text =
           _EstructuraFamiliar7.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -812,6 +839,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar7.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar7.map((e) => e.entidadNacimiento).first;
+      _curp7.text = _EstructuraFamiliar7.map((e) => e.curp).first;
       _estadoCivil7.text =
           _EstructuraFamiliar7.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -838,6 +866,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -861,6 +890,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar8.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar8.map((e) => e.entidadNacimiento).first;
+      _curp8.text = _EstructuraFamiliar8.map((e) => e.curp).first;
       _estadoCivil8.text =
           _EstructuraFamiliar8.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -883,6 +913,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar8.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar8.map((e) => e.entidadNacimiento).first;
+      _curp8.text = _EstructuraFamiliar8.map((e) => e.curp).first;
       _estadoCivil8.text =
           _EstructuraFamiliar8.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -905,6 +936,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar8.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar8.map((e) => e.entidadNacimiento).first;
+      _curp8.text = _EstructuraFamiliar8.map((e) => e.curp).first;
       _estadoCivil8.text =
           _EstructuraFamiliar8.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -931,6 +963,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -954,6 +987,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar9.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar9.map((e) => e.entidadNacimiento).first;
+      _curp9.text = _EstructuraFamiliar9.map((e) => e.curp).first;
       _estadoCivil9.text =
           _EstructuraFamiliar9.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -976,6 +1010,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar9.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar9.map((e) => e.entidadNacimiento).first;
+      _curp9.text = _EstructuraFamiliar9.map((e) => e.curp).first;
       _estadoCivil9.text =
           _EstructuraFamiliar9.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -998,6 +1033,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar9.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar9.map((e) => e.entidadNacimiento).first;
+      _curp9.text = _EstructuraFamiliar9.map((e) => e.curp).first;
       _estadoCivil9.text =
           _EstructuraFamiliar9.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -1024,6 +1060,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
         categoryModel.fechaNacimiento = category['fechaNacimiento'];
         categoryModel.claveEntidad = category['claveEntidad'];
         categoryModel.entidadNacimiento = category['entidadNacimiento'];
+        categoryModel.curp = category['curp'];
         categoryModel.claveEstadoCivil = category['claveEstadoCivil'];
         categoryModel.ordenEstadoCivil = category['ordenEstadoCivil'];
         categoryModel.estadoCivil = category['estadoCivil'];
@@ -1047,6 +1084,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar10.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar10.map((e) => e.entidadNacimiento).first;
+      _curp10.text = _EstructuraFamiliar10.map((e) => e.curp).first;
       _estadoCivil10.text =
           _EstructuraFamiliar10.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -1069,6 +1107,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar10.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar10.map((e) => e.entidadNacimiento).first;
+      _curp10.text = _EstructuraFamiliar10.map((e) => e.curp).first;
       _estadoCivil10.text =
           _EstructuraFamiliar10.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -1091,6 +1130,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
           _EstructuraFamiliar10.map((e) => e.claveEntidad).first +
               " " +
               _EstructuraFamiliar10.map((e) => e.entidadNacimiento).first;
+      _curp10.text = _EstructuraFamiliar10.map((e) => e.curp).first;
       _estadoCivil10.text =
           _EstructuraFamiliar10.map((e) => e.claveEstadoCivil).first +
               " " +
@@ -1485,7 +1525,14 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -1886,7 +1933,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -2200,7 +2253,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -2514,7 +2573,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -2828,7 +2893,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -3136,13 +3207,22 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra10 = valoresClaveFecha(dia.substring(1,2));
 
 
+
+
     int valorLetra11 = valoresClave(sex);
     int valorLetra12 = valoresClave(entidadN.substring(0,1));
     int valorLetra13 = valoresClave(entidadN.substring(1,2));
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
+
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -3456,7 +3536,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -3770,7 +3856,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -4084,7 +4176,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -4398,7 +4496,13 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
     int valorLetra14 = valoresClave(curp3);
     int valorLetra15 = valoresClave(QuinceavaLetra.toUpperCase());
     int valorLetra16 = valoresClave(DieciseisLetra.toUpperCase());
-    int valorLetra17 = valoresClaveFecha(homonimia);
+    var valorLetra17 = null;
+
+    if(homonimia == "A"){
+      valorLetra17 = valoresClave(homonimia);
+    }else {
+      valorLetra17 = valoresClaveFecha(homonimia);
+    }
 
     int clave = (valorLetra1 * 18) + (valorLetra2 * 17) + (valorLetra3 * 16) + (valorLetra4 * 15) +
         (valorLetra5 * 14) + (valorLetra6 * 13) + (valorLetra7 * 12) + (valorLetra8 * 11) +
@@ -4478,6 +4582,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                   fechaNacimiento: _fechaNacimiento1.text.toString(),
                   claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                   entidadNacimiento: entidadNacimiento.trimLeft(),
+                  curp: _curp1.text,
                   claveEstadoCivil:
                       _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -4598,6 +4703,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 claveEntidad:
                                 _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                 entidadNacimiento: entidadNacimiento.trimLeft(),
+                                curp: _curp1.text,
                                 claveEstadoCivil:
                                 _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                 ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -4676,6 +4782,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                 claveEntidad:
                                 _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                 entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                curp: _curp2.text,
                                 claveEstadoCivil:
                                 _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                 ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -4841,6 +4948,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                           claveEntidad:
                                           _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                           entidadNacimiento: entidadNacimiento.trimLeft(),
+                                          curp: _curp1.text,
                                           claveEstadoCivil:
                                           _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                           ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -4925,6 +5033,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                           claveEntidad:
                                           _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                           entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                          curp: _curp2.text,
                                           claveEstadoCivil:
                                           _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                           ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -5012,6 +5121,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                           claveEntidad:
                                           _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                           entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                          curp: _curp3.text,
                                           claveEstadoCivil:
                                           _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                           ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -5224,6 +5334,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                         .toString(),
                                                     claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                     entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                    curp: _curp1.text,
                                                     claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                     estadoCivil: estado.trimLeft(),
@@ -5320,6 +5431,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                         .toString(),
                                                     claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                     entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                    curp: _curp2.text,
                                                     claveEstadoCivil:_estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                     estadoCivil: estado2.trimLeft(),
@@ -5420,6 +5532,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                     claveEntidad:
                                                     _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                     entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                    curp: _curp3.text,
                                                     claveEstadoCivil:
                                                     _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -5521,6 +5634,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                     claveEntidad:
                                                     _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
                                                     entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                    curp: _curp4.text,
                                                     claveEstadoCivil:
                                                     _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -5826,6 +5940,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                   .toString(),
                                                               claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                               entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                              curp: _curp1.text,
                                                               claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                               estadoCivil: estado.trimLeft(),
@@ -5949,6 +6064,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                   .toString(),
                                                               claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                               entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                              curp: _curp2.text,
                                                               claveEstadoCivil:_estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                               estadoCivil: estado2.trimLeft(),
@@ -6075,6 +6191,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                               claveEntidad:
                                                               _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                               entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                              curp: _curp3.text,
                                                               claveEstadoCivil:
                                                               _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -6200,7 +6317,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                   .toString(),
                                                               claveEntidad:
                                                               _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
-                                                              entidadNacimiento: entidadNacimiento4.trimLeft(),                                    claveEstadoCivil:
+                                                              entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                              curp: _curp4.text,
+                                                              claveEstadoCivil:
                                                             _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                               estadoCivil: estado4.trimLeft(),
@@ -6326,7 +6445,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                   .toString(),
                                                               claveEntidad:
                                                               _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
-                                                              entidadNacimiento: entidadNacimiento5.trimLeft(),                                    claveEstadoCivil:
+                                                              entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                              curp: _curp5.text,
+                                                              claveEstadoCivil:
                                                             _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                               estadoCivil: estado5.trimLeft(),
@@ -6714,6 +6835,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                             .toString(),
                                                                         claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                         entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                        curp: _curp1.text,
                                                                         claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                         estadoCivil: estado.trimLeft(),
@@ -6870,6 +6992,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                             .toString(),
                                                                         claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                         entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                        curp: _curp2.text,
                                                                         claveEstadoCivil:_estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                         estadoCivil: estado2.trimLeft(),
@@ -7030,6 +7153,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                         claveEntidad:
                                                                         _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                         entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                        curp: _curp3.text,
                                                                         claveEstadoCivil:
                                                                         _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -7189,7 +7313,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                             .toString(),
                                                                         claveEntidad:
                                                                         _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
-                                                                        entidadNacimiento: entidadNacimiento4.trimLeft(),                                    claveEstadoCivil:
+                                                                        entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                        curp: _curp4.text,
+                                                                        claveEstadoCivil:
                                                                       _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                         estadoCivil: estado4.trimLeft(),
@@ -7349,7 +7475,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                             .toString(),
                                                                         claveEntidad:
                                                                         _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
-                                                                        entidadNacimiento: entidadNacimiento5.trimLeft(),                                    claveEstadoCivil:
+                                                                        entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                        curp: _curp5.text,
+                                                                        claveEstadoCivil:
                                                                       _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                         estadoCivil: estado5.trimLeft(),
@@ -7509,7 +7637,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                             .toString(),
                                                                         claveEntidad:
                                                                         _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
-                                                                        entidadNacimiento: entidadNacimiento6.trimLeft(),                                    claveEstadoCivil:
+                                                                        entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                        curp: _curp6.text,
+                                                                        claveEstadoCivil:
                                                                       _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                         estadoCivil: estado6.trimLeft(),
@@ -7937,6 +8067,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                   .toString(),
                                                                               claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                              curp: _curp1.text,
                                                                               claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado.trimLeft(),
@@ -8093,6 +8224,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                   .toString(),
                                                                               claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                              curp: _curp2.text,
                                                                               claveEstadoCivil:_estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado2.trimLeft(),
@@ -8253,6 +8385,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                               claveEntidad:
                                                                               _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                              curp: _curp3.text,
                                                                               claveEstadoCivil:
                                                                               _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -8412,7 +8545,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                   .toString(),
                                                                               claveEntidad:
                                                                               _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
-                                                                              entidadNacimiento: entidadNacimiento4.trimLeft(),                                    claveEstadoCivil:
+                                                                              entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                              curp: _curp4.text,
+                                                                              claveEstadoCivil:
                                                                             _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado4.trimLeft(),
@@ -8572,7 +8707,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                   .toString(),
                                                                               claveEntidad:
                                                                               _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
-                                                                              entidadNacimiento: entidadNacimiento5.trimLeft(),                                    claveEstadoCivil:
+                                                                              entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                              curp: _curp5.text,
+                                                                              claveEstadoCivil:
                                                                             _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado5.trimLeft(),
@@ -8732,7 +8869,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                   .toString(),
                                                                               claveEntidad:
                                                                               _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
-                                                                              entidadNacimiento: entidadNacimiento6.trimLeft(),                                    claveEstadoCivil:
+                                                                              entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                              curp: _curp6.text,
+                                                                              claveEstadoCivil:
                                                                             _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado6.trimLeft(),
@@ -8801,7 +8940,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                               fechaNacimiento: _fechaNacimiento7.text.toString(),
                                                                                   claveEntidad:
                                                                                   _entidadNacimiento7.text.toString().substring(0, 2).trimRight(),
-                                                                                  entidadNacimiento: entidadNacimiento7.trimLeft(),                                    claveEstadoCivil:
+                                                                                  entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                  curp: _curp7.text,
+                                                                                  claveEstadoCivil:
                                                                                 _estadoCivil7.text.toString().substring(0, 2).trimRight(),
                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                   estadoCivil: estado7.trimLeft(),
@@ -9235,6 +9376,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                             .toString(),
                                                                                         claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                                        curp: _curp1.text,
                                                                                         claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado.trimLeft(),
@@ -9391,6 +9533,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                             .toString(),
                                                                                         claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                                        curp: _curp2.text,
                                                                                         claveEstadoCivil:_estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado2.trimLeft(),
@@ -9551,6 +9694,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                         claveEntidad:
                                                                                         _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                                        curp: _curp3.text,
                                                                                         claveEstadoCivil:
                                                                                         _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -9710,7 +9854,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                             .toString(),
                                                                                         claveEntidad:
                                                                                         _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
-                                                                                        entidadNacimiento: entidadNacimiento4.trimLeft(),                                    claveEstadoCivil:
+                                                                                        entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                                        curp: _curp4.text,
+                                                                                        claveEstadoCivil:
                                                                                       _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado4.trimLeft(),
@@ -9870,7 +10016,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                             .toString(),
                                                                                         claveEntidad:
                                                                                         _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
-                                                                                        entidadNacimiento: entidadNacimiento5.trimLeft(),                                    claveEstadoCivil:
+                                                                                        entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                                        curp: _curp5.text,
+                                                                                        claveEstadoCivil:
                                                                                       _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado5.trimLeft(),
@@ -10030,7 +10178,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                             .toString(),
                                                                                         claveEntidad:
                                                                                         _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
-                                                                                        entidadNacimiento: entidadNacimiento6.trimLeft(),                                    claveEstadoCivil:
+                                                                                        entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                                        curp: _curp6.text,
+                                                                                        claveEstadoCivil:
                                                                                       _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado6.trimLeft(),
@@ -10099,7 +10249,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                         fechaNacimiento: _fechaNacimiento7.text.toString(),
                                                                                         claveEntidad:
                                                                                         _entidadNacimiento7.text.toString().substring(0, 2).trimRight(),
-                                                                                        entidadNacimiento: entidadNacimiento7.trimLeft(),                                    claveEstadoCivil:
+                                                                                        entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                        curp: _curp7.text,
+                                                                                        claveEstadoCivil:
                                                                                       _estadoCivil7.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado7.trimLeft(),
@@ -10152,7 +10304,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                         fechaNacimiento: _fechaNacimiento8.text.toString(),
                                                                                         claveEntidad:
                                                                                         _entidadNacimiento8.text.toString().substring(0, 2).trimRight(),
-                                                                                        entidadNacimiento: entidadNacimiento8.trimLeft(),                                    claveEstadoCivil:
+                                                                                        entidadNacimiento: entidadNacimiento8.trimLeft(),
+                                                                                        curp: _curp8.text,
+                                                                                        claveEstadoCivil:
                                                                                       _estadoCivil8.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado8.trimLeft(),
@@ -10605,6 +10759,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                       .toString(),
                                                                                                   claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                                                  curp: _curp1.text,
                                                                                                   claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado.trimLeft(),
@@ -10761,6 +10916,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                       .toString(),
                                                                                                   claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                                                  curp: _curp2.text,
                                                                                                   claveEstadoCivil:_estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado2.trimLeft(),
@@ -10921,6 +11077,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   claveEntidad:
                                                                                                   _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                                                  curp: _curp3.text,
                                                                                                   claveEstadoCivil:
                                                                                                   _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -11080,7 +11237,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                       .toString(),
                                                                                                   claveEntidad:
                                                                                                   _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
-                                                                                                  entidadNacimiento: entidadNacimiento4.trimLeft(),                                    claveEstadoCivil:
+                                                                                                  entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                                                  curp: _curp4.text,
+                                                                                                  claveEstadoCivil:
                                                                                                 _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado4.trimLeft(),
@@ -11240,7 +11399,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                       .toString(),
                                                                                                   claveEntidad:
                                                                                                   _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
-                                                                                                  entidadNacimiento: entidadNacimiento5.trimLeft(),                                    claveEstadoCivil:
+                                                                                                  entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                                                  curp: _curp5.text,
+                                                                                                  claveEstadoCivil:
                                                                                                 _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado5.trimLeft(),
@@ -11400,7 +11561,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                       .toString(),
                                                                                                   claveEntidad:
                                                                                                   _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
-                                                                                                  entidadNacimiento: entidadNacimiento6.trimLeft(),                                    claveEstadoCivil:
+                                                                                                  entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                                                  curp: _curp6.text,
+                                                                                                  claveEstadoCivil:
                                                                                                 _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado6.trimLeft(),
@@ -11469,7 +11632,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   fechaNacimiento: _fechaNacimiento7.text.toString(),
                                                                                                   claveEntidad:
                                                                                                   _entidadNacimiento7.text.toString().substring(0, 2).trimRight(),
-                                                                                                  entidadNacimiento: entidadNacimiento7.trimLeft(),                                    claveEstadoCivil:
+                                                                                                  entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                                  curp: _curp7.text,
+                                                                                                  claveEstadoCivil:
                                                                                                 _estadoCivil7.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado7.trimLeft(),
@@ -11522,7 +11687,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   fechaNacimiento: _fechaNacimiento8.text.toString(),
                                                                                                   claveEntidad:
                                                                                                   _entidadNacimiento8.text.toString().substring(0, 2).trimRight(),
-                                                                                                  entidadNacimiento: entidadNacimiento8.trimLeft(),                                    claveEstadoCivil:
+                                                                                                  entidadNacimiento: entidadNacimiento8.trimLeft(),
+                                                                                                  curp: _curp8.text,
+                                                                                                  claveEstadoCivil:
                                                                                                 _estadoCivil8.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado8.trimLeft(),
@@ -11575,7 +11742,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   fechaNacimiento: _fechaNacimiento9.text.toString(),
                                                                                                   claveEntidad:
                                                                                                   _entidadNacimiento9.text.toString().substring(0, 2).trimRight(),
-                                                                                                  entidadNacimiento: entidadNacimiento9.trimLeft(),                                    claveEstadoCivil:
+                                                                                                  entidadNacimiento: entidadNacimiento9.trimLeft(),
+                                                                                                  curp: _curp9.text,
+                                                                                                  claveEstadoCivil:
                                                                                                 _estadoCivil9.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado9.trimLeft(),
@@ -12049,6 +12218,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                                 .toString(),
                                                                                                             claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                                                            curp: _curp1.text,
                                                                                                             claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado.trimLeft(),
@@ -12205,6 +12375,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                                 .toString(),
                                                                                                             claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                                                            curp: _curp2.text,
                                                                                                             claveEstadoCivil:_estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado2.trimLeft(),
@@ -12365,6 +12536,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             claveEntidad:
                                                                                                             _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                                                            curp: _curp3.text,
                                                                                                             claveEstadoCivil:
                                                                                                             _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -12524,7 +12696,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                                 .toString(),
                                                                                                             claveEntidad:
                                                                                                             _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
-                                                                                                            entidadNacimiento: entidadNacimiento4.trimLeft(),                                    claveEstadoCivil:
+                                                                                                            entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                                                            curp: _curp4.text,
+                                                                                                            claveEstadoCivil:
                                                                                                           _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado4.trimLeft(),
@@ -12684,7 +12858,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                                 .toString(),
                                                                                                             claveEntidad:
                                                                                                             _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
-                                                                                                            entidadNacimiento: entidadNacimiento5.trimLeft(),                                    claveEstadoCivil:
+                                                                                                            entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                                                            curp: _curp5.text,
+                                                                                                            claveEstadoCivil:
                                                                                                           _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado5.trimLeft(),
@@ -12844,7 +13020,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                                 .toString(),
                                                                                                             claveEntidad:
                                                                                                             _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
-                                                                                                            entidadNacimiento: entidadNacimiento6.trimLeft(),                                    claveEstadoCivil:
+                                                                                                            entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                                                            curp: _curp6.text,
+                                                                                                            claveEstadoCivil:
                                                                                                           _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado6.trimLeft(),
@@ -12913,7 +13091,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento7.text.toString(),
                                                                                                             claveEntidad:
                                                                                                             _entidadNacimiento7.text.toString().substring(0, 2).trimRight(),
-                                                                                                            entidadNacimiento: entidadNacimiento7.trimLeft(),                                    claveEstadoCivil:
+                                                                                                            entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                                            curp: _curp7.text,
+                                                                                                            claveEstadoCivil:
                                                                                                           _estadoCivil7.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado7.trimLeft(),
@@ -12966,7 +13146,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento8.text.toString(),
                                                                                                             claveEntidad:
                                                                                                             _entidadNacimiento8.text.toString().substring(0, 2).trimRight(),
-                                                                                                            entidadNacimiento: entidadNacimiento8.trimLeft(),                                    claveEstadoCivil:
+                                                                                                            entidadNacimiento: entidadNacimiento8.trimLeft(),
+                                                                                                            curp: _curp8.text,
+                                                                                                            claveEstadoCivil:
                                                                                                           _estadoCivil8.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado8.trimLeft(),
@@ -13019,7 +13201,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento9.text.toString(),
                                                                                                             claveEntidad:
                                                                                                             _entidadNacimiento9.text.toString().substring(0, 2).trimRight(),
-                                                                                                            entidadNacimiento: entidadNacimiento9.trimLeft(),                                    claveEstadoCivil:
+                                                                                                            entidadNacimiento: entidadNacimiento9.trimLeft(),
+                                                                                                            curp: _curp9.text,
+                                                                                                            claveEstadoCivil:
                                                                                                           _estadoCivil9.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado9.trimLeft(),
@@ -13072,7 +13256,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento10.text.toString(),
                                                                                                             claveEntidad:
                                                                                                             _entidadNacimiento10.text.toString().substring(0, 2).trimRight(),
-                                                                                                            entidadNacimiento: entidadNacimiento10.trimLeft(),                                    claveEstadoCivil:
+                                                                                                            entidadNacimiento: entidadNacimiento10.trimLeft(),
+                                                                                                            curp: _curp10.text,
+                                                                                                            claveEstadoCivil:
                                                                                                           _estadoCivil10.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado10.trimLeft(),
@@ -13347,6 +13533,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                   claveEntidad:
                   _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                   entidadNacimiento: entidadNacimiento.trimLeft(),
+                  curp: _curp1.text,
                   claveEstadoCivil:
                   _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
@@ -13467,6 +13654,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                             fechaNacimiento: _fechaNacimiento1.text.toString(),
                             claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                             entidadNacimiento: entidadNacimiento.trimLeft(),
+                            curp: _curp1.text,
                             claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                             estadoCivil: estado.trimLeft(),
@@ -13544,6 +13732,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                             fechaNacimiento: _fechaNacimiento2.text.toString(),
                             claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                             entidadNacimiento: entidadNacimiento2.trimLeft(),
+                            curp: _curp2.text,
                             claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                             estadoCivil: estado2.trimLeft(),
@@ -13700,6 +13889,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       fechaNacimiento: _fechaNacimiento1.text.toString(),
                                       claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                       entidadNacimiento: entidadNacimiento.trimLeft(),
+                                      curp: _curp1.text,
                                       claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                       ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                       estadoCivil: estado.trimLeft(),
@@ -13777,6 +13967,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       fechaNacimiento: _fechaNacimiento2.text.toString(),
                                       claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                       entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                      curp: _curp2.text,
                                       claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                       ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                       estadoCivil: estado2.trimLeft(),
@@ -13862,6 +14053,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       _fechaNacimiento3.text.toString(),
                                       claveEntidad: _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                       entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                      curp: _curp3.text,
                                       claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                       ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                       estadoCivil: estado3.trimLeft(),
@@ -14057,6 +14249,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                 fechaNacimiento: _fechaNacimiento1.text.toString(),
                                                 claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                 entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                curp: _curp1.text,
                                                 claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                 ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                 estadoCivil: estado.trimLeft(),
@@ -14134,6 +14327,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                 fechaNacimiento: _fechaNacimiento2.text.toString(),
                                                 claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                 entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                curp: _curp2.text,
                                                 claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                 ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                 estadoCivil: estado2.trimLeft(),
@@ -14219,6 +14413,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                 _fechaNacimiento3.text.toString(),
                                                 claveEntidad: _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                 entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                curp: _curp3.text,
                                                 claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                 ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                 estadoCivil: estado3.trimLeft(),
@@ -14316,6 +14511,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                     .toString(),
                                                 claveEntidad: _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
                                                 entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                curp: _curp4.text,
                                                 claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                 ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                 estadoCivil: estado4.trimLeft(),
@@ -14574,6 +14770,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                           fechaNacimiento: _fechaNacimiento1.text.toString(),
                                                           claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                           entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                          curp: _curp1.text,
                                                           claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                           ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                           estadoCivil: estado.trimLeft(),
@@ -14651,6 +14848,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                           fechaNacimiento: _fechaNacimiento2.text.toString(),
                                                           claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                           entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                          curp: _curp2.text,
                                                           claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                           ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                           estadoCivil: estado2.trimLeft(),
@@ -14736,6 +14934,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                           _fechaNacimiento3.text.toString(),
                                                           claveEntidad: _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                           entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                          curp: _curp3.text,
                                                           claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                           ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                           estadoCivil: estado3.trimLeft(),
@@ -14833,6 +15032,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                               .toString(),
                                                           claveEntidad: _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
                                                           entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                          curp: _curp4.text,
                                                           claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                           ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                           estadoCivil: estado4.trimLeft(),
@@ -14957,6 +15157,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                               .toString(),
                                                           claveEntidad: _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
                                                           entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                          curp: _curp5.text,
                                                           claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                           ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                           estadoCivil: estado5.trimLeft(),
@@ -15280,6 +15481,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                     fechaNacimiento: _fechaNacimiento1.text.toString(),
                                                                     claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                     entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                    curp: _curp1.text,
                                                                     claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                     estadoCivil: estado.trimLeft(),
@@ -15357,6 +15559,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                     fechaNacimiento: _fechaNacimiento2.text.toString(),
                                                                     claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                     entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                    curp: _curp2.text,
                                                                     claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                     estadoCivil: estado2.trimLeft(),
@@ -15442,6 +15645,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                     _fechaNacimiento3.text.toString(),
                                                                     claveEntidad: _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                     entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                    curp: _curp3.text,
                                                                     claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                     estadoCivil: estado3.trimLeft(),
@@ -15539,6 +15743,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                         .toString(),
                                                                     claveEntidad: _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
                                                                     entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                    curp: _curp4.text,
                                                                     claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                     estadoCivil: estado4.trimLeft(),
@@ -15663,6 +15868,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                         .toString(),
                                                                     claveEntidad: _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
                                                                     entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                    curp: _curp5.text,
                                                                     claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                     estadoCivil: estado5.trimLeft(),
@@ -15822,6 +16028,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                         .toString(),
                                                                     claveEntidad: _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
                                                                     entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                    curp: _curp6.text,
                                                                     claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                     ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                     estadoCivil: estado6.trimLeft(),
@@ -16185,6 +16392,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                               fechaNacimiento: _fechaNacimiento1.text.toString(),
                                                                               claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                              curp: _curp1.text,
                                                                               claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado.trimLeft(),
@@ -16262,6 +16470,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                               fechaNacimiento: _fechaNacimiento2.text.toString(),
                                                                               claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                              curp: _curp2.text,
                                                                               claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado2.trimLeft(),
@@ -16347,6 +16556,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                               _fechaNacimiento3.text.toString(),
                                                                               claveEntidad: _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                              curp: _curp3.text,
                                                                               claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado3.trimLeft(),
@@ -16444,6 +16654,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                   .toString(),
                                                                               claveEntidad: _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                              curp: _curp4.text,
                                                                               claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado4.trimLeft(),
@@ -16568,6 +16779,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                   .toString(),
                                                                               claveEntidad: _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                              curp: _curp5.text,
                                                                               claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado5.trimLeft(),
@@ -16727,6 +16939,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                   .toString(),
                                                                               claveEntidad: _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                              curp: _curp6.text,
                                                                               claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado6.trimLeft(),
@@ -16795,6 +17008,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                               fechaNacimiento: _fechaNacimiento7.text.toString(),
                                                                               claveEntidad: _entidadNacimiento7.text.toString().substring(0, 2).trimRight(),
                                                                               entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                              curp: _curp7.text,
                                                                               claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 2).trimRight(),
                                                                               ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                               estadoCivil: estado7.trimLeft(),
@@ -17165,6 +17379,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                         fechaNacimiento: _fechaNacimiento1.text.toString(),
                                                                                         claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                                        curp: _curp1.text,
                                                                                         claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado.trimLeft(),
@@ -17242,6 +17457,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                         fechaNacimiento: _fechaNacimiento2.text.toString(),
                                                                                         claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                                        curp: _curp2.text,
                                                                                         claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado2.trimLeft(),
@@ -17327,6 +17543,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                         _fechaNacimiento3.text.toString(),
                                                                                         claveEntidad: _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                                        curp: _curp3.text,
                                                                                         claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado3.trimLeft(),
@@ -17424,6 +17641,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                             .toString(),
                                                                                         claveEntidad: _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                                        curp: _curp4.text,
                                                                                         claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado4.trimLeft(),
@@ -17548,6 +17766,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                             .toString(),
                                                                                         claveEntidad: _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                                        curp: _curp5.text,
                                                                                         claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado5.trimLeft(),
@@ -17707,6 +17926,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                             .toString(),
                                                                                         claveEntidad: _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                                        curp: _curp6.text,
                                                                                         claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado6.trimLeft(),
@@ -17775,6 +17995,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                         fechaNacimiento: _fechaNacimiento7.text.toString(),
                                                                                         claveEntidad: _entidadNacimiento7.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                        curp: _curp7.text,
                                                                                         claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado7.trimLeft(),
@@ -17820,6 +18041,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                         fechaNacimiento: _fechaNacimiento8.text.toString(),
                                                                                         claveEntidad: _entidadNacimiento8.text.toString().substring(0, 2).trimRight(),
                                                                                         entidadNacimiento: entidadNacimiento8.trimLeft(),
+                                                                                        curp: _curp8.text,
                                                                                         claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 2).trimRight(),
                                                                                         ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                         estadoCivil: estado8.trimLeft(),
@@ -18210,6 +18432,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   fechaNacimiento: _fechaNacimiento1.text.toString(),
                                                                                                   claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                                                  curp: _curp1.text,
                                                                                                   claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado.trimLeft(),
@@ -18287,6 +18510,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   fechaNacimiento: _fechaNacimiento2.text.toString(),
                                                                                                   claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                                                  curp: _curp2.text,
                                                                                                   claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado2.trimLeft(),
@@ -18372,6 +18596,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   _fechaNacimiento3.text.toString(),
                                                                                                   claveEntidad: _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                                                  curp: _curp3.text,
                                                                                                   claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado3.trimLeft(),
@@ -18469,6 +18694,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                       .toString(),
                                                                                                   claveEntidad: _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                                                  curp: _curp4.text,
                                                                                                   claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado4.trimLeft(),
@@ -18593,6 +18819,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                       .toString(),
                                                                                                   claveEntidad: _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                                                  curp: _curp5.text,
                                                                                                   claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado5.trimLeft(),
@@ -18752,6 +18979,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                       .toString(),
                                                                                                   claveEntidad: _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                                                  curp: _curp6.text,
                                                                                                   claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado6.trimLeft(),
@@ -18820,6 +19048,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   fechaNacimiento: _fechaNacimiento7.text.toString(),
                                                                                                   claveEntidad: _entidadNacimiento7.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                                  curp: _curp7.text,
                                                                                                   claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado7.trimLeft(),
@@ -18872,6 +19101,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   fechaNacimiento: _fechaNacimiento8.text.toString(),
                                                                                                   claveEntidad: _entidadNacimiento8.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento8.trimLeft(),
+                                                                                                  curp: _curp8.text,
                                                                                                   claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado8.trimLeft(),
@@ -18924,6 +19154,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                   fechaNacimiento: _fechaNacimiento9.text.toString(),
                                                                                                   claveEntidad: _entidadNacimiento9.text.toString().substring(0, 2).trimRight(),
                                                                                                   entidadNacimiento: entidadNacimiento9.trimLeft(),
+                                                                                                  curp: _curp9.text,
                                                                                                   claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 2).trimRight(),
                                                                                                   ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                   estadoCivil: estado9.trimLeft(),
@@ -19334,6 +19565,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento1.text.toString(),
                                                                                                             claveEntidad: _entidadNacimiento1.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento.trimLeft(),
+                                                                                                            curp: _curp1.text,
                                                                                                             claveEstadoCivil: _estadoCivil1.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado.trimLeft(),
@@ -19411,6 +19643,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento2.text.toString(),
                                                                                                             claveEntidad: _entidadNacimiento2.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento2.trimLeft(),
+                                                                                                            curp: _curp2.text,
                                                                                                             claveEstadoCivil: _estadoCivil2.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado2.trimLeft(),
@@ -19496,6 +19729,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             _fechaNacimiento3.text.toString(),
                                                                                                             claveEntidad: _entidadNacimiento3.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento3.trimLeft(),
+                                                                                                            curp: _curp3.text,
                                                                                                             claveEstadoCivil: _estadoCivil3.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado3.trimLeft(),
@@ -19593,6 +19827,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                                 .toString(),
                                                                                                             claveEntidad: _entidadNacimiento4.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento4.trimLeft(),
+                                                                                                            curp: _curp4.text,
                                                                                                             claveEstadoCivil: _estadoCivil4.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado4.trimLeft(),
@@ -19717,6 +19952,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                                 .toString(),
                                                                                                             claveEntidad: _entidadNacimiento5.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento5.trimLeft(),
+                                                                                                            curp: _curp5.text,
                                                                                                             claveEstadoCivil: _estadoCivil5.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado5.trimLeft(),
@@ -19876,6 +20112,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                                 .toString(),
                                                                                                             claveEntidad: _entidadNacimiento6.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento6.trimLeft(),
+                                                                                                            curp: _curp6.text,
                                                                                                             claveEstadoCivil: _estadoCivil6.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado6.trimLeft(),
@@ -19944,6 +20181,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento7.text.toString(),
                                                                                                             claveEntidad: _entidadNacimiento7.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento7.trimLeft(),
+                                                                                                            curp: _curp7.text,
                                                                                                             claveEstadoCivil: _estadoCivil7.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado7.trimLeft(),
@@ -19996,6 +20234,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento8.text.toString(),
                                                                                                             claveEntidad: _entidadNacimiento8.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento8.trimLeft(),
+                                                                                                            curp: _curp8.text,
                                                                                                             claveEstadoCivil: _estadoCivil8.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado8.trimLeft(),
@@ -20048,6 +20287,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento9.text.toString(),
                                                                                                             claveEntidad: _entidadNacimiento9.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento9.trimLeft(),
+                                                                                                            curp: _curp9.text,
                                                                                                             claveEstadoCivil: _estadoCivil9.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado9.trimLeft(),
@@ -20100,6 +20340,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                                                                                             fechaNacimiento: _fechaNacimiento10.text.toString(),
                                                                                                             claveEntidad: _entidadNacimiento10.text.toString().substring(0, 2).trimRight(),
                                                                                                             entidadNacimiento: entidadNacimiento10.trimLeft(),
+                                                                                                            curp: _curp10.text,
                                                                                                             claveEstadoCivil: _estadoCivil10.text.toString().substring(0, 2).trimRight(),
                                                                                                             ordenEstadoCivil: _EstadosCiviles2.map((e) => e.Orden).first,
                                                                                                             estadoCivil: estado10.trimLeft(),

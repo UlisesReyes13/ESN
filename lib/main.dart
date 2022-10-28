@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       ),
 
 
-      home: EstructuraFamiliarTabla('99911'),
+      home: EstructuraFamiliarTabla("99911"),
 
     );
   }

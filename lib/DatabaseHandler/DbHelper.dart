@@ -1320,6 +1320,11 @@ class DbHelper {
     return await connection.rawQuery("SELECT Parentesco FROM tb_Parentescos ORDER BY Orden");
   }
 
+  readVersion() async {
+    var connection = await db;
+    return await connection.rawQuery("SELECT version FROM version");
+  }
+
   readOrdenEstado(String Estado) async {
     var connection = await db;
     return await connection.rawQuery("SELECT Orden  FROM tb_Estados where Estado like '${Estado}'");

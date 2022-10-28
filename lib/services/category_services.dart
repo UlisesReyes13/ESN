@@ -435,4 +435,8 @@ class CategoryService {
   readPrestacionesLaborales() async {
     return await _repository.readData('tb_PrestacionesLaborales');
   }
+
+  readVersion() async {
+    return await _repository.readVersion();
+  }
 }
