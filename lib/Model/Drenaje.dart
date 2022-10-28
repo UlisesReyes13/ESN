@@ -1,17 +1,24 @@
-class Drenaje{
+class Drenaje {
   String folio;
-  int claveServSanitario ;
-  String ordenServSanitario ;
-  String servSanitario ;
+  int claveServSanitario;
+  String ordenServSanitario;
+  String servSanitario;
+  String otroSanitario;
 
-  Drenaje({this.folio,this.claveServSanitario, this.ordenServSanitario, this.servSanitario});
+  Drenaje(
+      {this.folio,
+      this.claveServSanitario,
+      this.ordenServSanitario,
+      this.servSanitario,
+      this.otroSanitario});
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       'folio': folio,
       'claveServSanitario': claveServSanitario,
       'ordenServSanitario': ordenServSanitario,
-      'servSanitario': servSanitario
+      'servSanitario': servSanitario,
+      'otroSanitario': otroSanitario
     };
     return map;
   }
@@ -21,5 +28,6 @@ class Drenaje{
     claveServSanitario = map['claveServSanitario'];
     ordenServSanitario = map['ordenServSanitario'];
     servSanitario = map['servSanitario'];
+    otroSanitario = map['otroSanitario'];
   }
 }

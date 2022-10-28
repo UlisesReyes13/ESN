@@ -4,6 +4,8 @@ import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/Luz.dart';
 import 'package:esn/Screens/ServiciosAgua.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
+import 'package:esn/replaceAll/replaceAllLetter.dart';
+import 'package:esn/replaceAll/replaceAllNum.dart';
 import 'package:flutter/material.dart';
 
 import '../Comm/genTextFolio.dart';
@@ -29,6 +31,9 @@ class ServiciosLuz extends StatefulWidget {
 
 class _ServiciosLuzState extends State<ServiciosLuz> {
   ServLuz _luz = ServLuz.servicioPublico;
+  bool val = false;
+  final _otro = TextEditingController();
+
   enviar() async {
     String luz = _luz.name.toString();
     if (luz == 'servicioPublico') {
@@ -49,90 +54,20 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
       luz = '8 8 Con Contrato';
     }
 
+    replaceAllNum rpn = new replaceAllNum();
+    replaceAllLetter rpl = new replaceAllLetter();
     var nomLuz = luz; // 'artlang'
-    final NombreLuz = nomLuz
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    final NombreLuz = rpn.replaceNum(nomLuz);
 
     var luzPk = luz; // 'artlang'
-    final pkLuz = luzPk
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    final pkLuz = rpl.replaceLetter(luzPk);
 
     Luz BModel = Luz(
         folio: widget.folio,
         claveServLuz: int.parse(pkLuz.substring(0, 2).trimRight()),
         ordenServLuz: pkLuz.substring(0, 2).trimRight(),
-        servLuz: NombreLuz.trimLeft());
+        servLuz: NombreLuz.trimLeft(),
+        otroLuz: _otro.text );
     await DbHelper().upDateLuz(BModel).then((luz) {
       alertDialog(context, "Se registro correctamente");
       Navigator.of(context)
@@ -185,6 +120,7 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     onChanged: (ServLuz value) {
                       setState(() {
                         _luz = value;
+                        val = false;
                       });
                     },
                   ),
@@ -197,6 +133,7 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     onChanged: (ServLuz value) {
                       setState(() {
                         _luz = value;
+                        val = false;
                       });
                     },
                   ),
@@ -209,6 +146,7 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     onChanged: (ServLuz value) {
                       setState(() {
                         _luz = value;
+                        val = false;
                       });
                     },
                   ),
@@ -221,6 +159,7 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     onChanged: (ServLuz value) {
                       setState(() {
                         _luz = value;
+                        val = false;
                       });
                     },
                   ),
@@ -233,6 +172,7 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     onChanged: (ServLuz value) {
                       setState(() {
                         _luz = value;
+                        val = true;
                       });
                     },
                   ),
@@ -245,6 +185,7 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     onChanged: (ServLuz value) {
                       setState(() {
                         _luz = value;
+                        val = false;
                       });
                     },
                   ),
@@ -257,6 +198,7 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     onChanged: (ServLuz value) {
                       setState(() {
                         _luz = value;
+                        val = false;
                       });
                     },
                   ),
@@ -269,8 +211,30 @@ class _ServiciosLuzState extends State<ServiciosLuz> {
                     onChanged: (ServLuz value) {
                       setState(() {
                         _luz = value;
+                        val = false;
                       });
                     },
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otro,
+                    enabled: val,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Servicio',
+                      labelText: 'Otro Servicio',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
                   ),
                 ),
                 SizedBox(height: 5.0),

@@ -30,12 +30,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: '',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-
-
-      home: EstructuraFamiliarTabla('99911'),
-
+        primarySwatch: Colors.blue,),
+      home: ServiciosBanios('3894457'),
     );
   }
 }
