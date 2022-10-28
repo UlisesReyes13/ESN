@@ -1,5 +1,7 @@
+import 'package:esn/Model/VersionModel.dart';
 import 'package:esn/Screens/DatosGenerales.dart';
 import 'package:esn/Screens/TablaFolios.dart';
+import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:esn/Comm/comHelper.dart';
 import 'package:esn/Comm/genLoginSignupHeader.dart';
@@ -21,38 +23,57 @@ class _LoginFormState extends State<LoginForm> {
   final _conUserId = TextEditingController();
   final _conPassword = TextEditingController();
   var dbHelper;
-
+  List<VersionModel> _Version = List<VersionModel>();
   @override
   void initState() {
+    getAllVersion();
     super.initState();
     dbHelper = DbHelper();
   }
 
-  login() async {
-    String uid = _conUserId.text;
-    String passwd = _conPassword.text;
-
-    if (uid.isEmpty) {
-      alertDialog(context, "Por favor introduzca su usuario");
-    } else if (passwd.isEmpty) {
-      alertDialog(context, "Por favor introduzca la contraseña");
-    } else {
-      await dbHelper.getLoginUser(uid, passwd).then((userData) {
-        if (userData != null) {
-          setSP(userData).whenComplete(() {
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => TablaFolios()),
-                (Route<dynamic> route) => false);
-          });
-        } else {
-          alertDialog(context, "Error: Usuario no registrado");
-        }
-      }).catchError((error) {
-        print(error);
-        alertDialog(context, "Error: Fallo del login");
+  getAllVersion() async {
+    _Version = List<VersionModel>();
+    var categories = await CategoryService().readVersion();
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = VersionModel();
+        categoryModel.version = category['version'];
+        _Version.add(categoryModel);
       });
+    });
+  }
+
+  login() async {
+
+    if(_Version.map((e) => e.version).first == "1.0.2"){
+      String uid = _conUserId.text;
+      String passwd = _conPassword.text;
+
+      if (uid.isEmpty) {
+        alertDialog(context, "Por favor introduzca su usuario");
+      } else if (passwd.isEmpty) {
+        alertDialog(context, "Por favor introduzca la contraseña");
+      } else {
+        await dbHelper.getLoginUser(uid, passwd).then((userData) {
+          if (userData != null) {
+            setSP(userData).whenComplete(() {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (_) => TablaFolios()),
+                      (Route<dynamic> route) => false);
+            });
+          } else {
+            alertDialog(context, "Error: Usuario no registrado");
+          }
+        }).catchError((error) {
+          print(error);
+          alertDialog(context, "Error: Fallo del login");
+        });
+      }
+    }else{
+      alertDialog(context, "Error: Las versiones no coinciden");
     }
+
   }
 
   Future setSP(UserModel user) async {
