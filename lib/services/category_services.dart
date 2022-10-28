@@ -439,4 +439,13 @@ class CategoryService {
   readVersion() async {
     return await _repository.readVersion();
   }
+
+  readPKPrestacionesLaborales(String prestacion) async {
+    return await _repository.readPKPrestacionesLaborales(prestacion);
+  }
+
+  readOrdenPrestacionesLaborales(String prestacion) async {
+    return await _repository.readOrdenPrestacionesLaborales(prestacion);
+  }
+
 }

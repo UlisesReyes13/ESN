@@ -1325,6 +1325,26 @@ class DbHelper {
     return await connection.rawQuery("SELECT version FROM version");
   }
 
+  readPKPrestacionesLaborales(String prestacion) async {
+    var connection = await db;
+    return await connection.rawQuery("select Pk_PrestacionesLaborales from tb_PrestacionesLaborales where txt_desc_prestacioneslab like '%${prestacion}%'");
+  }
+
+  readOrdenPrestacionesLaborales(String prestacion) async {
+    var connection = await db;
+    return await connection.rawQuery("select Orden_PrestacionesLaborales from tb_PrestacionesLaborales where txt_desc_prestacioneslab like '%${prestacion}%'");
+  }
+
+  readOrdenCodicionesSlud(String condicion) async {
+    var connection = await db;
+    return await connection.rawQuery("select Pk_PrestacionesLaborales from tb_PrestacionesLaborales where txt_desc_prestacioneslab like '%${prestacion}%'");
+  }
+
+  readPonderacionCondicionesSalud(String condicion) async {
+    var connection = await db;
+    return await connection.rawQuery("select Orden_PrestacionesLaborales from tb_PrestacionesLaborales where txt_desc_prestacioneslab like '%${prestacion}%'");
+  }
+
   readOrdenEstado(String Estado) async {
     var connection = await db;
     return await connection.rawQuery("SELECT Orden  FROM tb_Estados where Estado like '${Estado}'");

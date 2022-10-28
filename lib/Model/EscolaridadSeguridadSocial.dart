@@ -27,6 +27,7 @@ class EscolaridadSeguridadSocial{
   String OrdenMotivoDerechohabiencia;
   String MotivoDerechohabiencia;
 
+
   EscolaridadSeguridadSocial({
       this.folio,
 
@@ -63,7 +64,9 @@ class EscolaridadSeguridadSocial{
 
       this.ClaveMotivoDerechohabiencia,
       this.OrdenMotivoDerechohabiencia,
-      this.MotivoDerechohabiencia});
+      this.MotivoDerechohabiencia,
+
+     });
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
@@ -103,6 +106,8 @@ class EscolaridadSeguridadSocial{
       'ClaveMotivoDerechohabiencia': ClaveMotivoDerechohabiencia,
       'OrdenMotivoDerechohabiencia': OrdenMotivoDerechohabiencia,
       'MotivoDerechohabiencia': MotivoDerechohabiencia,
+
+
 
     };
     return map;
@@ -145,5 +150,7 @@ class EscolaridadSeguridadSocial{
     ClaveMotivoDerechohabiencia = map['ClaveMotivoDerechohabiencia'];
     OrdenMotivoDerechohabiencia = map['OrdenMotivoDerechohabiencia'];
     MotivoDerechohabiencia = map['MotivoDerechohabiencia'];
+
+
   }
 }

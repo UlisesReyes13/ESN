@@ -77,6 +77,28 @@ class _Escolaridad_SeguridadSocialTablaState
   List<EscolaridadSeguridadSocial> _Escolaridad9 = [];
   List<EscolaridadSeguridadSocial> _Escolaridad10 = [];
 
+  List<PrestacionesLaboralesModel> _Prestaciones1 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones2 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones3 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones4 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones5 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones6 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones7 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones8 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones9 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones10 = List<PrestacionesLaboralesModel>();
+
+  List<PrestacionesLaboralesModel> _OrdenPres1 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres2 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres3 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres4 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres5 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres6 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres7 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres8 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres9 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres10 = List<PrestacionesLaboralesModel>();
+
   final _escolaridad1 = TextEditingController();
   final _gradoEscolar1 = TextEditingController();
   final _ocupacion1 = TextEditingController();
@@ -285,6 +307,10 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad1.map((e) => e.Derechohabiencia).first;
 
+    _prestacion1.text = _Escolaridad1.map((e) => e.txt_desc_prestacioneslab).first;
+    pk = _Escolaridad1.map((e) => e.pk_prestacioneslab).first;
+    Orden = _Escolaridad1.map((e) => e.int_OrdenPrestacionesLab).first;
+
     _motivoderechohabiencia1.text =
         _Escolaridad1.map((e) => e.ClaveMotivoDerechohabiencia).first +
             " " +
@@ -368,6 +394,10 @@ class _Escolaridad_SeguridadSocialTablaState
         _Escolaridad2.map((e) => e.ClaveDerechohabiencia).first +
             " " +
             _Escolaridad2.map((e) => e.Derechohabiencia).first;
+
+    _prestacion2.text = _Escolaridad2.map((e) => e.txt_desc_prestacioneslab).first;
+    pkr2 = _Escolaridad2.map((e) => e.pk_prestacioneslab).first;
+    Ordenr2 = _Escolaridad2.map((e) => e.int_OrdenPrestacionesLab).first;
 
     _motivoderechohabiencia2.text =
         _Escolaridad2.map((e) => e.ClaveMotivoDerechohabiencia).first +
@@ -453,6 +483,10 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad3.map((e) => e.Derechohabiencia).first;
 
+    _prestacion3.text = _Escolaridad3.map((e) => e.txt_desc_prestacioneslab).first;
+    pkr3 = _Escolaridad3.map((e) => e.pk_prestacioneslab).first;
+    Ordenr3 = _Escolaridad3.map((e) => e.int_OrdenPrestacionesLab).first;
+
     _motivoderechohabiencia3.text =
         _Escolaridad3.map((e) => e.ClaveMotivoDerechohabiencia).first +
             " " +
@@ -536,6 +570,10 @@ class _Escolaridad_SeguridadSocialTablaState
         _Escolaridad4.map((e) => e.ClaveDerechohabiencia).first +
             " " +
             _Escolaridad4.map((e) => e.Derechohabiencia).first;
+
+    _prestacion4.text = _Escolaridad4.map((e) => e.txt_desc_prestacioneslab).first;
+    pkr4 = _Escolaridad4.map((e) => e.pk_prestacioneslab).first;
+    Ordenr4 = _Escolaridad4.map((e) => e.int_OrdenPrestacionesLab).first;
 
     _motivoderechohabiencia4.text =
         _Escolaridad4.map((e) => e.ClaveMotivoDerechohabiencia).first +
@@ -621,6 +659,10 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad5.map((e) => e.Derechohabiencia).first;
 
+    _prestacion5.text = _Escolaridad5.map((e) => e.txt_desc_prestacioneslab).first;
+    pkr5 = _Escolaridad5.map((e) => e.pk_prestacioneslab).first;
+    Ordenr5 = _Escolaridad5.map((e) => e.int_OrdenPrestacionesLab).first;
+
     _motivoderechohabiencia5.text =
         _Escolaridad5.map((e) => e.ClaveMotivoDerechohabiencia).first +
             " " +
@@ -704,6 +746,10 @@ class _Escolaridad_SeguridadSocialTablaState
         _Escolaridad6.map((e) => e.ClaveDerechohabiencia).first +
             " " +
             _Escolaridad6.map((e) => e.Derechohabiencia).first;
+
+    _prestacion6.text = _Escolaridad6.map((e) => e.txt_desc_prestacioneslab).first;
+    pkr6 = _Escolaridad6.map((e) => e.pk_prestacioneslab).first;
+    Ordenr6 = _Escolaridad6.map((e) => e.int_OrdenPrestacionesLab).first;
 
     _motivoderechohabiencia6.text =
         _Escolaridad6.map((e) => e.ClaveMotivoDerechohabiencia).first +
@@ -789,6 +835,10 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad7.map((e) => e.Derechohabiencia).first;
 
+    _prestacion7.text = _Escolaridad7.map((e) => e.txt_desc_prestacioneslab).first;
+    pkr7 = _Escolaridad7.map((e) => e.pk_prestacioneslab).first;
+    Ordenr7 = _Escolaridad7.map((e) => e.int_OrdenPrestacionesLab).first;
+
     _motivoderechohabiencia7.text =
         _Escolaridad7.map((e) => e.ClaveMotivoDerechohabiencia).first +
             " " +
@@ -872,6 +922,10 @@ class _Escolaridad_SeguridadSocialTablaState
         _Escolaridad8.map((e) => e.ClaveDerechohabiencia).first +
             " " +
             _Escolaridad8.map((e) => e.Derechohabiencia).first;
+
+    _prestacion8.text = _Escolaridad8.map((e) => e.txt_desc_prestacioneslab).first;
+    pkr8 = _Escolaridad8.map((e) => e.pk_prestacioneslab).first;
+    Ordenr8 = _Escolaridad8.map((e) => e.int_OrdenPrestacionesLab).first;
 
     _motivoderechohabiencia8.text =
         _Escolaridad8.map((e) => e.ClaveMotivoDerechohabiencia).first +
@@ -957,6 +1011,10 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad9.map((e) => e.Derechohabiencia).first;
 
+    _prestacion9.text = _Escolaridad9.map((e) => e.txt_desc_prestacioneslab).first;
+    pkr9 = _Escolaridad9.map((e) => e.pk_prestacioneslab).first;
+    Ordenr9 = _Escolaridad9.map((e) => e.int_OrdenPrestacionesLab).first;
+
     _motivoderechohabiencia9.text =
         _Escolaridad9.map((e) => e.ClaveMotivoDerechohabiencia).first +
             " " +
@@ -1040,6 +1098,10 @@ class _Escolaridad_SeguridadSocialTablaState
         _Escolaridad10.map((e) => e.ClaveDerechohabiencia).first +
             " " +
             _Escolaridad10.map((e) => e.Derechohabiencia).first;
+
+    _prestacion10.text = _Escolaridad10.map((e) => e.txt_desc_prestacioneslab).first;
+    pkr10 = _Escolaridad10.map((e) => e.pk_prestacioneslab).first;
+    Ordenr10 = _Escolaridad10.map((e) => e.int_OrdenPrestacionesLab).first;
 
     _motivoderechohabiencia10.text =
         _Escolaridad10.map((e) => e.ClaveMotivoDerechohabiencia).first +
@@ -1431,8 +1493,8 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo.trimLeft(),
-      pk_prestacioneslab: prestacionesPK.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt.trimRight().trimLeft(),
+      pk_prestacioneslab: pk,
+      int_OrdenPrestacionesLab: Orden,
       txt_desc_prestacioneslab: prestaciones.trimLeft(),
       ClaveJubilacion: Jubilado.substring(0, 1),
       OrdenJubilacion: Jubilado.substring(0, 1),
@@ -1445,6 +1507,7 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenMotivoDerechohabiencia:
           _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab.trimLeft(),
+
     );
     await dbHelper
         .saveEscolaridadSocial(DModel11)
@@ -1584,8 +1647,8 @@ class _Escolaridad_SeguridadSocialTablaState
       ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo.trimLeft(),
-      pk_prestacioneslab: prestacionesPK.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt.trimRight().trimLeft(),
+      pk_prestacioneslab: pk,
+      int_OrdenPrestacionesLab: Orden,
       txt_desc_prestacioneslab: prestaciones.trimLeft(),
       ClaveJubilacion: Jubilado.substring(0, 1),
       OrdenJubilacion: Jubilado.substring(0, 1),
@@ -1935,8 +1998,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo2.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK2.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt2.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr2,
+      int_OrdenPrestacionesLab: Ordenr2,
       txt_desc_prestacioneslab: prestaciones2.trimLeft(),
 
       ClaveJubilacion: Jubilado2.substring(0, 1),
@@ -2287,8 +2350,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo2.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK2.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt2.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr2,
+      int_OrdenPrestacionesLab: Ordenr2,
       txt_desc_prestacioneslab: prestaciones2.trimLeft(),
 
       ClaveJubilacion: Jubilado2.substring(0, 1),
@@ -2640,8 +2703,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo3.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK3.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt3.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr3,
+      int_OrdenPrestacionesLab: Ordenr3,
       txt_desc_prestacioneslab: prestaciones3.trimLeft(),
 
       ClaveJubilacion: Jubilado3.substring(0, 1),
@@ -2992,8 +3055,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo3.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK3.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt3.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr3,
+      int_OrdenPrestacionesLab: Ordenr3,
       txt_desc_prestacioneslab: prestaciones3.trimLeft(),
 
       ClaveJubilacion: Jubilado3.substring(0, 1),
@@ -3344,8 +3407,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo4.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK4.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt4.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr4,
+      int_OrdenPrestacionesLab: Ordenr4,
       txt_desc_prestacioneslab: prestaciones4.trimLeft(),
 
       ClaveJubilacion: Jubilado4.substring(0, 1),
@@ -3697,8 +3760,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo4.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK4.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt4.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr4,
+      int_OrdenPrestacionesLab: Ordenr4,
       txt_desc_prestacioneslab: prestaciones4.trimLeft(),
 
       ClaveJubilacion: Jubilado4.substring(0, 1),
@@ -4050,8 +4113,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo5.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK5.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt5.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr5,
+      int_OrdenPrestacionesLab: Ordenr5,
       txt_desc_prestacioneslab: prestaciones5.trimLeft(),
 
       ClaveJubilacion: Jubilado5.substring(0, 1),
@@ -4403,8 +4466,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo5.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK5.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt5.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr5,
+      int_OrdenPrestacionesLab: Ordenr5,
       txt_desc_prestacioneslab: prestaciones5.trimLeft(),
 
       ClaveJubilacion: Jubilado5.substring(0, 1),
@@ -4757,8 +4820,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo6.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK6.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt6.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr6,
+      int_OrdenPrestacionesLab: Ordenr6,
       txt_desc_prestacioneslab: prestaciones6.trimLeft(),
 
       ClaveJubilacion: Jubilado6.substring(0, 1),
@@ -5114,8 +5177,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo6.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK6.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt6.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr6,
+      int_OrdenPrestacionesLab: Ordenr6,
       txt_desc_prestacioneslab: prestaciones6.trimLeft(),
 
       ClaveJubilacion: Jubilado6.substring(0, 1),
@@ -5471,8 +5534,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo7.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK7.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt7.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr7,
+      int_OrdenPrestacionesLab: Ordenr7,
       txt_desc_prestacioneslab: prestaciones7.trimLeft(),
 
       ClaveJubilacion: Jubilado7.substring(0, 1),
@@ -5824,8 +5887,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo7.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK7.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt7.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr7,
+      int_OrdenPrestacionesLab: Ordenr7,
       txt_desc_prestacioneslab: prestaciones7.trimLeft(),
 
       ClaveJubilacion: Jubilado7.substring(0, 1),
@@ -6179,8 +6242,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo8.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK8.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt8.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr8,
+      int_OrdenPrestacionesLab: Ordenr8,
       txt_desc_prestacioneslab: prestaciones8.trimLeft(),
 
       ClaveJubilacion: Jubilado8.substring(0, 1),
@@ -6531,8 +6594,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo8.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK8.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt8.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr8,
+      int_OrdenPrestacionesLab: Ordenr8,
       txt_desc_prestacioneslab: prestaciones8.trimLeft(),
 
       ClaveJubilacion: Jubilado8.substring(0, 1),
@@ -6884,8 +6947,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo9.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK9.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt9.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr9,
+      int_OrdenPrestacionesLab: Ordenr9,
       txt_desc_prestacioneslab: prestaciones9.trimLeft(),
 
       ClaveJubilacion: Jubilado9.substring(0, 1),
@@ -7241,8 +7304,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo9.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK9.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt9.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr9,
+      int_OrdenPrestacionesLab: Ordenr9,
       txt_desc_prestacioneslab: prestaciones9.trimLeft(),
 
       ClaveJubilacion: Jubilado9.substring(0, 1),
@@ -7599,8 +7662,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo10.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK10.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt10.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr10,
+      int_OrdenPrestacionesLab: Ordenr10,
       txt_desc_prestacioneslab: prestaciones10.trimLeft(),
 
       ClaveJubilacion: Jubilado10.substring(0, 1),
@@ -7958,8 +8021,8 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
       TipoEmpleo: tipoEmpleo10.trimLeft(),
 
-      pk_prestacioneslab: prestacionesPK10.trimRight(),
-      int_OrdenPrestacionesLab: prestacionesInt10.trimRight().trimLeft(),
+      pk_prestacioneslab: pkr10,
+      int_OrdenPrestacionesLab: Ordenr10,
       txt_desc_prestacioneslab: prestaciones10.trimLeft(),
 
       ClaveJubilacion: Jubilado10.substring(0, 1),
@@ -8252,7 +8315,45 @@ class _Escolaridad_SeguridadSocialTablaState
     }
   }
 
-  addChecked1() {
+//Variables del renglon 1
+  var pk = '';
+  var Orden ='';
+//Variables del renglon 2
+  var pkr2 = '';
+  var Ordenr2 ='';
+  //Variables del renglon 3
+  var pkr3 = '';
+  var Ordenr3 ='';
+//Variables del renglon 4
+  var pkr4 = '';
+  var Ordenr4 ='';
+  //Variables del renglon 5
+  var pkr5 = '';
+  var Ordenr5 ='';
+//Variables del renglon 6
+  var pkr6 = '';
+  var Ordenr6 ='';
+  //Variables del renglon 7
+  var pkr7 = '';
+  var Ordenr7 ='';
+//Variables del renglon 8
+  var pkr8 = '';
+  var Ordenr8 ='';
+  //Variables del renglon 9
+  var pkr9 = '';
+  var Ordenr9 ='';
+
+  //Variables del renglon 10
+  var pkr10 = '';
+  var Ordenr10 ='';
+
+
+  addChecked1() async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
     List<PrestacionesLaboralesModel> previa1 = [];
     previa1 = _PrestacionesList;
     _selectedItem1.clear();
@@ -8264,10 +8365,277 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion1 = _selectedItem1.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal1 = rpl.replaceSymbol(prestacion1);
+
+    final tagName = prestacionFinal1;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion(value1.trimLeft());
+      Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion(value1);
+      pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      pk = pk1;
+      Orden = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion(value1.trimLeft());
+      Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value2.trimLeft());
+      Orden2 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value1);
+      pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value2.trimLeft());
+      pk2 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pk = pk1 +","+pk2;
+      Orden = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion(value1.trimLeft());
+      Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value2.trimLeft());
+      Orden2 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value3.trimLeft());
+      Orden3 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value1);
+      pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value2.trimLeft());
+      pk2 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value3.trimLeft());
+      pk3 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pk = pk1 +","+pk2+","+pk3;
+      Orden = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion(value1.trimLeft());
+      Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value2.trimLeft());
+      Orden2 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value3.trimLeft());
+      Orden3 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value4.trimLeft());
+      Orden4 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value1);
+      pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value2.trimLeft());
+      pk2 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value3.trimLeft());
+      pk3 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value4.trimLeft());
+      pk4 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pk = pk1 +","+pk2+","+pk3+","+pk4;
+      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion(value1.trimLeft());
+      Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value2.trimLeft());
+      Orden2 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value3.trimLeft());
+      Orden3 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value4.trimLeft());
+      Orden4 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value5.trimLeft());
+      Orden5 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value1);
+      pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value2.trimLeft());
+      pk2 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value3.trimLeft());
+      pk3 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value4.trimLeft());
+      pk4 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value5.trimLeft());
+      pk5 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion(value1.trimLeft());
+      Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value2.trimLeft());
+      Orden2 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value3.trimLeft());
+      Orden3 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value4.trimLeft());
+      Orden4 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value5.trimLeft());
+      Orden5 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value6.trimLeft());
+      Orden6 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value1);
+      pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value2.trimLeft());
+      pk2 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value3.trimLeft());
+      pk3 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value4.trimLeft());
+      pk4 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value5.trimLeft());
+      pk5 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value6.trimLeft());
+      pk6 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion(value1.trimLeft());
+      Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value2.trimLeft());
+      Orden2 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value3.trimLeft());
+      Orden3 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value4.trimLeft());
+      Orden4 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value5.trimLeft());
+      Orden5 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value6.trimLeft());
+      Orden6 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value7.trimLeft());
+      Orden7 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value1);
+      pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value2.trimLeft());
+      pk2 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value3.trimLeft());
+      pk3 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value4.trimLeft());
+      pk4 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value5.trimLeft());
+      pk5 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value6.trimLeft());
+      pk6 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value7.trimLeft());
+      pk7 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion(value1.trimLeft());
+      Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value2.trimLeft());
+      Orden2 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value3.trimLeft());
+      Orden3 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value4.trimLeft());
+      Orden4 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value5.trimLeft());
+      Orden5 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value6.trimLeft());
+      Orden6 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value7.trimLeft());
+      Orden7 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value8.trimLeft());
+      Orden8 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value1);
+      pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value2.trimLeft());
+      pk2 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value3.trimLeft());
+      pk3 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value4.trimLeft());
+      pk4 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value5.trimLeft());
+      pk5 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value6.trimLeft());
+      pk6 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value7.trimLeft());
+      pk7 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value8.trimLeft());
+      pk8 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion(value1.trimLeft());
+      Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value2.trimLeft());
+      Orden2 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value3.trimLeft());
+      Orden3 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value4.trimLeft());
+      Orden4 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value5.trimLeft());
+      Orden5 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value6.trimLeft());
+      Orden6 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value7.trimLeft());
+      Orden7 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value8.trimLeft());
+      Orden8 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion(value9.trimLeft());
+      Orden9 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value1);
+      pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value2.trimLeft());
+      pk2 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value3.trimLeft());
+      pk3 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value4.trimLeft());
+      pk4 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value5.trimLeft());
+      pk5 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value6.trimLeft());
+      pk6 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value7.trimLeft());
+      pk7 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value8.trimLeft());
+      pk8 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion(value9.trimLeft());
+      pk9 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
+
     _prestacion1.text = prestacionFinal1;
   }
 
-  addChecked2() {
+  getAllPkPrestacion(String prestacion) async {
+    _Prestaciones1 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones1.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion(String prestacion) async {
+    _OrdenPres1 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres1.add(categoryModel);
+      });
+    });
+  }
+
+  addChecked2() async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+
     List<PrestacionesLaboralesModel> previa2 = [];
     previa2 = _PrestacionesList;
     _selectedItem2.clear();
@@ -8279,10 +8647,276 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion2 = _selectedItem2.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal2 = rpl.replaceSymbol(prestacion2);
+
+    final tagName = prestacionFinal2;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion2(value1.trimLeft());
+      Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion2(value1);
+      pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      pkr2 = pk1;
+      Ordenr2 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion2(value1.trimLeft());
+      Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value2.trimLeft());
+      Orden2 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value1);
+      pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value2.trimLeft());
+      pk2 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr2 = pk1 +","+pk2;
+      Ordenr2 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion2(value1.trimLeft());
+      Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value2.trimLeft());
+      Orden2 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value3.trimLeft());
+      Orden3 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value1);
+      pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value2.trimLeft());
+      pk2 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value3.trimLeft());
+      pk3 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr2 = pk1 +","+pk2+","+pk3;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion2(value1.trimLeft());
+      Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value2.trimLeft());
+      Orden2 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value3.trimLeft());
+      Orden3 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value4.trimLeft());
+      Orden4 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value1);
+      pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value2.trimLeft());
+      pk2 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value3.trimLeft());
+      pk3 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value4.trimLeft());
+      pk4 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr2 = pk1 +","+pk2+","+pk3+","+pk4;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion2(value1.trimLeft());
+      Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value2.trimLeft());
+      Orden2 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value3.trimLeft());
+      Orden3 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value4.trimLeft());
+      Orden4 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value5.trimLeft());
+      Orden5 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value1);
+      pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value2.trimLeft());
+      pk2 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value3.trimLeft());
+      pk3 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value4.trimLeft());
+      pk4 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value5.trimLeft());
+      pk5 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion2(value1.trimLeft());
+      Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value2.trimLeft());
+      Orden2 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value3.trimLeft());
+      Orden3 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value4.trimLeft());
+      Orden4 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value5.trimLeft());
+      Orden5 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value6.trimLeft());
+      Orden6 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value1);
+      pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value2.trimLeft());
+      pk2 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value3.trimLeft());
+      pk3 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value4.trimLeft());
+      pk4 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value5.trimLeft());
+      pk5 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value6.trimLeft());
+      pk6 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion2(value1.trimLeft());
+      Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value2.trimLeft());
+      Orden2 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value3.trimLeft());
+      Orden3 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value4.trimLeft());
+      Orden4 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value5.trimLeft());
+      Orden5 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value6.trimLeft());
+      Orden6 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value7.trimLeft());
+      Orden7 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value1);
+      pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value2.trimLeft());
+      pk2 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value3.trimLeft());
+      pk3 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value4.trimLeft());
+      pk4 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value5.trimLeft());
+      pk5 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value6.trimLeft());
+      pk6 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value7.trimLeft());
+      pk7 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion2(value1.trimLeft());
+      Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value2.trimLeft());
+      Orden2 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value3.trimLeft());
+      Orden3 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value4.trimLeft());
+      Orden4 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value5.trimLeft());
+      Orden5 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value6.trimLeft());
+      Orden6 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value7.trimLeft());
+      Orden7 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value8.trimLeft());
+      Orden8 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value1);
+      pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value2.trimLeft());
+      pk2 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value3.trimLeft());
+      pk3 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value4.trimLeft());
+      pk4 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value5.trimLeft());
+      pk5 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value6.trimLeft());
+      pk6 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value7.trimLeft());
+      pk7 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value8.trimLeft());
+      pk8 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion2(value1.trimLeft());
+      Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value2.trimLeft());
+      Orden2 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value3.trimLeft());
+      Orden3 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value4.trimLeft());
+      Orden4 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value5.trimLeft());
+      Orden5 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value6.trimLeft());
+      Orden6 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value7.trimLeft());
+      Orden7 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value8.trimLeft());
+      Orden8 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion2(value9.trimLeft());
+      Orden9 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value1);
+      pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value2.trimLeft());
+      pk2 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value3.trimLeft());
+      pk3 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value4.trimLeft());
+      pk4 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value5.trimLeft());
+      pk5 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value6.trimLeft());
+      pk6 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value7.trimLeft());
+      pk7 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value8.trimLeft());
+      pk8 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion2(value9.trimLeft());
+      pk9 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
     _prestacion2.text = prestacionFinal2;
   }
 
-  addChecked3() {
+  getAllPkPrestacion2(String prestacion) async {
+    _Prestaciones2 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones2.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion2(String prestacion) async {
+    _OrdenPres2 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres2.add(categoryModel);
+      });
+    });
+  }
+
+  addChecked3()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+
     List<PrestacionesLaboralesModel> previa3 = [];
     previa3 = _PrestacionesList;
     _selectedItem3.clear();
@@ -8294,10 +8928,276 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion3 = _selectedItem3.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal3 = rpl.replaceSymbol(prestacion3);
+
+    final tagName = prestacionFinal3;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion3(value1.trimLeft());
+      Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion3(value1);
+      pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      pkr3 = pk1;
+      Ordenr3 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion3(value1.trimLeft());
+      Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value2.trimLeft());
+      Orden2 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value1);
+      pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value2.trimLeft());
+      pk2 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr3 = pk1 +","+pk2;
+      Ordenr3 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion3(value1.trimLeft());
+      Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value2.trimLeft());
+      Orden2 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value3.trimLeft());
+      Orden3 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value1);
+      pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value2.trimLeft());
+      pk2 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value3.trimLeft());
+      pk3 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr3 = pk1 +","+pk2+","+pk3;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion3(value1.trimLeft());
+      Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value2.trimLeft());
+      Orden2 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value3.trimLeft());
+      Orden3 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value4.trimLeft());
+      Orden4 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value1);
+      pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value2.trimLeft());
+      pk2 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value3.trimLeft());
+      pk3 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value4.trimLeft());
+      pk4 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr3 = pk1 +","+pk2+","+pk3+","+pk4;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion3(value1.trimLeft());
+      Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value2.trimLeft());
+      Orden2 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value3.trimLeft());
+      Orden3 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value4.trimLeft());
+      Orden4 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value5.trimLeft());
+      Orden5 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value1);
+      pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value2.trimLeft());
+      pk2 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value3.trimLeft());
+      pk3 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value4.trimLeft());
+      pk4 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value5.trimLeft());
+      pk5 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion3(value1.trimLeft());
+      Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value2.trimLeft());
+      Orden2 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value3.trimLeft());
+      Orden3 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value4.trimLeft());
+      Orden4 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value5.trimLeft());
+      Orden5 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value6.trimLeft());
+      Orden6 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value1);
+      pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value2.trimLeft());
+      pk2 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value3.trimLeft());
+      pk3 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value4.trimLeft());
+      pk4 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value5.trimLeft());
+      pk5 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value6.trimLeft());
+      pk6 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion3(value1.trimLeft());
+      Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value2.trimLeft());
+      Orden2 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value3.trimLeft());
+      Orden3 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value4.trimLeft());
+      Orden4 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value5.trimLeft());
+      Orden5 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value6.trimLeft());
+      Orden6 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value7.trimLeft());
+      Orden7 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value1);
+      pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value2.trimLeft());
+      pk2 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value3.trimLeft());
+      pk3 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value4.trimLeft());
+      pk4 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value5.trimLeft());
+      pk5 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value6.trimLeft());
+      pk6 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value7.trimLeft());
+      pk7 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion3(value1.trimLeft());
+      Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value2.trimLeft());
+      Orden2 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value3.trimLeft());
+      Orden3 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value4.trimLeft());
+      Orden4 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value5.trimLeft());
+      Orden5 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value6.trimLeft());
+      Orden6 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value7.trimLeft());
+      Orden7 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value8.trimLeft());
+      Orden8 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value1);
+      pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value2.trimLeft());
+      pk2 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value3.trimLeft());
+      pk3 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value4.trimLeft());
+      pk4 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value5.trimLeft());
+      pk5 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value6.trimLeft());
+      pk6 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value7.trimLeft());
+      pk7 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value8.trimLeft());
+      pk8 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion3(value1.trimLeft());
+      Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value2.trimLeft());
+      Orden2 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value3.trimLeft());
+      Orden3 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value4.trimLeft());
+      Orden4 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value5.trimLeft());
+      Orden5 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value6.trimLeft());
+      Orden6 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value7.trimLeft());
+      Orden7 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value8.trimLeft());
+      Orden8 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion3(value9.trimLeft());
+      Orden9 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value1);
+      pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value2.trimLeft());
+      pk2 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value3.trimLeft());
+      pk3 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value4.trimLeft());
+      pk4 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value5.trimLeft());
+      pk5 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value6.trimLeft());
+      pk6 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value7.trimLeft());
+      pk7 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value8.trimLeft());
+      pk8 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion3(value9.trimLeft());
+      pk9 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
     _prestacion3.text = prestacionFinal3;
   }
 
-  addChecked4() {
+  getAllPkPrestacion3(String prestacion) async {
+    _Prestaciones3 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones3.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion3(String prestacion) async {
+    _OrdenPres3 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres3.add(categoryModel);
+      });
+    });
+  }
+
+  addChecked4()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+
     List<PrestacionesLaboralesModel> previa4 = [];
     previa4 = _PrestacionesList;
     _selectedItem4.clear();
@@ -8309,10 +9209,277 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion4 = _selectedItem4.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal4 = rpl.replaceSymbol(prestacion4);
+
+    final tagName = prestacionFinal4;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion4(value1.trimLeft());
+      Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion4(value1);
+      pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      pkr4 = pk1;
+      Ordenr4 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion4(value1.trimLeft());
+      Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value2.trimLeft());
+      Orden2 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value1);
+      pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value2.trimLeft());
+      pk2 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr4 = pk1 +","+pk2;
+      Ordenr4 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion4(value1.trimLeft());
+      Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value2.trimLeft());
+      Orden2 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value3.trimLeft());
+      Orden3 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value1);
+      pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value2.trimLeft());
+      pk2 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value3.trimLeft());
+      pk3 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr4 = pk1 +","+pk2+","+pk3;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion4(value1.trimLeft());
+      Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value2.trimLeft());
+      Orden2 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value3.trimLeft());
+      Orden3 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value4.trimLeft());
+      Orden4 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value1);
+      pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value2.trimLeft());
+      pk2 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value3.trimLeft());
+      pk3 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value4.trimLeft());
+      pk4 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr4 = pk1 +","+pk2+","+pk3+","+pk4;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion4(value1.trimLeft());
+      Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value2.trimLeft());
+      Orden2 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value3.trimLeft());
+      Orden3 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value4.trimLeft());
+      Orden4 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value5.trimLeft());
+      Orden5 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value1);
+      pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value2.trimLeft());
+      pk2 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value3.trimLeft());
+      pk3 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value4.trimLeft());
+      pk4 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value5.trimLeft());
+      pk5 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion4(value1.trimLeft());
+      Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value2.trimLeft());
+      Orden2 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value3.trimLeft());
+      Orden3 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value4.trimLeft());
+      Orden4 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value5.trimLeft());
+      Orden5 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value6.trimLeft());
+      Orden6 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value1);
+      pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value2.trimLeft());
+      pk2 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value3.trimLeft());
+      pk3 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value4.trimLeft());
+      pk4 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value5.trimLeft());
+      pk5 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value6.trimLeft());
+      pk6 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion4(value1.trimLeft());
+      Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value2.trimLeft());
+      Orden2 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value3.trimLeft());
+      Orden3 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value4.trimLeft());
+      Orden4 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value5.trimLeft());
+      Orden5 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value6.trimLeft());
+      Orden6 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value7.trimLeft());
+      Orden7 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value1);
+      pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value2.trimLeft());
+      pk2 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value3.trimLeft());
+      pk3 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value4.trimLeft());
+      pk4 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value5.trimLeft());
+      pk5 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value6.trimLeft());
+      pk6 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value7.trimLeft());
+      pk7 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion4(value1.trimLeft());
+      Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value2.trimLeft());
+      Orden2 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value3.trimLeft());
+      Orden3 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value4.trimLeft());
+      Orden4 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value5.trimLeft());
+      Orden5 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value6.trimLeft());
+      Orden6 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value7.trimLeft());
+      Orden7 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value8.trimLeft());
+      Orden8 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value1);
+      pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value2.trimLeft());
+      pk2 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value3.trimLeft());
+      pk3 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value4.trimLeft());
+      pk4 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value5.trimLeft());
+      pk5 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value6.trimLeft());
+      pk6 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value7.trimLeft());
+      pk7 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value8.trimLeft());
+      pk8 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion4(value1.trimLeft());
+      Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value2.trimLeft());
+      Orden2 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value3.trimLeft());
+      Orden3 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value4.trimLeft());
+      Orden4 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value5.trimLeft());
+      Orden5 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value6.trimLeft());
+      Orden6 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value7.trimLeft());
+      Orden7 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value8.trimLeft());
+      Orden8 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion4(value9.trimLeft());
+      Orden9 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value1);
+      pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value2.trimLeft());
+      pk2 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value3.trimLeft());
+      pk3 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value4.trimLeft());
+      pk4 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value5.trimLeft());
+      pk5 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value6.trimLeft());
+      pk6 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value7.trimLeft());
+      pk7 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value8.trimLeft());
+      pk8 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion4(value9.trimLeft());
+      pk9 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
+
     _prestacion4.text = prestacionFinal4;
   }
 
-  addChecked5() {
+  getAllPkPrestacion4(String prestacion) async {
+    _Prestaciones4 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones4.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion4(String prestacion) async {
+    _OrdenPres4 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres4.add(categoryModel);
+      });
+    });
+  }
+
+  addChecked5() async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+
     List<PrestacionesLaboralesModel> previa5 = [];
     previa5 = _PrestacionesList;
     _selectedItem5.clear();
@@ -8324,10 +9491,277 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion5 = _selectedItem5.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal5 = rpl.replaceSymbol(prestacion5);
+
+    final tagName = prestacionFinal5;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion5(value1.trimLeft());
+      Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion5(value1);
+      pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      pkr5 = pk1;
+      Ordenr5 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion5(value1.trimLeft());
+      Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value2.trimLeft());
+      Orden2 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value1);
+      pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value2.trimLeft());
+      pk2 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr5 = pk1 +","+pk2;
+      Ordenr5 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion5(value1.trimLeft());
+      Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value2.trimLeft());
+      Orden2 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value3.trimLeft());
+      Orden3 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value1);
+      pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value2.trimLeft());
+      pk2 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value3.trimLeft());
+      pk3 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr5 = pk1 +","+pk2+","+pk3;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion5(value1.trimLeft());
+      Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value2.trimLeft());
+      Orden2 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value3.trimLeft());
+      Orden3 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value4.trimLeft());
+      Orden4 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value1);
+      pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value2.trimLeft());
+      pk2 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value3.trimLeft());
+      pk3 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value4.trimLeft());
+      pk4 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr5 = pk1 +","+pk2+","+pk3+","+pk4;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion5(value1.trimLeft());
+      Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value2.trimLeft());
+      Orden2 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value3.trimLeft());
+      Orden3 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value4.trimLeft());
+      Orden4 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value5.trimLeft());
+      Orden5 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value1);
+      pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value2.trimLeft());
+      pk2 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value3.trimLeft());
+      pk3 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value4.trimLeft());
+      pk4 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value5.trimLeft());
+      pk5 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion5(value1.trimLeft());
+      Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value2.trimLeft());
+      Orden2 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value3.trimLeft());
+      Orden3 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value4.trimLeft());
+      Orden4 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value5.trimLeft());
+      Orden5 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value6.trimLeft());
+      Orden6 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value1);
+      pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value2.trimLeft());
+      pk2 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value3.trimLeft());
+      pk3 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value4.trimLeft());
+      pk4 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value5.trimLeft());
+      pk5 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value6.trimLeft());
+      pk6 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion5(value1.trimLeft());
+      Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value2.trimLeft());
+      Orden2 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value3.trimLeft());
+      Orden3 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value4.trimLeft());
+      Orden4 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value5.trimLeft());
+      Orden5 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value6.trimLeft());
+      Orden6 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value7.trimLeft());
+      Orden7 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value1);
+      pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value2.trimLeft());
+      pk2 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value3.trimLeft());
+      pk3 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value4.trimLeft());
+      pk4 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value5.trimLeft());
+      pk5 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value6.trimLeft());
+      pk6 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value7.trimLeft());
+      pk7 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion5(value1.trimLeft());
+      Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value2.trimLeft());
+      Orden2 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value3.trimLeft());
+      Orden3 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value4.trimLeft());
+      Orden4 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value5.trimLeft());
+      Orden5 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value6.trimLeft());
+      Orden6 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value7.trimLeft());
+      Orden7 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value8.trimLeft());
+      Orden8 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value1);
+      pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value2.trimLeft());
+      pk2 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value3.trimLeft());
+      pk3 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value4.trimLeft());
+      pk4 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value5.trimLeft());
+      pk5 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value6.trimLeft());
+      pk6 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value7.trimLeft());
+      pk7 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value8.trimLeft());
+      pk8 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion5(value1.trimLeft());
+      Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value2.trimLeft());
+      Orden2 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value3.trimLeft());
+      Orden3 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value4.trimLeft());
+      Orden4 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value5.trimLeft());
+      Orden5 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value6.trimLeft());
+      Orden6 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value7.trimLeft());
+      Orden7 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value8.trimLeft());
+      Orden8 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion5(value9.trimLeft());
+      Orden9 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value1);
+      pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value2.trimLeft());
+      pk2 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value3.trimLeft());
+      pk3 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value4.trimLeft());
+      pk4 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value5.trimLeft());
+      pk5 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value6.trimLeft());
+      pk6 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value7.trimLeft());
+      pk7 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value8.trimLeft());
+      pk8 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion5(value9.trimLeft());
+      pk9 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
+
     _prestacion5.text = prestacionFinal5;
   }
 
-  addChecked6() {
+  getAllPkPrestacion5(String prestacion) async {
+    _Prestaciones5 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones5.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion5(String prestacion) async {
+    _OrdenPres5 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres5.add(categoryModel);
+      });
+    });
+  }
+
+  addChecked6() async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+
     List<PrestacionesLaboralesModel> previa6 = [];
     previa6 = _PrestacionesList;
     _selectedItem6.clear();
@@ -8339,10 +9773,277 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion6 = _selectedItem6.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal6 = rpl.replaceSymbol(prestacion6);
+
+    final tagName = prestacionFinal6;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion6(value1.trimLeft());
+      Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion6(value1);
+      pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      pkr6 = pk1;
+      Ordenr6 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion6(value1.trimLeft());
+      Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value2.trimLeft());
+      Orden2 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value1);
+      pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value2.trimLeft());
+      pk2 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr6 = pk1 +","+pk2;
+      Ordenr6 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion6(value1.trimLeft());
+      Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value2.trimLeft());
+      Orden2 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value3.trimLeft());
+      Orden3 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value1);
+      pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value2.trimLeft());
+      pk2 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value3.trimLeft());
+      pk3 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr6 = pk1 +","+pk2+","+pk3;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion6(value1.trimLeft());
+      Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value2.trimLeft());
+      Orden2 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value3.trimLeft());
+      Orden3 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value4.trimLeft());
+      Orden4 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value1);
+      pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value2.trimLeft());
+      pk2 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value3.trimLeft());
+      pk3 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value4.trimLeft());
+      pk4 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr6 = pk1 +","+pk2+","+pk3+","+pk4;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion6(value1.trimLeft());
+      Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value2.trimLeft());
+      Orden2 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value3.trimLeft());
+      Orden3 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value4.trimLeft());
+      Orden4 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value5.trimLeft());
+      Orden5 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value1);
+      pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value2.trimLeft());
+      pk2 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value3.trimLeft());
+      pk3 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value4.trimLeft());
+      pk4 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value5.trimLeft());
+      pk5 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion6(value1.trimLeft());
+      Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value2.trimLeft());
+      Orden2 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value3.trimLeft());
+      Orden3 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value4.trimLeft());
+      Orden4 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value5.trimLeft());
+      Orden5 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value6.trimLeft());
+      Orden6 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value1);
+      pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value2.trimLeft());
+      pk2 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value3.trimLeft());
+      pk3 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value4.trimLeft());
+      pk4 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value5.trimLeft());
+      pk5 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value6.trimLeft());
+      pk6 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion6(value1.trimLeft());
+      Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value2.trimLeft());
+      Orden2 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value3.trimLeft());
+      Orden3 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value4.trimLeft());
+      Orden4 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value5.trimLeft());
+      Orden5 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value6.trimLeft());
+      Orden6 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value7.trimLeft());
+      Orden7 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value1);
+      pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value2.trimLeft());
+      pk2 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value3.trimLeft());
+      pk3 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value4.trimLeft());
+      pk4 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value5.trimLeft());
+      pk5 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value6.trimLeft());
+      pk6 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value7.trimLeft());
+      pk7 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion6(value1.trimLeft());
+      Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value2.trimLeft());
+      Orden2 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value3.trimLeft());
+      Orden3 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value4.trimLeft());
+      Orden4 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value5.trimLeft());
+      Orden5 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value6.trimLeft());
+      Orden6 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value7.trimLeft());
+      Orden7 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value8.trimLeft());
+      Orden8 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value1);
+      pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value2.trimLeft());
+      pk2 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value3.trimLeft());
+      pk3 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value4.trimLeft());
+      pk4 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value5.trimLeft());
+      pk5 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value6.trimLeft());
+      pk6 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value7.trimLeft());
+      pk7 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value8.trimLeft());
+      pk8 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion6(value1.trimLeft());
+      Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value2.trimLeft());
+      Orden2 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value3.trimLeft());
+      Orden3 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value4.trimLeft());
+      Orden4 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value5.trimLeft());
+      Orden5 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value6.trimLeft());
+      Orden6 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value7.trimLeft());
+      Orden7 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value8.trimLeft());
+      Orden8 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion6(value9.trimLeft());
+      Orden9 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value1);
+      pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value2.trimLeft());
+      pk2 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value3.trimLeft());
+      pk3 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value4.trimLeft());
+      pk4 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value5.trimLeft());
+      pk5 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value6.trimLeft());
+      pk6 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value7.trimLeft());
+      pk7 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value8.trimLeft());
+      pk8 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion6(value9.trimLeft());
+      pk9 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
+
     _prestacion6.text = prestacionFinal6;
   }
 
-  addChecked7() {
+  getAllPkPrestacion6(String prestacion) async {
+    _Prestaciones6 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones6.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion6(String prestacion) async {
+    _OrdenPres6 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres6.add(categoryModel);
+      });
+    });
+  }
+
+  addChecked7() async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+
     List<PrestacionesLaboralesModel> previa7 = [];
     previa7 = _PrestacionesList;
     _selectedItem7.clear();
@@ -8354,10 +10055,276 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion7 = _selectedItem7.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal7 = rpl.replaceSymbol(prestacion7);
+
+    final tagName = prestacionFinal7;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion7(value1.trimLeft());
+      Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion7(value1);
+      pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      pkr7 = pk1;
+      Ordenr7 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion7(value1.trimLeft());
+      Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value2.trimLeft());
+      Orden2 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value1);
+      pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value2.trimLeft());
+      pk2 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr7 = pk1 +","+pk2;
+      Ordenr7 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion7(value1.trimLeft());
+      Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value2.trimLeft());
+      Orden2 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value3.trimLeft());
+      Orden3 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value1);
+      pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value2.trimLeft());
+      pk2 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value3.trimLeft());
+      pk3 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr7 = pk1 +","+pk2+","+pk3;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion7(value1.trimLeft());
+      Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value2.trimLeft());
+      Orden2 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value3.trimLeft());
+      Orden3 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value4.trimLeft());
+      Orden4 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value1);
+      pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value2.trimLeft());
+      pk2 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value3.trimLeft());
+      pk3 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value4.trimLeft());
+      pk4 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr7 = pk1 +","+pk2+","+pk3+","+pk4;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion7(value1.trimLeft());
+      Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value2.trimLeft());
+      Orden2 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value3.trimLeft());
+      Orden3 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value4.trimLeft());
+      Orden4 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value5.trimLeft());
+      Orden5 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value1);
+      pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value2.trimLeft());
+      pk2 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value3.trimLeft());
+      pk3 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value4.trimLeft());
+      pk4 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value5.trimLeft());
+      pk5 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion7(value1.trimLeft());
+      Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value2.trimLeft());
+      Orden2 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value3.trimLeft());
+      Orden3 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value4.trimLeft());
+      Orden4 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value5.trimLeft());
+      Orden5 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value6.trimLeft());
+      Orden6 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value1);
+      pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value2.trimLeft());
+      pk2 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value3.trimLeft());
+      pk3 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value4.trimLeft());
+      pk4 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value5.trimLeft());
+      pk5 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value6.trimLeft());
+      pk6 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion7(value1.trimLeft());
+      Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value2.trimLeft());
+      Orden2 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value3.trimLeft());
+      Orden3 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value4.trimLeft());
+      Orden4 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value5.trimLeft());
+      Orden5 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value6.trimLeft());
+      Orden6 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value7.trimLeft());
+      Orden7 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value1);
+      pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value2.trimLeft());
+      pk2 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value3.trimLeft());
+      pk3 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value4.trimLeft());
+      pk4 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value5.trimLeft());
+      pk5 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value6.trimLeft());
+      pk6 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value7.trimLeft());
+      pk7 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion7(value1.trimLeft());
+      Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value2.trimLeft());
+      Orden2 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value3.trimLeft());
+      Orden3 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value4.trimLeft());
+      Orden4 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value5.trimLeft());
+      Orden5 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value6.trimLeft());
+      Orden6 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value7.trimLeft());
+      Orden7 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value8.trimLeft());
+      Orden8 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value1);
+      pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value2.trimLeft());
+      pk2 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value3.trimLeft());
+      pk3 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value4.trimLeft());
+      pk4 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value5.trimLeft());
+      pk5 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value6.trimLeft());
+      pk6 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value7.trimLeft());
+      pk7 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value8.trimLeft());
+      pk8 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion7(value1.trimLeft());
+      Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value2.trimLeft());
+      Orden2 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value3.trimLeft());
+      Orden3 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value4.trimLeft());
+      Orden4 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value5.trimLeft());
+      Orden5 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value6.trimLeft());
+      Orden6 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value7.trimLeft());
+      Orden7 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value8.trimLeft());
+      Orden8 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion7(value9.trimLeft());
+      Orden9 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value1);
+      pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value2.trimLeft());
+      pk2 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value3.trimLeft());
+      pk3 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value4.trimLeft());
+      pk4 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value5.trimLeft());
+      pk5 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value6.trimLeft());
+      pk6 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value7.trimLeft());
+      pk7 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value8.trimLeft());
+      pk8 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion7(value9.trimLeft());
+      pk9 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
     _prestacion7.text = prestacionFinal7;
   }
 
-  addChecked8() {
+  getAllPkPrestacion7(String prestacion) async {
+    _Prestaciones7 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones7.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion7(String prestacion) async {
+    _OrdenPres7 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres7.add(categoryModel);
+      });
+    });
+  }
+
+  addChecked8() async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+
     List<PrestacionesLaboralesModel> previa8 = [];
     previa8 = _PrestacionesList;
     _selectedItem8.clear();
@@ -8369,10 +10336,276 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion8 = _selectedItem8.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal8 = rpl.replaceSymbol(prestacion8);
+
+    final tagName = prestacionFinal8;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion8(value1.trimLeft());
+      Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion8(value1);
+      pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      pkr8 = pk1;
+      Ordenr8 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion8(value1.trimLeft());
+      Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value2.trimLeft());
+      Orden2 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value1);
+      pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value2.trimLeft());
+      pk2 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr8 = pk1 +","+pk2;
+      Ordenr8 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion8(value1.trimLeft());
+      Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value2.trimLeft());
+      Orden2 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value3.trimLeft());
+      Orden3 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value1);
+      pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value2.trimLeft());
+      pk2 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value3.trimLeft());
+      pk3 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr8 = pk1 +","+pk2+","+pk3;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion8(value1.trimLeft());
+      Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value2.trimLeft());
+      Orden2 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value3.trimLeft());
+      Orden3 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value4.trimLeft());
+      Orden4 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value1);
+      pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value2.trimLeft());
+      pk2 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value3.trimLeft());
+      pk3 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value4.trimLeft());
+      pk4 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr8 = pk1 +","+pk2+","+pk3+","+pk4;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion8(value1.trimLeft());
+      Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value2.trimLeft());
+      Orden2 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value3.trimLeft());
+      Orden3 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value4.trimLeft());
+      Orden4 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value5.trimLeft());
+      Orden5 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value1);
+      pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value2.trimLeft());
+      pk2 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value3.trimLeft());
+      pk3 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value4.trimLeft());
+      pk4 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value5.trimLeft());
+      pk5 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion8(value1.trimLeft());
+      Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value2.trimLeft());
+      Orden2 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value3.trimLeft());
+      Orden3 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value4.trimLeft());
+      Orden4 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value5.trimLeft());
+      Orden5 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value6.trimLeft());
+      Orden6 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value1);
+      pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value2.trimLeft());
+      pk2 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value3.trimLeft());
+      pk3 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value4.trimLeft());
+      pk4 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value5.trimLeft());
+      pk5 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value6.trimLeft());
+      pk6 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion8(value1.trimLeft());
+      Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value2.trimLeft());
+      Orden2 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value3.trimLeft());
+      Orden3 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value4.trimLeft());
+      Orden4 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value5.trimLeft());
+      Orden5 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value6.trimLeft());
+      Orden6 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value7.trimLeft());
+      Orden7 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value1);
+      pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value2.trimLeft());
+      pk2 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value3.trimLeft());
+      pk3 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value4.trimLeft());
+      pk4 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value5.trimLeft());
+      pk5 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value6.trimLeft());
+      pk6 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value7.trimLeft());
+      pk7 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion8(value1.trimLeft());
+      Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value2.trimLeft());
+      Orden2 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value3.trimLeft());
+      Orden3 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value4.trimLeft());
+      Orden4 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value5.trimLeft());
+      Orden5 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value6.trimLeft());
+      Orden6 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value7.trimLeft());
+      Orden7 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value8.trimLeft());
+      Orden8 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value1);
+      pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value2.trimLeft());
+      pk2 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value3.trimLeft());
+      pk3 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value4.trimLeft());
+      pk4 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value5.trimLeft());
+      pk5 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value6.trimLeft());
+      pk6 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value7.trimLeft());
+      pk7 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value8.trimLeft());
+      pk8 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion8(value1.trimLeft());
+      Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value2.trimLeft());
+      Orden2 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value3.trimLeft());
+      Orden3 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value4.trimLeft());
+      Orden4 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value5.trimLeft());
+      Orden5 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value6.trimLeft());
+      Orden6 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value7.trimLeft());
+      Orden7 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value8.trimLeft());
+      Orden8 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion8(value9.trimLeft());
+      Orden9 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value1);
+      pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value2.trimLeft());
+      pk2 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value3.trimLeft());
+      pk3 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value4.trimLeft());
+      pk4 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value5.trimLeft());
+      pk5 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value6.trimLeft());
+      pk6 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value7.trimLeft());
+      pk7 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value8.trimLeft());
+      pk8 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion8(value9.trimLeft());
+      pk9 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
     _prestacion8.text = prestacionFinal8;
   }
 
-  addChecked9() {
+  getAllPkPrestacion8(String prestacion) async {
+    _Prestaciones8 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones8.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion8(String prestacion) async {
+    _OrdenPres8 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres8.add(categoryModel);
+      });
+    });
+  }
+
+  addChecked9() async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+
     List<PrestacionesLaboralesModel> previa9 = [];
     previa9 = _PrestacionesList;
     _selectedItem9.clear();
@@ -8384,10 +10617,276 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion9 = _selectedItem9.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal9 = rpl.replaceSymbol(prestacion9);
+
+    final tagName = prestacionFinal9;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion9(value1.trimLeft());
+      Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion9(value1);
+      pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      pkr9 = pk1;
+      Ordenr9 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion9(value1.trimLeft());
+      Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value2.trimLeft());
+      Orden2 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value1);
+      pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value2.trimLeft());
+      pk2 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr9 = pk1 +","+pk2;
+      Ordenr9 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion9(value1.trimLeft());
+      Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value2.trimLeft());
+      Orden2 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value3.trimLeft());
+      Orden3 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value1);
+      pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value2.trimLeft());
+      pk2 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value3.trimLeft());
+      pk3 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr9 = pk1 +","+pk2+","+pk3;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion9(value1.trimLeft());
+      Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value2.trimLeft());
+      Orden2 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value3.trimLeft());
+      Orden3 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value4.trimLeft());
+      Orden4 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value1);
+      pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value2.trimLeft());
+      pk2 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value3.trimLeft());
+      pk3 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value4.trimLeft());
+      pk4 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr9 = pk1 +","+pk2+","+pk3+","+pk4;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion9(value1.trimLeft());
+      Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value2.trimLeft());
+      Orden2 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value3.trimLeft());
+      Orden3 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value4.trimLeft());
+      Orden4 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value5.trimLeft());
+      Orden5 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value1);
+      pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value2.trimLeft());
+      pk2 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value3.trimLeft());
+      pk3 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value4.trimLeft());
+      pk4 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value5.trimLeft());
+      pk5 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion9(value1.trimLeft());
+      Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value2.trimLeft());
+      Orden2 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value3.trimLeft());
+      Orden3 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value4.trimLeft());
+      Orden4 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value5.trimLeft());
+      Orden5 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value6.trimLeft());
+      Orden6 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value1);
+      pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value2.trimLeft());
+      pk2 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value3.trimLeft());
+      pk3 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value4.trimLeft());
+      pk4 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value5.trimLeft());
+      pk5 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value6.trimLeft());
+      pk6 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion9(value1.trimLeft());
+      Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value2.trimLeft());
+      Orden2 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value3.trimLeft());
+      Orden3 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value4.trimLeft());
+      Orden4 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value5.trimLeft());
+      Orden5 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value6.trimLeft());
+      Orden6 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value7.trimLeft());
+      Orden7 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value1);
+      pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value2.trimLeft());
+      pk2 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value3.trimLeft());
+      pk3 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value4.trimLeft());
+      pk4 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value5.trimLeft());
+      pk5 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value6.trimLeft());
+      pk6 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value7.trimLeft());
+      pk7 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion9(value1.trimLeft());
+      Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value2.trimLeft());
+      Orden2 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value3.trimLeft());
+      Orden3 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value4.trimLeft());
+      Orden4 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value5.trimLeft());
+      Orden5 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value6.trimLeft());
+      Orden6 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value7.trimLeft());
+      Orden7 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value8.trimLeft());
+      Orden8 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value1);
+      pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value2.trimLeft());
+      pk2 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value3.trimLeft());
+      pk3 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value4.trimLeft());
+      pk4 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value5.trimLeft());
+      pk5 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value6.trimLeft());
+      pk6 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value7.trimLeft());
+      pk7 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value8.trimLeft());
+      pk8 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion9(value1.trimLeft());
+      Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value2.trimLeft());
+      Orden2 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value3.trimLeft());
+      Orden3 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value4.trimLeft());
+      Orden4 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value5.trimLeft());
+      Orden5 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value6.trimLeft());
+      Orden6 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value7.trimLeft());
+      Orden7 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value8.trimLeft());
+      Orden8 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion9(value9.trimLeft());
+      Orden9 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value1);
+      pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value2.trimLeft());
+      pk2 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value3.trimLeft());
+      pk3 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value4.trimLeft());
+      pk4 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value5.trimLeft());
+      pk5 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value6.trimLeft());
+      pk6 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value7.trimLeft());
+      pk7 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value8.trimLeft());
+      pk8 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion9(value9.trimLeft());
+      pk9 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
     _prestacion9.text = prestacionFinal9;
   }
 
-  addChecked10() {
+  getAllPkPrestacion9(String prestacion) async {
+    _Prestaciones9 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones9.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion9(String prestacion) async {
+    _OrdenPres9 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres9.add(categoryModel);
+      });
+    });
+  }
+
+  addChecked10() async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+
+    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
+    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+
     List<PrestacionesLaboralesModel> previa10 = [];
     previa10 = _PrestacionesList;
     _selectedItem10.clear();
@@ -8399,7 +10898,267 @@ class _Escolaridad_SeguridadSocialTablaState
     var prestacion10 = _selectedItem10.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final prestacionFinal10 = rpl.replaceSymbol(prestacion10);
+
+    final tagName = prestacionFinal10;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+
+
+
+    if(value2.isEmpty){
+      await getAllOrdenPrestacion10(value1.trimLeft());
+      Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      getAllPkPrestacion10(value1);
+      pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      pkr10 = pk1;
+      Ordenr10 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenPrestacion10(value1.trimLeft());
+      Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value2.trimLeft());
+      Orden2 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value1);
+      pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value2.trimLeft());
+      pk2 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr10 = pk1 +","+pk2;
+      Ordenr10 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenPrestacion10(value1.trimLeft());
+      Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value2.trimLeft());
+      Orden2 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value3.trimLeft());
+      Orden3 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value1);
+      pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value2.trimLeft());
+      pk2 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value3.trimLeft());
+      pk3 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr10 = pk1 +","+pk2+","+pk3;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenPrestacion10(value1.trimLeft());
+      Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value2.trimLeft());
+      Orden2 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value3.trimLeft());
+      Orden3 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value4.trimLeft());
+      Orden4 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value1);
+      pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value2.trimLeft());
+      pk2 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value3.trimLeft());
+      pk3 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value4.trimLeft());
+      pk4 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr10 = pk1 +","+pk2+","+pk3+","+pk4;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenPrestacion10(value1.trimLeft());
+      Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value2.trimLeft());
+      Orden2 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value3.trimLeft());
+      Orden3 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value4.trimLeft());
+      Orden4 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value5.trimLeft());
+      Orden5 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value1);
+      pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value2.trimLeft());
+      pk2 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value3.trimLeft());
+      pk3 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value4.trimLeft());
+      pk4 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value5.trimLeft());
+      pk5 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenPrestacion10(value1.trimLeft());
+      Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value2.trimLeft());
+      Orden2 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value3.trimLeft());
+      Orden3 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value4.trimLeft());
+      Orden4 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value5.trimLeft());
+      Orden5 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value6.trimLeft());
+      Orden6 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value1);
+      pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value2.trimLeft());
+      pk2 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value3.trimLeft());
+      pk3 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value4.trimLeft());
+      pk4 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value5.trimLeft());
+      pk5 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value6.trimLeft());
+      pk6 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenPrestacion10(value1.trimLeft());
+      Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value2.trimLeft());
+      Orden2 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value3.trimLeft());
+      Orden3 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value4.trimLeft());
+      Orden4 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value5.trimLeft());
+      Orden5 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value6.trimLeft());
+      Orden6 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value7.trimLeft());
+      Orden7 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value1);
+      pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value2.trimLeft());
+      pk2 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value3.trimLeft());
+      pk3 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value4.trimLeft());
+      pk4 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value5.trimLeft());
+      pk5 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value6.trimLeft());
+      pk6 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value7.trimLeft());
+      pk7 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenPrestacion10(value1.trimLeft());
+      Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value2.trimLeft());
+      Orden2 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value3.trimLeft());
+      Orden3 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value4.trimLeft());
+      Orden4 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value5.trimLeft());
+      Orden5 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value6.trimLeft());
+      Orden6 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value7.trimLeft());
+      Orden7 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value8.trimLeft());
+      Orden8 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value1);
+      pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value2.trimLeft());
+      pk2 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value3.trimLeft());
+      pk3 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value4.trimLeft());
+      pk4 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value5.trimLeft());
+      pk5 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value6.trimLeft());
+      pk6 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value7.trimLeft());
+      pk7 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value8.trimLeft());
+      pk8 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else{
+      await getAllOrdenPrestacion10(value1.trimLeft());
+      Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value2.trimLeft());
+      Orden2 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value3.trimLeft());
+      Orden3 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value4.trimLeft());
+      Orden4 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value5.trimLeft());
+      Orden5 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value6.trimLeft());
+      Orden6 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value7.trimLeft());
+      Orden7 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value8.trimLeft());
+      Orden8 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllOrdenPrestacion10(value9.trimLeft());
+      Orden9 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value1);
+      pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value2.trimLeft());
+      pk2 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value3.trimLeft());
+      pk3 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value4.trimLeft());
+      pk4 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value5.trimLeft());
+      pk5 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value6.trimLeft());
+      pk6 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value7.trimLeft());
+      pk7 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value8.trimLeft());
+      pk8 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+      await getAllPkPrestacion10(value9.trimLeft());
+      pk9 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
+
+      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }
     _prestacion10.text = prestacionFinal10;
+  }
+
+  getAllPkPrestacion10(String prestacion) async {
+    _Prestaciones10 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        _Prestaciones10.add(categoryModel);
+      });
+    });
+  }
+  getAllOrdenPrestacion10(String prestacion) async {
+    _OrdenPres10 = List<PrestacionesLaboralesModel>();
+    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = PrestacionesLaboralesModel();
+        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        _OrdenPres10.add(categoryModel);
+      });
+    });
   }
 
 
