@@ -619,8 +619,11 @@ class DbHelper {
     await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('16 7 Suegro(a)');");
 
     //Tabla de Escolaridades
+    */
     await db.execute("CREATE TABLE tb_Escolaridades (Escolaridad TEXT);");
-    await db.execute("INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('1 1 N/A');");
+    await db.execute(
+        "INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('99 Otra');");
+    /*
     await db.execute("INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('2 2 Analfabeto');");
     await db.execute("INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('3 3 Alfabeto');");
     await db.execute("INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('4 4 Preescolar');");

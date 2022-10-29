@@ -4,7 +4,6 @@ import 'package:esn/Comm/genTextDataTable.dart';
 import 'package:esn/Comm/genTextExpand.dart';
 import 'package:esn/Comm/genTextFolio.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
-import 'package:esn/Comm/genTextTipoEmpleado.dart';
 import 'package:esn/DatabaseHandler/DbHelper.dart';
 import 'package:esn/Model/DerechohabienciasModel.dart';
 import 'package:esn/Model/EscolaridadSeguridadSocial.dart';
@@ -77,32 +76,55 @@ class _Escolaridad_SeguridadSocialTablaState
   List<EscolaridadSeguridadSocial> _Escolaridad9 = [];
   List<EscolaridadSeguridadSocial> _Escolaridad10 = [];
 
-  List<PrestacionesLaboralesModel> _Prestaciones1 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones2 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones3 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones4 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones5 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones6 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones7 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones8 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones9 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones10 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones1 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones2 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones3 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones4 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones5 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones6 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones7 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones8 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones9 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones10 =
+      List<PrestacionesLaboralesModel>();
 
-  List<PrestacionesLaboralesModel> _OrdenPres1 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres2 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres3 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres4 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres5 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres6 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres7 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres8 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres9 = List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres10 = List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres1 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres2 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres3 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres4 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres5 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres6 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres7 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres8 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres9 =
+      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres10 =
+      List<PrestacionesLaboralesModel>();
 
   final _escolaridad1 = TextEditingController();
+  final _otroEscolaridad1 = TextEditingController();
   final _gradoEscolar1 = TextEditingController();
   final _ocupacion1 = TextEditingController();
+  final _otroOcupacion1 = TextEditingController();
   final _tipoEmpleo1 = TextEditingController();
+  final _otroTipoEmpleo1 = TextEditingController();
   final _derechohabiencia1 = TextEditingController();
   final _motivoderechohabiencia1 = TextEditingController();
   AsisteEscuela _asisteEscuela1 = AsisteEscuela.si;
@@ -110,11 +132,17 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre1 = TextEditingController();
   final _prestacion1 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem1 = [];
+  bool valEsc1 = false;
+  bool valOcu1 = false;
+  bool valTipE1 = false;
 
   final _escolaridad2 = TextEditingController();
+  final _otroEscolaridad2 = TextEditingController();
   final _gradoEscolar2 = TextEditingController();
   final _ocupacion2 = TextEditingController();
+  final _otroOcupacion2 = TextEditingController();
   final _tipoEmpleo2 = TextEditingController();
+  final _otroTipoEmpleo2 = TextEditingController();
   final _derechohabiencia2 = TextEditingController();
   final _motivoderechohabiencia2 = TextEditingController();
   AsisteEscuela _asisteEscuela2;
@@ -122,11 +150,17 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre2 = TextEditingController();
   final _prestacion2 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem2 = [];
+  bool valEsc2 = false;
+  bool valTipE2 = false;
+  bool valOcu2 = false;
 
   final _escolaridad3 = TextEditingController();
+  final _otroEscolaridad3 = TextEditingController();
   final _gradoEscolar3 = TextEditingController();
   final _ocupacion3 = TextEditingController();
+  final _otroOcupacion3 = TextEditingController();
   final _tipoEmpleo3 = TextEditingController();
+  final _otroTipoEmpleo3 = TextEditingController();
   final _derechohabiencia3 = TextEditingController();
   final _motivoderechohabiencia3 = TextEditingController();
   AsisteEscuela _asisteEscuela3;
@@ -134,11 +168,17 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre3 = TextEditingController();
   final _prestacion3 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem3 = [];
+  bool valEsc3 = false;
+  bool valTipE3 = false;
+  bool valOcu3 = false;
 
   final _escolaridad4 = TextEditingController();
+  final _otroEscolaridad4 = TextEditingController();
   final _gradoEscolar4 = TextEditingController();
   final _ocupacion4 = TextEditingController();
+  final _otroOcupacion4 = TextEditingController();
   final _tipoEmpleo4 = TextEditingController();
+  final _otroTipoEmpleo4 = TextEditingController();
   final _derechohabiencia4 = TextEditingController();
   final _motivoderechohabiencia4 = TextEditingController();
   AsisteEscuela _asisteEscuela4;
@@ -146,11 +186,17 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre4 = TextEditingController();
   final _prestacion4 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem4 = [];
+  bool valEsc4 = false;
+  bool valTipE4 = false;
+  bool valOcu4 = false;
 
   final _escolaridad5 = TextEditingController();
+  final _otroEscolaridad5 = TextEditingController();
   final _gradoEscolar5 = TextEditingController();
   final _ocupacion5 = TextEditingController();
+  final _otroOcupacion5 = TextEditingController();
   final _tipoEmpleo5 = TextEditingController();
+  final _otroTipoEmpleo5 = TextEditingController();
   final _derechohabiencia5 = TextEditingController();
   final _motivoderechohabiencia5 = TextEditingController();
   AsisteEscuela _asisteEscuela5;
@@ -158,11 +204,17 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre5 = TextEditingController();
   final _prestacion5 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem5 = [];
+  bool valEsc5 = false;
+  bool valTipE5 = false;
+  bool valOcu5 = false;
 
   final _escolaridad6 = TextEditingController();
+  final _otroEscolaridad6 = TextEditingController();
   final _gradoEscolar6 = TextEditingController();
   final _ocupacion6 = TextEditingController();
+  final _otroOcupacion6 = TextEditingController();
   final _tipoEmpleo6 = TextEditingController();
+  final _otroTipoEmpleo6 = TextEditingController();
   final _derechohabiencia6 = TextEditingController();
   final _motivoderechohabiencia6 = TextEditingController();
   AsisteEscuela _asisteEscuela6;
@@ -170,11 +222,17 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre6 = TextEditingController();
   final _prestacion6 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem6 = [];
+  bool valEsc6 = false;
+  bool valTipE6 = false;
+  bool valOcu6 = false;
 
   final _escolaridad7 = TextEditingController();
+  final _otroEscolaridad7 = TextEditingController();
   final _gradoEscolar7 = TextEditingController();
   final _ocupacion7 = TextEditingController();
+  final _otroOcupacion7 = TextEditingController();
   final _tipoEmpleo7 = TextEditingController();
+  final _otroTipoEmpleo7 = TextEditingController();
   final _derechohabiencia7 = TextEditingController();
   final _motivoderechohabiencia7 = TextEditingController();
   AsisteEscuela _asisteEscuela7;
@@ -182,11 +240,17 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre7 = TextEditingController();
   final _prestacion7 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem7 = [];
+  bool valEsc7 = false;
+  bool valTipE7 = false;
+  bool valOcu7 = false;
 
   final _escolaridad8 = TextEditingController();
+  final _otroEscolaridad8 = TextEditingController();
   final _gradoEscolar8 = TextEditingController();
   final _ocupacion8 = TextEditingController();
+  final _otroOcupacion8 = TextEditingController();
   final _tipoEmpleo8 = TextEditingController();
+  final _otroTipoEmpleo8 = TextEditingController();
   final _derechohabiencia8 = TextEditingController();
   final _motivoderechohabiencia8 = TextEditingController();
   AsisteEscuela _asisteEscuela8;
@@ -194,11 +258,17 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre8 = TextEditingController();
   final _prestacion8 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem8 = [];
+  bool valEsc8 = false;
+  bool valTipE8 = false;
+  bool valOcu8 = false;
 
   final _escolaridad9 = TextEditingController();
+  final _otroEscolaridad9 = TextEditingController();
   final _gradoEscolar9 = TextEditingController();
   final _ocupacion9 = TextEditingController();
+  final _otroOcupacion9 = TextEditingController();
   final _tipoEmpleo9 = TextEditingController();
+  final _otroTipoEmpleo9 = TextEditingController();
   final _derechohabiencia9 = TextEditingController();
   final _motivoderechohabiencia9 = TextEditingController();
   AsisteEscuela _asisteEscuela9;
@@ -206,11 +276,17 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre9 = TextEditingController();
   final _prestacion9 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem9 = [];
+  bool valEsc9 = false;
+  bool valTipE9 = false;
+  bool valOcu9 = false;
 
   final _escolaridad10 = TextEditingController();
+  final _otroEscolaridad10 = TextEditingController();
   final _gradoEscolar10 = TextEditingController();
   final _ocupacion10 = TextEditingController();
+  final _otroOcupacion10 = TextEditingController();
   final _tipoEmpleo10 = TextEditingController();
+  final _otroTipoEmpleo10 = TextEditingController();
   final _derechohabiencia10 = TextEditingController();
   final _motivoderechohabiencia10 = TextEditingController();
   AsisteEscuela _asisteEscuela10;
@@ -218,6 +294,9 @@ class _Escolaridad_SeguridadSocialTablaState
   final _nombre10 = TextEditingController();
   final _prestacion10 = TextEditingController();
   List<PrestacionesLaboralesModel> _selectedItem10 = [];
+  bool valEsc10 = false;
+  bool valTipE10 = false;
+  bool valOcu10 = false;
 
   var dbHelper;
 
@@ -307,7 +386,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad1.map((e) => e.Derechohabiencia).first;
 
-    _prestacion1.text = _Escolaridad1.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion1.text =
+        _Escolaridad1.map((e) => e.txt_desc_prestacioneslab).first;
     pk = _Escolaridad1.map((e) => e.pk_prestacioneslab).first;
     Orden = _Escolaridad1.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -395,7 +475,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad2.map((e) => e.Derechohabiencia).first;
 
-    _prestacion2.text = _Escolaridad2.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion2.text =
+        _Escolaridad2.map((e) => e.txt_desc_prestacioneslab).first;
     pkr2 = _Escolaridad2.map((e) => e.pk_prestacioneslab).first;
     Ordenr2 = _Escolaridad2.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -483,7 +564,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad3.map((e) => e.Derechohabiencia).first;
 
-    _prestacion3.text = _Escolaridad3.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion3.text =
+        _Escolaridad3.map((e) => e.txt_desc_prestacioneslab).first;
     pkr3 = _Escolaridad3.map((e) => e.pk_prestacioneslab).first;
     Ordenr3 = _Escolaridad3.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -571,7 +653,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad4.map((e) => e.Derechohabiencia).first;
 
-    _prestacion4.text = _Escolaridad4.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion4.text =
+        _Escolaridad4.map((e) => e.txt_desc_prestacioneslab).first;
     pkr4 = _Escolaridad4.map((e) => e.pk_prestacioneslab).first;
     Ordenr4 = _Escolaridad4.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -659,7 +742,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad5.map((e) => e.Derechohabiencia).first;
 
-    _prestacion5.text = _Escolaridad5.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion5.text =
+        _Escolaridad5.map((e) => e.txt_desc_prestacioneslab).first;
     pkr5 = _Escolaridad5.map((e) => e.pk_prestacioneslab).first;
     Ordenr5 = _Escolaridad5.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -747,7 +831,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad6.map((e) => e.Derechohabiencia).first;
 
-    _prestacion6.text = _Escolaridad6.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion6.text =
+        _Escolaridad6.map((e) => e.txt_desc_prestacioneslab).first;
     pkr6 = _Escolaridad6.map((e) => e.pk_prestacioneslab).first;
     Ordenr6 = _Escolaridad6.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -835,7 +920,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad7.map((e) => e.Derechohabiencia).first;
 
-    _prestacion7.text = _Escolaridad7.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion7.text =
+        _Escolaridad7.map((e) => e.txt_desc_prestacioneslab).first;
     pkr7 = _Escolaridad7.map((e) => e.pk_prestacioneslab).first;
     Ordenr7 = _Escolaridad7.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -923,7 +1009,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad8.map((e) => e.Derechohabiencia).first;
 
-    _prestacion8.text = _Escolaridad8.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion8.text =
+        _Escolaridad8.map((e) => e.txt_desc_prestacioneslab).first;
     pkr8 = _Escolaridad8.map((e) => e.pk_prestacioneslab).first;
     Ordenr8 = _Escolaridad8.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -1011,7 +1098,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad9.map((e) => e.Derechohabiencia).first;
 
-    _prestacion9.text = _Escolaridad9.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion9.text =
+        _Escolaridad9.map((e) => e.txt_desc_prestacioneslab).first;
     pkr9 = _Escolaridad9.map((e) => e.pk_prestacioneslab).first;
     Ordenr9 = _Escolaridad9.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -1099,7 +1187,8 @@ class _Escolaridad_SeguridadSocialTablaState
             " " +
             _Escolaridad10.map((e) => e.Derechohabiencia).first;
 
-    _prestacion10.text = _Escolaridad10.map((e) => e.txt_desc_prestacioneslab).first;
+    _prestacion10.text =
+        _Escolaridad10.map((e) => e.txt_desc_prestacioneslab).first;
     pkr10 = _Escolaridad10.map((e) => e.pk_prestacioneslab).first;
     Ordenr10 = _Escolaridad10.map((e) => e.int_OrdenPrestacionesLab).first;
 
@@ -1384,7 +1473,6 @@ class _Escolaridad_SeguridadSocialTablaState
     var motivoDerecho = _motivoderechohabiencia1.text.toString();
     final motivoDereHab = rpn1.replaceNum(motivoDerecho);
 
-    
     var pkPrestaciones = _prestacion1.text.toString();
     final prestacionesPK = rpl1.replaceLetter(pkPrestaciones);
 
@@ -1508,7 +1596,6 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenMotivoDerechohabiencia:
           _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab.trimLeft(),
-
     );
     await dbHelper
         .saveEscolaridadSocial(DModel11)
@@ -1568,7 +1655,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad1.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -1579,7 +1666,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = [];
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar1.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar1.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -1590,7 +1677,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = [];
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion1.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion1.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -1601,7 +1688,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = [];
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo1.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -1612,7 +1699,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = [];
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia1.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -1658,9 +1745,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab.trimLeft(),
     );
     await dbHelper
@@ -1916,7 +2003,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -1927,7 +2014,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar2.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar2.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -1938,7 +2025,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion2.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion2.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -1949,7 +2036,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -1960,7 +2047,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -2010,9 +2097,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho2.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
     );
     await dbHelper
@@ -2268,7 +2355,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad2.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -2279,7 +2366,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar2.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar2.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -2290,7 +2377,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion2.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion2.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -2301,7 +2388,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo2.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -2312,7 +2399,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia2.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -2362,9 +2449,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho2.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
     );
     await dbHelper
@@ -2439,7 +2526,6 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("8", "")
         .replaceAll("9", "")
         .replaceAll("0", "");
-
 
     var pkPrestaciones3 = _prestacion3.text.toString(); // 'artlang'
     final prestacionesPK3 = pkPrestaciones3
@@ -2621,7 +2707,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -2632,7 +2718,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar3.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar3.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -2643,7 +2729,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion3.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion3.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -2654,7 +2740,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -2665,7 +2751,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -2715,9 +2801,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho3.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
     );
     await dbHelper
@@ -2973,7 +3059,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad3.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -2984,7 +3070,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar3.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar3.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -2995,7 +3081,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion3.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion3.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -3006,7 +3092,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo3.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -3017,7 +3103,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia3.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -3067,9 +3153,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho3.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
     );
     await dbHelper
@@ -3325,7 +3411,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -3336,7 +3422,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar4.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar4.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -3347,7 +3433,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion4.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion4.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -3358,7 +3444,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -3369,7 +3455,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -3419,9 +3505,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho4.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
     );
     await dbHelper
@@ -3678,7 +3764,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad4.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -3689,7 +3775,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar4.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar4.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -3700,7 +3786,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion4.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion4.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -3711,7 +3797,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo4.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -3722,7 +3808,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia4.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -3772,9 +3858,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho4.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
     );
     await dbHelper
@@ -4031,7 +4117,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -4042,7 +4128,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar5.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar5.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -4053,7 +4139,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion5.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion5.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -4064,7 +4150,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -4075,7 +4161,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -4125,9 +4211,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho5.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
     );
     await dbHelper
@@ -4384,7 +4470,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad5.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -4395,7 +4481,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar5.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar5.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -4406,7 +4492,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion5.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion5.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -4417,7 +4503,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo5.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -4428,7 +4514,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia5.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -4478,9 +4564,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho5.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
     );
     await dbHelper
@@ -4557,7 +4643,6 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    
     var pkPrestaciones6 = _prestacion6.text.toString(); // 'artlang'
     final prestacionesPK6 = pkPrestaciones6
         .replaceAll("[", "")
@@ -4738,7 +4823,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -4749,7 +4834,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar6.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar6.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -4760,7 +4845,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion6.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion6.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -4771,7 +4856,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -4782,7 +4867,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -4832,9 +4917,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho6.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
     );
     await dbHelper
@@ -5095,7 +5180,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad6.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -5106,7 +5191,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar6.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar6.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -5117,7 +5202,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion6.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion6.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -5128,7 +5213,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo6.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -5139,7 +5224,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia6.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -5189,9 +5274,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho6.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
     );
     await dbHelper
@@ -5452,7 +5537,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -5463,7 +5548,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar7.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar7.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -5474,7 +5559,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion7.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion7.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -5485,7 +5570,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -5496,7 +5581,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -5546,9 +5631,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho7.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
     );
     await dbHelper
@@ -5805,7 +5890,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad7.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -5816,7 +5901,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar7.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar7.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -5827,7 +5912,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion7.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion7.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -5838,7 +5923,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo7.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -5849,7 +5934,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia7.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -5899,9 +5984,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho7.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
     );
     await dbHelper
@@ -5916,7 +6001,6 @@ class _Escolaridad_SeguridadSocialTablaState
   }
 
   renglon8() async {
-    
     var Escolaridad8 = _escolaridad8.text.toString(); // 'artlang'
     final escolaridad8 = Escolaridad8.replaceAll("1", "")
         .replaceAll("2", "")
@@ -5979,7 +6063,6 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("9", "")
         .replaceAll("0", "");
 
-    
     var pkPrestaciones8 = _prestacion8.text.toString(); // 'artlang'
     final prestacionesPK8 = pkPrestaciones8
         .replaceAll("[", "")
@@ -6160,7 +6243,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -6171,7 +6254,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar8.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar8.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -6182,7 +6265,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion8.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion8.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -6193,7 +6276,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -6204,7 +6287,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -6254,9 +6337,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho8.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
     );
     await dbHelper
@@ -6513,7 +6596,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad8.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -6524,7 +6607,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar8.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar8.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -6535,7 +6618,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion8.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion8.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -6546,7 +6629,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo8.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -6557,7 +6640,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia8.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -6606,9 +6689,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho8.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
     );
     await dbHelper
@@ -6865,7 +6948,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -6876,7 +6959,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar9.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar9.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -6887,7 +6970,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion9.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion9.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -6898,7 +6981,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -6909,7 +6992,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -6959,9 +7042,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho9.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
     );
     await dbHelper
@@ -7213,7 +7296,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad9.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -7224,7 +7307,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar9.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar9.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -7235,7 +7318,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion9.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion9.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -7246,7 +7329,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo9.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -7257,7 +7340,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia9.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -7316,9 +7399,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho9.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
     );
     await dbHelper
@@ -7387,7 +7470,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("0", "");
 
     var motivoDerecho10 =
-    _motivoderechohabiencia10.text.toString(); // 'artlang'
+        _motivoderechohabiencia10.text.toString(); // 'artlang'
     final motivoDereHab10 = motivoDerecho10
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -7580,7 +7663,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -7591,7 +7674,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar10.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar10.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -7602,7 +7685,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion10.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion10.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -7613,7 +7696,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -7624,7 +7707,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -7674,9 +7757,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho10.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
     );
     await dbHelper
@@ -7745,7 +7828,7 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("0", "");
 
     var motivoDerecho10 =
-    _motivoderechohabiencia10.text.toString(); // 'artlang'
+        _motivoderechohabiencia10.text.toString(); // 'artlang'
     final motivoDereHab10 = motivoDerecho10
         .replaceAll("1", "")
         .replaceAll("2", "")
@@ -7757,7 +7840,6 @@ class _Escolaridad_SeguridadSocialTablaState
         .replaceAll("8", "")
         .replaceAll("9", "")
         .replaceAll("0", "");
-    
 
     var pkPrestaciones10 = _prestacion10.text.toString(); // 'artlang'
     final prestacionesPK10 = pkPrestaciones10
@@ -7939,7 +8021,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _EscolaridadOrden2 = List<EscolaridadesModel>();
     var categories =
-    await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
+        await CategoryService().readOrdenEscolaridad(_escolaridad10.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = EscolaridadesModel();
@@ -7950,7 +8032,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _GradoEscolar2 = List<GradosEscolaresModel>();
     var categories1 =
-    await CategoryService().readOrdenGrado(_gradoEscolar10.text);
+        await CategoryService().readOrdenGrado(_gradoEscolar10.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = GradosEscolaresModel();
@@ -7961,7 +8043,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Ocupacion2 = List<OcupacionesModel>();
     var categories2 =
-    await CategoryService().readOrdenOcupacion(_ocupacion10.text);
+        await CategoryService().readOrdenOcupacion(_ocupacion10.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel2 = OcupacionesModel();
@@ -7972,7 +8054,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _TipoEmpleo2 = List<TipoEmpleoModel>();
     var categories3 =
-    await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
+        await CategoryService().readOrdenTipoEmpl(_tipoEmpleo10.text);
     categories3.forEach((category) {
       setState(() {
         var categoryModel3 = TipoEmpleoModel();
@@ -7983,7 +8065,7 @@ class _Escolaridad_SeguridadSocialTablaState
 
     _Derechohabiencia2 = List<DerechoHabienciasModel>();
     var categories4 =
-    await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
+        await CategoryService().readOrdenDerecho(_derechohabiencia10.text);
     categories4.forEach((category) {
       setState(() {
         var categoryModel4 = DerechoHabienciasModel();
@@ -8033,9 +8115,9 @@ class _Escolaridad_SeguridadSocialTablaState
       OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
       Derechohabiencia: Derecho10.trimLeft(),
       ClaveMotivoDerechohabiencia:
-      _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
+          _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
       OrdenMotivoDerechohabiencia:
-      _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
       MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
     );
     await dbHelper
@@ -8097,9 +8179,9 @@ class _Escolaridad_SeguridadSocialTablaState
                         renglon9();
                         Navigator.of(context).push(MaterialPageRoute<Null>(
                             builder: (BuildContext context) {
-                              return new Salud_PertenenciaIndigenaTabla(
-                                  widget.folio);
-                            }));
+                          return new Salud_PertenenciaIndigenaTabla(
+                              widget.folio);
+                        }));
                       }
                     } else {
                       renglon1();
@@ -8112,8 +8194,8 @@ class _Escolaridad_SeguridadSocialTablaState
                       renglon8();
                       Navigator.of(context).push(MaterialPageRoute<Null>(
                           builder: (BuildContext context) {
-                            return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                          }));
+                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                      }));
                     }
                   } else {
                     renglon1();
@@ -8125,8 +8207,8 @@ class _Escolaridad_SeguridadSocialTablaState
                     renglon7();
                     Navigator.of(context).push(MaterialPageRoute<Null>(
                         builder: (BuildContext context) {
-                          return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                        }));
+                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                    }));
                   }
                 } else {
                   renglon1();
@@ -8137,8 +8219,8 @@ class _Escolaridad_SeguridadSocialTablaState
                   renglon6();
                   Navigator.of(context).push(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
-                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                      }));
+                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                  }));
                 }
               } else {
                 await renglon1();
@@ -8148,8 +8230,8 @@ class _Escolaridad_SeguridadSocialTablaState
                 await renglon5();
                 Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
-                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                    }));
+                  return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                }));
               }
             } else {
               renglon1();
@@ -8158,8 +8240,8 @@ class _Escolaridad_SeguridadSocialTablaState
               renglon4();
               Navigator.of(context).push(
                   MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                  }));
+                return new Salud_PertenenciaIndigenaTabla(widget.folio);
+              }));
             }
           } else {
             renglon1();
@@ -8221,9 +8303,9 @@ class _Escolaridad_SeguridadSocialTablaState
                         upDateRenglon9();
                         Navigator.of(context).push(MaterialPageRoute<Null>(
                             builder: (BuildContext context) {
-                              return new Salud_PertenenciaIndigenaTabla(
-                                  widget.folio);
-                            }));
+                          return new Salud_PertenenciaIndigenaTabla(
+                              widget.folio);
+                        }));
                       }
                     } else {
                       upDateRenglon1();
@@ -8237,8 +8319,8 @@ class _Escolaridad_SeguridadSocialTablaState
 
                       Navigator.of(context).push(MaterialPageRoute<Null>(
                           builder: (BuildContext context) {
-                            return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                          }));
+                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                      }));
                     }
                   } else {
                     upDateRenglon1();
@@ -8250,8 +8332,8 @@ class _Escolaridad_SeguridadSocialTablaState
                     upDateRenglon7();
                     Navigator.of(context).push(MaterialPageRoute<Null>(
                         builder: (BuildContext context) {
-                          return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                        }));
+                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                    }));
                   }
                 } else {
                   upDateRenglon1();
@@ -8263,8 +8345,8 @@ class _Escolaridad_SeguridadSocialTablaState
 
                   Navigator.of(context).push(
                       MaterialPageRoute<Null>(builder: (BuildContext context) {
-                        return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                      }));
+                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                  }));
                 }
               } else {
                 upDateRenglon1();
@@ -8275,8 +8357,8 @@ class _Escolaridad_SeguridadSocialTablaState
                 print("entro aqui");
                 Navigator.of(context).push(
                     MaterialPageRoute<Null>(builder: (BuildContext context) {
-                      return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                    }));
+                  return new Salud_PertenenciaIndigenaTabla(widget.folio);
+                }));
               }
             } else {
               upDateRenglon1();
@@ -8286,8 +8368,8 @@ class _Escolaridad_SeguridadSocialTablaState
               print("entro por aca");
               Navigator.of(context).push(
                   MaterialPageRoute<Null>(builder: (BuildContext context) {
-                    return new Salud_PertenenciaIndigenaTabla(widget.folio);
-                  }));
+                return new Salud_PertenenciaIndigenaTabla(widget.folio);
+              }));
             }
           } else {
             upDateRenglon1();
@@ -8318,43 +8400,56 @@ class _Escolaridad_SeguridadSocialTablaState
 
 //Variables del renglon 1
   var pk = '';
-  var Orden ='';
+  var Orden = '';
 //Variables del renglon 2
   var pkr2 = '';
-  var Ordenr2 ='';
+  var Ordenr2 = '';
   //Variables del renglon 3
   var pkr3 = '';
-  var Ordenr3 ='';
+  var Ordenr3 = '';
 //Variables del renglon 4
   var pkr4 = '';
-  var Ordenr4 ='';
+  var Ordenr4 = '';
   //Variables del renglon 5
   var pkr5 = '';
-  var Ordenr5 ='';
+  var Ordenr5 = '';
 //Variables del renglon 6
   var pkr6 = '';
-  var Ordenr6 ='';
+  var Ordenr6 = '';
   //Variables del renglon 7
   var pkr7 = '';
-  var Ordenr7 ='';
+  var Ordenr7 = '';
 //Variables del renglon 8
   var pkr8 = '';
-  var Ordenr8 ='';
+  var Ordenr8 = '';
   //Variables del renglon 9
   var pkr9 = '';
-  var Ordenr9 ='';
+  var Ordenr9 = '';
 
   //Variables del renglon 10
   var pkr10 = '';
-  var Ordenr10 ='';
-
+  var Ordenr10 = '';
 
   addChecked1() async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
     List<PrestacionesLaboralesModel> previa1 = [];
     previa1 = _PrestacionesList;
     _selectedItem1.clear();
@@ -8370,10 +8465,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal1;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -8385,16 +8479,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion(value1);
       pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
       pk = pk1;
       Orden = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion(value2.trimLeft());
@@ -8404,9 +8496,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion(value2.trimLeft());
       pk2 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 +","+pk2;
-      Orden = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pk = pk1 + "," + pk2;
+      Orden = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion(value2.trimLeft());
@@ -8420,9 +8512,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion(value3.trimLeft());
       pk3 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 +","+pk2+","+pk3;
-      Orden = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pk = pk1 + "," + pk2 + "," + pk3;
+      Orden = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion(value2.trimLeft());
@@ -8440,9 +8532,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion(value4.trimLeft());
       pk4 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 +","+pk2+","+pk3+","+pk4;
-      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pk = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Orden = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion(value2.trimLeft());
@@ -8464,9 +8556,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion(value5.trimLeft());
       pk5 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pk = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Orden =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion(value2.trimLeft());
@@ -8492,9 +8585,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion(value6.trimLeft());
       pk6 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pk = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Orden = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion(value2.trimLeft());
@@ -8524,9 +8627,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion(value7.trimLeft());
       pk7 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pk = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Orden = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion(value2.trimLeft());
@@ -8560,9 +8687,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion(value8.trimLeft());
       pk8 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pk = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Orden = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion(value2.trimLeft());
@@ -8600,8 +8755,40 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion(value9.trimLeft());
       pk9 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Orden = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pk = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Orden = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
 
     _prestacion1.text = prestacionFinal1;
@@ -8609,33 +8796,52 @@ class _Escolaridad_SeguridadSocialTablaState
 
   getAllPkPrestacion(String prestacion) async {
     _Prestaciones1 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones1.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion(String prestacion) async {
     _OrdenPres1 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres1.add(categoryModel);
       });
     });
   }
 
   addChecked2() async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
 
     List<PrestacionesLaboralesModel> previa2 = [];
     previa2 = _PrestacionesList;
@@ -8652,10 +8858,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal2;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -8667,16 +8872,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion2(value1);
       pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr2 = pk1;
       Ordenr2 = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion2(value2.trimLeft());
@@ -8686,9 +8889,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion2(value2.trimLeft());
       pk2 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr2 = pk1 +","+pk2;
-      Ordenr2 = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pkr2 = pk1 + "," + pk2;
+      Ordenr2 = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion2(value2.trimLeft());
@@ -8702,9 +8905,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion2(value3.trimLeft());
       pk3 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr2 = pk1 +","+pk2+","+pk3;
-      Ordenr2 = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pkr2 = pk1 + "," + pk2 + "," + pk3;
+      Ordenr2 = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion2(value2.trimLeft());
@@ -8722,9 +8925,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion2(value4.trimLeft());
       pk4 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr2 = pk1 +","+pk2+","+pk3+","+pk4;
-      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pkr2 = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Ordenr2 = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion2(value2.trimLeft());
@@ -8746,9 +8949,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion2(value5.trimLeft());
       pk5 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pkr2 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Ordenr2 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion2(value2.trimLeft());
@@ -8774,9 +8978,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion2(value6.trimLeft());
       pk6 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pkr2 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Ordenr2 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion2(value2.trimLeft());
@@ -8806,9 +9020,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion2(value7.trimLeft());
       pk7 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pkr2 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Ordenr2 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion2(value2.trimLeft());
@@ -8842,9 +9080,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion2(value8.trimLeft());
       pk8 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pkr2 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Ordenr2 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion2(value2.trimLeft());
@@ -8882,41 +9148,92 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion2(value9.trimLeft());
       pk9 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr2 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pkr2 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Ordenr2 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
     _prestacion2.text = prestacionFinal2;
   }
 
   getAllPkPrestacion2(String prestacion) async {
     _Prestaciones2 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones2.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion2(String prestacion) async {
     _OrdenPres2 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres2.add(categoryModel);
       });
     });
   }
 
-  addChecked3()async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+  addChecked3() async {
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
 
     List<PrestacionesLaboralesModel> previa3 = [];
     previa3 = _PrestacionesList;
@@ -8933,10 +9250,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal3;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -8948,16 +9264,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion3(value1);
       pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr3 = pk1;
       Ordenr3 = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion3(value2.trimLeft());
@@ -8967,9 +9281,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion3(value2.trimLeft());
       pk2 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr3 = pk1 +","+pk2;
-      Ordenr3 = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pkr3 = pk1 + "," + pk2;
+      Ordenr3 = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion3(value2.trimLeft());
@@ -8983,9 +9297,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion3(value3.trimLeft());
       pk3 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr3 = pk1 +","+pk2+","+pk3;
-      Ordenr3 = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pkr3 = pk1 + "," + pk2 + "," + pk3;
+      Ordenr3 = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion3(value2.trimLeft());
@@ -9003,9 +9317,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion3(value4.trimLeft());
       pk4 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr3 = pk1 +","+pk2+","+pk3+","+pk4;
-      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pkr3 = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Ordenr3 = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion3(value2.trimLeft());
@@ -9027,9 +9341,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion3(value5.trimLeft());
       pk5 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pkr3 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Ordenr3 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion3(value2.trimLeft());
@@ -9055,9 +9370,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion3(value6.trimLeft());
       pk6 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pkr3 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Ordenr3 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion3(value2.trimLeft());
@@ -9087,9 +9412,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion3(value7.trimLeft());
       pk7 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pkr3 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Ordenr3 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion3(value2.trimLeft());
@@ -9123,9 +9472,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion3(value8.trimLeft());
       pk8 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pkr3 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Ordenr3 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion3(value2.trimLeft());
@@ -9163,41 +9540,92 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion3(value9.trimLeft());
       pk9 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr3 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pkr3 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Ordenr3 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
     _prestacion3.text = prestacionFinal3;
   }
 
   getAllPkPrestacion3(String prestacion) async {
     _Prestaciones3 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones3.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion3(String prestacion) async {
     _OrdenPres3 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres3.add(categoryModel);
       });
     });
   }
 
-  addChecked4()async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+  addChecked4() async {
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
 
     List<PrestacionesLaboralesModel> previa4 = [];
     previa4 = _PrestacionesList;
@@ -9214,10 +9642,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal4;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -9229,16 +9656,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion4(value1);
       pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr4 = pk1;
       Ordenr4 = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion4(value2.trimLeft());
@@ -9248,9 +9673,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion4(value2.trimLeft());
       pk2 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr4 = pk1 +","+pk2;
-      Ordenr4 = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pkr4 = pk1 + "," + pk2;
+      Ordenr4 = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion4(value2.trimLeft());
@@ -9264,9 +9689,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion4(value3.trimLeft());
       pk3 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr4 = pk1 +","+pk2+","+pk3;
-      Ordenr4 = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pkr4 = pk1 + "," + pk2 + "," + pk3;
+      Ordenr4 = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion4(value2.trimLeft());
@@ -9284,9 +9709,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion4(value4.trimLeft());
       pk4 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr4 = pk1 +","+pk2+","+pk3+","+pk4;
-      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pkr4 = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Ordenr4 = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion4(value2.trimLeft());
@@ -9308,9 +9733,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion4(value5.trimLeft());
       pk5 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pkr4 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Ordenr4 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion4(value2.trimLeft());
@@ -9336,9 +9762,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion4(value6.trimLeft());
       pk6 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pkr4 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Ordenr4 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion4(value2.trimLeft());
@@ -9368,9 +9804,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion4(value7.trimLeft());
       pk7 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pkr4 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Ordenr4 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion4(value2.trimLeft());
@@ -9404,9 +9864,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion4(value8.trimLeft());
       pk8 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pkr4 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Ordenr4 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion4(value2.trimLeft());
@@ -9444,8 +9932,40 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion4(value9.trimLeft());
       pk9 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr4 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pkr4 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Ordenr4 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
 
     _prestacion4.text = prestacionFinal4;
@@ -9453,33 +9973,52 @@ class _Escolaridad_SeguridadSocialTablaState
 
   getAllPkPrestacion4(String prestacion) async {
     _Prestaciones4 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones4.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion4(String prestacion) async {
     _OrdenPres4 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres4.add(categoryModel);
       });
     });
   }
 
   addChecked5() async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
 
     List<PrestacionesLaboralesModel> previa5 = [];
     previa5 = _PrestacionesList;
@@ -9496,10 +10035,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal5;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -9511,16 +10049,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion5(value1);
       pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr5 = pk1;
       Ordenr5 = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion5(value2.trimLeft());
@@ -9530,9 +10066,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion5(value2.trimLeft());
       pk2 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr5 = pk1 +","+pk2;
-      Ordenr5 = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pkr5 = pk1 + "," + pk2;
+      Ordenr5 = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion5(value2.trimLeft());
@@ -9546,9 +10082,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion5(value3.trimLeft());
       pk3 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr5 = pk1 +","+pk2+","+pk3;
-      Ordenr5 = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pkr5 = pk1 + "," + pk2 + "," + pk3;
+      Ordenr5 = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion5(value2.trimLeft());
@@ -9566,9 +10102,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion5(value4.trimLeft());
       pk4 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr5 = pk1 +","+pk2+","+pk3+","+pk4;
-      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pkr5 = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Ordenr5 = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion5(value2.trimLeft());
@@ -9590,9 +10126,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion5(value5.trimLeft());
       pk5 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pkr5 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Ordenr5 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion5(value2.trimLeft());
@@ -9618,9 +10155,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion5(value6.trimLeft());
       pk6 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pkr5 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Ordenr5 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion5(value2.trimLeft());
@@ -9650,9 +10197,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion5(value7.trimLeft());
       pk7 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pkr5 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Ordenr5 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion5(value2.trimLeft());
@@ -9686,9 +10257,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion5(value8.trimLeft());
       pk8 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pkr5 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Ordenr5 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion5(value2.trimLeft());
@@ -9726,8 +10325,40 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion5(value9.trimLeft());
       pk9 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr5 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pkr5 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Ordenr5 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
 
     _prestacion5.text = prestacionFinal5;
@@ -9735,33 +10366,52 @@ class _Escolaridad_SeguridadSocialTablaState
 
   getAllPkPrestacion5(String prestacion) async {
     _Prestaciones5 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones5.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion5(String prestacion) async {
     _OrdenPres5 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres5.add(categoryModel);
       });
     });
   }
 
   addChecked6() async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
 
     List<PrestacionesLaboralesModel> previa6 = [];
     previa6 = _PrestacionesList;
@@ -9778,10 +10428,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal6;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -9793,16 +10442,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion6(value1);
       pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr6 = pk1;
       Ordenr6 = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion6(value2.trimLeft());
@@ -9812,9 +10459,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion6(value2.trimLeft());
       pk2 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr6 = pk1 +","+pk2;
-      Ordenr6 = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pkr6 = pk1 + "," + pk2;
+      Ordenr6 = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion6(value2.trimLeft());
@@ -9828,9 +10475,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion6(value3.trimLeft());
       pk3 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr6 = pk1 +","+pk2+","+pk3;
-      Ordenr6 = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pkr6 = pk1 + "," + pk2 + "," + pk3;
+      Ordenr6 = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion6(value2.trimLeft());
@@ -9848,9 +10495,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion6(value4.trimLeft());
       pk4 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr6 = pk1 +","+pk2+","+pk3+","+pk4;
-      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pkr6 = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Ordenr6 = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion6(value2.trimLeft());
@@ -9872,9 +10519,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion6(value5.trimLeft());
       pk5 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pkr6 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Ordenr6 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion6(value2.trimLeft());
@@ -9900,9 +10548,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion6(value6.trimLeft());
       pk6 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pkr6 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Ordenr6 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion6(value2.trimLeft());
@@ -9932,9 +10590,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion6(value7.trimLeft());
       pk7 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pkr6 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Ordenr6 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion6(value2.trimLeft());
@@ -9968,9 +10650,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion6(value8.trimLeft());
       pk8 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pkr6 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Ordenr6 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion6(value2.trimLeft());
@@ -10008,8 +10718,40 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion6(value9.trimLeft());
       pk9 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr6 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pkr6 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Ordenr6 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
 
     _prestacion6.text = prestacionFinal6;
@@ -10017,33 +10759,52 @@ class _Escolaridad_SeguridadSocialTablaState
 
   getAllPkPrestacion6(String prestacion) async {
     _Prestaciones6 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones6.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion6(String prestacion) async {
     _OrdenPres6 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres6.add(categoryModel);
       });
     });
   }
 
   addChecked7() async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
 
     List<PrestacionesLaboralesModel> previa7 = [];
     previa7 = _PrestacionesList;
@@ -10060,10 +10821,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal7;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -10075,16 +10835,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion7(value1);
       pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr7 = pk1;
       Ordenr7 = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion7(value2.trimLeft());
@@ -10094,9 +10852,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion7(value2.trimLeft());
       pk2 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr7 = pk1 +","+pk2;
-      Ordenr7 = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pkr7 = pk1 + "," + pk2;
+      Ordenr7 = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion7(value2.trimLeft());
@@ -10110,9 +10868,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion7(value3.trimLeft());
       pk3 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr7 = pk1 +","+pk2+","+pk3;
-      Ordenr7 = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pkr7 = pk1 + "," + pk2 + "," + pk3;
+      Ordenr7 = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion7(value2.trimLeft());
@@ -10130,9 +10888,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion7(value4.trimLeft());
       pk4 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr7 = pk1 +","+pk2+","+pk3+","+pk4;
-      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pkr7 = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Ordenr7 = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion7(value2.trimLeft());
@@ -10154,9 +10912,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion7(value5.trimLeft());
       pk5 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pkr7 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Ordenr7 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion7(value2.trimLeft());
@@ -10182,9 +10941,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion7(value6.trimLeft());
       pk6 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pkr7 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Ordenr7 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion7(value2.trimLeft());
@@ -10214,9 +10983,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion7(value7.trimLeft());
       pk7 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pkr7 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Ordenr7 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion7(value2.trimLeft());
@@ -10250,9 +11043,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion7(value8.trimLeft());
       pk8 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pkr7 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Ordenr7 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion7(value2.trimLeft());
@@ -10290,41 +11111,92 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion7(value9.trimLeft());
       pk9 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr7 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pkr7 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Ordenr7 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
     _prestacion7.text = prestacionFinal7;
   }
 
   getAllPkPrestacion7(String prestacion) async {
     _Prestaciones7 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones7.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion7(String prestacion) async {
     _OrdenPres7 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres7.add(categoryModel);
       });
     });
   }
 
   addChecked8() async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
 
     List<PrestacionesLaboralesModel> previa8 = [];
     previa8 = _PrestacionesList;
@@ -10341,10 +11213,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal8;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -10356,16 +11227,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion8(value1);
       pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr8 = pk1;
       Ordenr8 = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion8(value2.trimLeft());
@@ -10375,9 +11244,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion8(value2.trimLeft());
       pk2 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr8 = pk1 +","+pk2;
-      Ordenr8 = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pkr8 = pk1 + "," + pk2;
+      Ordenr8 = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion8(value2.trimLeft());
@@ -10391,9 +11260,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion8(value3.trimLeft());
       pk3 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr8 = pk1 +","+pk2+","+pk3;
-      Ordenr8 = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pkr8 = pk1 + "," + pk2 + "," + pk3;
+      Ordenr8 = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion8(value2.trimLeft());
@@ -10411,9 +11280,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion8(value4.trimLeft());
       pk4 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr8 = pk1 +","+pk2+","+pk3+","+pk4;
-      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pkr8 = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Ordenr8 = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion8(value2.trimLeft());
@@ -10435,9 +11304,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion8(value5.trimLeft());
       pk5 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pkr8 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Ordenr8 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion8(value2.trimLeft());
@@ -10463,9 +11333,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion8(value6.trimLeft());
       pk6 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pkr8 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Ordenr8 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion8(value2.trimLeft());
@@ -10495,9 +11375,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion8(value7.trimLeft());
       pk7 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pkr8 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Ordenr8 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion8(value2.trimLeft());
@@ -10531,9 +11435,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion8(value8.trimLeft());
       pk8 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pkr8 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Ordenr8 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion8(value2.trimLeft());
@@ -10571,41 +11503,92 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion8(value9.trimLeft());
       pk9 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr8 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pkr8 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Ordenr8 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
     _prestacion8.text = prestacionFinal8;
   }
 
   getAllPkPrestacion8(String prestacion) async {
     _Prestaciones8 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones8.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion8(String prestacion) async {
     _OrdenPres8 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres8.add(categoryModel);
       });
     });
   }
 
   addChecked9() async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
 
     List<PrestacionesLaboralesModel> previa9 = [];
     previa9 = _PrestacionesList;
@@ -10622,10 +11605,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal9;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -10637,16 +11619,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion9(value1);
       pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr9 = pk1;
       Ordenr9 = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion9(value2.trimLeft());
@@ -10656,9 +11636,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion9(value2.trimLeft());
       pk2 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr9 = pk1 +","+pk2;
-      Ordenr9 = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pkr9 = pk1 + "," + pk2;
+      Ordenr9 = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion9(value2.trimLeft());
@@ -10672,9 +11652,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion9(value3.trimLeft());
       pk3 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr9 = pk1 +","+pk2+","+pk3;
-      Ordenr9 = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pkr9 = pk1 + "," + pk2 + "," + pk3;
+      Ordenr9 = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion9(value2.trimLeft());
@@ -10692,9 +11672,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion9(value4.trimLeft());
       pk4 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr9 = pk1 +","+pk2+","+pk3+","+pk4;
-      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pkr9 = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Ordenr9 = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion9(value2.trimLeft());
@@ -10716,9 +11696,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion9(value5.trimLeft());
       pk5 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pkr9 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Ordenr9 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion9(value2.trimLeft());
@@ -10744,9 +11725,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion9(value6.trimLeft());
       pk6 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pkr9 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Ordenr9 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion9(value2.trimLeft());
@@ -10776,9 +11767,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion9(value7.trimLeft());
       pk7 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pkr9 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Ordenr9 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion9(value2.trimLeft());
@@ -10812,9 +11827,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion9(value8.trimLeft());
       pk8 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pkr9 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Ordenr9 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion9(value2.trimLeft());
@@ -10852,41 +11895,92 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion9(value9.trimLeft());
       pk9 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr9 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pkr9 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Ordenr9 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
     _prestacion9.text = prestacionFinal9;
   }
 
   getAllPkPrestacion9(String prestacion) async {
     _Prestaciones9 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones9.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion9(String prestacion) async {
     _OrdenPres9 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres9.add(categoryModel);
       });
     });
   }
 
   addChecked10() async {
-    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
-    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';
+    var Orden1 = '';
+    var Orden2 = '';
+    var Orden3 = '';
+    var Orden4 = '';
+    var Orden5 = '';
+    var Orden6 = '';
+    var Orden7 = '';
+    var Orden8 = '';
+    var Orden9 = '';
 
-    var pk1 = '';var pk2 = '';var pk3 = '';var pk4 = '';var pk5 = '';
-    var pk6 = '';var pk7 = '';var pk8 = '';var pk9 = '';
+    var pk1 = '';
+    var pk2 = '';
+    var pk3 = '';
+    var pk4 = '';
+    var pk5 = '';
+    var pk6 = '';
+    var pk7 = '';
+    var pk8 = '';
+    var pk9 = '';
 
     List<PrestacionesLaboralesModel> previa10 = [];
     previa10 = _PrestacionesList;
@@ -10903,10 +11997,9 @@ class _Escolaridad_SeguridadSocialTablaState
     final tagName = prestacionFinal10;
     final split = tagName.split(',');
     final Map<int, String> values = {
-      for (int i = 0; i < split.length; i++)
-        i: split[i]
+      for (int i = 0; i < split.length; i++) i: split[i]
     };
-    print(values);  // {0: grubs, 1:  sheep}
+    print(values); // {0: grubs, 1:  sheep}
 
     final value1 = values[0];
     final value2 = values[1];
@@ -10918,16 +12011,14 @@ class _Escolaridad_SeguridadSocialTablaState
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-    if(value2.isEmpty){
+    if (value2.isEmpty) {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       getAllPkPrestacion10(value1);
       pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr10 = pk1;
       Ordenr10 = Orden1;
-    }else if(value3 == null){
+    } else if (value3 == null) {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion10(value2.trimLeft());
@@ -10937,9 +12028,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion10(value2.trimLeft());
       pk2 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr10 = pk1 +","+pk2;
-      Ordenr10 = Orden1+","+Orden2;
-    }else if(value4 == null){
+      pkr10 = pk1 + "," + pk2;
+      Ordenr10 = Orden1 + "," + Orden2;
+    } else if (value4 == null) {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion10(value2.trimLeft());
@@ -10953,9 +12044,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion10(value3.trimLeft());
       pk3 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr10 = pk1 +","+pk2+","+pk3;
-      Ordenr10 = Orden1+","+Orden2+","+Orden3;
-    }else if(value5 == null){
+      pkr10 = pk1 + "," + pk2 + "," + pk3;
+      Ordenr10 = Orden1 + "," + Orden2 + "," + Orden3;
+    } else if (value5 == null) {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion10(value2.trimLeft());
@@ -10973,9 +12064,9 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion10(value4.trimLeft());
       pk4 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr10 = pk1 +","+pk2+","+pk3+","+pk4;
-      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4;
-    }else if(value6 == null){
+      pkr10 = pk1 + "," + pk2 + "," + pk3 + "," + pk4;
+      Ordenr10 = Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4;
+    } else if (value6 == null) {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion10(value2.trimLeft());
@@ -10997,9 +12088,10 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion10(value5.trimLeft());
       pk5 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5;
-      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
-    }else if(value7 == null){
+      pkr10 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5;
+      Ordenr10 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5;
+    } else if (value7 == null) {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion10(value2.trimLeft());
@@ -11025,9 +12117,19 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion10(value6.trimLeft());
       pk6 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6;
-      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
-    }else if(value8 == null){
+      pkr10 = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 + "," + pk6;
+      Ordenr10 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6;
+    } else if (value8 == null) {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion10(value2.trimLeft());
@@ -11057,9 +12159,33 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion10(value7.trimLeft());
       pk7 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7;
-      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
-    }else if(value9 == null){
+      pkr10 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7;
+      Ordenr10 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7;
+    } else if (value9 == null) {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion10(value2.trimLeft());
@@ -11093,9 +12219,37 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion10(value8.trimLeft());
       pk8 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8;
-      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
-    }else{
+      pkr10 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8;
+      Ordenr10 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8;
+    } else {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllOrdenPrestacion10(value2.trimLeft());
@@ -11133,35 +12287,71 @@ class _Escolaridad_SeguridadSocialTablaState
       await getAllPkPrestacion10(value9.trimLeft());
       pk9 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pkr10 = pk1 +","+pk2+","+pk3+","+pk4+","+pk5+","+pk6+","+pk7+","+pk8+","+pk9;
-      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+      pkr10 = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
+          "," +
+          pk6 +
+          "," +
+          pk7 +
+          "," +
+          pk8 +
+          "," +
+          pk9;
+      Ordenr10 = Orden1 +
+          "," +
+          Orden2 +
+          "," +
+          Orden3 +
+          "," +
+          Orden4 +
+          "," +
+          Orden5 +
+          "," +
+          Orden6 +
+          "," +
+          Orden7 +
+          "," +
+          Orden8 +
+          "," +
+          Orden9;
     }
     _prestacion10.text = prestacionFinal10;
   }
 
   getAllPkPrestacion10(String prestacion) async {
     _Prestaciones10 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readPKPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readPKPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Pk_PrestacionesLaborales = category['Pk_PrestacionesLaborales'];
+        categoryModel.Pk_PrestacionesLaborales =
+            category['Pk_PrestacionesLaborales'];
         _Prestaciones10.add(categoryModel);
       });
     });
   }
+
   getAllOrdenPrestacion10(String prestacion) async {
     _OrdenPres10 = List<PrestacionesLaboralesModel>();
-    var categories = await CategoryService().readOrdenPrestacionesLaborales(prestacion);
+    var categories =
+        await CategoryService().readOrdenPrestacionesLaborales(prestacion);
     categories.forEach((category) {
       setState(() {
         var categoryModel = PrestacionesLaboralesModel();
-        categoryModel.Orden_PrestacionesLaborales = category['Orden_PrestacionesLaborales'];
+        categoryModel.Orden_PrestacionesLaborales =
+            category['Orden_PrestacionesLaborales'];
         _OrdenPres10.add(categoryModel);
       });
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -11220,10 +12410,13 @@ class _Escolaridad_SeguridadSocialTablaState
                             DataColumn(label: Text('No.')),
                             DataColumn(label: Text('Nombres')),
                             DataColumn(label: Text('Escolaridad')),
+                            DataColumn(label: Text('Otra Escolaridad')),
                             DataColumn(label: Text('Grado')),
                             DataColumn(label: Text('Asiste Escuela')),
                             DataColumn(label: Text('Ocupación')),
+                            DataColumn(label: Text('Otra Ocupación')),
                             DataColumn(label: Text('Tipo De Empleo')),
+                            DataColumn(label: Text('Otro Tipo de Empleo')),
                             DataColumn(label: Text('Prestaciones Laborales')),
                             DataColumn(label: Text('Jubilado o Pensionado')),
                             DataColumn(label: Text('Derechohabiencia')),
@@ -11234,13 +12427,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('1')),
                               DataCell(getTextDataTable(
                                   controller: _nombre1, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad1,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad1,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad1.text == "99 Otra") {
+                                          valEsc1 = true;
+                                        } else {
+                                          valEsc1 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad1,
+                                    enabled: valEsc1,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar1,
                                   suggestions: _GradoEscolar.map(
@@ -11296,18 +12550,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion1,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo1,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion1,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion1.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu1 = true;
+                                        } else {
+                                          valOcu1 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion1,
+                                    enabled: valOcu1,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo1,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo1.text == "99 Otro") {
+                                          valTipE1 = true;
+                                        } else {
+                                          valTipE1 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo1,
+                                    enabled: valTipE1,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
@@ -11464,13 +12842,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('2')),
                               DataCell(getTextDataTable(
                                   controller: _nombre2, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad2,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad2,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad2.text == "99 Otra") {
+                                          valEsc2 = true;
+                                        } else {
+                                          valEsc2 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad2,
+                                    enabled: valEsc2,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar2,
                                   suggestions: _GradoEscolar.map(
@@ -11526,18 +12965,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion2,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo2,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion2,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion2.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu2 = true;
+                                        } else {
+                                          valOcu2 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion2,
+                                    enabled: valOcu2,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo2,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo2.text == "99 Otro") {
+                                          valTipE2 = true;
+                                        } else {
+                                          valTipE2 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo2,
+                                    enabled: valTipE2,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
@@ -11694,13 +13257,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('3')),
                               DataCell(getTextDataTable(
                                   controller: _nombre3, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad3,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad3,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad3.text == "99 Otra") {
+                                          valEsc3 = true;
+                                        } else {
+                                          valEsc3 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad3,
+                                    enabled: valEsc3,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar3,
                                   suggestions: _GradoEscolar.map(
@@ -11756,18 +13380,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion3,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo3,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion3,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion3.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu3 = true;
+                                        } else {
+                                          valOcu3 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion3,
+                                    enabled: valOcu3,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo3,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo3.text == "99 Otro") {
+                                          valTipE3 = true;
+                                        } else {
+                                          valTipE3 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo3,
+                                    enabled: valTipE3,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
@@ -11924,13 +13672,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('4')),
                               DataCell(getTextDataTable(
                                   controller: _nombre4, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad4,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad4,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad4.text == "99 Otra") {
+                                          valEsc4 = true;
+                                        } else {
+                                          valEsc4 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad4,
+                                    enabled: valEsc4,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar4,
                                   suggestions: _GradoEscolar.map(
@@ -11986,18 +13795,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion4,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo4,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion4,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion4.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu4 = true;
+                                        } else {
+                                          valOcu4 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion4,
+                                    enabled: valOcu4,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo4,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo4.text == "99 Otro") {
+                                          valTipE4 = true;
+                                        } else {
+                                          valTipE4 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo4,
+                                    enabled: valTipE4,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
@@ -12154,13 +14087,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('5')),
                               DataCell(getTextDataTable(
                                   controller: _nombre5, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad5,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad5,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad5.text == "99 Otra") {
+                                          valEsc5 = true;
+                                        } else {
+                                          valEsc5 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad5,
+                                    enabled: valEsc5,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar5,
                                   suggestions: _GradoEscolar.map(
@@ -12216,18 +14210,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion5,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo5,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo de Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion5,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion5.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu5 = true;
+                                        } else {
+                                          valOcu5 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion5,
+                                    enabled: valOcu5,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo5,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo5.text == "99 Otro") {
+                                          valTipE5 = true;
+                                        } else {
+                                          valTipE5 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo5,
+                                    enabled: valTipE5,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
@@ -12384,13 +14502,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('6')),
                               DataCell(getTextDataTable(
                                   controller: _nombre6, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad6,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad6,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad6.text == "99 Otra") {
+                                          valEsc6 = true;
+                                        } else {
+                                          valEsc6 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad6,
+                                    enabled: valEsc6,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar6,
                                   suggestions: _GradoEscolar.map(
@@ -12446,18 +14625,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion6,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo6,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion6,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion6.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu6 = true;
+                                        } else {
+                                          valOcu6 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion6,
+                                    enabled: valOcu6,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo6,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo6.text == "99 Otro") {
+                                          valTipE6 = true;
+                                        } else {
+                                          valTipE6 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo6,
+                                    enabled: valTipE6,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
@@ -12614,13 +14917,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('7')),
                               DataCell(getTextDataTable(
                                   controller: _nombre7, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad7,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad7,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad7.text == "99 Otra") {
+                                          valEsc7 = true;
+                                        } else {
+                                          valEsc7 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad7,
+                                    enabled: valEsc7,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar7,
                                   suggestions: _GradoEscolar.map(
@@ -12676,18 +15040,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion7,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo7,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo de Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion7,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion7.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu7 = true;
+                                        } else {
+                                          valOcu7 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion7,
+                                    enabled: valOcu7,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo7,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo7.text == "99 Otro") {
+                                          valTipE7 = true;
+                                        } else {
+                                          valTipE7 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo7,
+                                    enabled: valTipE7,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
@@ -12844,13 +15332,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('8')),
                               DataCell(getTextDataTable(
                                   controller: _nombre8, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad8,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad8,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad8.text == "99 Otra") {
+                                          valEsc8 = true;
+                                        } else {
+                                          valEsc8 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad8,
+                                    enabled: valEsc8,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar8,
                                   suggestions: _GradoEscolar.map(
@@ -12906,18 +15455,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion8,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo8,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion8,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion8.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu8 = true;
+                                        } else {
+                                          valOcu8 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion8,
+                                    enabled: valOcu8,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo8,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo8.text == "99 Otro") {
+                                          valTipE8 = true;
+                                        } else {
+                                          valTipE8 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo8,
+                                    enabled: valTipE8,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
@@ -13074,13 +15747,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('9')),
                               DataCell(getTextDataTable(
                                   controller: _nombre9, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad9,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad9,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad9.text == "99 Otra") {
+                                          valEsc9 = true;
+                                        } else {
+                                          valEsc9 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad9,
+                                    enabled: valEsc9,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar9,
                                   suggestions: _GradoEscolar.map(
@@ -13136,18 +15870,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion9,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo9,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo de Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion9,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion9.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu9 = true;
+                                        } else {
+                                          valOcu9 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion9,
+                                    enabled: valOcu9,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo9,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo9.text == "99 Otro") {
+                                          valTipE9 = true;
+                                        } else {
+                                          valTipE9 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo9,
+                                    enabled: valTipE9,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
@@ -13304,13 +16162,74 @@ class _Escolaridad_SeguridadSocialTablaState
                               DataCell(Text('10')),
                               DataCell(getTextDataTable(
                                   controller: _nombre10, hintName: 'Nombres')),
-                              DataCell(getSearchField(
-                                  controller: _escolaridad10,
-                                  suggestions: _Escolaridad.map((escolaridad) =>
-                                      SearchFieldListItem(
-                                          escolaridad.escolaridad,
-                                          item: escolaridad)).toList(),
-                                  hintName: 'Escolaridad')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Escolaridad',
+                                      labelText: 'Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Escolaridad.map(
+                                        (escolaridad) => SearchFieldListItem(
+                                            escolaridad.escolaridad,
+                                            item: escolaridad)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _escolaridad10,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_escolaridad10.text == "99 Otra") {
+                                          valEsc10 = true;
+                                        } else {
+                                          valEsc10 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroEscolaridad10,
+                                    enabled: valEsc10,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Escolaridad',
+                                      labelText: 'Otra Escolaridad',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(getSearchField(
                                   controller: _gradoEscolar10,
                                   suggestions: _GradoEscolar.map(
@@ -13366,18 +16285,142 @@ class _Escolaridad_SeguridadSocialTablaState
                                   ],
                                 ),
                               ),
-                              DataCell(getSearchField(
-                                  controller: _ocupacion10,
-                                  suggestions: _Ocupacion.map((ocupacion) =>
-                                      SearchFieldListItem(ocupacion.ocupacion,
-                                          item: ocupacion)).toList(),
-                                  hintName: 'Ocupación')),
-                              DataCell(getSearchTipoEmpleado(
-                                  controller: _tipoEmpleo10,
-                                  suggestions: _TipoEmpleo.map((tipoEmpleo) =>
-                                      SearchFieldListItem(tipoEmpleo.TipoEmpleo,
-                                          item: tipoEmpleo)).toList(),
-                                  hintName: 'Tipo De Empleo')),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Ocupación',
+                                      labelText: 'Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _Ocupacion.map((ocupacion) =>
+                                        SearchFieldListItem(ocupacion.ocupacion,
+                                            item: ocupacion)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _ocupacion10,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_ocupacion10.text ==
+                                            "21 Otra ocupación") {
+                                          valOcu10 = true;
+                                        } else {
+                                          valOcu10 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroOcupacion10,
+                                    enabled: valOcu10,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otra Ocupación',
+                                      labelText: 'Otra Ocupación',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(top: 28),
+                                  width: 400,
+                                  child: SearchField(
+                                    suggestionState: Suggestion.expand,
+                                    searchInputDecoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Tipo De Empleo',
+                                      labelText: 'Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                    suggestions: _TipoEmpleo.map((tipoEmpleo) =>
+                                        SearchFieldListItem(
+                                            tipoEmpleo.TipoEmpleo,
+                                            item: tipoEmpleo)).toList(),
+                                    textInputAction: TextInputAction.next,
+                                    hasOverlay: true,
+                                    controller: _tipoEmpleo10,
+                                    maxSuggestionsInViewPort: 5,
+                                    itemHeight: 45,
+                                    onSuggestionTap: (x) {
+                                      setState(() {
+                                        if (_tipoEmpleo10.text == "99 Otro") {
+                                          valTipE10 = true;
+                                        } else {
+                                          valTipE10 = false;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              DataCell(
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 50),
+                                  width: 300,
+                                  child: TextFormField(
+                                    textCapitalization:
+                                        TextCapitalization.words,
+                                    controller: _otroTipoEmpleo10,
+                                    enabled: valTipE10,
+                                    autofocus: true,
+                                    decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.transparent),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue),
+                                      ),
+                                      hintText: 'Otro Tipo De Empleo',
+                                      labelText: 'Otro Tipo De Empleo',
+                                      fillColor: Colors.grey[200],
+                                      filled: true,
+                                    ),
+                                  ),
+                                ),
+                              ),
                               DataCell(
                                 Container(
                                   child: SingleChildScrollView(
