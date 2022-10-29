@@ -24,8 +24,11 @@ class ApoyosEnEspecie extends StatefulWidget {
 
 class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
   final _tipoApoyo = TextEditingController();
+  final _otroApoyo = TextEditingController();
   final _quienProporciona = TextEditingController();
   final _frecuenciaApoyo = TextEditingController();
+  bool valApoyo = false;
+
   List<ApoyoEnEspecieModel> _ApoyoEspecie = List<ApoyoEnEspecieModel>();
   List<ApoyosGobMx> _Apoyo = List<ApoyosGobMx>();
   List<ApoyoFrecuencia> _Frecuencia = List<ApoyoFrecuencia>();
@@ -41,10 +44,9 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
     getAllCategoriesProporcionado();
     getAllCategoriesFrecuencia();
     super.initState();
-
   }
 
-  getClaveApoyo(String Apoyo) async{
+  getClaveApoyo(String Apoyo) async {
     _ClaveApoyo = List<ApoyosGobMx>();
     var categories = await CategoryService().readClaveApoyo(Apoyo);
     categories.forEach((category) {
@@ -56,7 +58,7 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
     });
   }
 
-  getOrdenApoyo(String Apoyo) async{
+  getOrdenApoyo(String Apoyo) async {
     _OrdenApoyo = List<ApoyosGobMx>();
     var categories = await CategoryService().readOrdenApoyo(Apoyo);
     categories.forEach((category) {
@@ -68,7 +70,7 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
     });
   }
 
-  getOrdenFrecuencia(String Frecuencia) async{
+  getOrdenFrecuencia(String Frecuencia) async {
     _OrdenFrecuencia = List<ApoyoFrecuencia>();
     var categories = await CategoryService().readOrdenFrecuencia(Frecuencia);
     categories.forEach((category) {
@@ -80,7 +82,7 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
     });
   }
 
-  getClaveFrecuencia(String Frecuencia) async{
+  getClaveFrecuencia(String Frecuencia) async {
     _ClaveFrecuencia = List<ApoyoFrecuencia>();
     var categories = await CategoryService().readClaveFrecuencia(Frecuencia);
     categories.forEach((category) {
@@ -151,7 +153,7 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
         _ApoyoEspecie.map((e) => e.frecuencia.toString()).first;
   }
 
-  metodos(String Apoyo, String Frecuencia)async{
+  metodos(String Apoyo, String Frecuencia) async {
     await getClaveApoyo(Apoyo);
     await getOrdenApoyo(Apoyo);
     await getOrdenFrecuencia(Frecuencia);
@@ -159,8 +161,7 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
   }
 
   actualizar() async {
-
-    await metodos(_tipoApoyo.text,_frecuenciaApoyo.text);
+    await metodos(_tipoApoyo.text, _frecuenciaApoyo.text);
 
     ApoyoEnEspecieModel DModel = ApoyoEnEspecieModel(
         folio: int.parse(widget.folio),
@@ -185,8 +186,7 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
   }
 
   insertDatos() async {
-
-    await metodos(_tipoApoyo.text,_frecuenciaApoyo.text);
+    await metodos(_tipoApoyo.text, _frecuenciaApoyo.text);
 
     ApoyoEnEspecieModel DModel = ApoyoEnEspecieModel(
         folio: int.parse(widget.folio),
@@ -279,15 +279,46 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
                       filled: true,
                       fillColor: Colors.grey[120],
                     ),
-                    suggestions: _Apoyo.map((apoyo) =>
-                        SearchFieldListItem(apoyo.Apoyo.toString(),
-                            item: apoyo)).toList(),
+                    suggestions: _Apoyo.map((apoyo) => SearchFieldListItem(
+                        apoyo.Apoyo.toString(),
+                        item: apoyo)).toList(),
                     textInputAction: TextInputAction.next,
                     hasOverlay: false,
                     controller: _tipoApoyo,
                     maxSuggestionsInViewPort: 5,
                     itemHeight: 45,
-                    onSuggestionTap: (x) {},
+                    onSuggestionTap: (x) {
+                      setState(() {
+                        if (_tipoApoyo == "OTRO") {
+                          valApoyo = true;
+                        } else {
+                          valApoyo = false;
+                        }
+                      });
+                    },
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  width: 300,
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otroApoyo,
+                    enabled: valApoyo,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Tipo De Apoyo',
+                      labelText: 'Otro Tipo De Apoyo',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
                   ),
                 ),
                 SizedBox(height: 10.0),
@@ -314,7 +345,8 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
                       fillColor: Colors.grey[120],
                     ),
                     suggestions: _Proporcionado.map((proporcionado) =>
-                        SearchFieldListItem(proporcionado.ProporcionadoPor.toString(),
+                        SearchFieldListItem(
+                            proporcionado.ProporcionadoPor.toString(),
                             item: proporcionado)).toList(),
                     textInputAction: TextInputAction.next,
                     hasOverlay: false,

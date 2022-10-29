@@ -38,6 +38,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _parentesco1 = TextEditingController();
   final _curp1 = TextEditingController();
   bool val1 = false;
+  bool valPar1 = false;
 
   final _nombre2 = TextEditingController();
   final _primerApellido2 = TextEditingController();
@@ -48,8 +49,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _estadoCivil2 = TextEditingController();
   final _otroEstadoCivil2 = TextEditingController();
   final _parentesco2 = TextEditingController();
+  final _otroParentesco2 = TextEditingController();
   final _curp2 = TextEditingController();
   bool val2 = false;
+  bool valPar2 = false;
 
   final _nombre3 = TextEditingController();
   final _primerApellido3 = TextEditingController();
@@ -59,9 +62,11 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _entidadNacimiento3 = TextEditingController();
   final _estadoCivil3 = TextEditingController();
   final _otroEstadoCivil3 = TextEditingController();
+  final _otroParentesco3 = TextEditingController();
   final _parentesco3 = TextEditingController();
   final _curp3 = TextEditingController();
   bool val3 = false;
+  bool valPar3 = false;
 
   final _nombre4 = TextEditingController();
   final _primerApellido4 = TextEditingController();
@@ -72,8 +77,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _estadoCivil4 = TextEditingController();
   final _otroEstadoCivil4 = TextEditingController();
   final _parentesco4 = TextEditingController();
+  final _otroParentesco4 = TextEditingController();
   final _curp4 = TextEditingController();
   bool val4 = false;
+  bool valPar4 = false;
 
   final _nombre5 = TextEditingController();
   final _primerApellido5 = TextEditingController();
@@ -84,8 +91,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _estadoCivil5 = TextEditingController();
   final _otroEstadoCivil5 = TextEditingController();
   final _parentesco5 = TextEditingController();
+  final _otroParentesco5 = TextEditingController();
   final _curp5 = TextEditingController();
   bool val5 = false;
+  bool valPar5 = false;
 
   final _nombre6 = TextEditingController();
   final _primerApellido6 = TextEditingController();
@@ -96,8 +105,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _estadoCivil6 = TextEditingController();
   final _otroEstadoCivil6 = TextEditingController();
   final _parentesco6 = TextEditingController();
+  final _otroParentesco6 = TextEditingController();
   final _curp6 = TextEditingController();
   bool val6 = false;
+  bool valPar6 = false;
 
   final _nombre7 = TextEditingController();
   final _primerApellido7 = TextEditingController();
@@ -108,8 +119,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _estadoCivil7 = TextEditingController();
   final _otroEstadoCivil7 = TextEditingController();
   final _parentesco7 = TextEditingController();
+  final _otroParentesco7 = TextEditingController();
   final _curp7 = TextEditingController();
   bool val7 = false;
+  bool valPar7 = false;
 
   final _nombre8 = TextEditingController();
   final _primerApellido8 = TextEditingController();
@@ -120,8 +133,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _estadoCivil8 = TextEditingController();
   final _otroEstadoCivil8 = TextEditingController();
   final _parentesco8 = TextEditingController();
+  final _otroParentesco8 = TextEditingController();
   final _curp8 = TextEditingController();
   bool val8 = false;
+  bool valPar8 = false;
 
   final _nombre9 = TextEditingController();
   final _primerApellido9 = TextEditingController();
@@ -132,8 +147,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _estadoCivil9 = TextEditingController();
   final _otroEstadoCivil9 = TextEditingController();
   final _parentesco9 = TextEditingController();
+  final _otroParentesco9 = TextEditingController();
   final _curp9 = TextEditingController();
   bool val9 = false;
+  bool valPar9 = false;
 
   final _nombre10 = TextEditingController();
   final _primerApellido10 = TextEditingController();
@@ -144,8 +161,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
   final _estadoCivil10 = TextEditingController();
   final _otroEstadoCivil10 = TextEditingController();
   final _parentesco10 = TextEditingController();
+  final _otroParentesco10 = TextEditingController();
   final _curp10 = TextEditingController();
   bool val10 = false;
+  bool valPar10 = false;
 
   var dbHelper;
   List<EstadosCiviles> _EstadosCiviles = List<EstadosCiviles>();
@@ -18514,6 +18533,7 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                               DataColumn(label: Text('Estado Civil')),
                               DataColumn(label: Text('Otro Estado Civil')),
                               DataColumn(label: Text('Parentesco')),
+                              DataColumn(label: Text('Otro Parentesco')),
                             ],
                             rows: [
                               DataRow(cells: [
@@ -18674,10 +18694,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                        setState((){
+                                        setState(() {
                                           if (_estadoCivil1.text == '99 Otra') {
                                             val1 = true;
-                                          }else{
+                                          } else {
                                             val1 = false;
                                           }
                                         });
@@ -18712,7 +18732,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                   margin: EdgeInsets.only(top: 5),
                                   width: 300,
                                   child: TextFormField(
@@ -18734,6 +18755,9 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 )),
+                                DataCell(
+                                  Text('No es posible ingresar otro parentesco\n en este campo'),
+                                ),
                               ]),
                               DataRow(cells: [
                                 DataCell(Text('2')),
@@ -18892,10 +18916,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                        setState((){
+                                        setState(() {
                                           if (_estadoCivil2.text == '99 Otra') {
                                             val2 = true;
-                                          }else{
+                                          } else {
                                             val2 = false;
                                           }
                                         });
@@ -18903,7 +18927,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                     margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: TextFormField(
@@ -18927,7 +18952,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                         filled: true,
                                       ),
                                     ),
-                                  ),),
+                                  ),
+                                ),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 30),
@@ -18957,7 +18983,42 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       controller: _parentesco2,
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
-                                      onSuggestionTap: (x) {},
+                                      onSuggestionTap: (x) {
+                                        setState((){
+                                          if (_parentesco2.text == "15 Otro") {
+                                            valPar2 = true;
+                                          } else {
+                                            valPar2 = false;
+                                          }
+                                       });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    margin: EdgeInsets.only(top: 30),
+                                    width: 300,
+                                    child: TextFormField(
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      controller: _otroParentesco2,
+                                      enabled: valPar2,
+                                      autofocus: true,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        hintText: 'Otro Parentesco',
+                                        labelText: 'Otro Parentesco',
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -19119,10 +19180,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                         setState((){
+                                        setState(() {
                                           if (_estadoCivil3.text == '99 Otra') {
                                             val3 = true;
-                                          }else{
+                                          } else {
                                             val3 = false;
                                           }
                                         });
@@ -19130,7 +19191,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                     margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: TextFormField(
@@ -19154,7 +19216,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                         filled: true,
                                       ),
                                     ),
-                                  ),),
+                                  ),
+                                ),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 30),
@@ -19184,7 +19247,42 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       controller: _parentesco3,
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
-                                      onSuggestionTap: (x) {},
+                                      onSuggestionTap: (x) {
+                                        setState(() {
+                                          if (_parentesco3.text == "15 Otro") {
+                                            valPar3 = true;
+                                          } else {
+                                            valPar3 = false;
+                                          }
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    margin: EdgeInsets.only(top: 30),
+                                    width: 300,
+                                    child: TextFormField(
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      controller: _otroParentesco3,
+                                      enabled: valPar3,
+                                      autofocus: true,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        hintText: 'Otro Parentesco',
+                                        labelText: 'Otro Parentesco',
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -19346,10 +19444,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                         setState((){
+                                        setState(() {
                                           if (_estadoCivil4.text == '99 Otra') {
                                             val4 = true;
-                                          }else{
+                                          } else {
                                             val4 = false;
                                           }
                                         });
@@ -19357,7 +19455,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                     margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: TextFormField(
@@ -19381,7 +19480,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                         filled: true,
                                       ),
                                     ),
-                                  ),),
+                                  ),
+                                ),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 30),
@@ -19411,7 +19511,42 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       controller: _parentesco4,
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
-                                      onSuggestionTap: (x) {},
+                                      onSuggestionTap: (x) {
+                                        setState(() {
+                                          if (_parentesco4.text == "15 Otro") {
+                                            valPar4 = true;
+                                          } else {
+                                            valPar4 = false;
+                                          }
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    margin: EdgeInsets.only(top: 30),
+                                    width: 300,
+                                    child: TextFormField(
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      controller: _otroParentesco4,
+                                      enabled: valPar4,
+                                      autofocus: true,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        hintText: 'Otro Parentesco',
+                                        labelText: 'Otro Parentesco',
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -19573,10 +19708,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                         setState((){
+                                        setState(() {
                                           if (_estadoCivil5.text == '99 Otra') {
                                             val5 = true;
-                                          }else{
+                                          } else {
                                             val5 = false;
                                           }
                                         });
@@ -19584,7 +19719,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                     margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: TextFormField(
@@ -19608,7 +19744,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                         filled: true,
                                       ),
                                     ),
-                                  ),),
+                                  ),
+                                ),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 30),
@@ -19638,7 +19775,42 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       controller: _parentesco5,
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
-                                      onSuggestionTap: (x) {},
+                                      onSuggestionTap: (x) {
+                                        setState(() {
+                                          if (_parentesco5.text == "15 Otro") {
+                                            valPar5 = true;
+                                          } else {
+                                            valPar5 = false;
+                                          }
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    margin: EdgeInsets.only(top: 30),
+                                    width: 300,
+                                    child: TextFormField(
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      controller: _otroParentesco5,
+                                      enabled: valPar5,
+                                      autofocus: true,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        hintText: 'Otro Parentesco',
+                                        labelText: 'Otro Parentesco',
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -19800,10 +19972,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                         setState((){
+                                        setState(() {
                                           if (_estadoCivil6.text == '99 Otra') {
                                             val6 = true;
-                                          }else{
+                                          } else {
                                             val6 = false;
                                           }
                                         });
@@ -19811,7 +19983,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                     margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: TextFormField(
@@ -19835,7 +20008,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                         filled: true,
                                       ),
                                     ),
-                                  ),),
+                                  ),
+                                ),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 30),
@@ -19865,7 +20039,42 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       controller: _parentesco6,
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
-                                      onSuggestionTap: (x) {},
+                                      onSuggestionTap: (x) {
+                                        setState(() {
+                                          if (_parentesco6.text == "15 Otro") {
+                                            valPar6 = true;
+                                          } else {
+                                            valPar6 = false;
+                                          }
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    margin: EdgeInsets.only(top: 30),
+                                    width: 300,
+                                    child: TextFormField(
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      controller: _otroParentesco6,
+                                      enabled: valPar6,
+                                      autofocus: true,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        hintText: 'Otro Parentesco',
+                                        labelText: 'Otro Parentesco',
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -20027,10 +20236,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                         setState((){
+                                        setState(() {
                                           if (_estadoCivil7.text == '99 Otra') {
                                             val7 = true;
-                                          }else{
+                                          } else {
                                             val7 = false;
                                           }
                                         });
@@ -20038,7 +20247,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                     margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: TextFormField(
@@ -20062,7 +20272,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                         filled: true,
                                       ),
                                     ),
-                                  ),),
+                                  ),
+                                ),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 30),
@@ -20092,7 +20303,42 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       controller: _parentesco7,
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
-                                      onSuggestionTap: (x) {},
+                                      onSuggestionTap: (x) {
+                                        setState(() {
+                                          if (_parentesco7.text == "15 Otro") {
+                                            valPar7 = true;
+                                          } else {
+                                            valPar7 = false;
+                                          }
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    margin: EdgeInsets.only(top: 30),
+                                    width: 300,
+                                    child: TextFormField(
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      controller: _otroParentesco7,
+                                      enabled: valPar7,
+                                      autofocus: true,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        hintText: 'Otro Parentesco',
+                                        labelText: 'Otro Parentesco',
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -20254,10 +20500,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                         setState((){
+                                        setState(() {
                                           if (_estadoCivil8.text == '99 Otra') {
                                             val8 = true;
-                                          }else{
+                                          } else {
                                             val8 = false;
                                           }
                                         });
@@ -20265,7 +20511,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                     margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: TextFormField(
@@ -20289,7 +20536,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                         filled: true,
                                       ),
                                     ),
-                                  ),),
+                                  ),
+                                ),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 30),
@@ -20319,7 +20567,42 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       controller: _parentesco8,
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
-                                      onSuggestionTap: (x) {},
+                                      onSuggestionTap: (x) {
+                                        setState(() {
+                                          if (_parentesco8.text == "15 Otro") {
+                                            valPar8 = true;
+                                          } else {
+                                            valPar8 = false;
+                                          }
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    margin: EdgeInsets.only(top: 30),
+                                    width: 300,
+                                    child: TextFormField(
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      controller: _otroParentesco8,
+                                      enabled: valPar8,
+                                      autofocus: true,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        hintText: 'Otro Parentesco',
+                                        labelText: 'Otro Parentesco',
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -20481,10 +20764,10 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                         setState((){
+                                        setState(() {
                                           if (_estadoCivil9.text == '99 Otra') {
                                             val9 = true;
-                                          }else{
+                                          } else {
                                             val9 = false;
                                           }
                                         });
@@ -20492,7 +20775,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                     margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: TextFormField(
@@ -20516,7 +20800,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                         filled: true,
                                       ),
                                     ),
-                                  ),),
+                                  ),
+                                ),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 30),
@@ -20546,7 +20831,42 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       controller: _parentesco9,
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
-                                      onSuggestionTap: (x) {},
+                                      onSuggestionTap: (x) {
+                                        setState(() {
+                                          if (_parentesco9.text == "15 Otro") {
+                                            valPar9 = true;
+                                          } else {
+                                            valPar9 = false;
+                                          }
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    margin: EdgeInsets.only(top: 30),
+                                    width: 300,
+                                    child: TextFormField(
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      controller: _otroParentesco9,
+                                      enabled: valPar9,
+                                      autofocus: true,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        hintText: 'Otro Parentesco',
+                                        labelText: 'Otro Parentesco',
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -20709,10 +21029,11 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
                                       onSuggestionTap: (x) {
-                                         setState((){
-                                          if (_estadoCivil10.text == '99 Otra') {
+                                        setState(() {
+                                          if (_estadoCivil10.text ==
+                                              '99 Otra') {
                                             val10 = true;
-                                          }else{
+                                          } else {
                                             val10 = false;
                                           }
                                         });
@@ -20720,7 +21041,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                     ),
                                   ),
                                 ),
-                                DataCell(Container(
+                                DataCell(
+                                  Container(
                                     margin: EdgeInsets.only(top: 30),
                                     width: 300,
                                     child: TextFormField(
@@ -20744,7 +21066,8 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                         filled: true,
                                       ),
                                     ),
-                                  ),),
+                                  ),
+                                ),
                                 DataCell(
                                   Container(
                                     margin: EdgeInsets.only(top: 30),
@@ -20774,7 +21097,42 @@ class _EstructuraFamiliarTablaState extends State<EstructuraFamiliarTabla> {
                                       controller: _parentesco10,
                                       maxSuggestionsInViewPort: 5,
                                       itemHeight: 45,
-                                      onSuggestionTap: (x) {},
+                                      onSuggestionTap: (x) {
+                                        setState(() {
+                                          if (_parentesco10.text == "15 Otro") {
+                                            valPar10 = true;
+                                          } else {
+                                            valPar10 = false;
+                                          }
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                DataCell(
+                                  Container(
+                                    margin: EdgeInsets.only(top: 30),
+                                    width: 300,
+                                    child: TextFormField(
+                                      textCapitalization:
+                                          TextCapitalization.words,
+                                      controller: _otroParentesco10,
+                                      enabled: valPar10,
+                                      autofocus: true,
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        hintText: 'Otro Parentesco',
+                                        labelText: 'Otro Parentesco',
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
                                     ),
                                   ),
                                 ),

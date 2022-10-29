@@ -37,12 +37,24 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
   List<TipoMuroModel> _TipoMuro2 = List<TipoMuroModel>();
 
   final _tipoCasa = TextEditingController();
+  final _otroTipoCasa = TextEditingController();
   final _tipoPiso = TextEditingController();
+  final _otroPiso = TextEditingController();
   final _tipoTenencia = TextEditingController();
+  final _otroTenencia = TextEditingController();
   final _tipoTecho = TextEditingController();
+  final _otroTecho = TextEditingController();
   final _tipoMuro = TextEditingController();
-  List<EstadoCasaConstruccionModel> _EstadoCasa = List<EstadoCasaConstruccionModel>();
+  final _otroMuro = TextEditingController();
+  List<EstadoCasaConstruccionModel> _EstadoCasa =
+      List<EstadoCasaConstruccionModel>();
   var dbHelper = DbHelper();
+
+  bool valTipoCasa = false;
+  bool valPiso = false;
+  bool valTecho = false;
+  bool valTenencia = false;
+  bool valMuro = false;
 
   @override
   void initState() {
@@ -105,7 +117,6 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
   }
 
   actualizar() async {
-
     _TipoVivienda2 = List<TipoViviendaModel>();
     var categories = await CategoryService().readOrdencasa(_tipoCasa.text);
     categories.forEach((category) {
@@ -127,7 +138,8 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
     });
 
     _TipoTenencia2 = List<TipoTenenciaModel>();
-    var categories2 = await CategoryService().readOrdenTenencia(_tipoTenencia.text);
+    var categories2 =
+        await CategoryService().readOrdenTenencia(_tipoTenencia.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = TipoTenenciaModel();
@@ -307,7 +319,6 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
   }
 
   insertDatos() async {
-
     _TipoVivienda2 = List<TipoViviendaModel>();
     var categories = await CategoryService().readOrdencasa(_tipoCasa.text);
     categories.forEach((category) {
@@ -329,7 +340,8 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
     });
 
     _TipoTenencia2 = List<TipoTenenciaModel>();
-    var categories2 = await CategoryService().readOrdenTenencia(_tipoTenencia.text);
+    var categories2 =
+        await CategoryService().readOrdenTenencia(_tipoTenencia.text);
     categories2.forEach((category) {
       setState(() {
         var categoryModel3 = TipoTenenciaModel();
@@ -357,7 +369,6 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
         _TipoMuro2.add(categoryModel4);
       });
     });
-
 
     var TipoCasa = _tipoCasa.text.toString(); // 'artlang'
     final tipoCasa = TipoCasa.replaceAll("1", "")
@@ -529,10 +540,40 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                     controller: _tipoCasa,
                     maxSuggestionsInViewPort: 5,
                     itemHeight: 45,
-                    onSuggestionTap: (x) {},
+                    onSuggestionTap: (x) {
+                      setState(() {
+                        if (_tipoCasa.text == '4 Otra') {
+                          valTipoCasa = true;
+                        } else {
+                          valTipoCasa = false;
+                        }
+                      });
+                    },
                   ),
                 ),
-
+                SizedBox(height: 5.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  width: 300,
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otroTipoCasa,
+                    enabled: valTipoCasa,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Tipo De Vivienda',
+                      labelText: 'Otro Tipo De Vivienda',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
+                  ),
+                ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Mayor parte del Piso'),
                 SizedBox(height: 5.0),
@@ -565,10 +606,40 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                     controller: _tipoPiso,
                     maxSuggestionsInViewPort: 5,
                     itemHeight: 45,
-                    onSuggestionTap: (x) {},
+                    onSuggestionTap: (x) {
+                      setState(() {
+                        if (_tipoPiso == "5 Otro") {
+                          valPiso = true;
+                        } else {
+                          valPiso = false;
+                        }
+                      });
+                    },
                   ),
                 ),
-
+                SizedBox(height: 5.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  width: 300,
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otroPiso,
+                    enabled: valPiso,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Tipo De Piso',
+                      labelText: 'Otro Tipo De Piso',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
+                  ),
+                ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Tenencia'),
                 SizedBox(height: 5.0),
@@ -601,10 +672,40 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                     controller: _tipoTenencia,
                     maxSuggestionsInViewPort: 5,
                     itemHeight: 45,
-                    onSuggestionTap: (x) {},
+                    onSuggestionTap: (x) {
+                      setState(() {
+                        if (_tipoTenencia == "6 Otro") {
+                          valTenencia = true;
+                        } else {
+                          valTenencia = false;
+                        }
+                      });
+                    },
                   ),
                 ),
-
+                SizedBox(height: 5.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  width: 300,
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otroTenencia,
+                    enabled: valTenencia,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Tipo De Tenencia',
+                      labelText: 'Otro Tipo De Tenencia',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
+                  ),
+                ),
                 SizedBox(height: 10.0),
                 getTextQuestion(question: 'Mayor Parte  del Techo'),
                 SizedBox(height: 5.0),
@@ -637,7 +738,38 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                     controller: _tipoTecho,
                     maxSuggestionsInViewPort: 5,
                     itemHeight: 45,
-                    onSuggestionTap: (x) {},
+                    onSuggestionTap: (x) {
+                      setState(() {
+                        if (_tipoTecho == "6 Otros") {
+                          valTecho = true;
+                        } else {
+                          valTecho = false;
+                        }
+                      });
+                    },
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  width: 300,
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otroTecho,
+                    enabled: valTecho,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Tipo De Techo',
+                      labelText: 'Otro Tipo De Techo',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
                   ),
                 ),
 
@@ -673,7 +805,38 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                     controller: _tipoMuro,
                     maxSuggestionsInViewPort: 5,
                     itemHeight: 45,
-                    onSuggestionTap: (x) {},
+                    onSuggestionTap: (x) {
+                      setState(() {
+                        if (_tipoMuro.text == "7 OTROS") {
+                          valMuro = true;
+                        } else {
+                          valMuro = false;
+                        }
+                      });
+                    },
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  width: 300,
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
+                    controller: _otroMuro,
+                    enabled: valMuro,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                      ),
+                      hintText: 'Otro Tipo De Muro',
+                      labelText: 'Otro Tipo De Muro',
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
                   ),
                 ),
                 SizedBox(height: 5.0),

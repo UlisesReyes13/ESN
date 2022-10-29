@@ -35,7 +35,9 @@ class MyApp extends StatelessWidget {
 
 
 
+
       home: Salud_PertenenciaIndigenaTabla("99912"),
+
 
     );
   }

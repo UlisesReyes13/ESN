@@ -58,7 +58,6 @@ class DbHelper {
 
   static const int Version = 3;
 
-
   static const String C_idUsuario = 'idUsuario';
   static const String C_NombreUsuario = 'nombreUsuario';
   static const String C_Nombre = 'nombre';
@@ -164,8 +163,10 @@ class DbHelper {
   static const String C_ClaveDerechohabiencia = 'ClaveDerechohabiencia';
   static const String C_OrdenDerechohabiencia = 'OrdenDerechohabiencia';
   static const String C_Derechohabiencia = 'Derechohabiencia';
-  static const String C_ClaveMotivoDerechohabiencia = 'ClaveMotivoDerechohabiencia';
-  static const String C_OrdenMotivoDerechohabiencia = 'OrdenMotivoDerechohabiencia';
+  static const String C_ClaveMotivoDerechohabiencia =
+      'ClaveMotivoDerechohabiencia';
+  static const String C_OrdenMotivoDerechohabiencia =
+      'OrdenMotivoDerechohabiencia';
   static const String C_MotivoDerechohabiencia = 'MotivoDerechohabiencia';
 
   //Tabla Salud_Pertenencia Indigena
@@ -223,67 +224,87 @@ class DbHelper {
 
   //Tabla Equipamiento
   static const String C_pk_equipamientosRefri = 'pk_equipamientosRefri';
-  static const String C_txt_desc_equipamientosRefri = 'txt_desc_equipamientosRefri';
+  static const String C_txt_desc_equipamientosRefri =
+      'txt_desc_equipamientosRefri';
   static const String C_tieneRefri = 'tieneRefri';
   static const String C_sirveRefri = 'sirveRefri';
   static const String C_pk_equipamientosEstufa = 'pk_equipamientosEstufa';
-  static const String C_txt_desc_equipamientosEstufa = 'txt_desc_equipamientosEstufa';
+  static const String C_txt_desc_equipamientosEstufa =
+      'txt_desc_equipamientosEstufa';
   static const String C_tieneEstufa = 'tieneEstufa';
   static const String C_sirveEstufa = 'sirveEstufa';
-  static const String C_pk_equipamientosVideoDVDBlueRay = 'pk_equipamientosVideoDVDBlueRay';
-  static const String C_txt_desc_equipamientosVideoDVDBlueRay = 'txt_desc_equipamientosVideoDVDBlueRay';
+  static const String C_pk_equipamientosVideoDVDBlueRay =
+      'pk_equipamientosVideoDVDBlueRay';
+  static const String C_txt_desc_equipamientosVideoDVDBlueRay =
+      'txt_desc_equipamientosVideoDVDBlueRay';
   static const String C_tieneVideoDVDBlueRay = 'tieneVideoDVDBlueRay';
   static const String C_sirveVideoDVDBlueRay = 'sirveVideoDVDBlueRay';
   static const String C_pk_equipamientosLavadora = 'pk_equipamientosLavadora';
-  static const String C_txt_desc_equipamientosLavadora = 'txt_desc_equipamientosLavadora';
+  static const String C_txt_desc_equipamientosLavadora =
+      'txt_desc_equipamientosLavadora';
   static const String C_tieneLavadora = 'tieneLavadora';
   static const String C_sirveLavadora = 'sirveLavadora';
   static const String C_pk_equipamientosLicuadora = 'pk_equipamientosLicuadora';
-  static const String C_txt_desc_equipamientosLicuadora = 'txt_desc_equipamientosLicuadora';
+  static const String C_txt_desc_equipamientosLicuadora =
+      'txt_desc_equipamientosLicuadora';
   static const String C_tieneLicuadora = 'tieneLicuadora';
   static const String C_sirveLicuadora = 'sirveLicuadora';
-  static const String C_pk_equipamientosTelevision = 'pk_equipamientosTelevision';
-  static const String C_txt_desc_equipamientosTelevision = 'txt_desc_equipamientosTelevision';
+  static const String C_pk_equipamientosTelevision =
+      'pk_equipamientosTelevision';
+  static const String C_txt_desc_equipamientosTelevision =
+      'txt_desc_equipamientosTelevision';
   static const String C_tieneTelevision = 'tieneTelevision';
   static const String C_sirveTelevision = 'sirveTelevision';
   static const String C_pk_equipamientosRadio = 'pk_equipamientosRadio';
-  static const String C_txt_desc_equipamientosRadio = 'txt_desc_equipamientosRadio';
+  static const String C_txt_desc_equipamientosRadio =
+      'txt_desc_equipamientosRadio';
   static const String C_tieneRadio = 'tieneRadio';
   static const String C_sirveRadio = 'sirveRadio';
   static const String C_pk_equipamientosSala = 'pk_equipamientosSala';
-  static const String C_txt_desc_equipamientosSala = 'txt_desc_equipamientosSala';
+  static const String C_txt_desc_equipamientosSala =
+      'txt_desc_equipamientosSala';
   static const String C_tieneSala = 'tieneSala';
   static const String C_sirveSala = 'sirveSala';
   static const String C_pk_equipamientosComedor = 'pk_equipamientosComedor';
-  static const String C_txt_desc_equipamientosComedor = 'txt_desc_equipamientosComedor';
+  static const String C_txt_desc_equipamientosComedor =
+      'txt_desc_equipamientosComedor';
   static const String C_tieneComedor = 'tieneComedor';
   static const String C_sirveComedor = 'sirveComedor';
   static const String C_pk_equipamientosAutoMovil = 'pk_equipamientosAutoMovil';
-  static const String C_txt_desc_equipamientosAutoMovil = 'txt_desc_equipamientosAutoMovil';
+  static const String C_txt_desc_equipamientosAutoMovil =
+      'txt_desc_equipamientosAutoMovil';
   static const String C_tieneAutoMovil = 'tieneAutoMovil';
   static const String C_sirveAutoMovil = 'sirveAutoMovil';
   static const String C_pk_equipamientosCama = 'pk_equipamientosCama';
-  static const String C_txt_desc_equipamientosCama = 'txt_desc_equipamientosCama';
+  static const String C_txt_desc_equipamientosCama =
+      'txt_desc_equipamientosCama';
   static const String C_tieneCama = 'tieneCama';
   static const String C_sirveCama = 'sirveCama';
   static const String C_pk_equipamientosCelular = 'pk_equipamientosCelular';
-  static const String C_txt_desc_equipamientosCelular = 'txt_desc_equipamientosCelular';
+  static const String C_txt_desc_equipamientosCelular =
+      'txt_desc_equipamientosCelular';
   static const String C_tieneCelular = 'tieneCelular';
   static const String C_sirveCelular = 'sirveCelular';
-  static const String C_pk_equipamientosMotocicleta = 'pk_equipamientosMotocicleta';
-  static const String C_txt_desc_equipamientosMotocicleta = 'txt_desc_equipamientosMotocicleta';
+  static const String C_pk_equipamientosMotocicleta =
+      'pk_equipamientosMotocicleta';
+  static const String C_txt_desc_equipamientosMotocicleta =
+      'txt_desc_equipamientosMotocicleta';
   static const String C_tieneMotocicleta = 'tieneMotocicleta';
   static const String C_sirveMotocicleta = 'sirveMotocicleta';
-  static const String C_pk_equipamientosComputadora = 'pk_equipamientosComputadora';
-  static const String C_txt_desc_equipamientosComputadora = 'txt_desc_equipamientosComputadora';
+  static const String C_pk_equipamientosComputadora =
+      'pk_equipamientosComputadora';
+  static const String C_txt_desc_equipamientosComputadora =
+      'txt_desc_equipamientosComputadora';
   static const String C_tieneComputadora = 'tieneComputadora';
   static const String C_sirveComputadora = 'sirveComputadora';
   static const String C_pk_equipamientosHorno = 'pk_equipamientosHorno';
-  static const String C_txt_desc_equipamientosHorno = 'txt_desc_equipamientosHorno';
+  static const String C_txt_desc_equipamientosHorno =
+      'txt_desc_equipamientosHorno';
   static const String C_tieneHorno = 'tieneHorno';
   static const String C_sirveHorno = 'sirveHorno';
   static const String C_pk_equipamientosTelefono = 'pk_equipamientosTelefono';
-  static const String C_txt_desc_equipamientosTelefono = 'txt_desc_equipamientosTelefono';
+  static const String C_txt_desc_equipamientosTelefono =
+      'txt_desc_equipamientosTelefono';
   static const String C_tieneTelefono = 'tieneTelefono';
   static const String C_sirveTelefono = 'sirveTelefono';
   static const String C_CondicionesGenerales = 'CondicionesGenerales';
@@ -322,13 +343,13 @@ class DbHelper {
 
   //Tabla Remesas
   static const String C_dineroOtrosPaises = 'dineroOtrosPaises';
-  static const String C_ClaveFrecuencia= 'claveFrecuenciaApoyo';
-  static const String C_OrdenFrecuencia= 'ordenFrecuenciaApoyo';
-  static const String C_frecuencia= 'frecuencia';
+  static const String C_ClaveFrecuencia = 'claveFrecuenciaApoyo';
+  static const String C_OrdenFrecuencia = 'ordenFrecuenciaApoyo';
+  static const String C_frecuencia = 'frecuencia';
 
   //Tabla Documentos
   static const String C_curp = 'curp';
-  static const String C_actaNacimiento= 'actaNacimiento';
+  static const String C_actaNacimiento = 'actaNacimiento';
   static const String C_comprobanteDomicilio = 'comprobanteDomicilio';
   static const String C_ine = 'ine';
 
@@ -357,13 +378,10 @@ class DbHelper {
   static const String C_frecuenciaR = 'frecuencia';
   static const String C_duracion = 'duracion';
   static const String C_otorgarApoyo = 'otorgarApoyo';
-  static const String C_observaciones= 'observaciones';
+  static const String C_observaciones = 'observaciones';
 
   // Tabla fotografia
   static const String C_FileFoto = 'fileFoto';
-
-
-
 
   Future<Database> get db async {
     if (_db != null) {
@@ -381,27 +399,44 @@ class DbHelper {
   }
 
   _onCreate(Database db, int intVersion) async {
-
-    await db.execute("CREATE TABLE $Table_User ( $C_idUsuario INTEGER not null primary key AUTOINCREMENT , $C_NombreUsuario TEXT, $C_Nombre TEXT, $C_ApellidoP TEXT,$C_ApellidoM TEXT,$C_Rol TEXT,$C_Password TEXT);");
-    await db.execute("CREATE TABLE $Table_Data ($C_Folio INTEGER not null Primary key AUTOINCREMENT ,$C_FolioDisp TEXT,$C_FechaCaptura TEXT, $C_Calle TEXT, $C_EntreCalles TEXT,$C_ClaveGrupo int, $C_Grupo TEXT,$C_NoExt TEXT,$C_NoInt TEXT,$C_Fecha TEXT,$C_Localidad TEXT,$C_Telefono TEXT,$C_CP TEXT,$C_ClaveEstado TEXT,$C_Estado TEXT, $C_ClaveComunidad int , $C_NombreComunidad TEXT, $C_ClaveMunicipio TEXT,$C_Municipio TEXT,$C_ClaveAsentamiento TEXT,$C_NombreAsentamiento TEXT ,$C_ClaveTipoAsentamiento TEXT, $C_OrdenTipoAsentamiento TEXT, $C_TipoAsentamiento TEXT, $C_ClaveTipoVialidad TEXT, $C_OrdenTipoVialidad TEXT, $C_TipoVialidad TEXT);");
-    await db.execute("CREATE TABLE $Table_Servicios ($C_Folio int, $C_FolioDisp TEXT,$C_pk_bano TEXT , $C_int_orden_bano TEXT, $C_txt_desc_bano TEXT, $C_ClaveServAgua TEXT, $C_OrdenServAgua TEXT, $C_ServAgua TEXT, $C_ClaveServGas TEXT, $C_OrdenServGas TEXT, $C_ServGas TEXT, $C_ClaveServLuz TEXT, $C_OrdenServLuz TEXT, $C_ServLuz TEXT, $C_ClaveServSanitario TEXT, $C_OrdenServSanitario TEXT, $C_ServSanitario TEXT);");
-    await db.execute("CREATE TABLE $Table_DatosFamiliares ($C_Folio int, $C_FolioDisp TEXT,$C_Nombres TEXT, $C_PrimerApellido TEXT, $C_SegundoApellido TEXT,$C_ClaveSexo TEXT, $C_OrdenSexo TEXT, $C_Sexo TEXT, $C_FechaNacimiento TEXT, $C_ClaveEntidad TEXT, $C_EntidadNacimiento TEXT,$C_ClaveEstadoCivil TEXT ,$C_OrdenEstadoCivil TEXT,$C_EstadoCivil TEXT,$C_ClaveParentesco Text, $C_OrdenParentesco TEXT , $C_Parentesco TEXT, $C_IngresoSemanal int, $C_IngresoMensual int);");
-    await db.execute("CREATE TABLE $Table_Escolaridad ($C_Folio int,$C_FolioDisp TEXT, $C_ClaveEscolaridad TEXT, $C_OrdenEscolaridad TEXT, $C_Escolaridad TEXT,$C_ClaveGradoEscolar TEXT,$C_GradoEscolar TEXT,$C_ClaveAsisteEscuela TEXT,$C_OrdenAsisteEscuela TEXT,$C_AsisteEscuela TEXT,$C_ClaveOcupacion TEXT,$C_OrdenOcupacion TEXT,$C_Ocupacion TEXT,$C_ClaveTipoEmpleo TEXT,$C_OrdenTipoEmpleo TEXT,$C_TipoEmpleo TEXT,$C_pk_prestacioneslab TEXT,$C_int_OrdenPrestacionesLab TEXT,$C_txt_desc_prestacioneslab TEXT,$C_ClaveJubilacion TEXT,$C_OrdenJubilacion TEXT,$C_Jubilacion TEXT,$C_ClaveDerechohabiencia TEXT,$C_OrdenDerechohabiencia TEXT,$C_Derechohabiencia TEXT,$C_ClaveMotivoDerechohabiencia TEXT,$C_OrdenMotivoDerechohabiencia TEXT,$C_MotivoDerechohabiencia TEXT);");
-    await db.execute("CREATE TABLE $Table_Vivienda ($C_Folio int,$C_FolioDisp TEXT,$C_ClaveTipoVivienda TEXT,$C_OrdenTipoVivienda TEXT,$C_TipoVivienda TEXT,$C_ClaveTipoPiso TEXT,$C_OrdenTipoPiso TEXT,$C_TipoPiso TEXT,$C_ClaveTenencia TEXT,$C_OrdenTenencia TEXT,$C_Tenencia TEXT,$C_ClaveTecho TEXT,$C_OrdenTecho TEXT,$C_Techo TEXT,$C_ClaveTipoMuro TEXT,$C_OrdenTipoMuro TEXT,$C_TipoMuro TEXT);");
-    await db.execute("CREATE TABLE $Table_Casa ($C_Folio int,$C_FolioDisp TEXT,$C_numCuartos TEXT ,$C_cuartosDormir TEXT,$C_cocinaSeparada TEXT,$C_cuartoBanioExclusivo TEXT);");
-    await db.execute("CREATE TABLE $Table_Equipamiento ($C_Folio int,$C_FolioDisp TEXT,$C_pk_equipamientosRefri TEXT, $C_txt_desc_equipamientosRefri TEXT, $C_tieneRefri TEXT, $C_sirveRefri TEXT, $C_pk_equipamientosEstufa TEXT, $C_txt_desc_equipamientosEstufa TEXT, $C_tieneEstufa TEXT, $C_sirveEstufa TEXT, $C_pk_equipamientosVideoDVDBlueRay TEXT, $C_txt_desc_equipamientosVideoDVDBlueRay TEXT, $C_tieneVideoDVDBlueRay TEXT, $C_sirveVideoDVDBlueRay TEXT, $C_pk_equipamientosLavadora TEXT, $C_txt_desc_equipamientosLavadora TEXT, $C_tieneLavadora TEXT, $C_sirveLavadora TEXT, $C_pk_equipamientosLicuadora TEXT, $C_txt_desc_equipamientosLicuadora TEXT, $C_tieneLicuadora TEXT, $C_sirveLicuadora TEXT, $C_pk_equipamientosTelevision TEXT, $C_txt_desc_equipamientosTelevision TEXT, $C_tieneTelevision TEXT, $C_sirveTelevision TEXT, $C_pk_equipamientosRadio TEXT, $C_txt_desc_equipamientosRadio TEXT, $C_tieneRadio TEXT, $C_sirveRadio TEXT, $C_pk_equipamientosSala TEXT, $C_txt_desc_equipamientosSala TEXT, $C_tieneSala TEXT, $C_sirveSala TEXT, $C_pk_equipamientosComedor TEXT, $C_txt_desc_equipamientosComedor TEXT, $C_tieneComedor TEXT, $C_sirveComedor TEXT, $C_pk_equipamientosAutoMovil TEXT, $C_txt_desc_equipamientosAutoMovil TEXT, $C_tieneAutoMovil TEXT, $C_sirveAutoMovil TEXT, $C_pk_equipamientosCama TEXT, $C_txt_desc_equipamientosCama TEXT, $C_tieneCama TEXT, $C_sirveCama TEXT, $C_pk_equipamientosCelular TEXT, $C_txt_desc_equipamientosCelular TEXT, $C_tieneCelular TEXT, $C_sirveCelular TEXT, $C_pk_equipamientosMotocicleta TEXT, $C_txt_desc_equipamientosMotocicleta TEXT, $C_tieneMotocicleta TEXT, $C_sirveMotocicleta TEXT, $C_pk_equipamientosComputadora TEXT, $C_txt_desc_equipamientosComputadora TEXT, $C_tieneComputadora TEXT, $C_sirveComputadora TEXT, $C_pk_equipamientosHorno TEXT, $C_txt_desc_equipamientosHorno TEXT, $C_tieneHorno TEXT, $C_sirveHorno TEXT, $C_pk_equipamientosTelefono TEXT, $C_txt_desc_equipamientosTelefono TEXT, $C_tieneTelefono TEXT, $C_sirveTelefono TEXT, $C_CondicionesGenerales TEXT );");
-    await db.execute("CREATE TABLE $Table_AportacionSemanalM ($C_Folio int,$C_FolioDisp TEXT,$C_padre double,$C_madre double,$C_hijos double,$C_prospera double,$C_adultosMayoresProspera double,$C_becas double,$C_otros double,$C_pension double,$C_totalSemanal double,$C_totalMensual double);");
-    await db.execute("CREATE TABLE $Table_EgresoSemanalM ($C_Folio int,$C_FolioDisp TEXT,$C_vivienda double,$C_alimentacion double,$C_luz double,$C_gas double,$C_agua double,$C_telefono double,$C_transporte double,$C_atencionMedica double,$C_otrosGastos double,$C_celular double,$C_educacion double,$C_EtotalSemanal double,$C_EtotalMensual double);");
-    await db.execute("CREATE TABLE $Table_ApoyoEspecie ($C_Folio int,$C_FolioDisp TEXT,$C_tipoApoyo TEXT,$C_quienProporciona TEXT,$C_frecuenciaApoyo TEXT);");
-    await db.execute("CREATE TABLE $Table_Remesas ($C_Folio int,$C_FolioDisp TEXT, $C_dineroOtrosPaises TEXT,$C_ClaveFrecuencia Text ,$C_OrdenFrecuencia,$C_frecuencia TEXT);");
-    await db.execute("CREATE TABLE $Table_Documentos ($C_Folio int ,$C_FolioDisp TEXT,$C_curp TEXT, $C_actaNacimiento TEXT, $C_comprobanteDomicilio TEXT,$C_ine TEXT);");
-    await db.execute("CREATE TABLE $Table_Alimentacion ($C_Folio int ,$C_FolioDisp TEXT,$C_pregunta1 TEXT, $C_pregunta2 TEXT, $C_pregunta3 TEXT,$C_pregunta4 TEXT, $C_pregunta5 TEXT, $C_pregunta6 TEXT, $C_pregunta7 TEXT, $C_pregunta8 TEXT, $C_pregunta9 TEXT, $C_pregunta10 TEXT, $C_pregunta11 TEXT, $C_pregunta12 TEXT);");
-    await db.execute("CREATE TABLE $Table_Resolucion ($C_Folio int,$C_FolioDisp TEXT,$C_puntaje TEXT, $C_escalaNecesidad TEXT,$C_inseguridadAlimenticia TEXT,$C_clasificacionPobresa TEXT);");
-    await db.execute("CREATE TABLE $Table_ResolucionBAL ($C_Folio int,$C_FolioDisp TEXT,$C_tipo TEXT,claveFrecuencia TEXT,ordenFrecuencia TEXT ,$C_frecuenciaR TEXT,claveDuracion TEXT, ordenDuracion TEXT,$C_duracion TEXT, $C_otorgarApoyo TEXT,$C_observaciones TEXT);");
-    await db.execute("CREATE TABLE $Table_Fotografia ($C_Folio int , $C_FolioDisp TEXT,$C_FileFoto TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_User ( $C_idUsuario INTEGER not null primary key AUTOINCREMENT , $C_NombreUsuario TEXT, $C_Nombre TEXT, $C_ApellidoP TEXT,$C_ApellidoM TEXT,$C_Rol TEXT,$C_Password TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Data ($C_Folio INTEGER not null Primary key AUTOINCREMENT ,$C_FolioDisp TEXT,$C_FechaCaptura TEXT, $C_Calle TEXT, $C_EntreCalles TEXT,$C_ClaveGrupo int, $C_Grupo TEXT,$C_NoExt TEXT,$C_NoInt TEXT,$C_Fecha TEXT,$C_Localidad TEXT,$C_Telefono TEXT,$C_CP TEXT,$C_ClaveEstado TEXT,$C_Estado TEXT, $C_ClaveComunidad int , $C_NombreComunidad TEXT, $C_ClaveMunicipio TEXT,$C_Municipio TEXT,$C_ClaveAsentamiento TEXT,$C_NombreAsentamiento TEXT ,$C_ClaveTipoAsentamiento TEXT, $C_OrdenTipoAsentamiento TEXT, $C_TipoAsentamiento TEXT, $C_ClaveTipoVialidad TEXT, $C_OrdenTipoVialidad TEXT, $C_TipoVialidad TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Servicios ($C_Folio int, $C_FolioDisp TEXT,$C_pk_bano TEXT , $C_int_orden_bano TEXT, $C_txt_desc_bano TEXT, $C_ClaveServAgua TEXT, $C_OrdenServAgua TEXT, $C_ServAgua TEXT, $C_ClaveServGas TEXT, $C_OrdenServGas TEXT, $C_ServGas TEXT, $C_ClaveServLuz TEXT, $C_OrdenServLuz TEXT, $C_ServLuz TEXT, $C_ClaveServSanitario TEXT, $C_OrdenServSanitario TEXT, $C_ServSanitario TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_DatosFamiliares ($C_Folio int, $C_FolioDisp TEXT,$C_Nombres TEXT, $C_PrimerApellido TEXT, $C_SegundoApellido TEXT,$C_ClaveSexo TEXT, $C_OrdenSexo TEXT, $C_Sexo TEXT, $C_FechaNacimiento TEXT, $C_ClaveEntidad TEXT, $C_EntidadNacimiento TEXT,$C_ClaveEstadoCivil TEXT ,$C_OrdenEstadoCivil TEXT,$C_EstadoCivil TEXT,$C_ClaveParentesco Text, $C_OrdenParentesco TEXT , $C_Parentesco TEXT, $C_IngresoSemanal int, $C_IngresoMensual int);");
+    await db.execute(
+        "CREATE TABLE $Table_Escolaridad ($C_Folio int,$C_FolioDisp TEXT, $C_ClaveEscolaridad TEXT, $C_OrdenEscolaridad TEXT, $C_Escolaridad TEXT,$C_ClaveGradoEscolar TEXT,$C_GradoEscolar TEXT,$C_ClaveAsisteEscuela TEXT,$C_OrdenAsisteEscuela TEXT,$C_AsisteEscuela TEXT,$C_ClaveOcupacion TEXT,$C_OrdenOcupacion TEXT,$C_Ocupacion TEXT,$C_ClaveTipoEmpleo TEXT,$C_OrdenTipoEmpleo TEXT,$C_TipoEmpleo TEXT,$C_pk_prestacioneslab TEXT,$C_int_OrdenPrestacionesLab TEXT,$C_txt_desc_prestacioneslab TEXT,$C_ClaveJubilacion TEXT,$C_OrdenJubilacion TEXT,$C_Jubilacion TEXT,$C_ClaveDerechohabiencia TEXT,$C_OrdenDerechohabiencia TEXT,$C_Derechohabiencia TEXT,$C_ClaveMotivoDerechohabiencia TEXT,$C_OrdenMotivoDerechohabiencia TEXT,$C_MotivoDerechohabiencia TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Vivienda ($C_Folio int,$C_FolioDisp TEXT,$C_ClaveTipoVivienda TEXT,$C_OrdenTipoVivienda TEXT,$C_TipoVivienda TEXT,$C_ClaveTipoPiso TEXT,$C_OrdenTipoPiso TEXT,$C_TipoPiso TEXT,$C_ClaveTenencia TEXT,$C_OrdenTenencia TEXT,$C_Tenencia TEXT,$C_ClaveTecho TEXT,$C_OrdenTecho TEXT,$C_Techo TEXT,$C_ClaveTipoMuro TEXT,$C_OrdenTipoMuro TEXT,$C_TipoMuro TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Casa ($C_Folio int,$C_FolioDisp TEXT,$C_numCuartos TEXT ,$C_cuartosDormir TEXT,$C_cocinaSeparada TEXT,$C_cuartoBanioExclusivo TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Equipamiento ($C_Folio int,$C_FolioDisp TEXT,$C_pk_equipamientosRefri TEXT, $C_txt_desc_equipamientosRefri TEXT, $C_tieneRefri TEXT, $C_sirveRefri TEXT, $C_pk_equipamientosEstufa TEXT, $C_txt_desc_equipamientosEstufa TEXT, $C_tieneEstufa TEXT, $C_sirveEstufa TEXT, $C_pk_equipamientosVideoDVDBlueRay TEXT, $C_txt_desc_equipamientosVideoDVDBlueRay TEXT, $C_tieneVideoDVDBlueRay TEXT, $C_sirveVideoDVDBlueRay TEXT, $C_pk_equipamientosLavadora TEXT, $C_txt_desc_equipamientosLavadora TEXT, $C_tieneLavadora TEXT, $C_sirveLavadora TEXT, $C_pk_equipamientosLicuadora TEXT, $C_txt_desc_equipamientosLicuadora TEXT, $C_tieneLicuadora TEXT, $C_sirveLicuadora TEXT, $C_pk_equipamientosTelevision TEXT, $C_txt_desc_equipamientosTelevision TEXT, $C_tieneTelevision TEXT, $C_sirveTelevision TEXT, $C_pk_equipamientosRadio TEXT, $C_txt_desc_equipamientosRadio TEXT, $C_tieneRadio TEXT, $C_sirveRadio TEXT, $C_pk_equipamientosSala TEXT, $C_txt_desc_equipamientosSala TEXT, $C_tieneSala TEXT, $C_sirveSala TEXT, $C_pk_equipamientosComedor TEXT, $C_txt_desc_equipamientosComedor TEXT, $C_tieneComedor TEXT, $C_sirveComedor TEXT, $C_pk_equipamientosAutoMovil TEXT, $C_txt_desc_equipamientosAutoMovil TEXT, $C_tieneAutoMovil TEXT, $C_sirveAutoMovil TEXT, $C_pk_equipamientosCama TEXT, $C_txt_desc_equipamientosCama TEXT, $C_tieneCama TEXT, $C_sirveCama TEXT, $C_pk_equipamientosCelular TEXT, $C_txt_desc_equipamientosCelular TEXT, $C_tieneCelular TEXT, $C_sirveCelular TEXT, $C_pk_equipamientosMotocicleta TEXT, $C_txt_desc_equipamientosMotocicleta TEXT, $C_tieneMotocicleta TEXT, $C_sirveMotocicleta TEXT, $C_pk_equipamientosComputadora TEXT, $C_txt_desc_equipamientosComputadora TEXT, $C_tieneComputadora TEXT, $C_sirveComputadora TEXT, $C_pk_equipamientosHorno TEXT, $C_txt_desc_equipamientosHorno TEXT, $C_tieneHorno TEXT, $C_sirveHorno TEXT, $C_pk_equipamientosTelefono TEXT, $C_txt_desc_equipamientosTelefono TEXT, $C_tieneTelefono TEXT, $C_sirveTelefono TEXT, $C_CondicionesGenerales TEXT );");
+    await db.execute(
+        "CREATE TABLE $Table_AportacionSemanalM ($C_Folio int,$C_FolioDisp TEXT,$C_padre double,$C_madre double,$C_hijos double,$C_prospera double,$C_adultosMayoresProspera double,$C_becas double,$C_otros double,$C_pension double,$C_totalSemanal double,$C_totalMensual double);");
+    await db.execute(
+        "CREATE TABLE $Table_EgresoSemanalM ($C_Folio int,$C_FolioDisp TEXT,$C_vivienda double,$C_alimentacion double,$C_luz double,$C_gas double,$C_agua double,$C_telefono double,$C_transporte double,$C_atencionMedica double,$C_otrosGastos double,$C_celular double,$C_educacion double,$C_EtotalSemanal double,$C_EtotalMensual double);");
+    await db.execute(
+        "CREATE TABLE $Table_ApoyoEspecie ($C_Folio int,$C_FolioDisp TEXT,$C_tipoApoyo TEXT,$C_quienProporciona TEXT,$C_frecuenciaApoyo TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Remesas ($C_Folio int,$C_FolioDisp TEXT, $C_dineroOtrosPaises TEXT,$C_ClaveFrecuencia Text ,$C_OrdenFrecuencia,$C_frecuencia TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Documentos ($C_Folio int ,$C_FolioDisp TEXT,$C_curp TEXT, $C_actaNacimiento TEXT, $C_comprobanteDomicilio TEXT,$C_ine TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Alimentacion ($C_Folio int ,$C_FolioDisp TEXT,$C_pregunta1 TEXT, $C_pregunta2 TEXT, $C_pregunta3 TEXT,$C_pregunta4 TEXT, $C_pregunta5 TEXT, $C_pregunta6 TEXT, $C_pregunta7 TEXT, $C_pregunta8 TEXT, $C_pregunta9 TEXT, $C_pregunta10 TEXT, $C_pregunta11 TEXT, $C_pregunta12 TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Resolucion ($C_Folio int,$C_FolioDisp TEXT,$C_puntaje TEXT, $C_escalaNecesidad TEXT,$C_inseguridadAlimenticia TEXT,$C_clasificacionPobresa TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_ResolucionBAL ($C_Folio int,$C_FolioDisp TEXT,$C_tipo TEXT,claveFrecuencia TEXT,ordenFrecuencia TEXT ,$C_frecuenciaR TEXT,claveDuracion TEXT, ordenDuracion TEXT,$C_duracion TEXT, $C_otorgarApoyo TEXT,$C_observaciones TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Fotografia ($C_Folio int , $C_FolioDisp TEXT,$C_FileFoto TEXT);");
     await db.execute("CREATE TABLE $Table_Dispositivo ($C_Dispositivo TEXT);");
     //Tabla de salud_ pertenencia
-    await db.execute("CREATE TABLE $Table_Salud ($C_Folio int, $C_FolioDisp TEXT,$C_ClaveCapacidadDiferente TEXT, $C_OrdenCapacidadDiferente TEXT, $C_CapacidadDiferente TEXT, $C_ClaveAdiccion TEXT, $C_OrdenAdiccion TEXT, $C_Adiccion TEXT, $C_peso double, $C_talla double, $C_imc double, $C_ClaveCondicionesSalud TEXT, $C_OrdenCondicionesSalud TEXT, $C_CondicionesSalud TEXT, $C_ClaveClasCondicionesSalud TEXT, $C_OrdenClasCondicionesSalud TEXT, $C_ClasCondicionesSalud TEXT, $C_ponderacion TEXT, $C_fileFoto TEXT, $C_ClaveEtniaIndigena TEXT,$C_OrdenEtniaIndigena TEXT, $C_EtniaIndigena TEXT);");
+    await db.execute(
+        "CREATE TABLE $Table_Salud ($C_Folio int, $C_FolioDisp TEXT,$C_ClaveCapacidadDiferente TEXT, $C_OrdenCapacidadDiferente TEXT, $C_CapacidadDiferente TEXT, $C_ClaveAdiccion TEXT, $C_OrdenAdiccion TEXT, $C_Adiccion TEXT, $C_peso double, $C_talla double, $C_imc double, $C_ClaveCondicionesSalud TEXT, $C_OrdenCondicionesSalud TEXT, $C_CondicionesSalud TEXT, $C_ClaveClasCondicionesSalud TEXT, $C_OrdenClasCondicionesSalud TEXT, $C_ClasCondicionesSalud TEXT, $C_ponderacion TEXT, $C_fileFoto TEXT, $C_ClaveEtniaIndigena TEXT,$C_OrdenEtniaIndigena TEXT, $C_EtniaIndigena TEXT);");
 /*
 
     //NOMBRE ASENTAMIENTO
@@ -584,8 +619,11 @@ class DbHelper {
     await db.execute("INSERT INTO  tb_Parentescos (Parentesco) VALUES ('16 7 Suegro(a)');");
 
     //Tabla de Escolaridades
+    */
     await db.execute("CREATE TABLE tb_Escolaridades (Escolaridad TEXT);");
-    await db.execute("INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('1 1 N/A');");
+    await db.execute(
+        "INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('99 Otra');");
+    /*
     await db.execute("INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('2 2 Analfabeto');");
     await db.execute("INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('3 3 Alfabeto');");
     await db.execute("INSERT INTO tb_Escolaridades (Escolaridad) VALUES ('4 4 Preescolar');");
@@ -1275,20 +1313,29 @@ class DbHelper {
 */
 
     //Tabla cp
-    await db.execute("CREATE TABLE tb_CPs (ClaveCP INTEGER, Asentamiento TEXT,TipoAsentamiento TEXT, Municipio TEXT, Estado TEXT, Ciudad TEXT, ClaveEstado INTEGER, Clavetipo_asenta INTEGER , ClaveMunicipio INTEGER, TipoZona TEXT, ClaveCiudad INTEGER);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP,Asentamiento,TipoAsentamiento,Municipio,Estado,Ciudad,ClaveEstado,Clavetipo_asenta,ClaveMunicipio,TipoZona,ClaveCiudad) VALUES (36000,'Guanajuato Centro','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36003,'Alameda','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Cata','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Garrapata','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Mellado','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'Cerro de San Antonio','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'La Gualdra','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'San Luisito','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Ex-Hacienda de Durán','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-    await db.execute("INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Ex-Hacienda de Luna','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
-
+    await db.execute(
+        "CREATE TABLE tb_CPs (ClaveCP INTEGER, Asentamiento TEXT,TipoAsentamiento TEXT, Municipio TEXT, Estado TEXT, Ciudad TEXT, ClaveEstado INTEGER, Clavetipo_asenta INTEGER , ClaveMunicipio INTEGER, TipoZona TEXT, ClaveCiudad INTEGER);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP,Asentamiento,TipoAsentamiento,Municipio,Estado,Ciudad,ClaveEstado,Clavetipo_asenta,ClaveMunicipio,TipoZona,ClaveCiudad) VALUES (36000,'Guanajuato Centro','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36003,'Alameda','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Cata','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Garrapata','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36010,'Mellado','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'Cerro de San Antonio','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'La Gualdra','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36013,'San Luisito','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Ex-Hacienda de Durán','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
+    await db.execute(
+        "INSERT INTO tb_CPs (ClaveCP, Asentamiento, TipoAsentamiento, Municipio, Estado, Ciudad, ClaveEstado, Clavetipo_asenta, ClaveMunicipio, TipoZona, ClaveCiudad) VALUES (36014,'Ex-Hacienda de Luna','Colonia','Guanajuato','Guanajuato','Guanajuato', 11 , 9 , 15 ,'Urbano', 5);");
   }
-
 
   readData(table) async {
     var connection = await db;
@@ -1302,22 +1349,26 @@ class DbHelper {
 
   readProporcionado() async {
     var connection = await db;
-    return await connection.rawQuery("SELECT DISTINCT ProporcionadoPor FROM tb_ApoyosGobMx;");
+    return await connection
+        .rawQuery("SELECT DISTINCT ProporcionadoPor FROM tb_ApoyosGobMx;");
   }
 
   readOrdenTipoAsenta(String Asienta) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden FROM TiposAsentamiento where tipoAsentamiento like '${Asienta}'");
+    return await connection.rawQuery(
+        "SELECT Orden FROM TiposAsentamiento where tipoAsentamiento like '${Asienta}'");
   }
 
   readOrdenTipoVialidad(String Vialidad) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM TiposVialidad where TipoVialidad like '${Vialidad}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM TiposVialidad where TipoVialidad like '${Vialidad}'");
   }
 
   readParentesco() async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Parentesco FROM tb_Parentescos ORDER BY Orden");
+    return await connection
+        .rawQuery("SELECT Parentesco FROM tb_Parentescos ORDER BY Orden");
   }
 
   readVersion() async {
@@ -1353,118 +1404,139 @@ class DbHelper {
   readClaveClasCondicionesSalud(String condicion) async {
     var connection = await db;
     return await connection.rawQuery("select ClaveClasCondicionesSalud from tb_ClasCondicionesSalud where ClasCondicionesSalud like '%${condicion}%'");
+
   }
 
   readOrdenEstado(String Estado) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_Estados where Estado like '${Estado}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_Estados where Estado like '${Estado}'");
   }
 
   readClaveApoyo(String Apoyo) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT ClaveApoyo  FROM tb_ApoyosGobMx where Apoyo like '${Apoyo}'");
+    return await connection.rawQuery(
+        "SELECT ClaveApoyo  FROM tb_ApoyosGobMx where Apoyo like '${Apoyo}'");
   }
 
   readOrdenFrecuencia(String Frecuencia) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT OrdenFrecuencia  FROM tb_FrecuenciasApoyos where Frecuencia like '${Frecuencia}'");
+    return await connection.rawQuery(
+        "SELECT OrdenFrecuencia  FROM tb_FrecuenciasApoyos where Frecuencia like '${Frecuencia}'");
   }
 
   readClaveFreciencia(String Frecuencia) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT ClaveFrecuencia  FROM tb_FrecuenciasApoyos where Frecuencia like '${Frecuencia}'");
+    return await connection.rawQuery(
+        "SELECT ClaveFrecuencia  FROM tb_FrecuenciasApoyos where Frecuencia like '${Frecuencia}'");
   }
 
   readOrdenApoyo(String Apoyo) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT OrdenApoyo  FROM tb_ApoyosGobMx where Apoyo like '${Apoyo}'");
+    return await connection.rawQuery(
+        "SELECT OrdenApoyo  FROM tb_ApoyosGobMx where Apoyo like '${Apoyo}'");
   }
 
   readOrdenEstadosCivil(String Civil) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_EstadosCiviles where EstadoCivil like '${Civil}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_EstadosCiviles where EstadoCivil like '${Civil}'");
   }
 
   readOrdenParentesco(String Parentesco) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_Parentescos where Parentesco like '${Parentesco}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_Parentescos where Parentesco like '${Parentesco}'");
   }
-
-  //
 
   readOrdenEscolaridad(String escolar) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_Escolaridades where Escolaridad like '${escolar}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_Escolaridades where Escolaridad like '${escolar}'");
   }
 
   readOrdenGrado(String grado) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_GradosEscolares where GradoEscolar like '${grado}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_GradosEscolares where GradoEscolar like '${grado}'");
   }
 
   readOrdenOcupacion(String ocupacion) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_Ocupaciones where Ocupacion like '${ocupacion}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_Ocupaciones where Ocupacion like '${ocupacion}'");
   }
 
   readOrdenTipoEmpleo(String tipoEmple) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_TipoEmpleos where TipoEmpleo like '${tipoEmple}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_TipoEmpleos where TipoEmpleo like '${tipoEmple}'");
   }
 
   readOrdenDerechoA(String derecho) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_Derechohabiencias where Derechohabiencia like '${derecho}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_Derechohabiencias where Derechohabiencia like '${derecho}'");
   }
 
   readOrdenMotivoDerecho(String motivoDere) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_MotivoDerechohabiencias where MotivoDerechohabiencia like '${motivoDere}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_MotivoDerechohabiencias where MotivoDerechohabiencia like '${motivoDere}'");
   }
 
   readOrdenCapacidadesDif(String Capacidades) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_CapacidadesDiferentes where CapacidadDiferente like '${Capacidades}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_CapacidadesDiferentes where CapacidadDiferente like '${Capacidades}'");
   }
 
   readOrdenAdicciones(String Adicciones) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_Adicciones where Adiccion like '${Adicciones}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_Adicciones where Adiccion like '${Adicciones}'");
   }
 
   readOrdenPuebloIndigena(String Pueblo) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_EtniasIndigenas where EtniaIndigena like '${Pueblo}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_EtniasIndigenas where EtniaIndigena like '${Pueblo}'");
   }
 
   readOrdenCasa(String casa) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_TipoVivienda where TipoVivienda like '${casa}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_TipoVivienda where TipoVivienda like '${casa}'");
   }
 
   readOrdenPiso(String piso) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_TipoPisos where TipoPiso like '${piso}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_TipoPisos where TipoPiso like '${piso}'");
   }
 
   readOrdenTenencia(String tenencia) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_Tenencias where Tenencia like '${tenencia}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_Tenencias where Tenencia like '${tenencia}'");
   }
 
   readOrdenTecho(String techo) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_Techos where Techo like '${techo}'");
+    return await connection
+        .rawQuery("SELECT Orden  FROM tb_Techos where Techo like '${techo}'");
   }
 
   readOrdenMuros(String muros) async {
     var connection = await db;
-    return await connection.rawQuery("SELECT Orden  FROM tb_TiposMuro where TipoMuro like '${muros}'");
+    return await connection.rawQuery(
+        "SELECT Orden  FROM tb_TiposMuro where TipoMuro like '${muros}'");
   }
 
   readFolio(table) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = (select max(folio) from datosGenerales)");
+    return await connection.query(table,
+        where: "folio = (select max(folio) from datosGenerales)");
   }
 
   readDatosGeenerales(table, int folio) async {
@@ -1479,112 +1551,154 @@ class DbHelper {
 
   readEstructura1(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) from estructuraFailiar where folio = ${folio})");
   }
 
   readEstructura2(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 1 from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 1 from estructuraFailiar where folio = ${folio})");
   }
 
   readEstructura3(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 2 from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 2 from estructuraFailiar where folio = ${folio})");
   }
 
   readEstructura4(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 3 from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 3 from estructuraFailiar where folio = ${folio})");
   }
 
   readEstructura5(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 4 from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 4 from estructuraFailiar where folio = ${folio})");
   }
 
   readEstructura6(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 5 from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 5 from estructuraFailiar where folio = ${folio})");
   }
 
   readEstructura7(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 6 from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 6 from estructuraFailiar where folio = ${folio})");
   }
 
   readEstructura8(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 7 from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 7 from estructuraFailiar where folio = ${folio})");
   }
 
   readEstructura9(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 8 from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 8 from estructuraFailiar where folio = ${folio})");
   }
 
   readEstructura10(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 9 from estructuraFailiar where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 9 from estructuraFailiar where folio = ${folio})");
   }
 
   readEscolaridad1(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readEscolaridad2(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 1 from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 1 from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readEscolaridad3(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 2 from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 2 from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readEscolaridad4(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 3 from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 3 from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readEscolaridad5(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 4 from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 4 from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readEscolaridad6(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 5 from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 5 from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readEscolaridad7(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 6 from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 6 from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readEscolaridad8(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 7 from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 7 from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readEscolaridad9(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 8 from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 8 from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readEscolaridad10(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 9 from escolaridadSeguridadSocial where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 9 from escolaridadSeguridadSocial where folio = ${folio})");
   }
 
   readCodigoPostal(table, CodigoPostalModel codigoPostalModel) async {
     var connection = await db;
-    return await connection.query(table, where: "ClaveCP = ${codigoPostalModel.ClaveCP} ");
+    return await connection.query(table,
+        where: "ClaveCP = ${codigoPostalModel.ClaveCP} ");
   }
 
   readGrupo(table, ComunidadesModel comunidadesModel) async {
     var connection = await db;
-    return await connection.query(table, where: "Grupo like '${comunidadesModel.Comunidad}' ");
+    return await connection.query(table,
+        where: "Grupo like '${comunidadesModel.Comunidad}' ");
   }
 
   readEquipamiento(table, folio) async {
@@ -1648,89 +1762,101 @@ class DbHelper {
     return res;
   }
 
-  Future<int> saveDatosGenerales( DatosGeneralesModel datosGenerales)async {
+  Future<int> saveDatosGenerales(DatosGeneralesModel datosGenerales) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_Data, datosGenerales.toMap());
     return res;
   }
 
-  Future<int> saveEscolaridadSocial( EscolaridadSeguridadSocial escolaridadSeguridadSocial)async {
+  Future<int> saveEscolaridadSocial(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.insert(Table_Escolaridad, escolaridadSeguridadSocial.toMap());
+    var res = await dbClient.insert(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap());
     return res;
   }
 
-  Future<int> saveVivienda( EstadoCasaConstruccionModel estadoCasaConstruccionModel)async {
+  Future<int> saveVivienda(
+      EstadoCasaConstruccionModel estadoCasaConstruccionModel) async {
     var dbClient = await db;
-    var res = await dbClient.insert(Table_Vivienda, estadoCasaConstruccionModel.toMap());
+    var res = await dbClient.insert(
+        Table_Vivienda, estadoCasaConstruccionModel.toMap());
     return res;
   }
 
-  Future<int> saveCasa( CaracteristicasCasa caracteristicasCasa)async {
+  Future<int> saveCasa(CaracteristicasCasa caracteristicasCasa) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_Casa, caracteristicasCasa.toMap());
     return res;
   }
 
-  Future<int> saveSalud(Salud_PertenenciaIndigenenaTablaModel indigenenaTablaModel) async{
+  Future<int> saveSalud(
+      Salud_PertenenciaIndigenenaTablaModel indigenenaTablaModel) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_Salud, indigenenaTablaModel.toMap());
     return res;
   }
 
-  Future<int> saveEquipamiento( EquipamientoMovil equipamientoMovil)async {
+  Future<int> saveEquipamiento(EquipamientoMovil equipamientoMovil) async {
     var dbClient = await db;
-    var res = await dbClient.insert(Table_Equipamiento, equipamientoMovil.toMap());
+    var res =
+        await dbClient.insert(Table_Equipamiento, equipamientoMovil.toMap());
     return res;
   }
 
-  Future<int> saveApoyoSemanal( AportacionSemanal aportacionSemanal)async {
+  Future<int> saveApoyoSemanal(AportacionSemanal aportacionSemanal) async {
     var dbClient = await db;
-    var res = await dbClient.insert(Table_AportacionSemanalM, aportacionSemanal.toMap());
+    var res = await dbClient.insert(
+        Table_AportacionSemanalM, aportacionSemanal.toMap());
     return res;
   }
 
-  Future<int> saveEgresoSemanal( EgresoSemanal egresoSemanal)async {
+  Future<int> saveEgresoSemanal(EgresoSemanal egresoSemanal) async {
     var dbClient = await db;
-    var res = await dbClient.insert(Table_EgresoSemanalM, egresoSemanal.toMap());
+    var res =
+        await dbClient.insert(Table_EgresoSemanalM, egresoSemanal.toMap());
     return res;
   }
 
-  Future<int> saveApoyoEnEspecie( ApoyoEnEspecieModel apoyosEnEspecie)async {
+  Future<int> saveApoyoEnEspecie(ApoyoEnEspecieModel apoyosEnEspecie) async {
     var dbClient = await db;
-    var res = await dbClient.insert(Table_ApoyoEspecie, apoyosEnEspecie.toMap());
+    var res =
+        await dbClient.insert(Table_ApoyoEspecie, apoyosEnEspecie.toMap());
     return res;
   }
 
-  Future<int> saveRemesas( RemesasModel remesasModel)async {
+  Future<int> saveRemesas(RemesasModel remesasModel) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_Remesas, remesasModel.toMap());
     return res;
   }
 
-  Future<int> saveDocumentos( DocumentosModel documentosModel)async {
+  Future<int> saveDocumentos(DocumentosModel documentosModel) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_Documentos, documentosModel.toMap());
     return res;
   }
 
-  Future<int> saveAlimentacion( AlimentacionModel alimentacionModel)async {
+  Future<int> saveAlimentacion(AlimentacionModel alimentacionModel) async {
     var dbClient = await db;
-    var res = await dbClient.insert(Table_Alimentacion, alimentacionModel.toMap());
+    var res =
+        await dbClient.insert(Table_Alimentacion, alimentacionModel.toMap());
     return res;
   }
 
-  Future<int> saveResolucion( ResolucionModel resolucionModel)async {
+  Future<int> saveResolucion(ResolucionModel resolucionModel) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_Resolucion, resolucionModel.toMap());
     return res;
   }
 
-  Future<int> saveResolucionBAL( ResolucionBALModel resolucionBALModel)async {
+  Future<int> saveResolucionBAL(ResolucionBALModel resolucionBALModel) async {
     var dbClient = await db;
-    var res = await dbClient.insert(Table_ResolucionBAL, resolucionBALModel.toMap());
+    var res =
+        await dbClient.insert(Table_ResolucionBAL, resolucionBALModel.toMap());
     return res;
   }
+
 ///////////////////////////////////////////////////////////////////////////////////
   Future<int> saveDispo(DispoModel dispoModel) async {
     var dbClient = await db;
@@ -1743,7 +1869,6 @@ class DbHelper {
     return await connection.query(table);
   }
   /////////////////////////////////////
-
 
   Future<UserModel> getLoginUser(String userId, String password) async {
     var dbClient = await db;
@@ -1758,387 +1883,566 @@ class DbHelper {
     return null;
   }
 
-
-  Future<int> saveBanio(Banio banio) async{
+  Future<int> saveBanio(Banio banio) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_Servicios, banio.toMap());
     return res;
   }
 
-  Future<int> saveBano(Banio banio) async{
+  Future<int> saveBano(Banio banio) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_Servicios, banio.toMap());
     return res;
   }
 
-  Future<int> upDateBanio(Banio banio) async{
+  Future<int> upDateBanio(Banio banio) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Servicios, banio.toMap(), where: "folio = ${banio.folio}");
+    var res = await dbClient.update(Table_Servicios, banio.toMap(),
+        where: "folio = ${banio.folio}");
     return res;
   }
 
-  Future<int> upDateLuz(Luz luz) async{
+  Future<int> upDateLuz(Luz luz) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Servicios, luz.toMap(),where: "folio = ${luz.folio}");
+    var res = await dbClient.update(Table_Servicios, luz.toMap(),
+        where: "folio = ${luz.folio}");
     return res;
   }
 
-  Future<int> upDateAgua(Agua agua) async{
+  Future<int> upDateAgua(Agua agua) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Servicios, agua.toMap(),where: "folio = ${agua.folio}");
+    var res = await dbClient.update(Table_Servicios, agua.toMap(),
+        where: "folio = ${agua.folio}");
     return res;
   }
 
-  Future<int> upDateGas(Gas gas) async{
+  Future<int> upDateGas(Gas gas) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Servicios, gas.toMap(),where: "folio = ${gas.folio}");
+    var res = await dbClient.update(Table_Servicios, gas.toMap(),
+        where: "folio = ${gas.folio}");
     return res;
   }
 
-  Future<int> upDateDrenaje(Drenaje drenaje) async{
+  Future<int> upDateDrenaje(Drenaje drenaje) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Servicios, drenaje.toMap(),where: "folio = ${drenaje.folio}");
+    var res = await dbClient.update(Table_Servicios, drenaje.toMap(),
+        where: "folio = ${drenaje.folio}");
     return res;
   }
 
-  Future<int> upDateDatosGenerales(DatosGeneralesModel datosGeneralesModel) async{
+  Future<int> upDateDatosGenerales(
+      DatosGeneralesModel datosGeneralesModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Data, datosGeneralesModel.toMap(),where: "folio = ${datosGeneralesModel.folio}");
+    var res = await dbClient.update(Table_Data, datosGeneralesModel.toMap(),
+        where: "folio = ${datosGeneralesModel.folio}");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar1(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar1(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar2(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar2(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 1 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 1 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar3(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar3(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 2 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 2 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar4(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar4(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 3 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 3 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar5(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar5(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 4 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 4 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar6(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar6(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 5 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 5 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar7(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar7(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 6 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 6 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar8(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar8(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 7 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 7 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar9(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar9(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 8 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 8 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEstructuraFamiliar10(EstructuraFamilarModel estructuraFamilarModel) async{
+  Future<int> upDateEstructuraFamiliar10(
+      EstructuraFamilarModel estructuraFamilarModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_DatosFamiliares, estructuraFamilarModel.toMap(),where: "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 9 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
+    var res = await dbClient.update(
+        Table_DatosFamiliares, estructuraFamilarModel.toMap(),
+        where:
+            "folio = ${estructuraFamilarModel.folio} and ROWID = (select min(ROWID) + 9 from estructuraFailiar where folio = ${estructuraFamilarModel.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad1(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad1(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad2(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad2(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 1 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 1 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad3(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad3(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 2 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 2 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad4(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad4(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 3 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 3 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad5(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad5(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 4 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 4 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad6(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad6(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 5 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 5 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad7(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad7(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 6 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 6 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad8(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad8(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 7 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 7 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad9(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad9(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 8 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 8 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEscolaridad10(EscolaridadSeguridadSocial escolaridadSeguridadSocial) async{
+  Future<int> upDateEscolaridad10(
+      EscolaridadSeguridadSocial escolaridadSeguridadSocial) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Escolaridad, escolaridadSeguridadSocial.toMap(),where: "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 9 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
+    var res = await dbClient.update(
+        Table_Escolaridad, escolaridadSeguridadSocial.toMap(),
+        where:
+            "folio = ${escolaridadSeguridadSocial.folio} and ROWID = (select min(ROWID) + 9 from escolaridadSeguridadSocial where folio = ${escolaridadSeguridadSocial.folio})");
     return res;
   }
 
-  Future<int> upDateEquipamiento(EquipamientoMovil equipamientoMovil) async{
+  Future<int> upDateEquipamiento(EquipamientoMovil equipamientoMovil) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Equipamiento, equipamientoMovil.toMap(),where: "folio = ${equipamientoMovil.folio} ");
+    var res = await dbClient.update(
+        Table_Equipamiento, equipamientoMovil.toMap(),
+        where: "folio = ${equipamientoMovil.folio} ");
     return res;
   }
 
-  Future<int> upDateApoyo(AportacionSemanal aportacionSemanal) async{
+  Future<int> upDateApoyo(AportacionSemanal aportacionSemanal) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_AportacionSemanalM, aportacionSemanal.toMap(),where: "folio = ${aportacionSemanal.folio}");
+    var res = await dbClient.update(
+        Table_AportacionSemanalM, aportacionSemanal.toMap(),
+        where: "folio = ${aportacionSemanal.folio}");
     return res;
   }
 
-  Future<int> upDateEgreso(EgresoSemanal egresoSemanal) async{
+  Future<int> upDateEgreso(EgresoSemanal egresoSemanal) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_EgresoSemanalM, egresoSemanal.toMap(),where: "folio = ${egresoSemanal.folio} ");
+    var res = await dbClient.update(Table_EgresoSemanalM, egresoSemanal.toMap(),
+        where: "folio = ${egresoSemanal.folio} ");
     return res;
   }
 
-  Future<int> upDateApoyoEspecie(ApoyoEnEspecieModel apoyoEnEspecieModel) async{
+  Future<int> upDateApoyoEspecie(
+      ApoyoEnEspecieModel apoyoEnEspecieModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_ApoyoEspecie, apoyoEnEspecieModel.toMap(),where: "folio = ${apoyoEnEspecieModel.folio} ");
+    var res = await dbClient.update(
+        Table_ApoyoEspecie, apoyoEnEspecieModel.toMap(),
+        where: "folio = ${apoyoEnEspecieModel.folio} ");
     return res;
   }
 
-  Future<int> upDateRemesas(RemesasModel remesasModel) async{
+  Future<int> upDateRemesas(RemesasModel remesasModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Remesas, remesasModel.toMap(),where: "folio = ${remesasModel.folio} ");
+    var res = await dbClient.update(Table_Remesas, remesasModel.toMap(),
+        where: "folio = ${remesasModel.folio} ");
     return res;
   }
 
-  Future<int> upDateDocumentos(DocumentosModel documentosModel) async{
+  Future<int> upDateDocumentos(DocumentosModel documentosModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Documentos, documentosModel.toMap(),where: "folio = ${documentosModel.folio} ");
+    var res = await dbClient.update(Table_Documentos, documentosModel.toMap(),
+        where: "folio = ${documentosModel.folio} ");
     return res;
   }
 
-  Future<int> upDateAlimentacion(AlimentacionModel alimentacionModel) async{
+  Future<int> upDateAlimentacion(AlimentacionModel alimentacionModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Alimentacion, alimentacionModel.toMap(),where: "folio = ${alimentacionModel.folio} ");
+    var res = await dbClient.update(
+        Table_Alimentacion, alimentacionModel.toMap(),
+        where: "folio = ${alimentacionModel.folio} ");
     return res;
   }
 
-  Future<int> upDateResolucion(ResolucionModel resolucionModel) async{
+  Future<int> upDateResolucion(ResolucionModel resolucionModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Resolucion, resolucionModel.toMap(),where: "folio = ${resolucionModel.folio} ");
+    var res = await dbClient.update(Table_Resolucion, resolucionModel.toMap(),
+        where: "folio = ${resolucionModel.folio} ");
     return res;
   }
 
-  Future<int> upDateResolucionBAL(ResolucionBALModel resolucionBALModel) async{
+  Future<int> upDateResolucionBAL(ResolucionBALModel resolucionBALModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_ResolucionBAL, resolucionBALModel.toMap(),where: "folio = ${resolucionBALModel.folio} ");
+    var res = await dbClient.update(
+        Table_ResolucionBAL, resolucionBALModel.toMap(),
+        where: "folio = ${resolucionBALModel.folio} ");
     return res;
   }
 
-  Future<int> upDateFoto(FotoModel fotoModel) async{
+  Future<int> upDateFoto(FotoModel fotoModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Fotografia, fotoModel.toMap(),where: "folio = ${fotoModel.folio} ");
+    var res = await dbClient.update(Table_Fotografia, fotoModel.toMap(),
+        where: "folio = ${fotoModel.folio} ");
     return res;
   }
 
-  Future<int> upDateCasa(CaracteristicasCasa caracteristicasCasa) async{
+  Future<int> upDateCasa(CaracteristicasCasa caracteristicasCasa) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Casa, caracteristicasCasa.toMap(),where: "folio = ${caracteristicasCasa.folio} ");
+    var res = await dbClient.update(Table_Casa, caracteristicasCasa.toMap(),
+        where: "folio = ${caracteristicasCasa.folio} ");
     return res;
   }
 
-  Future<int> upDateVivienda(EstadoCasaConstruccionModel casaConstruccionModel) async{
+  Future<int> upDateVivienda(
+      EstadoCasaConstruccionModel casaConstruccionModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Vivienda, casaConstruccionModel.toMap(),where: "folio = ${casaConstruccionModel.folio} ");
+    var res = await dbClient.update(
+        Table_Vivienda, casaConstruccionModel.toMap(),
+        where: "folio = ${casaConstruccionModel.folio} ");
     return res;
   }
 
-
-  Future<int> saveEstructuraFamiliar(EstructuraFamilarModel estructuraFamilar)async {
+  Future<int> saveEstructuraFamiliar(
+      EstructuraFamilarModel estructuraFamilar) async {
     var dbClient = await db;
-    var res = await dbClient.insert(Table_DatosFamiliares, estructuraFamilar.toMap());
+    var res =
+        await dbClient.insert(Table_DatosFamiliares, estructuraFamilar.toMap());
     return res;
   }
 
-  Future<int> saveFoto( FotoModel fotoModel)async {
+  Future<int> saveFoto(FotoModel fotoModel) async {
     var dbClient = await db;
     var res = await dbClient.insert(Table_Fotografia, fotoModel.toMap());
     return res;
   }
 
-  Future<List<DatosGeneralesModel>> datos() async{
+  Future<List<DatosGeneralesModel>> datos() async {
     var dbClient = await db;
 
-    final List<Map<String, dynamic>> datosMap = await dbClient.query('datosGenerales');
+    final List<Map<String, dynamic>> datosMap =
+        await dbClient.query('datosGenerales');
 
-    return List.generate(datosMap.length, (i){
+    return List.generate(datosMap.length, (i) {
       return DatosGeneralesModel(
-        folio : datosMap[i]['folio'],
-        fecha : datosMap[i]['fecha'],
-        incompleto: datosMap[i]['incompleto']
-      );
+          folio: datosMap[i]['folio'],
+          fecha: datosMap[i]['fecha'],
+          incompleto: datosMap[i]['incompleto']);
     });
   }
 
   readSaludPertenencia(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) from saludPertenenciaIndigena where folio = ${folio})");
   }
 
   readSaludPertenencia2(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 1 from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 1 from saludPertenenciaIndigena where folio = ${folio})");
   }
 
   readSaludPertenencia3(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) +2 from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) +2 from saludPertenenciaIndigena where folio = ${folio})");
   }
 
   readSaludPertenencia4(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 3 from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 3 from saludPertenenciaIndigena where folio = ${folio})");
   }
 
   readSaludPertenencia5(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 4 from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 4 from saludPertenenciaIndigena where folio = ${folio})");
   }
 
   readSaludPertenencia6(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 5 from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 5 from saludPertenenciaIndigena where folio = ${folio})");
   }
 
   readSaludPertenencia7(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 6 from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 6 from saludPertenenciaIndigena where folio = ${folio})");
   }
 
   readSaludPertenencia8(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 7 from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 7 from saludPertenenciaIndigena where folio = ${folio})");
   }
 
   readSaludPertenencia9(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 8 from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 8 from saludPertenenciaIndigena where folio = ${folio})");
   }
 
   readSaludPertenencia10(table, int folio) async {
     var connection = await db;
-    return await connection.query(table, where: "folio = ${folio} and ROWID = (select min(ROWID) + 9 from saludPertenenciaIndigena where folio = ${folio})");
+    return await connection.query(table,
+        where:
+            "folio = ${folio} and ROWID = (select min(ROWID) + 9 from saludPertenenciaIndigena where folio = ${folio})");
   }
 
-  Future<int> upDateSalud1(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud1(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
-  Future<int> upDateSalud2(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud2(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 1 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 1 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
-  Future<int> upDateSalud3(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud3(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 2 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 2 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
-  Future<int> upDateSalud4(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud4(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 3 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 3 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
-  Future<int> upDateSalud5(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud5(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 4 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 4 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
-  Future<int> upDateSalud6(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud6(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 5 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 5 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
-  Future<int> upDateSalud7(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud7(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 6 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 6 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
-  Future<int> upDateSalud8(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud8(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 7 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 7 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
-  Future<int> upDateSalud9(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud9(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 8 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 8 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
-  Future<int> upDateSalud10(Salud_PertenenciaIndigenenaTablaModel salud_pertenenciaIndigenenaTablaModel) async{
+  Future<int> upDateSalud10(
+      Salud_PertenenciaIndigenenaTablaModel
+          salud_pertenenciaIndigenenaTablaModel) async {
     var dbClient = await db;
-    var res = await dbClient.update(Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),where: "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 9 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
+    var res = await dbClient.update(
+        Table_Salud, salud_pertenenciaIndigenenaTablaModel.toMap(),
+        where:
+            "folio = ${salud_pertenenciaIndigenenaTablaModel.folio} and ROWID = (select min(ROWID) + 9 from saludPertenenciaIndigena where folio = ${salud_pertenenciaIndigenenaTablaModel.folio})");
     return res;
   }
 
   Future<int> updateIncompleto(String incom, int folio) async {
     var dbClient = await db;
-    var res = await dbClient.rawUpdate("UPDATE ${Table_Data} SET incompleto = ? WHERE folio = ?", [incom, folio]);
+    var res = await dbClient.rawUpdate(
+        "UPDATE ${Table_Data} SET incompleto = ? WHERE folio = ?",
+        [incom, folio]);
     print(res);
     return res;
   }
