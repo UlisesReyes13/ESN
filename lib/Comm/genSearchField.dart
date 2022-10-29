@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
 
-class getSearchField extends StatelessWidget {
+class getSearchField extends StatefulWidget {
   TextEditingController controller;
   List suggestions;
   String hintName;
+  String valor;
+  String valor1;
+  bool val;
 
-  getSearchField({this.controller, this.suggestions, this.hintName});
+  getSearchField(
+      {this.controller,
+      this.suggestions,
+      this.hintName,
+      this.valor,
+      this.valor1,
+      this.val = false});
 
+  @override
+  State<getSearchField> createState() => _getSearchFieldState();
+}
+
+class _getSearchFieldState extends State<getSearchField> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,18 +36,26 @@ class getSearchField extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.blue),
           ),
-          hintText: hintName,
-          labelText: hintName,
+          hintText: widget.hintName,
+          labelText: widget.hintName,
           fillColor: Colors.grey[200],
           filled: true,
         ),
-        suggestions: suggestions,
+        suggestions: widget.suggestions,
         textInputAction: TextInputAction.next,
         hasOverlay: true,
-        controller: controller,
+        controller: widget.controller,
         maxSuggestionsInViewPort: 5,
         itemHeight: 45,
-        onSuggestionTap: (x) {},
+        onSuggestionTap: (x) {
+          setState(() {
+            if (widget.valor == widget.valor1) {
+              widget.val = true;
+            } else {
+              widget.val = false;
+            }
+          });
+        },
       ),
     );
   }
