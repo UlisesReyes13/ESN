@@ -64,7 +64,68 @@ class _Salud_PertenenciaIndigenaTablaState
   List<CondicioneSaludModel> selectedItemsCond1 = [];
   List<ClasificacionModel> selectedItemsClas1 = [];
 
-  addChecked1Cond() {
+  //Variables del renglon 1
+  var ponderacionr1 = '';
+  var Ordenr1 ='';
+  var Pk1 = '';
+  var OrdenC1 ='';
+//Variables del renglon 2
+  var ponderacionr2 = '';
+  var Ordenr2 ='';
+  var Pk2 = '';
+  var OrdenC2 ='';
+  //Variables del renglon 3
+  var ponderacionr3 = '';
+  var Ordenr3 ='';
+  var Pk3 = '';
+  var OrdenC3 ='';
+//Variables del renglon 4
+  var ponderacionr4 = '';
+  var Ordenr4 ='';
+  var Pk4 = '';
+  var OrdenC4 ='';
+  //Variables del renglon 5
+  var ponderacionr5 = '';
+  var Ordenr5 ='';
+  var Pk5 = '';
+  var OrdenC5 ='';
+//Variables del renglon 6
+  var ponderacionr6 = '';
+  var Ordenr6 ='';
+  var Pk6 = '';
+  var OrdenC6 ='';
+  //Variables del renglon 7
+  var ponderacionr7 = '';
+  var Ordenr7 ='';
+  var Pk7 = '';
+  var OrdenC7 ='';
+//Variables del renglon 8
+  var ponderacionr8 = '';
+  var Ordenr8 ='';
+  var Pk8 = '';
+  var OrdenC8 ='';
+  //Variables del renglon 9
+  var ponderacionr9 = '';
+  var Ordenr9 ='';
+  var Pk9 = '';
+  var OrdenC9 ='';
+  //Variables del renglon 10
+  var ponderacionr10 = '';
+  var Ordenr10 ='';
+  var Pk10 = '';
+  var OrdenC10 ='';
+
+  addChecked1Cond() async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
+
     List<CondicioneSaludModel> previa1Cond = [];
     previa1Cond = _Condiciones;
     selectedItemsCond1.clear();
@@ -76,10 +137,891 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion1 = selectedItemsCond1.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal1 = rpl.replaceSymbol(condicion1);
-    _condicionSalud1.text = condicionFinal1;
+
+    final tagName = condicionFinal1;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+
+
+
+
+
+    if(value2== null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      ponderacionr1 = pon1;
+      Ordenr1 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+
+      ponderacionr1 = pon1 +","+pon2;
+      Ordenr1 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+
+      ponderacionr1 = pon1 +","+pon2+","+pon3;
+      Ordenr1 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+
+      ponderacionr1 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr1 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+
+      ponderacionr1 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr1 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+
+      ponderacionr1 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr1 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value7.trimLeft());
+      Orden7 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value7.trimLeft());
+      pon7 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+
+      ponderacionr1 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr1 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value7.trimLeft());
+      Orden7 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value8.trimLeft());
+      Orden8 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value7.trimLeft());
+      pon7 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value8.trimLeft());
+      pon8 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+
+      ponderacionr1 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr1 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value7.trimLeft());
+      Orden7 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value8.trimLeft());
+      Orden8 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value9.trimLeft());
+      Orden9 = _OrdenCon1.map((e) => e.Orden).first;
+
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value7.trimLeft());
+      pon7 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value8.trimLeft());
+      pon8 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value9.trimLeft());
+      pon9 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr1 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr1 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value7.trimLeft());
+      Orden7 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value8.trimLeft());
+      Orden8 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value9.trimLeft());
+      Orden9 = _OrdenCon1.map((e) => e.Orden).first;
+      await getAllOrdenCondicion1(value10.trimLeft());
+      Orden10 = _OrdenCon1.map((e) => e.Orden).first;
+
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value7.trimLeft());
+      pon7 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value8.trimLeft());
+      pon8 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value9.trimLeft());
+      pon9 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones1(value10.trimLeft());
+      pon10 = _Ponderaciones1.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr1 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr1 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value7.trimLeft());
+      Orden7 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value8.trimLeft());
+      Orden8 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value9.trimLeft());
+      Orden9 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value10.trimLeft());
+      Orden10 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value11.trimLeft());
+      Orden11 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value7.trimLeft());
+      pon7 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value8.trimLeft());
+      pon8 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value9.trimLeft());
+      pon9 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value10.trimLeft());
+      pon10 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value11.trimLeft());
+      pon11 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr1 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr1 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value7.trimLeft());
+      Orden7 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value8.trimLeft());
+      Orden8 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value9.trimLeft());
+      Orden9 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value10.trimLeft());
+      Orden10 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value11.trimLeft());
+      Orden11 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion1(value12.trimLeft());
+      Orden12 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value7.trimLeft());
+      pon7 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value8.trimLeft());
+      pon8 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value9.trimLeft());
+      pon9 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value10.trimLeft());
+      pon10 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value11.trimLeft());
+      pon11 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones1(value12.trimLeft());
+      pon12 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr1 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr1 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value7.trimLeft());
+      Orden7 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value8.trimLeft());
+      Orden8 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value9.trimLeft());
+      Orden9 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value10.trimLeft());
+      Orden10 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value11.trimLeft());
+      Orden11 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion1(value12.trimLeft());
+      Orden12 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value13.trimLeft());
+      Orden13 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value7.trimLeft());
+      pon7 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value8.trimLeft());
+      pon8 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value9.trimLeft());
+      pon9 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value10.trimLeft());
+      pon10 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value11.trimLeft());
+      pon11 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones1(value12.trimLeft());
+      pon12 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value13.trimLeft());
+      pon13 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr1 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr1 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value7.trimLeft());
+      Orden7 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value8.trimLeft());
+      Orden8 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value9.trimLeft());
+      Orden9 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value10.trimLeft());
+      Orden10 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value11.trimLeft());
+      Orden11 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion1(value12.trimLeft());
+      Orden12 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value13.trimLeft());
+      Orden13 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value14.trimLeft());
+      Orden14 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value7.trimLeft());
+      pon7 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value8.trimLeft());
+      pon8 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value9.trimLeft());
+      pon9 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value10.trimLeft());
+      pon10 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value11.trimLeft());
+      pon11 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones1(value12.trimLeft());
+      pon12 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value13.trimLeft());
+      pon13 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value14.trimLeft());
+      pon14 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr1 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr1 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion1(value1.trimLeft());
+      Orden1 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value2.trimLeft());
+      Orden2 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value3.trimLeft());
+      Orden3 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value4.trimLeft());
+      Orden4 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value5.trimLeft());
+      Orden5 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value6.trimLeft());
+      Orden6 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value7.trimLeft());
+      Orden7 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value8.trimLeft());
+      Orden8 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value9.trimLeft());
+      Orden9 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value10.trimLeft());
+      Orden10 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value11.trimLeft());
+      Orden11 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion1(value12.trimLeft());
+      Orden12 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value13.trimLeft());
+      Orden13 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value14.trimLeft());
+      Orden14 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion1(value15.trimLeft());
+      Orden15 = _OrdenCon1
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones1(value1.trimLeft());
+      pon1 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value2.trimLeft());
+      pon2 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value3.trimLeft());
+      pon3 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value4.trimLeft());
+      pon4 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value5.trimLeft());
+      pon5 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value6.trimLeft());
+      pon6 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value7.trimLeft());
+      pon7 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value8.trimLeft());
+      pon8 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value9.trimLeft());
+      pon9 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value10.trimLeft());
+      pon10 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value11.trimLeft());
+      pon11 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones1(value12.trimLeft());
+      pon12 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value13.trimLeft());
+      pon13 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones1(value14.trimLeft());
+      pon14 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones1(value15.trimLeft());
+      pon15 = _Ponderaciones1
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr1 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr1 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
+      _condicionSalud1.text = condicionFinal1;
   }
 
-  addChecked1Clas() {
+  addChecked1Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
+
     List<ClasificacionModel> previa1CLas = [];
     previa1CLas = _Clasificaciones;
     selectedItemsClas1.clear();
@@ -91,6 +1033,146 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion1 = selectedItemsClas1.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal1 = rpl.replaceSymbol(clasificacion1);
+
+    final tagName = clasificacionFinal1;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    print(value2);
+    print(value1);
+    print(value3);
+
+
+    if(value2== null){
+      await getAllOrdenClasCondicion1(value1.trimLeft());
+      Orden1 = _OrdenClas1.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas1(value1.trimLeft());
+      pkr1 = _ClaveClas1.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk1 = pkr1;
+      OrdenC1 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion1(value1.trimLeft());
+      Orden1 = _OrdenClas1.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas1(value1.trimLeft());
+      pkr1 = _ClaveClas1.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk1 = pkr1 + "," + pkr2;
+      OrdenC1 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion1(value1.trimLeft());
+      Orden1 = _OrdenClas1.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas1(value1.trimLeft());
+      pkr1 = _ClaveClas1.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk1 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC1 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion1(value1.trimLeft());
+      Orden1 = _OrdenClas1.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas1(value1.trimLeft());
+      pkr1 = _ClaveClas1.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk1 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC1 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion1(value1.trimLeft());
+      Orden1 = _OrdenClas1.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas1(value1.trimLeft());
+      pkr1 = _ClaveClas1.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk1 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC1 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion1(value1.trimLeft());
+      Orden1 = _OrdenClas1.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas1(value1.trimLeft());
+      pkr1 = _ClaveClas1.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value6.trimLeft());
+      Orden6 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value6.trimLeft());
+      pkr6 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk1 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC1 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
+
     _clasificacion1.text = clasificacionFinal1;
   }
 
@@ -119,7 +1201,17 @@ class _Salud_PertenenciaIndigenaTablaState
   List<CondicioneSaludModel> selectedItemsCond2 = [];
   List<ClasificacionModel> selectedItemsClas2 = [];
 
-  addChecked2Cond() {
+  addChecked2Cond()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
+
     List<CondicioneSaludModel> previa2Cond = [];
     previa2Cond = _Condiciones;
     selectedItemsCond2.clear();
@@ -131,10 +1223,891 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion2 = selectedItemsCond2.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal2 = rpl.replaceSymbol(condicion2);
+
+    final tagName = condicionFinal2;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+
+
+
+
+    if(value2== null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      ponderacionr2 = pon1;
+      Ordenr2 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden2 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+
+      ponderacionr2 = pon1 +","+pon2;
+      Ordenr2 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+
+      ponderacionr2 = pon1 +","+pon2+","+pon3;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+
+      ponderacionr2 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+
+      ponderacionr2 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+
+      ponderacionr2 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value7.trimLeft());
+      Orden7 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value7.trimLeft());
+      pon7 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+
+      ponderacionr2 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value7.trimLeft());
+      Orden7 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value8.trimLeft());
+      Orden8 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value7.trimLeft());
+      pon7 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value8.trimLeft());
+      pon8 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+
+      ponderacionr2 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value7.trimLeft());
+      Orden7 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value8.trimLeft());
+      Orden8 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value9.trimLeft());
+      Orden9 = _OrdenCon2.map((e) => e.Orden).first;
+
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value7.trimLeft());
+      pon7 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value8.trimLeft());
+      pon8 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value9.trimLeft());
+      pon9 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr2 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value7.trimLeft());
+      Orden7 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value8.trimLeft());
+      Orden8 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value9.trimLeft());
+      Orden9 = _OrdenCon2.map((e) => e.Orden).first;
+      await getAllOrdenCondicion2(value10.trimLeft());
+      Orden10 = _OrdenCon2.map((e) => e.Orden).first;
+
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value7.trimLeft());
+      pon7 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value8.trimLeft());
+      pon8 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value9.trimLeft());
+      pon9 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones2(value10.trimLeft());
+      pon10 = _Ponderaciones2.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr2 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr2 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value7.trimLeft());
+      Orden7 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value8.trimLeft());
+      Orden8 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value9.trimLeft());
+      Orden9 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value10.trimLeft());
+      Orden10 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value11.trimLeft());
+      Orden11 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value7.trimLeft());
+      pon7 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value8.trimLeft());
+      pon8 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value9.trimLeft());
+      pon9 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value10.trimLeft());
+      pon10 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value11.trimLeft());
+      pon11 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr2 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr2 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value7.trimLeft());
+      Orden7 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value8.trimLeft());
+      Orden8 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value9.trimLeft());
+      Orden9 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value10.trimLeft());
+      Orden10 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value11.trimLeft());
+      Orden11 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion2(value12.trimLeft());
+      Orden12 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value7.trimLeft());
+      pon7 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value8.trimLeft());
+      pon8 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value9.trimLeft());
+      pon9 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value10.trimLeft());
+      pon10 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value11.trimLeft());
+      pon11 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones2(value12.trimLeft());
+      pon12 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr2 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr2 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value7.trimLeft());
+      Orden7 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value8.trimLeft());
+      Orden8 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value9.trimLeft());
+      Orden9 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value10.trimLeft());
+      Orden10 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value11.trimLeft());
+      Orden11 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion2(value12.trimLeft());
+      Orden12 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value13.trimLeft());
+      Orden13 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value7.trimLeft());
+      pon7 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value8.trimLeft());
+      pon8 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value9.trimLeft());
+      pon9 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value10.trimLeft());
+      pon10 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value11.trimLeft());
+      pon11 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones2(value12.trimLeft());
+      pon12 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value13.trimLeft());
+      pon13 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr2 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr2 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value7.trimLeft());
+      Orden7 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value8.trimLeft());
+      Orden8 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value9.trimLeft());
+      Orden9 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value10.trimLeft());
+      Orden10 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value11.trimLeft());
+      Orden11 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion2(value12.trimLeft());
+      Orden12 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value13.trimLeft());
+      Orden13 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value14.trimLeft());
+      Orden14 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value7.trimLeft());
+      pon7 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value8.trimLeft());
+      pon8 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value9.trimLeft());
+      pon9 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value10.trimLeft());
+      pon10 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value11.trimLeft());
+      pon11 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones2(value12.trimLeft());
+      pon12 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value13.trimLeft());
+      pon13 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value14.trimLeft());
+      pon14 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr2 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr2 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion2(value1.trimLeft());
+      Orden1 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value2.trimLeft());
+      Orden2 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value3.trimLeft());
+      Orden3 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value4.trimLeft());
+      Orden4 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value5.trimLeft());
+      Orden5 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value6.trimLeft());
+      Orden6 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value7.trimLeft());
+      Orden7 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value8.trimLeft());
+      Orden8 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value9.trimLeft());
+      Orden9 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value10.trimLeft());
+      Orden10 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value11.trimLeft());
+      Orden11 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion2(value12.trimLeft());
+      Orden12 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value13.trimLeft());
+      Orden13 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value14.trimLeft());
+      Orden14 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion2(value15.trimLeft());
+      Orden15 = _OrdenCon2
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones2(value1.trimLeft());
+      pon1 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value2.trimLeft());
+      pon2 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value3.trimLeft());
+      pon3 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value4.trimLeft());
+      pon4 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value5.trimLeft());
+      pon5 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value6.trimLeft());
+      pon6 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value7.trimLeft());
+      pon7 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value8.trimLeft());
+      pon8 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value9.trimLeft());
+      pon9 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value10.trimLeft());
+      pon10 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value11.trimLeft());
+      pon11 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones2(value12.trimLeft());
+      pon12 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value13.trimLeft());
+      pon13 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones2(value14.trimLeft());
+      pon14 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones2(value15.trimLeft());
+      pon15 = _Ponderaciones2
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr2 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr2 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
+
     _condicionSalud2.text = condicionFinal2;
   }
 
-  addChecked2Clas() {
+  addChecked2Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
+
     List<ClasificacionModel> previa2CLas = [];
     previa2CLas = _Clasificaciones;
     selectedItemsClas2.clear();
@@ -146,6 +2119,141 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion2 = selectedItemsClas2.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal2 = rpl.replaceSymbol(clasificacion2);
+
+    final tagName = clasificacionFinal2;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    if(value2== null){
+      await getAllOrdenClasCondicion2(value1.trimLeft());
+      Orden1 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value1.trimLeft());
+      pkr1 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk2 = pkr1;
+      OrdenC2 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion2(value1.trimLeft());
+      Orden1 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value1.trimLeft());
+      pkr1 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk2 = pkr1 + "," + pkr2;
+      OrdenC2 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion2(value1.trimLeft());
+      Orden1 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value1.trimLeft());
+      pkr1 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk2 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC2 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion2(value1.trimLeft());
+      Orden1 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value1.trimLeft());
+      pkr1 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk2 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC2 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion2(value1.trimLeft());
+      Orden1 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value1.trimLeft());
+      pkr1 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk2 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC2 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion2(value1.trimLeft());
+      Orden1 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value1.trimLeft());
+      pkr1 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion2(value2.trimLeft());
+      Orden2 = _OrdenClas2.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas2(value2.trimLeft());
+      pkr2 = _ClaveClas2.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value6.trimLeft());
+      Orden6 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value6.trimLeft());
+      pkr6 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk2 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC2 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
+
     _clasificacion2.text = clasificacionFinal2;
   }
 
@@ -174,7 +2282,16 @@ class _Salud_PertenenciaIndigenaTablaState
   List<CondicioneSaludModel> selectedItemsCond3 = [];
   List<ClasificacionModel> selectedItemsClas3 = [];
 
-  addChecked3Cond() {
+  addChecked3Cond()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
+
     List<CondicioneSaludModel> previa3Cond = [];
     previa3Cond = _Condiciones;
     selectedItemsCond3.clear();
@@ -186,10 +2303,886 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion3 = selectedItemsCond3.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal3 = rpl.replaceSymbol(condicion3);
+
+    final tagName = condicionFinal3;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+    if(value2 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      ponderacionr3 = pon1;
+      Ordenr3 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+
+      ponderacionr3 = pon1 +","+pon2;
+      Ordenr3 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+
+      ponderacionr3 = pon1 +","+pon2+","+pon3;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+
+      ponderacionr3 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+
+      ponderacionr3 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+
+      ponderacionr3 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value7.trimLeft());
+      Orden7 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value7.trimLeft());
+      pon7 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+
+      ponderacionr3 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value7.trimLeft());
+      Orden7 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value8.trimLeft());
+      Orden8 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value7.trimLeft());
+      pon7 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value8.trimLeft());
+      pon8 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+
+      ponderacionr3 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value7.trimLeft());
+      Orden7 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value8.trimLeft());
+      Orden8 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value9.trimLeft());
+      Orden9 = _OrdenCon3.map((e) => e.Orden).first;
+
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value7.trimLeft());
+      pon7 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value8.trimLeft());
+      pon8 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value9.trimLeft());
+      pon9 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr3 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value7.trimLeft());
+      Orden7 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value8.trimLeft());
+      Orden8 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value9.trimLeft());
+      Orden9 = _OrdenCon3.map((e) => e.Orden).first;
+      await getAllOrdenCondicion3(value10.trimLeft());
+      Orden10 = _OrdenCon3.map((e) => e.Orden).first;
+
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value7.trimLeft());
+      pon7 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value8.trimLeft());
+      pon8 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value9.trimLeft());
+      pon9 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones3(value10.trimLeft());
+      pon10 = _Ponderaciones3.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr3 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr3 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value7.trimLeft());
+      Orden7 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value8.trimLeft());
+      Orden8 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value9.trimLeft());
+      Orden9 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value10.trimLeft());
+      Orden10 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value11.trimLeft());
+      Orden11 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value7.trimLeft());
+      pon7 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value8.trimLeft());
+      pon8 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value9.trimLeft());
+      pon9 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value10.trimLeft());
+      pon10 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value11.trimLeft());
+      pon11 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr3 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr3 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value7.trimLeft());
+      Orden7 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value8.trimLeft());
+      Orden8 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value9.trimLeft());
+      Orden9 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value10.trimLeft());
+      Orden10 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value11.trimLeft());
+      Orden11 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion3(value12.trimLeft());
+      Orden12 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value7.trimLeft());
+      pon7 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value8.trimLeft());
+      pon8 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value9.trimLeft());
+      pon9 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value10.trimLeft());
+      pon10 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value11.trimLeft());
+      pon11 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones3(value12.trimLeft());
+      pon12 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr3 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr3 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value7.trimLeft());
+      Orden7 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value8.trimLeft());
+      Orden8 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value9.trimLeft());
+      Orden9 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value10.trimLeft());
+      Orden10 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value11.trimLeft());
+      Orden11 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion3(value12.trimLeft());
+      Orden12 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value13.trimLeft());
+      Orden13 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value7.trimLeft());
+      pon7 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value8.trimLeft());
+      pon8 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value9.trimLeft());
+      pon9 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value10.trimLeft());
+      pon10 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value11.trimLeft());
+      pon11 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones3(value12.trimLeft());
+      pon12 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value13.trimLeft());
+      pon13 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr3 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr3 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value7.trimLeft());
+      Orden7 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value8.trimLeft());
+      Orden8 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value9.trimLeft());
+      Orden9 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value10.trimLeft());
+      Orden10 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value11.trimLeft());
+      Orden11 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion3(value12.trimLeft());
+      Orden12 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value13.trimLeft());
+      Orden13 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value14.trimLeft());
+      Orden14 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value7.trimLeft());
+      pon7 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value8.trimLeft());
+      pon8 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value9.trimLeft());
+      pon9 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value10.trimLeft());
+      pon10 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value11.trimLeft());
+      pon11 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones3(value12.trimLeft());
+      pon12 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value13.trimLeft());
+      pon13 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value14.trimLeft());
+      pon14 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr3 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr3 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion3(value1.trimLeft());
+      Orden1 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value2.trimLeft());
+      Orden2 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value3.trimLeft());
+      Orden3 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value4.trimLeft());
+      Orden4 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value5.trimLeft());
+      Orden5 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value6.trimLeft());
+      Orden6 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value7.trimLeft());
+      Orden7 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value8.trimLeft());
+      Orden8 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value9.trimLeft());
+      Orden9 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value10.trimLeft());
+      Orden10 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value11.trimLeft());
+      Orden11 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion3(value12.trimLeft());
+      Orden12 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value13.trimLeft());
+      Orden13 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value14.trimLeft());
+      Orden14 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion3(value15.trimLeft());
+      Orden15 = _OrdenCon3
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones3(value1.trimLeft());
+      pon1 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value2.trimLeft());
+      pon2 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value3.trimLeft());
+      pon3 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value4.trimLeft());
+      pon4 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value5.trimLeft());
+      pon5 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value6.trimLeft());
+      pon6 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value7.trimLeft());
+      pon7 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value8.trimLeft());
+      pon8 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value9.trimLeft());
+      pon9 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value10.trimLeft());
+      pon10 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value11.trimLeft());
+      pon11 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones3(value12.trimLeft());
+      pon12 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value13.trimLeft());
+      pon13 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones3(value14.trimLeft());
+      pon14 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones3(value15.trimLeft());
+      pon15 = _Ponderaciones3
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr3 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr3 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
     _condicionSalud3.text = condicionFinal3;
   }
 
-  addChecked3Clas() {
+  addChecked3Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
+
     List<ClasificacionModel> previa3CLas = [];
     previa3CLas = _Clasificaciones;
     selectedItemsClas3.clear();
@@ -201,6 +3194,141 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion3 = selectedItemsClas3.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal3 = rpl.replaceSymbol(clasificacion3);
+
+    final tagName = clasificacionFinal3;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    if(value2== null){
+      await getAllOrdenClasCondicion3(value1.trimLeft());
+      Orden1 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value1.trimLeft());
+      pkr1 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk3 = pkr1;
+      OrdenC3 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion3(value1.trimLeft());
+      Orden1 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value1.trimLeft());
+      pkr1 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value2.trimLeft());
+      Orden2 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value2.trimLeft());
+      pkr2 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk3 = pkr1 + "," + pkr2;
+      OrdenC3 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion3(value1.trimLeft());
+      Orden1 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value1.trimLeft());
+      pkr1 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value2.trimLeft());
+      Orden2 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value2.trimLeft());
+      pkr2 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk3 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC3 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion3(value1.trimLeft());
+      Orden1 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value1.trimLeft());
+      pkr1 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value2.trimLeft());
+      Orden2 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value2.trimLeft());
+      pkr2 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk3 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC3 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion3(value1.trimLeft());
+      Orden1 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value1.trimLeft());
+      pkr1 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value2.trimLeft());
+      Orden2 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value2.trimLeft());
+      pkr2 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk3 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC3 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion3(value1.trimLeft());
+      Orden1 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value1.trimLeft());
+      pkr1 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value2.trimLeft());
+      Orden2 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value2.trimLeft());
+      pkr2 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion3(value3.trimLeft());
+      Orden3 = _OrdenClas3.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas3(value3.trimLeft());
+      pkr3 = _ClaveClas3.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value6.trimLeft());
+      Orden6 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value6.trimLeft());
+      pkr6 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk3 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC3 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
+
     _clasificacion3.text = clasificacionFinal3;
   }
 
@@ -229,7 +3357,17 @@ class _Salud_PertenenciaIndigenaTablaState
   List<CondicioneSaludModel> selectedItemsCond4 = [];
   List<ClasificacionModel> selectedItemsClas4 = [];
 
-  addChecked4Cond() {
+  addChecked4Cond()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
+
     List<CondicioneSaludModel> previa4Cond = [];
     previa4Cond = _Condiciones;
     selectedItemsCond4.clear();
@@ -241,10 +3379,889 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion4 = selectedItemsCond4.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal4 = rpl.replaceSymbol(condicion4);
+
+    final tagName = condicionFinal4;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+
+
+    if(value2== null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      ponderacionr4 = pon1;
+      Ordenr4 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+
+      ponderacionr4 = pon1 +","+pon2;
+      Ordenr4 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+
+      ponderacionr4 = pon1 +","+pon2+","+pon3;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+
+      ponderacionr4 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+
+      ponderacionr4 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+
+      ponderacionr4 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value7.trimLeft());
+      Orden7 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value7.trimLeft());
+      pon7 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+
+      ponderacionr4 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value7.trimLeft());
+      Orden7 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value8.trimLeft());
+      Orden8 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value7.trimLeft());
+      pon7 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value8.trimLeft());
+      pon8 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+
+      ponderacionr4 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value7.trimLeft());
+      Orden7 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value8.trimLeft());
+      Orden8 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value9.trimLeft());
+      Orden9 = _OrdenCon4.map((e) => e.Orden).first;
+
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value7.trimLeft());
+      pon7 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value8.trimLeft());
+      pon8 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value9.trimLeft());
+      pon9 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr4 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value7.trimLeft());
+      Orden7 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value8.trimLeft());
+      Orden8 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value9.trimLeft());
+      Orden9 = _OrdenCon4.map((e) => e.Orden).first;
+      await getAllOrdenCondicion4(value10.trimLeft());
+      Orden10 = _OrdenCon4.map((e) => e.Orden).first;
+
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value7.trimLeft());
+      pon7 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value8.trimLeft());
+      pon8 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value9.trimLeft());
+      pon9 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones4(value10.trimLeft());
+      pon10 = _Ponderaciones4.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr4 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr4 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value7.trimLeft());
+      Orden7 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value8.trimLeft());
+      Orden8 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value9.trimLeft());
+      Orden9 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value10.trimLeft());
+      Orden10 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value11.trimLeft());
+      Orden11 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value7.trimLeft());
+      pon7 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value8.trimLeft());
+      pon8 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value9.trimLeft());
+      pon9 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value10.trimLeft());
+      pon10 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value11.trimLeft());
+      pon11 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr4 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr4 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value7.trimLeft());
+      Orden7 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value8.trimLeft());
+      Orden8 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value9.trimLeft());
+      Orden9 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value10.trimLeft());
+      Orden10 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value11.trimLeft());
+      Orden11 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion4(value12.trimLeft());
+      Orden12 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value7.trimLeft());
+      pon7 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value8.trimLeft());
+      pon8 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value9.trimLeft());
+      pon9 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value10.trimLeft());
+      pon10 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value11.trimLeft());
+      pon11 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones4(value12.trimLeft());
+      pon12 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr4 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr4 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value7.trimLeft());
+      Orden7 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value8.trimLeft());
+      Orden8 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value9.trimLeft());
+      Orden9 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value10.trimLeft());
+      Orden10 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value11.trimLeft());
+      Orden11 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion4(value12.trimLeft());
+      Orden12 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value13.trimLeft());
+      Orden13 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value7.trimLeft());
+      pon7 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value8.trimLeft());
+      pon8 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value9.trimLeft());
+      pon9 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value10.trimLeft());
+      pon10 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value11.trimLeft());
+      pon11 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones4(value12.trimLeft());
+      pon12 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value13.trimLeft());
+      pon13 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr4 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr4 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value7.trimLeft());
+      Orden7 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value8.trimLeft());
+      Orden8 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value9.trimLeft());
+      Orden9 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value10.trimLeft());
+      Orden10 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value11.trimLeft());
+      Orden11 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion4(value12.trimLeft());
+      Orden12 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value13.trimLeft());
+      Orden13 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value14.trimLeft());
+      Orden14 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value7.trimLeft());
+      pon7 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value8.trimLeft());
+      pon8 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value9.trimLeft());
+      pon9 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value10.trimLeft());
+      pon10 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value11.trimLeft());
+      pon11 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones4(value12.trimLeft());
+      pon12 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value13.trimLeft());
+      pon13 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value14.trimLeft());
+      pon14 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr4 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr4 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion4(value1.trimLeft());
+      Orden1 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value2.trimLeft());
+      Orden2 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value3.trimLeft());
+      Orden3 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value4.trimLeft());
+      Orden4 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value5.trimLeft());
+      Orden5 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value6.trimLeft());
+      Orden6 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value7.trimLeft());
+      Orden7 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value8.trimLeft());
+      Orden8 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value9.trimLeft());
+      Orden9 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value10.trimLeft());
+      Orden10 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value11.trimLeft());
+      Orden11 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion4(value12.trimLeft());
+      Orden12 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value13.trimLeft());
+      Orden13 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value14.trimLeft());
+      Orden14 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion4(value15.trimLeft());
+      Orden15 = _OrdenCon4
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones4(value1.trimLeft());
+      pon1 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value2.trimLeft());
+      pon2 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value3.trimLeft());
+      pon3 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value4.trimLeft());
+      pon4 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value5.trimLeft());
+      pon5 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value6.trimLeft());
+      pon6 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value7.trimLeft());
+      pon7 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value8.trimLeft());
+      pon8 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value9.trimLeft());
+      pon9 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value10.trimLeft());
+      pon10 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value11.trimLeft());
+      pon11 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones4(value12.trimLeft());
+      pon12 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value13.trimLeft());
+      pon13 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones4(value14.trimLeft());
+      pon14 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones4(value15.trimLeft());
+      pon15 = _Ponderaciones4
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr4 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr4 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
+
     _condicionSalud4.text = condicionFinal4;
   }
 
-  addChecked4Clas() {
+  addChecked4Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
+
     List<ClasificacionModel> previa4CLas = [];
     previa4CLas = _Clasificaciones;
     selectedItemsClas4.clear();
@@ -256,6 +4273,140 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion4 = selectedItemsClas4.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal4 = rpl.replaceSymbol(clasificacion4);
+
+    final tagName = clasificacionFinal4;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    if(value2== null){
+      await getAllOrdenClasCondicion4(value1.trimLeft());
+      Orden1 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value1.trimLeft());
+      pkr1 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk4 = pkr1;
+      OrdenC4 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion4(value1.trimLeft());
+      Orden1 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value1.trimLeft());
+      pkr1 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value2.trimLeft());
+      Orden2 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value2.trimLeft());
+      pkr2 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk4 = pkr1 + "," + pkr2;
+      OrdenC4 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion4(value1.trimLeft());
+      Orden1 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value1.trimLeft());
+      pkr1 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value2.trimLeft());
+      Orden2 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value2.trimLeft());
+      pkr2 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value3.trimLeft());
+      Orden3 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value3.trimLeft());
+      pkr3 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk4 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC4 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion4(value1.trimLeft());
+      Orden1 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value1.trimLeft());
+      pkr1 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value2.trimLeft());
+      Orden2 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value2.trimLeft());
+      pkr2 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value3.trimLeft());
+      Orden3 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value3.trimLeft());
+      pkr3 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk4 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC4 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion4(value1.trimLeft());
+      Orden1 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value1.trimLeft());
+      pkr1 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value2.trimLeft());
+      Orden2 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value2.trimLeft());
+      pkr2 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value3.trimLeft());
+      Orden3 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value3.trimLeft());
+      pkr3 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk4 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC4 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion4(value1.trimLeft());
+      Orden1 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value1.trimLeft());
+      pkr1 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value2.trimLeft());
+      Orden2 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value2.trimLeft());
+      pkr2 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value3.trimLeft());
+      Orden3 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value3.trimLeft());
+      pkr3 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion4(value4.trimLeft());
+      Orden4 = _OrdenClas4.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas4(value4.trimLeft());
+      pkr4 = _ClaveClas4.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value6.trimLeft());
+      Orden6 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value6.trimLeft());
+      pkr6 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk4 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC4 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
     _clasificacion4.text = clasificacionFinal4;
   }
 
@@ -284,7 +4435,17 @@ class _Salud_PertenenciaIndigenaTablaState
   List<CondicioneSaludModel> selectedItemsCond5 = [];
   List<ClasificacionModel> selectedItemsClas5 = [];
 
-  addChecked5Cond() {
+  addChecked5Cond()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
+
     List<CondicioneSaludModel> previa5Cond = [];
     previa5Cond = _Condiciones;
     selectedItemsCond5.clear();
@@ -296,10 +4457,886 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion5 = selectedItemsCond5.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal5 = rpl.replaceSymbol(condicion5);
+
+    final tagName = condicionFinal5;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+
+    if(value2== null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      ponderacionr5 = pon1;
+      Ordenr5 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+
+      ponderacionr5 = pon1 +","+pon2;
+      Ordenr5 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+
+      ponderacionr5 = pon1 +","+pon2+","+pon3;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+
+      ponderacionr5 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+
+      ponderacionr5 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+
+      ponderacionr5 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value7.trimLeft());
+      Orden7 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value7.trimLeft());
+      pon7 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+
+      ponderacionr5 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value7.trimLeft());
+      Orden7 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value8.trimLeft());
+      Orden8 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value7.trimLeft());
+      pon7 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value8.trimLeft());
+      pon8 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+
+      ponderacionr5 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value7.trimLeft());
+      Orden7 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value8.trimLeft());
+      Orden8 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value9.trimLeft());
+      Orden9 = _OrdenCon5.map((e) => e.Orden).first;
+
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value7.trimLeft());
+      pon7 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value8.trimLeft());
+      pon8 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value9.trimLeft());
+      pon9 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr5 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value7.trimLeft());
+      Orden7 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value8.trimLeft());
+      Orden8 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value9.trimLeft());
+      Orden9 = _OrdenCon5.map((e) => e.Orden).first;
+      await getAllOrdenCondicion5(value10.trimLeft());
+      Orden10 = _OrdenCon5.map((e) => e.Orden).first;
+
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value7.trimLeft());
+      pon7 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value8.trimLeft());
+      pon8 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value9.trimLeft());
+      pon9 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones5(value10.trimLeft());
+      pon10 = _Ponderaciones5.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr5 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr5 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value7.trimLeft());
+      Orden7 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value8.trimLeft());
+      Orden8 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value9.trimLeft());
+      Orden9 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value10.trimLeft());
+      Orden10 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value11.trimLeft());
+      Orden11 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value7.trimLeft());
+      pon7 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value8.trimLeft());
+      pon8 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value9.trimLeft());
+      pon9 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value10.trimLeft());
+      pon10 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value11.trimLeft());
+      pon11 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr5 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr5 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value7.trimLeft());
+      Orden7 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value8.trimLeft());
+      Orden8 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value9.trimLeft());
+      Orden9 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value10.trimLeft());
+      Orden10 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value11.trimLeft());
+      Orden11 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion5(value12.trimLeft());
+      Orden12 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value7.trimLeft());
+      pon7 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value8.trimLeft());
+      pon8 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value9.trimLeft());
+      pon9 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value10.trimLeft());
+      pon10 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value11.trimLeft());
+      pon11 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones5(value12.trimLeft());
+      pon12 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr5 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr5 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value7.trimLeft());
+      Orden7 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value8.trimLeft());
+      Orden8 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value9.trimLeft());
+      Orden9 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value10.trimLeft());
+      Orden10 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value11.trimLeft());
+      Orden11 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion5(value12.trimLeft());
+      Orden12 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value13.trimLeft());
+      Orden13 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value7.trimLeft());
+      pon7 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value8.trimLeft());
+      pon8 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value9.trimLeft());
+      pon9 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value10.trimLeft());
+      pon10 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value11.trimLeft());
+      pon11 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones5(value12.trimLeft());
+      pon12 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value13.trimLeft());
+      pon13 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr5 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr5 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value7.trimLeft());
+      Orden7 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value8.trimLeft());
+      Orden8 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value9.trimLeft());
+      Orden9 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value10.trimLeft());
+      Orden10 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value11.trimLeft());
+      Orden11 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion5(value12.trimLeft());
+      Orden12 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value13.trimLeft());
+      Orden13 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value14.trimLeft());
+      Orden14 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value7.trimLeft());
+      pon7 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value8.trimLeft());
+      pon8 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value9.trimLeft());
+      pon9 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value10.trimLeft());
+      pon10 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value11.trimLeft());
+      pon11 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones5(value12.trimLeft());
+      pon12 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value13.trimLeft());
+      pon13 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value14.trimLeft());
+      pon14 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr5 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr5 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion5(value1.trimLeft());
+      Orden1 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value2.trimLeft());
+      Orden2 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value3.trimLeft());
+      Orden3 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value4.trimLeft());
+      Orden4 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value5.trimLeft());
+      Orden5 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value6.trimLeft());
+      Orden6 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value7.trimLeft());
+      Orden7 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value8.trimLeft());
+      Orden8 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value9.trimLeft());
+      Orden9 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value10.trimLeft());
+      Orden10 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value11.trimLeft());
+      Orden11 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion5(value12.trimLeft());
+      Orden12 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value13.trimLeft());
+      Orden13 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value14.trimLeft());
+      Orden14 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion5(value15.trimLeft());
+      Orden15 = _OrdenCon5
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones5(value1.trimLeft());
+      pon1 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value2.trimLeft());
+      pon2 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value3.trimLeft());
+      pon3 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value4.trimLeft());
+      pon4 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value5.trimLeft());
+      pon5 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value6.trimLeft());
+      pon6 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value7.trimLeft());
+      pon7 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value8.trimLeft());
+      pon8 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value9.trimLeft());
+      pon9 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value10.trimLeft());
+      pon10 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value11.trimLeft());
+      pon11 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones5(value12.trimLeft());
+      pon12 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value13.trimLeft());
+      pon13 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones5(value14.trimLeft());
+      pon14 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones5(value15.trimLeft());
+      pon15 = _Ponderaciones5
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr5 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr5 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
     _condicionSalud5.text = condicionFinal5;
   }
 
-  addChecked5Clas() {
+  addChecked5Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
     List<ClasificacionModel> previa5CLas = [];
     previa5CLas = _Clasificaciones;
     selectedItemsClas5.clear();
@@ -311,6 +5348,140 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion5 = selectedItemsClas5.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal5 = rpl.replaceSymbol(clasificacion5);
+
+    final tagName = clasificacionFinal5;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    if(value2== null){
+      await getAllOrdenClasCondicion5(value1.trimLeft());
+      Orden1 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value1.trimLeft());
+      pkr1 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk5 = pkr1;
+      OrdenC5 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion5(value1.trimLeft());
+      Orden1 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value1.trimLeft());
+      pkr1 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value2.trimLeft());
+      Orden2 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value2.trimLeft());
+      pkr2 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk5 = pkr1 + "," + pkr2;
+      OrdenC5 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion5(value1.trimLeft());
+      Orden1 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value1.trimLeft());
+      pkr1 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value2.trimLeft());
+      Orden2 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value2.trimLeft());
+      pkr2 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value3.trimLeft());
+      Orden3 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value3.trimLeft());
+      pkr3 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk5 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC5 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion5(value1.trimLeft());
+      Orden1 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value1.trimLeft());
+      pkr1 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value2.trimLeft());
+      Orden2 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value2.trimLeft());
+      pkr2 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value3.trimLeft());
+      Orden3 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value3.trimLeft());
+      pkr3 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value4.trimLeft());
+      Orden4 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value4.trimLeft());
+      pkr4 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk5 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC5 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion5(value1.trimLeft());
+      Orden1 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value1.trimLeft());
+      pkr1 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value2.trimLeft());
+      Orden2 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value2.trimLeft());
+      pkr2 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value3.trimLeft());
+      Orden3 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value3.trimLeft());
+      pkr3 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value4.trimLeft());
+      Orden4 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value4.trimLeft());
+      pkr4 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk5 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC5 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion5(value1.trimLeft());
+      Orden1 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value1.trimLeft());
+      pkr1 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value2.trimLeft());
+      Orden2 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value2.trimLeft());
+      pkr2 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value3.trimLeft());
+      Orden3 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value3.trimLeft());
+      pkr3 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value4.trimLeft());
+      Orden4 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value4.trimLeft());
+      pkr4 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion5(value5.trimLeft());
+      Orden5 = _OrdenClas5.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas5(value5.trimLeft());
+      pkr5 = _ClaveClas5.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value6.trimLeft());
+      Orden6 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value6.trimLeft());
+      pkr6 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk5 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC5 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
     _clasificacion5.text = clasificacionFinal5;
   }
 
@@ -339,7 +5510,17 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto6_4 = null;
   var foto6_5 = null;
 
-  addChecked6Cond() {
+  addChecked6Cond()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
+
     List<CondicioneSaludModel> previa6Cond = [];
     previa6Cond = _Condiciones;
     selectedItemsCond6.clear();
@@ -351,10 +5532,886 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion6 = selectedItemsCond6.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal6 = rpl.replaceSymbol(condicion6);
+
+    final tagName = condicionFinal6;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+
+    if(value2== null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      ponderacionr6 = pon1;
+      Ordenr6 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllPonderaciones6(value1);
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+
+      ponderacionr6 = pon1 +","+pon2;
+      Ordenr6 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+
+      ponderacionr6 = pon1 +","+pon2+","+pon3;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+
+      ponderacionr6 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+
+      ponderacionr6 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+
+      ponderacionr6 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value7.trimLeft());
+      Orden7 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value7.trimLeft());
+      pon7 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+
+      ponderacionr6 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value7.trimLeft());
+      Orden7 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value8.trimLeft());
+      Orden8 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value7.trimLeft());
+      pon7 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value8.trimLeft());
+      pon8 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+
+      ponderacionr6 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value7.trimLeft());
+      Orden7 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value8.trimLeft());
+      Orden8 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value9.trimLeft());
+      Orden9 = _OrdenCon6.map((e) => e.Orden).first;
+
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value7.trimLeft());
+      pon7 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value8.trimLeft());
+      pon8 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value9.trimLeft());
+      pon9 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr6 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value7.trimLeft());
+      Orden7 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value8.trimLeft());
+      Orden8 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value9.trimLeft());
+      Orden9 = _OrdenCon6.map((e) => e.Orden).first;
+      await getAllOrdenCondicion6(value10.trimLeft());
+      Orden10 = _OrdenCon6.map((e) => e.Orden).first;
+
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value7.trimLeft());
+      pon7 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value8.trimLeft());
+      pon8 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value9.trimLeft());
+      pon9 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones6(value10.trimLeft());
+      pon10 = _Ponderaciones6.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr6 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr6 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value7.trimLeft());
+      Orden7 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value8.trimLeft());
+      Orden8 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value9.trimLeft());
+      Orden9 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value10.trimLeft());
+      Orden10 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value11.trimLeft());
+      Orden11 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value7.trimLeft());
+      pon7 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value8.trimLeft());
+      pon8 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value9.trimLeft());
+      pon9 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value10.trimLeft());
+      pon10 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value11.trimLeft());
+      pon11 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr6 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr6 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value7.trimLeft());
+      Orden7 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value8.trimLeft());
+      Orden8 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value9.trimLeft());
+      Orden9 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value10.trimLeft());
+      Orden10 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value11.trimLeft());
+      Orden11 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion6(value12.trimLeft());
+      Orden12 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value7.trimLeft());
+      pon7 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value8.trimLeft());
+      pon8 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value9.trimLeft());
+      pon9 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value10.trimLeft());
+      pon10 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value11.trimLeft());
+      pon11 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones6(value12.trimLeft());
+      pon12 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr6 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr6 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value7.trimLeft());
+      Orden7 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value8.trimLeft());
+      Orden8 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value9.trimLeft());
+      Orden9 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value10.trimLeft());
+      Orden10 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value11.trimLeft());
+      Orden11 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion6(value12.trimLeft());
+      Orden12 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value13.trimLeft());
+      Orden13 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value7.trimLeft());
+      pon7 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value8.trimLeft());
+      pon8 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value9.trimLeft());
+      pon9 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value10.trimLeft());
+      pon10 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value11.trimLeft());
+      pon11 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones6(value12.trimLeft());
+      pon12 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value13.trimLeft());
+      pon13 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr6 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr6 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value7.trimLeft());
+      Orden7 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value8.trimLeft());
+      Orden8 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value9.trimLeft());
+      Orden9 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value10.trimLeft());
+      Orden10 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value11.trimLeft());
+      Orden11 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion6(value12.trimLeft());
+      Orden12 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value13.trimLeft());
+      Orden13 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value14.trimLeft());
+      Orden14 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value7.trimLeft());
+      pon7 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value8.trimLeft());
+      pon8 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value9.trimLeft());
+      pon9 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value10.trimLeft());
+      pon10 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value11.trimLeft());
+      pon11 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones6(value12.trimLeft());
+      pon12 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value13.trimLeft());
+      pon13 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value14.trimLeft());
+      pon14 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr6 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr6 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion6(value1.trimLeft());
+      Orden1 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value2.trimLeft());
+      Orden2 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value3.trimLeft());
+      Orden3 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value4.trimLeft());
+      Orden4 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value5.trimLeft());
+      Orden5 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value6.trimLeft());
+      Orden6 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value7.trimLeft());
+      Orden7 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value8.trimLeft());
+      Orden8 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value9.trimLeft());
+      Orden9 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value10.trimLeft());
+      Orden10 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value11.trimLeft());
+      Orden11 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion6(value12.trimLeft());
+      Orden12 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value13.trimLeft());
+      Orden13 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value14.trimLeft());
+      Orden14 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion6(value15.trimLeft());
+      Orden15 = _OrdenCon6
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones6(value1.trimLeft());
+      pon1 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value2.trimLeft());
+      pon2 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value3.trimLeft());
+      pon3 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value4.trimLeft());
+      pon4 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value5.trimLeft());
+      pon5 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value6.trimLeft());
+      pon6 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value7.trimLeft());
+      pon7 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value8.trimLeft());
+      pon8 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value9.trimLeft());
+      pon9 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value10.trimLeft());
+      pon10 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value11.trimLeft());
+      pon11 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones6(value12.trimLeft());
+      pon12 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value13.trimLeft());
+      pon13 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones6(value14.trimLeft());
+      pon14 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones6(value15.trimLeft());
+      pon15 = _Ponderaciones6
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr6 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr6 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
     _condicionSalud6.text = condicionFinal6;
   }
 
-  addChecked6Clas() {
+  addChecked6Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
     List<ClasificacionModel> previa6CLas = [];
     previa6CLas = _Clasificaciones;
     selectedItemsClas6.clear();
@@ -366,6 +6423,140 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion6 = selectedItemsClas6.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal6 = rpl.replaceSymbol(clasificacion6);
+
+    final tagName = clasificacionFinal6;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    if(value2== null){
+      await getAllOrdenClasCondicion6(value1.trimLeft());
+      Orden1 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value1.trimLeft());
+      pkr1 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk6 = pkr1;
+      OrdenC6 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion6(value1.trimLeft());
+      Orden1 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value1.trimLeft());
+      pkr1 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value2.trimLeft());
+      Orden2 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value2.trimLeft());
+      pkr2 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk6 = pkr1 + "," + pkr2;
+      OrdenC6 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion6(value1.trimLeft());
+      Orden1 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value1.trimLeft());
+      pkr1 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value2.trimLeft());
+      Orden2 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value2.trimLeft());
+      pkr2 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value3.trimLeft());
+      Orden3 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value3.trimLeft());
+      pkr3 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk6 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC6 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion6(value1.trimLeft());
+      Orden1 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value1.trimLeft());
+      pkr1 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value2.trimLeft());
+      Orden2 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value2.trimLeft());
+      pkr2 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value3.trimLeft());
+      Orden3 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value3.trimLeft());
+      pkr3 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value4.trimLeft());
+      Orden4 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value4.trimLeft());
+      pkr4 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk6 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC6 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion6(value1.trimLeft());
+      Orden1 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value1.trimLeft());
+      pkr1 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value2.trimLeft());
+      Orden2 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value2.trimLeft());
+      pkr2 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value3.trimLeft());
+      Orden3 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value3.trimLeft());
+      pkr3 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value4.trimLeft());
+      Orden4 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value4.trimLeft());
+      pkr4 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value5.trimLeft());
+      Orden5 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value5.trimLeft());
+      pkr5 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk6 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC6 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion6(value1.trimLeft());
+      Orden1 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value1.trimLeft());
+      pkr1 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value2.trimLeft());
+      Orden2 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value2.trimLeft());
+      pkr2 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value3.trimLeft());
+      Orden3 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value3.trimLeft());
+      pkr3 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value4.trimLeft());
+      Orden4 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value4.trimLeft());
+      pkr4 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value5.trimLeft());
+      Orden5 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value5.trimLeft());
+      pkr5 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion6(value6.trimLeft());
+      Orden6 = _OrdenClas6.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas6(value6.trimLeft());
+      pkr6 = _ClaveClas6.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk6 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC6 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
     _clasificacion6.text = clasificacionFinal6;
   }
 
@@ -394,7 +6585,15 @@ class _Salud_PertenenciaIndigenaTablaState
   var foto7_4 = null;
   var foto7_5 = null;
 
-  addChecked7Cond() {
+  addChecked7Cond()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
     List<CondicioneSaludModel> previa7Cond = [];
     previa7Cond = _Condiciones;
     selectedItemsCond7.clear();
@@ -406,10 +6605,887 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion7 = selectedItemsCond7.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal7 = rpl.replaceSymbol(condicion7);
+
+    final tagName = condicionFinal7;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+
+
+    if(value2== null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      ponderacionr7 = pon1;
+      Ordenr7 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+
+      ponderacionr7 = pon1 +","+pon2;
+      Ordenr7 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+
+      ponderacionr7 = pon1 +","+pon2+","+pon3;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+
+      ponderacionr7 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+
+      ponderacionr7 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+
+      ponderacionr7 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value7.trimLeft());
+      Orden7 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value7.trimLeft());
+      pon7 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+
+      ponderacionr7 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value7.trimLeft());
+      Orden7 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value8.trimLeft());
+      Orden8 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value7.trimLeft());
+      pon7 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value8.trimLeft());
+      pon8 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+
+      ponderacionr7 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value7.trimLeft());
+      Orden7 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value8.trimLeft());
+      Orden8 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value9.trimLeft());
+      Orden9 = _OrdenCon7.map((e) => e.Orden).first;
+
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value7.trimLeft());
+      pon7 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value8.trimLeft());
+      pon8 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value9.trimLeft());
+      pon9 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr7 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value7.trimLeft());
+      Orden7 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value8.trimLeft());
+      Orden8 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value9.trimLeft());
+      Orden9 = _OrdenCon7.map((e) => e.Orden).first;
+      await getAllOrdenCondicion7(value10.trimLeft());
+      Orden10 = _OrdenCon7.map((e) => e.Orden).first;
+
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value7.trimLeft());
+      pon7 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value8.trimLeft());
+      pon8 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value9.trimLeft());
+      pon9 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones7(value10.trimLeft());
+      pon10 = _Ponderaciones7.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr7 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr7 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value7.trimLeft());
+      Orden7 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value8.trimLeft());
+      Orden8 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value9.trimLeft());
+      Orden9 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value10.trimLeft());
+      Orden10 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value11.trimLeft());
+      Orden11 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value7.trimLeft());
+      pon7 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value8.trimLeft());
+      pon8 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value9.trimLeft());
+      pon9 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value10.trimLeft());
+      pon10 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value11.trimLeft());
+      pon11 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr7 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr7 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value7.trimLeft());
+      Orden7 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value8.trimLeft());
+      Orden8 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value9.trimLeft());
+      Orden9 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value10.trimLeft());
+      Orden10 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value11.trimLeft());
+      Orden11 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion7(value12.trimLeft());
+      Orden12 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value7.trimLeft());
+      pon7 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value8.trimLeft());
+      pon8 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value9.trimLeft());
+      pon9 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value10.trimLeft());
+      pon10 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value11.trimLeft());
+      pon11 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones7(value12.trimLeft());
+      pon12 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr7 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr7 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value7.trimLeft());
+      Orden7 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value8.trimLeft());
+      Orden8 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value9.trimLeft());
+      Orden9 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value10.trimLeft());
+      Orden10 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value11.trimLeft());
+      Orden11 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion7(value12.trimLeft());
+      Orden12 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value13.trimLeft());
+      Orden13 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value7.trimLeft());
+      pon7 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value8.trimLeft());
+      pon8 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value9.trimLeft());
+      pon9 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value10.trimLeft());
+      pon10 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value11.trimLeft());
+      pon11 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones7(value12.trimLeft());
+      pon12 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value13.trimLeft());
+      pon13 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr7 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr7 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value7.trimLeft());
+      Orden7 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value8.trimLeft());
+      Orden8 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value9.trimLeft());
+      Orden9 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value10.trimLeft());
+      Orden10 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value11.trimLeft());
+      Orden11 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion7(value12.trimLeft());
+      Orden12 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value13.trimLeft());
+      Orden13 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value14.trimLeft());
+      Orden14 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value7.trimLeft());
+      pon7 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value8.trimLeft());
+      pon8 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value9.trimLeft());
+      pon9 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value10.trimLeft());
+      pon10 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value11.trimLeft());
+      pon11 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones7(value12.trimLeft());
+      pon12 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value13.trimLeft());
+      pon13 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value14.trimLeft());
+      pon14 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr7 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr7 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion7(value1.trimLeft());
+      Orden1 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value2.trimLeft());
+      Orden2 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value3.trimLeft());
+      Orden3 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value4.trimLeft());
+      Orden4 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value5.trimLeft());
+      Orden5 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value6.trimLeft());
+      Orden6 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value7.trimLeft());
+      Orden7 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value8.trimLeft());
+      Orden8 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value9.trimLeft());
+      Orden9 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value10.trimLeft());
+      Orden10 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value11.trimLeft());
+      Orden11 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion7(value12.trimLeft());
+      Orden12 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value13.trimLeft());
+      Orden13 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value14.trimLeft());
+      Orden14 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion7(value15.trimLeft());
+      Orden15 = _OrdenCon7
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones7(value1.trimLeft());
+      pon1 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value2.trimLeft());
+      pon2 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value3.trimLeft());
+      pon3 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value4.trimLeft());
+      pon4 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value5.trimLeft());
+      pon5 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value6.trimLeft());
+      pon6 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value7.trimLeft());
+      pon7 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value8.trimLeft());
+      pon8 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value9.trimLeft());
+      pon9 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value10.trimLeft());
+      pon10 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value11.trimLeft());
+      pon11 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones7(value12.trimLeft());
+      pon12 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value13.trimLeft());
+      pon13 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones7(value14.trimLeft());
+      pon14 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones7(value15.trimLeft());
+      pon15 = _Ponderaciones7
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr7 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr7 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
     _condicionSalud7.text = condicionFinal7;
   }
 
-  addChecked7Clas() {
+  addChecked7Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
     List<ClasificacionModel> previa7CLas = [];
     previa7CLas = _Clasificaciones;
     selectedItemsClas7.clear();
@@ -421,6 +7497,140 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion7 = selectedItemsClas7.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal7 = rpl.replaceSymbol(clasificacion7);
+
+    final tagName = clasificacionFinal7;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    if(value2== null){
+      await getAllOrdenClasCondicion7(value1.trimLeft());
+      Orden1 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value1.trimLeft());
+      pkr1 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk7 = pkr1;
+      OrdenC7 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion7(value1.trimLeft());
+      Orden1 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value1.trimLeft());
+      pkr1 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value2.trimLeft());
+      Orden2 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value2.trimLeft());
+      pkr2 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk7 = pkr1 + "," + pkr2;
+      OrdenC7 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion7(value1.trimLeft());
+      Orden1 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value1.trimLeft());
+      pkr1 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value2.trimLeft());
+      Orden2 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value2.trimLeft());
+      pkr2 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value3.trimLeft());
+      Orden3 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value3.trimLeft());
+      pkr3 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk7 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC7 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion7(value1.trimLeft());
+      Orden1 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value1.trimLeft());
+      pkr1 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value2.trimLeft());
+      Orden2 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value2.trimLeft());
+      pkr2 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value3.trimLeft());
+      Orden3 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value3.trimLeft());
+      pkr3 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value4.trimLeft());
+      Orden4 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value4.trimLeft());
+      pkr4 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk7 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC7 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion7(value1.trimLeft());
+      Orden1 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value1.trimLeft());
+      pkr1 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value2.trimLeft());
+      Orden2 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value2.trimLeft());
+      pkr2 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value3.trimLeft());
+      Orden3 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value3.trimLeft());
+      pkr3 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value4.trimLeft());
+      Orden4 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value4.trimLeft());
+      pkr4 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value5.trimLeft());
+      Orden5 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value5.trimLeft());
+      pkr5 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk7 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC7 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion7(value1.trimLeft());
+      Orden1 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value1.trimLeft());
+      pkr1 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value2.trimLeft());
+      Orden2 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value2.trimLeft());
+      pkr2 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value3.trimLeft());
+      Orden3 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value3.trimLeft());
+      pkr3 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value4.trimLeft());
+      Orden4 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value4.trimLeft());
+      pkr4 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value5.trimLeft());
+      Orden5 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value5.trimLeft());
+      pkr5 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion7(value6.trimLeft());
+      Orden6 = _OrdenClas7.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas7(value6.trimLeft());
+      pkr6 = _ClaveClas7.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk7 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC7 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
     _clasificacion7.text = clasificacionFinal7;
   }
 
@@ -450,7 +7660,17 @@ class _Salud_PertenenciaIndigenaTablaState
   List<CondicioneSaludModel> selectedItemsCond8 = [];
   List<ClasificacionModel> selectedItemsClas8 = [];
 
-  addChecked8Cond() {
+  addChecked8Cond()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
+
     List<CondicioneSaludModel> previa8Cond = [];
     previa8Cond = _Condiciones;
     selectedItemsCond8.clear();
@@ -462,10 +7682,891 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion8 = selectedItemsCond8.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal8 = rpl.replaceSymbol(condicion8);
+
+    final tagName = condicionFinal8;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+
+
+
+
+
+    if(value2== null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      ponderacionr8 = pon1;
+      Ordenr8 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+
+      ponderacionr8 = pon1 +","+pon2;
+      Ordenr8 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+
+      ponderacionr8 = pon1 +","+pon2+","+pon3;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+
+      ponderacionr8 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+
+      ponderacionr8 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+
+      ponderacionr8 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value7.trimLeft());
+      Orden7 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value7.trimLeft());
+      pon7 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+
+      ponderacionr8 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value7.trimLeft());
+      Orden7 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value8.trimLeft());
+      Orden8 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value7.trimLeft());
+      pon7 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value8.trimLeft());
+      pon8 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+
+      ponderacionr8 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value7.trimLeft());
+      Orden7 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value8.trimLeft());
+      Orden8 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value9.trimLeft());
+      Orden9 = _OrdenCon8.map((e) => e.Orden).first;
+
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value7.trimLeft());
+      pon7 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value8.trimLeft());
+      pon8 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value9.trimLeft());
+      pon9 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr8 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value7.trimLeft());
+      Orden7 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value8.trimLeft());
+      Orden8 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value9.trimLeft());
+      Orden9 = _OrdenCon8.map((e) => e.Orden).first;
+      await getAllOrdenCondicion8(value10.trimLeft());
+      Orden10 = _OrdenCon8.map((e) => e.Orden).first;
+
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value7.trimLeft());
+      pon7 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value8.trimLeft());
+      pon8 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value9.trimLeft());
+      pon9 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones8(value10.trimLeft());
+      pon10 = _Ponderaciones8.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr8 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr8 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value7.trimLeft());
+      Orden7 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value8.trimLeft());
+      Orden8 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value9.trimLeft());
+      Orden9 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value10.trimLeft());
+      Orden10 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value11.trimLeft());
+      Orden11 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value7.trimLeft());
+      pon7 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value8.trimLeft());
+      pon8 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value9.trimLeft());
+      pon9 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value10.trimLeft());
+      pon10 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value11.trimLeft());
+      pon11 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr8 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr8 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value7.trimLeft());
+      Orden7 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value8.trimLeft());
+      Orden8 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value9.trimLeft());
+      Orden9 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value10.trimLeft());
+      Orden10 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value11.trimLeft());
+      Orden11 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion8(value12.trimLeft());
+      Orden12 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value7.trimLeft());
+      pon7 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value8.trimLeft());
+      pon8 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value9.trimLeft());
+      pon9 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value10.trimLeft());
+      pon10 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value11.trimLeft());
+      pon11 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones8(value12.trimLeft());
+      pon12 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr8 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr8 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value7.trimLeft());
+      Orden7 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value8.trimLeft());
+      Orden8 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value9.trimLeft());
+      Orden9 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value10.trimLeft());
+      Orden10 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value11.trimLeft());
+      Orden11 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion8(value12.trimLeft());
+      Orden12 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value13.trimLeft());
+      Orden13 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value7.trimLeft());
+      pon7 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value8.trimLeft());
+      pon8 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value9.trimLeft());
+      pon9 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value10.trimLeft());
+      pon10 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value11.trimLeft());
+      pon11 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones8(value12.trimLeft());
+      pon12 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value13.trimLeft());
+      pon13 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr8 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr8 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value7.trimLeft());
+      Orden7 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value8.trimLeft());
+      Orden8 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value9.trimLeft());
+      Orden9 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value10.trimLeft());
+      Orden10 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value11.trimLeft());
+      Orden11 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion8(value12.trimLeft());
+      Orden12 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value13.trimLeft());
+      Orden13 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value14.trimLeft());
+      Orden14 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value7.trimLeft());
+      pon7 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value8.trimLeft());
+      pon8 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value9.trimLeft());
+      pon9 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value10.trimLeft());
+      pon10 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value11.trimLeft());
+      pon11 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones8(value12.trimLeft());
+      pon12 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value13.trimLeft());
+      pon13 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value14.trimLeft());
+      pon14 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr8 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr8 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion8(value1.trimLeft());
+      Orden1 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value2.trimLeft());
+      Orden2 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value3.trimLeft());
+      Orden3 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value4.trimLeft());
+      Orden4 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value5.trimLeft());
+      Orden5 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value6.trimLeft());
+      Orden6 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value7.trimLeft());
+      Orden7 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value8.trimLeft());
+      Orden8 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value9.trimLeft());
+      Orden9 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value10.trimLeft());
+      Orden10 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value11.trimLeft());
+      Orden11 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion8(value12.trimLeft());
+      Orden12 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value13.trimLeft());
+      Orden13 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value14.trimLeft());
+      Orden14 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion8(value15.trimLeft());
+      Orden15 = _OrdenCon8
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones8(value1.trimLeft());
+      pon1 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value2.trimLeft());
+      pon2 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value3.trimLeft());
+      pon3 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value4.trimLeft());
+      pon4 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value5.trimLeft());
+      pon5 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value6.trimLeft());
+      pon6 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value7.trimLeft());
+      pon7 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value8.trimLeft());
+      pon8 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value9.trimLeft());
+      pon9 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value10.trimLeft());
+      pon10 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value11.trimLeft());
+      pon11 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones8(value12.trimLeft());
+      pon12 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value13.trimLeft());
+      pon13 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones8(value14.trimLeft());
+      pon14 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones8(value15.trimLeft());
+      pon15 = _Ponderaciones8
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr8 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr8 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
     _condicionSalud8.text = condicionFinal8;
   }
 
-  addChecked8Clas() {
+  addChecked8Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
+
     List<ClasificacionModel> previa8CLas = [];
     previa8CLas = _Clasificaciones;
     selectedItemsClas8.clear();
@@ -477,6 +8578,140 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion8 = selectedItemsClas8.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal8 = rpl.replaceSymbol(clasificacion8);
+
+    final tagName = clasificacionFinal8;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    if(value2== null){
+      await getAllOrdenClasCondicion8(value1.trimLeft());
+      Orden1 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value1.trimLeft());
+      pkr1 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk8 = pkr1;
+      OrdenC8 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion8(value1.trimLeft());
+      Orden1 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value1.trimLeft());
+      pkr1 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value2.trimLeft());
+      Orden2 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value2.trimLeft());
+      pkr2 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk8 = pkr1 + "," + pkr2;
+      OrdenC8 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion8(value1.trimLeft());
+      Orden1 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value1.trimLeft());
+      pkr1 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value2.trimLeft());
+      Orden2 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value2.trimLeft());
+      pkr2 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value3.trimLeft());
+      Orden3 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value3.trimLeft());
+      pkr3 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk8 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC8 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion8(value1.trimLeft());
+      Orden1 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value1.trimLeft());
+      pkr1 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value2.trimLeft());
+      Orden2 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value2.trimLeft());
+      pkr2 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value3.trimLeft());
+      Orden3 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value3.trimLeft());
+      pkr3 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value4.trimLeft());
+      Orden4 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value4.trimLeft());
+      pkr4 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk8 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC8 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion8(value1.trimLeft());
+      Orden1 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value1.trimLeft());
+      pkr1 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value2.trimLeft());
+      Orden2 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value2.trimLeft());
+      pkr2 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value3.trimLeft());
+      Orden3 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value3.trimLeft());
+      pkr3 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value4.trimLeft());
+      Orden4 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value4.trimLeft());
+      pkr4 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value5.trimLeft());
+      Orden5 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value5.trimLeft());
+      pkr5 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk8 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC8 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion8(value1.trimLeft());
+      Orden1 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value1.trimLeft());
+      pkr1 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value2.trimLeft());
+      Orden2 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value2.trimLeft());
+      pkr2 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value3.trimLeft());
+      Orden3 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value3.trimLeft());
+      pkr3 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value4.trimLeft());
+      Orden4 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value4.trimLeft());
+      pkr4 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value5.trimLeft());
+      Orden5 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value5.trimLeft());
+      pkr5 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion8(value6.trimLeft());
+      Orden6 = _OrdenClas8.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas8(value6.trimLeft());
+      pkr6 = _ClaveClas8.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk8 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC8 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
     _clasificacion8.text = clasificacionFinal8;
   }
 
@@ -506,7 +8741,17 @@ class _Salud_PertenenciaIndigenaTablaState
   List<CondicioneSaludModel> selectedItemsCond9 = [];
   List<ClasificacionModel> selectedItemsClas9 = [];
 
-  addChecked9Cond() {
+  addChecked9Cond()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
+
     List<CondicioneSaludModel> previa9Cond = [];
     previa9Cond = _Condiciones;
     selectedItemsCond9.clear();
@@ -518,10 +8763,886 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion9 = selectedItemsCond9.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal9 = rpl.replaceSymbol(condicion9);
+
+    final tagName = condicionFinal9;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+
+    if(value2== null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      ponderacionr9 = pon1;
+      Ordenr9 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+
+      ponderacionr9 = pon1 +","+pon2;
+      Ordenr9 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+
+      ponderacionr9 = pon1 +","+pon2+","+pon3;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+
+      ponderacionr9 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+
+      ponderacionr9 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+
+      ponderacionr9 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value7.trimLeft());
+      Orden7 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value7.trimLeft());
+      pon7 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+
+      ponderacionr9 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value7.trimLeft());
+      Orden7 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value8.trimLeft());
+      Orden8 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value7.trimLeft());
+      pon7 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value8.trimLeft());
+      pon8 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+
+      ponderacionr9 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value7.trimLeft());
+      Orden7 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value8.trimLeft());
+      Orden8 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value9.trimLeft());
+      Orden9 = _OrdenCon9.map((e) => e.Orden).first;
+
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value7.trimLeft());
+      pon7 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value8.trimLeft());
+      pon8 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value9.trimLeft());
+      pon9 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr9 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value7.trimLeft());
+      Orden7 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value8.trimLeft());
+      Orden8 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value9.trimLeft());
+      Orden9 = _OrdenCon9.map((e) => e.Orden).first;
+      await getAllOrdenCondicion9(value10.trimLeft());
+      Orden10 = _OrdenCon9.map((e) => e.Orden).first;
+
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value7.trimLeft());
+      pon7 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value8.trimLeft());
+      pon8 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value9.trimLeft());
+      pon9 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones9(value10.trimLeft());
+      pon10 = _Ponderaciones9.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr9 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr9 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value7.trimLeft());
+      Orden7 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value8.trimLeft());
+      Orden8 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value9.trimLeft());
+      Orden9 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value10.trimLeft());
+      Orden10 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value11.trimLeft());
+      Orden11 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value7.trimLeft());
+      pon7 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value8.trimLeft());
+      pon8 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value9.trimLeft());
+      pon9 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value10.trimLeft());
+      pon10 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value11.trimLeft());
+      pon11 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr9 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr9 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value7.trimLeft());
+      Orden7 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value8.trimLeft());
+      Orden8 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value9.trimLeft());
+      Orden9 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value10.trimLeft());
+      Orden10 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value11.trimLeft());
+      Orden11 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion9(value12.trimLeft());
+      Orden12 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value7.trimLeft());
+      pon7 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value8.trimLeft());
+      pon8 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value9.trimLeft());
+      pon9 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value10.trimLeft());
+      pon10 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value11.trimLeft());
+      pon11 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones9(value12.trimLeft());
+      pon12 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr9 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr9 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value7.trimLeft());
+      Orden7 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value8.trimLeft());
+      Orden8 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value9.trimLeft());
+      Orden9 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value10.trimLeft());
+      Orden10 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value11.trimLeft());
+      Orden11 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion9(value12.trimLeft());
+      Orden12 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value13.trimLeft());
+      Orden13 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value7.trimLeft());
+      pon7 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value8.trimLeft());
+      pon8 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value9.trimLeft());
+      pon9 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value10.trimLeft());
+      pon10 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value11.trimLeft());
+      pon11 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones9(value12.trimLeft());
+      pon12 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value13.trimLeft());
+      pon13 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr9 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr9 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value7.trimLeft());
+      Orden7 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value8.trimLeft());
+      Orden8 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value9.trimLeft());
+      Orden9 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value10.trimLeft());
+      Orden10 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value11.trimLeft());
+      Orden11 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion9(value12.trimLeft());
+      Orden12 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value13.trimLeft());
+      Orden13 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value14.trimLeft());
+      Orden14 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value7.trimLeft());
+      pon7 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value8.trimLeft());
+      pon8 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value9.trimLeft());
+      pon9 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value10.trimLeft());
+      pon10 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value11.trimLeft());
+      pon11 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones9(value12.trimLeft());
+      pon12 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value13.trimLeft());
+      pon13 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value14.trimLeft());
+      pon14 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr9 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr9 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion9(value1.trimLeft());
+      Orden1 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value2.trimLeft());
+      Orden2 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value3.trimLeft());
+      Orden3 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value4.trimLeft());
+      Orden4 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value5.trimLeft());
+      Orden5 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value6.trimLeft());
+      Orden6 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value7.trimLeft());
+      Orden7 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value8.trimLeft());
+      Orden8 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value9.trimLeft());
+      Orden9 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value10.trimLeft());
+      Orden10 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value11.trimLeft());
+      Orden11 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion9(value12.trimLeft());
+      Orden12 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value13.trimLeft());
+      Orden13 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value14.trimLeft());
+      Orden14 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion9(value15.trimLeft());
+      Orden15 = _OrdenCon9
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones9(value1.trimLeft());
+      pon1 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value2.trimLeft());
+      pon2 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value3.trimLeft());
+      pon3 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value4.trimLeft());
+      pon4 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value5.trimLeft());
+      pon5 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value6.trimLeft());
+      pon6 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value7.trimLeft());
+      pon7 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value8.trimLeft());
+      pon8 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value9.trimLeft());
+      pon9 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value10.trimLeft());
+      pon10 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value11.trimLeft());
+      pon11 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones9(value12.trimLeft());
+      pon12 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value13.trimLeft());
+      pon13 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones9(value14.trimLeft());
+      pon14 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones9(value15.trimLeft());
+      pon15 = _Ponderaciones9
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr9 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr9 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
     _condicionSalud9.text = condicionFinal9;
   }
 
-  addChecked9Clas() {
+  addChecked9Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
     List<ClasificacionModel> previa9CLas = [];
     previa9CLas = _Clasificaciones;
     selectedItemsClas9.clear();
@@ -533,6 +9654,140 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion9 = selectedItemsClas9.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal9 = rpl.replaceSymbol(clasificacion9);
+
+    final tagName = clasificacionFinal9;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    if(value2== null){
+      await getAllOrdenClasCondicion9(value1.trimLeft());
+      Orden1 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value1.trimLeft());
+      pkr1 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk9 = pkr1;
+      OrdenC9 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion9(value1.trimLeft());
+      Orden1 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value1.trimLeft());
+      pkr1 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value2.trimLeft());
+      Orden2 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value2.trimLeft());
+      pkr2 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk9 = pkr1 + "," + pkr2;
+      OrdenC9 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion9(value1.trimLeft());
+      Orden1 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value1.trimLeft());
+      pkr1 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value2.trimLeft());
+      Orden2 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value2.trimLeft());
+      pkr2 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value3.trimLeft());
+      Orden3 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value3.trimLeft());
+      pkr3 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk9 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC9 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion9(value1.trimLeft());
+      Orden1 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value1.trimLeft());
+      pkr1 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value2.trimLeft());
+      Orden2 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value2.trimLeft());
+      pkr2 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value3.trimLeft());
+      Orden3 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value3.trimLeft());
+      pkr3 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value4.trimLeft());
+      Orden4 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value4.trimLeft());
+      pkr4 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk9 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC9 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion9(value1.trimLeft());
+      Orden1 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value1.trimLeft());
+      pkr1 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value2.trimLeft());
+      Orden2 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value2.trimLeft());
+      pkr2 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value3.trimLeft());
+      Orden3 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value3.trimLeft());
+      pkr3 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value4.trimLeft());
+      Orden4 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value4.trimLeft());
+      pkr4 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value5.trimLeft());
+      Orden5 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value5.trimLeft());
+      pkr5 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk9 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC9 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion9(value1.trimLeft());
+      Orden1 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value1.trimLeft());
+      pkr1 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value2.trimLeft());
+      Orden2 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value2.trimLeft());
+      pkr2 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value3.trimLeft());
+      Orden3 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value3.trimLeft());
+      pkr3 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value4.trimLeft());
+      Orden4 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value4.trimLeft());
+      pkr4 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value5.trimLeft());
+      Orden5 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value5.trimLeft());
+      pkr5 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion9(value6.trimLeft());
+      Orden6 = _OrdenClas9.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas9(value6.trimLeft());
+      pkr6 = _ClaveClas9.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk9 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC9 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
     _clasificacion9.text = clasificacionFinal9;
   }
 
@@ -561,7 +9816,15 @@ class _Salud_PertenenciaIndigenaTablaState
   List<CondicioneSaludModel> selectedItemsCond10 = [];
   List<ClasificacionModel> selectedItemsClas10 = [];
 
-  addChecked10Cond() {
+  addChecked10Cond()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';
+    var Orden6 = '';var Orden7 = '';var Orden8 = '';var Orden9 = '';var Orden10 = '';
+    var Orden11 = '';var Orden12 = '';var Orden13 = '';var Orden14 = '';var Orden15 = '';
+
+    var pon1 = '';var pon2 = '';var pon3 = '';var pon4 = '';var pon5 = '';
+    var pon6 = '';var pon7 = '';var pon8 = '';var pon9 = '';var pon10 = '';
+    var pon11 = '';var pon12 = '';var pon13 = '';var pon14 = '';var pon15 = '';
+
     List<CondicioneSaludModel> previa10Cond = [];
     previa10Cond = _Condiciones;
     selectedItemsCond10.clear();
@@ -573,10 +9836,886 @@ class _Salud_PertenenciaIndigenaTablaState
     var condicion10 = selectedItemsCond10.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final condicionFinal10 = rpl.replaceSymbol(condicion10);
+
+    final tagName = condicionFinal10;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+    final value7 = values[6];
+    final value8 = values[7];
+    final value9 = values[8];
+    final value10 = values[9];
+    final value11 = values[10];
+    final value12 = values[11];
+    final value13 = values[12];
+    final value14 = values[13];
+    final value15 = values[14];
+
+
+    if(value2== null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      ponderacionr10 = pon1;
+      Ordenr10 = Orden1;
+    }else if(value3 == null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+
+      ponderacionr10 = pon1 +","+pon2;
+      Ordenr10 = Orden1+","+Orden2;
+    }else if(value4 == null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+
+      ponderacionr10 = pon1 +","+pon2+","+pon3;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3;
+    }else if(value5 == null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+
+      ponderacionr10 = pon1 +","+pon2+","+pon3+","+pon4;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4;
+    }else if(value6 == null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+
+      ponderacionr10 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5;
+    }else if(value7 == null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+
+      ponderacionr10 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6;
+    }else if(value8 == null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value7.trimLeft());
+      Orden7 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value7.trimLeft());
+      pon7 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+
+      ponderacionr10 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7;
+    }else if(value9 == null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value7.trimLeft());
+      Orden7 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value8.trimLeft());
+      Orden8 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value7.trimLeft());
+      pon7 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value8.trimLeft());
+      pon8 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+
+      ponderacionr10 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8;
+    }else if(value10 == null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value7.trimLeft());
+      Orden7 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value8.trimLeft());
+      Orden8 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value9.trimLeft());
+      Orden9 = _OrdenCon10.map((e) => e.Orden).first;
+
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value7.trimLeft());
+      pon7 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value8.trimLeft());
+      pon8 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value9.trimLeft());
+      pon9 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr10 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9;
+    }else if(value11 == null){
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value7.trimLeft());
+      Orden7 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value8.trimLeft());
+      Orden8 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value9.trimLeft());
+      Orden9 = _OrdenCon10.map((e) => e.Orden).first;
+      await getAllOrdenCondicion10(value10.trimLeft());
+      Orden10 = _OrdenCon10.map((e) => e.Orden).first;
+
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value7.trimLeft());
+      pon7 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value8.trimLeft());
+      pon8 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value9.trimLeft());
+      pon9 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+      await getAllPonderaciones10(value10.trimLeft());
+      pon10 = _Ponderaciones10.map((e) => e.Ponderacion).first;
+
+
+      ponderacionr10 = pon1 +","+pon2+","+pon3+","+pon4+","+pon5+","+pon6+","+pon7+","+pon8+","+pon9+","+pon10;
+      Ordenr10 = Orden1+","+Orden2+","+Orden3+","+Orden4+","+Orden5+","+Orden6+","+Orden7+","+Orden8+","+Orden9+","+Orden10;
+
+    }else if(value12 == null) {
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value7.trimLeft());
+      Orden7 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value8.trimLeft());
+      Orden8 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value9.trimLeft());
+      Orden9 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value10.trimLeft());
+      Orden10 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value11.trimLeft());
+      Orden11 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value7.trimLeft());
+      pon7 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value8.trimLeft());
+      pon8 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value9.trimLeft());
+      pon9 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value10.trimLeft());
+      pon10 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value11.trimLeft());
+      pon11 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr10 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 ;
+      Ordenr10 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 ;
+    }else if(value13 == null) {
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value7.trimLeft());
+      Orden7 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value8.trimLeft());
+      Orden8 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value9.trimLeft());
+      Orden9 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value10.trimLeft());
+      Orden10 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value11.trimLeft());
+      Orden11 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion10(value12.trimLeft());
+      Orden12 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value7.trimLeft());
+      pon7 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value8.trimLeft());
+      pon8 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value9.trimLeft());
+      pon9 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value10.trimLeft());
+      pon10 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value11.trimLeft());
+      pon11 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones10(value12.trimLeft());
+      pon12 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+
+      ponderacionr10 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12;
+      Ordenr10 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12;
+    }else if(value14 == null) {
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value7.trimLeft());
+      Orden7 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value8.trimLeft());
+      Orden8 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value9.trimLeft());
+      Orden9 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value10.trimLeft());
+      Orden10 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value11.trimLeft());
+      Orden11 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion10(value12.trimLeft());
+      Orden12 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value13.trimLeft());
+      Orden13 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value7.trimLeft());
+      pon7 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value8.trimLeft());
+      pon8 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value9.trimLeft());
+      pon9 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value10.trimLeft());
+      pon10 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value11.trimLeft());
+      pon11 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones10(value12.trimLeft());
+      pon12 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value13.trimLeft());
+      pon13 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr10 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13;
+      Ordenr10 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13;
+    }else if(value15 == null) {
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value7.trimLeft());
+      Orden7 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value8.trimLeft());
+      Orden8 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value9.trimLeft());
+      Orden9 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value10.trimLeft());
+      Orden10 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value11.trimLeft());
+      Orden11 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion10(value12.trimLeft());
+      Orden12 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value13.trimLeft());
+      Orden13 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value14.trimLeft());
+      Orden14 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones10(value1.trimLeft());
+      pon1 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value7.trimLeft());
+      pon7 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value8.trimLeft());
+      pon8 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value9.trimLeft());
+      pon9 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value10.trimLeft());
+      pon10 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value11.trimLeft());
+      pon11 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones10(value12.trimLeft());
+      pon12 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value13.trimLeft());
+      pon13 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value14.trimLeft());
+      pon14 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr10 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14;
+      Ordenr10 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14;
+    }else {
+      await getAllOrdenCondicion10(value1.trimLeft());
+      Orden1 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value2.trimLeft());
+      Orden2 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value3.trimLeft());
+      Orden3 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value4.trimLeft());
+      Orden4 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value5.trimLeft());
+      Orden5 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value6.trimLeft());
+      Orden6 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value7.trimLeft());
+      Orden7 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value8.trimLeft());
+      Orden8 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value9.trimLeft());
+      Orden9 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value10.trimLeft());
+      Orden10 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value11.trimLeft());
+      Orden11 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+
+      await getAllOrdenCondicion10(value12.trimLeft());
+      Orden12 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value13.trimLeft());
+      Orden13 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value14.trimLeft());
+      Orden14 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllOrdenCondicion10(value15.trimLeft());
+      Orden15 = _OrdenCon10
+          .map((e) => e.Orden)
+          .first;
+      await getAllPonderaciones10(value1).trimLeft();
+      pon1 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value2.trimLeft());
+      pon2 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value3.trimLeft());
+      pon3 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value4.trimLeft());
+      pon4 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value5.trimLeft());
+      pon5 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value6.trimLeft());
+      pon6 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value7.trimLeft());
+      pon7 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value8.trimLeft());
+      pon8 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value9.trimLeft());
+      pon9 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value10.trimLeft());
+      pon10 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value11.trimLeft());
+      pon11 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones10(value12.trimLeft());
+      pon12 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value13.trimLeft());
+      pon13 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+      await getAllPonderaciones10(value14.trimLeft());
+      pon14 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+      await getAllPonderaciones10(value15.trimLeft());
+      pon15 = _Ponderaciones10
+          .map((e) => e.Ponderacion)
+          .first;
+
+      ponderacionr10 =
+          pon1 + "," + pon2 + "," + pon3 + "," + pon4 + "," + pon5 + "," +
+              pon6 + "," + pon7 + "," + pon8 + "," + pon9 + "," + pon10 + "," +
+              pon11 + "," + pon12+ "," + pon13+ "," + pon14+ "," + pon15;
+      Ordenr10 =
+          Orden1 + "," + Orden2 + "," + Orden3 + "," + Orden4 + "," + Orden5 +
+              "," + Orden6 + "," + Orden7 + "," + Orden8 + "," + Orden9 + "," +
+              Orden10 + "," + Orden11 + "," + Orden12+ "," + Orden13+ "," + Orden14+ "," + Orden15;
+    }
     _condicionSalud10.text = condicionFinal10;
   }
 
-  addChecked10Clas() {
+  addChecked10Clas()async {
+    var Orden1 = '';var Orden2 = '';var Orden3 = '';var Orden4 = '';var Orden5 = '';var Orden6 = '';
+    var pkr1 = '';var pkr2 = '';var pkr3 = '';var pkr4 = '';var pkr5 = '';var pkr6 = '';
     List<ClasificacionModel> previa10CLas = [];
     previa10CLas = _Clasificaciones;
     selectedItemsClas10.clear();
@@ -588,6 +10727,140 @@ class _Salud_PertenenciaIndigenaTablaState
     var clasificacion10 = selectedItemsClas10.toString();
     replaceAllLetter rpl = new replaceAllLetter();
     final clasificacionFinal10 = rpl.replaceSymbol(clasificacion10);
+
+    final tagName = clasificacionFinal10;
+    final split = tagName.split(',');
+    final Map<int, String> values = {
+      for (int i = 0; i < split.length; i++)
+        i: split[i]
+    };
+    print(values);  // {0: grubs, 1:  sheep}
+
+    final value1 = values[0];
+    final value2 = values[1];
+    final value3 = values[2];
+    final value4 = values[3];
+    final value5 = values[4];
+    final value6 = values[5];
+
+    if(value2.isEmpty){
+      await getAllOrdenClasCondicion10(value1.trimLeft());
+      Orden1 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value1.trimLeft());
+      pkr1 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk10 = pkr1;
+      OrdenC10 = Orden1;
+
+    } else if(value3 == null){
+      await getAllOrdenClasCondicion10(value1.trimLeft());
+      Orden1 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value1.trimLeft());
+      pkr1 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value2.trimLeft());
+      Orden2 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value2.trimLeft());
+      pkr2 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk10 = pkr1 + "," + pkr2;
+      OrdenC10 = Orden1+ "," + Orden2;
+
+    }else if(value4 == null){
+
+      await getAllOrdenClasCondicion10(value1.trimLeft());
+      Orden1 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value1.trimLeft());
+      pkr1 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value2.trimLeft());
+      Orden2 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value2.trimLeft());
+      pkr2 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value3.trimLeft());
+      Orden3 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value3.trimLeft());
+      pkr3 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk10 = pkr1 + "," + pkr2+ "," + pkr3;
+      OrdenC10 = Orden1+ "," + Orden2+ "," + Orden3;
+
+    }else if(value5 == null){
+
+      await getAllOrdenClasCondicion10(value1.trimLeft());
+      Orden1 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value1.trimLeft());
+      pkr1 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value2.trimLeft());
+      Orden2 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value2.trimLeft());
+      pkr2 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value3.trimLeft());
+      Orden3 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value3.trimLeft());
+      pkr3 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value4.trimLeft());
+      Orden4 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value4.trimLeft());
+      pkr4 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk10 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4;
+      OrdenC10 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4;
+
+    }else if(value6 == null){
+      await getAllOrdenClasCondicion10(value1.trimLeft());
+      Orden1 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value1.trimLeft());
+      pkr1 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value2.trimLeft());
+      Orden2 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value2.trimLeft());
+      pkr2 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value3.trimLeft());
+      Orden3 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value3.trimLeft());
+      pkr3 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value4.trimLeft());
+      Orden4 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value4.trimLeft());
+      pkr4 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value5.trimLeft());
+      Orden5 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value5.trimLeft());
+      pkr5 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk10 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5;
+      OrdenC10 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5;
+
+    }else{
+
+      await getAllOrdenClasCondicion10(value1.trimLeft());
+      Orden1 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value1.trimLeft());
+      pkr1 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value2.trimLeft());
+      Orden2 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value2.trimLeft());
+      pkr2 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value3.trimLeft());
+      Orden3 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value3.trimLeft());
+      pkr3 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value4.trimLeft());
+      Orden4 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value4.trimLeft());
+      pkr4 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value5.trimLeft());
+      Orden5 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value5.trimLeft());
+      pkr5 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+      await getAllOrdenClasCondicion10(value6.trimLeft());
+      Orden6 = _OrdenClas10.map((e) => e.OrdenClasCondicionesSalud).first;
+      await getAllClaveClas10(value6.trimLeft());
+      pkr6 = _ClaveClas10.map((e) => e.ClaveClasCondicionesSalud).first;
+
+      Pk10 = pkr1 + "," + pkr2+ "," + pkr3 + "," + pkr4 + "," + pkr5+ "," + pkr6;
+      OrdenC10 = Orden1+ "," + Orden2+ "," + Orden3 + "," + Orden4+ "," + Orden5+ "," + Orden6;
+
+    }
     _clasificacion10.text = clasificacionFinal10;
   }
 
@@ -658,6 +10931,51 @@ class _Salud_PertenenciaIndigenaTablaState
   List<AdiccionesModel> _OrdenAdicciones = List<AdiccionesModel>();
   List<PuebloIndigenaModel> _OrdenPuebloIndigena = List<PuebloIndigenaModel>();
 
+
+  List<CondicioneSaludModel> _Ponderaciones1 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _Ponderaciones2 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _Ponderaciones3 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _Ponderaciones4 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _Ponderaciones5 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _Ponderaciones6 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _Ponderaciones7 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _Ponderaciones8 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _Ponderaciones9 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _Ponderaciones10 = List<CondicioneSaludModel>();
+
+  List<CondicioneSaludModel> _OrdenCon1 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _OrdenCon2 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _OrdenCon3 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _OrdenCon4 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _OrdenCon5 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _OrdenCon6 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _OrdenCon7 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _OrdenCon8 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _OrdenCon9 = List<CondicioneSaludModel>();
+  List<CondicioneSaludModel> _OrdenCon10 = List<CondicioneSaludModel>();
+
+  List<ClasificacionModel> _ClaveClas1 = List<ClasificacionModel>();
+  List<ClasificacionModel> _ClaveClas2 = List<ClasificacionModel>();
+  List<ClasificacionModel> _ClaveClas3 = List<ClasificacionModel>();
+  List<ClasificacionModel> _ClaveClas4 = List<ClasificacionModel>();
+  List<ClasificacionModel> _ClaveClas5 = List<ClasificacionModel>();
+  List<ClasificacionModel> _ClaveClas6 = List<ClasificacionModel>();
+  List<ClasificacionModel> _ClaveClas7 = List<ClasificacionModel>();
+  List<ClasificacionModel> _ClaveClas8 = List<ClasificacionModel>();
+  List<ClasificacionModel> _ClaveClas9 = List<ClasificacionModel>();
+  List<ClasificacionModel> _ClaveClas10 = List<ClasificacionModel>();
+
+  List<ClasificacionModel> _OrdenClas1 = List<ClasificacionModel>();
+  List<ClasificacionModel> _OrdenClas2 = List<ClasificacionModel>();
+  List<ClasificacionModel> _OrdenClas3 = List<ClasificacionModel>();
+  List<ClasificacionModel> _OrdenClas4 = List<ClasificacionModel>();
+  List<ClasificacionModel> _OrdenClas5 = List<ClasificacionModel>();
+  List<ClasificacionModel> _OrdenClas6 = List<ClasificacionModel>();
+  List<ClasificacionModel> _OrdenClas7 = List<ClasificacionModel>();
+  List<ClasificacionModel> _OrdenClas8 = List<ClasificacionModel>();
+  List<ClasificacionModel> _OrdenClas9 = List<ClasificacionModel>();
+  List<ClasificacionModel> _OrdenClas10 = List<ClasificacionModel>();
+
   @override
   void initState() {
     getAllCategoriesAdicciones();
@@ -677,6 +10995,490 @@ class _Salud_PertenenciaIndigenaTablaState
     IMC10();
     cargarnombres();
     dbHelper = DbHelper();
+  }
+
+  getAllOrdenCondicion1(String condicion) async {
+    _OrdenCon1 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon1.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones1(String condicion) async {
+    _Ponderaciones1 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones1.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenCondicion2(String condicion) async {
+    _OrdenCon2 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon2.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones2(String condicion) async {
+    _Ponderaciones2 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones2.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenCondicion3(String condicion) async {
+    _OrdenCon3 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon3.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones3(String condicion) async {
+    _Ponderaciones3 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones3.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenCondicion4(String condicion) async {
+    _OrdenCon4 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon4.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones4(String condicion) async {
+    _Ponderaciones4 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones4.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenCondicion5(String condicion) async {
+    _OrdenCon5 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon5.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones5(String condicion) async {
+    _Ponderaciones5 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones5.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenCondicion6(String condicion) async {
+    _OrdenCon6 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon6.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones6(String condicion) async {
+    _Ponderaciones6 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones6.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenCondicion7(String condicion) async {
+    _OrdenCon7 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon7.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones7(String condicion) async {
+    _Ponderaciones7 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones7.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenCondicion8(String condicion) async {
+    _OrdenCon8 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon8.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones8(String condicion) async {
+    _Ponderaciones8 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones8.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenCondicion9(String condicion) async {
+    _OrdenCon9 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon9.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones9(String condicion) async {
+    _Ponderaciones9 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones9.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenCondicion10(String condicion) async {
+    _OrdenCon10 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readOrdenCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Orden = category['Orden'];
+        _OrdenCon10.add(categoryModel);
+      });
+    });
+  }
+
+  getAllPonderaciones10(String condicion) async {
+    _Ponderaciones10 = List<CondicioneSaludModel>();
+    var categories = await CategoryService().readPonderacionCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = CondicioneSaludModel();
+        categoryModel.Ponderacion = category['Ponderacion'];
+        _Ponderaciones10.add(categoryModel);
+      });
+    });
+  }
+
+
+
+
+
+  getAllOrdenClasCondicion1(String condicion) async {
+    _OrdenClas1 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas1.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas1(String condicion) async {
+    _ClaveClas1 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas1.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenClasCondicion2(String condicion) async {
+    _OrdenClas2 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas2.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas2(String condicion) async {
+    _ClaveClas2 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas2.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenClasCondicion3(String condicion) async {
+    _OrdenClas3 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas3.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas3(String condicion) async {
+    _ClaveClas3 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas3.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenClasCondicion4(String condicion) async {
+    _OrdenClas4 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas4.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas4(String condicion) async {
+    _ClaveClas4 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas4.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenClasCondicion5(String condicion) async {
+    _OrdenClas5 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas5.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas5(String condicion) async {
+    _ClaveClas6 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas5.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenClasCondicion6(String condicion) async {
+    _OrdenClas6 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas6.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas6(String condicion) async {
+    _ClaveClas6 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas6.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenClasCondicion7(String condicion) async {
+    _OrdenClas7 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas7.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas7(String condicion) async {
+    _ClaveClas7 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas7.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenClasCondicion8(String condicion) async {
+    _OrdenClas8 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas8.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas8(String condicion) async {
+    _ClaveClas8 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas8.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenClasCondicion9(String condicion) async {
+    _OrdenClas9 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas9.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas9(String condicion) async {
+    _ClaveClas9 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas9.add(categoryModel);
+      });
+    });
+  }
+
+  getAllOrdenClasCondicion10(String condicion) async {
+    _OrdenClas10 = List<ClasificacionModel>();
+    var categories = await CategoryService().readOrdenClasCodicionesSlud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.OrdenClasCondicionesSalud = category['OrdenClasCondicionesSalud'];
+        _OrdenClas10.add(categoryModel);
+      });
+    });
+  }
+
+  getAllClaveClas10(String condicion) async {
+    _ClaveClas10 = List<ClasificacionModel>();
+    var categories = await CategoryService().readClaveClasCondicionesSalud(condicion);
+    categories.forEach((category) {
+      setState(() {
+        var categoryModel = ClasificacionModel();
+        categoryModel.ClaveClasCondicionesSalud = category['ClaveClasCondicionesSalud'];
+        _ClaveClas10.add(categoryModel);
+      });
+    });
   }
 
   cargarnombres() {
@@ -740,12 +11542,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia1.map((e) => e.Adiccion).first;
 
-    _condicionSalud1.text =
-        _SaludPertenencia1.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia1.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia1.map((e) => e.CondicionesSalud).first;
+    _condicionSalud1.text = _SaludPertenencia1.map((e) => e.CondicionesSalud).first;
+    Ordenr1 = _SaludPertenencia1.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso1.text = _SaludPertenencia1.map((e) => e.peso.toString()).first;
     _talla1.text = _SaludPertenencia1.map((e) => e.talla.toString()).first;
@@ -754,13 +11552,12 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia1.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion1.text = _SaludPertenencia1.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia1.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia1.map((e) => e.ClasCondicionesSalud.toString()).first;
+    _clasificacion1.text = _SaludPertenencia1.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk1 = _SaludPertenencia1.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC1 = _SaludPertenencia1.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+
+
+
 
     _ponderacion1.text =
         _SaludPertenencia1.map((e) => e.ponderacion.toString()).first;
@@ -921,12 +11718,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia2.map((e) => e.Adiccion).first;
 
-    _condicionSalud2.text =
-        _SaludPertenencia2.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia2.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia2.map((e) => e.CondicionesSalud).first;
+    _condicionSalud2.text = _SaludPertenencia2.map((e) => e.CondicionesSalud).first;
+    Ordenr2 = _SaludPertenencia2.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso2.text = _SaludPertenencia2.map((e) => e.peso.toString()).first;
     _talla2.text = _SaludPertenencia2.map((e) => e.talla.toString()).first;
@@ -935,13 +11728,9 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia2.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion2.text = _SaludPertenencia2.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia2.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia2.map((e) => e.ClasCondicionesSalud.toString()).first;
+    _clasificacion2.text = _SaludPertenencia2.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk2 = _SaludPertenencia2.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC2 = _SaludPertenencia2.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
 
     _ponderacion2.text =
         _SaludPertenencia2.map((e) => e.ponderacion.toString()).first;
@@ -1002,12 +11791,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia3.map((e) => e.Adiccion).first;
 
-    _condicionSalud3.text =
-        _SaludPertenencia3.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia3.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia3.map((e) => e.CondicionesSalud).first;
+    _condicionSalud3.text = _SaludPertenencia3.map((e) => e.CondicionesSalud).first;
+    Ordenr3 = _SaludPertenencia3.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso3.text = _SaludPertenencia3.map((e) => e.peso.toString()).first;
     _talla3.text = _SaludPertenencia3.map((e) => e.talla.toString()).first;
@@ -1016,13 +11801,9 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia3.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion3.text = _SaludPertenencia3.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia3.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia3.map((e) => e.ClasCondicionesSalud.toString()).first;
+    _clasificacion3.text = _SaludPertenencia3.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk3 = _SaludPertenencia3.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC3 = _SaludPertenencia3.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
 
     _ponderacion3.text =
         _SaludPertenencia3.map((e) => e.ponderacion.toString()).first;
@@ -1133,12 +11914,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia4.map((e) => e.Adiccion).first;
 
-    _condicionSalud4.text =
-        _SaludPertenencia4.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia4.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia4.map((e) => e.CondicionesSalud).first;
+    _condicionSalud4.text = _SaludPertenencia4.map((e) => e.CondicionesSalud).first;
+    Ordenr4 = _SaludPertenencia4.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso4.text = _SaludPertenencia4.map((e) => e.peso.toString()).first;
     _talla4.text = _SaludPertenencia4.map((e) => e.talla.toString()).first;
@@ -1147,13 +11924,9 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia4.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion4.text = _SaludPertenencia4.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia4.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia4.map((e) => e.ClasCondicionesSalud.toString()).first;
+    _clasificacion4.text = _SaludPertenencia4.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk4 = _SaludPertenencia4.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC4 = _SaludPertenencia4.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
 
     _ponderacion4.text =
         _SaludPertenencia4.map((e) => e.ponderacion.toString()).first;
@@ -1264,12 +12037,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia5.map((e) => e.Adiccion).first;
 
-    _condicionSalud5.text =
-        _SaludPertenencia5.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia5.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia5.map((e) => e.CondicionesSalud).first;
+    _condicionSalud5.text = _SaludPertenencia5.map((e) => e.CondicionesSalud).first;
+    Ordenr5 = _SaludPertenencia5.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso5.text = _SaludPertenencia5.map((e) => e.peso.toString()).first;
     _talla5.text = _SaludPertenencia5.map((e) => e.talla.toString()).first;
@@ -1278,13 +12047,9 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia5.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion5.text = _SaludPertenencia5.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia5.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia5.map((e) => e.ClasCondicionesSalud.toString()).first;
+    _clasificacion5.text = _SaludPertenencia5.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk5 = _SaludPertenencia5.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC5 = _SaludPertenencia5.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
 
     _ponderacion5.text =
         _SaludPertenencia5.map((e) => e.ponderacion.toString()).first;
@@ -1395,12 +12160,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia6.map((e) => e.Adiccion).first;
 
-    _condicionSalud6.text =
-        _SaludPertenencia6.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia6.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia6.map((e) => e.CondicionesSalud).first;
+    _condicionSalud6.text = _SaludPertenencia6.map((e) => e.CondicionesSalud).first;
+    Ordenr6 = _SaludPertenencia6.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso6.text = _SaludPertenencia6.map((e) => e.peso.toString()).first;
     _talla6.text = _SaludPertenencia6.map((e) => e.talla.toString()).first;
@@ -1409,13 +12170,9 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia6.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion6.text = _SaludPertenencia6.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia6.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia6.map((e) => e.ClasCondicionesSalud.toString()).first;
+    _clasificacion6.text = _SaludPertenencia6.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk6 = _SaludPertenencia6.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC6 = _SaludPertenencia6.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
 
     _ponderacion6.text =
         _SaludPertenencia6.map((e) => e.ponderacion.toString()).first;
@@ -1526,12 +12283,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia7.map((e) => e.Adiccion).first;
 
-    _condicionSalud7.text =
-        _SaludPertenencia7.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia7.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia7.map((e) => e.CondicionesSalud).first;
+    _condicionSalud7.text = _SaludPertenencia7.map((e) => e.CondicionesSalud).first;
+    Ordenr7 = _SaludPertenencia7.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso7.text = _SaludPertenencia7.map((e) => e.peso.toString()).first;
     _talla7.text = _SaludPertenencia7.map((e) => e.talla.toString()).first;
@@ -1540,14 +12293,9 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia7.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion7.text = _SaludPertenencia7.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia7.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia7.map((e) => e.ClasCondicionesSalud.toString()).first;
-
+    _clasificacion7.text = _SaludPertenencia7.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk7 = _SaludPertenencia7.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC7 = _SaludPertenencia7.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
     _ponderacion7.text =
         _SaludPertenencia7.map((e) => e.ponderacion.toString()).first;
 
@@ -1657,12 +12405,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia8.map((e) => e.Adiccion).first;
 
-    _condicionSalud8.text =
-        _SaludPertenencia8.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia8.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia8.map((e) => e.CondicionesSalud).first;
+    _condicionSalud8.text = _SaludPertenencia8.map((e) => e.CondicionesSalud).first;
+    Ordenr8 = _SaludPertenencia8.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso8.text = _SaludPertenencia8.map((e) => e.peso.toString()).first;
     _talla8.text = _SaludPertenencia8.map((e) => e.talla.toString()).first;
@@ -1671,13 +12415,9 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia8.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion8.text = _SaludPertenencia8.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia8.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia8.map((e) => e.ClasCondicionesSalud.toString()).first;
+    _clasificacion8.text = _SaludPertenencia8.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk8 = _SaludPertenencia8.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC8 = _SaludPertenencia8.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
 
     _ponderacion8.text =
         _SaludPertenencia8.map((e) => e.ponderacion.toString()).first;
@@ -1788,12 +12528,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia9.map((e) => e.Adiccion).first;
 
-    _condicionSalud9.text =
-        _SaludPertenencia9.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia9.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia9.map((e) => e.CondicionesSalud).first;
+    _condicionSalud9.text = _SaludPertenencia9.map((e) => e.CondicionesSalud).first;
+    Ordenr9 = _SaludPertenencia9.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso9.text = _SaludPertenencia9.map((e) => e.peso.toString()).first;
     _talla9.text = _SaludPertenencia9.map((e) => e.talla.toString()).first;
@@ -1802,13 +12538,9 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia9.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion9.text = _SaludPertenencia9.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia9.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia9.map((e) => e.ClasCondicionesSalud.toString()).first;
+    _clasificacion9.text = _SaludPertenencia9.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk9 = _SaludPertenencia9.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC9 = _SaludPertenencia9.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
 
     _ponderacion9.text =
         _SaludPertenencia9.map((e) => e.ponderacion.toString()).first;
@@ -1919,12 +12651,8 @@ class _Salud_PertenenciaIndigenaTablaState
         " " +
         _SaludPertenencia10.map((e) => e.Adiccion).first;
 
-    _condicionSalud10.text =
-        _SaludPertenencia10.map((e) => e.ClaveCondicionesSalud).first +
-            " " +
-            _SaludPertenencia10.map((e) => e.OrdenCondicionesSalud).first +
-            " " +
-            _SaludPertenencia10.map((e) => e.CondicionesSalud).first;
+    _condicionSalud10.text = _SaludPertenencia10.map((e) => e.CondicionesSalud).first;
+    Ordenr10 = _SaludPertenencia10.map((e) => e.OrdenCondicionesSalud).first;
 
     _peso10.text = _SaludPertenencia10.map((e) => e.peso.toString()).first;
     _talla10.text = _SaludPertenencia10.map((e) => e.talla.toString()).first;
@@ -1933,13 +12661,9 @@ class _Salud_PertenenciaIndigenaTablaState
             " " +
             _SaludPertenencia10.map((e) => e.EtniaIndigena).first;
 
-    _clasificacion10.text = _SaludPertenencia10.map(
-            (e) => e.ClaveClasCondicionesSalud.toString()).first +
-        " " +
-        _SaludPertenencia10.map((e) => e.ClaveClasCondicionesSalud.toString())
-            .first +
-        " " +
-        _SaludPertenencia10.map((e) => e.ClasCondicionesSalud.toString()).first;
+    _clasificacion10.text = _SaludPertenencia10.map((e) => e.ClasCondicionesSalud.toString()).first;
+    Pk10 = _SaludPertenencia10.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
+    OrdenC10 = _SaludPertenencia10.map((e) => e.ClaveClasCondicionesSalud.toString()).first;
 
     _ponderacion10.text =
         _SaludPertenencia10.map((e) => e.ponderacion.toString()).first;
@@ -3342,20 +14066,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso1.text),
             talla: double.parse(_talla1.text),
             imc: imC1,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft().trimRight(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr1,
+            OrdenCondicionesSalud: Ordenr1,
+            CondicionesSalud: _condicionSalud1.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk1,
+            OrdenClasCondicionesSalud: OrdenC1,
+            ClasCondicionesSalud: _clasificacion1.text ,
             ponderacion: int.parse(_ponderacion1.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -3540,20 +14256,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso2.text),
             talla: double.parse(_talla2.text),
             imc: imC2,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft().trimRight(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr2,
+            OrdenCondicionesSalud: Ordenr2,
+            CondicionesSalud: _condicionSalud2.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk2,
+            OrdenClasCondicionesSalud: OrdenC2,
+            ClasCondicionesSalud: _clasificacion2.text ,
             ponderacion: int.parse(_ponderacion2.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -3738,20 +14446,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso3.text),
             talla: double.parse(_talla3.text),
             imc: imC3,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr3,
+            OrdenCondicionesSalud: Ordenr3,
+            CondicionesSalud: _condicionSalud3.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk3,
+            OrdenClasCondicionesSalud: OrdenC3,
+            ClasCondicionesSalud: _clasificacion3.text ,
             ponderacion: int.parse(_ponderacion3.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -3936,20 +14636,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso4.text),
             talla: double.parse(_talla4.text),
             imc: imC4,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr4,
+            OrdenCondicionesSalud: Ordenr4,
+            CondicionesSalud: _condicionSalud4.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk4,
+            OrdenClasCondicionesSalud: OrdenC4,
+            ClasCondicionesSalud: _clasificacion4.text ,
             ponderacion: int.parse(_ponderacion4.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -4134,20 +14826,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso5.text),
             talla: double.parse(_talla5.text),
             imc: imC5,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr5,
+            OrdenCondicionesSalud: Ordenr5,
+            CondicionesSalud: _condicionSalud5.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk5,
+            OrdenClasCondicionesSalud: OrdenC5,
+            ClasCondicionesSalud: _clasificacion5.text ,
             ponderacion: int.parse(_ponderacion5.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -4332,20 +15016,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso6.text),
             talla: double.parse(_talla6.text),
             imc: imC6,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr6,
+            OrdenCondicionesSalud: Ordenr6,
+            CondicionesSalud: _condicionSalud6.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk6,
+            OrdenClasCondicionesSalud: OrdenC6,
+            ClasCondicionesSalud: _clasificacion6.text ,
             ponderacion: int.parse(_ponderacion6.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -4530,20 +15206,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso7.text),
             talla: double.parse(_talla7.text),
             imc: imC7,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr7,
+            OrdenCondicionesSalud: Ordenr7,
+            CondicionesSalud: _condicionSalud7.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk7,
+            OrdenClasCondicionesSalud: OrdenC7,
+            ClasCondicionesSalud: _clasificacion7.text ,
             ponderacion: int.parse(_ponderacion7.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -4728,20 +15396,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso8.text),
             talla: double.parse(_talla8.text),
             imc: imC8,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion,
+            ClaveCondicionesSalud: Ordenr8,
+            OrdenCondicionesSalud: Ordenr8,
+            CondicionesSalud: _condicionSalud8.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk8,
+            OrdenClasCondicionesSalud: OrdenC8,
+            ClasCondicionesSalud: _clasificacion8.text ,
             ponderacion: int.parse(_ponderacion8.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -4926,20 +15586,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso9.text),
             talla: double.parse(_talla9.text),
             imc: imC9,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr9,
+            OrdenCondicionesSalud: Ordenr9,
+            CondicionesSalud: _condicionSalud9.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk9,
+            OrdenClasCondicionesSalud: OrdenC9,
+            ClasCondicionesSalud: _clasificacion9.text ,
             ponderacion: int.parse(_ponderacion9.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -5124,20 +15776,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso10.text),
             talla: double.parse(_talla10.text),
             imc: imC10,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr10,
+            OrdenCondicionesSalud: Ordenr10,
+            CondicionesSalud: _condicionSalud10.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk10,
+            OrdenClasCondicionesSalud: OrdenC10,
+            ClasCondicionesSalud: _clasificacion10.text ,
             ponderacion: int.parse(_ponderacion10.text),
             fileFoto1: foto1,
             fileFoto2: foto2,
@@ -5340,20 +15984,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso1.text),
             talla: double.parse(_talla1.text),
             imc: imC1,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud1.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion1.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr1,
+            OrdenCondicionesSalud: Ordenr1,
+            CondicionesSalud: _condicionSalud1.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk1,
+            OrdenClasCondicionesSalud: OrdenC1,
+            ClasCondicionesSalud: _clasificacion1.text ,
             ponderacion: int.parse(_ponderacion1.text),
             fileFoto1: foto1_1,
             fileFoto2: foto1_2,
@@ -5537,20 +16173,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso2.text),
             talla: double.parse(_talla2.text),
             imc: imC2,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud2.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion2.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr2,
+            OrdenCondicionesSalud: Ordenr2,
+            CondicionesSalud: _condicionSalud2.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk2,
+            OrdenClasCondicionesSalud: OrdenC2,
+            ClasCondicionesSalud: _clasificacion2.text ,
             ponderacion: int.parse(_ponderacion2.text),
             fileFoto1: foto2_1,
             fileFoto2: foto2_2,
@@ -5734,20 +16362,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso3.text),
             talla: double.parse(_talla3.text),
             imc: imC3,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud3.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion3.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr3,
+            OrdenCondicionesSalud: Ordenr3,
+            CondicionesSalud: _condicionSalud3.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk3,
+            OrdenClasCondicionesSalud: OrdenC3,
+            ClasCondicionesSalud: _clasificacion3.text ,
             ponderacion: int.parse(_ponderacion3.text),
             fileFoto1: foto3_1,
             fileFoto2: foto3_2,
@@ -5931,20 +16551,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso4.text),
             talla: double.parse(_talla4.text),
             imc: imC4,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud4.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion4.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr4,
+            OrdenCondicionesSalud: Ordenr4,
+            CondicionesSalud: _condicionSalud4.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk4,
+            OrdenClasCondicionesSalud: OrdenC4,
+            ClasCondicionesSalud: _clasificacion4.text ,
             ponderacion: int.parse(_ponderacion4.text),
             fileFoto1: foto4_1,
             fileFoto2: foto4_2,
@@ -6128,20 +16740,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso5.text),
             talla: double.parse(_talla5.text),
             imc: imC5,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud5.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion5.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr5,
+            OrdenCondicionesSalud: Ordenr5,
+            CondicionesSalud: _condicionSalud5.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk5,
+            OrdenClasCondicionesSalud: OrdenC5,
+            ClasCondicionesSalud: _clasificacion5.text ,
             ponderacion: int.parse(_ponderacion5.text),
             fileFoto1: foto5_1,
             fileFoto2: foto5_2,
@@ -6325,20 +16929,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso6.text),
             talla: double.parse(_talla6.text),
             imc: imC6,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud6.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion6.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr6,
+            OrdenCondicionesSalud: Ordenr6,
+            CondicionesSalud: _condicionSalud6.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk6,
+            OrdenClasCondicionesSalud: OrdenC6,
+            ClasCondicionesSalud: _clasificacion6.text ,
             ponderacion: int.parse(_ponderacion6.text),
             fileFoto1: foto6_1,
             fileFoto2: foto6_2,
@@ -6522,20 +17118,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso7.text),
             talla: double.parse(_talla7.text),
             imc: imC7,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud7.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion7.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr7,
+            OrdenCondicionesSalud: Ordenr7,
+            CondicionesSalud: _condicionSalud7.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk7,
+            OrdenClasCondicionesSalud: OrdenC7,
+            ClasCondicionesSalud: _clasificacion7.text ,
             ponderacion: int.parse(_ponderacion7.text),
             fileFoto1: foto7_1,
             fileFoto2: foto7_2,
@@ -6719,20 +17307,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso8.text),
             talla: double.parse(_talla8.text),
             imc: imC8,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud8.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion8.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr8,
+            OrdenCondicionesSalud: Ordenr8,
+            CondicionesSalud: _condicionSalud8.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk8,
+            OrdenClasCondicionesSalud: OrdenC8,
+            ClasCondicionesSalud: _clasificacion8.text ,
             ponderacion: int.parse(_ponderacion8.text),
             fileFoto1: foto8_1,
             fileFoto2: foto8_2,
@@ -6916,20 +17496,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso9.text),
             talla: double.parse(_talla9.text),
             imc: imC9,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud9.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion9.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr9,
+            OrdenCondicionesSalud: Ordenr9,
+            CondicionesSalud: _condicionSalud9.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk9,
+            OrdenClasCondicionesSalud: OrdenC9,
+            ClasCondicionesSalud: _clasificacion9.text ,
             ponderacion: int.parse(_ponderacion9.text),
             fileFoto1: foto9_1,
             fileFoto2: foto9_2,
@@ -7113,20 +17685,12 @@ class _Salud_PertenenciaIndigenaTablaState
             peso: double.parse(_peso10.text),
             talla: double.parse(_talla10.text),
             imc: imC10,
-            ClaveCondicionesSalud:
-                (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenCondicionesSalud:
-                (int.parse(_condicionSalud10.text.substring(0, 2).trimRight()))
-                    .toString(),
-            CondicionesSalud: Condiciones.trimLeft(),
-            ClaveClasCondicionesSalud:
-                (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
-                    .toString(),
-            OrdenClasCondicionesSalud:
-                (int.parse(_clasificacion10.text.substring(0, 2).trimRight()))
-                    .toString(),
-            ClasCondicionesSalud: Clasificacion.trimLeft(),
+            ClaveCondicionesSalud: Ordenr10,
+            OrdenCondicionesSalud: Ordenr10,
+            CondicionesSalud: _condicionSalud10.text.trimLeft().trimRight(),
+            ClaveClasCondicionesSalud: Pk10,
+            OrdenClasCondicionesSalud: OrdenC10,
+            ClasCondicionesSalud: _clasificacion10.text ,
             ponderacion: int.parse(_ponderacion10.text),
             fileFoto1: foto10_1,
             fileFoto2: foto10_2,

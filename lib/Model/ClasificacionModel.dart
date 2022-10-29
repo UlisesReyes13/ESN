@@ -1,6 +1,6 @@
 class ClasificacionModel {
-  int ClaveClasCondicionesSalud;
-  int OrdenClasCondicionesSalud;
+  String ClaveClasCondicionesSalud;
+  String OrdenClasCondicionesSalud;
   String ClasCondicionesSalud;
   bool value;
 

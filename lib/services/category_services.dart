@@ -448,4 +448,22 @@ class CategoryService {
     return await _repository.readOrdenPrestacionesLaborales(prestacion);
   }
 
+  readOrdenCodicionesSlud(String condicion) async {
+    return await _repository.readOrdenCodicionesSlud(condicion);
+  }
+
+  readPonderacionCondicionesSalud(String condicion) async {
+    return await _repository.readPonderacionCondicionesSalud(condicion);
+  }
+
+  readOrdenClasCodicionesSlud(String condicion) async {
+    return await _repository.readOrdenClasCodicionesSlud(condicion);
+  }
+
+  readClaveClasCondicionesSalud(String condicion) async {
+    return await _repository.readClaveClasCondicionesSalud(condicion);
+  }
+
+
+
 }

@@ -1337,12 +1337,22 @@ class DbHelper {
 
   readOrdenCodicionesSlud(String condicion) async {
     var connection = await db;
-    return await connection.rawQuery("select Pk_PrestacionesLaborales from tb_PrestacionesLaborales where txt_desc_prestacioneslab like '%${prestacion}%'");
+    return await connection.rawQuery("select Orden from tb_CondicionesSalud where CondicionesSalud like '%${condicion}%'");
   }
 
   readPonderacionCondicionesSalud(String condicion) async {
     var connection = await db;
-    return await connection.rawQuery("select Orden_PrestacionesLaborales from tb_PrestacionesLaborales where txt_desc_prestacioneslab like '%${prestacion}%'");
+    return await connection.rawQuery("select Ponderacion from tb_CondicionesSalud where CondicionesSalud like '%${condicion}%'");
+  }
+
+  readOrdenClasCodicionesSlud(String condicion) async {
+    var connection = await db;
+    return await connection.rawQuery("select OrdenClasCondicionesSalud from tb_ClasCondicionesSalud where ClasCondicionesSalud like '%${condicion}%'");
+  }
+
+  readClaveClasCondicionesSalud(String condicion) async {
+    var connection = await db;
+    return await connection.rawQuery("select ClaveClasCondicionesSalud from tb_ClasCondicionesSalud where ClasCondicionesSalud like '%${condicion}%'");
   }
 
   readOrdenEstado(String Estado) async {
