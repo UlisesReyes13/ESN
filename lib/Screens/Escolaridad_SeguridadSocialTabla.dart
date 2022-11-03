@@ -8486,7 +8486,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2== null){
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion(value1.trimLeft());
+      await getAllPkPrestacion(value1.trimLeft());
       pk1 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
       pk = pk1;
       Orden = Orden1;
@@ -8691,15 +8691,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
       await getAllPkPrestacion(value8.trimLeft());
       pk8 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 +
-          "," +
-          pk2 +
-          "," +
-          pk3 +
-          "," +
-          pk4 +
-          "," +
-          pk5 +
+      pk = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 +
           "," +
           pk6 +
           "," +
@@ -8882,7 +8874,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2== null){
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion2(value1.trimLeft());
+      await getAllPkPrestacion2(value1.trimLeft());
       pk1 = _Prestaciones2.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr2 = pk1;
       Ordenr2 = Orden1;
@@ -9277,7 +9269,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2== null){
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion3(value1.trimLeft());
+      await getAllPkPrestacion3(value1.trimLeft());
       pk1 = _Prestaciones3.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr3 = pk1;
       Ordenr3 = Orden1;
@@ -9672,7 +9664,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2== null){
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion4(value1.trimLeft());
+      await getAllPkPrestacion4(value1.trimLeft());
       pk1 = _Prestaciones4.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr4 = pk1;
       Ordenr4 = Orden1;
@@ -10068,7 +10060,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2== null){
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion5(value1.trimLeft());
+      await getAllPkPrestacion5(value1.trimLeft());
       pk1 = _Prestaciones5.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr5 = pk1;
       Ordenr5 = Orden1;
@@ -10461,7 +10453,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2== null){
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion6(value1.trimLeft());
+      await getAllPkPrestacion6(value1.trimLeft());
       pk1 = _Prestaciones6.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr6 = pk1;
       Ordenr6 = Orden1;
@@ -10857,7 +10849,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2 == null){
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion7(value1.trimLeft());
+      await getAllPkPrestacion7(value1.trimLeft());
       pk1 = _Prestaciones7.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr7 = pk1;
       Ordenr7 = Orden1;
@@ -11250,7 +11242,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2== null){
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion8(value1.trimLeft());
+      await getAllPkPrestacion8(value1.trimLeft());
       pk1 = _Prestaciones8.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr8 = pk1;
       Ordenr8 = Orden1;
@@ -11645,7 +11637,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2== null){
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion9(value1.trimLeft());
+      await getAllPkPrestacion9(value1.trimLeft());
       pk1 = _Prestaciones9.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr9 = pk1;
       Ordenr9 = Orden1;
@@ -12037,7 +12029,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     if(value2 == null){
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
-      getAllPkPrestacion10(value1.trimLeft());
+      await getAllPkPrestacion10(value1.trimLeft());
       pk1 = _Prestaciones10.map((e) => e.Pk_PrestacionesLaborales).first;
       pkr10 = pk1;
       Ordenr10 = Orden1;

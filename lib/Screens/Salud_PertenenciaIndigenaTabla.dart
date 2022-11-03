@@ -13690,9 +13690,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC1 = double.parse(i);
-    if (imC1 >= 40.0) {
+    /*if (imC1 >= 40.0) {
       _condicionSalud1.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -13708,9 +13708,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC2 = double.parse(i);
-    if (imC2 >= 40.0) {
+   /* if (imC2 >= 40.0) {
       _condicionSalud2.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -13726,9 +13726,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC3 = double.parse(i);
-    if (imC3 >= 40.0) {
+    /*if (imC3 >= 40.0) {
       _condicionSalud3.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -13744,9 +13744,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC4 = double.parse(i);
-    if (imC4 >= 40.0) {
+    /*if (imC4 >= 40.0) {
       _condicionSalud4.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -13762,9 +13762,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC5 = double.parse(i);
-    if (imC5 >= 40.0) {
+    /*if (imC5 >= 40.0) {
       _condicionSalud5.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -13780,9 +13780,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC6 = double.parse(i);
-    if (imC6 >= 40.0) {
+   /* if (imC6 >= 40.0) {
       _condicionSalud6.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -13798,9 +13798,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC7 = double.parse(i);
-    if (imC7 >= 40.0) {
+    /*if (imC7 >= 40.0) {
       _condicionSalud7.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -13816,9 +13816,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC8 = double.parse(i);
-    if (imC8 >= 40.0) {
+    /*if (imC8 >= 40.0) {
       _condicionSalud8.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -13834,9 +13834,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC9 = double.parse(i);
-    if (imC9 >= 40.0) {
+    /*if (imC9 >= 40.0) {
       _condicionSalud9.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -13852,9 +13852,9 @@ class _Salud_PertenenciaIndigenaTablaState
     String i = indice.toStringAsFixed(2);
     final _imc = TextEditingController.fromValue(TextEditingValue(text: i));
     imC10 = double.parse(i);
-    if (imC10 >= 40.0) {
+   /* if (imC10 >= 40.0) {
       _condicionSalud10.text = '25 25 Obesidad Mórbida';
-    }
+    }*/
     return _imc;
   }
 
@@ -18374,7 +18374,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                     inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC2(),
@@ -18675,7 +18675,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                     inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC3(),
@@ -18976,7 +18976,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                     inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC4(),
@@ -19277,7 +19277,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                     inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC5(),
@@ -19578,7 +19578,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                     inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC6(),
@@ -19879,7 +19879,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                     inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC7(),
@@ -20179,7 +20179,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                 )),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC8(),
@@ -20480,7 +20480,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                     inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC9(),
@@ -20782,7 +20782,7 @@ class _Salud_PertenenciaIndigenaTablaState
                                     inputType: TextInputType.number)),
                                 DataCell(
                                   Container(
-                                    margin: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(bottom: 45),
                                     width: 300,
                                     child: TextField(
                                       controller: IMC10(),

@@ -301,7 +301,6 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
                 SizedBox(height: 5.0),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  width: 300,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.words,
                     controller: _otroApoyo,

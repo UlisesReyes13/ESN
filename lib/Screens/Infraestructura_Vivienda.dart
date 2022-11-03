@@ -554,7 +554,6 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                 SizedBox(height: 5.0),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  width: 300,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.words,
                     controller: _otroTipoCasa,
@@ -620,7 +619,6 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                 SizedBox(height: 5.0),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  width: 300,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.words,
                     controller: _otroPiso,
@@ -686,7 +684,6 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                 SizedBox(height: 5.0),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  width: 300,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.words,
                     controller: _otroTenencia,
@@ -752,7 +749,6 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                 SizedBox(height: 5.0),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  width: 300,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.words,
                     controller: _otroTecho,
@@ -819,7 +815,6 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                 SizedBox(height: 5.0),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  width: 300,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.words,
                     controller: _otroMuro,

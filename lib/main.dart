@@ -28,17 +28,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: '',
+      title: 'ESN v1.0.2',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
-
-
-
-      home: Salud_PertenenciaIndigenaTabla("99912"),
-
-
+      home: LoginForm(),
     );
   }
 }
