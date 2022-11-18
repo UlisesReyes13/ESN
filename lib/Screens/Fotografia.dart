@@ -125,6 +125,20 @@ class _FotografiaState extends State<Fotografia> {
                   ),
                 ),
                 Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextField(
+                    maxLines: 15,
+                    decoration: InputDecoration(
+                      labelText: "Ponderación",
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(0),
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,
                   child: TextButton.icon(

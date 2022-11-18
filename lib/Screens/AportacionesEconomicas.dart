@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:esn/Comm/genTextConcepto.dart';
-import 'package:esn/Comm/genTextEquipamiento.dart';
 import 'package:esn/Comm/genTextFolio.dart';
+import 'package:esn/Comm/genTextImporte.dart';
 import 'package:esn/Comm/genTextQuestion.dart';
 import 'package:esn/Comm/genTextAportaciones.dart';
 import 'package:esn/Model/AportacionSemanal.dart';
@@ -9,7 +11,6 @@ import 'package:esn/Screens/ApoyosEnEspecie.dart';
 import 'package:esn/Screens/Equipamiento.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
-import 'package:esn/Comm/genTextField.dart';
 
 import '../Comm/comHelper.dart';
 import '../DatabaseHandler/DbHelper.dart';
@@ -53,8 +54,8 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
   static double SumaES;
   static double SumaEM;
 
-  List<AportacionSemanal> _AportacionesEconomicas = List<AportacionSemanal>();
-  List<EgresoSemanal> _Egresos = List<EgresoSemanal>();
+  List<AportacionSemanal> _AportacionesEconomicas = [];
+  List<EgresoSemanal> _Egresos = [];
 
   SumaApoyoS() {
     String padre = _padre.text;
@@ -285,7 +286,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
   }
 
   getAllAportaciones() async {
-    _AportacionesEconomicas = List<AportacionSemanal>();
+    _AportacionesEconomicas = [];
     var categories =
         await CategoryService().readAportaciones(int.parse(widget.folio));
     categories.forEach((category) {
@@ -327,7 +328,7 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
   }
 
   getAllEgresos() async {
-    _Egresos = List<EgresoSemanal>();
+    _Egresos = [];
     var categories =
         await CategoryService().readEgresos(int.parse(widget.folio));
     categories.forEach((category) {
@@ -676,15 +677,123 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                 ),
                 getTextAportaciones(encabezado: 'Aportación Semanal'),
                 Container(
-                  child: Row(
-                    children: [
-                      SizedBox(height: 50.0),
-                      getTextEquipamiento(encabezado: 'Concepto'),
-                      SizedBox(width: 100.0),
-                      getTextEquipamiento(encabezado: 'Importe'),
-                    ],
-                  ),
-                ),
+                    padding: EdgeInsets.all(20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: DataTable(
+                              dataRowHeight: 100,
+                              columnSpacing: 10,
+                              columns: [
+                                DataColumn(
+                                    label:
+                                        getTextCocepto(concepto: 'Concepto')),
+                                DataColumn(
+                                    label: getTextCocepto(concepto: 'Importe'))
+                              ],
+                              rows: [
+                                DataRow(cells: [
+                                  DataCell(Text('Padre',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _padre))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Madre',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _madre))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Hijos',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _hijos))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('PROSPERA',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(
+                                      getTextImporte(controller: _prospera))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Adultos Mayores \n PROSPERA',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(
+                                      controller: _adultosProspera))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Becas',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _becas))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Otros',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _otros))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Pensión',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _pension))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Total Semanal',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(Container(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: TextFormField(
+                                      keyboardType: TextInputType.number,
+                                      controller: SumaApoyoS(),
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
+                                      onTap: () {
+                                        setState(() {
+                                          SumaApoyoS();
+                                        });
+                                      },
+                                    ),
+                                  ))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Total Mensual',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(Container(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: TextFormField(
+                                      keyboardType: TextInputType.number,
+                                      controller: SumaApoyoM(),
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
+                                      onTap: () {
+                                        setState(() {
+                                          SumaApoyoM();
+                                        });
+                                      },
+                                    ),
+                                  ))
+                                ]),
+                              ]),
+                        )
+                      ],
+                    )),
                 const Divider(
                   height: 20,
                   thickness: 5,
@@ -692,395 +801,146 @@ class _AportacionesEconomicasState extends State<AportacionesEconomicas> {
                   endIndent: 20,
                   color: Colors.black,
                 ),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Padre'),
-                    SizedBox(width: 134.0),
-                    Expanded(
-                      child: getTextField(
-                        controller: _padre,
-                        inputType: TextInputType.number,
-                      ),
-                    )
-                  ],
-                ),
                 SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Madre'),
-                    SizedBox(width: 128.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _madre, inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Hijos'),
-                    SizedBox(width: 142.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _hijos, inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'PROSPERA'),
-                    SizedBox(width: 70.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _prospera,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Adultos Mayores \n PROSPERA'),
-                    Expanded(
-                      child: getTextField(
-                          controller: _adultosProspera,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Becas'),
-                    SizedBox(width: 133.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _becas, inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Otros'),
-                    SizedBox(width: 140.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _otros, inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Pensión'),
-                    SizedBox(width: 107.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _pension,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Total Semanal'),
-                    SizedBox(width: 56.0),
-                    Expanded(
-                      child: TextField(
-                        controller: SumaApoyoS(),
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2.0,
-                                  color: Colors.black26,
-                                  style: BorderStyle.solid),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2.0,
-                                  color: Colors.blue,
-                                  style: BorderStyle.solid),
-                            ),
-                            fillColor: Colors.grey[120],
-                            filled: true),
-                        onTap: () async {
-                          setState(() {
-                            SumaApoyoS();
-                          });
-                          ;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Total Mensual'),
-                    SizedBox(width: 56.0),
-                    Expanded(
-                      child: TextField(
-                        controller: SumaApoyoM(),
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2.0,
-                                  color: Colors.black26,
-                                  style: BorderStyle.solid),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2.0,
-                                  color: Colors.blue,
-                                  style: BorderStyle.solid),
-                            ),
-                            fillColor: Colors.grey[120],
-                            filled: true),
-                        onTap: () async {
-                          setState(() {
-                            SumaApoyoM();
-                          });
-                          ;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                const Divider(
-                  height: 20,
-                  thickness: 5,
-                  indent: 20,
-                  endIndent: 20,
-                  color: Colors.black,
-                ),
-                SizedBox(height: 50.0),
                 getTextAportaciones(encabezado: 'Egreso Semanal'),
                 Container(
-                  child: Row(
-                    children: [
-                      SizedBox(height: 50.0),
-                      getTextEquipamiento(encabezado: 'Concepto'),
-                      SizedBox(width: 100.0),
-                      getTextEquipamiento(encabezado: 'Importe'),
-                    ],
-                  ),
-                ),
-                const Divider(
-                  height: 20,
-                  thickness: 5,
-                  indent: 20,
-                  endIndent: 20,
-                  color: Colors.black,
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Vivienda'),
-                    SizedBox(width: 107.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _vivienda,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Alimentación'),
-                    SizedBox(width: 53.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _alimentacion,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Luz'),
-                    SizedBox(width: 169.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _luz, inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Gas'),
-                    SizedBox(width: 168.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _gas, inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Agua'),
-                    SizedBox(width: 150.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _agua, inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Teléfono'),
-                    SizedBox(width: 108.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _telefono,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Transporte'),
-                    SizedBox(width: 83.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _transporte,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Atención Médica'),
-                    SizedBox(width: 14.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _atencionMedica,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Otros Gastos'),
-                    SizedBox(width: 58.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _otrosGastos,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Celular'),
-                    SizedBox(width: 126.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _celular,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Educación'),
-                    SizedBox(width: 87.0),
-                    Expanded(
-                      child: getTextField(
-                          controller: _educacion,
-                          inputType: TextInputType.number),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Total Semanal'),
-                    SizedBox(width: 60.0),
-                    Expanded(
-                      child: TextField(
-                        controller: SumaEgresoS(),
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2.0,
-                                  color: Colors.black26,
-                                  style: BorderStyle.solid),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2.0,
-                                  color: Colors.blue,
-                                  style: BorderStyle.solid),
-                            ),
-                            fillColor: Colors.grey[120],
-                            filled: true),
-                        onTap: () async {
-                          setState(() {
-                            SumaEgresoS();
-                          });
-                          ;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    getTextCocepto(concepto: 'Total Mensual'),
-                    SizedBox(width: 60.0),
-                    Expanded(
-                      child: TextField(
-                        controller: SumaEgresoM(),
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2.0,
-                                  color: Colors.black26,
-                                  style: BorderStyle.solid),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2.0,
-                                  color: Colors.blue,
-                                  style: BorderStyle.solid),
-                            ),
-                            fillColor: Colors.grey[120],
-                            filled: true),
-                        onTap: () async {
-                          setState(() {
-                            SumaEgresoM();
-                          });
-                          ;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                const Divider(
-                  height: 20,
-                  thickness: 5,
-                  indent: 20,
-                  endIndent: 20,
-                  color: Colors.black,
-                ),
+                    padding: EdgeInsets.all(20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: DataTable(
+                              dataRowHeight: 100,
+                              columnSpacing: 10,
+                              columns: [
+                                DataColumn(
+                                    label:
+                                        getTextCocepto(concepto: 'Concepto')),
+                                DataColumn(
+                                    label: getTextCocepto(concepto: 'Importe'))
+                              ],
+                              rows: [
+                                DataRow(cells: [
+                                  DataCell(Text('Vivienda',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(
+                                      getTextImporte(controller: _vivienda))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Alimentación',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(
+                                      getTextImporte(controller: _alimentacion))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Luz',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _luz))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Gas',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _gas))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Agua',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _agua))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Teléfono',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(
+                                      getTextImporte(controller: _telefono))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Transporte',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(
+                                      getTextImporte(controller: _transporte))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Atención Médica',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(
+                                      controller: _atencionMedica))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Otros Gastos',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(
+                                      getTextImporte(controller: _otrosGastos))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Celular',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(getTextImporte(controller: _celular))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Educación',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(
+                                      getTextImporte(controller: _educacion))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Total Semanal',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(Container(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: TextFormField(
+                                      keyboardType: TextInputType.number,
+                                      controller: SumaEgresoS(),
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
+                                      onTap: () {
+                                        setState(() {
+                                          SumaEgresoS();
+                                        });
+                                      },
+                                    ),
+                                  ))
+                                ]),
+                                DataRow(cells: [
+                                  DataCell(Text('Total Mensual',
+                                      style: TextStyle(fontSize: 20))),
+                                  DataCell(Container(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: TextFormField(
+                                      keyboardType: TextInputType.number,
+                                      controller: SumaEgresoM(),
+                                      decoration: InputDecoration(
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.transparent),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue),
+                                        ),
+                                        fillColor: Colors.grey[200],
+                                        filled: true,
+                                      ),
+                                      onTap: () {
+                                        setState(() {
+                                          SumaEgresoM();
+                                        });
+                                      },
+                                    ),
+                                  ))
+                                ]),
+                              ]),
+                        )
+                      ],
+                    )),
                 Container(
                   margin: EdgeInsets.all(20.0),
                   width: double.infinity,

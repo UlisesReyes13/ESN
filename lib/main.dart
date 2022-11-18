@@ -5,6 +5,7 @@ import 'package:esn/Screens/DatosGenerales.dart';
 import 'package:esn/Screens/Documentos.dart';
 import 'package:esn/Screens/Escolaridad_SeguridadSocialTabla.dart';
 import 'package:esn/Screens/EstructuraFamiliarTabla.dart';
+import 'package:esn/Screens/Infraestructura_Vivienda.dart';
 import 'package:esn/Screens/Remesas.dart';
 import 'package:esn/Screens/Fotografia.dart';
 import 'package:esn/Screens/Remesas.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginForm(),
+      home: Salud_PertenenciaIndigenaTabla('2'),
     );
   }
 }

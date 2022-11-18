@@ -141,6 +141,7 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
         categoryModel.apoyo = category['apoyo'];
         categoryModel.proporcionadoPor = category['proporcionadoPor'];
         categoryModel.frecuencia = category['frecuencia'];
+        categoryModel.otro = category['otro'];
 
         _ApoyoEspecie.add(categoryModel);
       });
@@ -171,7 +172,8 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
         proporcionadoPor: _quienProporciona.text.toString(),
         claveFrecuencia: _ClaveFrecuencia.map((e) => e.ClaveFrecuencia).first,
         ordenFrecuencia: _OrdenFrecuencia.map((e) => e.OrdenFrecuencia).first,
-        frecuencia: _frecuenciaApoyo.text.toString());
+        frecuencia: _frecuenciaApoyo.text.toString(),
+        otro: _otroApoyo.text.toString());
 
     await DbHelper().upDateApoyoEspecie(DModel).then((apoyosEnEspecie) {
       alertDialog(context, "Se registro correctamente");
@@ -196,7 +198,8 @@ class _ApoyosEnEspecieState extends State<ApoyosEnEspecie> {
         proporcionadoPor: _quienProporciona.text.toString(),
         claveFrecuencia: _ClaveFrecuencia.map((e) => e.ClaveFrecuencia).first,
         ordenFrecuencia: _OrdenFrecuencia.map((e) => e.OrdenFrecuencia).first,
-        frecuencia: _frecuenciaApoyo.text.toString());
+        frecuencia: _frecuenciaApoyo.text.toString(),
+        otro: _otroApoyo.text.toString());
 
     await DbHelper().saveApoyoEnEspecie(DModel).then((apoyosEnEspecie) {
       alertDialog(context, "Se registro correctamente");

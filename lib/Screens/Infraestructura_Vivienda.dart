@@ -10,6 +10,8 @@ import 'package:esn/Model/TipoTenenciaModel.dart';
 import 'package:esn/Model/TipoViviendaModel.dart';
 import 'package:esn/Screens/Caracteristicas_Casa.dart';
 import 'package:esn/Screens/Salud_PertenenciaIndigenaTabla.dart';
+import 'package:esn/replaceAll/replaceAllLetter.dart';
+import 'package:esn/replaceAll/replaceAllNum.dart';
 import 'package:esn/services/category_services.dart';
 import 'package:flutter/material.dart';
 import 'package:searchfield/searchfield.dart';
@@ -117,6 +119,7 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
   }
 
   actualizar() async {
+    replaceAllNum rpn = new replaceAllNum();
     _TipoVivienda2 = List<TipoViviendaModel>();
     var categories = await CategoryService().readOrdencasa(_tipoCasa.text);
     categories.forEach((category) {
@@ -168,65 +171,20 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
       });
     });
 
-    var TipoCasa = _tipoCasa.text.toString(); // 'artlang'
-    final tipoCasa = TipoCasa.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoCasa = _tipoCasa.text.toString();
+    final tipoCasa = rpn.replaceNum(TipoCasa);
 
-    var TipoPiso = _tipoPiso.text.toString(); // 'artlang'
-    final tipoPiso = TipoPiso.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoPiso = _tipoPiso.text.toString();
+    final tipoPiso = rpn.replaceNum(TipoPiso);
 
-    var TipoTenencia = _tipoTenencia.text.toString(); // 'artlang'
-    final tipoTenencia = TipoTenencia.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoTenencia = _tipoTenencia.text.toString();
+    final tipoTenencia = rpn.replaceNum(TipoTenencia);
 
-    var TipoMuro = _tipoMuro.text.toString(); // 'artlang'
-    final tipoMuro = TipoMuro.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoMuro = _tipoMuro.text.toString();
+    final tipoMuro = rpn.replaceNum(TipoMuro);
 
-    var TipoTecho = _tipoTecho.text.toString(); // 'artlang'
-    final tipoTecho = TipoTecho.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoTecho = _tipoTecho.text.toString();
+    final tipoTecho = rpn.replaceNum(TipoTecho);
 
     EstadoCasaConstruccionModel DModel = EstadoCasaConstruccionModel(
         folio: int.parse(widget.folio),
@@ -244,7 +202,12 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
         Techo: tipoTecho.trimLeft(),
         ClaveTipoMuro: _tipoMuro.text.toString().substring(0, 1),
         OrdenTipoMuro: _TipoMuro2.map((e) => e.Orden).first,
-        TipoMuro: tipoMuro.trimLeft());
+        TipoMuro: tipoMuro.trimLeft(),
+        otroMuro: _otroMuro.text,
+        otroTecho: _otroTecho.text,
+        otroTenencia: _otroTenencia.text,
+        otroTipoPiso: _otroPiso.text,
+        otroTipoVivienda: _otroTipoCasa.text);
 
     await dbHelper.upDateVivienda(DModel).then((estadoCasaConstruccionModel) {
       alertDialog(context, "Se registro correctamente");
@@ -319,6 +282,7 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
   }
 
   insertDatos() async {
+    replaceAllNum rpn = new replaceAllNum();
     _TipoVivienda2 = List<TipoViviendaModel>();
     var categories = await CategoryService().readOrdencasa(_tipoCasa.text);
     categories.forEach((category) {
@@ -370,65 +334,20 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
       });
     });
 
-    var TipoCasa = _tipoCasa.text.toString(); // 'artlang'
-    final tipoCasa = TipoCasa.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoCasa = _tipoCasa.text.toString();
+    final tipoCasa = rpn.replaceNum(TipoCasa);
 
-    var TipoPiso = _tipoPiso.text.toString(); // 'artlang'
-    final tipoPiso = TipoPiso.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoPiso = _tipoPiso.text.toString();
+    final tipoPiso = rpn.replaceNum(TipoPiso);
 
-    var TipoTenencia = _tipoTenencia.text.toString(); // 'artlang'
-    final tipoTenencia = TipoTenencia.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoTenencia = _tipoTenencia.text.toString();
+    final tipoTenencia = rpn.replaceNum(TipoTenencia);
 
-    var TipoMuro = _tipoMuro.text.toString(); // 'artlang'
-    final tipoMuro = TipoMuro.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoMuro = _tipoMuro.text.toString();
+    final tipoMuro = rpn.replaceNum(TipoMuro);
 
-    var TipoTecho = _tipoTecho.text.toString(); // 'artlang'
-    final tipoTecho = TipoTecho.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoTecho = _tipoTecho.text.toString();
+    final tipoTecho = rpn.replaceNum(TipoTecho);
 
     EstadoCasaConstruccionModel DModel = EstadoCasaConstruccionModel(
         folio: int.parse(widget.folio),
@@ -446,7 +365,12 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
         Techo: tipoTecho.trimLeft(),
         ClaveTipoMuro: _tipoMuro.text.toString().substring(0, 1),
         OrdenTipoMuro: _TipoMuro2.map((e) => e.Orden).first,
-        TipoMuro: tipoMuro.trimLeft());
+        TipoMuro: tipoMuro.trimLeft(),
+        otroMuro: _otroMuro.text,
+        otroTecho: _otroTecho.text,
+        otroTenencia: _otroTenencia.text,
+        otroTipoPiso: _otroPiso.text,
+        otroTipoVivienda: _otroTipoCasa.text);
 
     await dbHelper.saveVivienda(DModel).then((estadoCasaConstruccionModel) {
       alertDialog(context, "Se registro correctamente");
@@ -509,7 +433,7 @@ class _Infraestructura_ViviendaState extends State<Infraestructura_Vivienda> {
                   ),
                 ),
                 SizedBox(height: 10.0),
-                getTextQuestion(question: 'Tipo de Casa'),
+                getTextQuestion(question: 'Tipo de Vivienda'),
                 SizedBox(height: 5.0),
                 //Menu desplegable Tipo de casa
                 Container(

@@ -1,4 +1,4 @@
-class EscolaridadSeguridadSocial{
+class EscolaridadSeguridadSocial {
   int folio;
   String ClaveEscolaridad;
   String OrdenEscolaridad;
@@ -27,88 +27,74 @@ class EscolaridadSeguridadSocial{
   String OrdenMotivoDerechohabiencia;
   String MotivoDerechohabiencia;
 
+  String otroEscolaridad;
+  String otroOcupacion;
+  String otroTipoEmpleo;
 
-  EscolaridadSeguridadSocial({
-      this.folio,
-
+  EscolaridadSeguridadSocial(
+      {this.folio,
       this.ClaveEscolaridad,
       this.OrdenEscolaridad,
       this.Escolaridad,
-
       this.ClaveGradoEscolar,
       this.GradoEscolar,
-
       this.ClaveAsisteEscuela,
       this.OrdenAsisteEscuela,
       this.AsisteEscuela,
-
       this.ClaveOcupacion,
       this.OrdenOcupacion,
       this.Ocupacion,
-
       this.ClaveTipoEmpleo,
       this.OrdenTipoEmpleo,
       this.TipoEmpleo,
-
       this.pk_prestacioneslab,
       this.int_OrdenPrestacionesLab,
       this.txt_desc_prestacioneslab,
-
       this.ClaveJubilacion,
       this.OrdenJubilacion,
       this.Jubilacion,
-
       this.ClaveDerechohabiencia,
       this.OrdenDerechohabiencia,
       this.Derechohabiencia,
-
       this.ClaveMotivoDerechohabiencia,
       this.OrdenMotivoDerechohabiencia,
       this.MotivoDerechohabiencia,
-
-     });
+      this.otroEscolaridad,
+      this.otroOcupacion,
+      this.otroTipoEmpleo});
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       'folio': folio,
-
       'ClaveEscolaridad': ClaveEscolaridad,
       'OrdenEscolaridad': OrdenEscolaridad,
       'Escolaridad': Escolaridad,
-
       'ClaveGradoEscolar': ClaveGradoEscolar,
       'GradoEscolar': GradoEscolar,
-
       'ClaveAsisteEscuela': ClaveAsisteEscuela,
       'OrdenAsisteEscuela': OrdenAsisteEscuela,
       'AsisteEscuela': AsisteEscuela,
-
       'ClaveOcupacion': ClaveOcupacion,
       'OrdenOcupacion': OrdenOcupacion,
       'Ocupacion': Ocupacion,
-
       'ClaveTipoEmpleo': ClaveTipoEmpleo,
       'OrdenTipoEmpleo': OrdenTipoEmpleo,
       'TipoEmpleo': TipoEmpleo,
-
       'pk_prestacioneslab': pk_prestacioneslab,
       'int_OrdenPrestacionesLab': int_OrdenPrestacionesLab,
       'txt_desc_prestacioneslab': txt_desc_prestacioneslab,
-
-      'ClaveJubilacion' : ClaveJubilacion,
-      'OrdenJubilacion' : OrdenJubilacion,
+      'ClaveJubilacion': ClaveJubilacion,
+      'OrdenJubilacion': OrdenJubilacion,
       'Jubilacion': Jubilacion,
-
       'ClaveDerechohabiencia': ClaveDerechohabiencia,
       'OrdenDerechohabiencia': OrdenDerechohabiencia,
       'Derechohabiencia': Derechohabiencia,
-
       'ClaveMotivoDerechohabiencia': ClaveMotivoDerechohabiencia,
       'OrdenMotivoDerechohabiencia': OrdenMotivoDerechohabiencia,
       'MotivoDerechohabiencia': MotivoDerechohabiencia,
-
-
-
+      'otroEscolaridad': otroEscolaridad,
+      'otroOcupacion': otroOcupacion,
+      'otroTipoEmpleo': otroTipoEmpleo,
     };
     return map;
   }
@@ -151,6 +137,8 @@ class EscolaridadSeguridadSocial{
     OrdenMotivoDerechohabiencia = map['OrdenMotivoDerechohabiencia'];
     MotivoDerechohabiencia = map['MotivoDerechohabiencia'];
 
-
+    otroEscolaridad = map['otroEscolaridad'];
+    otroOcupacion = map['otroOcupacion'];
+    otroTipoEmpleo = map['otroTipoEmpleo'];
   }
 }

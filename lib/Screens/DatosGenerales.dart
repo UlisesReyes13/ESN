@@ -1,18 +1,13 @@
 import 'package:esn/Comm/comHelper.dart';
-import 'package:esn/Comm/genSearchField.dart';
-import 'package:esn/Model/CodigoPostal.dart';
 import 'package:esn/Model/CodigoPostalModel.dart';
 import 'package:esn/Model/ComunidadesModel.dart';
 import 'package:esn/Model/DatosGeneralesModel.dart';
 import 'package:esn/Model/DispoModel.dart';
-import 'package:esn/Model/Estados.dart';
 import 'package:esn/Model/EstadosModel.dart';
 import 'package:esn/Model/GruposModel.dart';
 import 'package:esn/Model/Municipios.dart';
 import 'package:esn/Model/TipoVialidad.dart';
 import 'package:esn/Model/TiposAsentamiento.dart';
-import 'package:esn/Model/UserModel.dart';
-import 'package:esn/Screens/LoginForm.dart';
 import 'package:esn/Screens/ServiciosBanios.dart';
 import 'package:esn/Screens/TablaFolios.dart';
 import 'package:esn/replaceAll/replaceAllLetter.dart';
@@ -55,19 +50,19 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   var dbHelper;
   var cargar;
 
-  List<NombreAsentamiento> _NombreAsentamiento = List<NombreAsentamiento>();
-  List<TiposVialidad> _TiposVialidad = List<TiposVialidad>();
-  List<Municipios> _Municipios = List<Municipios>();
-  List<TiposAsentamiento> _TiposAsentamiento = List<TiposAsentamiento>();
-  List<CodigoPostalModel> _CodigoPostal = List<CodigoPostalModel>();
-  List<DatosGeneralesModel> _Folio = List<DatosGeneralesModel>();
-  List<EstadosModel> _Estado = List<EstadosModel>();
-  List<CodigoPostalModel> _CodigoPostal2 = List<CodigoPostalModel>();
-  List<ComunidadesModel> _Comunidades = List<ComunidadesModel>();
-  List<GruposModel> _Grupo = List<GruposModel>();
-  List<DatosGeneralesModel> _DatosGenerales = List<DatosGeneralesModel>();
-  List<TiposAsentamiento> _TiposAsentamiento2 = List<TiposAsentamiento>();
-  List<TiposVialidad> _TiposVialidad2 = List<TiposVialidad>();
+  List<NombreAsentamiento> _NombreAsentamiento = [];
+  List<TiposVialidad> _TiposVialidad = [];
+  List<Municipios> _Municipios = [];
+  List<TiposAsentamiento> _TiposAsentamiento = [];
+  List<CodigoPostalModel> _CodigoPostal = [];
+  List<DatosGeneralesModel> _Folio = [];
+  List<EstadosModel> _Estado = [];
+  List<CodigoPostalModel> _CodigoPostal2 = [];
+  List<ComunidadesModel> _Comunidades = [];
+  List<GruposModel> _Grupo = [];
+  List<DatosGeneralesModel> _DatosGenerales = [];
+  List<TiposAsentamiento> _TiposAsentamiento2 = [];
+  List<TiposVialidad> _TiposVialidad2 = [];
 
   @override
   void initState() {
@@ -99,7 +94,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllCategoriesNombreAsentamiento() async {
-    _NombreAsentamiento = List<NombreAsentamiento>();
+    _NombreAsentamiento = [];
     var categories = await CategoryService().readCtegoriesNomAsen();
     categories.forEach((category) {
       setState(() {
@@ -111,7 +106,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllDatosgenerales() async {
-    _DatosGenerales = List<DatosGeneralesModel>();
+    _DatosGenerales = [];
     var categories =
         await CategoryService().readDatosGeenerales(int.parse(_folio.text) - 1);
     categories.forEach((category) {
@@ -172,7 +167,8 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     _nombreComunidad.text = _DatosGenerales.map((e) => e.nombreComunidad).first;
     _estado.text = _DatosGenerales.map((e) => e.estado.toString()).first;
     _municipio.text = _DatosGenerales.map((e) => e.municipio).first;
-    _nombreAsentamiento.text = _DatosGenerales.map((e) => e.nombreAsentamiento).first;
+    _nombreAsentamiento.text =
+        _DatosGenerales.map((e) => e.nombreAsentamiento).first;
     _tipoAsentamiento.text =
         _DatosGenerales.map((e) => e.claveTipoAsentamiento.toString()).first +
             " " +
@@ -184,7 +180,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllCategoriesCodigoPostal() async {
-    _CodigoPostal = List<CodigoPostalModel>();
+    _CodigoPostal = [];
     var categories = await CategoryService().readCategoriesCodigoPostal();
     categories.forEach((category) {
       setState(() {
@@ -206,7 +202,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllCategoriesCodigoPostal2() async {
-    _CodigoPostal2 = List<CodigoPostalModel>();
+    _CodigoPostal2 = [];
     var categories =
         await CategoryService().readCategoriesCodigoPostal2(_cp.text);
     categories.forEach((category) {
@@ -235,7 +231,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllCategoriesComunidades() async {
-    _Comunidades = List<ComunidadesModel>();
+    _Comunidades = [];
     var categories = await CategoryService().readCategoriesComunidades();
     categories.forEach((category) {
       setState(() {
@@ -248,7 +244,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllCategoriesGrupo() async {
-    _Grupo = List<GruposModel>();
+    _Grupo = [];
     var categories =
         await CategoryService().readCategoriesGrupo(_nombreComunidad.text);
     categories.forEach((category) {
@@ -265,7 +261,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllCategoriesMunicipios() async {
-    _Municipios = List<Municipios>();
+    _Municipios = [];
     var categories = await CategoryService().readCtegoriesMunicipios();
     categories.forEach((category) {
       setState(() {
@@ -277,7 +273,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllCategoriesTiposAsentamientos() async {
-    _TiposAsentamiento = List<TiposAsentamiento>();
+    _TiposAsentamiento = [];
     var categories = await CategoryService().readCtegoriesTipoAsentamiento();
     categories.forEach((category) {
       setState(() {
@@ -289,7 +285,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllCategoriesTipoVialidad() async {
-    _TiposVialidad = List<TiposVialidad>();
+    _TiposVialidad = [];
     var categories = await CategoryService().readCtegoriesTipoVialidad();
     categories.forEach((category) {
       setState(() {
@@ -301,7 +297,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getAllCategoriesEstados() async {
-    _Estado = List<EstadosModel>();
+    _Estado = [];
     var categories = await CategoryService().readCategoriesEstados();
     categories.forEach((category) {
       setState(() {
@@ -313,7 +309,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
   }
 
   getFolio() async {
-    _Folio = List<DatosGeneralesModel>();
+    _Folio = [];
     var categories = await CategoryService().Folio();
     categories.forEach((category) {
       setState(() {
@@ -328,9 +324,9 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     });
   }
 
-  List<DispoModel> _dispo = List<DispoModel>();
+  List<DispoModel> _dispo = [];
   getDispo() async {
-    _dispo = List<DispoModel>();
+    _dispo = [];
     var categories = await CategoryService().readDisp();
     categories.forEach((category) {
       setState(() {
@@ -363,8 +359,9 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     String telefono = _telefono.text;
     String dispFolio = _cdispo.text + _folio.text;
 
-    _TiposAsentamiento2 = List<TiposAsentamiento>();
-    var categories = await CategoryService().readTipoAsenta(_tipoAsentamiento.text);
+    _TiposAsentamiento2 = [];
+    var categories =
+        await CategoryService().readTipoAsenta(_tipoAsentamiento.text);
     categories.forEach((category) {
       setState(() {
         var categoryModel = TiposAsentamiento();
@@ -373,8 +370,9 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       });
     });
 
-    _TiposVialidad2 = List<TiposVialidad>();
-    var categories1 = await CategoryService().readTipoVialidad(_tipoVialidad.text);
+    _TiposVialidad2 = [];
+    var categories1 =
+        await CategoryService().readTipoVialidad(_tipoVialidad.text);
     categories1.forEach((category) {
       setState(() {
         var categoryModel1 = TiposVialidad();
@@ -406,20 +404,20 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       alertDialog(
           context, 'El número de teléfono no debe ser mayor a 10 digitos');
     } else {
-
       replaceAllNum rpn = new replaceAllNum();
       replaceAllLetter rpl = new replaceAllLetter();
-      var value1 = tipoAsentamiento; // 'artlang'
+      var value1 = tipoAsentamiento;
       final nombreTipoAsentamiento = rpn.replaceNum(value1).toString();
 
-      var claveTipoAsentamiento = tipoAsentamiento; // 'artlang'
-      final claveTipoAsenta = rpl.replaceLetter(claveTipoAsentamiento).toString();
+      var claveTipoAsentamiento = tipoAsentamiento;
+      final claveTipoAsenta =
+          rpl.replaceLetter(claveTipoAsentamiento).toString();
       var claveTipoAsentam = claveTipoAsenta.substring(0, 2);
 
-      var value = tipoVialidad; // 'artlang'
+      var value = tipoVialidad;
       final nombreTipoVialidad = rpn.replaceNum(value).toString();
 
-      var claveTipoVialidad = tipoVialidad; // 'artlang'
+      var claveTipoVialidad = tipoVialidad;
       final claveTipoVia = rpl.replaceLetter(claveTipoVialidad).toString();
 
       var claveTipoV = claveTipoVia.substring(0, 2);
@@ -436,9 +434,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
           localidad: localidad,
           telefono: telefono,
           claveCodigoPostal: int.parse(cp),
-          //Actualizar esta parte para obtener la clave del estado
           claveEstado: _CodigoPostal2.map((e) => e.ClaveEstado).first,
-          //
           estado: _estado.text.toString(),
           claveComunidad: _Grupo.map((e) => e.ClaveGrupo).first,
           nombreComunidad: _nombreComunidad.text.toString(),
@@ -448,10 +444,12 @@ class _DatosGeneralesState extends State<DatosGenerales> {
               _CodigoPostal2.map((e) => e.Clavetipo_asenta).first,
           nombreAsentamiento: _nombreAsentamiento.text.toString(),
           claveTipoAsentamiento: int.parse(claveTipoAsentam),
-          ordentipoAsentamiento: int.parse(_TiposAsentamiento2.map((e) => e.Orden).first),
+          ordentipoAsentamiento:
+              int.parse(_TiposAsentamiento2.map((e) => e.Orden).first),
           tipoAsentamiento: nombreTipoAsentamiento.trimLeft(),
           claveTipoVialidad: int.parse(claveTipoV),
-          ordentipovialidad: int.parse(_TiposVialidad2.map((e) => e.Orden).first),
+          ordentipovialidad:
+              int.parse(_TiposVialidad2.map((e) => e.Orden).first),
           tipoVialidad: nombreTipoVialidad.trimLeft());
 
       await DbHelper().upDateDatosGenerales(BModel).then((datosGeneralesModel) {
@@ -467,8 +465,6 @@ class _DatosGeneralesState extends State<DatosGenerales> {
       });
     }
   }
-
-
 
   insertDatosGenerales() async {
     String folio = _folio.text;
@@ -506,14 +502,15 @@ class _DatosGeneralesState extends State<DatosGenerales> {
     } else if (cp.isEmpty) {
       alertDialog(context, "Error: No se registro Codigo Postal");
     } else if (telefono.length < 10) {
-      alertDialog(context, 'El número de teléfono no debe ser menor a 10 digitos');
-    } else  if (telefono.length > 10) {
-        alertDialog(context, 'El número de teléfono no debe ser mayor a 10 digitos');
-    }else{
-
-
-      _TiposAsentamiento2 = List<TiposAsentamiento>();
-      var categories = await CategoryService().readTipoAsenta(_tipoAsentamiento.text);
+      alertDialog(
+          context, 'El número de teléfono no debe ser menor a 10 digitos');
+    } else if (telefono.length > 10) {
+      alertDialog(
+          context, 'El número de teléfono no debe ser mayor a 10 digitos');
+    } else {
+      _TiposAsentamiento2 = [];
+      var categories =
+          await CategoryService().readTipoAsenta(_tipoAsentamiento.text);
       categories.forEach((category) {
         setState(() {
           var categoryModel = TiposAsentamiento();
@@ -522,8 +519,9 @@ class _DatosGeneralesState extends State<DatosGenerales> {
         });
       });
 
-      _TiposVialidad2 = List<TiposVialidad>();
-      var categories1 = await CategoryService().readTipoVialidad(_tipoVialidad.text);
+      _TiposVialidad2 = [];
+      var categories1 =
+          await CategoryService().readTipoVialidad(_tipoVialidad.text);
       categories1.forEach((category) {
         setState(() {
           var categoryModel1 = TiposVialidad();
@@ -534,21 +532,21 @@ class _DatosGeneralesState extends State<DatosGenerales> {
 
       replaceAllNum rpn = new replaceAllNum();
       replaceAllLetter rpl = new replaceAllLetter();
-      var value1 = tipoAsentamiento; // 'artlang'
+      var value1 = tipoAsentamiento;
       final nombreTipoAsentamiento = rpn.replaceNum(value1).toString();
 
-      var claveTipoAsentamiento = tipoAsentamiento; // 'artlang'
-      final claveTipoAsenta = rpl.replaceLetter(claveTipoAsentamiento).toString();
+      var claveTipoAsentamiento = tipoAsentamiento;
+      final claveTipoAsenta =
+          rpl.replaceLetter(claveTipoAsentamiento).toString();
       var claveTipoAsentam = claveTipoAsenta.substring(0, 2);
 
-      var value = tipoVialidad; // 'artlang'
+      var value = tipoVialidad;
       final nombreTipoVialidad = rpn.replaceNum(value).toString();
 
-      var claveTipoVialidad = tipoVialidad; // 'artlang'
+      var claveTipoVialidad = tipoVialidad;
       final claveTipoVia = rpl.replaceLetter(claveTipoVialidad).toString();
 
       var claveTipoV = claveTipoVia.substring(0, 2);
-
 
       DatosGeneralesModel DModel = DatosGeneralesModel(
           folio: int.parse(folio),
@@ -563,9 +561,7 @@ class _DatosGeneralesState extends State<DatosGenerales> {
           localidad: localidad,
           telefono: telefono,
           claveCodigoPostal: int.parse(cp),
-          //Actualizar esta parte para obtener la clave del estado
           claveEstado: _CodigoPostal2.map((e) => e.ClaveEstado).first,
-          //
           estado: _estado.text.toString(),
           claveComunidad: _Grupo.map((e) => e.ClaveGrupo).first,
           nombreComunidad: _nombreComunidad.text,
@@ -575,10 +571,12 @@ class _DatosGeneralesState extends State<DatosGenerales> {
               _CodigoPostal2.map((e) => e.Clavetipo_asenta).first,
           nombreAsentamiento: _nombreAsentamiento.text.toString(),
           claveTipoAsentamiento: int.parse(claveTipoAsentam),
-          ordentipoAsentamiento: int.parse(_TiposAsentamiento2.map((e) => e.Orden).first),
+          ordentipoAsentamiento:
+              int.parse(_TiposAsentamiento2.map((e) => e.Orden).first),
           tipoAsentamiento: nombreTipoAsentamiento.trimLeft(),
           claveTipoVialidad: int.parse(claveTipoV),
-          ordentipovialidad: int.parse(_TiposVialidad2.map((e) => e.Orden).first),
+          ordentipovialidad:
+              int.parse(_TiposVialidad2.map((e) => e.Orden).first),
           tipoVialidad: nombreTipoVialidad.trimLeft());
 
       await dbHelper.saveDatosGenerales(DModel).then((datosGeneralesData) {
@@ -950,21 +948,25 @@ class _DatosGeneralesState extends State<DatosGenerales> {
                 SizedBox(height: 5.0),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: TextField(controller: _noInt,
+                  child: TextField(
+                    controller: _noInt,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0, color: Colors.black26, style: BorderStyle.solid
-                          ),
+                          borderSide: BorderSide(
+                              width: 2.0,
+                              color: Colors.black26,
+                              style: BorderStyle.solid),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2.0, color: Colors.blue, style: BorderStyle.solid
-                          ),
+                          borderSide: BorderSide(
+                              width: 2.0,
+                              color: Colors.blue,
+                              style: BorderStyle.solid),
                         ),
                         fillColor: Colors.grey[120],
-                        filled: true
-                    ),
-                    onTap: () async{
+                        filled: true),
+                    onTap: () async {
                       setState(() {
                         _noInt.text = '';
                       });

@@ -60,10 +60,10 @@ class _AlimentacionState extends State<Alimentacion> {
   once _once = once.no;
   doce _doce = doce.no;
 
-  List<AlimentacionModel> _Alimentacion = List<AlimentacionModel>();
+  List<AlimentacionModel> _Alimentacion = [];
 
   getAllAlimentacion() async {
-    _Alimentacion = List<AlimentacionModel>();
+    _Alimentacion = [];
     var categories =
         await CategoryService().readAlimentacion(int.parse(widget.folio));
     categories.forEach((category) {

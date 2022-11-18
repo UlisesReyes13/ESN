@@ -36,7 +36,8 @@ class Escolaridad_SeguridadSocialTabla extends StatefulWidget {
       _Escolaridad_SeguridadSocialTablaState();
 }
 
-class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_SeguridadSocialTabla> {
+class _Escolaridad_SeguridadSocialTablaState
+    extends State<Escolaridad_SeguridadSocialTabla> {
   List<EscolaridadesModel> _Escolaridad = [];
   List<GradosEscolaresModel> _GradoEscolar = [];
   List<OcupacionesModel> _Ocupacion = [];
@@ -75,47 +76,27 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   List<EscolaridadSeguridadSocial> _Escolaridad9 = [];
   List<EscolaridadSeguridadSocial> _Escolaridad10 = [];
 
-  List<PrestacionesLaboralesModel> _Prestaciones1 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones2 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones3 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones4 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones5 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones6 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones7 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones8 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones9 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _Prestaciones10 =
-      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _Prestaciones1 = [];
+  List<PrestacionesLaboralesModel> _Prestaciones2 = [];
+  List<PrestacionesLaboralesModel> _Prestaciones3 = [];
+  List<PrestacionesLaboralesModel> _Prestaciones4 = [];
+  List<PrestacionesLaboralesModel> _Prestaciones5 = [];
+  List<PrestacionesLaboralesModel> _Prestaciones6 = [];
+  List<PrestacionesLaboralesModel> _Prestaciones7 = [];
+  List<PrestacionesLaboralesModel> _Prestaciones8 = [];
+  List<PrestacionesLaboralesModel> _Prestaciones9 = [];
+  List<PrestacionesLaboralesModel> _Prestaciones10 = [];
 
-  List<PrestacionesLaboralesModel> _OrdenPres1 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres2 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres3 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres4 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres5 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres6 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres7 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres8 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres9 =
-      List<PrestacionesLaboralesModel>();
-  List<PrestacionesLaboralesModel> _OrdenPres10 =
-      List<PrestacionesLaboralesModel>();
+  List<PrestacionesLaboralesModel> _OrdenPres1 = [];
+  List<PrestacionesLaboralesModel> _OrdenPres2 = [];
+  List<PrestacionesLaboralesModel> _OrdenPres3 = [];
+  List<PrestacionesLaboralesModel> _OrdenPres4 = [];
+  List<PrestacionesLaboralesModel> _OrdenPres5 = [];
+  List<PrestacionesLaboralesModel> _OrdenPres6 = [];
+  List<PrestacionesLaboralesModel> _OrdenPres7 = [];
+  List<PrestacionesLaboralesModel> _OrdenPres8 = [];
+  List<PrestacionesLaboralesModel> _OrdenPres9 = [];
+  List<PrestacionesLaboralesModel> _OrdenPres10 = [];
 
   final _escolaridad1 = TextEditingController();
   final _otroEscolaridad1 = TextEditingController();
@@ -362,6 +343,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad1.add(categoryModel);
       });
@@ -451,6 +435,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad2.add(categoryModel);
       });
@@ -540,6 +527,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad3.add(categoryModel);
       });
@@ -629,6 +619,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad4.add(categoryModel);
       });
@@ -718,6 +711,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad5.add(categoryModel);
       });
@@ -807,6 +803,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad6.add(categoryModel);
       });
@@ -896,6 +895,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad7.add(categoryModel);
       });
@@ -985,6 +987,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad8.add(categoryModel);
       });
@@ -1074,6 +1079,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad9.add(categoryModel);
       });
@@ -1163,6 +1171,9 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
             category['OrdenMotivoDerechohabiencia'];
         categoryModel.MotivoDerechohabiencia =
             category['MotivoDerechohabiencia'];
+        categoryModel.otroEscolaridad = category['otroEscolaridad'];
+        categoryModel.otroOcupacion = category['otroOcupacion'];
+        categoryModel.otroTipoEmpleo = category['otroTipoEmpleo'];
 
         _Escolaridad10.add(categoryModel);
       });
@@ -1566,36 +1577,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel11 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad1.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden.toString()).first,
-      Escolaridad: escolaridad.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar1.text,
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-      ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
-      AsisteEscuela: _asisteEscuela1.name,
-      ClaveOcupacion: _ocupacion1.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo.trimLeft(),
-      pk_prestacioneslab: pk,
-      int_OrdenPrestacionesLab: Orden,
-      txt_desc_prestacioneslab: prestaciones.trimLeft(),
-      ClaveJubilacion: Jubilado.substring(0, 1),
-      OrdenJubilacion: Jubilado.substring(0, 1),
-      Jubilacion: _jubilacionPensionado1.name,
-      ClaveDerechohabiencia: _derechohabiencia1.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad1.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad:
+            _EscolaridadOrden2.map((e) => e.Orden.toString()).first,
+        Escolaridad: escolaridad.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar1.text,
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
+        AsisteEscuela: _asisteEscuela1.name,
+        ClaveOcupacion: _ocupacion1.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo.trimLeft(),
+        pk_prestacioneslab: pk,
+        int_OrdenPrestacionesLab: Orden,
+        txt_desc_prestacioneslab: prestaciones.trimLeft(),
+        ClaveJubilacion: Jubilado.substring(0, 1),
+        OrdenJubilacion: Jubilado.substring(0, 1),
+        Jubilacion: _jubilacionPensionado1.name,
+        ClaveDerechohabiencia: _derechohabiencia1.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab.trimLeft(),
+        otroEscolaridad: _otroEscolaridad1.text,
+        otroOcupacion: _otroOcupacion1.text,
+        otroTipoEmpleo: _otroTipoEmpleo1.text);
     await dbHelper
         .saveEscolaridadSocial(DModel11)
         .then((escolaridadSeguridadSocial) {
@@ -1719,36 +1733,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad1.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden.toString()).first,
-      Escolaridad: escolaridad.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar1.text,
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-      ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
-      AsisteEscuela: _asisteEscuela1.name,
-      ClaveOcupacion: _ocupacion1.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo.trimLeft(),
-      pk_prestacioneslab: pk,
-      int_OrdenPrestacionesLab: Orden,
-      txt_desc_prestacioneslab: prestaciones.trimLeft(),
-      ClaveJubilacion: Jubilado.substring(0, 1),
-      OrdenJubilacion: Jubilado.substring(0, 1),
-      Jubilacion: _jubilacionPensionado1.name,
-      ClaveDerechohabiencia: _derechohabiencia1.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad1.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad:
+            _EscolaridadOrden2.map((e) => e.Orden.toString()).first,
+        Escolaridad: escolaridad.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar1.text,
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela.substring(0, 1),
+        AsisteEscuela: _asisteEscuela1.name,
+        ClaveOcupacion: _ocupacion1.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo1.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo.trimLeft(),
+        pk_prestacioneslab: pk,
+        int_OrdenPrestacionesLab: Orden,
+        txt_desc_prestacioneslab: prestaciones.trimLeft(),
+        ClaveJubilacion: Jubilado.substring(0, 1),
+        OrdenJubilacion: Jubilado.substring(0, 1),
+        Jubilacion: _jubilacionPensionado1.name,
+        ClaveDerechohabiencia: _derechohabiencia1.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia1.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab.trimLeft(),
+        otroEscolaridad: _otroEscolaridad1.text,
+        otroOcupacion: _otroOcupacion1.text,
+        otroTipoEmpleo: _otroTipoEmpleo1.text);
     await dbHelper
         .upDateEscolaridad1(DModel)
         .then((escolaridadSeguridadSocial) {
@@ -1760,227 +1777,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   renglon2() async {
-    var Escolaridad2 = _escolaridad2.text.toString(); // 'artlang'
-    final escolaridad2 = Escolaridad2.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllNum rpn2 = new replaceAllNum();
+    replaceAllLetter rpl2 = new replaceAllLetter();
+    var Escolaridad2 = _escolaridad2.text.toString();
+    final escolaridad2 = rpn2.replaceNum(Escolaridad2);
 
-    var Ocupacion2 = _ocupacion2.text.toString(); // 'artlang'
-    final ocupacion2 = Ocupacion2.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion2 = _ocupacion2.text.toString();
+    final ocupacion2 = rpn2.replaceNum(Ocupacion2);
 
-    var TipoEmpleo2 = _tipoEmpleo2.text.toString(); // 'artlang'
-    final tipoEmpleo2 = TipoEmpleo2.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo2 = _tipoEmpleo2.text.toString();
+    final tipoEmpleo2 = rpn2.replaceNum(TipoEmpleo2);
 
-    var derecho2 = _derechohabiencia2.text.toString(); // 'artlang'
-    final Derecho2 = derecho2
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho2 = _derechohabiencia2.text.toString();
+    final Derecho2 = rpn2.replaceNum(derecho2);
 
-    var motivoDerecho2 = _motivoderechohabiencia2.text.toString(); // 'artlang'
-    final motivoDereHab2 = motivoDerecho2
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho2 = _motivoderechohabiencia2.text.toString();
+    final motivoDereHab2 = rpn2.replaceNum(motivoDerecho2);
 
-    var pkPrestaciones2 = _prestacion2.text.toString(); // 'artlang'
-    final prestacionesPK2 = pkPrestaciones2
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones2 = _prestacion2.text.toString();
+    final prestacionesPK2 = rpl2.replaceLetter(pkPrestaciones2);
 
-    var intPrestaciones2 = _prestacion2.text.toString(); // 'artlang'
-    final prestacionesInt2 = intPrestaciones2
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones2 = _prestacion2.text.toString();
+    final prestacionesInt2 = rpl2.replaceLetter(intPrestaciones2);
 
-    var Prestaciones2 = _prestacion2.text.toString(); // 'artlang'
-    final prestaciones2 = Prestaciones2.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones2 = _prestacion2.text.toString();
+    final prestaciones2 = rpl2.replaceLetter(Prestaciones2);
 
     String asisteEscuela2 = _asisteEscuela2.name.toString();
     if (asisteEscuela2 == 'si') {
@@ -2067,40 +1888,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel2 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad2.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad2.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar2.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela2.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela2.substring(0, 1),
-      AsisteEscuela: _asisteEscuela2.name,
-      ClaveOcupacion: _ocupacion2.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion2.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo2.trimLeft(),
-
-      pk_prestacioneslab: pkr2,
-      int_OrdenPrestacionesLab: Ordenr2,
-      txt_desc_prestacioneslab: prestaciones2.trimLeft(),
-
-      ClaveJubilacion: Jubilado2.substring(0, 1),
-      OrdenJubilacion: Jubilado2.substring(0, 1),
-      Jubilacion: _jubilacionPensionado2.name,
-      ClaveDerechohabiencia: _derechohabiencia2.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho2.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad2.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad2.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar2.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela2.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela2.substring(0, 1),
+        AsisteEscuela: _asisteEscuela2.name,
+        ClaveOcupacion: _ocupacion2.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion2.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo2.trimLeft(),
+        pk_prestacioneslab: pkr2,
+        int_OrdenPrestacionesLab: Ordenr2,
+        txt_desc_prestacioneslab: prestaciones2.trimLeft(),
+        ClaveJubilacion: Jubilado2.substring(0, 1),
+        OrdenJubilacion: Jubilado2.substring(0, 1),
+        Jubilacion: _jubilacionPensionado2.name,
+        ClaveDerechohabiencia: _derechohabiencia2.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho2.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
+        otroEscolaridad: _otroEscolaridad2.text,
+        otroOcupacion: _otroOcupacion2.text,
+        otroTipoEmpleo: _otroTipoEmpleo2.text);
     await dbHelper
         .saveEscolaridadSocial(DModel2)
         .then((escolaridadSeguridadSocial) {
@@ -2112,227 +1932,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   upDateRenglon2() async {
-    var Escolaridad2 = _escolaridad2.text.toString(); // 'artlang'
-    final escolaridad2 = Escolaridad2.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl2 = new replaceAllLetter();
+    replaceAllNum rpn2 = new replaceAllNum();
+    var Escolaridad2 = _escolaridad2.text.toString();
+    final escolaridad2 = rpn2.replaceNum(Escolaridad2);
 
-    var Ocupacion2 = _ocupacion2.text.toString(); // 'artlang'
-    final ocupacion2 = Ocupacion2.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion2 = _ocupacion2.text.toString();
+    final ocupacion2 = rpn2.replaceNum(Ocupacion2);
 
-    var TipoEmpleo2 = _tipoEmpleo2.text.toString(); // 'artlang'
-    final tipoEmpleo2 = TipoEmpleo2.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo2 = _tipoEmpleo2.text.toString();
+    final tipoEmpleo2 = rpn2.replaceNum(TipoEmpleo2);
 
-    var derecho2 = _derechohabiencia2.text.toString(); // 'artlang'
-    final Derecho2 = derecho2
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho2 = _derechohabiencia2.text.toString();
+    final Derecho2 = rpn2.replaceNum(derecho2);
 
-    var motivoDerecho2 = _motivoderechohabiencia2.text.toString(); // 'artlang'
-    final motivoDereHab2 = motivoDerecho2
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho2 = _motivoderechohabiencia2.text.toString();
+    final motivoDereHab2 = rpn2.replaceNum(motivoDerecho2);
 
-    var pkPrestaciones2 = _prestacion2.text.toString(); // 'artlang'
-    final prestacionesPK2 = pkPrestaciones2
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones2 = _prestacion2.text.toString();
+    final prestacionesPK2 = rpl2.replaceLetter(pkPrestaciones2);
 
-    var intPrestaciones2 = _prestacion2.text.toString(); // 'artlang'
-    final prestacionesInt2 = intPrestaciones2
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones2 = _prestacion2.text.toString();
+    final prestacionesInt2 = rpl2.replaceLetter(intPrestaciones2);
 
-    var Prestaciones2 = _prestacion2.text.toString(); // 'artlang'
-    final prestaciones2 = Prestaciones2.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones2 = _prestacion2.text.toString();
+    final prestaciones2 = rpl2.replaceLetter(Prestaciones2);
 
     String asisteEscuela2 = _asisteEscuela2.name.toString();
     if (asisteEscuela2 == 'si') {
@@ -2419,40 +2043,38 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel2 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad2.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad2.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar2.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela2.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela2.substring(0, 1),
-      AsisteEscuela: _asisteEscuela2.name,
-      ClaveOcupacion: _ocupacion2.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion2.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo2.trimLeft(),
-
-      pk_prestacioneslab: pkr2,
-      int_OrdenPrestacionesLab: Ordenr2,
-      txt_desc_prestacioneslab: prestaciones2.trimLeft(),
-
-      ClaveJubilacion: Jubilado2.substring(0, 1),
-      OrdenJubilacion: Jubilado2.substring(0, 1),
-      Jubilacion: _jubilacionPensionado2.name,
-      ClaveDerechohabiencia: _derechohabiencia2.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho2.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad2.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad2.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar2.text,
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela2.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela2.substring(0, 1),
+        AsisteEscuela: _asisteEscuela2.name,
+        ClaveOcupacion: _ocupacion2.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion2.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo2.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo2.trimLeft(),
+        pk_prestacioneslab: pkr2,
+        int_OrdenPrestacionesLab: Ordenr2,
+        txt_desc_prestacioneslab: prestaciones2.trimLeft(),
+        ClaveJubilacion: Jubilado2.substring(0, 1),
+        OrdenJubilacion: Jubilado2.substring(0, 1),
+        Jubilacion: _jubilacionPensionado2.name,
+        ClaveDerechohabiencia: _derechohabiencia2.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho2.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia2.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab2.trimLeft(),
+        otroEscolaridad: _otroEscolaridad2.text,
+        otroOcupacion: _otroOcupacion2.text,
+        otroTipoEmpleo: _otroTipoEmpleo2.text);
     await dbHelper
         .upDateEscolaridad2(DModel2)
         .then((escolaridadSeguridadSocial) {
@@ -2464,227 +2086,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   renglon3() async {
-    var Escolaridad3 = _escolaridad3.text.toString(); // 'artlang'
-    final escolaridad3 = Escolaridad3.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl3 = new replaceAllLetter();
+    replaceAllNum rpn3 = new replaceAllNum();
+    var Escolaridad3 = _escolaridad3.text.toString();
+    final escolaridad3 = rpn3.replaceNum(Escolaridad3);
 
-    var Ocupacion3 = _ocupacion3.text.toString(); // 'artlang'
-    final ocupacion3 = Ocupacion3.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion3 = _ocupacion3.text.toString();
+    final ocupacion3 = rpn3.replaceNum(Ocupacion3);
 
-    var TipoEmpleo3 = _tipoEmpleo3.text.toString(); // 'artlang'
-    final tipoEmpleo3 = TipoEmpleo3.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo3 = _tipoEmpleo3.text.toString();
+    final tipoEmpleo3 = rpn3.replaceNum(TipoEmpleo3);
 
-    var derecho3 = _derechohabiencia3.text.toString(); // 'artlang'
-    final Derecho3 = derecho3
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho3 = _derechohabiencia3.text.toString();
+    final Derecho3 = rpn3.replaceNum(derecho3);
 
-    var motivoDerecho3 = _motivoderechohabiencia3.text.toString(); // 'artlang'
-    final motivoDereHab3 = motivoDerecho3
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho3 = _motivoderechohabiencia3.text.toString();
+    final motivoDereHab3 = rpn3.replaceNum(motivoDerecho3);
 
-    var pkPrestaciones3 = _prestacion3.text.toString(); // 'artlang'
-    final prestacionesPK3 = pkPrestaciones3
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones3 = _prestacion3.text.toString();
+    final prestacionesPK3 = rpl3.replaceLetter(pkPrestaciones3);
 
-    var intPrestaciones3 = _prestacion3.text.toString(); // 'artlang'
-    final prestacionesInt3 = intPrestaciones3
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones3 = _prestacion3.text.toString();
+    final prestacionesInt3 = rpl3.replaceLetter(intPrestaciones3);
 
-    var Prestaciones3 = _prestacion3.text.toString(); // 'artlang'
-    final prestaciones3 = Prestaciones3.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones3 = _prestacion3.text.toString();
+    final prestaciones3 = rpl3.replaceLetter(Prestaciones3);
 
     String asisteEscuela3 = _asisteEscuela3.name.toString();
     if (asisteEscuela3 == 'si') {
@@ -2771,40 +2197,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel3 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad3.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad3.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar3.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela3.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela3.substring(0, 1),
-      AsisteEscuela: _asisteEscuela3.name,
-      ClaveOcupacion: _ocupacion3.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion3.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo3.trimLeft(),
-
-      pk_prestacioneslab: pkr3,
-      int_OrdenPrestacionesLab: Ordenr3,
-      txt_desc_prestacioneslab: prestaciones3.trimLeft(),
-
-      ClaveJubilacion: Jubilado3.substring(0, 1),
-      OrdenJubilacion: Jubilado3.substring(0, 1),
-      Jubilacion: _jubilacionPensionado3.name,
-      ClaveDerechohabiencia: _derechohabiencia3.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho3.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad3.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad3.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar3.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela3.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela3.substring(0, 1),
+        AsisteEscuela: _asisteEscuela3.name,
+        ClaveOcupacion: _ocupacion3.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion3.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo3.trimLeft(),
+        pk_prestacioneslab: pkr3,
+        int_OrdenPrestacionesLab: Ordenr3,
+        txt_desc_prestacioneslab: prestaciones3.trimLeft(),
+        ClaveJubilacion: Jubilado3.substring(0, 1),
+        OrdenJubilacion: Jubilado3.substring(0, 1),
+        Jubilacion: _jubilacionPensionado3.name,
+        ClaveDerechohabiencia: _derechohabiencia3.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho3.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
+        otroEscolaridad: _otroEscolaridad3.text,
+        otroOcupacion: _otroOcupacion3.text,
+        otroTipoEmpleo: _otroTipoEmpleo3.text);
     await dbHelper
         .saveEscolaridadSocial(DModel3)
         .then((escolaridadSeguridadSocial) {
@@ -2816,227 +2241,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   upDateRenglon3() async {
-    var Escolaridad3 = _escolaridad3.text.toString(); // 'artlang'
-    final escolaridad3 = Escolaridad3.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl3 = new replaceAllLetter();
+    replaceAllNum rpn3 = new replaceAllNum();
+    var Escolaridad3 = _escolaridad3.text.toString();
+    final escolaridad3 = rpn3.replaceNum(Escolaridad3);
 
-    var Ocupacion3 = _ocupacion3.text.toString(); // 'artlang'
-    final ocupacion3 = Ocupacion3.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion3 = _ocupacion3.text.toString();
+    final ocupacion3 = rpn3.replaceNum(Ocupacion3);
 
-    var TipoEmpleo3 = _tipoEmpleo3.text.toString(); // 'artlang'
-    final tipoEmpleo3 = TipoEmpleo3.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo3 = _tipoEmpleo3.text.toString();
+    final tipoEmpleo3 = rpn3.replaceNum(TipoEmpleo3);
 
-    var derecho3 = _derechohabiencia3.text.toString(); // 'artlang'
-    final Derecho3 = derecho3
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho3 = _derechohabiencia3.text.toString();
+    final Derecho3 = rpn3.replaceNum(derecho3);
 
-    var motivoDerecho3 = _motivoderechohabiencia3.text.toString(); // 'artlang'
-    final motivoDereHab3 = motivoDerecho3
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho3 = _motivoderechohabiencia3.text.toString();
+    final motivoDereHab3 = rpn3.replaceNum(motivoDerecho3);
 
-    var pkPrestaciones3 = _prestacion3.text.toString(); // 'artlang'
-    final prestacionesPK3 = pkPrestaciones3
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones3 = _prestacion3.text.toString();
+    final prestacionesPK3 = rpl3.replaceLetter(pkPrestaciones3);
 
-    var intPrestaciones3 = _prestacion3.text.toString(); // 'artlang'
-    final prestacionesInt3 = intPrestaciones3
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones3 = _prestacion3.text.toString();
+    final prestacionesInt3 = rpl3.replaceLetter(intPrestaciones3);
 
-    var Prestaciones3 = _prestacion3.text.toString(); // 'artlang'
-    final prestaciones3 = Prestaciones3.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones3 = _prestacion3.text.toString();
+    final prestaciones3 = rpl3.replaceLetter(Prestaciones3);
 
     String asisteEscuela3 = _asisteEscuela3.name.toString();
     if (asisteEscuela3 == 'si') {
@@ -3123,40 +2352,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel3 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad3.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad3.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar3.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela3.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela3.substring(0, 1),
-      AsisteEscuela: _asisteEscuela3.name,
-      ClaveOcupacion: _ocupacion3.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion3.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo3.trimLeft(),
-
-      pk_prestacioneslab: pkr3,
-      int_OrdenPrestacionesLab: Ordenr3,
-      txt_desc_prestacioneslab: prestaciones3.trimLeft(),
-
-      ClaveJubilacion: Jubilado3.substring(0, 1),
-      OrdenJubilacion: Jubilado3.substring(0, 1),
-      Jubilacion: _jubilacionPensionado3.name,
-      ClaveDerechohabiencia: _derechohabiencia3.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho3.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad3.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad3.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar3.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela3.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela3.substring(0, 1),
+        AsisteEscuela: _asisteEscuela3.name,
+        ClaveOcupacion: _ocupacion3.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion3.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo3.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo3.trimLeft(),
+        pk_prestacioneslab: pkr3,
+        int_OrdenPrestacionesLab: Ordenr3,
+        txt_desc_prestacioneslab: prestaciones3.trimLeft(),
+        ClaveJubilacion: Jubilado3.substring(0, 1),
+        OrdenJubilacion: Jubilado3.substring(0, 1),
+        Jubilacion: _jubilacionPensionado3.name,
+        ClaveDerechohabiencia: _derechohabiencia3.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho3.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia3.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab3.trimLeft(),
+        otroEscolaridad: _otroEscolaridad3.text,
+        otroOcupacion: _otroOcupacion3.text,
+        otroTipoEmpleo: _otroTipoEmpleo3.text);
     await dbHelper
         .upDateEscolaridad3(DModel3)
         .then((escolaridadSeguridadSocial) {
@@ -3168,227 +2396,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   renglon4() async {
-    var Escolaridad4 = _escolaridad4.text.toString(); // 'artlang'
-    final escolaridad4 = Escolaridad4.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl4 = new replaceAllLetter();
+    replaceAllNum rpn4 = new replaceAllNum();
+    var Escolaridad4 = _escolaridad4.text.toString();
+    final escolaridad4 = rpn4.replaceNum(Escolaridad4);
 
-    var Ocupacion4 = _ocupacion4.text.toString(); // 'artlang'
-    final ocupacion4 = Ocupacion4.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion4 = _ocupacion4.text.toString();
+    final ocupacion4 = rpn4.replaceNum(Ocupacion4);
 
-    var TipoEmpleo4 = _tipoEmpleo4.text.toString(); // 'artlang'
-    final tipoEmpleo4 = TipoEmpleo4.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo4 = _tipoEmpleo4.text.toString();
+    final tipoEmpleo4 = rpn4.replaceNum(TipoEmpleo4);
 
-    var derecho4 = _derechohabiencia4.text.toString(); // 'artlang'
-    final Derecho4 = derecho4
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho4 = _derechohabiencia4.text.toString();
+    final Derecho4 = rpn4.replaceNum(derecho4);
 
-    var motivoDerecho4 = _motivoderechohabiencia4.text.toString(); // 'artlang'
-    final motivoDereHab4 = motivoDerecho4
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho4 = _motivoderechohabiencia4.text.toString();
+    final motivoDereHab4 = rpn4.replaceNum(motivoDerecho4);
 
-    var pkPrestaciones4 = _prestacion4.text.toString(); // 'artlang'
-    final prestacionesPK4 = pkPrestaciones4
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones4 = _prestacion4.text.toString();
+    final prestacionesPK4 = rpl4.replaceLetter(pkPrestaciones4);
 
-    var intPrestaciones4 = _prestacion4.text.toString(); // 'artlang'
-    final prestacionesInt4 = intPrestaciones4
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones4 = _prestacion4.text.toString();
+    final prestacionesInt4 = rpl4.replaceLetter(intPrestaciones4);
 
-    var Prestaciones4 = _prestacion4.text.toString(); // 'artlang'
-    final prestaciones4 = Prestaciones4.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones4 = _prestacion4.text.toString();
+    final prestaciones4 = rpl4.replaceLetter(Prestaciones4);
 
     String asisteEscuela4 = _asisteEscuela4.name.toString();
     if (asisteEscuela4 == 'si') {
@@ -3475,40 +2507,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel4 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad4.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad4.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar4.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela4.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela4.substring(0, 1),
-      AsisteEscuela: _asisteEscuela4.name,
-      ClaveOcupacion: _ocupacion4.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion4.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo4.trimLeft(),
-
-      pk_prestacioneslab: pkr4,
-      int_OrdenPrestacionesLab: Ordenr4,
-      txt_desc_prestacioneslab: prestaciones4.trimLeft(),
-
-      ClaveJubilacion: Jubilado4.substring(0, 1),
-      OrdenJubilacion: Jubilado4.substring(0, 1),
-      Jubilacion: _jubilacionPensionado4.name,
-      ClaveDerechohabiencia: _derechohabiencia4.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho4.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad4.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad4.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar4.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela4.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela4.substring(0, 1),
+        AsisteEscuela: _asisteEscuela4.name,
+        ClaveOcupacion: _ocupacion4.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion4.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo4.trimLeft(),
+        pk_prestacioneslab: pkr4,
+        int_OrdenPrestacionesLab: Ordenr4,
+        txt_desc_prestacioneslab: prestaciones4.trimLeft(),
+        ClaveJubilacion: Jubilado4.substring(0, 1),
+        OrdenJubilacion: Jubilado4.substring(0, 1),
+        Jubilacion: _jubilacionPensionado4.name,
+        ClaveDerechohabiencia: _derechohabiencia4.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho4.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
+        otroEscolaridad: _otroEscolaridad4.text,
+        otroOcupacion: _otroOcupacion4.text,
+        otroTipoEmpleo: _otroTipoEmpleo4.text);
     await dbHelper
         .saveEscolaridadSocial(DModel4)
         .then((escolaridadSeguridadSocial) {
@@ -3521,227 +2552,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   upDateRenglon4() async {
-    var Escolaridad4 = _escolaridad4.text.toString(); // 'artlang'
-    final escolaridad4 = Escolaridad4.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl4 = new replaceAllLetter();
+    replaceAllNum rpn4 = new replaceAllNum();
+    var Escolaridad4 = _escolaridad4.text.toString();
+    final escolaridad4 = rpn4.replaceNum(Escolaridad4);
 
-    var Ocupacion4 = _ocupacion4.text.toString(); // 'artlang'
-    final ocupacion4 = Ocupacion4.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion4 = _ocupacion4.text.toString();
+    final ocupacion4 = rpn4.replaceNum(Ocupacion4);
 
-    var TipoEmpleo4 = _tipoEmpleo4.text.toString(); // 'artlang'
-    final tipoEmpleo4 = TipoEmpleo4.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo4 = _tipoEmpleo4.text.toString();
+    final tipoEmpleo4 = rpn4.replaceNum(TipoEmpleo4);
 
-    var derecho4 = _derechohabiencia4.text.toString(); // 'artlang'
-    final Derecho4 = derecho4
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho4 = _derechohabiencia4.text.toString();
+    final Derecho4 = rpn4.replaceNum(derecho4);
 
-    var motivoDerecho4 = _motivoderechohabiencia4.text.toString(); // 'artlang'
-    final motivoDereHab4 = motivoDerecho4
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho4 = _motivoderechohabiencia4.text.toString();
+    final motivoDereHab4 = rpn4.replaceNum(motivoDerecho4);
 
-    var pkPrestaciones4 = _prestacion4.text.toString(); // 'artlang'
-    final prestacionesPK4 = pkPrestaciones4
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones4 = _prestacion4.text.toString();
+    final prestacionesPK4 = rpl4.replaceLetter(pkPrestaciones4);
 
-    var intPrestaciones4 = _prestacion4.text.toString(); // 'artlang'
-    final prestacionesInt4 = intPrestaciones4
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones4 = _prestacion4.text.toString();
+    final prestacionesInt4 = rpl4.replaceLetter(intPrestaciones4);
 
-    var Prestaciones4 = _prestacion4.text.toString(); // 'artlang'
-    final prestaciones4 = Prestaciones4.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones4 = _prestacion4.text.toString();
+    final prestaciones4 = rpl4.replaceLetter(Prestaciones4);
 
     String asisteEscuela4 = _asisteEscuela4.name.toString();
     if (asisteEscuela4 == 'si') {
@@ -3828,40 +2663,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel4 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad4.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad4.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar4.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela4.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela4.substring(0, 1),
-      AsisteEscuela: _asisteEscuela4.name,
-      ClaveOcupacion: _ocupacion4.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion4.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo4.trimLeft(),
-
-      pk_prestacioneslab: pkr4,
-      int_OrdenPrestacionesLab: Ordenr4,
-      txt_desc_prestacioneslab: prestaciones4.trimLeft(),
-
-      ClaveJubilacion: Jubilado4.substring(0, 1),
-      OrdenJubilacion: Jubilado4.substring(0, 1),
-      Jubilacion: _jubilacionPensionado4.name,
-      ClaveDerechohabiencia: _derechohabiencia4.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho4.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad4.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad4.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar4.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela4.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela4.substring(0, 1),
+        AsisteEscuela: _asisteEscuela4.name,
+        ClaveOcupacion: _ocupacion4.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion4.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo4.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo4.trimLeft(),
+        pk_prestacioneslab: pkr4,
+        int_OrdenPrestacionesLab: Ordenr4,
+        txt_desc_prestacioneslab: prestaciones4.trimLeft(),
+        ClaveJubilacion: Jubilado4.substring(0, 1),
+        OrdenJubilacion: Jubilado4.substring(0, 1),
+        Jubilacion: _jubilacionPensionado4.name,
+        ClaveDerechohabiencia: _derechohabiencia4.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho4.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia4.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab4.trimLeft(),
+        otroEscolaridad: _otroEscolaridad4.text,
+        otroOcupacion: _otroOcupacion4.text,
+        otroTipoEmpleo: _otroTipoEmpleo4.text);
     await dbHelper
         .upDateEscolaridad4(DModel4)
         .then((escolaridadSeguridadSocial) {
@@ -3874,227 +2708,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   renglon5() async {
-    var Escolaridad5 = _escolaridad5.text.toString(); // 'artlang'
-    final escolaridad5 = Escolaridad5.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl5 = new replaceAllLetter();
+    replaceAllNum rpn5 = new replaceAllNum();
+    var Escolaridad5 = _escolaridad5.text.toString();
+    final escolaridad5 = rpn5.replaceNum(Escolaridad5);
 
-    var Ocupacion5 = _ocupacion5.text.toString(); // 'artlang'
-    final ocupacion5 = Ocupacion5.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion5 = _ocupacion5.text.toString();
+    final ocupacion5 = rpn5.replaceNum(Ocupacion5);
 
-    var TipoEmpleo5 = _tipoEmpleo5.text.toString(); // 'artlang'
-    final tipoEmpleo5 = TipoEmpleo5.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo5 = _tipoEmpleo5.text.toString();
+    final tipoEmpleo5 = rpn5.replaceNum(TipoEmpleo5);
 
-    var derecho5 = _derechohabiencia5.text.toString(); // 'artlang'
-    final Derecho5 = derecho5
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho5 = _derechohabiencia5.text.toString();
+    final Derecho5 = rpn5.replaceNum(derecho5);
 
-    var motivoDerecho5 = _motivoderechohabiencia5.text.toString(); // 'artlang'
-    final motivoDereHab5 = motivoDerecho5
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho5 = _motivoderechohabiencia5.text.toString();
+    final motivoDereHab5 = rpn5.replaceNum(motivoDerecho5);
 
-    var pkPrestaciones5 = _prestacion5.text.toString(); // 'artlang'
-    final prestacionesPK5 = pkPrestaciones5
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones5 = _prestacion5.text.toString();
+    final prestacionesPK5 = rpl5.replaceLetter(pkPrestaciones5);
 
-    var intPrestaciones5 = _prestacion5.text.toString(); // 'artlang'
-    final prestacionesInt5 = intPrestaciones5
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones5 = _prestacion5.text.toString();
+    final prestacionesInt5 = rpl5.replaceLetter(intPrestaciones5);
 
-    var Prestaciones5 = _prestacion5.text.toString(); // 'artlang'
-    final prestaciones5 = Prestaciones5.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones5 = _prestacion5.text.toString();
+    final prestaciones5 = rpl5.replaceLetter(Prestaciones5);
 
     String asisteEscuela5 = _asisteEscuela5.name.toString();
     if (asisteEscuela5 == 'si') {
@@ -4181,40 +2819,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel5 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad5.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad5.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar5.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela5.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela5.substring(0, 1),
-      AsisteEscuela: _asisteEscuela5.name,
-      ClaveOcupacion: _ocupacion5.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion5.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo5.trimLeft(),
-
-      pk_prestacioneslab: pkr5,
-      int_OrdenPrestacionesLab: Ordenr5,
-      txt_desc_prestacioneslab: prestaciones5.trimLeft(),
-
-      ClaveJubilacion: Jubilado5.substring(0, 1),
-      OrdenJubilacion: Jubilado5.substring(0, 1),
-      Jubilacion: _jubilacionPensionado5.name,
-      ClaveDerechohabiencia: _derechohabiencia5.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho5.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad5.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad5.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar5.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela5.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela5.substring(0, 1),
+        AsisteEscuela: _asisteEscuela5.name,
+        ClaveOcupacion: _ocupacion5.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion5.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo5.trimLeft(),
+        pk_prestacioneslab: pkr5,
+        int_OrdenPrestacionesLab: Ordenr5,
+        txt_desc_prestacioneslab: prestaciones5.trimLeft(),
+        ClaveJubilacion: Jubilado5.substring(0, 1),
+        OrdenJubilacion: Jubilado5.substring(0, 1),
+        Jubilacion: _jubilacionPensionado5.name,
+        ClaveDerechohabiencia: _derechohabiencia5.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho5.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
+        otroEscolaridad: _otroEscolaridad5.text,
+        otroOcupacion: _otroOcupacion5.text,
+        otroTipoEmpleo: _otroTipoEmpleo5.text);
     await dbHelper
         .saveEscolaridadSocial(DModel5)
         .then((escolaridadSeguridadSocial) {
@@ -4227,227 +2864,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   upDateRenglon5() async {
-    var Escolaridad5 = _escolaridad5.text.toString(); // 'artlang'
-    final escolaridad5 = Escolaridad5.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl5 = new replaceAllLetter();
+    replaceAllNum rpn5 = new replaceAllNum();
+    var Escolaridad5 = _escolaridad5.text.toString();
+    final escolaridad5 = rpn5.replaceNum(Escolaridad5);
 
-    var Ocupacion5 = _ocupacion5.text.toString(); // 'artlang'
-    final ocupacion5 = Ocupacion5.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion5 = _ocupacion5.text.toString();
+    final ocupacion5 = rpn5.replaceNum(Ocupacion5);
 
-    var TipoEmpleo5 = _tipoEmpleo5.text.toString(); // 'artlang'
-    final tipoEmpleo5 = TipoEmpleo5.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo5 = _tipoEmpleo5.text.toString();
+    final tipoEmpleo5 = rpn5.replaceNum(TipoEmpleo5);
 
-    var derecho5 = _derechohabiencia5.text.toString(); // 'artlang'
-    final Derecho5 = derecho5
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho5 = _derechohabiencia5.text.toString();
+    final Derecho5 = rpn5.replaceNum(derecho5);
 
-    var motivoDerecho5 = _motivoderechohabiencia5.text.toString(); // 'artlang'
-    final motivoDereHab5 = motivoDerecho5
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho5 = _motivoderechohabiencia5.text.toString();
+    final motivoDereHab5 = rpn5.replaceNum(motivoDerecho5);
 
-    var pkPrestaciones5 = _prestacion5.text.toString(); // 'artlang'
-    final prestacionesPK5 = pkPrestaciones5
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones5 = _prestacion5.text.toString();
+    final prestacionesPK5 = rpl5.replaceLetter(pkPrestaciones5);
 
-    var intPrestaciones5 = _prestacion5.text.toString(); // 'artlang'
-    final prestacionesInt5 = intPrestaciones5
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones5 = _prestacion5.text.toString();
+    final prestacionesInt5 = rpl5.replaceLetter(intPrestaciones5);
 
-    var Prestaciones5 = _prestacion5.text.toString(); // 'artlang'
-    final prestaciones5 = Prestaciones5.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones5 = _prestacion5.text.toString();
+    final prestaciones5 = rpl5.replaceLetter(Prestaciones5);
 
     String asisteEscuela5 = _asisteEscuela5.name.toString();
     if (asisteEscuela5 == 'si') {
@@ -4534,40 +2975,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel5 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad5.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad5.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar5.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela5.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela5.substring(0, 1),
-      AsisteEscuela: _asisteEscuela5.name,
-      ClaveOcupacion: _ocupacion5.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion5.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo5.trimLeft(),
-
-      pk_prestacioneslab: pkr5,
-      int_OrdenPrestacionesLab: Ordenr5,
-      txt_desc_prestacioneslab: prestaciones5.trimLeft(),
-
-      ClaveJubilacion: Jubilado5.substring(0, 1),
-      OrdenJubilacion: Jubilado5.substring(0, 1),
-      Jubilacion: _jubilacionPensionado5.name,
-      ClaveDerechohabiencia: _derechohabiencia5.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho5.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad5.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad5.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar5.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela5.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela5.substring(0, 1),
+        AsisteEscuela: _asisteEscuela5.name,
+        ClaveOcupacion: _ocupacion5.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion5.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo5.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo5.trimLeft(),
+        pk_prestacioneslab: pkr5,
+        int_OrdenPrestacionesLab: Ordenr5,
+        txt_desc_prestacioneslab: prestaciones5.trimLeft(),
+        ClaveJubilacion: Jubilado5.substring(0, 1),
+        OrdenJubilacion: Jubilado5.substring(0, 1),
+        Jubilacion: _jubilacionPensionado5.name,
+        ClaveDerechohabiencia: _derechohabiencia5.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho5.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia5.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab5.trimLeft(),
+        otroEscolaridad: _otroEscolaridad5.text,
+        otroOcupacion: _otroOcupacion5.text,
+        otroTipoEmpleo: _otroTipoEmpleo5.text);
     await dbHelper
         .upDateEscolaridad5(DModel5)
         .then((escolaridadSeguridadSocial) {
@@ -4580,227 +3020,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   renglon6() async {
-    var Escolaridad6 = _escolaridad6.text.toString(); // 'artlang'
-    final escolaridad6 = Escolaridad6.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl6 = new replaceAllLetter();
+    replaceAllNum rpn6 = new replaceAllNum();
+    var Escolaridad6 = _escolaridad6.text.toString();
+    final escolaridad6 = rpn6.replaceNum(Escolaridad6);
 
-    var Ocupacion6 = _ocupacion6.text.toString(); // 'artlang'
-    final ocupacion6 = Ocupacion6.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion6 = _ocupacion6.text.toString();
+    final ocupacion6 = rpn6.replaceNum(Ocupacion6);
 
-    var TipoEmpleo6 = _tipoEmpleo6.text.toString(); // 'artlang'
-    final tipoEmpleo6 = TipoEmpleo6.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo6 = _tipoEmpleo6.text.toString();
+    final tipoEmpleo6 = rpn6.replaceNum(TipoEmpleo6);
 
-    var derecho6 = _derechohabiencia6.text.toString(); // 'artlang'
-    final Derecho6 = derecho6
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho6 = _derechohabiencia6.text.toString();
+    final Derecho6 = rpn6.replaceNum(derecho6);
 
-    var motivoDerecho6 = _motivoderechohabiencia6.text.toString(); // 'artlang'
-    final motivoDereHab6 = motivoDerecho6
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho6 = _motivoderechohabiencia6.text.toString();
+    final motivoDereHab6 = rpn6.replaceNum(motivoDerecho6);
 
-    var pkPrestaciones6 = _prestacion6.text.toString(); // 'artlang'
-    final prestacionesPK6 = pkPrestaciones6
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones6 = _prestacion6.text.toString();
+    final prestacionesPK6 = rpl6.replaceLetter(pkPrestaciones6);
 
-    var intPrestaciones6 = _prestacion6.text.toString(); // 'artlang'
-    final prestacionesInt6 = intPrestaciones6
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones6 = _prestacion6.text.toString();
+    final prestacionesInt6 = rpl6.replaceLetter(intPrestaciones6);
 
-    var Prestaciones6 = _prestacion6.text.toString(); // 'artlang'
-    final prestaciones6 = Prestaciones6.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones6 = _prestacion6.text.toString();
+    final prestaciones6 = rpl6.replaceLetter(Prestaciones6);
 
     String asisteEscuela6 = _asisteEscuela6.name.toString();
     if (asisteEscuela6 == 'si') {
@@ -4887,40 +3131,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel6 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad6.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad6.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar6.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela6.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela6.substring(0, 1),
-      AsisteEscuela: _asisteEscuela6.name,
-      ClaveOcupacion: _ocupacion6.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion6.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo6.trimLeft(),
-
-      pk_prestacioneslab: pkr6,
-      int_OrdenPrestacionesLab: Ordenr6,
-      txt_desc_prestacioneslab: prestaciones6.trimLeft(),
-
-      ClaveJubilacion: Jubilado6.substring(0, 1),
-      OrdenJubilacion: Jubilado6.substring(0, 1),
-      Jubilacion: _jubilacionPensionado6.name,
-      ClaveDerechohabiencia: _derechohabiencia6.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho6.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad6.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad6.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar6.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela6.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela6.substring(0, 1),
+        AsisteEscuela: _asisteEscuela6.name,
+        ClaveOcupacion: _ocupacion6.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion6.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo6.trimLeft(),
+        pk_prestacioneslab: pkr6,
+        int_OrdenPrestacionesLab: Ordenr6,
+        txt_desc_prestacioneslab: prestaciones6.trimLeft(),
+        ClaveJubilacion: Jubilado6.substring(0, 1),
+        OrdenJubilacion: Jubilado6.substring(0, 1),
+        Jubilacion: _jubilacionPensionado6.name,
+        ClaveDerechohabiencia: _derechohabiencia6.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho6.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
+        otroEscolaridad: _otroEscolaridad6.text,
+        otroOcupacion: _otroOcupacion6.text,
+        otroTipoEmpleo: _otroTipoEmpleo6.text);
     await dbHelper
         .saveEscolaridadSocial(DModel6)
         .then((escolaridadSeguridadSocial) {
@@ -4937,227 +3180,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   upDateRenglon6() async {
-    var Escolaridad6 = _escolaridad6.text.toString(); // 'artlang'
-    final escolaridad6 = Escolaridad6.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl6 = new replaceAllLetter();
+    replaceAllNum rpn6 = new replaceAllNum();
+    var Escolaridad6 = _escolaridad6.text.toString();
+    final escolaridad6 = rpn6.replaceNum(Escolaridad6);
 
-    var Ocupacion6 = _ocupacion6.text.toString(); // 'artlang'
-    final ocupacion6 = Ocupacion6.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion6 = _ocupacion6.text.toString();
+    final ocupacion6 = rpn6.replaceNum(Ocupacion6);
 
-    var TipoEmpleo6 = _tipoEmpleo6.text.toString(); // 'artlang'
-    final tipoEmpleo6 = TipoEmpleo6.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo6 = _tipoEmpleo6.text.toString();
+    final tipoEmpleo6 = rpn6.replaceNum(TipoEmpleo6);
 
-    var derecho6 = _derechohabiencia6.text.toString(); // 'artlang'
-    final Derecho6 = derecho6
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho6 = _derechohabiencia6.text.toString();
+    final Derecho6 = rpn6.replaceNum(derecho6);
 
-    var motivoDerecho6 = _motivoderechohabiencia6.text.toString(); // 'artlang'
-    final motivoDereHab6 = motivoDerecho6
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho6 = _motivoderechohabiencia6.text.toString();
+    final motivoDereHab6 = rpn6.replaceNum(motivoDerecho6);
 
-    var pkPrestaciones6 = _prestacion6.text.toString(); // 'artlang'
-    final prestacionesPK6 = pkPrestaciones6
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones6 = _prestacion6.text.toString();
+    final prestacionesPK6 = rpl6.replaceLetter(pkPrestaciones6);
 
-    var intPrestaciones6 = _prestacion6.text.toString(); // 'artlang'
-    final prestacionesInt6 = intPrestaciones6
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones6 = _prestacion6.text.toString();
+    final prestacionesInt6 = rpl6.replaceLetter(intPrestaciones6);
 
-    var Prestaciones6 = _prestacion6.text.toString(); // 'artlang'
-    final prestaciones6 = Prestaciones6.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones6 = _prestacion6.text.toString();
+    final prestaciones6 = rpl6.replaceLetter(Prestaciones6);
 
     String asisteEscuela6 = _asisteEscuela6.name.toString();
     if (asisteEscuela6 == 'si') {
@@ -5244,40 +3291,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel6 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad6.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad6.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar6.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela6.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela6.substring(0, 1),
-      AsisteEscuela: _asisteEscuela6.name,
-      ClaveOcupacion: _ocupacion6.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion6.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo6.trimLeft(),
-
-      pk_prestacioneslab: pkr6,
-      int_OrdenPrestacionesLab: Ordenr6,
-      txt_desc_prestacioneslab: prestaciones6.trimLeft(),
-
-      ClaveJubilacion: Jubilado6.substring(0, 1),
-      OrdenJubilacion: Jubilado6.substring(0, 1),
-      Jubilacion: _jubilacionPensionado6.name,
-      ClaveDerechohabiencia: _derechohabiencia6.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho6.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad6.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad6.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar6.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela6.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela6.substring(0, 1),
+        AsisteEscuela: _asisteEscuela6.name,
+        ClaveOcupacion: _ocupacion6.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion6.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo6.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo6.trimLeft(),
+        pk_prestacioneslab: pkr6,
+        int_OrdenPrestacionesLab: Ordenr6,
+        txt_desc_prestacioneslab: prestaciones6.trimLeft(),
+        ClaveJubilacion: Jubilado6.substring(0, 1),
+        OrdenJubilacion: Jubilado6.substring(0, 1),
+        Jubilacion: _jubilacionPensionado6.name,
+        ClaveDerechohabiencia: _derechohabiencia6.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho6.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia6.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab6.trimLeft(),
+        otroEscolaridad: _otroEscolaridad6.text,
+        otroOcupacion: _otroOcupacion6.text,
+        otroTipoEmpleo: _otroTipoEmpleo6.text);
     await dbHelper
         .upDateEscolaridad6(DModel6)
         .then((escolaridadSeguridadSocial) {
@@ -5294,227 +3340,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   renglon7() async {
-    var Escolaridad7 = _escolaridad7.text.toString(); // 'artlang'
-    final escolaridad7 = Escolaridad7.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl7 = new replaceAllLetter();
+    replaceAllNum rpn7 = new replaceAllNum();
+    var Escolaridad7 = _escolaridad7.text.toString();
+    final escolaridad7 = rpn7.replaceNum(Escolaridad7);
 
-    var Ocupacion7 = _ocupacion7.text.toString(); // 'artlang'
-    final ocupacion7 = Ocupacion7.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion7 = _ocupacion7.text.toString();
+    final ocupacion7 = rpn7.replaceNum(Ocupacion7);
 
-    var TipoEmpleo7 = _tipoEmpleo7.text.toString(); // 'artlang'
-    final tipoEmpleo7 = TipoEmpleo7.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo7 = _tipoEmpleo7.text.toString();
+    final tipoEmpleo7 = rpn7.replaceNum(TipoEmpleo7);
 
-    var derecho7 = _derechohabiencia7.text.toString(); // 'artlang'
-    final Derecho7 = derecho7
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho7 = _derechohabiencia7.text.toString();
+    final Derecho7 = rpn7.replaceNum(derecho7);
 
-    var motivoDerecho7 = _motivoderechohabiencia7.text.toString(); // 'artlang'
-    final motivoDereHab7 = motivoDerecho7
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho7 = _motivoderechohabiencia7.text.toString();
+    final motivoDereHab7 = rpn7.replaceNum(motivoDerecho7);
 
-    var pkPrestaciones7 = _prestacion7.text.toString(); // 'artlang'
-    final prestacionesPK7 = pkPrestaciones7
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones7 = _prestacion7.text.toString();
+    final prestacionesPK7 = rpl7.replaceLetter(pkPrestaciones7);
 
-    var intPrestaciones7 = _prestacion7.text.toString(); // 'artlang'
-    final prestacionesInt7 = intPrestaciones7
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones7 = _prestacion7.text.toString();
+    final prestacionesInt7 = rpl7.replaceLetter(intPrestaciones7);
 
-    var Prestaciones7 = _prestacion7.text.toString(); // 'artlang'
-    final prestaciones7 = Prestaciones7.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones7 = _prestacion7.text.toString();
+    final prestaciones7 = rpl7.replaceLetter(Prestaciones7);
 
     String asisteEscuela7 = _asisteEscuela7.name.toString();
     if (asisteEscuela7 == 'si') {
@@ -5601,40 +3451,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel7 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad7.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad7.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar7.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela7.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela7.substring(0, 1),
-      AsisteEscuela: _asisteEscuela7.name,
-      ClaveOcupacion: _ocupacion7.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion7.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo7.trimLeft(),
-
-      pk_prestacioneslab: pkr7,
-      int_OrdenPrestacionesLab: Ordenr7,
-      txt_desc_prestacioneslab: prestaciones7.trimLeft(),
-
-      ClaveJubilacion: Jubilado7.substring(0, 1),
-      OrdenJubilacion: Jubilado7.substring(0, 1),
-      Jubilacion: _jubilacionPensionado7.name,
-      ClaveDerechohabiencia: _derechohabiencia7.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho7.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad7.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad7.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar7.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela7.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela7.substring(0, 1),
+        AsisteEscuela: _asisteEscuela7.name,
+        ClaveOcupacion: _ocupacion7.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion7.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo7.trimLeft(),
+        pk_prestacioneslab: pkr7,
+        int_OrdenPrestacionesLab: Ordenr7,
+        txt_desc_prestacioneslab: prestaciones7.trimLeft(),
+        ClaveJubilacion: Jubilado7.substring(0, 1),
+        OrdenJubilacion: Jubilado7.substring(0, 1),
+        Jubilacion: _jubilacionPensionado7.name,
+        ClaveDerechohabiencia: _derechohabiencia7.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho7.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
+        otroEscolaridad: _otroEscolaridad7.text,
+        otroOcupacion: _otroOcupacion7.text,
+        otroTipoEmpleo: _otroTipoEmpleo7.text);
     await dbHelper
         .saveEscolaridadSocial(DModel7)
         .then((escolaridadSeguridadSocial) {
@@ -5647,227 +3496,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   upDateRenglon7() async {
-    var Escolaridad7 = _escolaridad7.text.toString(); // 'artlang'
-    final escolaridad7 = Escolaridad7.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl7 = new replaceAllLetter();
+    replaceAllNum rpn7 = new replaceAllNum();
+    var Escolaridad7 = _escolaridad7.text.toString();
+    final escolaridad7 = rpn7.replaceNum(Escolaridad7);
 
-    var Ocupacion7 = _ocupacion7.text.toString(); // 'artlang'
-    final ocupacion7 = Ocupacion7.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion7 = _ocupacion7.text.toString();
+    final ocupacion7 = rpn7.replaceNum(Ocupacion7);
 
-    var TipoEmpleo7 = _tipoEmpleo7.text.toString(); // 'artlang'
-    final tipoEmpleo7 = TipoEmpleo7.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo7 = _tipoEmpleo7.text.toString();
+    final tipoEmpleo7 = rpn7.replaceNum(TipoEmpleo7);
 
-    var derecho7 = _derechohabiencia7.text.toString(); // 'artlang'
-    final Derecho7 = derecho7
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho7 = _derechohabiencia7.text.toString();
+    final Derecho7 = rpn7.replaceNum(derecho7);
 
-    var motivoDerecho7 = _motivoderechohabiencia7.text.toString(); // 'artlang'
-    final motivoDereHab7 = motivoDerecho7
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho7 = _motivoderechohabiencia7.text.toString();
+    final motivoDereHab7 = rpn7.replaceNum(motivoDerecho7);
 
-    var pkPrestaciones7 = _prestacion7.text.toString(); // 'artlang'
-    final prestacionesPK7 = pkPrestaciones7
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones7 = _prestacion7.text.toString();
+    final prestacionesPK7 = rpl7.replaceLetter(pkPrestaciones7);
 
-    var intPrestaciones7 = _prestacion7.text.toString(); // 'artlang'
-    final prestacionesInt7 = intPrestaciones7
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones7 = _prestacion7.text.toString();
+    final prestacionesInt7 = rpl7.replaceLetter(intPrestaciones7);
 
-    var Prestaciones7 = _prestacion7.text.toString(); // 'artlang'
-    final prestaciones7 = Prestaciones7.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones7 = _prestacion7.text.toString();
+    final prestaciones7 = rpl7.replaceLetter(Prestaciones7);
 
     String asisteEscuela7 = _asisteEscuela7.name.toString();
     if (asisteEscuela7 == 'si') {
@@ -5954,40 +3607,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel7 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad7.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad7.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar7.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela7.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela7.substring(0, 1),
-      AsisteEscuela: _asisteEscuela7.name,
-      ClaveOcupacion: _ocupacion7.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion7.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo7.trimLeft(),
-
-      pk_prestacioneslab: pkr7,
-      int_OrdenPrestacionesLab: Ordenr7,
-      txt_desc_prestacioneslab: prestaciones7.trimLeft(),
-
-      ClaveJubilacion: Jubilado7.substring(0, 1),
-      OrdenJubilacion: Jubilado7.substring(0, 1),
-      Jubilacion: _jubilacionPensionado7.name,
-      ClaveDerechohabiencia: _derechohabiencia7.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho7.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad7.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad7.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar7.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela7.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela7.substring(0, 1),
+        AsisteEscuela: _asisteEscuela7.name,
+        ClaveOcupacion: _ocupacion7.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion7.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo7.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo7.trimLeft(),
+        pk_prestacioneslab: pkr7,
+        int_OrdenPrestacionesLab: Ordenr7,
+        txt_desc_prestacioneslab: prestaciones7.trimLeft(),
+        ClaveJubilacion: Jubilado7.substring(0, 1),
+        OrdenJubilacion: Jubilado7.substring(0, 1),
+        Jubilacion: _jubilacionPensionado7.name,
+        ClaveDerechohabiencia: _derechohabiencia7.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho7.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia7.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab7.trimLeft(),
+        otroEscolaridad: _otroEscolaridad7.text,
+        otroOcupacion: _otroOcupacion7.text,
+        otroTipoEmpleo: _otroTipoEmpleo7.text);
     await dbHelper
         .upDateEscolaridad7(DModel7)
         .then((escolaridadSeguridadSocial) {
@@ -6000,227 +3652,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   renglon8() async {
-    var Escolaridad8 = _escolaridad8.text.toString(); // 'artlang'
-    final escolaridad8 = Escolaridad8.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl8 = new replaceAllLetter();
+    replaceAllNum rpn8 = new replaceAllNum();
+    var Escolaridad8 = _escolaridad8.text.toString();
+    final escolaridad8 = rpn8.replaceNum(Escolaridad8);
 
-    var Ocupacion8 = _ocupacion8.text.toString(); // 'artlang'
-    final ocupacion8 = Ocupacion8.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion8 = _ocupacion8.text.toString();
+    final ocupacion8 = rpn8.replaceNum(Ocupacion8);
 
-    var TipoEmpleo8 = _tipoEmpleo8.text.toString(); // 'artlang'
-    final tipoEmpleo8 = TipoEmpleo8.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo8 = _tipoEmpleo8.text.toString();
+    final tipoEmpleo8 = rpn8.replaceNum(TipoEmpleo8);
 
-    var derecho8 = _derechohabiencia8.text.toString(); // 'artlang'
-    final Derecho8 = derecho8
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho8 = _derechohabiencia8.text.toString();
+    final Derecho8 = rpn8.replaceNum(derecho8);
 
-    var motivoDerecho8 = _motivoderechohabiencia8.text.toString(); // 'artlang'
-    final motivoDereHab8 = motivoDerecho8
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho8 = _motivoderechohabiencia8.text.toString();
+    final motivoDereHab8 = rpn8.replaceNum(motivoDerecho8);
 
-    var pkPrestaciones8 = _prestacion8.text.toString(); // 'artlang'
-    final prestacionesPK8 = pkPrestaciones8
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones8 = _prestacion8.text.toString();
+    final prestacionesPK8 = rpl8.replaceLetter(pkPrestaciones8);
 
-    var intPrestaciones8 = _prestacion8.text.toString(); // 'artlang'
-    final prestacionesInt8 = intPrestaciones8
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones8 = _prestacion8.text.toString();
+    final prestacionesInt8 = rpl8.replaceLetter(intPrestaciones8);
 
-    var Prestaciones8 = _prestacion8.text.toString(); // 'artlang'
-    final prestaciones8 = Prestaciones8.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones8 = _prestacion8.text.toString();
+    final prestaciones8 = rpl8.replaceLetter(Prestaciones8);
 
     String asisteEscuela8 = _asisteEscuela8.name.toString();
     if (asisteEscuela8 == 'si') {
@@ -6307,40 +3763,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel8 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad8.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad8.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar8.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela8.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela8.substring(0, 1),
-      AsisteEscuela: _asisteEscuela8.name,
-      ClaveOcupacion: _ocupacion8.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion8.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo8.trimLeft(),
-
-      pk_prestacioneslab: pkr8,
-      int_OrdenPrestacionesLab: Ordenr8,
-      txt_desc_prestacioneslab: prestaciones8.trimLeft(),
-
-      ClaveJubilacion: Jubilado8.substring(0, 1),
-      OrdenJubilacion: Jubilado8.substring(0, 1),
-      Jubilacion: _jubilacionPensionado8.name,
-      ClaveDerechohabiencia: _derechohabiencia8.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho8.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad8.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad8.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar8.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela8.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela8.substring(0, 1),
+        AsisteEscuela: _asisteEscuela8.name,
+        ClaveOcupacion: _ocupacion8.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion8.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo8.trimLeft(),
+        pk_prestacioneslab: pkr8,
+        int_OrdenPrestacionesLab: Ordenr8,
+        txt_desc_prestacioneslab: prestaciones8.trimLeft(),
+        ClaveJubilacion: Jubilado8.substring(0, 1),
+        OrdenJubilacion: Jubilado8.substring(0, 1),
+        Jubilacion: _jubilacionPensionado8.name,
+        ClaveDerechohabiencia: _derechohabiencia8.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho8.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
+        otroEscolaridad: _otroEscolaridad8.text,
+        otroOcupacion: _otroOcupacion8.text,
+        otroTipoEmpleo: _otroTipoEmpleo8.text);
     await dbHelper
         .saveEscolaridadSocial(DModel8)
         .then((escolaridadSeguridadSocial) {
@@ -6353,228 +3808,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   upDateRenglon8() async {
-    var Escolaridad8 = _escolaridad8.text.toString(); // 'artlang'
-    final escolaridad8 = Escolaridad8.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl8 = new replaceAllLetter();
+    replaceAllNum rpn8 = new replaceAllNum();
+    var Escolaridad8 = _escolaridad8.text.toString();
+    final escolaridad8 = rpn8.replaceNum(Escolaridad8);
 
-    var Ocupacion8 = _ocupacion8.text.toString(); // 'artlang'
-    final ocupacion8 = Ocupacion8.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion8 = _ocupacion8.text.toString();
+    final ocupacion8 = rpn8.replaceNum(Ocupacion8);
 
-    var TipoEmpleo8 = _tipoEmpleo8.text.toString(); // 'artlang'
-    final tipoEmpleo8 = TipoEmpleo8.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo8 = _tipoEmpleo8.text.toString();
+    final tipoEmpleo8 = rpn8.replaceNum(TipoEmpleo8);
 
-    var derecho8 = _derechohabiencia8.text.toString(); // 'artlang'
-    final Derecho8 = derecho8
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho8 = _derechohabiencia8.text.toString();
+    final Derecho8 = rpn8.replaceNum(derecho8);
 
-    var motivoDerecho8 = _motivoderechohabiencia8.text.toString(); // 'artlang'
-    final motivoDereHab8 = motivoDerecho8
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho8 = _motivoderechohabiencia8.text.toString();
+    final motivoDereHab8 = rpn8.replaceNum(motivoDerecho8);
 
-    var pkPrestaciones8 = _prestacion8.text.toString(); // 'artlang'
-    final prestacionesPK8 = pkPrestaciones8
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones8 = _prestacion8.text.toString();
+    final prestacionesPK8 = rpl8.replaceLetter(pkPrestaciones8);
 
-    var intPrestaciones8 = _prestacion8.text.toString(); // 'artlang'
-    final prestacionesInt8 = intPrestaciones8
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("l", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones8 = _prestacion8.text.toString();
+    final prestacionesInt8 = rpl8.replaceLetter(intPrestaciones8);
 
-    var Prestaciones8 = _prestacion8.text.toString(); // 'artlang'
-    final prestaciones8 = Prestaciones8.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("7", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
-
+    var Prestaciones8 = _prestacion8.text.toString();
+    final prestaciones8 = rpl8.replaceLetter(Prestaciones8);
     String asisteEscuela8 = _asisteEscuela8.name.toString();
     if (asisteEscuela8 == 'si') {
       asisteEscuela8 = '1 1 Si';
@@ -6660,39 +3918,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel8 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad8.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad8.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar8.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-      ClaveAsisteEscuela: asisteEscuela8.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela8.substring(0, 1),
-      AsisteEscuela: _asisteEscuela8.name,
-      ClaveOcupacion: _ocupacion8.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion8.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo8.trimLeft(),
-
-      pk_prestacioneslab: pkr8,
-      int_OrdenPrestacionesLab: Ordenr8,
-      txt_desc_prestacioneslab: prestaciones8.trimLeft(),
-
-      ClaveJubilacion: Jubilado8.substring(0, 1),
-      OrdenJubilacion: Jubilado8.substring(0, 1),
-      Jubilacion: _jubilacionPensionado8.name,
-      ClaveDerechohabiencia: _derechohabiencia8.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho8.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad8.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad8.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar8.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela8.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela8.substring(0, 1),
+        AsisteEscuela: _asisteEscuela8.name,
+        ClaveOcupacion: _ocupacion8.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion8.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo8.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo8.trimLeft(),
+        pk_prestacioneslab: pkr8,
+        int_OrdenPrestacionesLab: Ordenr8,
+        txt_desc_prestacioneslab: prestaciones8.trimLeft(),
+        ClaveJubilacion: Jubilado8.substring(0, 1),
+        OrdenJubilacion: Jubilado8.substring(0, 1),
+        Jubilacion: _jubilacionPensionado8.name,
+        ClaveDerechohabiencia: _derechohabiencia8.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho8.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia8.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab8.trimLeft(),
+        otroEscolaridad: _otroEscolaridad8.text,
+        otroOcupacion: _otroOcupacion8.text,
+        otroTipoEmpleo: _otroTipoEmpleo8.text);
     await dbHelper
         .upDateEscolaridad8(DModel8)
         .then((escolaridadSeguridadSocial) {
@@ -6705,227 +3963,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   renglon9() async {
-    var Escolaridad9 = _escolaridad9.text.toString(); // 'artlang'
-    final escolaridad9 = Escolaridad9.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl9 = new replaceAllLetter();
+    replaceAllNum rpn9 = new replaceAllNum();
+    var Escolaridad9 = _escolaridad9.text.toString();
+    final escolaridad9 = rpn9.replaceNum(Escolaridad9);
 
-    var Ocupacion9 = _ocupacion9.text.toString(); // 'artlang'
-    final ocupacion9 = Ocupacion9.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion9 = _ocupacion9.text.toString();
+    final ocupacion9 = rpn9.replaceNum(Ocupacion9);
 
-    var TipoEmpleo9 = _tipoEmpleo9.text.toString(); // 'artlang'
-    final tipoEmpleo9 = TipoEmpleo9.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo9 = _tipoEmpleo9.text.toString();
+    final tipoEmpleo9 = rpn9.replaceNum(TipoEmpleo9);
 
-    var derecho9 = _derechohabiencia9.text.toString(); // 'artlang'
-    final Derecho9 = derecho9
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho9 = _derechohabiencia9.text.toString();
+    final Derecho9 = rpn9.replaceNum(derecho9);
 
-    var motivoDerecho9 = _motivoderechohabiencia9.text.toString(); // 'artlang'
-    final motivoDereHab9 = motivoDerecho9
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho9 = _motivoderechohabiencia9.text.toString();
+    final motivoDereHab9 = rpn9.replaceNum(motivoDerecho9);
 
-    var pkPrestaciones9 = _prestacion9.text.toString(); // 'artlang'
-    final prestacionesPK9 = pkPrestaciones9
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("7", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones9 = _prestacion9.text.toString();
+    final prestacionesPK9 = rpl9.replaceLetter(pkPrestaciones9);
 
-    var intPrestaciones9 = _prestacion9.text.toString(); // 'artlang'
-    final prestacionesInt9 = intPrestaciones9
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("7", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones9 = _prestacion9.text.toString();
+    final prestacionesInt9 = rpl9.replaceLetter(intPrestaciones9);
 
-    var Prestaciones9 = _prestacion9.text.toString(); // 'artlang'
-    final prestaciones9 = Prestaciones9.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones9 = _prestacion9.text.toString();
+    final prestaciones9 = rpl9.replaceLetter(Prestaciones9);
 
     String asisteEscuela9 = _asisteEscuela9.name.toString();
     if (asisteEscuela9 == 'si') {
@@ -7012,40 +4074,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel9 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad9.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad9.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar9.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela9.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela9.substring(0, 1),
-      AsisteEscuela: _asisteEscuela9.name,
-      ClaveOcupacion: _ocupacion9.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion9.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo9.trimLeft(),
-
-      pk_prestacioneslab: pkr9,
-      int_OrdenPrestacionesLab: Ordenr9,
-      txt_desc_prestacioneslab: prestaciones9.trimLeft(),
-
-      ClaveJubilacion: Jubilado9.substring(0, 1),
-      OrdenJubilacion: Jubilado9.substring(0, 1),
-      Jubilacion: _jubilacionPensionado9.name,
-      ClaveDerechohabiencia: _derechohabiencia9.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho9.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad9.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad9.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar9.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela9.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela9.substring(0, 1),
+        AsisteEscuela: _asisteEscuela9.name,
+        ClaveOcupacion: _ocupacion9.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion9.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo9.trimLeft(),
+        pk_prestacioneslab: pkr9,
+        int_OrdenPrestacionesLab: Ordenr9,
+        txt_desc_prestacioneslab: prestaciones9.trimLeft(),
+        ClaveJubilacion: Jubilado9.substring(0, 1),
+        OrdenJubilacion: Jubilado9.substring(0, 1),
+        Jubilacion: _jubilacionPensionado9.name,
+        ClaveDerechohabiencia: _derechohabiencia9.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho9.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
+        otroEscolaridad: _otroEscolaridad9.text,
+        otroOcupacion: _otroOcupacion9.text,
+        otroTipoEmpleo: _otroTipoEmpleo9.text);
     await dbHelper
         .saveEscolaridadSocial(DModel9)
         .then((escolaridadSeguridadSocial) {
@@ -7062,227 +4123,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   upDateRenglon9() async {
-    var Escolaridad9 = _escolaridad9.text.toString(); // 'artlang'
-    final escolaridad9 = Escolaridad9.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl9 = new replaceAllLetter();
+    replaceAllNum rpn9 = new replaceAllNum();
+    var Escolaridad9 = _escolaridad9.text.toString();
+    final escolaridad9 = rpn9.replaceNum(Escolaridad9);
 
-    var Ocupacion9 = _ocupacion9.text.toString(); // 'artlang'
-    final ocupacion9 = Ocupacion9.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion9 = _ocupacion9.text.toString();
+    final ocupacion9 = rpn9.replaceNum(Ocupacion9);
 
-    var TipoEmpleo9 = _tipoEmpleo9.text.toString(); // 'artlang'
-    final tipoEmpleo9 = TipoEmpleo9.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo9 = _tipoEmpleo9.text.toString();
+    final tipoEmpleo9 = rpn9.replaceNum(TipoEmpleo9);
 
-    var derecho9 = _derechohabiencia9.text.toString(); // 'artlang'
-    final Derecho9 = derecho9
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho9 = _derechohabiencia9.text.toString();
+    final Derecho9 = rpn9.replaceNum(derecho9);
 
-    var motivoDerecho9 = _motivoderechohabiencia9.text.toString(); // 'artlang'
-    final motivoDereHab9 = motivoDerecho9
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho9 = _motivoderechohabiencia9.text.toString();
+    final motivoDereHab9 = rpn9.replaceNum(motivoDerecho9);
 
-    var pkPrestaciones9 = _prestacion9.text.toString(); // 'artlang'
-    final prestacionesPK9 = pkPrestaciones9
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("7", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones9 = _prestacion9.text.toString();
+    final prestacionesPK9 = rpl9.replaceLetter(pkPrestaciones9);
 
-    var intPrestaciones9 = _prestacion9.text.toString(); // 'artlang'
-    final prestacionesInt9 = intPrestaciones9
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("7", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("o", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones9 = _prestacion9.text.toString();
+    final prestacionesInt9 = rpl9.replaceLetter(intPrestaciones9);
 
-    var Prestaciones9 = _prestacion9.text.toString(); // 'artlang'
-    final prestaciones9 = Prestaciones9.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones9 = _prestacion9.text.toString();
+    final prestaciones9 = rpl9.replaceLetter(Prestaciones9);
 
     String asisteEscuela9 = _asisteEscuela9.name.toString();
     if (asisteEscuela9 == 'si') {
@@ -7369,40 +4234,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     }
 
     EscolaridadSeguridadSocial DModel9 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad9.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad9.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar9.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela9.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela9.substring(0, 1),
-      AsisteEscuela: _asisteEscuela9.name,
-      ClaveOcupacion: _ocupacion9.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion9.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo9.trimLeft(),
-
-      pk_prestacioneslab: pkr9,
-      int_OrdenPrestacionesLab: Ordenr9,
-      txt_desc_prestacioneslab: prestaciones9.trimLeft(),
-
-      ClaveJubilacion: Jubilado9.substring(0, 1),
-      OrdenJubilacion: Jubilado9.substring(0, 1),
-      Jubilacion: _jubilacionPensionado9.name,
-      ClaveDerechohabiencia: _derechohabiencia9.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho9.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad9.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad9.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar9.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela9.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela9.substring(0, 1),
+        AsisteEscuela: _asisteEscuela9.name,
+        ClaveOcupacion: _ocupacion9.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion9.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo9.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo9.trimLeft(),
+        pk_prestacioneslab: pkr9,
+        int_OrdenPrestacionesLab: Ordenr9,
+        txt_desc_prestacioneslab: prestaciones9.trimLeft(),
+        ClaveJubilacion: Jubilado9.substring(0, 1),
+        OrdenJubilacion: Jubilado9.substring(0, 1),
+        Jubilacion: _jubilacionPensionado9.name,
+        ClaveDerechohabiencia: _derechohabiencia9.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho9.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia9.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab9.trimLeft(),
+        otroEscolaridad: _otroEscolaridad9.text,
+        otroOcupacion: _otroOcupacion9.text,
+        otroTipoEmpleo: _otroTipoEmpleo9.text);
     await dbHelper
         .upDateEscolaridad9(DModel9)
         .then((escolaridadSeguridadSocial) {
@@ -7419,228 +4283,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   renglon10() async {
-    var Escolaridad10 = _escolaridad10.text.toString(); // 'artlang'
-    final escolaridad10 = Escolaridad10.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl10 = new replaceAllLetter();
+    replaceAllNum rpn10 = new replaceAllNum();
+    var Escolaridad10 = _escolaridad10.text.toString();
+    final escolaridad10 = rpn10.replaceNum(Escolaridad10);
 
-    var Ocupacion10 = _ocupacion10.text.toString(); // 'artlang'
-    final ocupacion10 = Ocupacion10.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion10 = _ocupacion10.text.toString();
+    final ocupacion10 = rpn10.replaceNum(Ocupacion10);
 
-    var TipoEmpleo10 = _tipoEmpleo10.text.toString(); // 'artlang'
-    final tipoEmpleo10 = TipoEmpleo10.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo10 = _tipoEmpleo10.text.toString();
+    final tipoEmpleo10 = rpn10.replaceNum(TipoEmpleo10);
 
-    var derecho10 = _derechohabiencia10.text.toString(); // 'artlang'
-    final Derecho10 = derecho10
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho10 = _derechohabiencia10.text.toString();
+    final Derecho10 = rpn10.replaceNum(derecho10);
 
-    var motivoDerecho10 =
-        _motivoderechohabiencia10.text.toString(); // 'artlang'
-    final motivoDereHab10 = motivoDerecho10
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho10 = _motivoderechohabiencia10.text.toString();
+    final motivoDereHab10 = rpn10.replaceNum(motivoDerecho10);
 
-    var pkPrestaciones10 = _prestacion10.text.toString(); // 'artlang'
-    final prestacionesPK10 = pkPrestaciones10
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("7", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("9", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones10 = _prestacion10.text.toString();
+    final prestacionesPK10 = rpl10.replaceLetter(pkPrestaciones10);
 
-    var intPrestaciones10 = _prestacion10.text.toString(); // 'artlang'
-    final prestacionesInt10 = intPrestaciones10
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("7", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("9", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones10 = _prestacion10.text.toString();
+    final prestacionesInt10 = rpl10.replaceLetter(intPrestaciones10);
 
-    var Prestaciones10 = _prestacion10.text.toString(); // 'artlang'
-    final prestaciones10 = Prestaciones10.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones10 = _prestacion10.text.toString();
+    final prestaciones10 = rpl10.replaceLetter(Prestaciones10);
 
     String asisteEscuela10 = _asisteEscuela10.name.toString();
     if (asisteEscuela10 == 'si') {
@@ -7727,40 +4394,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel10 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad10.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad10.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar10.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela10.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela10.substring(0, 1),
-      AsisteEscuela: _asisteEscuela10.name,
-      ClaveOcupacion: _ocupacion10.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion10.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo10.trimLeft(),
-
-      pk_prestacioneslab: pkr10,
-      int_OrdenPrestacionesLab: Ordenr10,
-      txt_desc_prestacioneslab: prestaciones10.trimLeft(),
-
-      ClaveJubilacion: Jubilado10.substring(0, 1),
-      OrdenJubilacion: Jubilado10.substring(0, 1),
-      Jubilacion: _jubilacionPensionado10.name,
-      ClaveDerechohabiencia: _derechohabiencia10.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho10.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad10.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad10.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar10.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela10.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela10.substring(0, 1),
+        AsisteEscuela: _asisteEscuela10.name,
+        ClaveOcupacion: _ocupacion10.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion10.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo10.trimLeft(),
+        pk_prestacioneslab: pkr10,
+        int_OrdenPrestacionesLab: Ordenr10,
+        txt_desc_prestacioneslab: prestaciones10.trimLeft(),
+        ClaveJubilacion: Jubilado10.substring(0, 1),
+        OrdenJubilacion: Jubilado10.substring(0, 1),
+        Jubilacion: _jubilacionPensionado10.name,
+        ClaveDerechohabiencia: _derechohabiencia10.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho10.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
+        otroEscolaridad: _otroEscolaridad10.text,
+        otroOcupacion: _otroOcupacion10.text,
+        otroTipoEmpleo: _otroTipoEmpleo10.text);
     await dbHelper
         .saveEscolaridadSocial(DModel10)
         .then((escolaridadSeguridadSocial) {
@@ -7777,228 +4443,31 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   }
 
   upDateRenglon10() async {
-    var Escolaridad10 = _escolaridad10.text.toString(); // 'artlang'
-    final escolaridad10 = Escolaridad10.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    replaceAllLetter rpl10 = new replaceAllLetter();
+    replaceAllNum rpn10 = new replaceAllNum();
+    var Escolaridad10 = _escolaridad10.text.toString();
+    final escolaridad10 = rpn10.replaceNum(Escolaridad10);
 
-    var Ocupacion10 = _ocupacion10.text.toString(); // 'artlang'
-    final ocupacion10 = Ocupacion10.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var Ocupacion10 = _ocupacion10.text.toString();
+    final ocupacion10 = rpn10.replaceNum(Ocupacion10);
 
-    var TipoEmpleo10 = _tipoEmpleo10.text.toString(); // 'artlang'
-    final tipoEmpleo10 = TipoEmpleo10.replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var TipoEmpleo10 = _tipoEmpleo10.text.toString();
+    final tipoEmpleo10 = rpn10.replaceNum(TipoEmpleo10);
 
-    var derecho10 = _derechohabiencia10.text.toString(); // 'artlang'
-    final Derecho10 = derecho10
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var derecho10 = _derechohabiencia10.text.toString();
+    final Derecho10 = rpn10.replaceNum(derecho10);
 
-    var motivoDerecho10 =
-        _motivoderechohabiencia10.text.toString(); // 'artlang'
-    final motivoDereHab10 = motivoDerecho10
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var motivoDerecho10 = _motivoderechohabiencia10.text.toString();
+    final motivoDereHab10 = rpn10.replaceNum(motivoDerecho10);
 
-    var pkPrestaciones10 = _prestacion10.text.toString(); // 'artlang'
-    final prestacionesPK10 = pkPrestaciones10
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("7", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("9", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "");
+    var pkPrestaciones10 = _prestacion10.text.toString();
+    final prestacionesPK10 = rpl10.replaceLetter(pkPrestaciones10);
 
-    var intPrestaciones10 = _prestacion10.text.toString(); // 'artlang'
-    final prestacionesInt10 = intPrestaciones10
-        .replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("a", "")
-        .replaceAll("b", "")
-        .replaceAll("c", "")
-        .replaceAll("d", "")
-        .replaceAll("e", "")
-        .replaceAll("f", "")
-        .replaceAll("g", "")
-        .replaceAll("h", "")
-        .replaceAll("i", "")
-        .replaceAll("j", "")
-        .replaceAll("k", "")
-        .replaceAll("7", "")
-        .replaceAll("m", "")
-        .replaceAll("n", "")
-        .replaceAll("ñ", "")
-        .replaceAll("9", "")
-        .replaceAll("p", "")
-        .replaceAll("q", "")
-        .replaceAll("r", "")
-        .replaceAll("s", "")
-        .replaceAll("t", "")
-        .replaceAll("u", "")
-        .replaceAll("v", "")
-        .replaceAll("w", "")
-        .replaceAll("x", "")
-        .replaceAll("y", "")
-        .replaceAll("Á", "")
-        .replaceAll("É", "")
-        .replaceAll("Í", "")
-        .replaceAll("Ó", "")
-        .replaceAll("Ú", "")
-        .replaceAll("á", "")
-        .replaceAll("é", "")
-        .replaceAll("í", "")
-        .replaceAll("ó", "")
-        .replaceAll("ú", "")
-        .replaceAll("z", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "");
+    var intPrestaciones10 = _prestacion10.text.toString();
+    final prestacionesInt10 = rpl10.replaceLetter(intPrestaciones10);
 
-    var Prestaciones10 = _prestacion10.text.toString(); // 'artlang'
-    final prestaciones10 = Prestaciones10.replaceAll("[", "")
-        .replaceAll("]", "")
-        .replaceAll("1", "")
-        .replaceAll("2", "")
-        .replaceAll("3", "")
-        .replaceAll("4", "")
-        .replaceAll("5", "")
-        .replaceAll("6", "")
-        .replaceAll("L", "")
-        .replaceAll("8", "")
-        .replaceAll("9", "")
-        .replaceAll("0", "")
-        .replaceAll("A", "")
-        .replaceAll("B", "")
-        .replaceAll("C", "")
-        .replaceAll("D", "")
-        .replaceAll("E", "")
-        .replaceAll("F", "")
-        .replaceAll("G", "")
-        .replaceAll("H", "")
-        .replaceAll("I", "")
-        .replaceAll("J", "")
-        .replaceAll("K", "")
-        .replaceAll("L", "")
-        .replaceAll("M", "")
-        .replaceAll("N", "")
-        .replaceAll("Ñ", "")
-        .replaceAll("O", "")
-        .replaceAll("P", "")
-        .replaceAll("Q", "")
-        .replaceAll("R", "")
-        .replaceAll("S", "")
-        .replaceAll("T", "")
-        .replaceAll("V", "")
-        .replaceAll("W", "")
-        .replaceAll("X", "")
-        .replaceAll("Y", "")
-        .replaceAll("Z", "");
+    var Prestaciones10 = _prestacion10.text.toString();
+    final prestaciones10 = rpl10.replaceLetter(Prestaciones10);
 
     String asisteEscuela10 = _asisteEscuela10.name.toString();
     if (asisteEscuela10 == 'si') {
@@ -8085,40 +4554,39 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     });
 
     EscolaridadSeguridadSocial DModel10 = EscolaridadSeguridadSocial(
-      folio: int.parse(widget.folio),
-      ClaveEscolaridad: _escolaridad10.text.substring(0, 2).trimRight(),
-      OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
-      Escolaridad: escolaridad10.trimLeft(),
-      ClaveGradoEscolar: _gradoEscolar10.text,
-      //arreglar
-      GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
-
-      ClaveAsisteEscuela: asisteEscuela10.substring(0, 1),
-      OrdenAsisteEscuela: asisteEscuela10.substring(0, 1),
-      AsisteEscuela: _asisteEscuela10.name,
-      ClaveOcupacion: _ocupacion10.text.substring(0, 2).trimRight(),
-      OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
-      Ocupacion: ocupacion10.trimLeft(),
-      ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 2).trimRight(),
-      OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
-      TipoEmpleo: tipoEmpleo10.trimLeft(),
-
-      pk_prestacioneslab: pkr10,
-      int_OrdenPrestacionesLab: Ordenr10,
-      txt_desc_prestacioneslab: prestaciones10.trimLeft(),
-
-      ClaveJubilacion: Jubilado10.substring(0, 1),
-      OrdenJubilacion: Jubilado10.substring(0, 1),
-      Jubilacion: _jubilacionPensionado10.name,
-      ClaveDerechohabiencia: _derechohabiencia10.text.substring(0, 1),
-      OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
-      Derechohabiencia: Derecho10.trimLeft(),
-      ClaveMotivoDerechohabiencia:
-          _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
-      OrdenMotivoDerechohabiencia:
-          _MotivioDerechohabiencia2.map((e) => e.Orden).first,
-      MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
-    );
+        folio: int.parse(widget.folio),
+        ClaveEscolaridad: _escolaridad10.text.substring(0, 2).trimRight(),
+        OrdenEscolaridad: _EscolaridadOrden2.map((e) => e.Orden).first,
+        Escolaridad: escolaridad10.trimLeft(),
+        ClaveGradoEscolar: _gradoEscolar10.text,
+        //arreglar
+        GradoEscolar: _GradoEscolar2.map((e) => e.Orden).first,
+        ClaveAsisteEscuela: asisteEscuela10.substring(0, 1),
+        OrdenAsisteEscuela: asisteEscuela10.substring(0, 1),
+        AsisteEscuela: _asisteEscuela10.name,
+        ClaveOcupacion: _ocupacion10.text.substring(0, 2).trimRight(),
+        OrdenOcupacion: _Ocupacion2.map((e) => e.Orden).first,
+        Ocupacion: ocupacion10.trimLeft(),
+        ClaveTipoEmpleo: _tipoEmpleo10.text.substring(0, 2).trimRight(),
+        OrdenTipoEmpleo: _TipoEmpleo2.map((e) => e.Orden).first,
+        TipoEmpleo: tipoEmpleo10.trimLeft(),
+        pk_prestacioneslab: pkr10,
+        int_OrdenPrestacionesLab: Ordenr10,
+        txt_desc_prestacioneslab: prestaciones10.trimLeft(),
+        ClaveJubilacion: Jubilado10.substring(0, 1),
+        OrdenJubilacion: Jubilado10.substring(0, 1),
+        Jubilacion: _jubilacionPensionado10.name,
+        ClaveDerechohabiencia: _derechohabiencia10.text.substring(0, 1),
+        OrdenDerechohabiencia: _Derechohabiencia2.map((e) => e.Orden).first,
+        Derechohabiencia: Derecho10.trimLeft(),
+        ClaveMotivoDerechohabiencia:
+            _motivoderechohabiencia10.text.substring(0, 2).trimRight(),
+        OrdenMotivoDerechohabiencia:
+            _MotivioDerechohabiencia2.map((e) => e.Orden).first,
+        MotivoDerechohabiencia: motivoDereHab10.trimLeft(),
+        otroEscolaridad: _otroEscolaridad10.text,
+        otroOcupacion: _otroOcupacion10.text,
+        otroTipoEmpleo: _otroTipoEmpleo10.text);
     await dbHelper
         .upDateEscolaridad10(DModel10)
         .then((escolaridadSeguridadSocial) {
@@ -8423,7 +4891,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
   var Ordenr8 = '';
   //Variables del renglon 9
   var pkr9 = '';
-  var Ordenr9 ='';
+  var Ordenr9 = '';
   //Variables del renglon 10
   var pkr10 = '';
   var Ordenr10 = '';
@@ -8477,13 +4945,11 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-
     print(value1);
     print(value2);
     print(value3);
 
-
-    if(value2== null){
+    if (value2 == null) {
       await getAllOrdenPrestacion(value1.trimLeft());
       Orden1 = _OrdenPres1.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion(value1.trimLeft());
@@ -8691,7 +5157,15 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
       await getAllPkPrestacion(value8.trimLeft());
       pk8 = _Prestaciones1.map((e) => e.Pk_PrestacionesLaborales).first;
 
-      pk = pk1 + "," + pk2 + "," + pk3 + "," + pk4 + "," + pk5 +
+      pk = pk1 +
+          "," +
+          pk2 +
+          "," +
+          pk3 +
+          "," +
+          pk4 +
+          "," +
+          pk5 +
           "," +
           pk6 +
           "," +
@@ -8868,10 +5342,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-
-    if(value2== null){
+    if (value2 == null) {
       await getAllOrdenPrestacion2(value1.trimLeft());
       Orden1 = _OrdenPres2.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion2(value1.trimLeft());
@@ -9263,10 +5734,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-
-    if(value2== null){
+    if (value2 == null) {
       await getAllOrdenPrestacion3(value1.trimLeft());
       Orden1 = _OrdenPres3.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion3(value1.trimLeft());
@@ -9658,10 +6126,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-
-    if(value2== null){
+    if (value2 == null) {
       await getAllOrdenPrestacion4(value1.trimLeft());
       Orden1 = _OrdenPres4.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion4(value1.trimLeft());
@@ -10054,10 +6519,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-
-    if(value2== null){
+    if (value2 == null) {
       await getAllOrdenPrestacion5(value1.trimLeft());
       Orden1 = _OrdenPres5.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion5(value1.trimLeft());
@@ -10450,7 +6912,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-    if(value2== null){
+    if (value2 == null) {
       await getAllOrdenPrestacion6(value1.trimLeft());
       Orden1 = _OrdenPres6.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion6(value1.trimLeft());
@@ -10843,10 +7305,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-
-    if(value2 == null){
+    if (value2 == null) {
       await getAllOrdenPrestacion7(value1.trimLeft());
       Orden1 = _OrdenPres7.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion7(value1.trimLeft());
@@ -11238,8 +7697,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-
-    if(value2== null){
+    if (value2 == null) {
       await getAllOrdenPrestacion8(value1.trimLeft());
       Orden1 = _OrdenPres8.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion8(value1.trimLeft());
@@ -11631,10 +8089,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-
-
-
-    if(value2== null){
+    if (value2 == null) {
       await getAllOrdenPrestacion9(value1.trimLeft());
       Orden1 = _OrdenPres9.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion9(value1.trimLeft());
@@ -12026,7 +8481,7 @@ class _Escolaridad_SeguridadSocialTablaState extends State<Escolaridad_Seguridad
     final value8 = values[7];
     final value9 = values[8];
 
-    if(value2 == null){
+    if (value2 == null) {
       await getAllOrdenPrestacion10(value1.trimLeft());
       Orden1 = _OrdenPres10.map((e) => e.Orden_PrestacionesLaborales).first;
       await getAllPkPrestacion10(value1.trimLeft());

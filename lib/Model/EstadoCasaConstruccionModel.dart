@@ -1,72 +1,77 @@
-class EstadoCasaConstruccionModel{
+class EstadoCasaConstruccionModel {
   int folio;
 
   String ClaveTipoVivienda;
   String OrdenTipoVivienda;
   String TipoVivienda;
+  String otroTipoVivienda;
 
   String ClaveTipoPiso;
   String OrdenTipoPiso;
   String TipoPiso;
+  String otroTipoPiso;
 
   String ClaveTenencia;
   String OrdenTenencia;
   String Tenencia;
+  String otroTenencia;
 
   String ClaveTecho;
   String OrdenTecho;
   String Techo;
+  String otroTecho;
 
   String ClaveTipoMuro;
   String OrdenTipoMuro;
   String TipoMuro;
+  String otroMuro;
 
-  EstadoCasaConstruccionModel({
-      this.folio,
-
+  EstadoCasaConstruccionModel(
+      {this.folio,
       this.ClaveTipoVivienda,
       this.OrdenTipoVivienda,
       this.TipoVivienda,
-
       this.ClaveTipoPiso,
       this.OrdenTipoPiso,
       this.TipoPiso,
-
       this.ClaveTenencia,
       this.OrdenTenencia,
       this.Tenencia,
-
       this.ClaveTecho,
       this.OrdenTecho,
       this.Techo,
-
       this.ClaveTipoMuro,
       this.OrdenTipoMuro,
-      this.TipoMuro});
+      this.TipoMuro,
+      this.otroMuro,
+      this.otroTecho,
+      this.otroTenencia,
+      this.otroTipoPiso,
+      this.otroTipoVivienda});
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
       'folio': folio,
-
       'ClaveTipoVivienda': ClaveTipoVivienda,
       'OrdenTipoVivienda': OrdenTipoVivienda,
       'TipoVivienda': TipoVivienda,
-
       'ClaveTipoPiso': ClaveTipoPiso,
       'OrdenTipoPiso': OrdenTipoPiso,
       'TipoPiso': TipoPiso,
-
       'ClaveTenencia': ClaveTenencia,
       'OrdenTenencia': OrdenTenencia,
       'Tenencia': Tenencia,
-
       'ClaveTecho': ClaveTecho,
       'OrdenTecho': OrdenTecho,
       'Techo': Techo,
-
       'ClaveTipoMuro': ClaveTipoMuro,
       'OrdenTipoMuro': OrdenTipoMuro,
       'TipoMuro': TipoMuro,
+      'otroMuro': otroMuro,
+      'otroTecho': otroTecho,
+      'otroTenencia': otroTenencia,
+      'otroTipoPiso': otroTipoPiso,
+      'otroTipoVivienda': otroTipoVivienda
     };
     return map;
   }
@@ -93,6 +98,11 @@ class EstadoCasaConstruccionModel{
     ClaveTipoMuro = map['ClaveTipoMuro'];
     OrdenTipoMuro = map['OrdenTipoMuro'];
     TipoMuro = map['TipoMuro'];
-  }
 
+    otroMuro = map['otroMuro'];
+    otroTecho = map['otroTecho'];
+    otroTenencia = map['otroTenencia'];
+    otroTipoPiso = map['otroTipoPiso'];
+    otroTipoVivienda = map['otroTipoVivienda'];
+  }
 }

@@ -1,4 +1,4 @@
-class ApoyoEnEspecieModel{
+class ApoyoEnEspecieModel {
   int folio;
   String folioDispo;
   int claveApoyo;
@@ -8,10 +8,10 @@ class ApoyoEnEspecieModel{
   int claveFrecuencia;
   int ordenFrecuencia;
   String frecuencia;
+  String otro;
 
-
-  ApoyoEnEspecieModel({
-      this.folio,
+  ApoyoEnEspecieModel(
+      {this.folio,
       this.folioDispo,
       this.claveApoyo,
       this.ordenApoyo,
@@ -19,7 +19,8 @@ class ApoyoEnEspecieModel{
       this.proporcionadoPor,
       this.claveFrecuencia,
       this.ordenFrecuencia,
-      this.frecuencia});
+      this.frecuencia,
+      this.otro});
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
@@ -31,6 +32,7 @@ class ApoyoEnEspecieModel{
       'proporcionadoPor': proporcionadoPor,
       'claveFrecuencia': claveFrecuencia,
       'frecuencia': frecuencia,
+      'otro': otro
     };
     return map;
   }
@@ -44,6 +46,6 @@ class ApoyoEnEspecieModel{
     proporcionadoPor = map['proporcionadoPor'];
     claveFrecuencia = map['claveFrecuencia'];
     frecuencia = map['frecuencia'];
+    otro = map['otro'];
   }
-
 }

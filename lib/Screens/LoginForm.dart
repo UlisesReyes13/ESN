@@ -44,8 +44,7 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   login() async {
-
-    if(_Version.map((e) => e.version).first == "1.0.2"){
+    if (_Version.map((e) => e.version).first == "1.0.3") {
       String uid = _conUserId.text;
       String passwd = _conPassword.text;
 
@@ -60,7 +59,7 @@ class _LoginFormState extends State<LoginForm> {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (_) => TablaFolios()),
-                      (Route<dynamic> route) => false);
+                  (Route<dynamic> route) => false);
             });
           } else {
             alertDialog(context, "Error: Usuario no registrado");
@@ -70,10 +69,9 @@ class _LoginFormState extends State<LoginForm> {
           alertDialog(context, "Error: Fallo del login");
         });
       }
-    }else{
+    } else {
       alertDialog(context, "Error: Las versiones no coinciden");
     }
-
   }
 
   Future setSP(UserModel user) async {
@@ -92,7 +90,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ESN V1.0.1'),
+        title: Text('ESN V1.0.3'),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
